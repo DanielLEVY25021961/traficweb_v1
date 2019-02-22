@@ -1,0 +1,6 @@
+levy\daniel\application\model\persistence\AbstractTestDaoGenericJPA.class
+levy\daniel\application\model\persistence\ITestDaoGeneric.class
+levy\daniel\application\model\persistence\AbstractTestDaoGeneric.class
+levy\daniel\application\model\persistence\JPAUtilsTest.class
+levy\daniel\application\model\persistence\AbstractTestDaoGenericJPASpring.class
+levy\daniel\application\model\persistence\AbstractTestDaoGenericJAXB.class
