@@ -1,6 +1,11 @@
-D:\Donnees\eclipse\eclipseworkspace_oxygen\traficweb_v1\src\test\java\levy\daniel\application\model\persistence\AbstractTestDaoGenericJPA.java
-D:\Donnees\eclipse\eclipseworkspace_oxygen\traficweb_v1\src\test\java\levy\daniel\application\model\persistence\AbstractTestDaoGenericJAXB.java
-D:\Donnees\eclipse\eclipseworkspace_oxygen\traficweb_v1\src\test\java\levy\daniel\application\model\persistence\AbstractTestDaoGenericJPASpring.java
-D:\Donnees\eclipse\eclipseworkspace_oxygen\traficweb_v1\src\test\java\levy\daniel\application\model\persistence\AbstractTestDaoGeneric.java
-D:\Donnees\eclipse\eclipseworkspace_oxygen\traficweb_v1\src\test\java\levy\daniel\application\model\persistence\ITestDaoGeneric.java
-D:\Donnees\eclipse\eclipseworkspace_oxygen\traficweb_v1\src\test\java\levy\daniel\application\model\persistence\JPAUtilsTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairespreferences\GestionnairePropertiesTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\model\dto\metier\utilisateur\impl\UtilisateurCerbereDTOTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\model\metier\utilisateur\impl\UtilisateurCerbereTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\model\persistence\metier\utilisateur\entities\jpa\UtilisateurCerbereEntityJPATest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairespreferences\GestionnaireLabelsPropertiesTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\model\utilitaires\date\DateUtilTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\model\dto\metier\utilisateur\UtilisateurCerbereConvertisseurMetierDTOTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\ConfigurationApplicationManagerTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\model\persistence\metier\utilisateur\UtilisateurCerbereConvertisseurMetierEntityTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairespreferences\GestionnairePreferencesTest.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\test\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnaireslocale\LocaleManagerTest.java

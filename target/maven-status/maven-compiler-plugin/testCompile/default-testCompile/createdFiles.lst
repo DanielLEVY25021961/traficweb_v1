@@ -1,6 +1,11 @@
-levy\daniel\application\model\persistence\AbstractTestDaoGenericJPA.class
-levy\daniel\application\model\persistence\ITestDaoGeneric.class
-levy\daniel\application\model\persistence\AbstractTestDaoGeneric.class
-levy\daniel\application\model\persistence\JPAUtilsTest.class
-levy\daniel\application\model\persistence\AbstractTestDaoGenericJPASpring.class
-levy\daniel\application\model\persistence\AbstractTestDaoGenericJAXB.class
+levy\daniel\application\apptechnic\configurationmanagers\gestionnairespreferences\GestionnairePropertiesTest.class
+levy\daniel\application\model\dto\metier\utilisateur\impl\UtilisateurCerbereDTOTest.class
+levy\daniel\application\apptechnic\configurationmanagers\gestionnaireslocale\LocaleManagerTest.class
+levy\daniel\application\model\metier\utilisateur\impl\UtilisateurCerbereTest.class
+levy\daniel\application\apptechnic\configurationmanagers\gestionnairespreferences\GestionnairePreferencesTest.class
+levy\daniel\application\model\utilitaires\date\DateUtilTest.class
+levy\daniel\application\model\persistence\metier\utilisateur\UtilisateurCerbereConvertisseurMetierEntityTest.class
+levy\daniel\application\apptechnic\configurationmanagers\gestionnairespreferences\GestionnaireLabelsPropertiesTest.class
+levy\daniel\application\ConfigurationApplicationManagerTest.class
+levy\daniel\application\model\dto\metier\utilisateur\UtilisateurCerbereConvertisseurMetierDTOTest.class
+levy\daniel\application\model\persistence\metier\utilisateur\entities\jpa\UtilisateurCerbereEntityJPATest.class
