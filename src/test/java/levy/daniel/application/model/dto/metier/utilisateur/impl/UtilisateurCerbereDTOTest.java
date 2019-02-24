@@ -264,7 +264,7 @@ public class UtilisateurCerbereDTOTest {
 	public static transient IUtilisateurCerbereDTO objetCompAvant 
 		= new UtilisateurCerbereDTO("1" 
 				, M
-				,"Stacy", "King"
+				, "Stacy", "King"
 				, "00 01 02 03 04", null
 				, SERVICETEST, "Rennes7"
 				, ADMINISTRATEUR

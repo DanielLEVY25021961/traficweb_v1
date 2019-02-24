@@ -12,6 +12,7 @@ import javax.persistence.Query;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Repository;
 
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
@@ -93,6 +94,7 @@ import levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa
  * @since 22 févr. 2019
  *
  */
+@Repository(value="UtilisateurCerbereDAOJPASpring")
 public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 
 	// ************************ATTRIBUTS************************************/

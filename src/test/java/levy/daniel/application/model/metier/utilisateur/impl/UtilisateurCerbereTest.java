@@ -265,7 +265,7 @@ public class UtilisateurCerbereTest {
 	public static transient IUtilisateurCerbere objetCompAvant 
 		= new UtilisateurCerbere(1L 
 				, M
-				,"Stacy", "King"
+				, "Stacy", "King"
 				, "00 01 02 03 04", null
 				, SERVICETEST, "Rennes7"
 				, ADMINISTRATEUR
