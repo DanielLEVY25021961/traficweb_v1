@@ -264,7 +264,7 @@ public class UtilisateurCerbereEntityJPATest {
 	public static transient IUtilisateurCerbere objetCompAvant 
 		= new UtilisateurCerbereEntityJPA(1L 
 				, M
-				,"Stacy", "King"
+				, "Stacy", "King"
 				, "00 01 02 03 04", null
 				, SERVICETEST, "Rennes7"
 				, ADMINISTRATEUR
@@ -333,6 +333,7 @@ public class UtilisateurCerbereEntityJPATest {
 	 * en cas d'inégalité métier.</li>
 	 * </ul>
 	 */
+	@edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 	@SuppressWarnings(UNUSED)
 	@Test
 	public void testEquals() {
@@ -529,6 +530,7 @@ public class UtilisateurCerbereEntityJPATest {
 	 * <li>garantit le bon fonctionnement (bon ordre) de compareTo().</li>
 	 * </ul>
 	 */
+	@edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 	@SuppressWarnings(UNUSED)
 	@Test
 	public void testCompareTo() {
@@ -657,6 +659,7 @@ public class UtilisateurCerbereEntityJPATest {
 	 * </ul>
 	 * @throws CloneNotSupportedException 
 	 */
+	@edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 	@SuppressWarnings(UNUSED)
 	@Test
 	public void testClone() throws CloneNotSupportedException {
@@ -736,6 +739,7 @@ public class UtilisateurCerbereEntityJPATest {
 	 * Adapter la chaîne affichée dans les assertEquals</b></li>
 	 * </ul>
 	 */
+	@edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 	@SuppressWarnings(UNUSED)
 	@Test
 	public void testToString() {
@@ -784,6 +788,7 @@ public class UtilisateurCerbereEntityJPATest {
 	 * Adapter la chaîne affichée dans les assertEquals</b></li>
 	 * </ul>
 	 */
+	@edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 	@SuppressWarnings(UNUSED)
 	@Test
 	public void testFournirEnTeteCsv() {
@@ -827,6 +832,7 @@ public class UtilisateurCerbereEntityJPATest {
 	 * <li><b>Adapter la chaîne affichée dans les assertEquals</b></li>
 	 * </ul>
 	 */
+	@edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 	@SuppressWarnings(UNUSED)
 	@Test
 	public void testFournirStringCsv() {
@@ -890,6 +896,7 @@ public class UtilisateurCerbereEntityJPATest {
 	 * <li><b>Adapter la chaîne affichée dans les assertEquals</b></li>
 	 * </ul>
 	 */
+	@edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 	@SuppressWarnings(UNUSED)
 	@Test
 	public void testFournirEnTeteColonne() {
@@ -1001,6 +1008,7 @@ public class UtilisateurCerbereEntityJPATest {
 	 * <li><b>Adapter la chaîne affichée dans les assertEquals</b></li>
 	 * </ul>
 	 */
+	@edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 	@SuppressWarnings(UNUSED)
 	@Test
 	public void testFournirValeurColonne() {

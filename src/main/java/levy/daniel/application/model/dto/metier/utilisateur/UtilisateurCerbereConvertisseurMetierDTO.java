@@ -30,7 +30,7 @@ import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
  * @since 19 févr. 2019
  *
  */
-public class UtilisateurCerbereConvertisseurMetierDTO {
+public final class UtilisateurCerbereConvertisseurMetierDTO {
 
 	// ************************ATTRIBUTS************************************/
 
