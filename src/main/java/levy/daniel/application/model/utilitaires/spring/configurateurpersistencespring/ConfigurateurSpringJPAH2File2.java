@@ -11,16 +11,10 @@ import org.hibernate.jpa.boot.spi.Bootstrap;
 import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * CLASSE ConfigurateurSpringJPAH2File :<br/>
@@ -56,10 +50,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @since 27 janv. 2019
  *
  */
-@Configuration(value="ConfigurateurSpringJPAH2File2")
-@PropertySources({@PropertySource("classpath:configurations_bases_jpa/configuration_H2_file.properties")})
-@EnableTransactionManagement
-@ComponentScans({@ComponentScan("levy.daniel.application.model.persistence")})
+//@Configuration(value="ConfigurateurSpringJPAH2File2")
+//@PropertySources({@PropertySource("classpath:configurations_bases_jpa/configuration_H2_file.properties")})
+//@EnableTransactionManagement
+//@ComponentScans({@ComponentScan("levy.daniel.application.model.persistence")})
 public class ConfigurateurSpringJPAH2File2 {
 
 	// ************************ATTRIBUTS************************************/

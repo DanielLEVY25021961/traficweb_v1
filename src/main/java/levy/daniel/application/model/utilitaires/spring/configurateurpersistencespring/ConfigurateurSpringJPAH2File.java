@@ -154,7 +154,7 @@ public class ConfigurateurSpringJPAH2File {
 		final List<String> managedClassNames = new LinkedList<String>();
 		
 		managedClassNames.add(
-				"levy.daniel.application.model.persistence.metier.contactsimple.entities.jpa.ContactSimpleEntityJPA");
+				"levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa.UtilisateurCerbereEntityJPA");
 		
 		final MyMutablePersistenceUnitInfo 
 			mutablePersistenceUnitInfo 

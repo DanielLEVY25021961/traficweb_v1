@@ -6,6 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.core.env.Environment;
 
+import levy.daniel.application.IConstantesApplicatives;
 import levy.daniel.application.model.utilitaires.normalizerurlbase.NormalizerUrlBase;
 import levy.daniel.application.model.utilitaires.normalizerurlbase.UrlEncapsulation;
 
@@ -345,16 +346,33 @@ public class LecteurJPADataSourceSpring {
 			
 			if (urlFournie != null) {
 				
-				final String bd = "base-adresses_javafx";
+				final String bd = IConstantesApplicatives.NOM_BASE;
 				
 				String urlNormalisee = null;
 				
 				final UrlEncapsulation encapsulation 
 				 	= NormalizerUrlBase.creerUrlEncapsulation(urlFournie, bd);
-				 
-				urlNormalisee = encapsulation.getUrlNormalisee();
 				
-				this.url = urlNormalisee;
+				if (encapsulation != null) {
+					
+					urlNormalisee = encapsulation.getUrlNormalisee();
+					
+					this.url = urlNormalisee;
+					
+				} else {
+					
+					final String message 
+					= CLASSE_LECTEUR_JPA_DATASOURCE_SPRING
+					+ TIRET_ESPACE
+					+ METHODE_LIRE_URL
+					+ TIRET_ESPACE
+					+ "Impossible de normaliser l'URL dans le properties : '" + urlFournie + "' pour le nom de BD : " + bd;
+					
+					if (LOG.isFatalEnabled()) {
+						LOG.fatal(message);
+					}
+				}
+				
 				
 			}			
 			
