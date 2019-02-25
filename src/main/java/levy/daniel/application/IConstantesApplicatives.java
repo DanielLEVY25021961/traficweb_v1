@@ -210,4 +210,12 @@ public interface IConstantesApplicatives {
 
 
 	
+	/**
+	 * nom de la BD.<br/>
+	 * "base-traficweb_v1"
+	 */
+	String NOM_BASE = "base-traficweb_v1";
+
+
+	
 } // FIN DE L'INTERFACE IConstantesApplicatives.-----------------------------

@@ -33,7 +33,7 @@ import levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa
  * @since 21 févr. 2019
  *
  */
-public class UtilisateurCerbereConvertisseurMetierEntity {
+public final class UtilisateurCerbereConvertisseurMetierEntity {
 
 	// ************************ATTRIBUTS************************************/
 
