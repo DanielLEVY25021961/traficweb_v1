@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -173,6 +174,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		
 		this.idLabel.setPrefWidth(400);
 		this.idLabel.setPrefHeight(100);
+		this.idLabel.setAlignment(Pos.CENTER_RIGHT);
 		this.idLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
 		
 	} // Fin de configurerIdLabel().________________________________________
@@ -192,7 +194,10 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.idText.setPrefWidth(400);
 		this.idText.setPrefHeight(100);
 		this.idText.setDisable(true);
+		this.idText.setAlignment(Pos.CENTER_LEFT);
 		this.idText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		
+		this.idText.setText("137");
 		
 	} // Fin de configurerIdText().________________________________________
 	
@@ -210,6 +215,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		
 		this.civiliteLabel.setPrefWidth(400);
 		this.civiliteLabel.setPrefHeight(100);
+		this.civiliteLabel.setAlignment(Pos.CENTER_RIGHT);
 //		this.civiliteLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
 		
 	} // Fin de configurerCiviliteLabel()._________________________________
@@ -229,7 +235,10 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.civiliteText.setPrefWidth(400);
 		this.civiliteText.setPrefHeight(100);
 		this.civiliteText.setDisable(false);
+		this.civiliteText.setAlignment(Pos.CENTER_LEFT);
 		this.civiliteText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		
+		this.civiliteText.setText("Mlle");
 		
 	} // Fin de configurerCiviliteText().__________________________________
 	
