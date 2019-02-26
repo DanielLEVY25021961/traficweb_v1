@@ -4,3 +4,11 @@
 #paneGenerateurMotif {
 	-fx-background-color: #ccffcc;
 }
+
+.gridpane {
+    -fx-background-color: #8fbc8f;
+}
+
+.anchorpane {
+	-fx-background-color: #ffffff;
+}

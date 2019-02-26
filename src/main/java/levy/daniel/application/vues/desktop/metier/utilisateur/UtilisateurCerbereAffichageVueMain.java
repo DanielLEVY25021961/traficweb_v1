@@ -75,7 +75,8 @@ public class UtilisateurCerbereAffichageVueMain extends Application {
         pPrimaryStage.setTitle("UtilisateurCerbereAffichageVue");
         
         final Scene scene = new Scene(borderPaneRoot);
-               
+        scene.getStylesheets().add("static/css/dan_style.css");
+        
         pPrimaryStage.setScene(scene);
         
         pPrimaryStage.show();
