@@ -50,6 +50,12 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 	public static final double HAUTEUR_LABELS_TEXTES = 50d;
 	
 	/**
+	 * "-fx-border-color: black;-fx-background-color: WHITE;".
+	 */
+	public static final String BORDER_TEXTES 
+		= "-fx-border-color: black;-fx-background-color: WHITE;";
+	
+	/**
 	 * label de l'ID en base.
 	 */
 	private final transient Label idLabel = new Label("ID en base : ");
@@ -506,7 +512,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.idLabel.setPrefWidth(LARGEUR_LABELS);
 		this.idLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.idLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.idLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.idLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerIdLabel().________________________________________
 	
@@ -526,7 +532,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.idText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.idText.setDisable(true);
 		this.idText.setAlignment(Pos.CENTER_LEFT);
-		this.idText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.idText.setStyle(BORDER_TEXTES);
 		
 		this.idText.setText("137");
 		
@@ -547,7 +553,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.civiliteLabel.setPrefWidth(LARGEUR_LABELS);
 		this.civiliteLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.civiliteLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.civiliteLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.civiliteLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerCiviliteLabel()._________________________________
 	
@@ -567,7 +573,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.civiliteText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.civiliteText.setDisable(false);
 		this.civiliteText.setAlignment(Pos.CENTER_LEFT);
-		this.civiliteText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.civiliteText.setStyle(BORDER_TEXTES);
 		
 		this.civiliteText.setText("Mlle");
 		
@@ -588,7 +594,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.prenomLabel.setPrefWidth(LARGEUR_LABELS);
 		this.prenomLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.prenomLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.prenomLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.prenomLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerPrenomLabel().___________________________________
 	
@@ -608,7 +614,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.prenomText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.prenomText.setDisable(false);
 		this.prenomText.setAlignment(Pos.CENTER_LEFT);
-		this.prenomText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.prenomText.setStyle(BORDER_TEXTES);
 		
 		this.prenomText.setText("Oscar");
 		
@@ -629,7 +635,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.nomLabel.setPrefWidth(LARGEUR_LABELS);
 		this.nomLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.nomLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.nomLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.nomLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerNomLabel().______________________________________
 	
@@ -649,7 +655,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.nomText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.nomText.setDisable(false);
 		this.nomText.setAlignment(Pos.CENTER_LEFT);
-		this.nomText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.nomText.setStyle(BORDER_TEXTES);
 		
 		this.nomText.setText("Peterson");
 		
@@ -670,7 +676,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.telLabel.setPrefWidth(LARGEUR_LABELS);
 		this.telLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.telLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.telLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.telLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerTelLabel().______________________________________
 	
@@ -690,7 +696,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.telText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.telText.setDisable(false);
 		this.telText.setAlignment(Pos.CENTER_LEFT);
-		this.telText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.telText.setStyle(BORDER_TEXTES);
 		
 		this.telText.setText("01 02 03 04 05");
 		
@@ -711,7 +717,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.emailLabel.setPrefWidth(LARGEUR_LABELS);
 		this.emailLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.emailLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.emailLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.emailLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerEmailLabel().____________________________________
 	
@@ -731,7 +737,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.emailText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.emailText.setDisable(false);
 		this.emailText.setAlignment(Pos.CENTER_LEFT);
-		this.emailText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.emailText.setStyle(BORDER_TEXTES);
 		
 		this.emailText.setText("oscar.peterson@yahoo.fr");
 		
@@ -752,7 +758,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.serviceLabel.setPrefWidth(LARGEUR_LABELS);
 		this.serviceLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.serviceLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.serviceLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.serviceLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerServiceLabel().__________________________________
 	
@@ -772,7 +778,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.serviceText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.serviceText.setDisable(false);
 		this.serviceText.setAlignment(Pos.CENTER_LEFT);
-		this.serviceText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.serviceText.setStyle(BORDER_TEXTES);
 		
 		this.serviceText.setText("CEREMA");
 		
@@ -793,7 +799,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.uniteLabel.setPrefWidth(LARGEUR_LABELS);
 		this.uniteLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.uniteLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.uniteLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.uniteLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerUniteLabel().____________________________________
 	
@@ -813,7 +819,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.uniteText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.uniteText.setDisable(false);
 		this.uniteText.setAlignment(Pos.CENTER_LEFT);
-		this.uniteText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.uniteText.setStyle(BORDER_TEXTES);
 		
 		this.uniteText.setText("CEREMA/DTerMed/DCEDI/GTIE");
 		
@@ -834,7 +840,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.profilLabel.setPrefWidth(LARGEUR_LABELS);
 		this.profilLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.profilLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.profilLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.profilLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerProfilLabel().___________________________________
 	
@@ -854,7 +860,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.profilText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.profilText.setDisable(false);
 		this.profilText.setAlignment(Pos.CENTER_LEFT);
-		this.profilText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.profilText.setStyle(BORDER_TEXTES);
 		
 		this.profilText.setText("ADMINISTRATEUR NATIONAL");
 		
@@ -875,7 +881,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.porteeLabel.setPrefWidth(LARGEUR_LABELS);
 		this.porteeLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.porteeLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.porteeLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.porteeLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerPorteeLabel().___________________________________
 	
@@ -895,7 +901,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.porteeText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.porteeText.setDisable(false);
 		this.porteeText.setAlignment(Pos.CENTER_LEFT);
-		this.porteeText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.porteeText.setStyle(BORDER_TEXTES);
 		
 		this.porteeText.setText("CEREMA");
 		
@@ -916,7 +922,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.restrictionLabel.setPrefWidth(LARGEUR_LABELS);
 		this.restrictionLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.restrictionLabel.setAlignment(Pos.CENTER_RIGHT);
-//		this.restrictionLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+//		this.restrictionLabel.setStyle(BORDER_TEXTES);
 		
 	} // Fin de configurerRestrictionLabel().______________________________
 	
@@ -936,7 +942,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.restrictionText.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.restrictionText.setDisable(false);
 		this.restrictionText.setAlignment(Pos.CENTER_LEFT);
-		this.restrictionText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		this.restrictionText.setStyle(BORDER_TEXTES);
 		
 		this.restrictionText.setText("France métropolitaine");
 		
