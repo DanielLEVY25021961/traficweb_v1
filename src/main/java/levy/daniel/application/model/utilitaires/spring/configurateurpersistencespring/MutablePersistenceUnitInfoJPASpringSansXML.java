@@ -304,7 +304,9 @@ public class MutablePersistenceUnitInfoJPASpringSansXML
 	public MutablePersistenceUnitInfoJPASpringSansXML() {
 		
 		this(null
-				, null, null, null, null
+				, null
+				, PersistenceUnitTransactionType.RESOURCE_LOCAL
+				, null, null
 				, null, null, null, null, null, false
 				, null, null, null, null, null, null, null);
 		

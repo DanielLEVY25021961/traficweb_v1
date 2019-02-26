@@ -848,13 +848,7 @@ public abstract class AbstractCreateurGestionnaireRG {
 		final List<Field> resultat = new ArrayList<Field>();
 		
 		final Field[] attributsClasse = pClasse.getDeclaredFields();
-		
-		/* retourne null si le tableau des 
-		 * attributs de la classe est null. */
-		if (attributsClasse == null) {
-			return null;
-		}
-		
+				
 		for (int i = 0; i < attributsClasse.length; i++) {
 			
 			final Field attribut = attributsClasse[i];
@@ -907,13 +901,7 @@ public abstract class AbstractCreateurGestionnaireRG {
 		final List<String> resultat = new ArrayList<String>();
 		
 		final Field[] attributsClasse = pClasse.getDeclaredFields();
-		
-		/* retourne null si le tableau des 
-		 * attributs de la classe est null. */
-		if (attributsClasse == null) {
-			return null;
-		}
-		
+				
 		for (int i = 0; i < attributsClasse.length; i++) {
 			
 			final Field attribut = attributsClasse[i];

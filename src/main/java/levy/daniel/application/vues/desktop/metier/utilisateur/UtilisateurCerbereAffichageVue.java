@@ -102,6 +102,12 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		/* configure la zone de texte pour l'ID. */
 		this.configurerIdText();
 		
+		/* configure le label pour la civilite. */
+		this.configurerCiviliteLabel();
+		
+		/* configure la zone de texte pour la civilite. */
+		this.configurerCiviliteText();
+		
 		GridPane.setConstraints(
 				this.idLabel
 					, 0, 0
@@ -118,8 +124,26 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 								, Priority.ALWAYS, Priority.ALWAYS
 									, new Insets(12, 12, 12, 12));
 		
+		GridPane.setConstraints(
+				this.civiliteLabel
+					, 0, 1
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(12, 12, 12, 12));
+		
+		GridPane.setConstraints(
+				this.civiliteText
+					, 1, 1
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(12, 12, 12, 12));
+		
 		this.gridPane.getChildren().addAll(this.idLabel);
 		this.gridPane.getChildren().addAll(this.idText);
+		this.gridPane.getChildren().addAll(this.civiliteLabel);
+		this.gridPane.getChildren().addAll(this.civiliteText);
 		
 		/* ajoute le gridPane au présent AnchorPane. */
 		this.getChildren().add(this.gridPane);
@@ -171,6 +195,43 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.idText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
 		
 	} // Fin de configurerIdText().________________________________________
+	
+	
+	
+	/**
+	 * configure le label pour la civilite.<br/>
+	 * <ul>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * </ul>
+	 */
+	private void configurerCiviliteLabel() {
+		
+		this.civiliteLabel.setPrefWidth(400);
+		this.civiliteLabel.setPrefHeight(100);
+//		this.civiliteLabel.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		
+	} // Fin de configurerCiviliteLabel()._________________________________
+	
+	
+	
+	/**
+	 * configure la zone de texte pour la civilite.<br/>
+	 * <ul>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * </ul>
+	 */
+	private void configurerCiviliteText() {
+		
+		this.civiliteText.setPrefWidth(400);
+		this.civiliteText.setPrefHeight(100);
+		this.civiliteText.setDisable(false);
+		this.civiliteText.setStyle("-fx-border-color: black;-fx-background-color: WHITE;");
+		
+	} // Fin de configurerCiviliteText().__________________________________
 	
 	
 	
