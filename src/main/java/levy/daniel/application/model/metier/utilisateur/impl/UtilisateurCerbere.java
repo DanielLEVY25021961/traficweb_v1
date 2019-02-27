@@ -9,7 +9,195 @@ import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 
 /**
  * CLASSE UtilisateurCerbere :<br/>
- * .<br/>
+ * CLASSE CONCRETE <b>UtilisateurCerbere</b> sous MODEL/METIER :<br/>
+ * 
+ * <p>
+ * <b>UtilisateurCerbere</b> modélise un <i>concept</i> 
+ * d'<b>Utilisateur</b> d'une application 
+ * - (Personne avec des droits sur une application) -
+ * avec un nom, un prénom, des coordonnées et un
+ * <i>PROFIL UNIQUE</i> à un instant t.<br/>
+ * Un UtilisateurCerbere est conforme à l'API 
+ * (Application Programming Interface) 
+ * d'<strong>authentification CERBERE</strong> du Ministère (MTES).<br/>
+ * Un UtilisateurCerbere ne possède 
+ * qu'une seule <strong>HABILITATION</strong> 
+ * (<code>[Profil, Portee, Restriction]</code>)
+ * <i>à la fois</i> 
+ * (même si il a plusieurs habilitations sur l'application dans Cerbere).
+ * </p>
+ * 
+ * <p>
+ * <b><span style="text-decoration: underline;">
+ * Représentation schématique d'un UtilisateurCerbere :
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../javadoc/images/vues/desktop/metier/utilisateur/UtilisateurCerbereAffichageVue.png" 
+ * alt="vue simplifiée d'un UtilisateurCerbere" border="1" align="center" />
+ * </p>
+ * 
+ * 
+ * <ul>
+ * <p>
+ * <span style="text-decoration: underline;">
+ * HERITE de :
+ * </span>
+ * </p>
+ * <li><b>IUtilisateurCerbere</b></li>
+ * <li><b>IExportateurCsv</b> pour l'export d'un Objet 
+ * métier en csv.</li>
+ * <li><b>IExportateurJTable</b> pour l'affichage dans 
+ * une JTable (Swing).</li>
+ * <li><b>Comparable</b> pour l'affichage des Collections 
+ * sous forme triée.</li>
+ * <li><b>Cloneable</b> pour garantir que tout objet métier 
+ * implémentant cette interface saura se cloner.</li>
+ * <li><b>Serializable</b> pour garantir que tout objet métier 
+ * implémentant cette interface pourra être serialisé.</li>
+ * </ul>
+ * 
+ * 
+ * <ul>
+ * <p>
+ * <span style="text-decoration: underline;">
+ * Garantit que tout IUtilisateurCerbere sait :
+ * </span>
+ * </p>
+ * <li>se <b>comparer</b> à un autre IUtilisateurCerbere.</li>
+ * <li>se <b>cloner</b>.</li>
+ * <li>s'exporter sous forme <b>csv</b>.</li>
+ * <li>s'exporter sous forme <b>JTable</b>.</li>
+ * </ul>
+ * 
+ *  
+ * <ol>
+ * <p>
+ * <span style="text-decoration: underline;">
+ * Garantit que tout IUtilisateurCerbere possède à minima :
+ * </span>
+ * </p>
+ * <li><b>id</b> pour la mise en base.</li>
+ * <li><b>civilite</b></li>
+ * <li><b>prenom</b>.</li>
+ * <li><b>nom</b>.</li>
+ * <li><b>tel</b>.</li>
+ * <li><b>email</b>.</li>
+ * <li><b>service</b>.</li>
+ * <li><b>unite</b>.</li>
+ * <li><b>profil</b>.</li>
+ * <li><b>portee</b>.</li>
+ * <li><b>restriction</b>.</li>
+ * </ol>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">EGALITE METIER</span>
+ * </p>
+ * <ul>
+ * <li>L'<b>égalité metier</b> d'un IUtilisateurCerbere est vérifiée sur :</li>
+  * <ul>
+ * <li><b>nom</b> (sensible à la casse).</li>
+ * <li><b>prenom</b> (sensible à la casse).</li>
+ * <li><b>email</b> (sensible à la casse).</li>
+ * <li><b>unite</b> (sensible à la casse).</li>
+ * </ul>
+ * </ul>
+ *  
+ * <p>
+ * <span style="text-decoration: underline;">COMPARAISON</span>
+ * </p>
+ * <ul>
+ * <li>La <b>comparaison</b> d'un IUtilisateurCerbere est réalisée sur :</li>
+  * <ol>
+ * <li><b>nom</b> (insensible à la casse).</li>
+ * <li><b>prenom</b> (insensible à la casse).</li>
+ * <li><b>email</b> (insensible à la casse).</li>
+ * <li><b>unite</b> (insensible à la casse).</li>
+ * </ol>
+ * </ul>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">DIAGRAMME DE CLASSES D'IMPLEMENTATION</span>
+ * </p>
+ * <ul>
+ * <li>
+ * <img src="../../../../../../../../../../javadoc/images/model/metier/utilisateur/UtilisateurCerbere.png" 
+ * alt="classes d'implémentation des IUtilisateurCerbere" border="1" align="center" />
+ * </li>
+ * </ul>
+ * 
+ * <br/>
+ * <p>
+ * <span style="text-decoration: underline;">REGLES DE GESTION</span>
+ * </p>
+ * <ul>
+ * <li>
+ * Les <b>Règles de Gestion (RG)</b> applicables aux attributs 
+ * d'un IUtilisateurCerbere sont les suivantes :
+ * </li>
+ * <br/>
+ * <table border="1">
+ * <tr>
+ * <th>Attribut</th><th>Règle de Gestion</th>
+ * </tr>
+ * 
+ *  
+ * <tr>
+ * <td rowspan="3">
+ * prenom
+ * </td>
+ * <td>
+ * "RG_NOMMAGE_PRENOM_RENSEIGNE_01
+ *  : le prénom du IUtilisateurCerbere 
+ *  doit être renseigné (obligatoire)"
+ * </td>
+ * </tr>
+ * <tr>
+ * <td>
+ * "RG_NOMMAGE_PRENOM_LITTERAL_02
+ *  : le prénom du IUtilisateurCerbere 
+ *  ne doit contenir que des lettres ou des caractères spéciaux 
+ *  '-', '_', ... (aucun chiffre)"
+ * </td>
+ * </tr>
+ * <tr>
+ * <td>
+ * "RG_NOMMAGE_PRENOM_LONGUEUR_03
+ *  : le prénom du IUtilisateurCerbere 
+ *  doit contenir entre [1] et [50] lettres"
+ * </td>
+ * </tr>
+
+ * <tr>
+ * <td rowspan="3">
+ * nom
+ * </td>
+ * <td>
+ * "RG_NOMMAGE_NOM_RENSEIGNE_04 : 
+ * le nom du IUtilisateurCerbere 
+ * doit être renseigné (obligatoire)"
+ * </td>
+ * </tr>
+ * <tr>
+ * <td>
+ * "RG_NOMMAGE_NOM_LITTERAL_05 : 
+ * le nom du IUtilisateurCerbere 
+ * ne doit contenir que des lettres ou des 
+ * caractères spéciaux '-', '_', ... (aucun chiffre)"
+ * </td>
+ * </tr>
+ * <tr>
+ * <td>
+ * "RG_NOMMAGE_NOM_LONGUEUR_06 : 
+ * le nom du IUtilisateurCerbere 
+ * doit contenir entre [1] et [50] lettres"
+ * </td>
+ * </tr>
+ * 
+ * </table>
+ * </ul>
+
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

@@ -8,7 +8,7 @@ import levy.daniel.application.model.metier.IExportateurJTable;
 /**
  * INTERFACE IUtilisateurCerbere :<br/>
  * <p>
- * <b>IUtilisateurCerbere</b> modélise un un <i>concept</i> 
+ * <b>IUtilisateurCerbere</b> modélise un <i>concept</i> 
  * d'<b>Utilisateur</b> d'une application 
  * - (Personne avec des droits sur une application) -
  * avec un nom, un prénom, des coordonnées et un
