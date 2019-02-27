@@ -5,6 +5,7 @@ import java.util.Objects;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.IUtilisateurCerbereModelObs;
 
@@ -127,7 +128,7 @@ public class UtilisateurCerbereModelObs
 	 */
 	public UtilisateurCerbereModelObs() {
 		
-		this(null
+		this((StringProperty) null
 				, null, null, null
 				, null, null
 				, null, null
@@ -214,7 +215,56 @@ public class UtilisateurCerbereModelObs
 	} // Fin de CONSTRUCTEUR COMPLET BASE._________________________________
 
 	
+	
+	 /**
+	 * CONSTRUCTEUR MALIN.<br/>
+	 * <ul>
+	 * <li>instancie un OBSERVABLE 
+	 * en insérant directement des valeurs 
+	 * dans ses propriétés.</li>
+	 * </ul>
+	 *
+	 * @param pId : String : valeur à insérer dans id.
+	 * @param pCivilite : String : valeur à insérer dans civilite. 
+	 * @param pPrenom : String : valeur à insérer dans prenom.
+	 * @param pNom : String : valeur à insérer dans nom. 
+	 * @param pTel : String : valeur à insérer dans tel. 
+	 * @param pEmail : String : valeur à insérer dans email.
+	 * @param pService : String : valeur à insérer dans service. 
+	 * @param pUnite : String : valeur à insérer dans unite.
+	 * @param pProfil : String : valeur à insérer dans profil. 
+	 * @param pPortee : String : valeur à insérer dans portee.
+	 * @param pRestriction : String : valeur à insérer dans restriction. 
+	 */
+	public UtilisateurCerbereModelObs(
+			final String pId
+				, final String pCivilite
+					, final String pPrenom
+						, final String pNom
+			, final String pTel, final String pEmail
+			, final String pService, final String pUnite
+			, final String pProfil
+			, final String pPortee
+			, final String pRestriction) {
 		
+		super();
+		
+		this.id = new SimpleStringProperty(pId);
+		this.civilite = new SimpleStringProperty(pCivilite);
+		this.prenom = new SimpleStringProperty(pPrenom);
+		this.nom = new SimpleStringProperty(pNom);
+		this.tel = new SimpleStringProperty(pTel);
+		this.email = new SimpleStringProperty(pEmail);
+		this.service = new SimpleStringProperty(pService);
+		this.unite = new SimpleStringProperty(pUnite);
+		this.profil = new SimpleStringProperty(pProfil);
+		this.portee = new SimpleStringProperty(pPortee);
+		this.restriction = new SimpleStringProperty(pRestriction);
+		
+	} // Fin de CONSTRUCTEUR MALIN.________________________________________
+	
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */
