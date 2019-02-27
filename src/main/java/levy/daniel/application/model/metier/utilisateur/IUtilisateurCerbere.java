@@ -10,7 +10,7 @@ import levy.daniel.application.model.metier.IExportateurJTable;
  * <p>
  * <b>IUtilisateurCerbere</b> modélise un un <i>concept</i> 
  * d'<b>Utilisateur</b> d'une application 
- * (Personne avec des droits sur une application) 
+ * - (Personne avec des droits sur une application) -
  * avec un nom, un prénom, des coordonnées et un
  * <i>PROFIL UNIQUE</i> à un instant t.<br/>
  * Un UtilisateurCerbere est conforme à l'API 
@@ -89,7 +89,7 @@ import levy.daniel.application.model.metier.IExportateurJTable;
  * <span style="text-decoration: underline;">EGALITE METIER</span>
  * </p>
  * <ul>
- * <li>L'<b>égalité metier</b> d'un IContactSimple est vérifiée sur :</li>
+ * <li>L'<b>égalité metier</b> d'un IUtilisateurCerbere est vérifiée sur :</li>
   * <ul>
  * <li><b>nom</b> (sensible à la casse).</li>
  * <li><b>prenom</b> (sensible à la casse).</li>
@@ -97,6 +97,101 @@ import levy.daniel.application.model.metier.IExportateurJTable;
  * <li><b>unite</b> (sensible à la casse).</li>
  * </ul>
  * </ul>
+ *  
+ * <p>
+ * <span style="text-decoration: underline;">COMPARAISON</span>
+ * </p>
+ * <ul>
+ * <li>La <b>comparaison</b> d'un IUtilisateurCerbere est réalisée sur :</li>
+  * <ol>
+ * <li><b>nom</b> (insensible à la casse).</li>
+ * <li><b>prenom</b> (insensible à la casse).</li>
+ * <li><b>email</b> (insensible à la casse).</li>
+ * <li><b>unite</b> (insensible à la casse).</li>
+ * </ol>
+ * </ul>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">DIAGRAMME DE CLASSES D'IMPLEMENTATION</span>
+ * </p>
+ * <ul>
+ * <li>
+ * <img src="../../../../../../../../../javadoc/images/model/metier/utilisateur/UtilisateurCerbere.png" 
+ * alt="classes d'implémentation des IUtilisateurCerbere" border="1" align="center" />
+ * </li>
+ * </ul>
+ * 
+ * <br/>
+ * <p>
+ * <span style="text-decoration: underline;">REGLES DE GESTION</span>
+ * </p>
+ * <ul>
+ * <li>
+ * Les <b>Règles de Gestion (RG)</b> applicables aux attributs 
+ * d'un IUtilisateurCerbere sont les suivantes :
+ * </li>
+ * <br/>
+ * <table border="1">
+ * <tr>
+ * <th>Attribut</th><th>Règle de Gestion</th>
+ * </tr>
+ * 
+ *  
+ * <tr>
+ * <td rowspan="3">
+ * prenom
+ * </td>
+ * <td>
+ * "RG_NOMMAGE_PRENOM_RENSEIGNE_01
+ *  : le prénom du IUtilisateurCerbere 
+ *  doit être renseigné (obligatoire)"
+ * </td>
+ * </tr>
+ * <tr>
+ * <td>
+ * "RG_NOMMAGE_PRENOM_LITTERAL_02
+ *  : le prénom du IUtilisateurCerbere 
+ *  ne doit contenir que des lettres ou des caractères spéciaux 
+ *  '-', '_', ... (aucun chiffre)"
+ * </td>
+ * </tr>
+ * <tr>
+ * <td>
+ * "RG_NOMMAGE_PRENOM_LONGUEUR_03
+ *  : le prénom du IUtilisateurCerbere 
+ *  doit contenir entre [1] et [50] lettres"
+ * </td>
+ * </tr>
+
+ * <tr>
+ * <td rowspan="3">
+ * nom
+ * </td>
+ * <td>
+ * "RG_NOMMAGE_NOM_RENSEIGNE_04 : 
+ * le nom du IUtilisateurCerbere 
+ * doit être renseigné (obligatoire)"
+ * </td>
+ * </tr>
+ * <tr>
+ * <td>
+ * "RG_NOMMAGE_NOM_LITTERAL_05 : 
+ * le nom du IUtilisateurCerbere 
+ * ne doit contenir que des lettres ou des 
+ * caractères spéciaux '-', '_', ... (aucun chiffre)"
+ * </td>
+ * </tr>
+ * <tr>
+ * <td>
+ * "RG_NOMMAGE_NOM_LONGUEUR_06 : 
+ * le nom du IUtilisateurCerbere 
+ * doit contenir entre [1] et [50] lettres"
+ * </td>
+ * </tr>
+ * 
+ * </table>
+ * </ul>
+
  * 
  * <br/>
  *
