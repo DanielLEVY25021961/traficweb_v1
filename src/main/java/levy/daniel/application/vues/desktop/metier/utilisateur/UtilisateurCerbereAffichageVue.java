@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
 
 /**
  * CLASSE UtilisateurCerbereAffichageVue :<br/>
@@ -47,13 +48,18 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 	 * hauteur preferred de tous les labels et zones de texte de l'IHM.<br/>
 	 * 50d.<br/>
 	 */
-	public static final double HAUTEUR_LABELS_TEXTES = 50d;
+	public static final double HAUTEUR_LABELS_TEXTES = 30d;
 	
 	/**
 	 * "-fx-border-color: black;-fx-background-color: WHITE;".
 	 */
 	public static final String BORDER_TEXTES 
 		= "-fx-border-color: black;-fx-background-color: WHITE;";
+
+	/**
+	 * marge par défaut autout d'un composant.
+	 */
+	public static final double MARGIN = 5d;
 	
 	/**
 	 * label de l'ID en base.
@@ -191,11 +197,15 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
+	 * <ul>
+	 * <li>configure la présente vue (AnchorPane).</li>
+	 * </ul>
 	 */
 	public UtilisateurCerbereAffichageVue() {
 		
 		super();
 		
+		/* configure la présente vue (AnchorPane). */
 		this.configurerVue();
 		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
@@ -203,15 +213,128 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 
 	
 	/**
-	 * .<br/>
+	 * affiche les valeurs d'un DTO dans la présente VUE.<br/>
+	 * <br/>
+	 * - ne fait rien si pDto == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : IUtilisateurCerbereDTO : 
+	 * DTO de l'objet métier.<br/>
+	 */
+	public final void afficherDTO(
+			final IUtilisateurCerbereDTO pDto) {
+		
+		/* ne fait rien si pDto == null. */
+		if (pDto == null) {
+			return;
+		}
+		
+		this.idText.setText(pDto.getId());
+		this.civiliteText.setText(pDto.getCivilite());
+		this.prenomText.setText(pDto.getPrenom());
+		this.nomText.setText(pDto.getNom());
+		this.telText.setText(pDto.getTel());
+		this.emailText.setText(pDto.getEmail());
+		this.serviceText.setText(pDto.getService());
+		this.uniteText.setText(pDto.getUnite());
+		this.profilText.setText(pDto.getProfil());
+		this.porteeText.setText(pDto.getPortee());
+		this.restrictionText.setText(pDto.getRestriction());
+		
+	} // Fin de afficherDTO(...).__________________________________________
+	
+
+	
+	/**
+	 * remet toutes les valeurs dans les zones de texte 
+	 * de la présente vue à null.<br/>
+	 */
+	public final void resetVue() {
+		
+		this.idText.setText(null);
+		this.civiliteText.setText(null);
+		this.prenomText.setText(null);
+		this.nomText.setText(null);
+		this.telText.setText(null);
+		this.emailText.setText(null);
+		this.serviceText.setText(null);
+		this.uniteText.setText(null);
+		this.profilText.setText(null);
+		this.porteeText.setText(null);
+		this.restrictionText.setText(null);
+		
+	} // Fin de resetVue().________________________________________________
+	
+	
+	
+	/**
+	 * configure la présente vue (AnchorPane).<br/>
 	 * <ul>
-	 * <li></li>
-	 * <li></li>
-	 * <li></li>
+	 * <li>configure tous les composants (labels, zones de texte, ...).</li>
+	 * <li>positionne chaque composants dans un Constraints de GridPane.</li>
+	 * <li>ajoute chaque composant dans le GridPane.</li>
 	 * <li>ajoute le gridPane au présent AnchorPane.</li>
 	 * </ul>
 	 */
 	private void configurerVue() {
+		
+		/* configure tous les composants (labels, zones de texte, ...). */
+		this.configurerComposants();
+		
+		/* positionne chaque composants dans un Constraints de GridPane. */
+		this.positionnerComposantsDansConstraints();
+		
+		/* ajoute chaque composant dans le GridPane. */
+		this.gridPane.getChildren().addAll(this.idLabel, this.idText);
+		this.gridPane.getChildren().addAll(this.civiliteLabel, this.civiliteText);
+		this.gridPane.getChildren().addAll(this.prenomLabel, this.prenomText);
+		this.gridPane.getChildren().addAll(this.nomLabel, this.nomText);
+		this.gridPane.getChildren().addAll(this.telLabel, this.telText);
+		this.gridPane.getChildren().addAll(this.emailLabel, this.emailText);
+		this.gridPane.getChildren().addAll(this.serviceLabel, this.serviceText);
+		this.gridPane.getChildren().addAll(this.uniteLabel, this.uniteText);
+		this.gridPane.getChildren().addAll(this.profilLabel, this.profilText);
+		this.gridPane.getChildren().addAll(this.porteeLabel, this.porteeText);
+		this.gridPane.getChildren().addAll(this.restrictionLabel, this.restrictionText);
+		
+		/* change la couleur de fond du GridPane. */
+		/* surcharge la couleur dans la CSS. */
+		/* #ececec */
+		/* #C0C0C0 */
+		this.gridPane.setStyle("-fx-background-color: #ececec;");
+		
+		/* affiche les lignes de la grille du GridPane. */
+		this.gridPane.setGridLinesVisible(false);
+		
+		/* ajoute une classe CSS à this.gridPane 
+		 * (les GridPanes n'ont pas de classe CSS par défaut). */
+		this.gridPane.getStyleClass().add("gridpane");
+		
+		/* ajoute le gridPane au présent AnchorPane. */
+		this.getChildren().add(this.gridPane);
+		
+		/* fixe les distances entre le contenu (this.gridPane) 
+		 * et le présent conteneur AnchorPane. */
+		AnchorPane.setTopAnchor(this.gridPane, 10D);
+		AnchorPane.setLeftAnchor(this.gridPane, 10D);
+		AnchorPane.setBottomAnchor(this.gridPane, 10D);
+		AnchorPane.setRightAnchor(this.gridPane, 10D);
+		
+		this.setPrefWidth(USE_COMPUTED_SIZE);
+		this.setPrefHeight(USE_COMPUTED_SIZE);
+		
+		/* ajoute une classe CSS au présent AnchorPane 
+		 * (les AnchorPanes n'ont pas de classe CSS par défaut). */
+		this.getStyleClass().add("anchorpane");
+		
+	} // Fin de configurerVue().___________________________________________
+	
+
+	
+	/**
+	 * configure tous les composants (labels, zones de texte, ...).<br/>
+	 */
+	private void configurerComposants() {
 		
 		/* configure le label pour l'ID. */
 		this.configurerIdLabel();
@@ -278,6 +401,15 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		
 		/* configure la zone de texte pour la restriction. */
 		this.configurerRestrictionText();
+
+	} // Fin de configurerComposants().____________________________________
+	
+
+	
+	/**
+	 * positionne chaque composants dans un Constraints de GridPane.<br/>
+	 */
+	private void positionnerComposantsDansConstraints() {
 		
 		GridPane.setConstraints(
 				this.idLabel
@@ -285,7 +417,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.idText
@@ -293,7 +425,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.civiliteLabel
@@ -301,7 +433,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.civiliteText
@@ -309,7 +441,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.prenomLabel
@@ -317,7 +449,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.prenomText
@@ -325,7 +457,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.nomLabel
@@ -333,7 +465,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.nomText
@@ -341,7 +473,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.telLabel
@@ -349,7 +481,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.telText
@@ -357,7 +489,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.emailLabel
@@ -365,7 +497,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.emailText
@@ -373,7 +505,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.serviceLabel
@@ -381,7 +513,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.serviceText
@@ -389,7 +521,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.uniteLabel
@@ -397,7 +529,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.uniteText
@@ -405,7 +537,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.profilLabel
@@ -413,7 +545,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.profilText
@@ -421,7 +553,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.porteeLabel
@@ -429,7 +561,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.porteeText
@@ -437,7 +569,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.restrictionLabel
@@ -445,7 +577,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
 				this.restrictionText
@@ -453,49 +585,9 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
-									, new Insets(12, 12, 12, 12));
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
-		this.gridPane.getChildren().addAll(this.idLabel, this.idText);
-		this.gridPane.getChildren().addAll(this.civiliteLabel, this.civiliteText);
-		this.gridPane.getChildren().addAll(this.prenomLabel, this.prenomText);
-		this.gridPane.getChildren().addAll(this.nomLabel, this.nomText);
-		this.gridPane.getChildren().addAll(this.telLabel, this.telText);
-		this.gridPane.getChildren().addAll(this.emailLabel, this.emailText);
-		this.gridPane.getChildren().addAll(this.serviceLabel, this.serviceText);
-		this.gridPane.getChildren().addAll(this.uniteLabel, this.uniteText);
-		this.gridPane.getChildren().addAll(this.profilLabel, this.profilText);
-		this.gridPane.getChildren().addAll(this.porteeLabel, this.porteeText);
-		this.gridPane.getChildren().addAll(this.restrictionLabel, this.restrictionText);
-		
-		/* change la couleur de fond du GridPane. */
-		/* surcharge la couleur dans la CSS. */
-		this.gridPane.setStyle("-fx-background-color: #C0C0C0;");
-		
-		/* affiche les lignes de la grille du GridPane. */
-		this.gridPane.setGridLinesVisible(true);
-		
-		/* ajoute une classe CSS à this.gridPane 
-		 * (les GridPanes n'ont pas de classe CSS par défaut). */
-		this.gridPane.getStyleClass().add("gridpane");
-		
-		/* ajoute le gridPane au présent AnchorPane. */
-		this.getChildren().add(this.gridPane);
-		
-		/* fixe les distances entre le contenu (this.gridPane) 
-		 * et le présent conteneur AnchorPane. */
-		AnchorPane.setTopAnchor(this.gridPane, 10D);
-		AnchorPane.setLeftAnchor(this.gridPane, 10D);
-		AnchorPane.setBottomAnchor(this.gridPane, 10D);
-		AnchorPane.setRightAnchor(this.gridPane, 10D);
-		
-		this.setPrefWidth(USE_COMPUTED_SIZE);
-		this.setPrefHeight(USE_COMPUTED_SIZE);
-		
-		/* ajoute une classe CSS au présent AnchorPane 
-		 * (les AnchorPanes n'ont pas de classe CSS par défaut). */
-		this.getStyleClass().add("anchorpane");
-		
-	} // Fin de configurerVue().___________________________________________
+	} // Fin de positionnerComposantsDansConstraints().____________________
 	
 	
 	
