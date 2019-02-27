@@ -463,7 +463,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 	 */
 	@Override
 	public final int hashCode() {
-		return Objects.hash(this.nom, this.prenom, this.email, this.unite);
+		return Objects.hash(this.getNom(), this.getPrenom()
+				, this.getEmail(), this.getUnite());
 	} // Fin de hashCode().________________________________________________
 
 
@@ -636,8 +637,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append("UtilisateurCerbere [");
 		
 		builder.append("id=");
-		if (this.id != null) {			
-			builder.append(this.id);
+		if (this.getId() != null) {			
+			builder.append(this.getId());
 		} else {
 			builder.append(NULL);
 		}
@@ -645,8 +646,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("civilite=");
-		if (this.civilite != null) {			
-			builder.append(this.civilite);			
+		if (this.getCivilite() != null) {			
+			builder.append(this.getCivilite());			
 		} else {
 			builder.append(NULL);
 		}
@@ -654,8 +655,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("prenom=");
-		if (this.prenom != null) {			
-			builder.append(this.prenom);
+		if (this.getPrenom() != null) {			
+			builder.append(this.getPrenom());
 		} else {
 			builder.append(NULL);
 		}
@@ -663,8 +664,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("nom=");
-		if (this.nom != null) {			
-			builder.append(this.nom);
+		if (this.getNom() != null) {			
+			builder.append(this.getNom());
 		} else {
 			builder.append(NULL);
 		}
@@ -672,8 +673,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("tel=");
-		if (this.tel != null) {			
-			builder.append(this.tel);
+		if (this.getTel() != null) {			
+			builder.append(this.getTel());
 		} else {
 			builder.append(NULL);
 		}
@@ -681,8 +682,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("email=");
-		if (this.email != null) {			
-			builder.append(this.email);
+		if (this.getEmail() != null) {			
+			builder.append(this.getEmail());
 		} else {
 			builder.append(NULL);
 		}
@@ -690,8 +691,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("service=");
-		if (this.service != null) {			
-			builder.append(this.service);
+		if (this.getService() != null) {			
+			builder.append(this.getService());
 		} else {
 			builder.append(NULL);
 		}
@@ -699,8 +700,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("unite=");
-		if (this.unite != null) {			
-			builder.append(this.unite);
+		if (this.getUnite() != null) {			
+			builder.append(this.getUnite());
 		} else {
 			builder.append(NULL);
 		}
@@ -708,8 +709,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("profil=");
-		if (this.profil != null) {			
-			builder.append(this.profil);
+		if (this.getProfil() != null) {			
+			builder.append(this.getProfil());
 		} else {
 			builder.append(NULL);
 		}
@@ -717,8 +718,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("portee=");
-		if (this.portee != null) {			
-			builder.append(this.portee);
+		if (this.getPortee() != null) {			
+			builder.append(this.getPortee());
 		} else {
 			builder.append(NULL);
 		}
@@ -726,8 +727,8 @@ public class UtilisateurCerbere implements IUtilisateurCerbere {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("restriction=");
-		if (this.restriction != null) {			
-			builder.append(this.restriction);
+		if (this.getRestriction() != null) {			
+			builder.append(this.getRestriction());
 		} else {
 			builder.append(NULL);
 		}

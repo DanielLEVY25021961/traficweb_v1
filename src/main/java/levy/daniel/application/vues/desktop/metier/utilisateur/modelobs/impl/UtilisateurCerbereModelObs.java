@@ -1,15 +1,15 @@
-package levy.daniel.application.model.dto.metier.utilisateur.impl;
+package levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.impl;
 
 import java.util.Objects;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
-
+import javafx.beans.property.StringProperty;
+import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.IUtilisateurCerbereModelObs;
 
 /**
- * CLASSE UtilisateurCerbereDTO :<br/>
+ * CLASSE UtilisateurCerbereModelObs :<br/>
  * .<br/>
  * <br/>
  *
@@ -25,15 +25,17 @@ import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereD
  *
  * @author daniel.levy Lévy
  * @version 1.0
- * @since 18 févr. 2019
+ * @since 27 févr. 2019
  *
  */
-public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
+public class UtilisateurCerbereModelObs 
+			implements IUtilisateurCerbereModelObs {
 
 	// ************************ATTRIBUTS************************************/
-
+	
 	/**
-	 * serialVersionUID.<br/>
+	 * serialVersionUID : long :<br/>
+	 * .<br/>
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -51,114 +53,82 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 	 * "null".<br/>
 	 */
 	public static final String NULL = "null";
+
+
+	/**
+	 * ID en base (StringProperty).<br/>
+	 */
+	private StringProperty id;
 	
 	/**
-	 * "unused".<br/>
+	 * civilite (StringProperty).<br/>
 	 */
-	public static final String UNUSED = "unused";
+	private StringProperty civilite;
 	
-	/**
-	 * id en base sous forme de String.<br/>
-	 */
-	private String id;
-	
-	/**
-	 * civilité de l'utilisateur (M., Mme, Mlle, ...).<br/>
-	 */
-	private String civilite;
-	
-	/**
-	 * prénom de l'utilisateur.<br/>
-	 */
-	private String prenom;
-	
-	/**
-	 * nom de l'utilisateur.<br/>
-	 */
-	private String nom;
-	
-	/**
-	 * numéro de téléphone de l'utilisateur.<br/>
-	 */
-	private String tel;
-	
-	/**
-	 * adresse mel de l'utilisateur.<br/>
-	 */
-	private String email;
-	
-	/**
-	 * service de l'utilisateur.<br/>
-	 * <ul>
-	 * Par exemple :
-	 * <li><b>SG</b> pour SG/DAEI/CCDD1</li>
-	 * <li><b>CGDD</b> pour CGDD/SDES/SDST/BSRV</li>
-	 * <li><b>DIRA</b> pour DIRA/SIEER/CIGT/PC Bordeaux</li>
-	 * <li><b>CEREMA</b> pour CEREMA/DTerMed/DCEDI/GTIE</li>
-	 * <li><b>DGITM</b> pour DGITM/DIT/GRN/GCABron/GCA2</li>
-	 * </ul>
-	 */
-	private String service;
-	
-	/**
-	 * unité (dans le service) de l'utilisateur.<br/>
-	 * <ul>
-	 * Par exemple :
-	 * <li>SG/DAEI/CCDD1</li>
-	 * <li>CGDD/SDES/SDST/BSRV</li>
-	 * <li>DIRA/SIEER/CIGT/PC Bordeaux</li>
-	 * <li>CEREMA/DTerMed/DCEDI/GTIE</li>
-	 * <li>DGITM/DIT/GRN/GCABron/GCA2</li>
-	 * </ul>
-	 */
-	private String unite;
-	
-	/**
-	 * profil de l'utilisateur dans la session courante.<br/>
-	 * <ul>
-	 * Par exemple :
-	 * <li>ADMINISTRATEUR</li>
-	 * <li>GESTIONNAIRE</li>
-	 * </ul>
-	 */
-	private String profil;
-	
-	/**
-	 * portée du profil de l'utilisateur dans la session courante.<br/>
-	 * <ul>
-	 * Par exemple :
-	 * <li>DIRA</li>
-	 * <li>FRANCE ENTIERE</li>
-	 * </ul>
-	 */
-	private String portee;
-	
-	/**
-	 * restriction (facultative) sur la portée 
-	 * du profil de l'utilisateur dans la session courante.<br/>
-	 */
-	private String restriction;
+    /**
+     * prénom (StringProperty).<br/>
+     */
+    private StringProperty prenom;
+    
+    /**
+     * nom (StringProperty).<br/>
+     */
+    private StringProperty nom;
+    
+    /**
+     * tel (StringProperty).<br/>
+     */
+    private StringProperty tel;
+    
+    /**
+     * email (StringProperty).<br/>
+     */
+    private StringProperty email;
+    
+    /**
+     * service (StringProperty).<br/>
+     */
+    private StringProperty service;
+    
+    /**
+     * unite (StringProperty).<br/>
+     */
+    private StringProperty unite;
+    
+    /**
+     * profil (StringProperty).<br/>
+     */
+    private StringProperty profil;
+    
+    /**
+     * portee (StringProperty).<br/>
+     */
+    private StringProperty portee;
+    
+    /**
+     * restriction (StringProperty).<br/>
+     */
+    private StringProperty restriction;
 
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings(UNUSED)
+	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereDTO.class);
-
-	// *************************METHODES************************************/
+		= LogFactory.getLog(UtilisateurCerbereModelObs.class);
 	
+	// *************************METHODES************************************/
+
 	
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public UtilisateurCerbereDTO() {
+	public UtilisateurCerbereModelObs() {
 		
 		this(null
-				, null
-				, null, null
+				, null, null, null
 				, null, null
 				, null, null
 				, null, null, null);
@@ -167,91 +137,65 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 	
 	
 	
-	/**
+	 /**
 	 * CONSTRUCTEUR COMPLET.<br/>
 	 *
-	 * @param pCivilite : String : 
-	 * civilité de l'utilisateur (M., Mme, Mlle, ...).
-	 * @param pPrenom : String : 
-	 * prénom de l'utilisateur.<br/>
-	 * @param pNom : String : 
-	 * nom de l'utilisateur.<br/>
-	 * @param pTel : String : 
-	 * numéro de téléphone de l'utilisateur.<br/>
-	 * @param pEmail : String : 
-	 * adresse mel de l'utilisateur.<br/>
-	 * @param pService : String : 
-	 * service de l'utilisateur.<br/>
-	 * @param pUnite : String : 
-	 * unité (dans le service) de l'utilisateur.<br/>
-	 * @param pProfil : String : 
-	 * profil de l'utilisateur dans la session courante.<br/>
-	 * @param pPortee : String : 
-	 * portée du profil de l'utilisateur dans la session courante.<br/>
-	 * @param pRestriction : String : 
-	 * restriction (facultative) sur la portée
+	 * @param pCivilite : StringProperty : civilité.
+	 * @param pPrenom : StringProperty : prénom.
+	 * @param pNom : StringProperty : nom.
+	 * @param pTel : StringProperty : téléphone.
+	 * @param pEmail : StringProperty : email.
+	 * @param pService : StringProperty : service.
+	 * @param pUnite : StringProperty : unité.
+	 * @param pProfil : StringProperty : profil.
+	 * @param pPortee : StringProperty : portée.
+	 * @param pRestriction : StringProperty : restriction. 
 	 */
-	public UtilisateurCerbereDTO(
-			final String pCivilite
-			, final String pPrenom
-			, final String pNom
-			, final String pTel
-			, final String pEmail
-			, final String pService
-			, final String pUnite
-			, final String pProfil
-			, final String pPortee
-			, final String pRestriction) {
+	public UtilisateurCerbereModelObs(
+			final StringProperty pCivilite
+				, final StringProperty pPrenom
+					, final StringProperty pNom
+			, final StringProperty pTel, final StringProperty pEmail
+			, final StringProperty pService, final StringProperty pUnite
+			, final StringProperty pProfil
+			, final StringProperty pPortee
+			, final StringProperty pRestriction) {
 		
 		this(null
-				, pCivilite
-				, pPrenom, pNom
+				, pCivilite, pPrenom, pNom
 				, pTel, pEmail
 				, pService, pUnite
 				, pProfil, pPortee, pRestriction);
 		
 	} // Fin de CONSTRUCTEUR COMPLET.______________________________________
-	
+
 	
 	
 	 /**
 	 * CONSTRUCTEUR COMPLET BASE.<br/>
 	 *
-	 * @param pId : String : 
-	 * ID en base.
-	 * @param pCivilite : String : 
-	 * civilité de l'utilisateur (M., Mme, Mlle, ...).
-	 * @param pPrenom : String : 
-	 * prénom de l'utilisateur.<br/>
-	 * @param pNom : String : 
-	 * nom de l'utilisateur.<br/>
-	 * @param pTel : String : 
-	 * numéro de téléphone de l'utilisateur.<br/>
-	 * @param pEmail : String : 
-	 * adresse mel de l'utilisateur.<br/>
-	 * @param pService : String : 
-	 * service de l'utilisateur.<br/>
-	 * @param pUnite : String : 
-	 * unité (dans le service) de l'utilisateur.<br/>
-	 * @param pProfil : String : 
-	 * profil de l'utilisateur dans la session courante.<br/>
-	 * @param pPortee : String : 
-	 * portée du profil de l'utilisateur dans la session courante.<br/>
-	 * @param pRestriction : String : 
-	 * restriction (facultative) sur la portée
+	 * @param pId : StringProperty : ID en base.
+	 * @param pCivilite : StringProperty : civilité.
+	 * @param pPrenom : StringProperty : prénom.
+	 * @param pNom : StringProperty : nom.
+	 * @param pTel : StringProperty : téléphone.
+	 * @param pEmail : StringProperty : email.
+	 * @param pService : StringProperty : service.
+	 * @param pUnite : StringProperty : unité.
+	 * @param pProfil : StringProperty : profil.
+	 * @param pPortee : StringProperty : portée.
+	 * @param pRestriction : StringProperty : restriction. 
 	 */
-	public UtilisateurCerbereDTO(
-			final String pId
-			, final String pCivilite
-			, final String pPrenom
-			, final String pNom
-			, final String pTel
-			, final String pEmail
-			, final String pService
-			, final String pUnite
-			, final String pProfil
-			, final String pPortee
-			, final String pRestriction) {
+	public UtilisateurCerbereModelObs(
+			final StringProperty pId
+				, final StringProperty pCivilite
+					, final StringProperty pPrenom
+						, final StringProperty pNom
+			, final StringProperty pTel, final StringProperty pEmail
+			, final StringProperty pService, final StringProperty pUnite
+			, final StringProperty pProfil
+			, final StringProperty pPortee
+			, final StringProperty pRestriction) {
 		
 		super();
 		
@@ -269,15 +213,17 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 		
 	} // Fin de CONSTRUCTEUR COMPLET BASE._________________________________
 
-
 	
+		
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final int hashCode() {
-		return Objects.hash(this.getNom(), this.getPrenom()
-				, this.getEmail(), this.getUnite());
+		
+		return Objects.hash(this.nom.get(), this.prenom.get()
+				, this.email.get(), this.unite.get());
+		
 	} // Fin de hashCode().________________________________________________
 
 
@@ -297,16 +243,16 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 			return false;
 		}
 		
-		if (!(pObjet instanceof IUtilisateurCerbereDTO)) {
+		if (!(pObjet instanceof IUtilisateurCerbereModelObs)) {
 			return false;
 		}
 		
-		final IUtilisateurCerbereDTO other 
-			= (IUtilisateurCerbereDTO) pObjet;
+		final IUtilisateurCerbereModelObs other 
+			= (IUtilisateurCerbereModelObs) pObjet;
 		
-		return Objects.equals(this.getNom(), other.getNom()) 
-				&& Objects.equals(this.getPrenom(), other.getPrenom())
-				&& Objects.equals(this.getEmail(), other.getEmail()) 
+		return Objects.equals(this.getNom(), other.getNom()) 					 
+				&& Objects.equals(this.getPrenom(), other.getPrenom()) 
+				&& Objects.equals(this.getEmail(), other.getEmail())
 				&& Objects.equals(this.getUnite(), other.getUnite());
 		
 	} // Fin de equals(...)._______________________________________________
@@ -318,13 +264,13 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 	 */
 	@Override
 	public final int compareTo(
-			final IUtilisateurCerbereDTO pObjet) {
+			final IUtilisateurCerbereModelObs pObject) {
 		
-		if (this == pObjet) {
+		if (this == pObject) {
 			return 0;
 		}
 
-		if (pObjet == null) {
+		if (pObject == null) {
 			return -1;
 		}
 
@@ -333,95 +279,136 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 		int compareEmail = 0;
 		int compareUnite = 0;
 		
-		/* nom. */
-		if (this.getNom() == null) {
-			if (pObjet.getNom() != null) {
+		/* Nom. */
+		if (this.getNomProperty() == null) {
+			if (pObject.getNomProperty() != null) {
 				return +1;
 			}
-		} else {
-			
-			if (pObjet.getNom() == null) {
-				return -1;
+		} else if (pObject.getNomProperty() == null) {
+			return -1;
+		}
+		
+		if (this.getNom() == null) {
+			if (pObject.getNom() != null) {
+				return +1;
 			}
+		} else if (pObject.getNom() == null) {
+			return -1;
+		}
+		
+		if (this.getNom() != null && pObject.getNom() != null) {
 			
 			compareNom 
-			= this.getNom().compareToIgnoreCase(pObjet.getNom());
-		
+				= this.getNom()
+					.compareToIgnoreCase(pObject.getNom());
+			
 			if (compareNom != 0) {
 				return compareNom;
 			}
+			
 		}
-				
+		
+		
 		/* prenom. */
-		if (this.getPrenom() == null) {
-			if (pObjet.getPrenom() != null) {
+		if (this.getPrenomProperty() == null) {
+			if (pObject.getPrenomProperty() != null) {
 				return +1;
 			}
-		} else {
-			
-			if (pObjet.getPrenom() == null) {
-				return -1;
+		} else if (pObject.getPrenomProperty() == null) {
+			return -1;
+		}
+		
+		if (this.getPrenom() == null) {
+			if (pObject.getPrenom() != null) {
+				return +1;
 			}
+		} else if (pObject.getPrenom() == null) {
+			return -1;
+		}
+		
+		if (this.getPrenom() != null && pObject.getPrenom() != null) {
 			
 			comparePrenom 
-			= this.getPrenom().compareToIgnoreCase(pObjet.getPrenom());
-		
+				= this.getPrenom()
+				.compareToIgnoreCase(pObject.getPrenom());
+			
 			if (comparePrenom != 0) {
 				return comparePrenom;
 			}
 		}
 		
-		/* email. */
-		if (this.getEmail() == null) {
-			if (pObjet.getEmail() != null) {
+		/* Email. */
+		if (this.getEmailProperty() == null) {
+			if (pObject.getEmailProperty() != null) {
 				return +1;
 			}
-		} else {
-			
-			if (pObjet.getEmail() == null) {
-				return -1;
+		} else if (pObject.getEmailProperty() == null) {
+			return -1;
+		}
+		
+		if (this.getEmail() == null) {
+			if (pObject.getEmail() != null) {
+				return +1;
 			}
+		} else if (pObject.getEmail() == null) {
+			return -1;
+		}
+		
+		if (this.getEmail() != null && pObject.getEmail() != null) {
 			
 			compareEmail 
-			= this.getEmail().compareToIgnoreCase(pObjet.getEmail());
-		
+				= this.getEmail()
+					.compareToIgnoreCase(pObject.getEmail());
+			
 			if (compareEmail != 0) {
 				return compareEmail;
 			}
+			
 		}
 		
+		
 		/* unite. */
-		if (this.getUnite() == null) {
-			if (pObjet.getUnite() != null) {
+		if (this.getUniteProperty() == null) {
+			if (pObject.getUniteProperty() != null) {
 				return +1;
 			}
 			
 			return 0;
+			
+		} else if (pObject.getUniteProperty() == null) {
+			return -1;
 		}
 		
-		if (pObjet.getUnite() == null) {
+		if (this.getUnite() == null) {
+			if (pObject.getUnite() != null) {
+				return +1;
+			}
+			
+			return 0;
+			
+		} else if (pObject.getUnite() == null) {
 			return -1;
 		}
 		
 		compareUnite 
-			= this.getUnite().compareToIgnoreCase(pObjet.getUnite());
-		
+			= this.getUnite().compareTo(pObject.getUnite());
+
 		return compareUnite;
 
 	} // Fin de compareTo(...).____________________________________________
 
-
+	
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final UtilisateurCerbereDTO clone() 
+	public final UtilisateurCerbereModelObs clone() 
 				throws CloneNotSupportedException {
 		
-		final IUtilisateurCerbereDTO clone 
-			= (IUtilisateurCerbereDTO) super.clone();
-				
+		final UtilisateurCerbereModelObs clone 
+			= (UtilisateurCerbereModelObs) super.clone();
+		
 		clone.setId(this.getId());
 		clone.setCivilite(this.getCivilite());
 		clone.setPrenom(this.getPrenom());
@@ -434,7 +421,7 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 		clone.setPortee(this.getPortee());
 		clone.setRestriction(this.getRestriction());
 		
-		return (UtilisateurCerbereDTO) clone;
+		return clone;
 		
 	} // Fin de clone().___________________________________________________
 
@@ -448,7 +435,7 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 		
 		final StringBuilder builder = new StringBuilder();
 		
-		builder.append("UtilisateurCerbereDTO [");
+		builder.append("UtilisateurCerbereModelObs [");
 		
 		builder.append("id=");
 		if (this.getId() != null) {			
@@ -552,8 +539,8 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 		return builder.toString();
 		
 	} // Fin de toString().________________________________________________
-
-
+	
+	
 
 	/**
 	 * {@inheritDoc}
@@ -562,8 +549,8 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 	public final String fournirEnTeteCsv() {
 		return "id;civilite;prenom;nom;tel;email;service;unite;profil;portee;restriction;";
 	} // Fin de fournirEnTeteCsv().________________________________________
-
-
+	
+	
 
 	/**
 	 * {@inheritDoc}
@@ -600,7 +587,7 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 		
 	} // Fin de fournirStringCsv().________________________________________
 
-
+	
 
 	/**
 	 * {@inheritDoc}
@@ -667,7 +654,7 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 
 	} // Fin de fournirEnTeteColonne(...)._________________________________
 
-
+	
 
 	/**
 	 * {@inheritDoc}
@@ -735,121 +722,199 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 	} // Fin de fournirValeurColonne(...)._________________________________
 
 
-
+		
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getId() {	
-		return this.id;
+	public final String getId() {
+		if (this.id != null) {
+			return this.id.get();
+		}
+		return null;
 	} // Fin de getId().___________________________________________________
 
-
-
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setId(
-			final String pId) {	
-		this.id = pId;
+			final String pId) {
+		if (this.id != null) {
+			this.id.set(pId);
+		}		
 	} // Fin de setId(...).________________________________________________
 
-
+	
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getCivilite() {
-		return this.civilite;
-	} // Fin de getCivilite()._____________________________________________
-
-
+	public final StringProperty getIdProperty() {
+		return this.id;
+	} // Fini de getIdProperty().__________________________________________
 	
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getCivilite() {
+		if (this.civilite != null) {
+			return this.civilite.get();
+		}
+		return null;
+	} // Fin de getCivilite()._____________________________________________
+	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setCivilite(
 			final String pCivilite) {
-		this.civilite = pCivilite;
+		if (this.civilite != null) {
+			this.civilite.set(pCivilite);
+		}	
 	} // Fin de setCivilite(...).__________________________________________
+	
+	
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getCiviliteProperty() {
+		return this.civilite;
+	} // Fin de getCiviliteProperty()._____________________________________
 
+	
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getPrenom() {
-		return this.prenom;
+		if (this.prenom != null) {
+			return this.prenom.get();
+		}
+		return null;
 	} // Fin de getPrenom()._______________________________________________
-
-
 	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setPrenom(
 			final String pPrenom) {
-		this.prenom = pPrenom;
+		if (this.prenom != null) {
+			this.prenom.set(pPrenom);
+		}		
 	} // Fin de setPrenom(...).____________________________________________
-
-
 	
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getPrenomProperty() {
+		return this.prenom;
+	} // Fin de getPrenomProperty()._______________________________________
+	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getNom() {
-		return this.nom;
+		if (this.nom != null) {
+			return this.nom.get();
+		}
+		return null;
 	} // Fin de getNom().__________________________________________________
-
-
 	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setNom(
 			final String pNom) {
-		this.nom = pNom;
+		if (this.nom != null) {
+			this.nom.set(pNom);
+		}		
 	} // Fin de setNom(...)._______________________________________________
-
-
 	
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getNomProperty() {
+		return this.nom;
+	} // Fin de getNomProperty().__________________________________________
+	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getTel() {
-		return this.tel;
+		if (this.tel != null) {
+			return this.tel.get();
+		}
+		return null;
 	} // Fin de getTel().__________________________________________________
-
-
 	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setTel(
 			final String pTel) {
-		this.tel = pTel;
+		if (this.tel != null) {
+			this.tel.set(pTel);
+		}		
 	} // Fin de setTel(...)._______________________________________________
-
-
 	
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getTelProperty() {
+		return this.tel;
+	} // Fin de getTelProperty().__________________________________________
+	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getEmail() {
-		return this.email;
+		if (this.email != null) {
+			return this.email.get();
+		}
+		return null;
 	} // Fin de getEmail().________________________________________________
-
-
+	
+	
 
 	/**
 	 * {@inheritDoc}
@@ -857,62 +922,107 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 	@Override
 	public final void setEmail(
 			final String pEmail) {
-		this.email = pEmail;
+		if (this.email != null) {
+			this.email.set(pEmail);
+		}		
 	} // Fin de setEmail(...)._____________________________________________
-
-
 	
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getEmailProperty() {
+		return this.email;
+	} // Fin de getEmailProperty().________________________________________
+	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getService() {
-		return this.service;
+		if (this.service != null) {
+			return this.service.get();
+		}
+		return null;
 	} // Fin de getService().______________________________________________
-
-
 	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setService(
 			final String pService) {
-		this.service = pService;
+		if (this.service != null) {
+			this.service.set(pService);
+		}		
 	} // Fin de setService(...).___________________________________________
-
-
 	
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getServiceProperty() {
+		return this.service;
+	} // Fin de getServiceProperty().______________________________________
+	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getUnite() {
-		return this.unite;
+		if (this.unite != null) {
+			return this.unite.get();
+		}
+		return null;
 	} // Fin de getUnite().________________________________________________
-
-
 	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setUnite(
 			final String pUnite) {
-		this.unite = pUnite;
+		if (this.unite != null) {
+			this.unite.set(pUnite);
+		}		
 	} // Fin de setUnite(...)._____________________________________________
+	
+	
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getUniteProperty() {
+		return this.unite;
+	} // Fin de getUniteProperty().________________________________________
 
+	
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getProfil() {
-		return this.profil;
+		if (this.profil != null) {
+			return this.profil.get();
+		}
+		return null;
 	} // Fin de getProfil()._______________________________________________
 
-
+	
 	
 	/**
 	 * {@inheritDoc}
@@ -920,41 +1030,71 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 	@Override
 	public final void setProfil(
 			final String pProfil) {
-		this.profil = pProfil;
+		if (this.profil != null) {
+			this.profil.set(pProfil);
+		}		
 	} // Fin de setProfil(...).____________________________________________
 
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getProfilProperty() {
+		return this.profil;
+	} // Fin de getProfilProperty()._______________________________________
 
+	
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getPortee() {
-		return this.portee;
+		if (this.portee != null) {
+			return this.portee.get();
+		}
+		return null;
 	} // Fin de getPortee()._______________________________________________
-
-
 	
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setPortee(
 			final String pPortee) {
-		this.portee = pPortee;
+		if (this.portee != null) {
+			this.portee.set(pPortee);
+		}		
 	} // Fin de setPortee(...).____________________________________________
 
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getPorteeProperty() {
+		return this.portee;
+	} // Fin de getPorteeProperty()._______________________________________
 
+	
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getRestriction() {
-		return this.restriction;
+		if (this.restriction != null) {
+			return this.restriction.get();
+		}
+		return null;
 	} // Fin de getRestriction().__________________________________________
 
-
+	
 	
 	/**
 	 * {@inheritDoc}
@@ -962,9 +1102,21 @@ public class UtilisateurCerbereDTO implements IUtilisateurCerbereDTO {
 	@Override
 	public final void setRestriction(
 			final String pRestriction) {
-		this.restriction = pRestriction;
+		if (this.restriction != null) {
+			this.restriction.set(pRestriction);
+		}		
 	} // Fin de setRestriction(...)._______________________________________
+
 	
-			
 	
-} // FIN DE LA CLASSE UtilisateurCerbereDTO.----------------------------------
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final StringProperty getRestrictionProperty() {
+		return this.restriction;
+	} // Fin de getRestrictionProperty().__________________________________
+
+	
+
+} // FIN DE LA CLASSE UtilisateurCerbereModelObs.----------------------------
