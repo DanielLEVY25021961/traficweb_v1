@@ -711,14 +711,14 @@ public class ConfigurateurJPAH2File {
 		 * fixe le nom de l'unité de persistence avec 
 		 * la valeur lue dans le fichier properties.
 		 */
-		final String persistenceUnitName 
+		final String persistenceUnitName  // NOPMD by daniel.levy on 28/02/19 09:27
 			= this.environmentSpring.getProperty(
 				"javax.persistence.jdbc.persistence-unit.name");
 
 		
 		// JPAVENDORADAPTER
 		/* stipule que l'ORM est HIBERNATE. */
-		final String persistenceProviderClassName 
+		final String persistenceProviderClassName  // NOPMD by daniel.levy on 28/02/19 09:26
 			= this.vendorAdapterHibernate().getClass().getName();
 
 		
@@ -737,8 +737,8 @@ public class ConfigurateurJPAH2File {
 		
 		
 		// DATASOURCE
-		DataSource jtaDataSource = null;
-		DataSource nonJtaDataSource = null;
+		DataSource jtaDataSource = null; // NOPMD by daniel.levy on 28/02/19 09:27
+		DataSource nonJtaDataSource = null; // NOPMD by daniel.levy on 28/02/19 09:27
 		
 		if (transactionType == null) {
 			

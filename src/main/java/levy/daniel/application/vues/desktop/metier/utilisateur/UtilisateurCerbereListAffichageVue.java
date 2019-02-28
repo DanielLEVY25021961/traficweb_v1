@@ -256,8 +256,8 @@ public class UtilisateurCerbereListAffichageVue extends AnchorPane {
 	 */
 	private void configurerComposants() {
 		
-		this.tableView.setPrefWidth(1000d);
-		this.tableView.setPrefHeight(800d);
+		this.tableView.setPrefWidth(1200d);
+		this.tableView.setPrefHeight(400d);
 		
 	} // Fin de configurerComposants().____________________________________
 
