@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
 import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
-import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2File;
+import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2Memory;
 
 /**
  * CLASSE UtilisateurCerbereServiceTest :<br/>
@@ -50,7 +50,7 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
-@ContextConfiguration(classes= {ConfigurateurSpringFrmkAnnotationJPAH2File.class})
+@ContextConfiguration(classes= {ConfigurateurSpringFrmkAnnotationJPAH2Memory.class})
 public class UtilisateurCerbereServiceTest {
 
 	// ************************ATTRIBUTS************************************/

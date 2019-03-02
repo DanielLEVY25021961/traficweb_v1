@@ -14,18 +14,12 @@ import org.hibernate.jpa.boot.spi.Bootstrap;
 import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import levy.daniel.application.model.utilitaires.jpa.afficheurentitymanagerfactory.AfficheurEntityManagerFactory;
 import levy.daniel.application.model.utilitaires.jpa.datasource.IMyDataSource;
@@ -67,10 +61,10 @@ import levy.daniel.application.model.utilitaires.spring.configurateurpersistence
  * @since 27 janv. 2019
  *
  */
-@Configuration(value="ConfigurateurSpringJPAH2File")
-@PropertySources({@PropertySource("classpath:configurations_bases_jpa/configuration_H2_file.properties")})
-@EnableTransactionManagement
-@ComponentScans({@ComponentScan("levy.daniel.application.model.persistence")})
+//@Configuration(value="ConfigurateurSpringJPAH2File")
+//@PropertySources({@PropertySource("classpath:configurations_bases_jpa/configuration_H2_file.properties")})
+//@EnableTransactionManagement
+//@ComponentScans({@ComponentScan("levy.daniel.application.model.persistence")})
 public class ConfigurateurSpringJPAH2File {
 
 	// ************************ATTRIBUTS************************************/
@@ -117,9 +111,7 @@ public class ConfigurateurSpringJPAH2File {
 	
 	
 	/**
-	 * <b>fournit un bean <i>org.springframework.orm.
-	 * jpa.LocalContainerEntityManagerFactoryBean</i> 
-	 * équivalent à <i>javax.persistence.EntityManagerFactory</i> 
+	 * <b>fournit un bean <i>javax.persistence.EntityManagerFactory</i> 
 	 * au CONTEXTE SPRING pour l'injection</b>.<br/>
 	 * <ul>
 	 * <li><b>fabrique l'EntityManagerFactory</b> en lisant 
@@ -140,7 +132,7 @@ public class ConfigurateurSpringJPAH2File {
 	 * le bean s'appellerait "toto" dans le contexte.</li>
 	 * </ul>
 	 *
-	 * @return : LocalContainerEntityManagerFactoryBean : 
+	 * @return : EntityManagerFactory : 
 	 * Proxy du EntityManagerFactory.<br/>
 	 * 
 	 * @throws Exception 
@@ -178,11 +170,7 @@ public class ConfigurateurSpringJPAH2File {
 
 		final Map<String, Object> configuration	
 			= new HashMap<String, Object>();
-		
-//		entityManagerFactory 
-//		= new HibernatePersistenceProvider().createContainerEntityManagerFactory(
-//				mutablePersistenceUnitInfo, configuration);
-		
+			
 		final EntityManagerFactoryBuilder entityManagerFactoryBuilder 
 			= Bootstrap.getEntityManagerFactoryBuilder(
 					mutablePersistenceUnitInfo, configuration);
@@ -197,41 +185,6 @@ public class ConfigurateurSpringJPAH2File {
 		return entityManagerFactory;
 					
 	} // Fin de entityManagerFactory().____________________________________
-	
-
-	
-	/**
-	 * <b>Instancie un IMyDataSource, l'alimente
-	 * avec [URL, DRIVER, LOGIN, MDP, valeurs de POOL]</b> 
-	 * contenu dans <code>this.lecteurConfigurationBaseSpring</code> 
-	 * et <b>retourne un javax.sql.DataSource pour l'injecter 
-	 * dans le CONTEXTE SPRING</b>.<br/>
-	 * <ul>
-	 * <li>lit l'URL de la BASE dans le properties 
-	 * et l'injecte dans la DataSource.</li>
-	 * <li>lit le DRIVER de la BASE dans le properties 
-	 * et l'injecte dans la DataSource.</li>
-	 * <li>lit le [Login + Mdp] à la base dans le properties 
-	 * et l'injecte dans le DataSource.</li>
-	 * <li>lit les valeurs du POOL DE CONNEXION à la base dans le properties 
-	 * et l'injecte dans le DataSource.</li>
-	 * </ul>
-	 *
-	 * @return : DataSource : javax.sql.DataSource.<br/>
-	 */
-//	@Bean
-//	public DataSource dataSource() {
-//		
-//		final IMyDataSource myDataSource 
-//			= new MyDataSourceC3P0(this.lecteurConfigurationBaseSpring);
-//		
-//		System.out.println();
-//		System.out.println("=======DANS dataSource() de ConfigurateurSpringJPAH2File() ======");
-//		System.out.println(myDataSource.afficherDataSource());
-//		
-//		return myDataSource.getDataSource();
-//		
-//	} // Fin de dataSource().______________________________________________
 	
 	
 	
@@ -419,4 +372,4 @@ public class ConfigurateurSpringJPAH2File {
 
 	
 	
-}
+} // FIN DE LA CLASSE ConfigurateurSpringJPAH2File.--------------------------

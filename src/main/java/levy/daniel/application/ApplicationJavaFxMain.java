@@ -1,14 +1,18 @@
-package levy.daniel.application.vues.desktop.metier.utilisateur;
+package levy.daniel.application;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2Memory;
+import levy.daniel.application.vues.desktop.metier.utilisateur.UtilisateurCerbereCreationVue;
 
 /**
- * CLASSE UtilisateurCerbereAffichageVueMain :<br/>
+ * CLASSE ApplicationJavaFxMain :<br/>
  * .<br/>
  * <br/>
  *
@@ -24,28 +28,34 @@ import javafx.stage.Stage;
  *
  * @author dan Lévy
  * @version 1.0
- * @since 25 févr. 2019
+ * @since 28 févr. 2019
  *
  */
-public class UtilisateurCerbereCreationVueMain extends Application {
+public class ApplicationJavaFxMain extends Application {
 
 	// ************************ATTRIBUTS************************************/
 
+	/**
+	 * contexte SPRING.<br/>
+	 */
+	private static transient ApplicationContext context;
+	
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereCreationVueMain.class);
-
+		= LogFactory.getLog(ApplicationJavaFxMain.class);
 	
+
 	// *************************METHODES************************************/
 		
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public UtilisateurCerbereCreationVueMain() {
+	public ApplicationJavaFxMain() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -57,7 +67,7 @@ public class UtilisateurCerbereCreationVueMain extends Application {
 	@Override
 	public void start(
 			final Stage pPrimaryStage) throws Exception {
-		
+				
 		/* vue à afficher. */
 		final UtilisateurCerbereCreationVue vue 
 			= new UtilisateurCerbereCreationVue();
@@ -80,18 +90,40 @@ public class UtilisateurCerbereCreationVueMain extends Application {
 
 	} // Fin de start(...).________________________________________________
 	
+
+	
+	/**
+	 * instancie le contexte SPRING.<br/>
+	 */
+	private static void instancierContexteSpring() {
+		
+		context = new AnnotationConfigApplicationContext(
+				ConfigurateurSpringFrmkAnnotationJPAH2Memory.class);
+		
+	} // Fin de instancierContexteSpring().________________________________
+	
 	
 	
 	/**
 	 * Point d'entrée de l'application.<br/>
+	 * <ul>
+	 * <li>instancie le contexte SPRING.</li>
+	 * <li>lance l'application Javafx.</li>
+	 * </ul>
 	 *
 	 * @param pArgs : String[].<br/>
 	 */
 	public static void main(
 			final String... pArgs) {
+		
+		/* instancie le contexte SPRING. */
+		instancierContexteSpring();
+		
+		/* lance l'application Javafx. */
 		 Application.launch(pArgs);
+		 
     } // Fin de main(...)._________________________________________________
+
 	
 
-
-} // FIN DE LA CLASSE UtilisateurCerbereAffichageVueMain.--------------------
+} // FIN DE LA CLASSE ApplicationJavaFxMain.---------------------------------

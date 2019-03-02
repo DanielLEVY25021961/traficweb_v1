@@ -202,7 +202,8 @@ public class UtilisateurCerbereListAffichageVue extends AnchorPane {
 	 * <li>configure tous les composants (labels, TableView, ...).</li>
 	 * <li>positionne chaque composants dans un Constraints de GridPane.</li>
 	 * <li>ajoute chaque composant dans le GridPane.</li>
-	 * <li>ajoute le gridPane au présent AnchorPane.</li>
+	 * <li>configure this.gridPane.</li>
+	 * <li>encapsule this.gridPane dans la présente VUE (AnchorPane).</li>
 	 * </ul>
 	 */
 	private void configurerVue() {
@@ -214,23 +215,13 @@ public class UtilisateurCerbereListAffichageVue extends AnchorPane {
 		this.positionnerComposantsDansConstraints();
 		
 		/* ajoute chaque composant dans le GridPane. */
-		this.gridPane.getChildren().addAll(this.tableView);
+		this.ajouterComposantsDansGridPane();
 		
-		/* change la couleur de fond du GridPane. */
-		/* surcharge la couleur dans la CSS. */
-		/* #ececec */
-		/* #C0C0C0 */
-		this.gridPane.setStyle("-fx-background-color: #ececec;");
+		/* configure this.gridPane. */
+		this.configurerGridPaneEnfant();
 		
-		/* affiche les lignes de la grille du GridPane. */
-		this.gridPane.setGridLinesVisible(false);
-		
-		/* ajoute une classe CSS à this.gridPane 
-		 * (les GridPanes n'ont pas de classe CSS par défaut). */
-		this.gridPane.getStyleClass().add("gridpane");
-		
-		/* ajoute le gridPane au présent AnchorPane. */
-		this.getChildren().add(this.gridPane);
+		/* encapsule this.gridPane dans la présente VUE (AnchorPane). */
+		this.encapsulerGridPaneEnfant();
 		
 		/* fixe les distances entre le contenu (this.gridPane) 
 		 * et le présent conteneur AnchorPane. */
@@ -245,8 +236,7 @@ public class UtilisateurCerbereListAffichageVue extends AnchorPane {
 		/* ajoute une classe CSS au présent AnchorPane 
 		 * (les AnchorPanes n'ont pas de classe CSS par défaut). */
 		this.getStyleClass().add("anchorpane");
-
-		
+	
 	} // Fin de configurerComposants().____________________________________
 	
 	
@@ -277,6 +267,48 @@ public class UtilisateurCerbereListAffichageVue extends AnchorPane {
 									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 	} // Fin de positionnerComposantsDansConstraints().____________________
+	
+
+	
+	/**
+	 * ajoute chaque composant dans le GridPane.<br/>
+	 */
+	private void ajouterComposantsDansGridPane() {
+		
+		this.gridPane.getChildren().addAll(this.tableView);
+		
+	} // Fin de ajouterComposantsDansGridPane().___________________________
+	
+	
+	
+	/**
+	 * configure this.gridPane.<br/>
+	 */
+	private void configurerGridPaneEnfant() {
+		
+		/* change la couleur de fond du GridPane. */
+		/* surcharge la couleur dans la CSS. */
+		/* #ececec */
+		/* #C0C0C0 */
+		this.gridPane.setStyle("-fx-background-color: #ececec;");
+		
+		/* affiche les lignes de la grille du GridPane. */
+		this.gridPane.setGridLinesVisible(false);
+		
+		/* ajoute une classe CSS à this.gridPane 
+		 * (les GridPanes n'ont pas de classe CSS par défaut). */
+		this.gridPane.getStyleClass().add("gridpane");
+
+	} // Fin de configurerGridPaneEnfant().________________________________
+	
+
+	
+	/**
+	 * encapsule this.gridPane dans la présente VUE (AnchorPane).<br/>
+	 */
+	private void encapsulerGridPaneEnfant() {
+		this.getChildren().add(this.gridPane);
+	} // Fin de encapsulerGridPaneEnfant().________________________________
 	
 	
 	

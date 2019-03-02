@@ -279,6 +279,12 @@ public class MyDataSourceHikari implements IMyDataSource {
 		this.poolTimeOut = pPoolTimeOut;
 		this.poolMaxSize = pPoolMaxStatements;
 		
+		try {
+	        Class.forName(this.driver);
+	    } catch (ClassNotFoundException e) {
+	        e.printStackTrace();
+	    }
+		
 		final HikariConfig config = new HikariConfig();
         
 		config.setJdbcUrl(this.url);

@@ -3,12 +3,6 @@ package levy.daniel.application.model.utilitaires.spring.configurateurspring;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.Import;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
 import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpaspring.impl.UtilisateurCerbereDAOJPASpring;
@@ -62,11 +56,11 @@ import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpasprin
  * @since 13 janv. 2019
  *
  */
-@Configuration(value="ConfigurateurSpringFrmkAnnotationJPAH2File")
-@Import(value={levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2File.class})
-@EnableAspectJAutoProxy
-@EnableTransactionManagement
-@ComponentScans({@ComponentScan("levy.daniel.application")})
+//@Configuration(value="ConfigurateurSpringFrmkAnnotationJPAH2File")
+//@Import(value={levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2File.class})
+//@EnableAspectJAutoProxy
+//@EnableTransactionManagement
+//@ComponentScans({@ComponentScan("levy.daniel.application")})
 public class ConfigurateurSpringFrmkAnnotationJPAH2File {
 
 	// ************************ATTRIBUTS************************************/

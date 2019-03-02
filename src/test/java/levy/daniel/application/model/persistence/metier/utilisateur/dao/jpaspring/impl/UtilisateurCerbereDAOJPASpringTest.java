@@ -38,7 +38,7 @@ import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
 import levy.daniel.application.model.persistence.daoexceptions.AbstractDaoException;
 import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
 import levy.daniel.application.model.utilitaires.spring.afficheurcontexte.AfficheurContexteSpring;
-import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2File;
+import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2Memory;
 
 /**
  * CLASSE UtilisateurCerbereDAOJPASpringTest :<br/>
@@ -72,7 +72,7 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
-@ContextConfiguration(classes= {ConfigurateurSpringFrmkAnnotationJPAH2File.class})
+@ContextConfiguration(classes= {ConfigurateurSpringFrmkAnnotationJPAH2Memory.class})
 public class UtilisateurCerbereDAOJPASpringTest {
 
 	// ************************ATTRIBUTS************************************/
@@ -128,7 +128,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * Passer cette valeur à false si on souhaite 
 	 * consulter la table après un test.
 	 */
-	public static final boolean VALEUR_ROLLBACK = false;
+	public static final boolean VALEUR_ROLLBACK = true;
 	
 	/**
 	 * "unused".<br/>
@@ -1052,9 +1052,9 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		super();
 		
-		System.out.println();
-		System.out.println("DANS LE CONSTRUCTEUR DU TEST");
-		System.out.println("CONTEXTE SPRING : " + contexteSpring);
+//		System.out.println();
+//		System.out.println("DANS LE CONSTRUCTEUR DU TEST");
+//		System.out.println("CONTEXTE SPRING : " + contexteSpring);
 		
 	} // Fin du CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -2718,7 +2718,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 
 		/* AFFICHAGE A LA CONSOLE. */
@@ -8321,10 +8321,10 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	public void setContextInjectable(
 			final GenericApplicationContext pContextInjectable) {
 		
-		System.out.println();
-		System.out.println("****************INJECTION DU CONTEXTE DANS LE SETTER setContextInjectable(...)**************");
-		System.out.println(pContextInjectable);
-		System.out.println();
+//		System.out.println();
+//		System.out.println("****************INJECTION DU CONTEXTE DANS LE SETTER setContextInjectable(...)**************");
+//		System.out.println(pContextInjectable);
+//		System.out.println();
 		
 		this.contextInjectable = pContextInjectable;
 		
@@ -8580,9 +8580,10 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	@BeforeClass
   public static void avantTests() throws Exception {
 		
-		System.out.println();
-		System.out.println("AVANT TOUS LES TESTS (AVANT CLASSE)");
-		System.out.println("CONTEXTE SPRING : " + contexteSpring);
+		/**/
+//		System.out.println();
+//		System.out.println("AVANT TOUS LES TESTS (AVANT CLASSE)");
+//		System.out.println("CONTEXTE SPRING : " + contexteSpring);
 		
 	} // Fin de avantTests().______________________________________________
 
@@ -8600,10 +8601,12 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	@Before
 	public void avantChaqueTest() throws Exception {
 		
-		System.out.println();		
-		System.out.println("AVANT CHAQUE TEST");
-		System.out.println("CONTEXTE SPRING : " + contexteSpring);
-		System.out.println();
+		/**/
+		
+//		System.out.println();		
+//		System.out.println("AVANT CHAQUE TEST");
+//		System.out.println("CONTEXTE SPRING : " + contexteSpring);
+//		System.out.println();
 		
 	} // Fin de avantChaqueTest()._________________________________________
 	
