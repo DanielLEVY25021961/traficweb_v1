@@ -211,26 +211,18 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 			 * auprès du CONTROLLER métier. */
 			final List<IUtilisateurCerbere> listeObjets 
 				= this.utilisateurCerbereController.findAll();
-			
-			System.out.println(listeObjets);
-			
+					
 			/* convertit la liste d'objets metier en liste 
 			 * de DTO Observable. */
 			final ObservableList<IUtilisateurCerbereModelObs> listDTO 
 				= UtilisateurCerbereConvertisseurObservableDTO
 					.convertirListObjetsEnObservableList(listeObjets);
 			
-			if (listDTO == null) {
-				System.out.println("******** LA LISTE D'OBSERVABLE est NULL *********");
-			}
 			/* injecte la liste de DTO Observable 
 			 * dans le TableView pour affichage. */
 			this.listeobjetsAnchorPane.injecterModelDansTableView(listDTO);
 			
-		} else {
-			System.out.println("******** LE CONTROLLER EST NULL *********");
 		}
-		
 		
 	} // Fin de initialiserModel().________________________________________
 	
@@ -374,7 +366,7 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	private void configurerPanneauListeObjets() {
 		
 		this.panneauListeObjets.setPrefWidth(1200d);
-		this.panneauListeObjets.setPrefHeight(1000d);
+		this.panneauListeObjets.setPrefHeight(600d);
 		
 		final GridPane gridPaneListeObjets = new GridPane();
 		

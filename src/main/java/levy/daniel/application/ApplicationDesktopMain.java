@@ -1,19 +1,21 @@
 package levy.daniel.application;
 
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
+import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
+import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
+import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
 import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2File;
-import levy.daniel.application.vues.desktop.metier.utilisateur.UtilisateurCerbereAccueilVue;
+
 
 /**
- * CLASSE ApplicationJavaFxMain :<br/>
+ * CLASSE ApplicationDesktopMain :<br/>
  * .<br/>
  * <br/>
  *
@@ -27,12 +29,12 @@ import levy.daniel.application.vues.desktop.metier.utilisateur.UtilisateurCerber
  * <br/>
  *
  *
- * @author dan Lévy
+ * @author daniel.levy Lévy
  * @version 1.0
- * @since 28 févr. 2019
+ * @since 3 mars 2019
  *
  */
-public class ApplicationJavaFxMain extends Application {
+public final class ApplicationDesktopMain {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -41,61 +43,42 @@ public class ApplicationJavaFxMain extends Application {
 	 */
 	private static transient ApplicationContext context;
 	
+	/**
+	 * DAO pour l'objet métier.<br/>
+	 * récupéré dans le contexte SPRING.<br/>
+	 */
+	private static transient IUtilisateurCerbereDAO utilisateurCerbereDAO;
 
+	
+	/**
+	 * SERVICE pour l'objet métier.<br/>
+	 * récupéré dans le contexte SPRING.<br/>
+	 */
+	private static transient IUtilisateurCerbereService utilisateurCerbereService;
+	
 	/**
 	 * CONTROLLER pour l'objet métier.<br/>
 	 * récupéré dans le contexte SPRING.<br/>
 	 */
 	private static transient IUtilisateurCerbereController utilisateurCerbereController;
 	
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(ApplicationJavaFxMain.class);
+		= LogFactory.getLog(ApplicationDesktopMain.class);
 	
 
 	// *************************METHODES************************************/
-		
+	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ApplicationJavaFxMain() {
+	private ApplicationDesktopMain() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
-
-	
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void start(
-			final Stage pPrimaryStage) throws Exception {
-				
-		/* vue à afficher. */
-		final UtilisateurCerbereAccueilVue vue 
-			= new UtilisateurCerbereAccueilVue(utilisateurCerbereController);
-		
-        /* Titre du théâtre. */
-        pPrimaryStage.setTitle("UtilisateurCerbereAccueilVue");
-        
-        /* PASSE LA VUE à afficher à la SCENE 
-         * et dimensionne la SCENE. */
-        final Scene scene = new Scene(vue, 1200d, 650d);
-        
-        /* ajoute la feuille de style à la Scene. */
-        scene.getStylesheets().add("static/css/dan_style.css");
-        
-        /* passe la SCENE au THEATRE (stage). */
-        pPrimaryStage.setScene(scene);
-        
-        /* affiche le THEATRE. */
-        pPrimaryStage.show();
-
-	} // Fin de start(...).________________________________________________
 	
 
 	
@@ -107,6 +90,14 @@ public class ApplicationJavaFxMain extends Application {
 		context = new AnnotationConfigApplicationContext(
 				ConfigurateurSpringFrmkAnnotationJPAH2File.class);
 		
+		utilisateurCerbereDAO 
+		= (IUtilisateurCerbereDAO) 
+			context.getBean("UtilisateurCerbereDAOJPASpring");
+	
+		utilisateurCerbereService 
+		= (IUtilisateurCerbereService) 
+			context.getBean("UtilisateurCerbereService");
+	
 		utilisateurCerbereController 
 			= (IUtilisateurCerbereController) 
 				context.getBean("UtilisateurCerbereController");
@@ -119,22 +110,25 @@ public class ApplicationJavaFxMain extends Application {
 	 * Point d'entrée de l'application.<br/>
 	 * <ul>
 	 * <li>instancie le contexte SPRING.</li>
-	 * <li>lance l'application Javafx.</li>
+	 * <li>récupère le CONTROLLER dans le CONTEXTE SRING.</li>
 	 * </ul>
 	 *
 	 * @param pArgs : String[].<br/>
+	 * @throws Exception 
 	 */
 	public static void main(
-			final String... pArgs) {
+			final String... pArgs) throws Exception {
 		
 		/* instancie le contexte SPRING. */
 		instancierContexteSpring();
 		
-		/* lance l'application Javafx. */
-		 Application.launch(pArgs);
-		 
+		final List<IUtilisateurCerbere> liste 
+			= utilisateurCerbereDAO.findAll();
+		
+		System.out.println(liste);
+		
     } // Fin de main(...)._________________________________________________
 
 	
 
-} // FIN DE LA CLASSE ApplicationJavaFxMain.---------------------------------
+} // FIN DE LA CLASSE ApplicationDesktopMain.--------------------------------
