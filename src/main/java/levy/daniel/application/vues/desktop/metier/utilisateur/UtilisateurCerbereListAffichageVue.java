@@ -46,6 +46,12 @@ public class UtilisateurCerbereListAffichageVue extends AnchorPane {
 	public static final double MARGIN = 5d;
 	
 	/**
+	 * .
+	 */
+	private transient ObservableList<IUtilisateurCerbereModelObs> modelList 
+		= FXCollections.observableArrayList();
+	
+	/**
 	 * TableView.
 	 */
 	private final transient TableView<IUtilisateurCerbereModelObs> tableView 
@@ -160,7 +166,9 @@ public class UtilisateurCerbereListAffichageVue extends AnchorPane {
 			final ObservableList<IUtilisateurCerbereModelObs> pList) {
 		
 		if (pList != null) {
-			this.tableView.setItems(pList);
+			System.out.println("******* injecterModelDansTableView **** ");
+			this.modelList = pList;
+			this.tableView.refresh();
 		}
 		
 	} // Fin de injecterModelDansTableView(...).___________________________
@@ -187,7 +195,7 @@ public class UtilisateurCerbereListAffichageVue extends AnchorPane {
 		this.affecterColonnesATable();
 		
 		/**/
-		this.injecterModelDansTableView(this.fournirModeleFake());
+		this.tableView.setItems(this.modelList);
 		
 		/* configure la présente vue (AnchorPane). */
 		this.configurerVue();

@@ -8,8 +8,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2Memory;
-import levy.daniel.application.vues.desktop.metier.utilisateur.UtilisateurCerbereCreationVue;
+import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
+import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2File;
+import levy.daniel.application.vues.desktop.metier.utilisateur.UtilisateurCerbereAccueilVue;
 
 /**
  * CLASSE ApplicationJavaFxMain :<br/>
@@ -40,6 +41,12 @@ public class ApplicationJavaFxMain extends Application {
 	 */
 	private static transient ApplicationContext context;
 	
+
+	/**
+	 * CONTROLLER pour l'objet métier.<br/>
+	 * récupéré dans le contexte SPRING.<br/>
+	 */
+	private static transient IUtilisateurCerbereController utilisateurCerbereController;
 	
 	/**
 	 * LOG : Log : 
@@ -69,15 +76,15 @@ public class ApplicationJavaFxMain extends Application {
 			final Stage pPrimaryStage) throws Exception {
 				
 		/* vue à afficher. */
-		final UtilisateurCerbereCreationVue vue 
-			= new UtilisateurCerbereCreationVue();
+		final UtilisateurCerbereAccueilVue vue 
+			= new UtilisateurCerbereAccueilVue(utilisateurCerbereController);
 		
         /* Titre du théâtre. */
-        pPrimaryStage.setTitle("UtilisateurCerbereCreationVue");
+        pPrimaryStage.setTitle("UtilisateurCerbereAccueilVue");
         
         /* PASSE LA VUE à afficher à la SCENE 
          * et dimensionne la SCENE. */
-        final Scene scene = new Scene(vue, 600d, 500d);
+        final Scene scene = new Scene(vue, 1200d, 800d);
         
         /* ajoute la feuille de style à la Scene. */
         scene.getStylesheets().add("static/css/dan_style.css");
@@ -98,12 +105,16 @@ public class ApplicationJavaFxMain extends Application {
 	private static void instancierContexteSpring() {
 		
 		context = new AnnotationConfigApplicationContext(
-				ConfigurateurSpringFrmkAnnotationJPAH2Memory.class);
+				ConfigurateurSpringFrmkAnnotationJPAH2File.class);
+		
+		utilisateurCerbereController 
+			= (IUtilisateurCerbereController) 
+				context.getBean("UtilisateurCerbereController");
 		
 	} // Fin de instancierContexteSpring().________________________________
-	
-	
-	
+
+
+
 	/**
 	 * Point d'entrée de l'application.<br/>
 	 * <ul>

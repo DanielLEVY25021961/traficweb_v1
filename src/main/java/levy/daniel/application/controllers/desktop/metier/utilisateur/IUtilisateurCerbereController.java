@@ -1,11 +1,11 @@
-package levy.daniel.application.model.services.metier.utilisateurs;
+package levy.daniel.application.controllers.desktop.metier.utilisateur;
 
 import java.util.List;
 
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 
 /**
- * INTERFACE IUtilisateurCerbereService :<br/>
+ * INTERFACE IUtilisateurCerbereController :<br/>
  * .<br/>
  * <br/>
  *
@@ -19,12 +19,12 @@ import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
  * <br/>
  *
  *
- * @author daniel.levy Lévy
+ * @author dan Lévy
  * @version 1.0
- * @since 28 févr. 2019
+ * @since 2 mars 2019
  *
  */
-public interface IUtilisateurCerbereService {
+public interface IUtilisateurCerbereController {
 
 
 	
@@ -571,4 +571,4 @@ public interface IUtilisateurCerbereService {
 	
 	
 	
-} // FIN DE L'INTERFACE IUtilisateurCerbereService.--------------------------
+} // FIN DE L'INTERFACE IUtilisateurCerbereController.-----------------------

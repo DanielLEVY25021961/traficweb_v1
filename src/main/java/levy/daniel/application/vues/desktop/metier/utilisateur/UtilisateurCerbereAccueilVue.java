@@ -1,8 +1,13 @@
 package levy.daniel.application.vues.desktop.metier.utilisateur;
 
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
+import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
@@ -14,6 +19,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
+import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
+import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.IUtilisateurCerbereModelObs;
+import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.UtilisateurCerbereConvertisseurObservableDTO;
 
 /**
  * CLASSE UtilisateurCerbereAccueilVue :<br/>
@@ -96,6 +105,14 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	private final transient GridPane gridPane = new GridPane();
 
 	/**
+	 * CONTROLLER pour l'objet métier.<br/>
+	 * injecté par SPRING.<br/>
+	 */
+	@Autowired(required=true)
+	@Qualifier(value="UtilisateurCerbereController")
+	private IUtilisateurCerbereController utilisateurCerbereController;
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -106,27 +123,52 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	// *************************METHODES************************************/
 	
 	
+	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
+	 * 
+	 * @throws Exception 
 	 */
-	public UtilisateurCerbereAccueilVue() {
+	public UtilisateurCerbereAccueilVue() throws Exception {
+		this(null);
+	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
+	
+	
+	
+	 /**
+	 * CONSTRUCTEUR A CONTROLLER.<br/>
+	 * 
+	 * @param pUtilisateurCerbereController : 
+	 * IUtilisateurCerbereController
+	 * 
+	 * @throws Exception 
+	 */
+	public UtilisateurCerbereAccueilVue(
+			final IUtilisateurCerbereController pUtilisateurCerbereController) 
+					throws Exception {
 		
 		super();
 		
+		this.utilisateurCerbereController = pUtilisateurCerbereController;
+		
 		this.initialize();
 		
-	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
+	} // Fin de CONSTRUCTEUR A CONTROLLER._________________________________
 	
 
 	
 	/**
 	 * initialise le présent AnchorPane.<br/>
 	 * <ul>
-	 * <li></li>
+	 * <li>initialise le MODELE à afficher.</li>
 	 * <li>configure la présente vue (AnchorPane).</li>
 	 * </ul>
+	 * @throws Exception 
 	 */
-	private void initialize() {
+	private void initialize() throws Exception {
+		
+		/* initialise le MODELE à afficher. */
+		this.initialiserModel();
 		
 		/* configure la présente vue (AnchorPane). */
 		this.configurerVue();
@@ -146,6 +188,51 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 		this.getStyleClass().add("anchorpane");
 
 	} // Fin de initialize().______________________________________________
+	
+
+	
+	/**
+	 * initialise le MODELE à afficher.<br/>
+	 * <ul>
+	 * <li>récupère la liste des objets métier dans le stockage 
+	 * auprès du CONTROLLER métier.</li>
+	 * <li>convertit la liste d'objets metier en 
+	 * liste de DTO Observable.</li>
+	 * <li>injecte la liste de DTO Observable 
+	 * dans le TableView pour affichage.</li>
+	 * </ul>
+	 * @throws Exception 
+	 */
+	private void initialiserModel() throws Exception {
+		
+		if (this.utilisateurCerbereController != null) {
+			
+			/* récupère la liste des objets métier dans le stockage 
+			 * auprès du CONTROLLER métier. */
+			final List<IUtilisateurCerbere> listeObjets 
+				= this.utilisateurCerbereController.findAll();
+			
+			System.out.println(listeObjets);
+			
+			/* convertit la liste d'objets metier en liste 
+			 * de DTO Observable. */
+			final ObservableList<IUtilisateurCerbereModelObs> listDTO 
+				= UtilisateurCerbereConvertisseurObservableDTO
+					.convertirListObjetsEnObservableList(listeObjets);
+			
+			if (listDTO == null) {
+				System.out.println("******** LA LISTE D'OBSERVABLE est NULL *********");
+			}
+			/* injecte la liste de DTO Observable 
+			 * dans le TableView pour affichage. */
+			this.listeobjetsAnchorPane.injecterModelDansTableView(listDTO);
+			
+		} else {
+			System.out.println("******** LE CONTROLLER EST NULL *********");
+		}
+		
+		
+	} // Fin de initialiserModel().________________________________________
 	
 	
 	

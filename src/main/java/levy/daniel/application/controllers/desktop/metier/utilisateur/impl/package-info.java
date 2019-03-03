@@ -1,8 +1,8 @@
 /**
  * CLASSE package-info :<br/>
  * Ce package contient toutes les classes <b>CONTROLLERS</b>
- * destinées à la gestion des <b>objets metier</b> 
- * de type <b>TELEVERSEMENT</b> 
+ * CONCRETES destinées à la gestion des <b>objets metier</b> 
+ * de type <b>UTILISATEUR</b> 
  * d'une application <b>DESKTOP</b> respectant le modèle MVC.<br/>
  * La couche CONTROLLERS intercepte les appels provenant des VUES 
  * et dialogue avec les SERVICES qui sont le point d'entrée 
@@ -24,7 +24,7 @@
  *
  * @author dan Lévy
  * @version 1.0
- * @since 16 févr. 2019
+ * @since 2 mars 2019
  *
  */
-package levy.daniel.application.controllers.desktop.metier.televersement;
+package levy.daniel.application.controllers.desktop.metier.utilisateur.impl;
