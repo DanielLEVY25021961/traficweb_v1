@@ -3,9 +3,19 @@ package levy.daniel.application.model.utilitaires.spring.configurateurspring;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.Import;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
+import levy.daniel.application.controllers.desktop.metier.utilisateur.impl.UtilisateurCerbereController;
 import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
 import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpaspring.impl.UtilisateurCerbereDAOJPASpring;
+import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
+import levy.daniel.application.model.services.metier.utilisateurs.impl.UtilisateurCerbereService;
 
 /**
  * CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File :<br/>
@@ -56,11 +66,11 @@ import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpasprin
  * @since 13 janv. 2019
  *
  */
-//@Configuration(value="ConfigurateurSpringFrmkAnnotationJPAH2File")
-//@Import(value={levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2File.class})
-//@EnableAspectJAutoProxy
-//@EnableTransactionManagement
-//@ComponentScans({@ComponentScan("levy.daniel.application")})
+@Configuration(value="ConfigurateurSpringFrmkAnnotationJPAH2File")
+@Import(value={levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2File.class})
+@EnableAspectJAutoProxy
+@EnableTransactionManagement
+@ComponentScans({@ComponentScan("levy.daniel.application")})
 public class ConfigurateurSpringFrmkAnnotationJPAH2File {
 
 	// ************************ATTRIBUTS************************************/
@@ -106,10 +116,39 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2File {
 	@Bean(value = "UtilisateurCerbereDAOJPASpring")
 	public IUtilisateurCerbereDAO utilisateurCerbereDAOJPASpring() {
 		System.out.println();
-		System.out.println("********* CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File - j'instancie LE BEAN DAO contactSimpleDAOJPASpring *********");
+		System.out.println("********* CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File - j'instancie LE BEAN DAO UtilisateurCerbereDAOJPASpring *********");
 		return new UtilisateurCerbereDAOJPASpring();
 	} // Fin de utilisateurCerbereDAOJPASpring().__________________________
 
+
+	
+	/**
+	 * .<br/>
+	 * <br/>
+	 *
+	 * @return : IUtilisateurCerbereService :  .<br/>
+	 */
+	@Bean(value = "UtilisateurCerbereService")
+	public IUtilisateurCerbereService utilisateurCerbereService() {
+		System.out.println();
+		System.out.println("********* CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File - j'instancie LE BEAN DAO UtilisateurCerbereService *********");
+		return new UtilisateurCerbereService();
+	}
+
+
+	
+	/**
+	 * .<br/>
+	 * <br/>
+	 *
+	 * @return : IUtilisateurCerbereController :  .<br/>
+	 */
+	@Bean(value = "UtilisateurCerbereController")
+	public IUtilisateurCerbereController utilisateurCerbereController() {
+		System.out.println();
+		System.out.println("********* CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File - j'instancie LE BEAN DAO UtilisateurCerbereController *********");
+		return new UtilisateurCerbereController();
+	}
 		
 	
 } // FIN DE LA CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File.------------

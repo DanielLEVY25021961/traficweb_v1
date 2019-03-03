@@ -1,4 +1,4 @@
-package levy.daniel.application.model.services.metier.utilisateurs.impl;
+package levy.daniel.application.controllers.desktop.metier.utilisateur.impl;
 
 import java.util.List;
 
@@ -6,14 +6,14 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 
+import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
-import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
 import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
 
 /**
- * CLASSE UtilisateurCerbereService :<br/>
+ * CLASSE UtilisateurCerbereController :<br/>
  * .<br/>
  * <br/>
  *
@@ -27,24 +27,24 @@ import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCe
  * <br/>
  *
  *
- * @author daniel.levy Lévy
+ * @author dan Lévy
  * @version 1.0
- * @since 28 févr. 2019
+ * @since 2 mars 2019
  *
  */
-@Service(value="UtilisateurCerbereService")
-public class UtilisateurCerbereService implements IUtilisateurCerbereService {
+@Controller(value="UtilisateurCerbereController")
+public class UtilisateurCerbereController 
+							implements IUtilisateurCerbereController {
 
 	// ************************ATTRIBUTS************************************/
-
 	
 	/**
-	 * DAO pour l'objet métier.<br/>
+	 * SERVICE pour l'objet métier.<br/>
 	 * injecté par SPRING.<br/>
 	 */
 	@Autowired(required = true)
-	@Qualifier(value="UtilisateurCerbereDAOJPASpring")
-	private transient IUtilisateurCerbereDAO utilisateurCerbereDAO;
+	@Qualifier(value="UtilisateurCerbereService")
+	private transient IUtilisateurCerbereService utilisateurCerbereService;
 	
 	/**
 	 * LOG : Log : 
@@ -52,7 +52,8 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereService.class);
+		= LogFactory.getLog(UtilisateurCerbereController.class);
+	
 
 	// *************************METHODES************************************/
 	
@@ -60,7 +61,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public UtilisateurCerbereService() {
+	public UtilisateurCerbereController() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -69,7 +70,6 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	/* CREATE ************/
 
 	
-	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -77,7 +77,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	public IUtilisateurCerbere create(
 			final IUtilisateurCerbere pObject) throws Exception {
 		
-		return this.utilisateurCerbereDAO.create(pObject);
+		return this.utilisateurCerbereService.create(pObject);
 		
 	} // Fin de create(...)._______________________________________________
 
@@ -153,8 +153,15 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IUtilisateurCerbere> findAll() throws Exception {		
-		return this.utilisateurCerbereDAO.findAll();
+	public List<IUtilisateurCerbere> findAll() throws Exception {
+		
+		if (this.utilisateurCerbereService != null) {
+			return this.utilisateurCerbereService.findAll();
+		} 
+		
+		System.out.println(" ***** utilisateurCerbereService est NULL ****");
+		return null;
+				
 	}
 
 
@@ -335,4 +342,4 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	
 	
 	
-} // FIN DE LA CLASSE UtilisateurCerbereService.-----------------------------
+} // FIN DE LA CLASSE UtilisateurCerbereController.--------------------------
