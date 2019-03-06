@@ -101,6 +101,10 @@ public class ApplicationJavaFxMain extends Application {
 	
 	/**
 	 * instancie le contexte SPRING.<br/>
+	 * <ul>
+	 * <li>appelé dans le Thread MAIN (avant le Thread Javafx).</li>
+	 * <li>récupère le CONTROLLER dans le CONTEXTE SPRING.</li>
+	 * </ul>
 	 */
 	private static void instancierContexteSpring() {
 		

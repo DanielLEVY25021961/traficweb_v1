@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -23,6 +23,7 @@ import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisate
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.IUtilisateurCerbereModelObs;
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.UtilisateurCerbereConvertisseurObservableDTO;
+import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.impl.ZoneRechercheModelObs;
 
 /**
  * CLASSE UtilisateurCerbereAccueilVue :<br/>
@@ -106,11 +107,15 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 
 	/**
 	 * CONTROLLER pour l'objet métier.<br/>
-	 * injecté par SPRING.<br/>
+	 * passé par l'application dans le CONSTRUCTEUR de la présente.<br/>
 	 */
-	@Autowired(required=true)
-	@Qualifier(value="UtilisateurCerbereController")
-	private IUtilisateurCerbereController utilisateurCerbereController;
+	private final transient IUtilisateurCerbereController utilisateurCerbereController;
+	
+	/**
+	 * .<br/>
+	 */
+	private final transient ZoneRechercheModelObs zoneRechercheModelObs 
+		= new ZoneRechercheModelObs();
 	
 	/**
 	 * LOG : Log : 
@@ -356,7 +361,35 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 		/* #C0C0C0 */
 		this.panneauRecherche.setStyle("-fx-background-color: #e4f0f5;");
 		
+		this.observerZoneRecherche();
+		
 	} // Fin de configurerPanneauRecherche().______________________________
+	
+	
+	private void observerZoneRecherche() {
+		
+//		this.zoneRechercheModelObs.getZoneRechercheProperty()
+//			.bind(this.rechercheTextField.textProperty());
+		
+		this.rechercheTextField.textProperty()
+			.addListener(new ChangeListener<String>() {
+
+				/**
+				 * {@inheritDoc}
+				 */
+				@Override
+				public void changed(
+						final ObservableValue<? extends String> pObservable
+							, final String pOldValue
+								, final String pNewValue) {
+
+					System.out.println("NOUVELLE VALEUR : " + pNewValue);
+					
+				} // Fin de changed(...)._____________________
+							
+			}); // Fin de new ChangeListener.________________________
+		
+	}
 	
 	
 	
@@ -483,7 +516,7 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	private void encapsulerGridPaneEnfant() {
 		this.getChildren().add(this.gridPane);
 	} // Fin de encapsulerGridPaneEnfant().________________________________
-	
+
 	
 	
 } // FIN DE LA CLASSE UtilisateurCerbereAccueilVue.--------------------------

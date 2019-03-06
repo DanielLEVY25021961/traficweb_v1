@@ -87,7 +87,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void persist(IUtilisateurCerbere pObject) throws Exception {
+	public void persist(
+			final IUtilisateurCerbere pObject) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -98,7 +99,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Long createReturnId(IUtilisateurCerbere pObject) throws Exception {
+	public Long createReturnId(
+			final IUtilisateurCerbere pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -109,7 +111,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<IUtilisateurCerbere> saveIterable(Iterable<IUtilisateurCerbere> pList) throws Exception {
+	public Iterable<IUtilisateurCerbere> saveIterable(
+			final Iterable<IUtilisateurCerbere> pList) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -120,7 +123,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere retrieve(IUtilisateurCerbere pObject) throws Exception {
+	public IUtilisateurCerbere retrieve(
+			final IUtilisateurCerbere pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -131,7 +135,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere findById(Long pId) throws Exception {
+	public IUtilisateurCerbere findById(
+			final Long pId) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -142,7 +147,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Long retrieveId(IUtilisateurCerbere pObject) throws Exception {
+	public Long retrieveId(
+			final IUtilisateurCerbere pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -170,7 +176,9 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IUtilisateurCerbere> findAllMax(int pStartPosition, int pMaxResult) throws Exception {
+	public List<IUtilisateurCerbere> findAllMax(
+			final int pStartPosition
+				, final int pMaxResult) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -181,7 +189,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<IUtilisateurCerbere> findAllIterable(Iterable<Long> pIds) throws Exception {
+	public Iterable<IUtilisateurCerbere> findAllIterable(
+			final Iterable<Long> pIds) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -192,7 +201,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere update(IUtilisateurCerbere pObject) throws Exception {
+	public IUtilisateurCerbere update(
+			final IUtilisateurCerbere pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -203,7 +213,10 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere updateById(Long pId, IUtilisateurCerbere pObjectModifie) throws Exception {
+	public IUtilisateurCerbere updateById(
+			final Long pId
+				, final IUtilisateurCerbere pObjectModifie) 
+												throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -214,7 +227,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean delete(IUtilisateurCerbere pObject) throws Exception {
+	public boolean delete(
+			final IUtilisateurCerbere pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -225,7 +239,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void deleteById(Long pId) throws Exception {
+	public void deleteById(
+			final Long pId) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -236,7 +251,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean deleteByIdBoolean(Long pId) throws Exception {
+	public boolean deleteByIdBoolean(
+			final Long pId) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -269,7 +285,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void deleteIterable(Iterable<IUtilisateurCerbere> pList) throws Exception {
+	public void deleteIterable(
+			final Iterable<IUtilisateurCerbere> pList) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -280,7 +297,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean deleteIterableBoolean(Iterable<IUtilisateurCerbere> pList) throws Exception {
+	public boolean deleteIterableBoolean(
+			final Iterable<IUtilisateurCerbere> pList) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -291,7 +309,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean exists(IUtilisateurCerbere pObject) throws Exception {
+	public boolean exists(
+			final IUtilisateurCerbere pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -302,7 +321,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean existsId(Long pId) throws Exception {
+	public boolean existsId(
+			final Long pId) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -335,7 +355,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String afficherListeObjetsMetier(List<IUtilisateurCerbere> pList) {
+	public String afficherListeObjetsMetier(
+			final List<IUtilisateurCerbere> pList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
