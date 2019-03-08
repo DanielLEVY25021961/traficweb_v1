@@ -13,6 +13,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
+import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.IUtilisateurCerbereModelObs;
+import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.impl.UtilisateurCerbereModelObs;
 
 /**
  * CLASSE UtilisateurCerbereAffichageVue :<br/>
@@ -46,9 +48,9 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 	
 	/**
 	 * hauteur preferred de tous les labels et zones de texte de l'IHM.<br/>
-	 * 50d.<br/>
+	 * 20d.<br/>
 	 */
-	public static final double HAUTEUR_LABELS_TEXTES = 30d;
+	public static final double HAUTEUR_LABELS_TEXTES = 20d;
 	
 	/**
 	 * "-fx-border-color: black;-fx-background-color: WHITE;".
@@ -59,7 +61,7 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 	/**
 	 * marge par défaut autout d'un composant.
 	 */
-	public static final double MARGIN = 5d;
+	public static final double MARGIN = 2d;
 	
 	/**
 	 * label de l'ID en base.
@@ -210,7 +212,40 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
+	
+	
+	/**
+	 * affiche les valeurs d'un MODELE dans la présente VUE.<br/>
+	 * <br/>
+	 * - ne fait rien si pModel == null.<br/>
+	 * <br/>
+	 *
+	 * @param pModel : IUtilisateurCerbereModelObs : 
+	 * DTO de l'objet métier.<br/>
+	 */
+	public final void afficherModelObs(
+			final IUtilisateurCerbereModelObs pModel) {
+		
+		/* ne fait rien si pModel == null. */
+		if (pModel == null) {
+			return;
+		}
+		
+		this.idText.setText(pModel.getId());
+		this.civiliteText.setText(pModel.getCivilite());
+		this.prenomText.setText(pModel.getPrenom());
+		this.nomText.setText(pModel.getNom());
+		this.telText.setText(pModel.getTel());
+		this.emailText.setText(pModel.getEmail());
+		this.serviceText.setText(pModel.getService());
+		this.uniteText.setText(pModel.getUnite());
+		this.profilText.setText(pModel.getProfil());
+		this.porteeText.setText(pModel.getPortee());
+		this.restrictionText.setText(pModel.getRestriction());
+		
+	} // Fin de afficherModelObs(...)._____________________________________
 
+	
 	
 	/**
 	 * affiche les valeurs d'un DTO dans la présente VUE.<br/>
@@ -242,6 +277,29 @@ public class UtilisateurCerbereAffichageVue extends AnchorPane {
 		this.restrictionText.setText(pDto.getRestriction());
 		
 	} // Fin de afficherDTO(...).__________________________________________
+	
+
+	
+	/**
+	 * Lit le contenu de la présente VUE et retourne un MODELE.<br/>
+	 *
+	 * @return : IUtilisateurCerbereModelObs :  MODELE.<br/>
+	 */
+	public final IUtilisateurCerbereModelObs lireVue() {
+		
+		final IUtilisateurCerbereModelObs model 
+			= new UtilisateurCerbereModelObs(this.idText.getText()
+					, this.civiliteText.getText()
+					, this.prenomText.getText(), this.nomText.getText()
+					, this.telText.getText(), this.emailText.getText()
+					, this.serviceText.getText(), this.uniteText.getText()
+					, this.profilText.getText()
+					, this.porteeText.getText()
+					, this.restrictionText.getText());
+		
+		return model;
+		
+	} // Fin de lireVue()._________________________________________________
 	
 
 	

@@ -68,7 +68,7 @@ public class UtilisateurCerbereAffichageVueMain extends Application {
         
         /* PASSE LA VUE à afficher à la SCENE 
          * et dimensionne la SCENE. */
-        final Scene scene = new Scene(vue, 600d, 500d);
+        final Scene scene = new Scene(vue, 600d, 400d);
         
         /* ajoute la feuille de style à la Scene. */
         scene.getStylesheets().add("static/css/dan_style.css");

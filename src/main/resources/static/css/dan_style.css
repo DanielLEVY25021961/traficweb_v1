@@ -27,3 +27,11 @@
 .anchorpane {
 	-fx-background-color: #ffffff;
 }
+
+.error {
+	
+	-fx-text-fill:RED;
+	-fx-border-color: black;
+	-fx-background-color: WHITE;
+	-fx-padding: 3
+}

@@ -751,7 +751,89 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 	} // Fin de retrieveId(...).___________________________________________
 
 
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<IUtilisateurCerbere> rechercherRapide(
+			final String pString) throws Exception {
+				
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+						
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+		
+		/* Création de la requête JPQL sous forme de String. */
+		final String requeteString 
+			= SELECT_OBJET 
+			+ "where utilisateurCerbere.prenom LIKE :pattern "
+					+ "OR utilisateurCerbere.nom LIKE :pattern "
+					+ "OR utilisateurCerbere.email LIKE :pattern "
+					+ "OR utilisateurCerbere.unite LIKE :pattern";
+		
+		/* Construction de la requête HQL. */
+		final Query requete 
+			= this.entityManager.createQuery(requeteString);
+		
+		/* Passage des paramètres de la requête HQL. */
+		final String patternRecherche = "%" + pString + "%";
+		
+		requete.setParameter("pattern", patternRecherche);
+		
+		List<UtilisateurCerbereEntityJPA> resultatEntity = null;
+				
+		List<IUtilisateurCerbere> resultat = null;
+		
+		try {
+			
+			/* Execution de la requete HQL. */
+			resultatEntity 
+				= requete.getResultList();
+			
+			/* conversion de la liste ENTITY en liste OBJET METIER. */
+			resultat 
+				= UtilisateurCerbereConvertisseurMetierEntity
+					.convertirListEntitiesJPAEnModel(resultatEntity);
+			
+		}
+		catch (NoResultException noResultExc) {
+			
+			/* retourne null si l'Objet métier n'existe pas 
+			 * dans le stockage. */
+			return null;
+			
+		}
+		catch (Exception e) {
+			
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(e.getMessage(), e);
+			}
+			
+			/* Gestion de la DAO Exception. */
+			this.gestionnaireException
+				.gererException(
+						CLASSE_UTILISATEURCERBEREDAO_JPA_SPRING
+						, "Méthode rechercherRapide(String %recherche%)", e);
+		}
+		
+		/* retourne la liste d'objets métier. */
+		if (resultat != null) {
+			return resultat;
+		}
+		
+		return null;
+		
+	} // Fin de rechercherRapide(...)._____________________________________
+	
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */

@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * CLASSE UtilisateurCerbereAffichageVueMain :<br/>
+ * CLASSE UtilisateurCerbereEditionVueMain :<br/>
  * .<br/>
  * <br/>
  *
@@ -27,7 +27,7 @@ import javafx.stage.Stage;
  * @since 25 févr. 2019
  *
  */
-public class UtilisateurCerbereCreationVueMain extends Application {
+public class UtilisateurCerbereEditionVueMain extends Application {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -37,7 +37,7 @@ public class UtilisateurCerbereCreationVueMain extends Application {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereCreationVueMain.class);
+		= LogFactory.getLog(UtilisateurCerbereEditionVueMain.class);
 
 	
 	// *************************METHODES************************************/
@@ -45,7 +45,7 @@ public class UtilisateurCerbereCreationVueMain extends Application {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public UtilisateurCerbereCreationVueMain() {
+	public UtilisateurCerbereEditionVueMain() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -59,15 +59,19 @@ public class UtilisateurCerbereCreationVueMain extends Application {
 			final Stage pPrimaryStage) throws Exception {
 		
 		/* vue à afficher. */
-		final UtilisateurCerbereCreationVue vue 
-			= new UtilisateurCerbereCreationVue();
+		final UtilisateurCerbereEditionVue vue 
+			= new UtilisateurCerbereEditionVue();
 		
         /* Titre du théâtre. */
-        pPrimaryStage.setTitle("UtilisateurCerbereCreationVue");
+        pPrimaryStage.setTitle("UtilisateurCerbereEditionVue");
         
-        /* PASSE LA VUE à afficher à la SCENE 
+//        vue.injecterMessageDansLabelError(vue.getNomErrorLabel(), "le nom ne doit contenir que 15 caractères");
+//        vue.injecterMessageDansLabelError(vue.getErreursGlobalesLabel(), "CREATION IMOSSIBLE !!!! : DOUBLON d'OBJET METIER");
+       
+         /* PASSE LA VUE à afficher à la SCENE 
          * et dimensionne la SCENE. */
-        final Scene scene = new Scene(vue, 600d, 500d);
+//        final Scene scene = new Scene(vue, 800d, 400d);
+        final Scene scene = new Scene(vue);
         
         /* ajoute la feuille de style à la Scene. */
         scene.getStylesheets().add("static/css/dan_style.css");

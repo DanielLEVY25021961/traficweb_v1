@@ -154,7 +154,20 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	}
 
 
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<IUtilisateurCerbere> rechercherRapide(
+			final String pString) throws Exception {
+		
+		return this.utilisateurCerbereDAO.rechercherRapide(pString);
+		
+	} // Fin de rechercherRapide(...)._____________________________________
 
+
+	
 	/**
 	 * {@inheritDoc}
 	 */

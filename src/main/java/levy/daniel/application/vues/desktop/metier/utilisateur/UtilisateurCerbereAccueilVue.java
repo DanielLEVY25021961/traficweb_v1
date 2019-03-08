@@ -8,6 +8,8 @@ import org.apache.commons.logging.LogFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
@@ -15,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -60,6 +63,17 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	private final transient MenuBar barreMenus = new MenuBar();
 	
 	/**
+	 * Menu de premier niveau pour la CREATION de l'objet métier.
+	 */
+	private final transient Menu menuCreer = new Menu("créer");
+	
+	/**
+	 * Sous-Menu de second niveau pour la CREATION de l'objet métier.
+	 */
+	private final transient MenuItem menuItemCreer 
+		= new MenuItem("créer un utilisateur");
+	
+	/**
 	 * AnchorPane pour la recherche d'un objet en base.
 	 */
 	private final transient AnchorPane panneauRecherche = new AnchorPane();
@@ -68,18 +82,18 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	 * Label pour la zone de recherche.
 	 */
 	private final transient Label rechercheLabel 
-		= new Label("zone de recherche : "); 
+		= new Label("zone de recherche instantanée : "); 
 	
 	/**
-	 * TextField pour la recherche.
+	 * TextField (zone de texte) pour la recherche.
 	 */
 	private final transient TextField rechercheTextField 
 		= new TextField();
 	
 	/**
-	 * Button pour la recherche.
+	 * Button de reset pour la recherche.
 	 */
-	private final transient Button rechercheButton = new Button("GO");
+	private final transient Button rechercheResetButton = new Button("Clear");
 	
 	/**
 	 * AnchorPane pour la liste des objets en base.
@@ -107,7 +121,9 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 
 	/**
 	 * CONTROLLER pour l'objet métier.<br/>
-	 * passé par l'application dans le CONSTRUCTEUR de la présente.<br/>
+	 * passé par l'application dans le CONSTRUCTEUR de la présente 
+	 * car instancié par SPRING dans le THREAD MAIN <i>avant</i> 
+	 * le lancement du THREAD JAVAFX.<br/>
 	 */
 	private final transient IUtilisateurCerbereController utilisateurCerbereController;
 	
@@ -294,18 +310,52 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 		this.barreMenus.setPrefWidth(1200d);
 		this.barreMenus.setPrefHeight(35d);
 		
-		final Menu menuCreer = new Menu("créer un utilisateur");
+		this.menuCreer.getItems().add(this.menuItemCreer);
+		
 		final Menu menuExporterCsv 
 			= new Menu("exporter la liste des utilisateurs en CSV");
 		
-		this.barreMenus.getMenus().addAll(menuCreer, menuExporterCsv);
+		this.barreMenus.getMenus().addAll(this.menuCreer, menuExporterCsv);
 		
 	} // Fin de configurerBarreMenus().____________________________________
+	
+
+	
+	/**
+	 * .<br/>
+	 * <br/>
+	 */
+	private void ajouterListenerAMenuItemCreer() {
+		
+		this.menuItemCreer.setOnAction(
+				new EventHandler<ActionEvent>() {
+
+			/**
+			 * {@inheritDoc}
+			 */
+			@Override
+			public void handle(
+					final ActionEvent pEvent) {
+				
+				/**/
+				
+			} // Fin de handle(...).__________
+			
+		}); // Fin de new EventHandler._______________
+		
+	}
 	
 	
 	
 	/**
 	 * configure le panneau de recherche.<br/>
+	 * <ul>
+	 * <li></li>
+	 * <li>ajoute un ChangeListener sur la textProperty 
+	 * de la zone de recherche.</li>
+	 * <li>ajoute un EventHandler sur le bouton 
+	 * this.rechercheResetButton.</li>
+	 * </ul>
 	 */
 	private void configurerPanneauRecherche() {
 		
@@ -337,7 +387,7 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
-				this.rechercheButton				
+				this.rechercheResetButton				
 					, 2, 0
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
@@ -346,7 +396,7 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 		
 		gridPaneRecherche.getChildren().addAll(this.rechercheLabel);
 		gridPaneRecherche.getChildren().addAll(this.rechercheTextField);
-		gridPaneRecherche.getChildren().addAll(this.rechercheButton);
+		gridPaneRecherche.getChildren().addAll(this.rechercheResetButton);
 		
 		AnchorPane.setTopAnchor(gridPaneRecherche, MARGIN);
 		AnchorPane.setLeftAnchor(gridPaneRecherche, MARGIN);
@@ -361,18 +411,36 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 		/* #C0C0C0 */
 		this.panneauRecherche.setStyle("-fx-background-color: #e4f0f5;");
 		
-		this.observerZoneRecherche();
+		/* ajoute un ChangeListener sur la textProperty 
+		 * de la zone de recherche. */
+		this.ajouterListenerAZoneRecherche();
+		
+		/* ajoute un EventHandler sur le bouton this.rechercheResetButton. */
+		this.ajouterListenerARechercheResetButton();
 		
 	} // Fin de configurerPanneauRecherche().______________________________
 	
 	
-	private void observerZoneRecherche() {
-		
-//		this.zoneRechercheModelObs.getZoneRechercheProperty()
-//			.bind(this.rechercheTextField.textProperty());
+	
+	/**
+	 * ajoute un ChangeListener sur la textProperty 
+	 * de la zone de recherche.<br/>
+	 * <ul>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * </ul>
+	 */
+	private void ajouterListenerAZoneRecherche() {
 		
 		this.rechercheTextField.textProperty()
 			.addListener(new ChangeListener<String>() {
+				
+				/* récupération du CONTROLLER. */
+				private IUtilisateurCerbereController 
+							utilisateurCerbereControllerLocal 
+				= UtilisateurCerbereAccueilVue.this
+					.getUtilisateurCerbereController();
 
 				/**
 				 * {@inheritDoc}
@@ -383,15 +451,75 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 							, final String pOldValue
 								, final String pNewValue) {
 
-					System.out.println("NOUVELLE VALEUR : " + pNewValue);
+					List<IUtilisateurCerbere> resultat = null;
+					
+					try {
+						
+						/* recherche rapide dans la base. */
+						resultat 
+							= this.utilisateurCerbereControllerLocal
+								.rechercherRapide(pNewValue);
+						
+						/* convertit la liste d'objets metier resultat 
+						 * en liste de DTO Observable. */
+						final ObservableList<IUtilisateurCerbereModelObs> listDTO 
+							= UtilisateurCerbereConvertisseurObservableDTO
+								.convertirListObjetsEnObservableList(resultat);
+						
+						/* injecte la liste de DTO Observable 
+						 * dans le TableView pour affichage. */
+						UtilisateurCerbereAccueilVue.this
+							.getListeobjetsAnchorPane()
+								.injecterModelDansTableView(listDTO);
+						
+					} catch (Exception e) {
+						
+						e.printStackTrace();
+					}
 					
 				} // Fin de changed(...)._____________________
 							
 			}); // Fin de new ChangeListener.________________________
 		
-	}
+	} // Fin de ajouterListenerAZoneRecherche().___________________________
 	
+
 	
+	/**
+	 * ajoute un EventHandler sur le bouton this.rechercheResetButton.<br/>
+	 * <ul>
+	 * <li>repasse le contenu de la zone de recherche à blank ("") 
+	 * lors d'un appui sur le bouton de RESET.</li>
+	 * <li>Il est indispensable de passer le contenu de la zone de recherche 
+	 * à blank et pas à null du fait de la concaténation 
+	 * avec des JOKERS dans le DAO. </li>
+	 * </ul>
+	 */
+	private void ajouterListenerARechercheResetButton() {
+		
+		this.rechercheResetButton.setOnAction(
+				new EventHandler<ActionEvent>() {
+			
+			/**
+			 * {@inheritDoc}
+			 */
+			@Override
+			public void handle(
+					final ActionEvent pEvent) {
+				
+				/* repasse le contenu de la zone de recherche à blank ("") 
+				 * lors d'un appui sur le bouton de RESET.*/
+				UtilisateurCerbereAccueilVue.this
+					.getRechercheTextField()
+						.setText("");
+				
+			} // Fin de handle(...).__________
+			
+		}); // Fin de new EventHandler<ActionEvent>().____
+		
+	} // Fin de ajouterListenerARechercheResetButton().____________________
+	
+
 	
 	/**
 	 * configure le panneau listant les objets en base.<br/>
@@ -399,7 +527,7 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	private void configurerPanneauListeObjets() {
 		
 		this.panneauListeObjets.setPrefWidth(1200d);
-		this.panneauListeObjets.setPrefHeight(600d);
+		this.panneauListeObjets.setPrefHeight(400d);
 		
 		final GridPane gridPaneListeObjets = new GridPane();
 		
@@ -517,6 +645,49 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 		this.getChildren().add(this.gridPane);
 	} // Fin de encapsulerGridPaneEnfant().________________________________
 
+
 	
+	/**
+	 * Getter du CONTROLLER pour l'objet métier.<br/>
+	 * passé par l'application dans le CONSTRUCTEUR de la présente 
+	 * car instancié par SPRING dans le THREAD MAIN <i>avant</i> 
+	 * le lancement du THREAD JAVAFX.<br/>
+	 *
+	 * @return this.utilisateurCerbereController : 
+	 * IUtilisateurCerbereController.<br/>
+	 */
+	public final IUtilisateurCerbereController 
+								getUtilisateurCerbereController() {
+		return this.utilisateurCerbereController;
+	} // Fin de getUtilisateurCerbereController()._________________________
+
+
+	
+	/**
+	 * Getter du UtilisateurCerbereListAffichageVue (AnchorPane) 
+	 * encapsulant un TableView pour l'affichage 
+	 * de tous les objets en base.
+	 *
+	 * @return this.listeobjetsAnchorPane : 
+	 * UtilisateurCerbereListAffichageVue.<br/>
+	 */
+	public final UtilisateurCerbereListAffichageVue 
+										getListeobjetsAnchorPane() {
+		return this.listeobjetsAnchorPane;
+	} // Fin de getListeobjetsAnchorPane().________________________________
+
+
+	
+	/**
+	 * Getter de la TextField (zone de texte) pour la recherche.
+	 *
+	 * @return this.rechercheTextField : 
+	 * TextField.<br/>
+	 */
+	public final TextField getRechercheTextField() {
+		return this.rechercheTextField;
+	} // Fin de getRechercheTextField().___________________________________ 
+
+		
 	
 } // FIN DE LA CLASSE UtilisateurCerbereAccueilVue.--------------------------

@@ -206,6 +206,30 @@ public interface IUtilisateurCerbereController {
 	Long retrieveId(IUtilisateurCerbere pObject) throws Exception;
 	
 	
+	
+	/**
+	 * recherche tous les objets métier <b>contenant pString 
+	 * dans au moins un de leurs attributs</b> 
+	 * utilisés dans <i>equals()</i>.<br/>
+	 * <ul>
+	 * <li>retourne null aucun objet remplissant 
+	 * les conditions n'existe dans le stockage.</li>
+	 * </ul>
+	 *
+	 * @param pString : String : chaîne de caractères à entourer 
+	 * de JOKERS pour voir si elle est contenue dans 
+	 * un des attributs du equals().<br/>
+	 * 
+	 * @return List&lt;IUtilisateurCerbere&gt; : 
+	 * liste des objets métier dont au moins 1 des attributs 
+	 * de equals contient pString.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	List<IUtilisateurCerbere> rechercherRapide(
+			String pString) throws Exception;
+	
+	
 
 	/**
 	 * <b>retourne la liste de tous les objets métier 

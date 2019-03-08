@@ -154,6 +154,24 @@ public class UtilisateurCerbereController
 	}
 
 
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<IUtilisateurCerbere> rechercherRapide(
+			final String pString) throws Exception {
+		
+		if (this.utilisateurCerbereService != null) {
+			return this.utilisateurCerbereService.rechercherRapide(pString);
+		} 
+		
+		System.out.println(" ***** utilisateurCerbereService est NULL ****");
+		return null;
+		
+	} // Fin de rechercherRapide(...)._____________________________________
+
+
 
 	/**
 	 * {@inheritDoc}
