@@ -1,4 +1,4 @@
-package levy.daniel.application.vues.desktop.metier.utilisateur;
+package levy.daniel.application.vues.desktop.panneauxcommuns;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * CLASSE UtilisateurCerbereEditionVueMain :<br/>
+ * CLASSE PanneauGestionCreationMain :<br/>
  * .<br/>
  * <br/>
  *
@@ -24,10 +24,10 @@ import javafx.stage.Stage;
  *
  * @author dan Lévy
  * @version 1.0
- * @since 25 févr. 2019
+ * @since 8 mars 2019
  *
  */
-public class UtilisateurCerbereEditionVueMain extends Application {
+public class PanneauGestionCreationMain extends Application {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -37,15 +37,14 @@ public class UtilisateurCerbereEditionVueMain extends Application {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereEditionVueMain.class);
+		= LogFactory.getLog(PanneauGestionCreationMain.class);
 
-	
 	// *************************METHODES************************************/
 		
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public UtilisateurCerbereEditionVueMain() {
+	public PanneauGestionCreationMain() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -59,16 +58,16 @@ public class UtilisateurCerbereEditionVueMain extends Application {
 			final Stage pPrimaryStage) throws Exception {
 		
 		/* vue à afficher. */
-		final UtilisateurCerbereEditionVue vue 
-			= new UtilisateurCerbereEditionVue();
+		final PanneauGestionCreation vue 
+			= new PanneauGestionCreation();
 		
         /* Titre du théâtre. */
-        pPrimaryStage.setTitle("UtilisateurCerbereEditionVue");
+        pPrimaryStage.setTitle("PanneauGestionCreation");
        
          /* PASSE LA VUE à afficher à la SCENE 
          * et dimensionne la SCENE. */
-//        final Scene scene = new Scene(vue, 800d, 400d);
-        final Scene scene = new Scene(vue);
+        final Scene scene = new Scene(vue, 600d, 60d);
+//        final Scene scene = new Scene(vue);
         
         /* ajoute la feuille de style à la Scene. */
         scene.getStylesheets().add("static/css/dan_style.css");
@@ -80,7 +79,7 @@ public class UtilisateurCerbereEditionVueMain extends Application {
         pPrimaryStage.show();
 
 	} // Fin de start(...).________________________________________________
-	
+
 	
 	
 	/**
@@ -95,4 +94,4 @@ public class UtilisateurCerbereEditionVueMain extends Application {
 	
 
 
-} // FIN DE LA CLASSE UtilisateurCerbereAffichageVueMain.--------------------
+} // FIN DE LA CLASSE PanneauGestionCreationMain.----------------------------

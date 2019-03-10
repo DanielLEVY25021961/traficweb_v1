@@ -27,7 +27,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import levy.daniel.application.model.utilitaires.jpa.afficheurentitymanagerfactory.AfficheurEntityManagerFactory;
 import levy.daniel.application.model.utilitaires.jpa.datasource.IMyDataSource;
 import levy.daniel.application.model.utilitaires.jpa.datasource.impl.MyDataSourceHikari;
 import levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur.LecteurConfigurationBaseSpring;
@@ -109,9 +108,6 @@ public class ConfigurateurSpringJPAH2File {
 	 */
 	public ConfigurateurSpringJPAH2File() {
 		super();
-		System.out.println();
-		System.out.println("********* DANS LE CONSTRUCTEUR ConfigurateurSpringJPAH2File***************");
-		System.out.println();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 	
@@ -184,10 +180,6 @@ public class ConfigurateurSpringJPAH2File {
 		entityManagerFactory 
 			= entityManagerFactoryBuilder.build();
 		
-		System.out.println();
-		System.out.println("=======DANS entityManagerFactory() de ConfigurateurSpringJPAH2File() ======");
-		System.out.println(AfficheurEntityManagerFactory.afficherEntityManagerFactory(entityManagerFactory));
-		
 		return entityManagerFactory;
 					
 	} // Fin de entityManagerFactory().____________________________________
@@ -218,10 +210,6 @@ public class ConfigurateurSpringJPAH2File {
 		
 		final IMyDataSource myDataSource 
 			= new MyDataSourceHikari(this.lecteurConfigurationBaseSpring);
-		
-		System.out.println();
-		System.out.println("=======DANS dataSource() de ConfigurateurSpringJPAH2File() ======");
-		System.out.println(myDataSource.afficherDataSource());
 		
 		return myDataSource.getDataSource();
 		
@@ -326,10 +314,6 @@ public class ConfigurateurSpringJPAH2File {
 		
 		this.environmentSpring = pEnvironmentSpring;
 		
-		System.out.println();
-		System.out.println("****** DANS LE SETTEUR setEnvironmentSpring() de ConfigurateurSpringJPAH2File *******");
-		System.out.println();
-		
 		/* instancie en lui passant this.environmentSpring 
 		 * un LecteurConfigurationBaseSpring chargé de lire le fichier 
 		 * properties SPRING et de préparer un 
@@ -368,11 +352,6 @@ public class ConfigurateurSpringJPAH2File {
 						pLecteurConfigurationBaseSpring) {
 		
 		this.lecteurConfigurationBaseSpring = pLecteurConfigurationBaseSpring;
-		
-		System.out.println();
-		System.out.println("****** DANS LE SETTEUR setLecteurConfigurationBaseSpring() de ConfigurateurSpringJPAH2File *******");
-		System.out.println();
-		System.out.println(this.lecteurConfigurationBaseSpring.toString());
 		
 	} // Fin de setLecteurConfigurationBaseSpring(...).____________________
 

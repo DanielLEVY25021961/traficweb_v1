@@ -13,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -22,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.stage.Stage;
 import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.IUtilisateurCerbereModelObs;
@@ -304,17 +306,29 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	
 	/**
 	 * configure la barre des menus.<br/>
+	 * <ul>
+	 * <li>dimensionne la barre de menus.</li>
+	 * <li>ajoute un Listener à this.menuItemCreer chargé d'ouvrir la VUE de CREATION.</li>
+	 * <li>ajoute les menuItems à leurs Menus.</li>
+	 * <li>ajoute les Menus à la MenuBar.</li>
+	 * </ul>
 	 */
 	private void configurerBarreMenus() {
 		
+		/* dimensionne la barre de menus. */
 		this.barreMenus.setPrefWidth(1200d);
 		this.barreMenus.setPrefHeight(35d);
 		
+		/* ajoute un Listener à this.menuItemCreer chargé d'ouvrir la VUE de CREATION. */
+		this.ajouterListenerAMenuItemCreer();
+		
+		/* ajoute les menuItems à leurs Menus. */
 		this.menuCreer.getItems().add(this.menuItemCreer);
 		
 		final Menu menuExporterCsv 
 			= new Menu("exporter la liste des utilisateurs en CSV");
 		
+		/* ajoute les Menus à la MenuBar. */
 		this.barreMenus.getMenus().addAll(this.menuCreer, menuExporterCsv);
 		
 	} // Fin de configurerBarreMenus().____________________________________
@@ -322,7 +336,8 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 
 	
 	/**
-	 * .<br/>
+	 * ajoute un Listener à this.menuItemCreer 
+	 * chargé d'ouvrir la VUE de CREATION.<br/>
 	 * <br/>
 	 */
 	private void ajouterListenerAMenuItemCreer() {
@@ -337,13 +352,31 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 			public void handle(
 					final ActionEvent pEvent) {
 				
-				/**/
+				/* instancie un nouveau THEATRE (stage). */
+				final Stage stage = new Stage();
+								
+				/* Instancie une VUE CREATION. */
+				UtilisateurCerbereCreationVue vueCreation 
+					= new UtilisateurCerbereCreationVue(
+							stage, UtilisateurCerbereAccueilVue.this);
+				
+				final Scene scene = new Scene(vueCreation);
+			       
+		        /* ajoute la feuille de style à la Scene. */
+		        scene.getStylesheets().add("static/css/dan_style.css");
+		        
+		        /* passe la SCENE au THEATRE (stage). */
+		        stage.setScene(scene);
+		        
+		        /* affiche le THEATRE. */
+		        stage.show();
+				
 				
 			} // Fin de handle(...).__________
 			
 		}); // Fin de new EventHandler._______________
 		
-	}
+	} // Fin de ajouterListenerAMenuItemCreer().___________________________
 	
 	
 	

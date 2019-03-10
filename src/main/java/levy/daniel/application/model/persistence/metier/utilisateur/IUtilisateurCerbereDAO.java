@@ -597,4 +597,16 @@ public interface IUtilisateurCerbereDAO {
 	
 	
 	
+	/**
+	 * Getter de la Liste des messages d'erreur 
+	 * à l'intention de l'utilisateur.<br/>
+	 * Ne peut jamis être null. <b>tester avec isEmpty()</b>.<br/>
+	 *
+	 * @return this.messagesErrorUtilisateurList : 
+	 * List&lt;String&gt;.<br/>
+	 */
+	List<String> getMessagesErrorUtilisateurList();	
+	
+	
+	
 } // FIN DE L'INTERFACE IUtilisateurCerbereDAO.------------------------------

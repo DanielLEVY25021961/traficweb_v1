@@ -1,6 +1,9 @@
 package levy.daniel.application.model.services.metier.utilisateurs.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -33,6 +36,7 @@ import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCe
  *
  */
 @Service(value="UtilisateurCerbereService")
+@Transactional
 public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 
 	// ************************ATTRIBUTS************************************/
@@ -45,6 +49,13 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	@Autowired(required = true)
 	@Qualifier(value="UtilisateurCerbereDAOJPASpring")
 	private transient IUtilisateurCerbereDAO utilisateurCerbereDAO;
+
+	/**
+	 * Liste des messages d'erreur à l'intention de l'utilisateur.<br/>
+	 * Ne peut jamis être null. <b>tester avec isEmpty()</b>.<br/>
+	 */
+	private final transient List<String> messagesErrorUtilisateurList 
+		= new ArrayList<String>(); 
 	
 	/**
 	 * LOG : Log : 
@@ -77,7 +88,27 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	public IUtilisateurCerbere create(
 			final IUtilisateurCerbere pObject) throws Exception {
 		
-		return this.utilisateurCerbereDAO.create(pObject);
+		/* délègue le stockage d'un OBJET METIER au DAO. */
+		final IUtilisateurCerbere objetStocke 
+			= this.utilisateurCerbereDAO.create(pObject);
+		
+		/* récupère la liste des messages d'ERROR UTILISATEUR 
+		 * auprès du DAO. */
+		final List<String> messagesErrorUtilisateurLocalList 
+			= this.utilisateurCerbereDAO.getMessagesErrorUtilisateurList();
+		
+		/* encapsule la liste des messages d'ERROR UTILISATEUR 
+		 * provenant du DAO dans la liste du présent SERVICE 
+		 * si il y a des ERRORS. */
+		if (!messagesErrorUtilisateurLocalList.isEmpty()) {
+			
+			this.messagesErrorUtilisateurList
+				.addAll(messagesErrorUtilisateurLocalList);
+			
+		}
+		
+		/* retourne null si il y a des ERRORS, l'objet stocké sinon. */
+		return objetStocke;
 		
 	} // Fin de create(...)._______________________________________________
 
@@ -366,6 +397,16 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<String> getMessagesErrorUtilisateurList() {
+		return this.messagesErrorUtilisateurList;
+	} // Fin de getMessagesErrorUtilisateurList()._________________________
 	
 	
 	

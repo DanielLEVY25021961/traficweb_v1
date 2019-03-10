@@ -35,6 +35,13 @@ public interface IUtilisateurCerbereService {
 	 * <b>crée un objet métier pObject dans le stockage 
 	 * et retourne l'objet METIER persisté</b>.<br/>
 	 * <ul>
+	 * <li>délègue le stockage d'un OBJET METIER au DAO.</li>
+	 * <li>récupère la liste des messages d'ERROR UTILISATEUR 
+	 * auprès du DAO.</li>
+	 * <li>encapsule la liste des messages d'ERROR UTILISATEUR 
+	 * provenant du DAO dans la liste du présent SERVICE 
+	 * <i>si il y a des ERRORS</i>.</li>
+	 * <li>retourne null si il y a des ERRORS, l'objet stocké sinon.</li>
 	 * <li>ne crée <b>pas de doublon</b>.</li>
 	 * <li>retourne null si pObject existe déjà dans le stockage.</li>
 	 * <li>retourne null si les attributs obligatoires 
@@ -592,6 +599,18 @@ public interface IUtilisateurCerbereService {
 	 * @return : String.<br/>
 	 */
 	String afficherListeObjetsMetier(List<IUtilisateurCerbere> pList);
+	
+	
+	
+	/**
+	 * Getter de la Liste des messages d'erreur 
+	 * à l'intention de l'utilisateur.<br/>
+	 * Ne peut jamis être null. <b>tester avec isEmpty()</b>.<br/>
+	 *
+	 * @return this.messagesErrorUtilisateurList : 
+	 * List&lt;String&gt;.<br/>
+	 */
+	List<String> getMessagesErrorUtilisateurList();	
 	
 	
 	

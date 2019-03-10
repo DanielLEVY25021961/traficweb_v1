@@ -431,6 +431,16 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		
 	} // Fin de injecterMessageDansLabelError(...).________________________
 	
+
+	
+	/**
+	 * positionne le curseur sur le 1er champ (civilité) 
+	 * du formulaire d'édition.<br/>
+	 */
+	public void positionnerCurseur() {
+		this.civiliteText.requestFocus();
+	} // Fin de positionnerCurseur().______________________________________
+
 	
 	
 	/**
@@ -912,7 +922,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.civiliteText.setAlignment(Pos.CENTER_LEFT);
 		this.civiliteText.setStyle(BORDER_TEXTES);
 		
-		this.civiliteText.setText("Mlle");
+		this.civiliteText.setText(BLANK);
 		
 	} // Fin de configurerCiviliteText().__________________________________
 
@@ -980,7 +990,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.prenomText.setAlignment(Pos.CENTER_LEFT);
 		this.prenomText.setStyle(BORDER_TEXTES);
 		
-		this.prenomText.setText("Oscar");
+		this.prenomText.setText(BLANK);
 		
 	} // Fin de configurerPrenomText().____________________________________
 	
@@ -1048,7 +1058,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.nomText.setAlignment(Pos.CENTER_LEFT);
 		this.nomText.setStyle(BORDER_TEXTES);
 		
-		this.nomText.setText("Peterson");
+		this.nomText.setText(BLANK);
 		
 	} // Fin de configurerNomText()._______________________________________
 	
@@ -1116,7 +1126,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.telText.setAlignment(Pos.CENTER_LEFT);
 		this.telText.setStyle(BORDER_TEXTES);
 		
-		this.telText.setText("01 02 03 04 05");
+		this.telText.setText(BLANK);
 		
 	} // Fin de configurerTelText()._______________________________________
 	
@@ -1184,7 +1194,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.emailText.setAlignment(Pos.CENTER_LEFT);
 		this.emailText.setStyle(BORDER_TEXTES);
 		
-		this.emailText.setText("oscar.peterson@yahoo.fr");
+		this.emailText.setText(BLANK);
 		
 	} // Fin de configurerEmailText()._____________________________________
 	
@@ -1252,7 +1262,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.serviceText.setAlignment(Pos.CENTER_LEFT);
 		this.serviceText.setStyle(BORDER_TEXTES);
 		
-		this.serviceText.setText("CEREMA");
+		this.serviceText.setText(BLANK);
 		
 	} // Fin de configurerServiceText().___________________________________
 	
@@ -1320,7 +1330,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.uniteText.setAlignment(Pos.CENTER_LEFT);
 		this.uniteText.setStyle(BORDER_TEXTES);
 		
-		this.uniteText.setText("CEREMA/DTerMed/DCEDI/GTIE");
+		this.uniteText.setText(BLANK);
 		
 	} // Fin de configurerUniteText()._____________________________________
 	
@@ -1388,7 +1398,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.profilText.setAlignment(Pos.CENTER_LEFT);
 		this.profilText.setStyle(BORDER_TEXTES);
 		
-		this.profilText.setText("ADMINISTRATEUR NATIONAL");
+		this.profilText.setText(BLANK);
 		
 	} // Fin de configurerProfilText().____________________________________
 	
@@ -1456,7 +1466,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.porteeText.setAlignment(Pos.CENTER_LEFT);
 		this.porteeText.setStyle(BORDER_TEXTES);
 		
-		this.porteeText.setText("CEREMA");
+		this.porteeText.setText(BLANK);
 		
 	} // Fin de configurerPorteeText().____________________________________
 	
@@ -1524,7 +1534,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		this.restrictionText.setAlignment(Pos.CENTER_LEFT);
 		this.restrictionText.setStyle(BORDER_TEXTES);
 		
-		this.restrictionText.setText("France métropolitaine");
+		this.restrictionText.setText(BLANK);
 		
 	} // Fin de configurerRestrictionText()._______________________________
 	

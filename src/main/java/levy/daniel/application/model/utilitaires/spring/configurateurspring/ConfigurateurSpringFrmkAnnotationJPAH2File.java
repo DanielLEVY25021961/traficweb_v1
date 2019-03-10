@@ -91,7 +91,6 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2File {
 	 */
 	public ConfigurateurSpringFrmkAnnotationJPAH2File() {
 		super();
-		System.out.println("********* DANS LE CONSTRUCTEUR ConfigurateurSpringFrmkAnnotationJPAH2File *********");
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
 	
@@ -105,8 +104,8 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2File {
 	 * du nom de la méthode) dans le contexte SPRING
 	 * grâce au paramètre value.</li>
 	 * <li>le nom choisi correspond au nom donné au DAO 
-	 * (via l'annotation Repository).
-	 *  Ce nom pourra être utilisé comme Qualifier 
+	 * (via l'annotation Repository).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
 	 *  lors de l'injection du DAO</li>
 	 * </ul>
 	 *
@@ -115,40 +114,57 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2File {
 	 */
 	@Bean(value = "UtilisateurCerbereDAOJPASpring")
 	public IUtilisateurCerbereDAO utilisateurCerbereDAOJPASpring() {
-		System.out.println();
-		System.out.println("********* CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File - j'instancie LE BEAN DAO UtilisateurCerbereDAOJPASpring *********");
 		return new UtilisateurCerbereDAOJPASpring();
 	} // Fin de utilisateurCerbereDAOJPASpring().__________________________
 
 
 	
 	/**
-	 * .<br/>
-	 * <br/>
+	 * <b>configure un bean pour le SERVICE utilisateurCerbereService 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "UtilisateurCerbereService" 
+	 * (au lieu de "utilisateurCerbereService" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au SERVICE 
+	 * (via l'annotation Service).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du SERVICE</li>
+	 * </ul>
 	 *
-	 * @return : IUtilisateurCerbereService :  .<br/>
+	 * @return : UtilisateurCerbereService : 
+	 * IUtilisateurCerbereService.<br/>
 	 */
 	@Bean(value = "UtilisateurCerbereService")
 	public IUtilisateurCerbereService utilisateurCerbereService() {
-		System.out.println();
-		System.out.println("********* CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File - j'instancie LE BEAN DAO UtilisateurCerbereService *********");
 		return new UtilisateurCerbereService();
-	}
+	} // Fin de utilisateurCerbereService()._______________________________
 
 
 	
 	/**
-	 * .<br/>
-	 * <br/>
+	 * <b>configure un bean pour le CONTROLLER utilisateurCerbereController 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "UtilisateurCerbereController" 
+	 * (au lieu de "utilisateurCerbereController" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au CONTROLLER 
+	 * (via l'annotation Controller).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du CONTROLLER</li>
+	 * </ul>
 	 *
-	 * @return : IUtilisateurCerbereController :  .<br/>
+	 * @return : UtilisateurCerbereController : 
+	 * IUtilisateurCerbereController.<br/>
 	 */
 	@Bean(value = "UtilisateurCerbereController")
 	public IUtilisateurCerbereController utilisateurCerbereController() {
-		System.out.println();
-		System.out.println("********* CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File - j'instancie LE BEAN DAO UtilisateurCerbereController *********");
 		return new UtilisateurCerbereController();
-	}
-		
+	} // Fin de utilisateurCerbereController().____________________________
+
+	
 	
 } // FIN DE LA CLASSE ConfigurateurSpringFrmkAnnotationJPAH2File.------------

@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * CLASSE UtilisateurCerbereEditionVueMain :<br/>
+ * CLASSE UtilisateurCerbereCreationVueMain :<br/>
  * .<br/>
  * <br/>
  *
@@ -24,10 +24,10 @@ import javafx.stage.Stage;
  *
  * @author dan Lévy
  * @version 1.0
- * @since 25 févr. 2019
+ * @since 8 mars 2019
  *
  */
-public class UtilisateurCerbereEditionVueMain extends Application {
+public class UtilisateurCerbereCreationVueMain extends Application {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -37,7 +37,7 @@ public class UtilisateurCerbereEditionVueMain extends Application {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereEditionVueMain.class);
+		= LogFactory.getLog(UtilisateurCerbereCreationVueMain.class);
 
 	
 	// *************************METHODES************************************/
@@ -45,7 +45,7 @@ public class UtilisateurCerbereEditionVueMain extends Application {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public UtilisateurCerbereEditionVueMain() {
+	public UtilisateurCerbereCreationVueMain() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -59,11 +59,11 @@ public class UtilisateurCerbereEditionVueMain extends Application {
 			final Stage pPrimaryStage) throws Exception {
 		
 		/* vue à afficher. */
-		final UtilisateurCerbereEditionVue vue 
-			= new UtilisateurCerbereEditionVue();
+		final UtilisateurCerbereCreationVue vue 
+			= new UtilisateurCerbereCreationVue();
 		
         /* Titre du théâtre. */
-        pPrimaryStage.setTitle("UtilisateurCerbereEditionVue");
+        pPrimaryStage.setTitle("UtilisateurCerbereCreationVue");
        
          /* PASSE LA VUE à afficher à la SCENE 
          * et dimensionne la SCENE. */
@@ -95,4 +95,4 @@ public class UtilisateurCerbereEditionVueMain extends Application {
 	
 
 
-} // FIN DE LA CLASSE UtilisateurCerbereAffichageVueMain.--------------------
+} // FIN DE LA CLASSE UtilisateurCerbereCreationVueMain.---------------------

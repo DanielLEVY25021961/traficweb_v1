@@ -1,5 +1,6 @@
 package levy.daniel.application.controllers.desktop.metier.utilisateur.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -45,6 +46,13 @@ public class UtilisateurCerbereController
 	@Autowired(required = true)
 	@Qualifier(value="UtilisateurCerbereService")
 	private transient IUtilisateurCerbereService utilisateurCerbereService;
+
+	/**
+	 * Liste des messages d'erreur à l'intention de l'utilisateur.<br/>
+	 * Ne peut jamis être null. <b>tester avec isEmpty()</b>.<br/>
+	 */
+	private final transient List<String> messagesErrorUtilisateurList 
+		= new ArrayList<String>(); 
 	
 	/**
 	 * LOG : Log : 
@@ -77,7 +85,27 @@ public class UtilisateurCerbereController
 	public IUtilisateurCerbere create(
 			final IUtilisateurCerbere pObject) throws Exception {
 		
-		return this.utilisateurCerbereService.create(pObject);
+		/* délègue le stockage d'un OBJET METIER au SERVICE. */
+		final IUtilisateurCerbere objetStocke 
+			= this.utilisateurCerbereService.create(pObject);
+		
+		/* récupère la liste des messages d'ERROR UTILISATEUR 
+		 * auprès du SERVICE. */
+		final List<String> messagesErrorUtilisateurLocalList 
+			= this.utilisateurCerbereService.getMessagesErrorUtilisateurList();
+		
+		/* encapsule la liste des messages d'ERROR UTILISATEUR 
+		 * provenant du SERVICE dans la liste du présent CONTROLLER 
+		 * si il y a des ERRORS. */
+		if (!messagesErrorUtilisateurLocalList.isEmpty()) {
+			
+			this.messagesErrorUtilisateurList
+				.addAll(messagesErrorUtilisateurLocalList);
+			
+		}
+
+		/* retourne null si il y a des ERRORS, l'objet stocké sinon. */
+		return objetStocke;
 		
 	} // Fin de create(...)._______________________________________________
 
@@ -378,6 +406,16 @@ public class UtilisateurCerbereController
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<String> getMessagesErrorUtilisateurList() {
+		return this.messagesErrorUtilisateurList;
+	} // Fin de getMessagesErrorUtilisateurList()._________________________
 	
 	
 	

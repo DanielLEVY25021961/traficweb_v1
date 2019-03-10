@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Repository;
@@ -133,6 +134,25 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 				+ "UtilisateurCerbereEntityJPA as utilisateurCerbere ";
 	
 	/**
+	 * "STOCKAGE IMPOSSIBLE : l'Objet métier à créer est null".
+	 */
+	public static final String OBJET_NULL 
+		= "STOCKAGE IMPOSSIBLE : l'Objet métier à créer est null";
+	
+	/**
+	 * "STOCKAGE IMPOSSIBLE - DOUBLON : 
+	 * l'objet existe déjà dans le stockage : ".
+	 */
+	public static final String DOUBLON 
+		= "STOCKAGE IMPOSSIBLE - DOUBLON : l'objet existe déjà dans le stockage : ";
+	
+	/**
+	 * "STOCKAGE IMPOSSIBLE - les champs OBLIGATOIRES (prénom, nom, email, unité) ne sont pas remplis : ".
+	 */
+	public static final String CHAMPS_OBLIGATOIRES 
+		= "STOCKAGE IMPOSSIBLE - les champs OBLIGATOIRES (prénom, nom, email, unité) ne sont pas remplis : ";
+	
+	/**
 	 * JPA EntityManager <b>injecté par SPRING</b>.<br/>
 	 */
 	@PersistenceContext(type = PersistenceContextType.TRANSACTION)
@@ -144,7 +164,13 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 	private final transient GestionnaireDaoException gestionnaireException 
 		= new GestionnaireDaoException();
 
-
+	/**
+	 * Liste des messages d'erreur à l'intention de l'utilisateur.<br/>
+	 * Ne peut jamis être null. <b>tester avec isEmpty()</b>.<br/>
+	 */
+	private final transient List<String> messagesErrorUtilisateurList 
+		= new ArrayList<String>(); 
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -177,22 +203,44 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(OBJET_NULL);
+			
 			return null;
-		}
+			
+		} // Fin de null._____________________________________
+		
 		
 		/* retourne null si pObject est un doublon. */
 		if (this.exists(pObject)) {
+			
+			final String message = DOUBLON + pObject.toString();
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(message);
+			
 			return null;
-		}
+			
+		} // Fin de DOUBLON.___________________________________
+		
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (pObject.getPrenom() == null 
-				|| pObject.getNom() == null 
-					|| pObject.getEmail() == null 
-						|| pObject.getUnite() == null) {
+		if (StringUtils.isBlank(pObject.getPrenom())
+				|| StringUtils.isBlank(pObject.getNom())
+					|| StringUtils.isBlank(pObject.getEmail()) 
+						|| StringUtils.isBlank(pObject.getUnite())) {
+			
+			final String message = CHAMPS_OBLIGATOIRES + pObject.toString();
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(message);
+			
 			return null;
-		}
+			
+		} // Fin de CHAMPS OBLIGATOIRES.______________________________
+		
 
 		IUtilisateurCerbere persistentObject = null;
 
@@ -1796,4 +1844,14 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 
 
 	
-} // FIN DE LA CLASSE DAO.--------------------------------------------
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<String> getMessagesErrorUtilisateurList() {
+		return this.messagesErrorUtilisateurList;
+	} // Fin de getMessagesErrorUtilisateurList()._________________________
+
+
+	
+} // FIN DE LA CLASSE UtilisateurCerbereDAOJPASpring.------------------------

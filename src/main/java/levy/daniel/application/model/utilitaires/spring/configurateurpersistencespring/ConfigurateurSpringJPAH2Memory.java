@@ -214,10 +214,6 @@ public class ConfigurateurSpringJPAH2Memory {
 		final IMyDataSource myDataSource 
 			= new MyDataSourceHikari(this.lecteurConfigurationBaseSpring);
 		
-		System.out.println();
-		System.out.println("=======DANS dataSource() de ConfigurateurSpringJPAH2Memory() ======");
-		System.out.println(myDataSource.afficherDataSource());
-		
 		return myDataSource.getDataSource();
 		
 	} // Fin de dataSource().______________________________________________
