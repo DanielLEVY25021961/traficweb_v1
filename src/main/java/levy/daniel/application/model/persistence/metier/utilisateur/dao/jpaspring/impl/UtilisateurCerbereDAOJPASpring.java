@@ -168,7 +168,7 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 	 * Liste des messages d'erreur à l'intention de l'utilisateur.<br/>
 	 * Ne peut jamis être null. <b>tester avec isEmpty()</b>.<br/>
 	 */
-	private final transient List<String> messagesErrorUtilisateurList 
+	private transient List<String> messagesErrorUtilisateurList 
 		= new ArrayList<String>(); 
 	
 	/**
@@ -201,6 +201,9 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 	public IUtilisateurCerbere create(
 			final IUtilisateurCerbere pObject) throws Exception {
 
+		/* instancie une nouvelle liste à chaque appel de la méthode. */
+		this.messagesErrorUtilisateurList = new ArrayList<String>();
+		
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
 			

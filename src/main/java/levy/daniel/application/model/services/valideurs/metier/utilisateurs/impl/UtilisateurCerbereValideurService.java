@@ -68,7 +68,7 @@ public class UtilisateurCerbereValideurService
 			return null;
 		}
 		
-		/* instanciation d'une nouvelle MAP. */
+		/* instanciation d'une nouvelle MAP à chaque appel de la méthode. */
 		final Map<String, String> errorsMap 
 			= new ConcurrentHashMap<String, String>();
 		
@@ -76,6 +76,13 @@ public class UtilisateurCerbereValideurService
 		this.validerCivilite(pDto, errorsMap);
 		this.validerPrenom(pDto, errorsMap);
 		this.validerNom(pDto, errorsMap);
+		this.validerTel(pDto, errorsMap);
+		this.validerEmail(pDto, errorsMap);
+		this.validerService(pDto, errorsMap);
+		this.validerUnite(pDto, errorsMap);
+		this.validerProfil(pDto, errorsMap);
+		this.validerPortee(pDto, errorsMap);
+		this.validerRestriction(pDto, errorsMap);
 		
 		return errorsMap;
 		
@@ -187,6 +194,245 @@ public class UtilisateurCerbereValideurService
 		}
 		
 	} // Fin de validerPrenom(...).________________________________________
+
+	
+	
+	/**
+	 * applique les REGLES DE GESTION sur le tel.<br/>
+	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
+	 * <br/>
+	 * - ne fait rien si pDto == null.<br/>
+	 * - ne fait rien si pErrorsMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : IUtilisateurCerbereDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErrorsMap : Map&lt;String,String&gt; : 
+	 * map des messages d'erreur pour chaque champ.<br/>
+	 */
+	private void validerTel(
+			final IUtilisateurCerbereDTO pDto
+				, final Map<String, String> pErrorsMap) {
+		
+		/* ne fait rien si pDto == null. */
+		if (pDto == null) {
+			return;
+		}
+		
+		/* ne fait rien si pErrorsMap == null. */
+		if (pErrorsMap == null) {
+			return;
+		}
+		
+		return;
+		
+	} // Fin de validerTel(...).___________________________________________
+
+
+	
+	/**
+	 * applique les REGLES DE GESTION sur le email.<br/>
+	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
+	 * <br/>
+	 * - ne fait rien si pDto == null.<br/>
+	 * - ne fait rien si pErrorsMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : IUtilisateurCerbereDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErrorsMap : Map&lt;String,String&gt; : 
+	 * map des messages d'erreur pour chaque champ.<br/>
+	 */
+	private void validerEmail(
+			final IUtilisateurCerbereDTO pDto
+				, final Map<String, String> pErrorsMap) {
+		
+		/* ne fait rien si pDto == null. */
+		if (pDto == null) {
+			return;
+		}
+		
+		/* ne fait rien si pErrorsMap == null. */
+		if (pErrorsMap == null) {
+			return;
+		}
+		
+		if (StringUtils.isBlank(pDto.getEmail())) {
+			pErrorsMap.put(
+					"email"
+					, "l'email doit obligatoirement être renseigné");
+		}
+		
+	} // Fin de validerEmail(...)._________________________________________
+
+	
+	
+	/**
+	 * applique les REGLES DE GESTION sur le service.<br/>
+	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
+	 * <br/>
+	 * - ne fait rien si pDto == null.<br/>
+	 * - ne fait rien si pErrorsMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : IUtilisateurCerbereDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErrorsMap : Map&lt;String,String&gt; : 
+	 * map des messages d'erreur pour chaque champ.<br/>
+	 */
+	private void validerService(
+			final IUtilisateurCerbereDTO pDto
+				, final Map<String, String> pErrorsMap) {
+		
+		/* ne fait rien si pDto == null. */
+		if (pDto == null) {
+			return;
+		}
+		
+		/* ne fait rien si pErrorsMap == null. */
+		if (pErrorsMap == null) {
+			return;
+		}
+		
+		return;
+		
+	} // Fin de validerService(...)._______________________________________
+
+
+	
+	/**
+	 * applique les REGLES DE GESTION sur l'unite.<br/>
+	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
+	 * <br/>
+	 * - ne fait rien si pDto == null.<br/>
+	 * - ne fait rien si pErrorsMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : IUtilisateurCerbereDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErrorsMap : Map&lt;String,String&gt; : 
+	 * map des messages d'erreur pour chaque champ.<br/>
+	 */
+	private void validerUnite(
+			final IUtilisateurCerbereDTO pDto
+				, final Map<String, String> pErrorsMap) {
+		
+		/* ne fait rien si pDto == null. */
+		if (pDto == null) {
+			return;
+		}
+		
+		/* ne fait rien si pErrorsMap == null. */
+		if (pErrorsMap == null) {
+			return;
+		}
+		
+		if (StringUtils.isBlank(pDto.getUnite())) {
+			pErrorsMap.put(
+					"unite"
+					, "l'unité doit obligatoirement être renseignée");
+		}
+		
+	} // Fin de validerUnite(...)._________________________________________
+
+	
+	
+	/**
+	 * applique les REGLES DE GESTION sur le profil.<br/>
+	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
+	 * <br/>
+	 * - ne fait rien si pDto == null.<br/>
+	 * - ne fait rien si pErrorsMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : IUtilisateurCerbereDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErrorsMap : Map&lt;String,String&gt; : 
+	 * map des messages d'erreur pour chaque champ.<br/>
+	 */
+	private void validerProfil(
+			final IUtilisateurCerbereDTO pDto
+				, final Map<String, String> pErrorsMap) {
+		
+		/* ne fait rien si pDto == null. */
+		if (pDto == null) {
+			return;
+		}
+		
+		/* ne fait rien si pErrorsMap == null. */
+		if (pErrorsMap == null) {
+			return;
+		}
+		
+		return;
+		
+	} // Fin de validerProfil(...).________________________________________
+
+	
+	
+	/**
+	 * applique les REGLES DE GESTION sur la portee.<br/>
+	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
+	 * <br/>
+	 * - ne fait rien si pDto == null.<br/>
+	 * - ne fait rien si pErrorsMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : IUtilisateurCerbereDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErrorsMap : Map&lt;String,String&gt; : 
+	 * map des messages d'erreur pour chaque champ.<br/>
+	 */
+	private void validerPortee(
+			final IUtilisateurCerbereDTO pDto
+				, final Map<String, String> pErrorsMap) {
+		
+		/* ne fait rien si pDto == null. */
+		if (pDto == null) {
+			return;
+		}
+		
+		/* ne fait rien si pErrorsMap == null. */
+		if (pErrorsMap == null) {
+			return;
+		}
+		
+		return;
+		
+	} // Fin de validerPortee(...)._______________________________________
+
+	
+	
+	/**
+	 * applique les REGLES DE GESTION sur la restriction.<br/>
+	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
+	 * <br/>
+	 * - ne fait rien si pDto == null.<br/>
+	 * - ne fait rien si pErrorsMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : IUtilisateurCerbereDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErrorsMap : Map&lt;String,String&gt; : 
+	 * map des messages d'erreur pour chaque champ.<br/>
+	 */
+	private void validerRestriction(
+			final IUtilisateurCerbereDTO pDto
+				, final Map<String, String> pErrorsMap) {
+		
+		/* ne fait rien si pDto == null. */
+		if (pDto == null) {
+			return;
+		}
+		
+		/* ne fait rien si pErrorsMap == null. */
+		if (pErrorsMap == null) {
+			return;
+		}
+		
+		return;
+		
+	} // Fin de validerRestriction(...).___________________________________
 	
 	
 	

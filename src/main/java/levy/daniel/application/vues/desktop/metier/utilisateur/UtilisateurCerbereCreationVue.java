@@ -253,7 +253,8 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	 * <li>convertit l'OBSERVABLE en DTO.</li>
 	 * <li>délègue au CONTROLLER la CREATION de l'OBJET METIER.</li>
 	 * <li><b>traite la réponse à la requête du CONTROLLER</b>.</li>
-	 * Si KO :
+	 * Si KO :<br/>
+	 * <b>affiche la VUE de CREATION KO.</b>
 	 * <ul>
 	 * <li>récupère la Map des erreurs par attribut dans la réponse.</li>
 	 * <li>récupère la liste des erreurs Globales dans la réponse.</li>
@@ -274,139 +275,199 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	 * </ul>
 	 */
 	private void ajouterListenerAEnregistrer() {
-		
+
 		this.panneauGestion.getBoutonEnregistrer()
-			.setOnAction(new EventHandler<ActionEvent>() {
+				.setOnAction(
+						new EventHandler<ActionEvent>() {
+
+			/**
+			 * VUE appelant la présente (UtilisateurCerbereAccueilVue).
+			 */
+			private UtilisateurCerbereAccueilVue vueAppelanteLocal;
+
+			/**
+			 * panneau d'édition composant le haut de la présente VUE.
+			 */
+			private UtilisateurCerbereEditionVue editionVueLocal;
+
+			/**
+			 * fenêtre (Stage = THEATRE) d'affichage de la présente VUE.
+			 */
+			private Stage stageAffichageLocal;
+
+			/**
+			 * objet OBSERVABLE créé dans le formulaire 
+			 * d'édition de la présente VUE.
+			 */
+			private IUtilisateurCerbereModelObs objetObs;
+
+			/**
+			 * DTO créé dans le formulaire d'édition de la présente VUE.
+			 */
+			private IUtilisateurCerbereDTO objetDTO;
 			
+
 			/**
 			 * {@inheritDoc}
 			 */
 			@Override
 			public void handle(
 					final ActionEvent pEvent) {
-				
-				/* récupère la vue appelante. */
-				final UtilisateurCerbereAccueilVue vueAppelanteLocal 
-					= UtilisateurCerbereCreationVue.this.getVueAppelante();
-				
-				/* récupère le formulaire d'édition de l'objet métier. */
-				final UtilisateurCerbereEditionVue editionVueLocal 
-					= UtilisateurCerbereCreationVue.this.getEditionVue();
-				
-				/* récupère la fenêtre (Stage = THEATRE) d'affichage. */
-				final Stage stageAffichageLocal 
-					= UtilisateurCerbereCreationVue.this.getStageAffichage(); 
-				
-				/* récupère l'objet OBSERVABLE créé dans 
-				 * le formulaire d'édition. */
-				final IUtilisateurCerbereModelObs objetObs 
-					= editionVueLocal.lireVue();
-				
-				/* convertit l'OBSERVABLE en DTO. */
-				final IUtilisateurCerbereDTO objetDTO 
-					= UtilisateurCerbereConvertisseurObservableDTO
-							.convertirObservableEnDTO(objetObs);
 
-				if (vueAppelanteLocal != null) {
-					
+				/* récupère la vue appelante. */
+				this.vueAppelanteLocal 
+					= UtilisateurCerbereCreationVue.this.getVueAppelante();
+
+				/* récupère le formulaire d'édition de l'objet métier. */
+				this.editionVueLocal 
+					= UtilisateurCerbereCreationVue.this.getEditionVue();
+
+				/* récupère la fenêtre (Stage = THEATRE) d'affichage. */
+				this.stageAffichageLocal 
+					= UtilisateurCerbereCreationVue.this.getStageAffichage();
+
+				/*
+				 * récupère l'objet OBSERVABLE créé 
+				 * dans le formulaire d'édition.
+				 */
+				this.objetObs = this.editionVueLocal.lireVue();
+
+				/* convertit l'OBSERVABLE en DTO. */
+				this.objetDTO 
+					= UtilisateurCerbereConvertisseurObservableDTO
+						.convertirObservableEnDTO(this.objetObs);
+
+				if (this.vueAppelanteLocal != null) {
+
 					/* récupère le CONTROLLER auprès de la vue appelante. */
 					final IUtilisateurCerbereController controller 
-						= vueAppelanteLocal.getUtilisateurCerbereController();
-					
-					
+						= this.vueAppelanteLocal
+							.getUtilisateurCerbereController();
+
 					if (controller != null) {
-						
+
 						try {
-							
-							/* délègue au CONTROLLER la CREATION 
-							 * de l'OBJET METIER. */
+
+							/*
+							 * délègue au CONTROLLER la CREATION 
+							 * de l'OBJET METIER.
+							 */
 							/* ************************************* */
 							final UtilisateurCerbereResponse reponse 
-								= controller.create(objetDTO);
+								= controller.create(this.objetDTO);
 							/* ************************************* */
-							
-							/* traite la réponse à la requête du CONTROLLER. */
-							
+
+							/* traite la réponse à la 
+							 * requête du CONTROLLER. */
+
 							/* Si KO : */
 							if (!reponse.isValide()) {
-								
-								/* récupère la Map des erreurs par attribut 
-								 * dans la réponse. */
-								final Map<String, String> errorsMap 
-									= reponse.getErrorsMap();
-								
-								/* récupère la liste des erreurs Globales 
-								 * dans la réponse. */
-								final List<String> messagesErrorUtilisateurList 
-									= reponse.getMessagesErrorUtilisateurList();
-								
-								/* instancie une VUE de Creation KO. */
-								final UtilisateurCerbereCreationVueKO vueKO 
-									= new UtilisateurCerbereCreationVueKO();
-								
-								vueKO.setStageAffichage(stageAffichageLocal);
-								
-								/* affiche le DTO mal rempli contenu dans 
-								 * la réponse dans la VueKO. */
-								vueKO.getEditionVue().afficherDTO(reponse.getDto());
-								
-								if (!errorsMap.isEmpty()) {
-									
-									/* affiche les erreurs par 
-									 * attribut dans la VueKO. */
-									vueKO.getEditionVue()
-										.injecterErrorsMapDansLabels(
-												errorsMap);
-																		
-								}
-								
-								if (!messagesErrorUtilisateurList.isEmpty()) {
-									
-									/* affiche les erreurs globales 
-									 * dans la VueKO. */
-									vueKO.getEditionVue()
-									.injecterErrorListDansErreurGlobales(
-											messagesErrorUtilisateurList);
-								}
-								
-								/* instancie une Scene KO encapsulant 
-								 * la vueKO. */
-								final Scene sceneKO = new Scene(vueKO);
-								
-								/* ajoute la feuille de style à la Scene. */
-								sceneKO.getStylesheets().add("static/css/dan_style.css");
-								
-								/* affiche la Scene KO dans la fenêtre active. */
-								stageAffichageLocal.setScene(sceneKO);
-								
+
+								/* affiche la VUE de CREATION KO. */
+								this.afficherVueCreationKO(
+										reponse, this.stageAffichageLocal);
+
+							/* Si OK : */	
 							} else {
 								/**/
 							}
-							
+
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
 					}
-					
+
 				}
-				
+
 			} // Fin de handle(...).____________________
-			
+
 			
 			
 			/**
-			 * .<br/>
+			 * <b>affiche la VUE de CREATION KO.</b>
+			 * <ul>
+			 * <li>récupère la Map des erreurs par attribut 
+			 * dans la réponse.</li>
+			 * <li>récupère la liste des erreurs Globales 
+			 * dans la réponse.</li>
+			 * <li>instancie une VUE de Creation KO en lui 
+			 * passant le Stage (fenêtre
+			 * d'affichage courante) et la Vue appelante (ACCUEIL).</li>
+			 * <li>affiche le DTO mal rempli contenu dans 
+			 * la réponse dans la VueKO.</li>
+			 * <li>affiche les erreurs par attribut dans la VueKO.</li>
+			 * <li>affiche les erreurs globales dans la VueKO.</li>
+			 * <li>instancie une Scene KO encapsulant la vueKO.</li>
+			 * <li>ajoute la feuille de style à la Scene.</li>
+			 * <li>affiche la Scene KO dans la fenêtre active.</li>
+			 * </ul>
 			 *
-			 * @param pReponse
-			 * @param pStageAffichageLocal : void :  .<br/>
+			 * @param pReponse : UtilisateurCerbereResponse.<br/>
+			 * @param pStageAffichageLocal : Stage.<br/>
 			 */
-			private void afficherVueCreationKO(UtilisateurCerbereResponse pReponse, Stage pStageAffichageLocal) {
-				/**/
-			}
+			private void afficherVueCreationKO(
+					final UtilisateurCerbereResponse pReponse
+						, final Stage pStageAffichageLocal) {
+
+				/*
+				 * récupère la Map des erreurs par attribut dans la réponse.
+				 */
+				final Map<String, String> errorsMap = pReponse.getErrorsMap();
+
+				/*
+				 * récupère la liste des erreurs Globales dans la réponse.
+				 */
+				final List<String> messagesErrorUtilisateurList 
+					= pReponse.getMessagesErrorUtilisateurList();
+
+				/* instancie une VUE de Creation KO. */
+				final UtilisateurCerbereCreationVueKO vueKO 
+					= new UtilisateurCerbereCreationVueKO(
+						this.stageAffichageLocal, this.vueAppelanteLocal);
+
+				/*
+				 * affiche le DTO mal rempli contenu dans la réponse 
+				 * dans la VueKO.
+				 */
+				vueKO.getEditionVue().afficherDTO(pReponse.getDto());
+
+				if (!errorsMap.isEmpty()) {
+
+					/*
+					 * affiche les erreurs par attribut dans la VueKO.
+					 */
+					vueKO.getEditionVue()
+						.injecterErrorsMapDansLabels(errorsMap);
+
+				}
+
+				if (!messagesErrorUtilisateurList.isEmpty()) {
+
+					/*
+					 * affiche les erreurs globales dans la VueKO.
+					 */
+					vueKO.getEditionVue()
+						.injecterErrorListDansErreurGlobales(
+								messagesErrorUtilisateurList);
+				}
+
+				/*
+				 * instancie une Scene KO encapsulant la vueKO.
+				 */
+				final Scene sceneKO = new Scene(vueKO);
+
+				/* ajoute la feuille de style à la Scene. */
+				sceneKO.getStylesheets().add("static/css/dan_style.css");
+
+				/* affiche la Scene KO dans la fenêtre active. */
+				pStageAffichageLocal.setScene(sceneKO);
+
+			} // Fin de afficherVueCreationKO(...).________________________
+
 			
 			
 		}); // Fin de new EventHandler(...).__________________
-		
+
 	} // Fin de ajouterListenerAEnregistrer()._____________________________
 
 	
@@ -414,6 +475,7 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	/**
 	 * ajoute un Listener au bouton Annuler du panneau de gestion.<br/>
 	 * <ul>
+	 * <li>Instancie et affiche une nouvelle VUE DE CREATION</li>
 	 * <li>nettoie le formulaire d'édition en cas d'appui 
 	 * sur le bouton Annuler.</li>
 	 * <li>positionne le curseur sur le 1er champ (civilité) 
@@ -424,6 +486,16 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 		
 		this.panneauGestion.getBoutonAnnuler()
 			.setOnAction(new EventHandler<ActionEvent>() {
+
+				/**
+				 * VUE appelant la présente (UtilisateurCerbereAccueilVue).
+				 */
+				private UtilisateurCerbereAccueilVue vueAppelanteLocal;
+
+				/**
+				 * fenêtre (Stage = THEATRE) d'affichage de la présente VUE.
+				 */
+				private Stage stageAffichageLocal;
 			
 			/**
 			 * {@inheritDoc}
@@ -432,20 +504,28 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 			public void handle(
 					final ActionEvent pEvent) {
 				
-				final UtilisateurCerbereEditionVue editionVueLocal 
-					= UtilisateurCerbereCreationVue.this.getEditionVue();
+				/* récupère la vue appelante. */
+				this.vueAppelanteLocal 
+					= UtilisateurCerbereCreationVue.this.getVueAppelante();
+
+				/* récupère la fenêtre (Stage = THEATRE) d'affichage. */
+				this.stageAffichageLocal 
+					= UtilisateurCerbereCreationVue.this.getStageAffichage();
 				
-				if (editionVueLocal != null) {
-					
-					/* nettoie le formulaire d'édition en cas d'appui 
-					 * sur le bouton Annuler. */
-					editionVueLocal.resetVue();
-					
-					/* positionne le curseur sur le 1er champ (civilité) 
-					 * du formulaire d'édition. */
-					editionVueLocal.positionnerCurseur();
-				}
+				/* instancie une nouvelle VUE de CREATION. */
+				final UtilisateurCerbereCreationVue creationVue 
+					= new UtilisateurCerbereCreationVue(
+							this.stageAffichageLocal, this.vueAppelanteLocal);
 				
+				/* instancie une nouvelle Scene vierge. */
+				final Scene sceneVierge = new Scene(creationVue);
+				
+				/* ajoute la feuille de style à la Scene vierge. */
+				sceneVierge.getStylesheets().add("static/css/dan_style.css");
+
+				/* affiche la Scene vierge dans la fenêtre active. */
+				this.stageAffichageLocal.setScene(sceneVierge);
+								
 			} // Fin de handle(...).____________________
 			
 		}); // Fin de new EventHandler(...).__________________
