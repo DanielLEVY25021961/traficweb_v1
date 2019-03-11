@@ -10,7 +10,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
-import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -42,7 +41,7 @@ import levy.daniel.application.vues.desktop.panneauxcommuns.PanneauGestionCreati
  * @since 8 mars 2019
  *
  */
-public class UtilisateurCerbereCreationVue extends AnchorPane {
+public class UtilisateurCerbereCreationVueKO extends AnchorPane {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -67,8 +66,8 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	 * VUE (AnchorPane) d'<b>édition</b> d'un OBJET METIER.<br/>
 	 * Composant du haut de la présente VUE.<br/>
 	 */
-	private final transient UtilisateurCerbereEditionVue editionVue 
-		= new UtilisateurCerbereEditionVue();
+	private final transient UtilisateurCerbereEditionVueKO editionVue 
+		= new UtilisateurCerbereEditionVueKO();
 	
 	/**
 	 * VUE (AnchorPane) de <b>gestion de la création (boutons)</b> 
@@ -89,7 +88,7 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereCreationVue.class);
+		= LogFactory.getLog(UtilisateurCerbereCreationVueKO.class);
 
 
 	// *************************METHODES************************************/
@@ -101,7 +100,7 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	 * <li>configure la présente vue (AnchorPane).</li>
 	 * </ul>
 	 */
-	public UtilisateurCerbereCreationVue() {
+	public UtilisateurCerbereCreationVueKO() {
 		
 		this(null, null);
 				
@@ -124,7 +123,7 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	 * @param pVueAppelante : UtilisateurCerbereAccueilVue :
 	 * VUE appelant la présente (utile pour les callbacks).
 	 */
-	public UtilisateurCerbereCreationVue(
+	public UtilisateurCerbereCreationVueKO(
 			final Stage pStage
 				, final UtilisateurCerbereAccueilVue pVueAppelante) {
 		
@@ -267,15 +266,11 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 				
 				/* récupère la vue appelante. */
 				final UtilisateurCerbereAccueilVue vueAppelanteLocal 
-					= UtilisateurCerbereCreationVue.this.getVueAppelante();
+					= UtilisateurCerbereCreationVueKO.this.getVueAppelante();
 				
 				/* récupère le formulaire d'édition de l'objet métier. */
-				final UtilisateurCerbereEditionVue editionVueLocal 
-					= UtilisateurCerbereCreationVue.this.getEditionVue();
-				
-				/* récupère la fenêtre (Stage = THEATRE) d'affichage. */
-				final Stage stageAffichageLocal 
-					= UtilisateurCerbereCreationVue.this.getStageAffichage(); 
+				final UtilisateurCerbereEditionVueKO editionVueLocal 
+					= UtilisateurCerbereCreationVueKO.this.getEditionVue();
 				
 				if (vueAppelanteLocal != null) {
 					
@@ -306,21 +301,14 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 								final Map<String, String> errorsMap 
 									= reponse.getErrorsMap();
 								
-								/* instanciation d'une VUE de Creation KO. */
-								final UtilisateurCerbereCreationVueKO vueKO 
-									= new UtilisateurCerbereCreationVueKO();
+								/* instanciation d'un panneau d'édition KO. */
+								final UtilisateurCerbereEditionVueKO editionVueKO 
+									= new UtilisateurCerbereEditionVueKO();
 								
 								if (!errorsMap.isEmpty()) {
-									
-									vueKO.getEditionVue()
+									editionVueKO
 										.injecterErrorsMapDansLabels(
 												errorsMap);
-									
-									final Scene sceneKO = new Scene(vueKO);
-									
-									stageAffichageLocal.setScene(sceneKO);
-									
-									
 								}
 								
 							} else {
@@ -363,8 +351,8 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 			public void handle(
 					final ActionEvent pEvent) {
 				
-				final UtilisateurCerbereEditionVue editionVueLocal 
-					= UtilisateurCerbereCreationVue.this.getEditionVue();
+				final UtilisateurCerbereEditionVueKO editionVueLocal 
+					= UtilisateurCerbereCreationVueKO.this.getEditionVue();
 				
 				if (editionVueLocal != null) {
 					
@@ -406,7 +394,7 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 					final ActionEvent pEvent) {
 				
 				final Stage stageLocal 
-					= UtilisateurCerbereCreationVue.this
+					= UtilisateurCerbereCreationVueKO.this
 							.getStageAffichage();
 				
 				/* ferme la fenêtre d'affichage de la présente VUE 
@@ -476,9 +464,9 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	 * Getter de la VUE (AnchorPane) d'<b>édition</b> d'un OBJET METIER.<br/>
 	 * Composant du haut de la présente VUE.<br/>
 	 *
-	 * @return this.editionVue : UtilisateurCerbereEditionVue.<br/>
+	 * @return this.editionVue : UtilisateurCerbereEditionVueKO.<br/>
 	 */
-	public final UtilisateurCerbereEditionVue getEditionVue() {
+	public final UtilisateurCerbereEditionVueKO getEditionVue() {
 		return this.editionVue;
 	} // Fin de getEditionVue().___________________________________________
 

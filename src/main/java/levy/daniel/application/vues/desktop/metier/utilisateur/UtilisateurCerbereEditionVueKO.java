@@ -39,7 +39,7 @@ import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.impl.Uti
  * @since 28 févr. 2019
  *
  */
-public class UtilisateurCerbereEditionVue extends AnchorPane {
+public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -267,7 +267,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereEditionVue.class);
+		= LogFactory.getLog(UtilisateurCerbereEditionVueKO.class);
 
 	// *************************METHODES************************************/
 	
@@ -278,7 +278,7 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 	 * <li>configure la présente vue (AnchorPane).</li>
 	 * </ul>
 	 */
-	public UtilisateurCerbereEditionVue() {
+	public UtilisateurCerbereEditionVueKO() {
 		
 		super();
 		
@@ -545,25 +545,26 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		
 		/* ajoute chaque composant dans le GridPane. */
 		this.gridPane.getChildren().addAll(
-				this.civiliteLabel, this.civiliteText);
+				this.civiliteLabel, this.civiliteText, this.civiliteErrorLabel);
 		this.gridPane.getChildren().addAll(
-				this.prenomLabel, this.prenomText);
+				this.prenomLabel, this.prenomText, this.prenomErrorLabel);
 		this.gridPane.getChildren().addAll(
-				this.nomLabel, this.nomText);
+				this.nomLabel, this.nomText, this.nomErrorLabel);
 		this.gridPane.getChildren().addAll(
-				this.telLabel, this.telText);
+				this.telLabel, this.telText, this.telErrorLabel);
 		this.gridPane.getChildren().addAll(
-				this.emailLabel, this.emailText);
+				this.emailLabel, this.emailText, this.emailErrorLabel);
 		this.gridPane.getChildren().addAll(
-				this.serviceLabel, this.serviceText);
+				this.serviceLabel, this.serviceText, this.serviceErrorLabel);
 		this.gridPane.getChildren().addAll(
-				this.uniteLabel, this.uniteText);
+				this.uniteLabel, this.uniteText, this.uniteErrorLabel);
 		this.gridPane.getChildren().addAll(
-				this.profilLabel, this.profilText);
+				this.profilLabel, this.profilText, this.profilErrorLabel);
 		this.gridPane.getChildren().addAll(
-				this.porteeLabel, this.porteeText);
+				this.porteeLabel, this.porteeText, this.porteeErrorLabel);
 		this.gridPane.getChildren().addAll(
-				this.restrictionLabel, this.restrictionText);		
+				this.restrictionLabel, this.restrictionText, this.restrictionErrorLabel);		
+		this.gridPane.getChildren().addAll(this.erreursGlobalesLabel);
 				
 		
 		/* change la couleur de fond du GridPane. */
@@ -608,62 +609,73 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		
 		/* configure la zone de texte pour la civilite. */
 		this.configurerCiviliteText();
+		this.configurerCiviliteErrorLabel();
 		
 		/* configure le label pour le prénom. */
 		this.configurerPrenomLabel();
 		
 		/* configure la zone de texte pour le prénom. */
 		this.configurerPrenomText();
+		this.configurerPrenomErrorLabel();
 		
 		/* configure le label pour le nom. */
 		this.configurerNomLabel();
 		
 		/* configure la zone de texte pour le nom. */
 		this.configurerNomText();
+		this.configurerNomErrorLabel();
 		
 		/* configure le label pour le tel. */
 		this.configurerTelLabel();
 		
 		/* configure la zone de texte pour le tel. */
 		this.configurerTelText();
+		this.configurerTelErrorLabel();
 		
 		/* configure le label pour le email. */
 		this.configurerEmailLabel();
 		
 		/* configure la zone de texte pour le email. */
 		this.configurerEmailText();
+		this.configurerEmailErrorLabel();
 		
 		/* configure le label pour le service. */
 		this.configurerServiceLabel();
 		
 		/* configure la zone de texte pour le service. */
 		this.configurerServiceText();
+		this.configurerServiceErrorLabel();
 		
 		/* configure le label pour l'unité. */
 		this.configurerUniteLabel();
 		
 		/* configure la zone de texte pour l'unité. */
 		this.configurerUniteText();
+		this.configurerUniteErrorLabel();
 		
 		/* configure le label pour le profil. */
 		this.configurerProfilLabel();
 		
 		/* configure la zone de texte pour le profil. */
 		this.configurerProfilText();
+		this.configurerProfilErrorLabel();
 		
 		/* configure le label pour la portée. */
 		this.configurerPorteeLabel();
 		
 		/* configure la zone de texte pour la portée. */
 		this.configurerPorteeText();
+		this.configurerPorteeErrorLabel();
 		
 		/* configure le label pour la restriction. */
 		this.configurerRestrictionLabel();
 		
 		/* configure la zone de texte pour la restriction. */
 		this.configurerRestrictionText();
+		this.configurerRestrictionErrorLabel();
 		
 		/* configure la TextArea pour les erreurs globales. */
+		this.configurerErreursGlobalesLabel();
 
 	} // Fin de configurerComposants().____________________________________
 	
@@ -691,6 +703,14 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
+				this.civiliteErrorLabel
+					, 2, 0
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
 				this.prenomLabel
 					, 0, 1
 						, 1, 1
@@ -701,6 +721,14 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		GridPane.setConstraints(
 				this.prenomText
 					, 1, 1
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
+				this.prenomErrorLabel
+					, 2, 1
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
@@ -723,6 +751,14 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
+				this.nomErrorLabel
+					, 2, 2
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
 				this.telLabel
 					, 0, 3
 						, 1, 1
@@ -733,6 +769,14 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		GridPane.setConstraints(
 				this.telText
 					, 1, 3
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
+				this.telErrorLabel
+					, 2, 3
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
@@ -755,6 +799,14 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
+				this.emailErrorLabel
+					, 2, 4
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
 				this.serviceLabel
 					, 0, 5
 						, 1, 1
@@ -765,6 +817,14 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		GridPane.setConstraints(
 				this.serviceText
 					, 1, 5
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
+				this.serviceErrorLabel
+					, 2, 5
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
@@ -787,6 +847,14 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
+				this.uniteErrorLabel
+					, 2, 6
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
 				this.profilLabel
 					, 0, 7
 						, 1, 1
@@ -797,6 +865,14 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 		GridPane.setConstraints(
 				this.profilText
 					, 1, 7
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
+				this.profilErrorLabel
+					, 2, 7
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
@@ -819,6 +895,14 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
 		GridPane.setConstraints(
+				this.porteeErrorLabel
+					, 2, 8
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
 				this.restrictionLabel
 					, 0, 9
 						, 1, 1
@@ -831,6 +915,22 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 					, 1, 9
 						, 1, 1
 							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
+				this.restrictionErrorLabel
+					, 2, 9
+						, 1, 1
+							, HPos.CENTER, VPos.CENTER
+								, Priority.ALWAYS, Priority.ALWAYS
+									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
+		
+		GridPane.setConstraints(
+				this.erreursGlobalesLabel
+					, 0, 10
+						, 3, 1
+							, HPos.LEFT, VPos.CENTER
 								, Priority.ALWAYS, Priority.ALWAYS
 									, new Insets(MARGIN, MARGIN, MARGIN, MARGIN));
 		
@@ -893,11 +993,16 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 	 * </ul>
 	 */
 	private void configurerCiviliteErrorLabel() {
-				
+
+		this.civiliteErrorLabel.setPrefWidth(LARGEUR_TEXTES);
+		this.civiliteErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.civiliteErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.civiliteErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
+		
 		this.civiliteErrorLabel.setAlignment(Pos.CENTER_LEFT);
 		this.civiliteErrorLabel.setWrapText(true);		
 		this.civiliteErrorLabel.getStyleClass().add("error");		
-		this.civiliteErrorLabel.setVisible(true);
+		this.civiliteErrorLabel.setVisible(false);
 		
 	} // Fin de configurerCiviliteErrorLabel().____________________________	
 	
