@@ -1,6 +1,5 @@
 package levy.daniel.application.controllers.desktop.metier.utilisateur.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -10,8 +9,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
-import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
+import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
 import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
+import levy.daniel.application.model.services.metier.utilisateurs.UtilisateurCerbereResponse;
 
 /**
  * CLASSE UtilisateurCerbereController :<br/>
@@ -48,13 +48,6 @@ public class UtilisateurCerbereController
 	private transient IUtilisateurCerbereService utilisateurCerbereService;
 
 	/**
-	 * Liste des messages d'erreur à l'intention de l'utilisateur.<br/>
-	 * Ne peut jamis être null. <b>tester avec isEmpty()</b>.<br/>
-	 */
-	private final transient List<String> messagesErrorUtilisateurList 
-		= new ArrayList<String>(); 
-	
-	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -82,30 +75,15 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere create(
-			final IUtilisateurCerbere pObject) throws Exception {
+	public UtilisateurCerbereResponse create(
+			final IUtilisateurCerbereDTO pObjectDTO) throws Exception {
 		
 		/* délègue le stockage d'un OBJET METIER au SERVICE. */
-		final IUtilisateurCerbere objetStocke 
-			= this.utilisateurCerbereService.create(pObject);
+		final UtilisateurCerbereResponse reponse 
+			= this.utilisateurCerbereService.create(pObjectDTO);
 		
-		/* récupère la liste des messages d'ERROR UTILISATEUR 
-		 * auprès du SERVICE. */
-		final List<String> messagesErrorUtilisateurLocalList 
-			= this.utilisateurCerbereService.getMessagesErrorUtilisateurList();
-		
-		/* encapsule la liste des messages d'ERROR UTILISATEUR 
-		 * provenant du SERVICE dans la liste du présent CONTROLLER 
-		 * si il y a des ERRORS. */
-		if (!messagesErrorUtilisateurLocalList.isEmpty()) {
-			
-			this.messagesErrorUtilisateurList
-				.addAll(messagesErrorUtilisateurLocalList);
-			
-		}
-
-		/* retourne null si il y a des ERRORS, l'objet stocké sinon. */
-		return objetStocke;
+		/* retourne la reponse du SERVICE. */
+		return reponse;
 		
 	} // Fin de create(...)._______________________________________________
 
@@ -116,7 +94,7 @@ public class UtilisateurCerbereController
 	 */
 	@Override
 	public void persist(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -128,7 +106,7 @@ public class UtilisateurCerbereController
 	 */
 	@Override
 	public Long createReturnId(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -139,8 +117,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<IUtilisateurCerbere> saveIterable(
-			final Iterable<IUtilisateurCerbere> pList) throws Exception {
+	public Iterable<IUtilisateurCerbereDTO> saveIterable(
+			final Iterable<IUtilisateurCerbereDTO> pList) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -151,8 +129,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere retrieve(
-			final IUtilisateurCerbere pObject) throws Exception {
+	public IUtilisateurCerbereDTO retrieve(
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -163,7 +141,7 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere findById(
+	public IUtilisateurCerbereDTO findById(
 			final Long pId) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
@@ -176,7 +154,7 @@ public class UtilisateurCerbereController
 	 */
 	@Override
 	public Long retrieveId(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -187,7 +165,7 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IUtilisateurCerbere> rechercherRapide(
+	public List<IUtilisateurCerbereDTO> rechercherRapide(
 			final String pString) throws Exception {
 		
 		if (this.utilisateurCerbereService != null) {
@@ -205,16 +183,15 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IUtilisateurCerbere> findAll() throws Exception {
+	public List<IUtilisateurCerbereDTO> findAll() throws Exception {
 		
 		if (this.utilisateurCerbereService != null) {
 			return this.utilisateurCerbereService.findAll();
 		} 
 		
-		System.out.println(" ***** utilisateurCerbereService est NULL ****");
 		return null;
 				
-	}
+	} // Fin de findAll()._________________________________________________
 
 
 
@@ -222,7 +199,7 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IUtilisateurCerbere> findAllMax(
+	public List<IUtilisateurCerbereDTO> findAllMax(
 			final int pStartPosition
 				, final int pMaxResult) throws Exception {
 		// TODO Auto-generated method stub
@@ -235,7 +212,7 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<IUtilisateurCerbere> findAllIterable(
+	public Iterable<IUtilisateurCerbereDTO> findAllIterable(
 			final Iterable<Long> pIds) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
@@ -247,8 +224,8 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere update(
-			final IUtilisateurCerbere pObject) throws Exception {
+	public IUtilisateurCerbereDTO update(
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -259,9 +236,9 @@ public class UtilisateurCerbereController
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere updateById(
+	public IUtilisateurCerbereDTO updateById(
 			final Long pId
-				, final IUtilisateurCerbere pObjectModifie) 
+				, final IUtilisateurCerbereDTO pObjectModifie) 
 												throws Exception {
 		// TODO Auto-generated method stub
 		return null;
@@ -274,7 +251,7 @@ public class UtilisateurCerbereController
 	 */
 	@Override
 	public boolean delete(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -332,7 +309,7 @@ public class UtilisateurCerbereController
 	 */
 	@Override
 	public void deleteIterable(
-			final Iterable<IUtilisateurCerbere> pList) throws Exception {
+			final Iterable<IUtilisateurCerbereDTO> pList) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -344,7 +321,7 @@ public class UtilisateurCerbereController
 	 */
 	@Override
 	public boolean deleteIterableBoolean(
-			final Iterable<IUtilisateurCerbere> pList) throws Exception {
+			final Iterable<IUtilisateurCerbereDTO> pList) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -356,7 +333,7 @@ public class UtilisateurCerbereController
 	 */
 	@Override
 	public boolean exists(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -402,20 +379,10 @@ public class UtilisateurCerbereController
 	 */
 	@Override
 	public String afficherListeObjetsMetier(
-			final List<IUtilisateurCerbere> pList) {
+			final List<IUtilisateurCerbereDTO> pList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public List<String> getMessagesErrorUtilisateurList() {
-		return this.messagesErrorUtilisateurList;
-	} // Fin de getMessagesErrorUtilisateurList()._________________________
 	
 	
 	

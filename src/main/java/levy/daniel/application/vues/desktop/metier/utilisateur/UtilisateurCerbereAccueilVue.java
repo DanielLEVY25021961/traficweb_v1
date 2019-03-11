@@ -25,7 +25,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
-import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
+import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.IUtilisateurCerbereModelObs;
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.UtilisateurCerbereConvertisseurObservableDTO;
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.impl.ZoneRechercheModelObs;
@@ -217,33 +217,37 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	/**
 	 * initialise le MODELE à afficher.<br/>
 	 * <ul>
-	 * <li>récupère la liste des objets métier dans le stockage 
+	 * <li>récupère la liste des DTOs dans le stockage 
 	 * auprès du CONTROLLER métier.</li>
-	 * <li>convertit la liste d'objets metier en 
+	 * <li>convertit la liste de DTOs en 
 	 * liste de DTO Observable.</li>
 	 * <li>injecte la liste de DTO Observable 
 	 * dans le TableView pour affichage.</li>
 	 * </ul>
+	 * - ne fait rien si le CONTROLLER est null.<br/>
+	 * <br/>
+	 * 
 	 * @throws Exception 
 	 */
 	private void initialiserModel() throws Exception {
 		
+		/* ne fait rien si le CONTROLLER est null. */
 		if (this.utilisateurCerbereController != null) {
 			
-			/* récupère la liste des objets métier dans le stockage 
+			/* récupère la liste des DTOs dans le stockage 
 			 * auprès du CONTROLLER métier. */
-			final List<IUtilisateurCerbere> listeObjets 
+			final List<IUtilisateurCerbereDTO> listeDTO 
 				= this.utilisateurCerbereController.findAll();
 					
-			/* convertit la liste d'objets metier en liste 
+			/* convertit la liste des DTOs en liste 
 			 * de DTO Observable. */
-			final ObservableList<IUtilisateurCerbereModelObs> listDTO 
+			final ObservableList<IUtilisateurCerbereModelObs> listDTOObs 
 				= UtilisateurCerbereConvertisseurObservableDTO
-					.convertirListObjetsEnObservableList(listeObjets);
+					.convertirListDTOEnObservableList(listeDTO);
 			
 			/* injecte la liste de DTO Observable 
 			 * dans le TableView pour affichage. */
-			this.listeobjetsAnchorPane.injecterModelDansTableView(listDTO);
+			this.listeobjetsAnchorPane.injecterModelDansTableView(listDTOObs);
 			
 		}
 		
@@ -336,8 +340,8 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 
 	
 	/**
-	 * ajoute un Listener à this.menuItemCreer 
-	 * chargé d'ouvrir la VUE de CREATION.<br/>
+	 * ajoute un Listener à <code>this.menuItemCreer</code> 
+	 * chargé d'<b>ouvrir la VUE de CREATION</b>.<br/>
 	 * <br/>
 	 */
 	private void ajouterListenerAMenuItemCreer() {
@@ -457,7 +461,7 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 	
 	/**
 	 * ajoute un ChangeListener sur la textProperty 
-	 * de la zone de recherche.<br/>
+	 * de la <b>zone de recherche</b>.<br/>
 	 * <ul>
 	 * <li></li>
 	 * <li></li>
@@ -484,7 +488,7 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 							, final String pOldValue
 								, final String pNewValue) {
 
-					List<IUtilisateurCerbere> resultat = null;
+					List<IUtilisateurCerbereDTO> resultat = null;
 					
 					try {
 						
@@ -493,11 +497,11 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 							= this.utilisateurCerbereControllerLocal
 								.rechercherRapide(pNewValue);
 						
-						/* convertit la liste d'objets metier resultat 
+						/* convertit la liste de DTOs resultat 
 						 * en liste de DTO Observable. */
 						final ObservableList<IUtilisateurCerbereModelObs> listDTO 
 							= UtilisateurCerbereConvertisseurObservableDTO
-								.convertirListObjetsEnObservableList(resultat);
+								.convertirListDTOEnObservableList(resultat);
 						
 						/* injecte la liste de DTO Observable 
 						 * dans le TableView pour affichage. */

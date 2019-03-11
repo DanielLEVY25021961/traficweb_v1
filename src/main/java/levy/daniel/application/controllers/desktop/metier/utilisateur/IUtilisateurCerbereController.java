@@ -2,7 +2,8 @@ package levy.daniel.application.controllers.desktop.metier.utilisateur;
 
 import java.util.List;
 
-import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
+import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
+import levy.daniel.application.model.services.metier.utilisateurs.UtilisateurCerbereResponse;
 
 /**
  * INTERFACE IUtilisateurCerbereController :<br/>
@@ -33,31 +34,59 @@ public interface IUtilisateurCerbereController {
 	
 	/**
 	 * <b>crée un objet métier pObject dans le stockage 
-	 * et retourne l'objet METIER persisté</b>.<br/>
+	 * à partir d'un DTO provenant d'une VUE
+	 * et retourne une ENCAPSULATION REPONSE contenant le DTO de 
+	 * l'objet METIER persisté</b>.<br/>
+	 * Gère :
 	 * <ul>
-	 * <li>délègue le stockage d'un OBJET METIER au SERVICE.</li>
-	 * <li>récupère la liste des messages d'ERROR UTILISATEUR 
-	 * auprès du SERVICE.</li>
-	 * <li>encapsule la liste des messages d'ERROR UTILISATEUR 
-	 * provenant du SERVICE dans la liste du présent CONTROLLER 
-	 * <i>si il y a des ERRORS</i>.</li>
-	 * <li>ne crée <b>pas de doublon</b>.</li>
-	 * <li>retourne null si pObject existe déjà dans le stockage.</li>
-	 * <li>retourne null si les attributs obligatoires 
-	 * de pObject ne sont pas remplis.</li>
+	 * <li>la transformation du DTO (application des REGLES METIER RM)</li>
+	 * <li>la validation de chaque attribut du DTO (application 
+	 * des REGLES DE GESTION RG)</li> 
+	 * <li>la mise en stockage de l'OBJET METIER relatif au DTO
+	 * si il n'y a pas d'erreurs.</li>
+	 * <li>le retour d'une Encapsulation {@link UtilisateurCerbereResponse} 
+	 * pour la REPONSE à la requête.</li>
 	 * </ul>
+	 * <ol>
+	 * <li>instancie une réponse à la requête.</li>
+	 * <li>délègue à un SERVICE Transformeur l'application 
+	 * des REGLES METIER sur le DTO passé 
+	 * en paramètre (le transforme).</li>
+	 * <li>délègue à un SERVICE Valideur l'application 
+	 * des REGLES DE GESTION sur le DTO transformé par l'application 
+	 * des REGLES METIER 
+	 * (récupère la Map des erreurs pour chaque attribut).</li>
+	 * <li><i>retourne une <b>Reponse</b> d'erreur si le SERVICE Valideur 
+	 * signale des erreurs sur les attributs</i>.</li>
+	 * <li>convertit le DTO transformé en OBJET METIER sinon.</li>
+	 * <li>délègue le stockage d'un OBJET METIER au DAO.</li>
+	 * <ul>
+	 * <li>récupère la liste des messages d'ERROR UTILISATEUR 
+	 * auprès du DAO.</li>
+	 * <li><i>retourne une <b>Reponse</b> d'erreur si le DAO 
+	 * signale des erreurs globales (doublons, 
+	 * attributs obligatoires non remplis...)</i>.</li>
+	 * <li>ne crée <b>pas de doublon</b>.</li>
+	 * </ul>
+	 * <li>convertit l'OBJET METIER stocké retourné par le DAO en DTO 
+	 * si il n'y a aucune erreur.</li>
+	 * <li><i>retourne une <b>Reponse</b> positive encapsulant le DTO de 
+	 * l'OBJET METIER stocké si il n'y a aucune erreur</i>.</li>
+	 * </ol>
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IUtilisateurCerbere : 
-	 * l'objet métier à persister dans le stockage.<br/>
+	 * @param pObjectDTO : IUtilisateurCerbereDTO : 
+	 * DTO de l'objet métier à persister dans le stockage.<br/>
 	 * 
-	 * @return IUtilisateurCerbere : 
+	 * @return UtilisateurCerbereResponse : 
+	 * la REPONSE du SERVICE encapsulant le DTO de 
 	 * l'objet métier persisté dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	IUtilisateurCerbere create(IUtilisateurCerbere pObject) throws Exception;
+	UtilisateurCerbereResponse create(IUtilisateurCerbereDTO pObjectDTO) 
+			throws Exception;
 	
 	
 
@@ -73,12 +102,12 @@ public interface IUtilisateurCerbereController {
 	 * - ne fait rien si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IUtilisateurCerbere : 
+	 * @param pObject : IUtilisateurCerbereDTO : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	void persist(IUtilisateurCerbere pObject) throws Exception;
+	void persist(IUtilisateurCerbereDTO pObject) throws Exception;
 	
 	
 
@@ -95,7 +124,7 @@ public interface IUtilisateurCerbereController {
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IUtilisateurCerbere : 
+	 * @param pObject : IUtilisateurCerbereDTO : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
 	 * @return : Long : 
@@ -104,7 +133,7 @@ public interface IUtilisateurCerbereController {
 	 * 
 	 * @throws Exception
 	 */
-	Long createReturnId(IUtilisateurCerbere pObject) throws Exception;
+	Long createReturnId(IUtilisateurCerbereDTO pObject) throws Exception;
 	
 	
 
@@ -126,15 +155,15 @@ public interface IUtilisateurCerbereController {
 	 * - retourne null si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;IUtilisateurCerbere&gt; : 
+	 * @param pList : Iterable&lt;IUtilisateurCerbereDTO&gt; : 
 	 * itérable d'objets métier à persister dans le stockage.<br/>
 	 * 
-	 * @return Iterable&lt;IUtilisateurCerbere&gt; : 
+	 * @return Iterable&lt;IUtilisateurCerbereDTO&gt; : 
 	 * itérable d'objets métier persistés dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	Iterable<IUtilisateurCerbere> saveIterable(Iterable<IUtilisateurCerbere> pList) 
+	Iterable<IUtilisateurCerbereDTO> saveIterable(Iterable<IUtilisateurCerbereDTO> pList) 
 				throws Exception;
 	
 	
@@ -154,15 +183,15 @@ public interface IUtilisateurCerbereController {
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IUtilisateurCerbere : 
+	 * @param pObject : IUtilisateurCerbereDTO : 
 	 * objet métier à rechercher.<br/>
 	 * 
-	 * @return : IUtilisateurCerbere : 
+	 * @return : IUtilisateurCerbereDTO : 
 	 * objet métier recherché.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	IUtilisateurCerbere retrieve(IUtilisateurCerbere pObject) throws Exception;
+	IUtilisateurCerbereDTO retrieve(IUtilisateurCerbereDTO pObject) throws Exception;
 	
 	
 
@@ -183,11 +212,11 @@ public interface IUtilisateurCerbereController {
 	 * index (0-based) ou identifiant en base 
 	 * de l'objet métier à rechercher.<br/>
 	 * 
-	 * @return : IUtilisateurCerbere : objet métier recherché.<br/>
+	 * @return : IUtilisateurCerbereDTO : objet métier recherché.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	IUtilisateurCerbere findById(Long pId) throws Exception;
+	IUtilisateurCerbereDTO findById(Long pId) throws Exception;
 	
 
 	
@@ -201,7 +230,7 @@ public interface IUtilisateurCerbereController {
 	 * <li>retourne null si l'objet nexiste pas dans le stockage.</li>
 	 * </ul>
 	 *
-	 * @param pObject : IUtilisateurCerbere : 
+	 * @param pObject : IUtilisateurCerbereDTO : 
 	 * objet métier dont on recherche l'identifiant.<br/>
 	 *  
 	 * @return Long : 
@@ -209,7 +238,7 @@ public interface IUtilisateurCerbereController {
 	 * 
 	 * @throws Exception
 	 */
-	Long retrieveId(IUtilisateurCerbere pObject) throws Exception;
+	Long retrieveId(IUtilisateurCerbereDTO pObject) throws Exception;
 	
 	
 	
@@ -226,13 +255,13 @@ public interface IUtilisateurCerbereController {
 	 * de JOKERS pour voir si elle est contenue dans 
 	 * un des attributs du equals().<br/>
 	 * 
-	 * @return List&lt;IUtilisateurCerbere&gt; : 
+	 * @return List&lt;IUtilisateurCerbereDTO&gt; : 
 	 * liste des objets métier dont au moins 1 des attributs 
 	 * de equals contient pString.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	List<IUtilisateurCerbere> rechercherRapide(
+	List<IUtilisateurCerbereDTO> rechercherRapide(
 			String pString) throws Exception;
 	
 	
@@ -242,12 +271,12 @@ public interface IUtilisateurCerbereController {
 	 * persistés dans le stockage</b>.<br/>
 	 * - peut retourner null si le stockage ne peut être lu.<br/>
 	 *
-	 * @return : List&lt;IUtilisateurCerbere&gt; : 
+	 * @return : List&lt;IUtilisateurCerbereDTO&gt; : 
 	 * liste de tous les objets métier persistés dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	List<IUtilisateurCerbere> findAll() throws Exception;
+	List<IUtilisateurCerbereDTO> findAll() throws Exception;
 	
 	
 
@@ -267,20 +296,20 @@ public interface IUtilisateurCerbereController {
 	 * @param pMaxResult : int : 
 	 * nombre maximum d'objets métier à retourner.<br/>
 	 * 
-	 * @return : List&lt;IUtilisateurCerbere&gt; : 
+	 * @return : List&lt;IUtilisateurCerbereDTO&gt; : 
 	 * liste des pMax objets métier persistés dans le stockage 
 	 * à partir de pStartPosition (0-based).<br/>
 	 * 
 	 * @throws Exception
 	 */
-	List<IUtilisateurCerbere> findAllMax(
+	List<IUtilisateurCerbereDTO> findAllMax(
 			int pStartPosition, int pMaxResult) throws Exception;
 	
 	
 
 	/**
 	 * <b>retourne une Collection iterable d'Objets métier 
-	 * (List&lt;IUtilisateurCerbere&gt;) dont les IDs appartiennent 
+	 * (List&lt;IUtilisateurCerbereDTO&gt;) dont les IDs appartiennent 
 	 * à la Collection itérable d'IDs passée en paramètre.</b>
 	 * <ul>
 	 * <li>retourne une liste <b>vide</b> (pas null) 
@@ -294,12 +323,12 @@ public interface IUtilisateurCerbereController {
 	 *
 	 * @param pIds : Iterable&lt;Long&gt;.<br/>
 	 * 
-	 * @return Iterable&lt;IUtilisateurCerbere&gt; : 
-	 * List&lt;IUtilisateurCerbere&gt;.<br/>
+	 * @return Iterable&lt;IUtilisateurCerbereDTO&gt; : 
+	 * List&lt;IUtilisateurCerbereDTO&gt;.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	Iterable<IUtilisateurCerbere> findAllIterable(Iterable<Long> pIds) throws Exception;
+	Iterable<IUtilisateurCerbereDTO> findAllIterable(Iterable<Long> pIds) throws Exception;
 
 
 
@@ -336,16 +365,16 @@ public interface IUtilisateurCerbereController {
 	 * this.dao.<b>update(objet1Persistant)</b>;</code><br/>
 	 * <br/>
 	 *
-	 * @param pObject : IUtilisateurCerbere : 
+	 * @param pObject : IUtilisateurCerbereDTO : 
 	 * objet métier comportant les modifications 
 	 * à appliquer à l'objet persistant.<br/>
 	 * 
-	 * @return : IUtilisateurCerbere : 
+	 * @return : IUtilisateurCerbereDTO : 
 	 * objet métier persistant modifié dans le stockage.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	IUtilisateurCerbere update(IUtilisateurCerbere pObject) throws Exception;
+	IUtilisateurCerbereDTO update(IUtilisateurCerbereDTO pObject) throws Exception;
 	
 	
 
@@ -374,15 +403,15 @@ public interface IUtilisateurCerbereController {
 	 *
 	 * @param pId : Long : 
 	 * index (0-based) de l'objet métier à modifier.<br/>
-	 * @param pObjectModifie : IUtilisateurCerbere : 
+	 * @param pObjectModifie : IUtilisateurCerbereDTO : 
 	 * Objet métier contenant les modifications 
 	 * à apporter à l'objet persistant dans le stockage.<br/>
 	 * 
-	 * @return IUtilisateurCerbere : objet métier persistant modifié.<br/>
+	 * @return IUtilisateurCerbereDTO : objet métier persistant modifié.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	IUtilisateurCerbere updateById(Long pId, IUtilisateurCerbere pObjectModifie) throws Exception;
+	IUtilisateurCerbereDTO updateById(Long pId, IUtilisateurCerbereDTO pObjectModifie) throws Exception;
 
 
 
@@ -398,14 +427,14 @@ public interface IUtilisateurCerbereController {
 	 * - retourne false si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IUtilisateurCerbere : objet métier à détruire.<br/>
+	 * @param pObject : IUtilisateurCerbereDTO : objet métier à détruire.<br/>
 	 * 
 	 * @return : boolean : 
 	 * true si l'objet métier a été détruit.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean delete(IUtilisateurCerbere pObject) throws Exception;
+	boolean delete(IUtilisateurCerbereDTO pObject) throws Exception;
 	
 	
 
@@ -481,12 +510,12 @@ public interface IUtilisateurCerbereController {
 	 * - ne fait rien si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;IUtilisateurCerbere&gt; : 
+	 * @param pList : Iterable&lt;IUtilisateurCerbereDTO&gt; : 
 	 * itérable d'objets à retirer du stockage.<br/>
 	 *  
 	 * @throws Exception
 	 */
-	void deleteIterable(Iterable<IUtilisateurCerbere> pList) throws Exception;
+	void deleteIterable(Iterable<IUtilisateurCerbereDTO> pList) throws Exception;
 	
 	
 
@@ -501,14 +530,14 @@ public interface IUtilisateurCerbereController {
 	 * - retourne false si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;IUtilisateurCerbere&gt; : 
+	 * @param pList : Iterable&lt;IUtilisateurCerbereDTO&gt; : 
 	 * itérable d'objets àretirer du stockage?<br/>
 	 * 
 	 * @return : boolean : true si le retrait a bien été effectué.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean deleteIterableBoolean(Iterable<IUtilisateurCerbere> pList) throws Exception;
+	boolean deleteIterableBoolean(Iterable<IUtilisateurCerbereDTO> pList) throws Exception;
 
 
 
@@ -523,14 +552,14 @@ public interface IUtilisateurCerbereController {
 	 * - retourne false si l'Objet métier pObject n'existe pas en base.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IUtilisateurCerbere : objet métier à rechercher.<br/>
+	 * @param pObject : IUtilisateurCerbereDTO : objet métier à rechercher.<br/>
 	 * 
 	 * @return boolean : 
 	 * true si l'objet métier pObject existe dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean exists(IUtilisateurCerbere pObject) throws Exception;
+	boolean exists(IUtilisateurCerbereDTO pObject) throws Exception;
 	
 	
 
@@ -593,24 +622,12 @@ public interface IUtilisateurCerbereController {
 	 * <br/>
 	 * retourne null si pList == null.<br/>
 	 *
-	 * @param pList : List&lt;IUtilisateurCerbere&gt;.<br/>
+	 * @param pList : List&lt;IUtilisateurCerbereDTO&gt;.<br/>
 	 * 
 	 * @return : String.<br/>
 	 */
-	String afficherListeObjetsMetier(List<IUtilisateurCerbere> pList);
-	
-	
-	
-	/**
-	 * Getter de la Liste des messages d'erreur 
-	 * à l'intention de l'utilisateur.<br/>
-	 * Ne peut jamis être null. <b>tester avec isEmpty()</b>.<br/>
-	 *
-	 * @return this.messagesErrorUtilisateurList : 
-	 * List&lt;String&gt;.<br/>
-	 */
-	List<String> getMessagesErrorUtilisateurList();	
-	
+	String afficherListeObjetsMetier(List<IUtilisateurCerbereDTO> pList);
+
 	
 	
 } // FIN DE L'INTERFACE IUtilisateurCerbereController.-----------------------

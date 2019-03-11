@@ -1,5 +1,7 @@
 package levy.daniel.application.vues.desktop.metier.utilisateur;
 
+import java.util.Map;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -404,6 +406,60 @@ public class UtilisateurCerbereEditionVue extends AnchorPane {
 	} // Fin de resetVue().________________________________________________
 	
 
+	
+	/**
+	 * injecte les messages d'ERROR dans le Label d'ERROR 
+	 * de chaque attribut.<br/>
+	 * Les message d'ereur sont contenus dans une Map&lt;String, String&gt; 
+	 * pErrorsMap définie par le SERVICE de VALIDATION.<br/>
+	 * <br/>
+	 * - ne fait rien si pErrorsMap est null ou vide.<br/>
+	 * <br/>
+	 *
+	 * @param pErrorsMap : Map&lt;String, String&gt; : 
+	 * Map d'erreurs avec les messages d'erreur pour chaque attribut.<br/>
+	 */
+	public void injecterErrorsMapDansLabels(
+			final Map<String, String> pErrorsMap) {
+		
+		/* ne fait rien si pErrorsMap est null ou vide. */
+		if (pErrorsMap == null || pErrorsMap.isEmpty()) {
+			return;
+		}
+		
+		/* civilite. */
+		final String messageErrorCivilite = pErrorsMap.get("civilite");
+		if (!StringUtils.isBlank(messageErrorCivilite)) {
+			this.injecterMessageDansLabelError(
+					this.civiliteErrorLabel, messageErrorCivilite);
+		}
+		
+		/* prenom. */
+		final String messageErrorPrenom = pErrorsMap.get("prenom");
+		if (!StringUtils.isBlank(messageErrorPrenom)) {
+			this.injecterMessageDansLabelError(
+					this.prenomErrorLabel, messageErrorPrenom);
+		}
+		
+		/* nom. */
+		final String messageErrorNom = pErrorsMap.get("nom");
+		if (!StringUtils.isBlank(messageErrorNom)) {
+			this.injecterMessageDansLabelError(
+					this.nomErrorLabel, messageErrorNom);
+		}
+		
+		
+		final String messageErrorTel = pErrorsMap.get("tel");
+		final String messageErrorEmail = pErrorsMap.get("email");
+		final String messageErrorService = pErrorsMap.get("service");
+		final String messageErrorUnite = pErrorsMap.get("unite");
+		final String messageErrorProfil = pErrorsMap.get("profil");
+		final String messageErrorPortee = pErrorsMap.get("portee");
+		final String messageErrorRestriction = pErrorsMap.get("restriction");
+		
+	} // Fin de injecterErrorsMapDansLabels(...).__________________________
+	
+	
 	
 	/**
 	 * injecte un message d'ERROR dans un Label d'ERROR.<br/>

@@ -369,4 +369,47 @@ public final class UtilisateurCerbereConvertisseurObservableDTO {
 	
 	
 	
+	/**
+	 * convertit une liste de DTOs en ObservableList 
+	 * d'OBSERVABLES.<br/>
+	 * <br/>
+	 * - retourne null si pListeDTO == null.<br/>
+	 * <br/>
+	 *
+	 * @param pListeDTO : List&lt;IUtilisateurCerbereDTO&gt; : 
+	 * Liste de DTOs.<br/>
+	 * @return : 
+	 * javafx.collections.ObservableList&lt;IUtilisateurCerbereModelObs&gt; : 
+	 * Liste d'OBSERVABLES.<br/>
+	 */
+	public static ObservableList<IUtilisateurCerbereModelObs> 
+							convertirListDTOEnObservableList(
+			final List<IUtilisateurCerbereDTO> pListeDTO) {	
+		
+		synchronized (UtilisateurCerbereConvertisseurObservableDTO.class) {
+			
+			/* retourne null si pListeDTO == null. */
+			if (pListeDTO == null) {
+				return null;
+			}
+			
+			final ObservableList<IUtilisateurCerbereModelObs> resultat 
+				= FXCollections.observableArrayList();
+			
+			for (final IUtilisateurCerbereDTO dto : pListeDTO) {
+				
+				final IUtilisateurCerbereModelObs observable 
+					= convertirDTOEnObservable(dto);
+				
+				resultat.add(observable);
+			}
+			
+			return resultat;
+			
+		} // Fin de synchronized._______________________________________
+		
+	} // Fin de convertirListDTOEnObservableList(...)._____________________
+	
+	
+	
 } // FIN DE LA CLASSE UtilisateurCerbereConvertisseurObservableDTO.----------

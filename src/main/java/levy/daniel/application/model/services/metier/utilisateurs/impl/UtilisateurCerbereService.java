@@ -1,7 +1,7 @@
 package levy.daniel.application.model.services.metier.utilisateurs.impl;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -11,9 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
+import levy.daniel.application.model.dto.metier.utilisateur.UtilisateurCerbereConvertisseurMetierDTO;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
 import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
+import levy.daniel.application.model.services.metier.utilisateurs.UtilisateurCerbereResponse;
+import levy.daniel.application.model.services.transformeurs.metier.utilisateurs.IUtilisateurCerbereTransformeurService;
+import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUtilisateurCerbereValideurService;
 
 /**
  * CLASSE UtilisateurCerbereService :<br/>
@@ -49,13 +54,34 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	@Autowired(required = true)
 	@Qualifier(value="UtilisateurCerbereDAOJPASpring")
 	private transient IUtilisateurCerbereDAO utilisateurCerbereDAO;
+	
+	/**
+	 * SERVICE pour l'application des REGLES METIER (RM).
+	 */
+	@Autowired(required = true)
+	@Qualifier(value="UtilisateurCerbereTransformeurService")
+	private transient IUtilisateurCerbereTransformeurService transformeurService;
+	
+	/**
+	 * SERVICE pour l'application des REGLES DE GESTION.
+	 */
+	@Autowired(required = true)
+	@Qualifier(value="UtilisateurCerbereValideurService")
+	private transient IUtilisateurCerbereValideurService valideurService;
 
 	/**
-	 * Liste des messages d'erreur à l'intention de l'utilisateur.<br/>
-	 * Ne peut jamis être null. <b>tester avec isEmpty()</b>.<br/>
+	 * "STOCKAGE IMPOSSIBLE - il y a des erreurs dans le formulaire".
 	 */
-	private final transient List<String> messagesErrorUtilisateurList 
-		= new ArrayList<String>(); 
+	public static final String MESSAGE_ERREUR_FORMULAIRE 
+		= "STOCKAGE IMPOSSIBLE - il y a des erreurs dans le formulaire";
+	
+	/**
+	 * "STOCKAGE IMPOSSIBLE - la saisie viole des contraintes 
+	 * dans le stockage (doublons, champs, obligatoires, ...)".
+	 */
+	public static final String MESSAGE_ERREUR_STOCKAGE 
+		= "STOCKAGE IMPOSSIBLE - la saisie viole des contraintes "
+				+ "dans le stockage (doublons, champs, obligatoires, ...)";
 	
 	/**
 	 * LOG : Log : 
@@ -85,30 +111,86 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere create(
-			final IUtilisateurCerbere pObject) throws Exception {
+	public UtilisateurCerbereResponse create(
+			final IUtilisateurCerbereDTO pObject) throws Exception {
+		
+		/* retourne null si pObject == null. */
+		if (pObject == null) {
+			return null;
+		}
+		
+		/* instancie une réponse à la requête. */
+		final UtilisateurCerbereResponse reponse 
+			= new UtilisateurCerbereResponse();
+		
+		/* délègue à un SERVICE Transformeur l'application 
+		 * des  REGLES METIER sur le DTO passé en paramètre 
+		 * (le transforme). */
+		final IUtilisateurCerbereDTO dtoTransforme 
+			= this.transformeurService.transformer(pObject);
+		
+		/* délègue à un SERVICE Valideur l'application des 
+		 * REGLES DE GESTION sur le DTO transformé 
+		 * par l'application des REGLES METIER 
+		 * (récupère la Map des erreurs pour chaque attribut). */
+		final Map<String, String> errorsMap 
+			= this.valideurService.valider(dtoTransforme);
+		
+		/* retourne une Reponse d'erreur si le SERVICE 
+		 * Valideur signale des erreurs. */
+		if (!errorsMap.isEmpty()) {
+			reponse.setValide(false);
+			reponse.setDto(dtoTransforme);
+			reponse.ajouterMapAErrorsMap(errorsMap);
+			reponse.ajouterMessageAMessagesErrorUtilisateur(
+					MESSAGE_ERREUR_FORMULAIRE);
+			reponse.setMessageGlobal("ERREURS DE VALIDATION");
+			
+			return reponse;
+		}
+		
+		/* convertit le DTO transformé en OBJET METIER sinon. */
+		final IUtilisateurCerbere objetMetier 
+			= UtilisateurCerbereConvertisseurMetierDTO
+				.convertirDTOEnObjetMetier(dtoTransforme);
 		
 		/* délègue le stockage d'un OBJET METIER au DAO. */
 		final IUtilisateurCerbere objetStocke 
-			= this.utilisateurCerbereDAO.create(pObject);
+			= this.utilisateurCerbereDAO.create(objetMetier);
 		
 		/* récupère la liste des messages d'ERROR UTILISATEUR 
-		 * auprès du DAO. */
-		final List<String> messagesErrorUtilisateurLocalList 
+		 * auprès du DAO (doublons, ...). */
+		final List<String> messagesErrorUtilisateurDAO
 			= this.utilisateurCerbereDAO.getMessagesErrorUtilisateurList();
 		
-		/* encapsule la liste des messages d'ERROR UTILISATEUR 
-		 * provenant du DAO dans la liste du présent SERVICE 
-		 * si il y a des ERRORS. */
-		if (!messagesErrorUtilisateurLocalList.isEmpty()) {
+		/* retourne une Reponse d'erreur si le DAO 
+		 * signale des erreurs globales (doublons, ...). */
+		if (!messagesErrorUtilisateurDAO.isEmpty()) {
+			reponse.setValide(false);
+			reponse.setDto(dtoTransforme);
+			reponse.ajouterMapAErrorsMap(errorsMap);
+			reponse.ajouterMessageAMessagesErrorUtilisateur(
+					MESSAGE_ERREUR_STOCKAGE);
+			reponse.ajouterListMessageAMessagesErrorUtilisateur(
+					messagesErrorUtilisateurDAO);
+			reponse.setMessageGlobal("ERREURS DE STOCKAGE (DAO)");
 			
-			this.messagesErrorUtilisateurList
-				.addAll(messagesErrorUtilisateurLocalList);
-			
+			return reponse;
 		}
 		
-		/* retourne null si il y a des ERRORS, l'objet stocké sinon. */
-		return objetStocke;
+		/* convertit l'OBJET METIER stocké retourné par le DAO en DTO 
+		 * si il n'y a aucune erreur. */
+		final IUtilisateurCerbereDTO dtoStocke 
+			= UtilisateurCerbereConvertisseurMetierDTO
+				.convertirObjetMetierEnDTO(objetStocke);
+		
+		/* retourne une Reponse positive encapsulant 
+		 * le DTO de l'OBJET METIER stocké si il n'y a aucune erreur. */
+		reponse.setValide(true);
+		reponse.setDto(dtoStocke);
+		reponse.setMessageGlobal("OK");
+		
+		return reponse;
 		
 	} // Fin de create(...)._______________________________________________
 
@@ -119,7 +201,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 */
 	@Override
 	public void persist(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -131,7 +213,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 */
 	@Override
 	public Long createReturnId(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -142,8 +224,8 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<IUtilisateurCerbere> saveIterable(
-			final Iterable<IUtilisateurCerbere> pList) throws Exception {
+	public Iterable<IUtilisateurCerbereDTO> saveIterable(
+			final Iterable<IUtilisateurCerbereDTO> pList) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -154,8 +236,8 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere retrieve(
-			final IUtilisateurCerbere pObject) throws Exception {
+	public IUtilisateurCerbereDTO retrieve(
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -166,7 +248,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere findById(
+	public IUtilisateurCerbereDTO findById(
 			final Long pId) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
@@ -179,7 +261,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 */
 	@Override
 	public Long retrieveId(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -190,10 +272,14 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IUtilisateurCerbere> rechercherRapide(
+	public List<IUtilisateurCerbereDTO> rechercherRapide(
 			final String pString) throws Exception {
 		
-		return this.utilisateurCerbereDAO.rechercherRapide(pString);
+		final List<IUtilisateurCerbere> resultat 
+			= this.utilisateurCerbereDAO.rechercherRapide(pString);
+		
+		return UtilisateurCerbereConvertisseurMetierDTO
+				.convertirListeObjetEnListeDTO(resultat);
 		
 	} // Fin de rechercherRapide(...)._____________________________________
 
@@ -203,9 +289,15 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IUtilisateurCerbere> findAll() throws Exception {		
-		return this.utilisateurCerbereDAO.findAll();
-	}
+	public List<IUtilisateurCerbereDTO> findAll() throws Exception {	
+		
+		final List<IUtilisateurCerbere> resultat 
+			= this.utilisateurCerbereDAO.findAll();
+		
+		return UtilisateurCerbereConvertisseurMetierDTO
+				.convertirListeObjetEnListeDTO(resultat);
+ 
+	} // Fin de findAll()._________________________________________________
 
 
 
@@ -213,7 +305,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IUtilisateurCerbere> findAllMax(
+	public List<IUtilisateurCerbereDTO> findAllMax(
 			final int pStartPosition
 				, final int pMaxResult) throws Exception {
 		// TODO Auto-generated method stub
@@ -226,7 +318,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<IUtilisateurCerbere> findAllIterable(
+	public Iterable<IUtilisateurCerbereDTO> findAllIterable(
 			final Iterable<Long> pIds) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
@@ -238,8 +330,8 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere update(
-			final IUtilisateurCerbere pObject) throws Exception {
+	public IUtilisateurCerbereDTO update(
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -250,9 +342,9 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IUtilisateurCerbere updateById(
+	public IUtilisateurCerbereDTO updateById(
 			final Long pId
-				, final IUtilisateurCerbere pObjectModifie) 
+				, final IUtilisateurCerbereDTO pObjectModifie) 
 							throws Exception {
 		// TODO Auto-generated method stub
 		return null;
@@ -265,7 +357,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 */
 	@Override
 	public boolean delete(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -323,7 +415,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 */
 	@Override
 	public void deleteIterable(
-			final Iterable<IUtilisateurCerbere> pList) throws Exception {
+			final Iterable<IUtilisateurCerbereDTO> pList) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -335,7 +427,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 */
 	@Override
 	public boolean deleteIterableBoolean(
-			final Iterable<IUtilisateurCerbere> pList) throws Exception {
+			final Iterable<IUtilisateurCerbereDTO> pList) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -347,7 +439,7 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 */
 	@Override
 	public boolean exists(
-			final IUtilisateurCerbere pObject) throws Exception {
+			final IUtilisateurCerbereDTO pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -393,20 +485,10 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 	 */
 	@Override
 	public String afficherListeObjetsMetier(
-			final List<IUtilisateurCerbere> pList) {
+			final List<IUtilisateurCerbereDTO> pList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public List<String> getMessagesErrorUtilisateurList() {
-		return this.messagesErrorUtilisateurList;
-	} // Fin de getMessagesErrorUtilisateurList()._________________________
 	
 	
 	

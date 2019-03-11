@@ -1,5 +1,8 @@
 package levy.daniel.application.model.dto.metier.utilisateur;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -199,6 +202,49 @@ public final class UtilisateurCerbereConvertisseurMetierDTO {
 		} // Fin de synchronized._______________________
 		
 	} // Fin de convertirObjetMetierEnDTO(...).____________________________
+	
+	
+	
+	/**
+	 * convertit une liste d'OBJETS METIER en liste 
+	 * de DTOs.<br/>
+	 * <br/>
+	 * - retourne null si pListeObjets == null.<br/>
+	 * <br/>
+	 *
+	 * @param pListeObjets : List&lt;IUtilisateurCerbere&gt; : 
+	 * Liste d'OBJETS METIER.<br/>
+	 * @return : 
+	 * List&lt;IUtilisateurCerbereDTO&gt; : 
+	 * Liste de DTOs.<br/>
+	 */
+	public static List<IUtilisateurCerbereDTO> convertirListeObjetEnListeDTO(
+			final List<IUtilisateurCerbere> pListeObjets) {
+		
+		synchronized (UtilisateurCerbereConvertisseurMetierDTO.class) {
+			
+			/* retourne null si pListeObjets == null. */
+			if (pListeObjets == null) {
+				return null;
+			}
+			
+			final List<IUtilisateurCerbereDTO> resultat 
+				= new ArrayList<IUtilisateurCerbereDTO>();
+			
+			for (final IUtilisateurCerbere objet : pListeObjets) {
+				
+				final IUtilisateurCerbereDTO dto 
+					= convertirObjetMetierEnDTO(objet);
+				
+				resultat.add(dto);
+				
+			}
+			
+			return resultat;
+			
+		} // Fin de synchronized._______________________________________
+		
+	} // Fin de convertirListeObjetEnListeDTO(...).________________________
 	
 	
 	

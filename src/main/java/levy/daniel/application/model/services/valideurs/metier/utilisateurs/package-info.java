@@ -1,8 +1,8 @@
 /**
- * class package-info :<br/>
+ * CLASSE package-info :<br/>
  * ce package comprend toutes les classes de SERVICES 
  * dédiés à la <b>validation (REGLES DE GESTION)</b> 
- * des OBJETS METIER.<br/>
+ * des OBJETS METIER relatifs aux UTILISATEURS.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -17,7 +17,7 @@
  *
  * @author dan Lévy
  * @version 1.0
- * @since 22 sept. 2017
+ * @since 10 mars 2019
  *
  */
-package levy.daniel.application.model.services.valideurs.metier;
+package levy.daniel.application.model.services.valideurs.metier.utilisateurs;

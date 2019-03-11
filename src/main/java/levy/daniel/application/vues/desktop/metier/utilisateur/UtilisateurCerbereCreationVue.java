@@ -1,6 +1,6 @@
 package levy.daniel.application.vues.desktop.metier.utilisateur;
 
-import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -15,7 +15,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
-import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
+import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
+import levy.daniel.application.model.services.metier.utilisateurs.UtilisateurCerbereResponse;
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.IUtilisateurCerbereModelObs;
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.UtilisateurCerbereConvertisseurObservableDTO;
 import levy.daniel.application.vues.desktop.panneauxcommuns.PanneauGestionCreation;
@@ -241,6 +242,7 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	
 	/**
 	 * ajoute un Listener au bouton Enregistrer du panneau de gestion.<br/>
+	 * <b>enregistre dans le stockage un nouvel objet</b>.<br/>
 	 * <ul>
 	 * <li>récupère la vue appelante (pour obtenir le CONTROLLER).</li>
 	 * <li>récupère le formulaire d'édition de l'objet métier.</li>
@@ -281,23 +283,32 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 					final IUtilisateurCerbereModelObs objetObs 
 						= editionVueLocal.lireVue();
 					
-					/* convertit l'OBSERVABLE en OBJET METIER. */
-					final IUtilisateurCerbere objet 
+					/* convertit l'OBSERVABLE en DTO. */
+					final IUtilisateurCerbereDTO objetDTO 
 						= UtilisateurCerbereConvertisseurObservableDTO
-								.convertirObservableEnObjet(objetObs);
+								.convertirObservableEnDTO(objetObs);
 					
 					if (controller != null) {
 						try {
 							
 							/* délègue au CONTROLLER la CREATION 
 							 * de l'OBJET METIER. */
-							controller.create(objet);
+							final UtilisateurCerbereResponse reponse 
+								= controller.create(objetDTO);
 							
-							final List<String> messagesError = 
-								controller.getMessagesErrorUtilisateurList();
-							
-							if (!messagesError.isEmpty()) {
-								editionVueLocal.injecterMessageDansLabelError(editionVueLocal.getErreursGlobalesLabel(), messagesError.toString());
+							if (!reponse.isValide()) {
+								
+								final Map<String, String> errorsMap 
+									= reponse.getErrorsMap();
+								
+								if (!errorsMap.isEmpty()) {
+									editionVueLocal
+										.injecterErrorsMapDansLabels(
+												errorsMap);
+								}
+								
+							} else {
+								/**/
 							}
 							
 						} catch (Exception e) {
