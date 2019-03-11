@@ -54,7 +54,7 @@ public class UtilisateurCerbereCreationVueKO extends AnchorPane {
 	/**
 	 * THEATRE (Stage = fenêtre) d'affichage de la présente VUE.
 	 */
-	private final transient Stage stageAffichage;
+	private Stage stageAffichage;
 	
 	/**
 	 * VUE (AnchorPane) appelant la présente VUE.<br/>
@@ -393,9 +393,10 @@ public class UtilisateurCerbereCreationVueKO extends AnchorPane {
 			public void handle(
 					final ActionEvent pEvent) {
 				
+				/* recupère la fenêtre d'affichage de la présente VUE. */
 				final Stage stageLocal 
-					= UtilisateurCerbereCreationVueKO.this
-							.getStageAffichage();
+					= (Stage) UtilisateurCerbereCreationVueKO.this
+							.getScene().getWindow();
 				
 				/* ferme la fenêtre d'affichage de la présente VUE 
 				 * this.stageAffichage lors d'un appui sur 
@@ -447,6 +448,20 @@ public class UtilisateurCerbereCreationVueKO extends AnchorPane {
 	} // Fin de getStageAffichage()._______________________________________
 
 
+	
+	/**
+	 * Setter du THEATRE (Stage = fenêtre) d'affichage 
+	 * de la présente VUE.<br/>
+	 *
+	 * @param pStage : Stage : 
+	 * valeur à passer à this.stageAffichage.<br/>
+	 */
+	public final void setStageAffichage(
+			final Stage pStage) {
+		this.stageAffichage = pStage;
+	} // Fin de setStageAffichage(...).____________________________________
+	
+	
 	
 	/**
 	 * Getter de la VUE (AnchorPane) appelant la présente VUE.<br/>

@@ -1,5 +1,6 @@
 package levy.daniel.application.vues.desktop.metier.utilisateur;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -20,7 +21,7 @@ import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.IUtilisa
 import levy.daniel.application.vues.desktop.metier.utilisateur.modelobs.impl.UtilisateurCerbereModelObs;
 
 /**
- * CLASSE UtilisateurCerbereEditionVue :<br/>
+ * CLASSE UtilisateurCerbereEditionVueKO :<br/>
  * .<br/>
  * <br/>
  *
@@ -57,9 +58,9 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 
 	/**
 	 * largeur preferred de tous les labels ERROR de l'IHM.<br/>
-	 * 250d.<br/>
+	 * 300d.<br/>
 	 */
-	public static final double LARGEUR_ERROR_LABELS = 250d;
+	public static final double LARGEUR_ERROR_LABELS = 300d;
 
 	/**
 	 * largeur minimum de tous les TextField de l'IHM.<br/>
@@ -90,6 +91,17 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 * ""
 	 */
 	public static final String BLANK = "";
+	
+	/**
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String SAUT_LIGNE_JAVA 
+		= System.getProperty("line.separator");
+	
+	/**
+	 * "<br/>".<br/>
+	 */
+	public static final String SAUT_LIGNE_HTML = "<br/>";
 	
 	/**
 	 * label pour la civilité.
@@ -383,25 +395,27 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	public final void resetVue() {
 		
 		this.civiliteText.setText(BLANK);
-		this.civiliteErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.civiliteErrorLabel, BLANK);
 		this.prenomText.setText(BLANK);
-		this.prenomErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.prenomErrorLabel, BLANK);
 		this.nomText.setText(BLANK);
-		this.nomErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.nomErrorLabel, BLANK);
 		this.telText.setText(BLANK);
-		this.telErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.telErrorLabel, BLANK);
 		this.emailText.setText(BLANK);
-		this.emailErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.emailErrorLabel, BLANK);
 		this.serviceText.setText(BLANK);
-		this.serviceErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.serviceErrorLabel, BLANK);
 		this.uniteText.setText(BLANK);
-		this.uniteErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.uniteErrorLabel, BLANK);
 		this.profilText.setText(BLANK);
-		this.profilErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.profilErrorLabel, BLANK);
 		this.porteeText.setText(BLANK);
-		this.porteeErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.porteeErrorLabel, BLANK);
 		this.restrictionText.setText(BLANK);
-		this.restrictionErrorLabel.setText(BLANK);
+		this.injecterMessageDansLabelError(this.restrictionErrorLabel, BLANK);
+
+		this.injecterMessageDansLabelError(this.erreursGlobalesLabel, BLANK);
 		
 	} // Fin de resetVue().________________________________________________
 	
@@ -488,6 +502,42 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	} // Fin de injecterMessageDansLabelError(...).________________________
 	
 
+	
+	/**
+	 * affiche une List&lt;String&gt; dans 
+	 * <code>this.erreursGlobalesLabel</code>.<br/>
+	 *
+	 * @param pList : List&lt;String&gt; :  .<br/>
+	 */
+	public void injecterErrorListDansErreurGlobales(
+			final List<String> pList) {
+		
+		if (pList == null || pList.isEmpty()) {
+			return;
+		}
+		
+		final String texteInitial = this.erreursGlobalesLabel.getText();
+		
+		final StringBuilder stb = new StringBuilder();
+		
+		if (!StringUtils.isBlank(texteInitial)) {
+			stb.append(texteInitial);
+			stb.append(SAUT_LIGNE_JAVA);
+		}
+				
+		for (final String message : pList) {
+			stb.append(message);
+			stb.append(SAUT_LIGNE_JAVA);
+		}
+		
+		this.erreursGlobalesLabel.setText(stb.toString());
+		
+		/* rend le Label d'ERROR visible si nécessaire. */
+		this.configurerVisibiliteLabelError(this.erreursGlobalesLabel);
+		
+	} // Fin de injecterErrorListDansErreurGlobales(...).__________________
+	
+	
 	
 	/**
 	 * positionne le curseur sur le 1er champ (civilité) 
@@ -994,7 +1044,7 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 */
 	private void configurerCiviliteErrorLabel() {
 
-		this.civiliteErrorLabel.setPrefWidth(LARGEUR_TEXTES);
+		this.civiliteErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
 		this.civiliteErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
 		this.civiliteErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
 		this.civiliteErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
@@ -1064,12 +1114,14 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 */
 	private void configurerPrenomErrorLabel() {
 		
-		this.prenomErrorLabel.setAlignment(Pos.CENTER_LEFT);
+		this.prenomErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
+		this.prenomErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.prenomErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.prenomErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
 		
-		this.prenomErrorLabel.setWrapText(true);
-		
-		this.prenomErrorLabel.getStyleClass().add("error");
-		
+		this.prenomErrorLabel.setAlignment(Pos.CENTER_LEFT);		
+		this.prenomErrorLabel.setWrapText(true);		
+		this.prenomErrorLabel.getStyleClass().add("error");		
 		this.prenomErrorLabel.setVisible(false);
 
 	} // Fin de configurerPrenomErrorLabel().______________________________
@@ -1131,13 +1183,15 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 * </ul>
 	 */
 	private void configurerNomErrorLabel() {
+				
+		this.nomErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
+		this.nomErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.nomErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.nomErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
 		
-		this.nomErrorLabel.setAlignment(Pos.CENTER_LEFT);
-		
-		this.nomErrorLabel.setWrapText(true);
-		
-		this.nomErrorLabel.getStyleClass().add("error");
-
+		this.nomErrorLabel.setAlignment(Pos.CENTER_LEFT);		
+		this.nomErrorLabel.setWrapText(true);		
+		this.nomErrorLabel.getStyleClass().add("error");		
 		this.nomErrorLabel.setVisible(false);
 		
 	} // Fin de configurerNomErrorLabel().______________________________
@@ -1199,13 +1253,15 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 * </ul>
 	 */
 	private void configurerTelErrorLabel() {
+				
+		this.telErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
+		this.telErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.telErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.telErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
 		
-		this.telErrorLabel.setAlignment(Pos.CENTER_LEFT);
-		
-		this.telErrorLabel.setWrapText(true);
-		
-		this.telErrorLabel.getStyleClass().add("error");
-		
+		this.telErrorLabel.setAlignment(Pos.CENTER_LEFT);		
+		this.telErrorLabel.setWrapText(true);		
+		this.telErrorLabel.getStyleClass().add("error");		
 		this.telErrorLabel.setVisible(false);
 
 	} // Fin de configurerTelErrorLabel()._________________________________
@@ -1267,13 +1323,15 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 * </ul>
 	 */
 	private void configurerEmailErrorLabel() {
+				
+		this.emailErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
+		this.emailErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.emailErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.emailErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
 		
-		this.emailErrorLabel.setAlignment(Pos.CENTER_LEFT);
-		
-		this.emailErrorLabel.setWrapText(true);
-		
-		this.emailErrorLabel.getStyleClass().add("error");
-
+		this.emailErrorLabel.setAlignment(Pos.CENTER_LEFT);		
+		this.emailErrorLabel.setWrapText(true);		
+		this.emailErrorLabel.getStyleClass().add("error");		
 		this.emailErrorLabel.setVisible(false);
 		
 	} // Fin de configurerEmailErrorLabel()._______________________________
@@ -1335,13 +1393,15 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 * </ul>
 	 */
 	private void configurerServiceErrorLabel() {
+				
+		this.serviceErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
+		this.serviceErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.serviceErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.serviceErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
 		
-		this.serviceErrorLabel.setAlignment(Pos.CENTER_LEFT);
-		
-		this.serviceErrorLabel.setWrapText(true);
-		
-		this.serviceErrorLabel.getStyleClass().add("error");
-
+		this.serviceErrorLabel.setAlignment(Pos.CENTER_LEFT);		
+		this.serviceErrorLabel.setWrapText(true);		
+		this.serviceErrorLabel.getStyleClass().add("error");		
 		this.serviceErrorLabel.setVisible(false);
 		
 	} // Fin de configurerServiceErrorLabel()._____________________________
@@ -1403,13 +1463,15 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 * </ul>
 	 */
 	private void configurerUniteErrorLabel() {
+				
+		this.uniteErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
+		this.uniteErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.uniteErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.uniteErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
 		
-		this.uniteErrorLabel.setAlignment(Pos.CENTER_LEFT);
-		
-		this.uniteErrorLabel.setWrapText(true);
-		
-		this.uniteErrorLabel.getStyleClass().add("error");
-
+		this.uniteErrorLabel.setAlignment(Pos.CENTER_LEFT);		
+		this.uniteErrorLabel.setWrapText(true);		
+		this.uniteErrorLabel.getStyleClass().add("error");		
 		this.uniteErrorLabel.setVisible(false);
 		
 	} // Fin de configurerUniteErrorLabel()._______________________________
@@ -1471,13 +1533,15 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 * </ul>
 	 */
 	private void configurerProfilErrorLabel() {
+				
+		this.profilErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
+		this.profilErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.profilErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.profilErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
 		
-		this.profilErrorLabel.setAlignment(Pos.CENTER_LEFT);
-		
-		this.profilErrorLabel.setWrapText(true);
-		
-		this.profilErrorLabel.getStyleClass().add("error");
-
+		this.profilErrorLabel.setAlignment(Pos.CENTER_LEFT);		
+		this.profilErrorLabel.setWrapText(true);		
+		this.profilErrorLabel.getStyleClass().add("error");		
 		this.profilErrorLabel.setVisible(false);
 		
 	} // Fin de configurerProfilErrorLabel().______________________________
@@ -1539,13 +1603,15 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 * </ul>
 	 */
 	private void configurerPorteeErrorLabel() {
+				
+		this.porteeErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
+		this.porteeErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.porteeErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.porteeErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
 		
-		this.porteeErrorLabel.setAlignment(Pos.CENTER_LEFT);
-		
-		this.porteeErrorLabel.setWrapText(true);
-		
-		this.porteeErrorLabel.getStyleClass().add("error");
-
+		this.porteeErrorLabel.setAlignment(Pos.CENTER_LEFT);		
+		this.porteeErrorLabel.setWrapText(true);		
+		this.porteeErrorLabel.getStyleClass().add("error");		
 		this.porteeErrorLabel.setVisible(false);
 		
 	} // Fin de configurerPorteeErrorLabel().______________________________
@@ -1607,15 +1673,17 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 * </ul>
 	 */
 	private void configurerRestrictionErrorLabel() {
+				
+		this.restrictionErrorLabel.setPrefWidth(LARGEUR_ERROR_LABELS);
+		this.restrictionErrorLabel.setPrefHeight(HAUTEUR_LABELS_TEXTES);
+		this.restrictionErrorLabel.setMinWidth(LARGEUR_MIN_TEXTES);
+		this.restrictionErrorLabel.setMinHeight(HAUTEUR_LABELS_TEXTES);
 		
-		this.restrictionErrorLabel.setAlignment(Pos.CENTER_LEFT);
-		
-		this.restrictionErrorLabel.setWrapText(true);
-		
-		this.restrictionErrorLabel.getStyleClass().add("error");
-		
+		this.restrictionErrorLabel.setAlignment(Pos.CENTER_LEFT);		
+		this.restrictionErrorLabel.setWrapText(true);		
+		this.restrictionErrorLabel.getStyleClass().add("error");		
 		this.restrictionErrorLabel.setVisible(false);
-
+		
 	} // Fin de configurerRestrictionErrorLabel()._________________________
 
 
@@ -1630,12 +1698,14 @@ public class UtilisateurCerbereEditionVueKO extends AnchorPane {
 	 */
 	private void configurerErreursGlobalesLabel() {
 		
-		this.restrictionErrorLabel.setAlignment(Pos.TOP_LEFT);
+		final double prefLargeur 
+			= LARGEUR_LABELS + LARGEUR_TEXTES + LARGEUR_ERROR_LABELS;
 		
-		this.erreursGlobalesLabel.setWrapText(true);
+		this.erreursGlobalesLabel.setPrefWidth(prefLargeur);
 		
-		this.erreursGlobalesLabel.getStyleClass().add("error");
-		
+		this.erreursGlobalesLabel.setAlignment(Pos.TOP_LEFT);		
+		this.erreursGlobalesLabel.setWrapText(true);		
+		this.erreursGlobalesLabel.getStyleClass().add("error");		
 		this.erreursGlobalesLabel.setVisible(false);
 		
 	} // Fin de configurerErreursGlobalesLabel().__________________________

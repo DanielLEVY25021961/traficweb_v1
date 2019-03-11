@@ -1,5 +1,6 @@
 package levy.daniel.application.vues.desktop.metier.utilisateur;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
@@ -249,8 +250,27 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 	 * <li>récupère le formulaire d'édition de l'objet métier.</li>
 	 * <li>récupère le CONTROLLER auprès de la vue appelante.</li>
 	 * <li>récupère l'objet OBSERVABLE créé dans le formulaire d'édition.</li>
-	 * <li>convertit l'OBSERVABLE en OBJET METIER.</li>
+	 * <li>convertit l'OBSERVABLE en DTO.</li>
 	 * <li>délègue au CONTROLLER la CREATION de l'OBJET METIER.</li>
+	 * <li><b>traite la réponse à la requête du CONTROLLER</b>.</li>
+	 * Si KO :
+	 * <ul>
+	 * <li>récupère la Map des erreurs par attribut dans la réponse.</li>
+	 * <li>récupère la liste des erreurs Globales dans la réponse.</li>
+	 * <li>instancie une VUE de Creation KO.</li>
+	 * <li>affiche le DTO mal rempli contenu dans la réponse dans la VueKO.</li>
+	 * <li>affiche les erreurs par attribut dans la VueKO.</li>
+	 * <li>affiche les erreurs globales dans la VueKO.</li>
+	 * <li>instancie une Scene KO encapsulant la vueKO.</li>
+	 * <li>ajoute la feuille de style à la Scene.</li>
+	 * <li>affiche la Scene KO dans la fenêtre active.</li>
+	 * </ul>
+	 * Si OK :
+	 * <ul>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * </ul>
 	 * </ul>
 	 */
 	private void ajouterListenerAEnregistrer() {
@@ -277,51 +297,87 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 				final Stage stageAffichageLocal 
 					= UtilisateurCerbereCreationVue.this.getStageAffichage(); 
 				
+				/* récupère l'objet OBSERVABLE créé dans 
+				 * le formulaire d'édition. */
+				final IUtilisateurCerbereModelObs objetObs 
+					= editionVueLocal.lireVue();
+				
+				/* convertit l'OBSERVABLE en DTO. */
+				final IUtilisateurCerbereDTO objetDTO 
+					= UtilisateurCerbereConvertisseurObservableDTO
+							.convertirObservableEnDTO(objetObs);
+
 				if (vueAppelanteLocal != null) {
 					
 					/* récupère le CONTROLLER auprès de la vue appelante. */
 					final IUtilisateurCerbereController controller 
 						= vueAppelanteLocal.getUtilisateurCerbereController();
 					
-					/* récupère l'objet OBSERVABLE créé dans 
-					 * le formulaire d'édition. */
-					final IUtilisateurCerbereModelObs objetObs 
-						= editionVueLocal.lireVue();
-					
-					/* convertit l'OBSERVABLE en DTO. */
-					final IUtilisateurCerbereDTO objetDTO 
-						= UtilisateurCerbereConvertisseurObservableDTO
-								.convertirObservableEnDTO(objetObs);
 					
 					if (controller != null) {
+						
 						try {
 							
 							/* délègue au CONTROLLER la CREATION 
 							 * de l'OBJET METIER. */
+							/* ************************************* */
 							final UtilisateurCerbereResponse reponse 
 								= controller.create(objetDTO);
+							/* ************************************* */
 							
+							/* traite la réponse à la requête du CONTROLLER. */
+							
+							/* Si KO : */
 							if (!reponse.isValide()) {
 								
+								/* récupère la Map des erreurs par attribut 
+								 * dans la réponse. */
 								final Map<String, String> errorsMap 
 									= reponse.getErrorsMap();
 								
-								/* instanciation d'une VUE de Creation KO. */
+								/* récupère la liste des erreurs Globales 
+								 * dans la réponse. */
+								final List<String> messagesErrorUtilisateurList 
+									= reponse.getMessagesErrorUtilisateurList();
+								
+								/* instancie une VUE de Creation KO. */
 								final UtilisateurCerbereCreationVueKO vueKO 
 									= new UtilisateurCerbereCreationVueKO();
 								
+								vueKO.setStageAffichage(stageAffichageLocal);
+								
+								/* affiche le DTO mal rempli contenu dans 
+								 * la réponse dans la VueKO. */
+								vueKO.getEditionVue().afficherDTO(reponse.getDto());
+								
 								if (!errorsMap.isEmpty()) {
 									
+									/* affiche les erreurs par 
+									 * attribut dans la VueKO. */
 									vueKO.getEditionVue()
 										.injecterErrorsMapDansLabels(
 												errorsMap);
-									
-									final Scene sceneKO = new Scene(vueKO);
-									
-									stageAffichageLocal.setScene(sceneKO);
-									
-									
+																		
 								}
+								
+								if (!messagesErrorUtilisateurList.isEmpty()) {
+									
+									/* affiche les erreurs globales 
+									 * dans la VueKO. */
+									vueKO.getEditionVue()
+									.injecterErrorListDansErreurGlobales(
+											messagesErrorUtilisateurList);
+								}
+								
+								/* instancie une Scene KO encapsulant 
+								 * la vueKO. */
+								final Scene sceneKO = new Scene(vueKO);
+								
+								/* ajoute la feuille de style à la Scene. */
+								sceneKO.getStylesheets().add("static/css/dan_style.css");
+								
+								/* affiche la Scene KO dans la fenêtre active. */
+								stageAffichageLocal.setScene(sceneKO);
 								
 							} else {
 								/**/
@@ -335,6 +391,19 @@ public class UtilisateurCerbereCreationVue extends AnchorPane {
 				}
 				
 			} // Fin de handle(...).____________________
+			
+			
+			
+			/**
+			 * .<br/>
+			 *
+			 * @param pReponse
+			 * @param pStageAffichageLocal : void :  .<br/>
+			 */
+			private void afficherVueCreationKO(UtilisateurCerbereResponse pReponse, Stage pStageAffichageLocal) {
+				/**/
+			}
+			
 			
 		}); // Fin de new EventHandler(...).__________________
 		
