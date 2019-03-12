@@ -61,7 +61,16 @@ public class UtilisateurCerbereGestionnaireRG
 		= LogFactory.getLog(UtilisateurCerbereGestionnaireRG.class);
 
 	// *************************METHODES************************************/
+
 	
+	 /**
+	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
+	 */
+	private UtilisateurCerbereGestionnaireRG() {		
+		super();				
+	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
+	
+
 	/**
 	 * {@inheritDoc}
 	 */
