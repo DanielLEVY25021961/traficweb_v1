@@ -156,7 +156,7 @@ public abstract class AbstractValideurGeneric<T>
 	
 	
 	/**
-	 * SAUT_LIGNE : String :<br/>
+	 * SAUT_LIGNE_JAVA : String :<br/>
 	 * "\n".<br/>
 	 */
 	public static final String SAUT_LIGNE = "\n";

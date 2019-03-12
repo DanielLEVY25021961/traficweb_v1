@@ -18,7 +18,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * class AbstractGestionnaireRG :<br/>
+ * CLASSE AbstractGestionnaireRG :<br/>
  * .<br/>
  * <br/>
  *
@@ -42,7 +42,7 @@ public abstract class AbstractGestionnaireRG implements IGestionnaireRG {
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * SAUT_LIGNE : char :<br/>
+	 * SAUT_LIGNE_JAVA : char :<br/>
 	 * '\n'.<br/>
 	 */
 	public static final char SAUT_LIGNE = '\n';

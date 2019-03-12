@@ -215,7 +215,7 @@ public abstract class AbstractServicesGenericJPASpring<T, ID extends Serializabl
 	
 	
 	/**
-	 * SAUT_LIGNE : String :<br/>
+	 * SAUT_LIGNE_JAVA : String :<br/>
 	 * "\n".<br/>
 	 */
 	public static final String SAUT_LIGNE = "\n";

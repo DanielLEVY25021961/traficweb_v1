@@ -86,7 +86,7 @@ public abstract class AbstractCreateurGestionnaireRG {
 	
 		
 	/**
-	 * SAUT_LIGNE : char :<br/>
+	 * SAUT_LIGNE_JAVA : char :<br/>
 	 * '\n'.<br/>
 	 */
 	public static final char SAUT_LIGNE = '\n';

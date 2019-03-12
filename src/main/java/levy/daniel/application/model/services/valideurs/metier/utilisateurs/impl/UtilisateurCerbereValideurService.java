@@ -364,7 +364,11 @@ public class UtilisateurCerbereValideurService
 			return;
 		}
 		
-		return;
+		if (StringUtils.isBlank(pDto.getProfil())) {
+			pErrorsMap.put(
+					"profil"
+					, "le profil doit obligatoirement être renseignée");
+		}
 		
 	} // Fin de validerProfil(...).________________________________________
 

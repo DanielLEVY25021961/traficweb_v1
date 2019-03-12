@@ -69,10 +69,11 @@ public final class GestionnaireRG {
 	
 	
 	/**
-	 * SAUT_LIGNE : char :<br/>
-	 * '\n'.<br/>
+	 * Saut de ligne dépendant de la plateforme.<br/>
+	 * <code>System.getProperty("line.separator")</code>.<br/>
 	 */
-	public static final char SAUT_LIGNE = '\n';
+	public static final String SAUT_LIGNE_JAVA 
+		= System.getProperty("line.separator");
 	
 	
 	/**
@@ -373,7 +374,7 @@ static {
 			final StringBuilder stb = new StringBuilder();
 			
 			stb.append(getEnTeteCsv());
-			stb.append(SAUT_LIGNE);
+			stb.append(SAUT_LIGNE_JAVA);
 			
 			final Set<Entry<String, LigneRG>> entrySet 
 				= mapTriee.entrySet();
@@ -395,7 +396,7 @@ static {
 				stb.append(ligneRG.fournirStringCsv());
 				
 				if (compteur < nbreEntry) {
-					stb.append(SAUT_LIGNE);
+					stb.append(SAUT_LIGNE_JAVA);
 				}				
 			}
 			
