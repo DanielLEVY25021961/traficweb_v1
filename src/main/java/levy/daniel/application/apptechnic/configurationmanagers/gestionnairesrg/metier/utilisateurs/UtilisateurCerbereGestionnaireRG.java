@@ -35,22 +35,34 @@ public class UtilisateurCerbereGestionnaireRG
 	 * sur la civilite de l'utilisateur.<br/>
 	 */
 	private static Boolean validerCiviliteUtilisateur;
-
 	
 	/**
 	 * Boolean activant la RG-Utilisateur-Civilite-01 : 
 	 * "la civilite de l'Utilisateur 
 	 * doit être renseignée".<br/>
 	 */
-	private static Boolean validerRGUtilisateurCivilite01;
+	private static Boolean validerRGUtilisateurCiviliteRenseigne01;
 	
-
 	/**
 	 * Boolean activant la RG-Utilisateur-Civilite-02 : 
+	 * "la civilite de l'Utilisateur ne doit comporter que des 
+	 * lettres de l'alphabet et des caractères spéciaux (-, _, ...)
+	 * (pas de chiffres)".<br/>
+	 */
+	private static Boolean validerRGUtilisateurCiviliteLitteral02;
+	
+	/**
+	 * Boolean activant la RG-Utilisateur-Civilite-03 : 
+	 * "la civilite de l'Utilisateur ne doit pas excéder 15 caractères".<br/>
+	 */
+	private static Boolean validerRGUtilisateurCiviliteLongueur03;
+	
+	/**
+	 * Boolean activant la RG-Utilisateur-Civilite-04 : 
 	 * "la civilite de l'Utilisateur 
 	 * doit se conformer à une nomenclature".<br/>
 	 */
-	private static Boolean validerRGUtilisateurCivilite02;
+	private static Boolean validerRGUtilisateurCiviliteNomenclature04;
 	
 	/**
 	 * LOG : Log : 
@@ -89,5 +101,6 @@ public class UtilisateurCerbereGestionnaireRG
 		return null;
 	}
 
+	
 
-}
+} // FIN DE LA CLASSE UtilisateurCerbereGestionnaireRG.----------------------
