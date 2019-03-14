@@ -8,6 +8,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.utilisateurs.UtilisateurCerbereGestionnairePreferencesRG;
 import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
 import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUtilisateurCerbereValideurService;
 
@@ -59,10 +60,11 @@ public class UtilisateurCerbereValideurService
 	
 	/**
 	 * {@inheritDoc}
+	 * @throws Exception 
 	 */
 	@Override
 	public Map<String, String> valider(
-			final IUtilisateurCerbereDTO pDto) {
+			final IUtilisateurCerbereDTO pDto) throws Exception {
 		
 		if (pDto == null) {
 			return null;
@@ -92,8 +94,15 @@ public class UtilisateurCerbereValideurService
 	
 	/**
 	 * applique les REGLES DE GESTION sur la civilite.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
+	 * alimente pErrorsMap avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur général auprès du 
+	 * Gestionnaire de préferences.</li>
+	 * <li>ne contrôle rien si l'interrupteur général est à false.</li>
+	 * <li>récupère l'interrupteur de chaque RG auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>applique le contrôle si interrupteur général + interrupteur de chaque RG sont à true.</li>
+	 * </ul>
 	 * - ne fait rien si pDto == null.<br/>
 	 * - ne fait rien si pErrorsMap == null.<br/>
 	 * <br/>
@@ -102,8 +111,59 @@ public class UtilisateurCerbereValideurService
 	 * DTO à contrôler.<br/>
 	 * @param pErrorsMap : Map&lt;String,String&gt; : 
 	 * map des messages d'erreur pour chaque champ.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	private void validerCivilite(
+			final IUtilisateurCerbereDTO pDto
+				, final Map<String, String> pErrorsMap) throws Exception {
+		
+		/* ne fait rien si pDto == null. */
+		if (pDto == null) {
+			return;
+		}
+		
+		/* ne fait rien si pErrorsMap == null. */
+		if (pErrorsMap == null) {
+			return;
+		}
+		
+		/* récupère l'interrupteur général auprès 
+		 * du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralCivilite 
+		= UtilisateurCerbereGestionnairePreferencesRG
+			.getValiderRGUtilisateurCivilite();
+		
+		/* ne contrôle rien si l'interrupteur général est à false. */
+		if (!interrupteurGeneralCivilite) {
+			return;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurCiviliteRenseigne01 
+			= UtilisateurCerbereGestionnairePreferencesRG
+				.getValiderRGUtilisateurCiviliteRenseigne01();
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurGeneralCivilite 
+				&& interrupteurCiviliteRenseigne01) {
+			this.validerRGUtilisateurCiviliteRenseigne01(pDto, pErrorsMap);
+		}
+		
+		
+	} // Fin de validerCivilite(...).______________________________________
+
+
+	
+	/**
+	 * .<br/>
+	 *
+	 * @param pDto
+	 * @param pErrorsMap : void :  .<br/>
+	 */
+	private void validerRGUtilisateurCiviliteRenseigne01(
 			final IUtilisateurCerbereDTO pDto
 				, final Map<String, String> pErrorsMap) {
 		
@@ -117,11 +177,16 @@ public class UtilisateurCerbereValideurService
 			return;
 		}
 		
-		return;
+		if (StringUtils.isBlank(pDto.getCivilite())) {
+			pErrorsMap.put(
+					"civilite"
+					, "la civilité doit obligatoirement être renseignée");
+		}
 		
-	} // Fin de validerCivilite(...).______________________________________
 
-
+	}
+	
+	
 	
 	/**
 	 * applique les REGLES DE GESTION sur le prenom.<br/>

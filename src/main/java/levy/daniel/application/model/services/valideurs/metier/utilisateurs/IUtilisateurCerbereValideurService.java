@@ -26,6 +26,8 @@ import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereD
  */
 public interface IUtilisateurCerbereValideurService {
 
+	
+	
 	/**
 	 * applique les REGLES DE GESTION sur chaque attribut d'un DTO 
 	 * et retourne une Map&lt;String,String&gt; contenant les 
@@ -41,8 +43,12 @@ public interface IUtilisateurCerbereValideurService {
 	 * @param pDto : IUtilisateurCerbereDTO : DTO.<br/>
 	 * @return : Map&lt;String,String&gt; : 
 	 * map des messages d'erreur pour chaque champ.<br/>
+	 * 
+	 * @throws Exception 
 	 */
-	Map<String, String> valider(IUtilisateurCerbereDTO pDto);
+	Map<String, String> valider(IUtilisateurCerbereDTO pDto) 
+													throws Exception;
+	
 	
 	
 } // FIN DE L'INTERFACE IUtilisateurCerbereValideurService.------------------

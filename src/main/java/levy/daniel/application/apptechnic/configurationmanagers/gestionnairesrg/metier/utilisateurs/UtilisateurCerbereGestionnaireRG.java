@@ -1,6 +1,5 @@
 package levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.metier.utilisateurs;
 
-import java.net.MalformedURLException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -52,7 +51,29 @@ public class UtilisateurCerbereGestionnaireRG
 	public static final String RG_UTILISATEUR_CIVILITE_01_MESSAGE 
 		= "la civilité de l'Utilisateur doit être renseignée (obligatoire)";
 
+	/**
+	 * "UtilisateurCerbere".<br/>
+	 */
+	public static final String NOM_OBJETMETIER 
+		= "UtilisateurCerbere";
 	
+	 /**
+	 * "model/services/valideurs/metier/utilisateurs/impl/UtilisateurCerbereValideurService.java".<br/>
+	 */
+	public static final String CLASSE_CONTROLE 
+		= "model/services/valideurs/metier/utilisateurs/impl/UtilisateurCerbereValideurService.java";
+	
+	/**
+	 * "ressources_externes/preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties".<br/>
+	 */
+	public static final String FICHIER_PROPERTIES 
+		= "ressources_externes/preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties";
+	
+	/**
+	 * "civilite".<br/>
+	 */
+	public static final String CIVILITE 
+		= "civilite";
 	
 	/**
 	 * mapRG : Map&lt;String,LigneRG&gt; :<br/>
@@ -131,10 +152,10 @@ public class UtilisateurCerbereGestionnaireRG
 	 *
 	 * @return : Map&lt;String, LigneRG&gt; : mapRG.<br/>
 	 * 
-	 * @throws MalformedURLException 
+	 * @throws Exception 
 	 */
 	private static Map<String, LigneRG> remplirMapRG() 
-			throws MalformedURLException {
+			throws Exception {
 		
 		synchronized (GestionnaireRG.class) {
 			
@@ -144,13 +165,13 @@ public class UtilisateurCerbereGestionnaireRG
 					, UtilisateurCerbereGestionnairePreferencesRG.getValiderRGUtilisateurCiviliteRenseigne01()
 					, RG_UTILISATEUR_CIVILITE_RENSEIGNE_01
 					, EnumTypesValidation.RENSEIGNE.getNumero()
-					, pMessageRG
-					, pNomObjetMetier
-					, pNomAttributObjetMetier
-					, pClasseControle
-					, pMethodeControle
-					, pFichierProperties
-					, pCleDansProperties);
+					, "la civilite de l'Utilisateur doit être renseignée (obligatoire)"
+					, NOM_OBJETMETIER
+					, CIVILITE
+					, CLASSE_CONTROLE
+					, "validerRGUtilisateurCiviliteRenseigne01"
+					, FICHIER_PROPERTIES
+					, UtilisateurCerbereGestionnairePreferencesRG.fournirKeyValiderRGUtilisateurCiviliteRenseigne01());
 						
 			mapRG.put(
 					RG_UTILISATEUR_CIVILITE_RENSEIGNE_01
