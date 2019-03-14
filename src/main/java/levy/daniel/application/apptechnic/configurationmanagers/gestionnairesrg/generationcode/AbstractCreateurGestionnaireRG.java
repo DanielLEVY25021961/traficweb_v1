@@ -522,7 +522,7 @@ public abstract class AbstractCreateurGestionnaireRG {
 	 * <br/>
 	 *
 	 * @param pType : String : valeur possible dans 
-	 * l'Enumeration TypesValidation.<br/>
+	 * l'Enumeration EnumTypesValidation.<br/>
 	 * 
 	 * @return : String : fin du message de la RG 
 	 * en fonction du type.<br/>

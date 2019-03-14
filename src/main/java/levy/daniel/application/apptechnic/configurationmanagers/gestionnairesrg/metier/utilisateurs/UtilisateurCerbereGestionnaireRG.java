@@ -1,9 +1,17 @@
 package levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.metier.utilisateurs;
 
+import java.net.MalformedURLException;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.utilisateurs.UtilisateurCerbereGestionnairePreferencesRG;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.AbstractGestionnaireRG;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.EnumTypesValidation;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.GestionnaireRG;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.LigneRG;
 
 /**
  * CLASSE UtilisateurCerbereGestionnaireRG :<br/>
@@ -31,38 +39,38 @@ public class UtilisateurCerbereGestionnaireRG
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * Boolean activant globalement les contrôles 
-	 * sur la civilite de l'utilisateur.<br/>
+	 * Règle de Gestion.<br/>
+	 * "RG_UTILISATEUR_CIVILITE_RENSEIGNE_01 : la civilité de l'Utilisateur doit être renseignée".<br/>
 	 */
-	private static Boolean validerCiviliteUtilisateur;
+	public static final String RG_UTILISATEUR_CIVILITE_RENSEIGNE_01 
+		= "RG_UTILISATEUR_CIVILITE_RENSEIGNE_01 : la civilité de l'Utilisateur doit être renseignée";
 	
 	/**
-	 * Boolean activant la RG-Utilisateur-Civilite-01 : 
-	 * "la civilite de l'Utilisateur 
-	 * doit être renseignée".<br/>
+	 * Message à l'attention de l'utilisateur.<br/>
+	 * "la civilité de l'Utilisateur doit être renseignée"<br/>
 	 */
-	private static Boolean validerRGUtilisateurCiviliteRenseigne01;
+	public static final String RG_UTILISATEUR_CIVILITE_01_MESSAGE 
+		= "la civilité de l'Utilisateur doit être renseignée (obligatoire)";
+
+	
 	
 	/**
-	 * Boolean activant la RG-Utilisateur-Civilite-02 : 
-	 * "la civilite de l'Utilisateur ne doit comporter que des 
-	 * lettres de l'alphabet et des caractères spéciaux (-, _, ...)
-	 * (pas de chiffres)".<br/>
+	 * mapRG : Map&lt;String,LigneRG&gt; :<br/>
+	 * <ul>
+	 * Map contenant toutes les RG concernant l'UTILISATEUR 
+	 * implémentées dans l'application avec :
+	 * <li>String : nom de la RG</li>
+	 * <li>LigneRG : Encapsulation des éléments relatifs à la RG</li>
+	 * </ul>
+	 * Une ligne RG encapsule :<br/>
+	 * [id;Actif;activité des contrôles sur l'attribut;activité de la RG
+	 * ;RG implémentée;clé du type de contrôle;type de contrôle
+	 * ;Message d'erreur;Objet Métier concerné;Attribut concerné
+	 * ;Classe implémentant la RG;Méthode implémentant la RG;
+	 * properties;clé;].<br/>
 	 */
-	private static Boolean validerRGUtilisateurCiviliteLitteral02;
-	
-	/**
-	 * Boolean activant la RG-Utilisateur-Civilite-03 : 
-	 * "la civilite de l'Utilisateur ne doit pas excéder 15 caractères".<br/>
-	 */
-	private static Boolean validerRGUtilisateurCiviliteLongueur03;
-	
-	/**
-	 * Boolean activant la RG-Utilisateur-Civilite-04 : 
-	 * "la civilite de l'Utilisateur 
-	 * doit se conformer à une nomenclature".<br/>
-	 */
-	private static Boolean validerRGUtilisateurCiviliteNomenclature04;
+	private static Map<String, LigneRG> mapRG 
+		= new ConcurrentHashMap<String, LigneRG>();
 	
 	/**
 	 * LOG : Log : 
@@ -100,6 +108,60 @@ public class UtilisateurCerbereGestionnaireRG
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
+	
+	/**
+	 * method remplirMapRG() :<br/>
+	 * <ul>
+	 * remplit et retourne la Map&lt;String, LigneRG&gt; mapRG 
+	 * contenant toutes 
+	 * les Règles de Gestion (RG) de l'UTILISATEUR implémentées 
+	 * dans les services de l'application avec :
+	 * <li>String : le nom de la RG.</li>
+	 * <li>LigneRG : pure fabrication encapsulant 
+	 * tous les éléments relatifs à la RG.</li>
+	 * </ul>
+	 * Une LigneRG encapsule :<br/>
+	 * [id;Actif;activité des contrôles sur l'attribut;activité de la RG
+	 * ;RG implémentée;clé du type de contrôle;type de contrôle
+	 * ;Message d'erreur;Objet Métier concerné;Attribut concerné
+	 * ;Classe implémentant la RG;Méthode implémentant la RG;].<br/>
+	 * <br/>
+	 *
+	 * @return : Map&lt;String, LigneRG&gt; : mapRG.<br/>
+	 * 
+	 * @throws MalformedURLException 
+	 */
+	private static Map<String, LigneRG> remplirMapRG() 
+			throws MalformedURLException {
+		
+		synchronized (GestionnaireRG.class) {
+			
+			/* RG_UTILISATEUR_CIVILITE_01. */
+			final LigneRG ligneRGUtilisateurCiviliteRenseigne01 
+			= new LigneRG(UtilisateurCerbereGestionnairePreferencesRG.getValiderRGUtilisateurCivilite()
+					, UtilisateurCerbereGestionnairePreferencesRG.getValiderRGUtilisateurCiviliteRenseigne01()
+					, RG_UTILISATEUR_CIVILITE_RENSEIGNE_01
+					, EnumTypesValidation.RENSEIGNE.getNumero()
+					, pMessageRG
+					, pNomObjetMetier
+					, pNomAttributObjetMetier
+					, pClasseControle
+					, pMethodeControle
+					, pFichierProperties
+					, pCleDansProperties);
+						
+			mapRG.put(
+					RG_UTILISATEUR_CIVILITE_RENSEIGNE_01
+						, ligneRGUtilisateurCiviliteRenseigne01);
+			
+
+			return mapRG;
+			
+		} // Fin de bloc synchronized.__________________________
+		
+	} // Fin de remplirMapRG().____________________________________________
 
 	
 
