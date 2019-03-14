@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -22,7 +20,6 @@ import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesbundles.BundleConfigurationProjetManager;
-import levy.daniel.application.apptechnic.configurationmanagers.gestionnaireslocale.LocaleManager;
 import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
 
 
@@ -126,21 +123,21 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static final char EGAL = '=';
 		
 	/**
-	 * clé de validerCiviliteUtilisateur dans 
+	 * clé de validerRGUtilisateurCivilite dans 
 	 * UtilisateurCerbere_RG.properties<br/>
 	 * "valider.UtilisateurCerbere.civilite"<br/>
 	 */
-	public static final String KEY_VALIDER_CIVILITE_UTILISATEUR 
+	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE 
 		= "valider.UtilisateurCerbere.civilite";
 	
 	/**
-	 * validerCiviliteUtilisateur par défaut de l'application en dur.<br/>
+	 * validerRGUtilisateurCivilite par défaut de l'application en dur.<br/>
 	 * N'est utilisé que si l'application ne peut lire le 
-	 * validerCiviliteUtilisateur 
+	 * validerRGUtilisateurCivilite 
 	 * indiqué dans UtilisateurCerbere_RG.properties.<br/>
 	 * "false".<br/>
 	 */
-	public static final String STRING_VALIDER_CIVILITE_UTILISATEUR_EN_DUR 
+	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR 
 		= "false";
 	
 	/**
@@ -171,14 +168,52 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		= "valider.UtilisateurCerbere.civilite.litteral";
 	
 	/**
-	 * validerRGUtilisateurCiviliteRenseigne01 par défaut 
+	 * validerRGUtilisateurCiviliteLitteral02 par défaut 
 	 * de l'application en dur.<br/>
 	 * N'est utilisé que si l'application ne peut lire le 
-	 * validerRGUtilisateurCiviliteRenseigne01 
+	 * validerRGUtilisateurCiviliteLitteral02 
 	 * indiqué dans UtilisateurCerbere_RG.properties.<br/>
 	 * "false".<br/>
 	 */
-	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR 
+	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR 
+		= "false";
+		
+	/**
+	 * clé de validerRGUtilisateurCiviliteLongueur03 dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.civilite.longueur"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03 
+		= "valider.UtilisateurCerbere.civilite.longueur";
+	
+	/**
+	 * validerRGUtilisateurCiviliteLongueur03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGUtilisateurCiviliteLongueur03 
+	 * indiqué dans UtilisateurCerbere_RG.properties.<br/>
+	 * "false".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR 
+		= "false";
+		
+	/**
+	 * clé de validerRGUtilisateurCiviliteNomenclature04 dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.civilite.longueur"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04 
+		= "valider.UtilisateurCerbere.civilite.longueur";
+	
+	/**
+	 * validerRGUtilisateurCiviliteNomenclature04 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGUtilisateurCiviliteNomenclature04 
+	 * indiqué dans UtilisateurCerbere_RG.properties.<br/>
+	 * "false".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR 
 		= "false";
 	
 		
@@ -213,10 +248,12 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 
 	
 	/**
-	 * Boolean activant globalement les contrôles 
-	 * sur la civilite de l'utilisateur.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur la <i>civilite</i> de l'utilisateur.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de la <i>civilité</i> 
+	 * de l'Utilisateur.<br/>
 	 */
-	private static Boolean validerCiviliteUtilisateur;
+	private static Boolean validerRGUtilisateurCivilite;
 	
 	/**
 	 * Boolean activant la RG-Utilisateur-Civilite-01 : 
@@ -322,7 +359,27 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <b>Ajoute des propriétés initiales stockées en dur</b> 
 	 * dans la classe au Properties <b>preferences</b>.<br/>
 	 * <ul>
-	 * <li>ajoute le validerCiviliteUtilisateur par défaut stocké en dur.</li>
+	 * civilite
+	 * <li>ajoute le validerRGUtilisateurCivilite 
+	 * par défaut stocké en dur.</li>
+	 * <li>ajoute le validerRGUtilisateurCiviliteRenseigne01 
+	 * par défaut stockée en dur.</li>
+	 * <li>ajoute le validerRGUtilisateurCiviliteLitteral02 
+	 * par défaut stockée en dur.</li>
+	 * <li>ajoute le validerRGUtilisateurCiviliteLongueur03 
+	 * par défaut stockée en dur.</li>
+	 * <li>ajoute le validerRGUtilisateurCiviliteNomenclature04 
+	 * par défaut stockée en dur.</li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
 	 * <li></li>
 	 * <li></li>
 	 * </ul>
@@ -331,20 +388,35 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ajoute le validerCiviliteUtilisateur par défaut stocké en dur. */
+			/* ajoute le validerRGUtilisateurCivilite 
+			 * par défaut stocké en dur. */
 			preferences.setProperty(
-					KEY_VALIDER_CIVILITE_UTILISATEUR
-						, STRING_VALIDER_CIVILITE_UTILISATEUR_EN_DUR);
+					KEY_VALIDER_UTILISATEUR_CIVILITE
+						, STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
 			
-			/* ajoute la Locale par défaut stockée en dur Locale.FRANCE.*/
+			/* ajoute le validerRGUtilisateurCiviliteRenseigne01 
+			 * par défaut stockée en dur.*/
 			preferences.setProperty(
-					KEY_LOCALE_APPLICATION
-						, LOCALE_STRING_PAR_DEFAUT_EN_DUR);
+					KEY_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01
+						, STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
 			
-			/* ajoute le répertoire par défaut stockée en dur user.dir.*/
+			/* ajoute le validerRGUtilisateurCiviliteLitteral02 
+			 * par défaut stockée en dur.*/
 			preferences.setProperty(
-					KEY_REPERTOIRE_FILECHOOSER
-						, REPERTOIRE_FILECHOOSER_STRING_PAR_DEFAUT_EN_DUR);
+					KEY_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02
+						, STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
+			
+			/* ajoute le validerRGUtilisateurCiviliteLongueur03 
+			 * par défaut stockée en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03
+						, STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
+			
+			/* ajoute le validerRGUtilisateurCiviliteNomenclature04 
+			 * par défaut stockée en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04
+						, STRING_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -1256,7 +1328,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 	/**
 	 * Getter de la  Modélisation Java du fichier 
-	 * preferences.properties.<br/>
+	 * UtilisateurCerbere_RG.properties.<br/>
 	 * SINGLETON.<br/>
 	 *
 	 * @return filePreferencesProperties : File.<br/>
@@ -1280,24 +1352,29 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 
 
 	/**
-	 * retourne le validerCiviliteUtilisateur 
+	 * retourne le <code>validerRGUtilisateurCivilite</code> 
 	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur la <i>civilite</i> de l'utilisateur.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de la <i>civilité</i> 
+	 * de l'Utilisateur.<br/>
 	 * <ul>
-	 * <li>lit le validerCiviliteUtilisateur stocké 
-	 * dans preferences.properties 
+	 * <li>lit le validerRGUtilisateurCivilite stocké 
+	 * dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>UTF-8 sinon (Charset stocké en dur dans la classe).</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
 	 * </ul>
-	 * - retourne le Charset stocké en dur dans la classe (UTF8) 
+	 * - retourne la valeur stockée en dur dans la classe (false) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return : Charset : Charset dans les préférences.<br/>
+	 * @return : Boolean : validerRGUtilisateurCivilite 
+	 * dans les préférences.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	private static Charset fournirCharsetPrefere() 
+	private static Boolean fournirValiderRGUtilisateurCivilite() 
 			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
@@ -1314,114 +1391,130 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 				creerFichierPropertiesInitial();
 			}
 			
-			if (charsetApplication == null) {
+			if (validerRGUtilisateurCivilite == null) {
 				
 				/* lecture dans le properties. */
-				final String charsetApplicationString 
+				final String valeurString 
 					= preferences
 						.getProperty(
-								fournirKeyCharsetApplication());
+								fournirKeyValiderRGUtilisateurCivilite())
+									.trim();
 				
-				if (charsetApplicationString != null) {
+				if (!StringUtils.isBlank(valeurString)) {
+					
 					try {
-						charsetApplication 
-						= Charset.forName(charsetApplicationString);
+						
+						validerRGUtilisateurCivilite 
+							= Boolean.parseBoolean(valeurString);
+						
 					} catch (Exception e) {
-						charsetApplication 
-						= Charset.forName(CHARSET_STRING_PAR_DEFAUT_EN_DUR);
+						
+						validerRGUtilisateurCivilite 
+							= Boolean.parseBoolean(
+								STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
+						
 					}
 					
 				}
 				else {
-					charsetApplication 
-						= Charset.forName(CHARSET_STRING_PAR_DEFAUT_EN_DUR);
+					
+					validerRGUtilisateurCivilite 
+						= Boolean.parseBoolean(
+						STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
 				}
 			}
 			
-			return charsetApplication;
+			return validerRGUtilisateurCivilite;
 			
 		} // Fin du bloc synchronized.__________________
 		
-	} // Fin de fournirCharsetSortieParDefaut().___________________________
+	} // Fin de fournirValiderRGUtilisateurCivilite()._____________________
 	
 
 	
 	/**
-	 * Getter de la clé du charset par défaut de l'application 
-	 * dans preferences.properties.<br/>
-	 * "application.charset".<br/>
+	 * Getter de la clé du validerRGUtilisateurCivilite 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * "valider.UtilisateurCerbere.civilite".<br/>
 	 *
-	 * @return KEY_CHARSET_APPLICATION : String.<br/>
+	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE : String.<br/>
 	 */
-	public static String fournirKeyCharsetApplication() {
-		return KEY_CHARSET_APPLICATION;
-	} // Fin de fournirKeyCharsetApplication().____________________________
+	public static String fournirKeyValiderRGUtilisateurCivilite() {
+		return KEY_VALIDER_UTILISATEUR_CIVILITE;
+	} // Fin de fournirKeyValiderRGUtilisateurCivilite().__________________
 
 
 
 	/**
-	 * Getter du <b>SINGLETON de Charset par défaut 
+	 * Getter du <b>SINGLETON de validerRGUtilisateurCivilite par défaut 
 	 * dans l'application</b>.
 	 * <ul>
-	 * <li>lit le charset stocké dans preferences.properties 
+	 * <li>lit le validerRGUtilisateurCivilite 
+	 * stocké dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>UTF-8 sinon (Charset stocké en dur dans la classe).</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
 	 * </ul>
-	 * - retourne le Charset stocké en dur dans la classe (UTF8) 
+	 * - retourne le validerRGUtilisateurCivilite stocké en dur 
+	 * dans la classe (false) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return charsetApplication : Charset.<br/>
+	 * @return validerRGUtilisateurCivilite : Boolean.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	public static Charset getCharsetApplication() throws Exception {
-		return fournirCharsetPrefere();
-	} // Fin de getCharsetApplication().___________________________________
+	public static Boolean getValiderRGUtilisateurCivilite() 
+													throws Exception {
+		return fournirValiderRGUtilisateurCivilite();
+	} // Fin de getValiderRGUtilisateurCivilite()._________________________
 	
 
 	
 	/**
-	* Setter du <b>SINGLETON de Charset par défaut 
+	* Setter du <b>SINGLETON de validerRGUtilisateurCivilite par défaut 
 	* dans l'application</b>.<br/>
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* preferences.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier preferences.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
-	* - ne fait rien si pCharsetApplication == null 
-	* ou pCharsetApplication == charsetApplication.<br/>
+	* - ne fait rien si pValiderRGUtilisateurCivilite == null 
+	* ou pValiderRGUtilisateurCivilite == validerRGUtilisateurCivilite.<br/>
 	* <br/>
 	*
-	* @param pCharsetApplication : Charset : 
-	* valeur à passer à charsetApplication.<br/>
+	* @param pValiderRGUtilisateurCivilite : Boolean : 
+	* valeur à passer à validerRGUtilisateurCivilite.<br/>
 	* 
 	 * @throws Exception 
 	*/
-	public static void setCharsetApplication(
-			final Charset pCharsetApplication) throws Exception {
+	public static void setValiderRGUtilisateurCivilite(
+			final Boolean pValiderRGUtilisateurCivilite) 
+												throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ne fait rien si pCharsetApplication == null 
-			 * ou pCharsetApplication == charsetApplication. */
-			if (pCharsetApplication != null 
-					&& !pCharsetApplication.equals(charsetApplication)) {
+			/* ne fait rien si pValiderRGUtilisateurCivilite == null 
+			 * ou pValiderRGUtilisateurCivilite 
+			 * == validerRGUtilisateurCivilite. */
+			if (pValiderRGUtilisateurCivilite != null 
+					&& !pValiderRGUtilisateurCivilite
+						.equals(validerRGUtilisateurCivilite)) {
 				
-				charsetApplication = pCharsetApplication;
+				validerRGUtilisateurCivilite = pValiderRGUtilisateurCivilite;
 				
-				final String nomCharset 
-					= pCharsetApplication.displayName();
+				final String valeurString 
+					= validerRGUtilisateurCivilite.toString();
 				
 				/* crée le Properties preferences et le fichier 
-				 * properties.preferences
+				 * UtilisateurCerbere_RG.properties
 				 * et les remplit avec des valeurs en dur si nécessaire. */
 				if (filePreferencesProperties == null 
 						|| !filePreferencesProperties.exists()) {
@@ -1431,141 +1524,42 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 				/* modifie preferences avec la nouvelle valeur 
 				 * passée dans le setter. */
 				creerOuModifierProperty(
-						fournirKeyCharsetApplication(), nomCharset);
+						fournirKeyValiderRGUtilisateurCivilite()
+							, valeurString);
 				
-				/* ré-écrit entièrement le fichier preferences.properties mis à jour. */
+				/* ré-écrit entièrement le fichier 
+				 * UtilisateurCerbere_RG.properties mis à jour. */
 				enregistrerFichierPreferencesProperties();
 
 			}
 
 		} // Fin du bloc synchronized.__________________
 						
-	} // Fin de setCharsetApplication(...).________________________________
-	
+	} // Fin de setValiderCiviliteUtilisateur(...).________________________
 
-	
+
+
 	/**
-	 * <b>Retourne le langage et le pays d'une Locale 
-	 * exprimés en français</b> sous forme de String.<br/>
+	 * retourne le validerRGUtilisateurCiviliteRenseigne01 
+	 * par défaut de l'application.<br/>
 	 * <ul>
-	 * Par exemple :
-	 * <li><code>français (France)</code> pour une Locale.FRANCE.</li>
-	 * <li><code>anglais (Etats-Unis)</code> pour une Locale.US.</li>
-	 * </ul>
-	 *
-	 * @param pLocale : Locale.<br/>
-	 * 
-	 * @return : String  : langage et pays d'une Locale.<br/>
-	 */
-	private static String fournirLangueEtPaysEnFrancais(
-			final Locale pLocale) {
-		
-		/* Bloc synchronized. */
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			return 
-					pLocale.getDisplayLanguage(Locale.FRANCE) 
-					+ " (" + pLocale.getDisplayCountry(Locale.FRANCE) + ")";
-			
-		} // Fin de synchronized._____________________________
-		
-	} // Fin de fournirLangueEtPaysEnFrancais(...).________________________
-
-
-	
-	/**
-	 * <b>Fournit une Locale 
-	 * à partir d'une String UNIQUE comportant la langue et le pays
-	 * </b> comme "français (France)" ou "anglais (Etats-Unis)" 
-	 * conforme à un retour de la méthode 
-	 * <code>fournirLangueEtPaysEnFrancais(Locale)</code>.
-	 * <ul>
-	 * <li>La String doit être conforme à un retour de la méthode 
-	 * <code>fournirLangueEtPaysEnFrancais(Locale)</code> 
-	 * et donc à la Regex "(\\S+) \\((\\S+)\\)".</li>
-	 * <li>Utilise une Regex avec un motif 
-	 * <code>"(\\S+) \\((\\S+)\\)"</code> et des groupes qui décompose 
-	 * une String comme "anglais (Etats-Unis)" en 
-	 * language = "anglais" et country = "Etats-Unis".</li>
-	 * </ul>
-	 * - retourne la Locale de l'application par défaut en dur 
-	 * (Locale.FRANCE) si pLocaleString est blank.<br/>
-	 * - retourne la Locale de l'application par défaut en dur 
-	 * (Locale.FRANCE) si pLocaleString n'est pas conforme 
-	 * à l'expression régulière (Regex) "(\\S+) \\((\\S+)\\)".<br/>
-	 * <br/>
-	 *
-	 * @param pLocaleString : String : 
-	 * String décrivant le langage et le pays d'une Locale 
-	 * conforme à un retour de la méthode 
-	 * <code>fournirLangueEtPaysEnFrancais(Locale)</code>.<br/>
-	 * 
-	 * @return : Locale : 
-	 * Locale correspondant à la description pLocaleString 
-	 * ("français (France)" ou "anglais (Etats-Unis)", ...).<br/>
-	 */
-	private static Locale fournirLocaleParLangueEtPays(
-			final String pLocaleString) {
-		
-		/* Bloc synchronized. */
-		synchronized (LocaleManager.class) {
-			
-			/* retourne la Locale de la plateforme par défaut 
-			 * en dur si pLocaleString est blank. */
-			if (StringUtils.isBlank(pLocaleString)) {
-				return Locale.FRANCE;
-			}
-			
-			/* Décompose une String comme "anglais (Etats-Unis)" en 
-			 * Language = "anglais" et coutry = "Etats-Unis". */
-			final String motif = "(\\S+) \\((\\S+)\\)";
-			final Pattern pattern = Pattern.compile(motif);
-			
-			final Matcher matcher = pattern.matcher(pLocaleString);
-			
-			String langue = null;
-			String pays = null;
-			Locale resultat = null;
-			
-			if (matcher.matches()) {
-				
-				langue = matcher.group(1);
-				pays = matcher.group(2);
-				
-				/* Instancie une Locale. */
-				resultat = new Locale(langue, pays);
-				
-				return resultat;
-			} 
-			
-			/* retourne la Locale de l'application en dur
-			 * (Locale.FRANCE) 
-			 * si pLocaleString n'est pas conforme 
-			 * à l'expression régulière (Regex) "(\\S+) \\((\\S+)\\)". */
-			return Locale.FRANCE;
-			
-		} // Fin de synchronized._____________________________
-		
-	} // Fin de recupererLocaleIHM(...).___________________________________
-	
-
-	
-	/**
-	 * retourne la Locale par défaut de l'application.<br/>
-	 * <ul>
-	 * <li>lit la Locale stockée dans preferences.properties 
+	 * <li>lit le validerRGUtilisateurCiviliteRenseigne01 stocké 
+	 * dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>Locale par défaut en dur sinon (Locale.FRANCE).</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
 	 * </ul>
-	 * - retourne la Locale stockée en dur dans la classe (Locale.FRANCE) 
+	 * - retourne la valeur stockée en dur dans la classe (false) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return : Locale : Locale dans les préférences.<br/>
+	 * @return : Boolean : validerRGUtilisateurCiviliteRenseigne01 
+	 * dans les préférences.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	private static Locale fournirLocalePreferee() throws Exception {
+	private static Boolean fournirValiderRGUtilisateurCiviliteRenseigne01() 
+			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
@@ -1581,298 +1575,153 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 				creerFichierPropertiesInitial();
 			}
 			
-			if (localeDefautApplication == null) {
+			if (validerRGUtilisateurCiviliteRenseigne01 == null) {
 				
 				/* lecture dans le properties. */
-				final String localeApplicationString 
+				final String valeurString 
 					= preferences
 						.getProperty(
-								fournirKeyLocaleApplication());
+								fournirKeyValiderRGUtilisateurCiviliteRenseigne01())
+									.trim();
 				
-				if (localeApplicationString != null) {
+				if (!StringUtils.isBlank(
+						valeurString)) {
 					
-					localeDefautApplication 
-					= fournirLocaleParLangueEtPays(localeApplicationString);
-									
+					try {
+						
+						validerRGUtilisateurCiviliteRenseigne01 
+							= Boolean.parseBoolean(
+									valeurString);
+						
+					} catch (Exception e) {
+						
+						validerRGUtilisateurCiviliteRenseigne01 
+							= Boolean.parseBoolean(
+								STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
+						
+					}
+					
 				}
 				else {
-					localeDefautApplication = Locale.FRANCE;
+					
+					validerRGUtilisateurCiviliteRenseigne01 
+						= Boolean.parseBoolean(
+								STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
 				}
 			}
 			
-			return localeDefautApplication;
+			return validerRGUtilisateurCiviliteRenseigne01;
 			
 		} // Fin du bloc synchronized.__________________
-				
-	} // Fin de fournirLocalePreferee().___________________________________
+		
+	} // Fin de fournirValiderRGUtilisateurCiviliteRenseigne01().__________
 	
-	
+
 	
 	/**
-	 * getter de la clé de la Locale par défaut de l'application 
-	 * dans preferences.properties.<br/>
-	 * "application.locale".<br/>
+	 * Getter de la clé du validerRGUtilisateurCiviliteRenseigne01 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * "valider.UtilisateurCerbere.civilite.renseigne".<br/>
 	 *
-	 * @return KEY_LOCALE_APPLICATION : String.<br/>
+	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01 : String.<br/>
 	 */
-	public static String fournirKeyLocaleApplication() {
-		return KEY_LOCALE_APPLICATION;
-	} // Fin de fournirKeyLocaleApplication()._____________________________
+	public static String fournirKeyValiderRGUtilisateurCiviliteRenseigne01() {
+		return KEY_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGUtilisateurCiviliteRenseigne01()._______
 
 
-	
+
 	/**
-	 * Getter du <b>SINGLETON de la Locale par défaut 
-	 * dans l'application</b>.
+	 * Getter du <b>SINGLETON de validerRGUtilisateurCiviliteRenseigne01 
+	 * par défaut dans l'application</b>.
 	 * <ul>
-	 * <li>lit la Locale stockée dans preferences.properties 
+	 * <li>lit le validerRGUtilisateurCiviliteRenseigne01 
+	 * stocké dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>Locale par défaut en dur sinon (Locale.FRANCE).</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
 	 * </ul>
-	 * - retourne la Locale stockée en dur dans la classe (Locale.FRANCE) 
+	 * - retourne le validerRGUtilisateurCiviliteRenseigne01 stocké en dur 
+	 * dans la classe (false) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return localeDefautApplication : Locale.<br/>
+	 * @return validerRGUtilisateurCiviliteRenseigne01 : Boolean.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	public static Locale getLocaleDefautApplication() throws Exception {
-		return fournirLocalePreferee();
-	} // Fin de getLocaleDefautApplication().______________________________
-
+	public static Boolean getValiderRGUtilisateurCiviliteRenseigne01() 
+													throws Exception {
+		return fournirValiderRGUtilisateurCiviliteRenseigne01();
+	} // Fin de getValiderCiviliteUtilisateur().___________________________
+	
 
 	
 	/**
-	* Setter du <b>SINGLETON de la Locale par défaut 
-	* dans l'application</b>.<br/>
+	* Setter du <b>SINGLETON de validerRGUtilisateurCiviliteRenseigne01 
+	* par défaut dans l'application</b>.<br/>
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* preferences.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier preferences.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
-	* - ne fait rien si pLocaleDefautApplication == null 
-	* ou si pLocaleDefautApplication == localeDefautApplication.<br/>
+	* - ne fait rien si pValiderCiviliteUtilisateur == null 
+	* ou pValiderCiviliteUtilisateur == validerRGUtilisateurCivilite.<br/>
 	* <br/>
 	*
-	* @param pLocaleDefautApplication : Locale : 
-	* valeur à passer à localeDefautApplication.<br/>
+	* @param pValiderCiviliteUtilisateur : Boolean : 
+	* valeur à passer à validerRGUtilisateurCivilite.<br/>
 	* 
-	* @throws Exception 
+	 * @throws Exception 
 	*/
-	public static void setLocaleDefautApplication(
-			final Locale pLocaleDefautApplication) throws Exception {
+	public static void setValiderRGUtilisateurCiviliteRenseigne01(
+			final Boolean pValiderCiviliteUtilisateur) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ne fait rien si pLocaleDefautApplication == null 
-			 * ou si pLocaleDefautApplication == localeDefautApplication. */
-			if (pLocaleDefautApplication != null 
-					&& !pLocaleDefautApplication.equals(
-							localeDefautApplication)) {
+			/* ne fait rien si pValiderCiviliteUtilisateur == null 
+			 * ou pValiderCiviliteUtilisateur 
+			 * == validerRGUtilisateurCiviliteRenseigne01. */
+			if (pValiderCiviliteUtilisateur != null 
+					&& !pValiderCiviliteUtilisateur
+						.equals(validerRGUtilisateurCiviliteRenseigne01)) {
 				
-				localeDefautApplication = pLocaleDefautApplication;
+				validerRGUtilisateurCiviliteRenseigne01 = pValiderCiviliteUtilisateur;
 				
-				final String nomLocale 
-					= fournirLangueEtPaysEnFrancais(localeDefautApplication);
+				final String valeurString 
+					= validerRGUtilisateurCiviliteRenseigne01.toString();
 				
-				/* crée le Properties preferences et 
-				 * le remplit avec des valeurs en dur si nécessaire. */
+				/* crée le Properties preferences et le fichier 
+				 * UtilisateurCerbere_RG.properties
+				 * et les remplit avec des valeurs en dur si nécessaire. */
 				if (filePreferencesProperties == null 
 						|| !filePreferencesProperties.exists()) {
 					creerFichierPropertiesInitial();
 				}
 				
+				/* modifie preferences avec la nouvelle valeur 
+				 * passée dans le setter. */
 				creerOuModifierProperty(
-						fournirKeyLocaleApplication(), nomLocale);
+						fournirKeyValiderRGUtilisateurCivilite()
+							, valeurString);
 				
+				/* ré-écrit entièrement le fichier 
+				 * UtilisateurCerbere_RG.properties mis à jour. */
 				enregistrerFichierPreferencesProperties();
 
 			}
 
 		} // Fin du bloc synchronized.__________________
-		
-	} // Fin de setLocaleDefautApplication(...).___________________________
-	
+						
+	} // Fin de setValiderRGUtilisateurCiviliteRenseigne01(...).___________
 
-	
-	/**
-	 * retourne le répertoire par défaut du FileChooser.<br/>
-	 * <ul>
-	 * <li>lit le répertoire stocké dans preferences.properties 
-	 * si il n'est pas null.</li>
-	 * <li>répertoire par défaut en dur sinon (user.dir).</li>
-	 * </ul>
-	 * - retourne le répertoire stockée en dur dans la classe (user.dir) 
-	 * si le properties ne peut être lu 
-	 * (trace EX_TEC_INITIALISATION_08).<br/>
-	 * <br/>
-	 *
-	 * @return : File : répertoire dans les préférences.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	private static File fournirRepertoirePrefere() throws Exception {
-		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* instancie les attributs de fichier si nécessaire. */
-			/* alimente Properties avec le contenu 
-			 * du fichier properties. */
-			lireFichierPreferencesProperties();
-			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
-			if (filePreferencesProperties == null 
-					|| !filePreferencesProperties.exists()) {
-				creerFichierPropertiesInitial();
-			}
-			
-			if (repertoirePrefereFileChooser == null) {
-				
-				/* lecture dans le properties. */
-				final String repertoirePrefereFileChooserString 
-					= preferences
-						.getProperty(
-								fournirKeyRepertoireFileChooser());
-				
-				if (repertoirePrefereFileChooserString != null) {
-					
-					repertoirePrefereFileChooser 
-					= new File(repertoirePrefereFileChooserString);
-									
-				}
-				else {
-					repertoirePrefereFileChooser 
-					= new File(
-							REPERTOIRE_FILECHOOSER_STRING_PAR_DEFAUT_EN_DUR);
-				}
-			}
-			
-			return repertoirePrefereFileChooser;
-			
-		} // Fin du bloc synchronized.__________________
-				
-	} // Fin de fournirRepertoirePrefere().________________________________
-	
-	
-	
-	/**
-	 * Getter de la clé du répertoire sur lequel s'ouvre le FileChooser 
-	 * dans preferences.properties<br/>
-	 * "repertoire.filechooser"<br/>
-	 *
-	 * @return : String : "repertoire.filechooser".<br/>
-	 */
-	public static String fournirKeyRepertoireFileChooser() {
-		return KEY_REPERTOIRE_FILECHOOSER;
-	} // Fin de fournirKeyRepertoireFileChooser()._________________________
-
-
-
-	/**
-	 * Getter du <b>SINGLETON de repértoire par défaut 
-	 * du FileChooser</b>.
-	 * <ul>
-	 * <li>lit le répertoire stocké dans preferences.properties 
-	 * si il n'est pas null.</li>
-	 * <li>répertoire par défaut en dur sinon (user.dir).</li>
-	 * </ul>
-	 * - retourne le répertoire stockée en dur dans la classe (user.dir) 
-	 * si le properties ne peut être lu 
-	 * (trace EX_TEC_INITIALISATION_08).<br/>
-	 * <br/>
-	 *
-	 * @return repertoirePrefereFileChooser : File.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	public static File getRepertoirePrefereFileChooser() 
-											throws Exception {
-		return fournirRepertoirePrefere();
-	} // Fin de getRepertoirePrefereFileChooser()._________________________
-
-
-
-	/**
-	* Setter du <b>SINGLETON de repértoire par défaut 
-	 * du FileChooser</b>.<br/>
-	* <b>Enregistre la valeur sur disque</b>.<br/>
-	* <ul>
-	* <li>crée le Properties preferences et le fichier 
-	* preferences.properties et les remplit avec des valeurs 
-	* en dur si nécessaire.</li>
-	* <li>modifie preferences avec la nouvelle valeur 
-	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier preferences.properties 
-	* mis à jour.</li>
-	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
-	* </ul>
-	* - ne fait rien si pRepertoirePrefereFileChooser == null 
-	* ou si pRepertoirePrefereFileChooser == repertoirePrefereFileChooser.<br/>
-	* - ne fait rien si pRepertoirePrefereFileChooser 
-	* n'est pas un répertoire.<br/>
-	* - ne fait rien si pRepertoirePrefereFileChooser n'existe pas.<br/>
-	* <br/>
-	*
-	* @param pRepertoirePrefereFileChooser : File : 
-	* valeur à passer à repertoirePrefereFileChooser.<br/>
-	* 
-	* @throws Exception 
-	*/
-	public static void setRepertoirePrefereFileChooser(
-			final File pRepertoirePrefereFileChooser) 
-											throws Exception {
-		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			
-			/* ne fait rien si pRepertoirePrefereFileChooser == null 
-			 * ou si pRepertoirePrefereFileChooser == repertoirePrefereFileChooser. */
-			if (pRepertoirePrefereFileChooser != null 
-					&& !pRepertoirePrefereFileChooser.equals(
-							repertoirePrefereFileChooser)) {
-				
-				/* ne fait rien si pRepertoirePrefereFileChooser 
-				 * n'est pas un répertoire. */
-				if (!pRepertoirePrefereFileChooser.isDirectory()) {
-					return;
-				}
-				
-				/* ne fait rien si pRepertoirePrefereFileChooser n'existe pas. */
-				if (!pRepertoirePrefereFileChooser.exists()) {
-					return;
-				}
-				
-				repertoirePrefereFileChooser = pRepertoirePrefereFileChooser;
-				
-				final String nomRepertoire 
-					= repertoirePrefereFileChooser.getAbsolutePath();
-				
-				/* crée le Properties preferences et 
-				 * le remplit avec des valeurs en dur si nécessaire. */
-				if (filePreferencesProperties == null 
-						|| !filePreferencesProperties.exists()) {
-					creerFichierPropertiesInitial();
-				}
-				
-				creerOuModifierProperty(
-						fournirKeyRepertoireFileChooser(), nomRepertoire);
-				
-				enregistrerFichierPreferencesProperties();
-
-			}
-
-		} // Fin du bloc synchronized.__________________
-		
-	} // Fin de setRepertoirePrefereFileChooser(...).______________________
-	
-		
 	
 } // FIN DE LA CLASSE UtilisateurCerbereGestionnairePreferencesRG.-----------
