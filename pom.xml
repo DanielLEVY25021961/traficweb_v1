@@ -94,7 +94,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<hibernate.validator>6.0.13.Final</hibernate.validator>
 
 		<!--            Version du POOL DE CONNEXION c3p0               -->
-		<c3p0.version>0.9.5.2</c3p0.version>
+		<c3p0.version>0.9.5.3</c3p0.version>
 		<!--            Version du POOL DE CONNEXION dbcp2              -->
 		<commons-dbcp2.version>2.5.0</commons-dbcp2.version>
 		<!--            Version du POOL DE CONNEXION hikariCP           -->
@@ -124,7 +124,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<!--                  Version de commons-io                     -->
 		<commons-io.version>2.6</commons-io.version>
 		<!--                 Version de commons-fileupload              -->
-		<commons-fileupload.version>1.3.2</commons-fileupload.version>
+		<commons-fileupload.version>1.3.3</commons-fileupload.version>
 		<!--                  Version de commons-text                   -->
 		<commons-text.version>1.6</commons-text.version>
 		<!--                 Version de commons-logging                 -->
