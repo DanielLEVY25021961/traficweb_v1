@@ -1486,29 +1486,28 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
-	* - ne fait rien si pValiderRGUtilisateurCivilite == null 
-	* ou pValiderRGUtilisateurCivilite == validerRGUtilisateurCivilite.<br/>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
 	*
-	* @param pValiderRGUtilisateurCivilite : Boolean : 
+	* @param pValue : Boolean : 
 	* valeur à passer à validerRGUtilisateurCivilite.<br/>
 	* 
 	 * @throws Exception 
 	*/
 	public static void setValiderRGUtilisateurCivilite(
-			final Boolean pValiderRGUtilisateurCivilite) 
+			final Boolean pValue) 
 												throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ne fait rien si pValiderRGUtilisateurCivilite == null 
-			 * ou pValiderRGUtilisateurCivilite 
-			 * == validerRGUtilisateurCivilite. */
-			if (pValiderRGUtilisateurCivilite != null 
-					&& !pValiderRGUtilisateurCivilite
+			/* ne fait rien si le paramètre est null
+			 * ou ne modifie pas la valeur existante. */
+			if (pValue != null 
+					&& !pValue
 						.equals(validerRGUtilisateurCivilite)) {
 				
-				validerRGUtilisateurCivilite = pValiderRGUtilisateurCivilite;
+				validerRGUtilisateurCivilite = pValue;
 				
 				final String valeurString 
 					= validerRGUtilisateurCivilite.toString();
@@ -1654,7 +1653,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static Boolean getValiderRGUtilisateurCiviliteRenseigne01() 
 													throws Exception {
 		return fournirValiderRGUtilisateurCiviliteRenseigne01();
-	} // Fin de getValiderCiviliteUtilisateur().___________________________
+	} // Fin de getValiderRGUtilisateurCiviliteRenseigne01().______________
 	
 
 	
@@ -1672,28 +1671,27 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
-	* - ne fait rien si pValiderCiviliteUtilisateur == null 
-	* ou pValiderCiviliteUtilisateur == validerRGUtilisateurCivilite.<br/>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
 	*
-	* @param pValiderCiviliteUtilisateur : Boolean : 
-	* valeur à passer à validerRGUtilisateurCivilite.<br/>
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGUtilisateurCiviliteRenseigne01.<br/>
 	* 
 	 * @throws Exception 
 	*/
 	public static void setValiderRGUtilisateurCiviliteRenseigne01(
-			final Boolean pValiderCiviliteUtilisateur) throws Exception {
+			final Boolean pValue) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ne fait rien si pValiderCiviliteUtilisateur == null 
-			 * ou pValiderCiviliteUtilisateur 
-			 * == validerRGUtilisateurCiviliteRenseigne01. */
-			if (pValiderCiviliteUtilisateur != null 
-					&& !pValiderCiviliteUtilisateur
+			/* ne fait rien si le paramètre est null
+			 * ou ne modifie pas la valeur existante. */
+			if (pValue != null 
+					&& !pValue
 						.equals(validerRGUtilisateurCiviliteRenseigne01)) {
 				
-				validerRGUtilisateurCiviliteRenseigne01 = pValiderCiviliteUtilisateur;
+				validerRGUtilisateurCiviliteRenseigne01 = pValue;
 				
 				final String valeurString 
 					= validerRGUtilisateurCiviliteRenseigne01.toString();
@@ -1709,7 +1707,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 				/* modifie preferences avec la nouvelle valeur 
 				 * passée dans le setter. */
 				creerOuModifierProperty(
-						fournirKeyValiderRGUtilisateurCivilite()
+						fournirKeyValiderRGUtilisateurCiviliteRenseigne01()
 							, valeurString);
 				
 				/* ré-écrit entièrement le fichier 
@@ -1721,6 +1719,374 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGUtilisateurCiviliteRenseigne01(...).___________
+
+
+
+	/**
+	 * retourne le validerRGUtilisateurCiviliteLitteral02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurCiviliteLitteral02 stocké 
+	 * dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGUtilisateurCiviliteLitteral02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGUtilisateurCiviliteLitteral02() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/* instancie les attributs de fichier si nécessaire. */
+			/* alimente Properties avec le contenu 
+			 * du fichier properties. */
+			lireFichierPreferencesProperties();
+			
+			/* crée le Properties preferences et 
+			 * le remplit avec des valeurs en dur si nécessaire. */
+			if (filePreferencesProperties == null 
+					|| !filePreferencesProperties.exists()) {
+				creerFichierPropertiesInitial();
+			}
+			
+			if (validerRGUtilisateurCiviliteLitteral02 == null) {
+				
+				/* lecture dans le properties. */
+				final String valeurString 
+					= preferences
+						.getProperty(
+								fournirKeyValiderRGUtilisateurCiviliteLitteral02())
+									.trim();
+				
+				if (!StringUtils.isBlank(
+						valeurString)) {
+					
+					try {
+						
+						validerRGUtilisateurCiviliteLitteral02 
+							= Boolean.parseBoolean(
+									valeurString);
+						
+					} catch (Exception e) {
+						
+						validerRGUtilisateurCiviliteLitteral02 
+							= Boolean.parseBoolean(
+								STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
+						
+					}
+					
+				}
+				else {
+					
+					validerRGUtilisateurCiviliteLitteral02 
+						= Boolean.parseBoolean(
+								STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
+				}
+			}
+			
+			return validerRGUtilisateurCiviliteLitteral02;
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGUtilisateurCiviliteLitteral02().___________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGUtilisateurCiviliteLitteral02 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * "valider.UtilisateurCerbere.civilite.litteral".<br/>
+	 *
+	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGUtilisateurCiviliteLitteral02() {
+		return KEY_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02;
+	} // Fin de fournirKeyValiderRGUtilisateurCiviliteLitteral02().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGUtilisateurCiviliteLitteral02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurCiviliteLitteral02 
+	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGUtilisateurCiviliteLitteral02 stocké en dur 
+	 * dans la classe (false) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGUtilisateurCiviliteLitteral02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGUtilisateurCiviliteLitteral02() 
+													throws Exception {
+		return fournirValiderRGUtilisateurCiviliteLitteral02();
+	} // Fin de getValiderRGUtilisateurCiviliteLitteral02()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGUtilisateurCiviliteLitteral02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGUtilisateurCiviliteLitteral02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGUtilisateurCiviliteLitteral02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/* ne fait rien si le paramètre est null
+			 * ou ne modifie pas la valeur existante. */
+			if (pValue != null 
+					&& !pValue
+						.equals(validerRGUtilisateurCiviliteLitteral02)) {
+				
+				validerRGUtilisateurCiviliteLitteral02 = pValue;
+				
+				final String valeurString 
+					= validerRGUtilisateurCiviliteLitteral02.toString();
+				
+				/* crée le Properties preferences et le fichier 
+				 * UtilisateurCerbere_RG.properties
+				 * et les remplit avec des valeurs en dur si nécessaire. */
+				if (filePreferencesProperties == null 
+						|| !filePreferencesProperties.exists()) {
+					creerFichierPropertiesInitial();
+				}
+				
+				/* modifie preferences avec la nouvelle valeur 
+				 * passée dans le setter. */
+				creerOuModifierProperty(
+						fournirKeyValiderRGUtilisateurCiviliteLitteral02()
+							, valeurString);
+				
+				/* ré-écrit entièrement le fichier 
+				 * UtilisateurCerbere_RG.properties mis à jour. */
+				enregistrerFichierPreferencesProperties();
+
+			}
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGUtilisateurCiviliteLitteral02(...).____________
+
+
+
+	/**
+	 * retourne le validerRGUtilisateurCiviliteLongueur03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurCiviliteLongueur03 stocké 
+	 * dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGUtilisateurCiviliteLongueur03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGUtilisateurCiviliteLongueur03() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/* instancie les attributs de fichier si nécessaire. */
+			/* alimente Properties avec le contenu 
+			 * du fichier properties. */
+			lireFichierPreferencesProperties();
+			
+			/* crée le Properties preferences et 
+			 * le remplit avec des valeurs en dur si nécessaire. */
+			if (filePreferencesProperties == null 
+					|| !filePreferencesProperties.exists()) {
+				creerFichierPropertiesInitial();
+			}
+			
+			if (validerRGUtilisateurCiviliteLongueur03 == null) {
+				
+				/* lecture dans le properties. */
+				final String valeurString 
+					= preferences
+						.getProperty(
+								fournirKeyValiderRGUtilisateurCiviliteLongueur03())
+									.trim();
+				
+				if (!StringUtils.isBlank(
+						valeurString)) {
+					
+					try {
+						
+						validerRGUtilisateurCiviliteLongueur03 
+							= Boolean.parseBoolean(
+									valeurString);
+						
+					} catch (Exception e) {
+						
+						validerRGUtilisateurCiviliteLongueur03 
+							= Boolean.parseBoolean(
+								STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
+						
+					}
+					
+				}
+				else {
+					
+					validerRGUtilisateurCiviliteLongueur03 
+						= Boolean.parseBoolean(
+								STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
+				}
+			}
+			
+			return validerRGUtilisateurCiviliteLongueur03;
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirvaliderRGUtilisateurCiviliteLongueur03().___________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGUtilisateurCiviliteLongueur03 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * "valider.UtilisateurCerbere.civilite.longueur".<br/>
+	 *
+	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGUtilisateurCiviliteLongueur03() {
+		return KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03;
+	} // Fin de fournirKeyValiderRGUtilisateurCiviliteLongueur03().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGUtilisateurCiviliteLongueur03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurCiviliteLongueur03 
+	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGUtilisateurCiviliteLongueur03 stocké en dur 
+	 * dans la classe (false) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGUtilisateurCiviliteLongueur03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGUtilisateurCiviliteLongueur03() 
+													throws Exception {
+		return fournirValiderRGUtilisateurCiviliteLongueur03();
+	} // Fin de getValiderRGUtilisateurCiviliteLongueur03()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGUtilisateurCiviliteLongueur03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGUtilisateurCiviliteLongueur03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGUtilisateurCiviliteLongueur03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/* ne fait rien si le paramètre est null
+			 * ou ne modifie pas la valeur existante. */
+			if (pValue != null 
+					&& !pValue
+						.equals(validerRGUtilisateurCiviliteLongueur03)) {
+				
+				validerRGUtilisateurCiviliteLongueur03 = pValue;
+				
+				final String valeurString 
+					= validerRGUtilisateurCiviliteLongueur03.toString();
+				
+				/* crée le Properties preferences et le fichier 
+				 * UtilisateurCerbere_RG.properties
+				 * et les remplit avec des valeurs en dur si nécessaire. */
+				if (filePreferencesProperties == null 
+						|| !filePreferencesProperties.exists()) {
+					creerFichierPropertiesInitial();
+				}
+				
+				/* modifie preferences avec la nouvelle valeur 
+				 * passée dans le setter. */
+				creerOuModifierProperty(
+						fournirKeyValiderRGUtilisateurCiviliteLongueur03()
+							, valeurString);
+				
+				/* ré-écrit entièrement le fichier 
+				 * UtilisateurCerbere_RG.properties mis à jour. */
+				enregistrerFichierPreferencesProperties();
+
+			}
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGUtilisateurCiviliteLitteral02(...).____________
 
 			
 	
