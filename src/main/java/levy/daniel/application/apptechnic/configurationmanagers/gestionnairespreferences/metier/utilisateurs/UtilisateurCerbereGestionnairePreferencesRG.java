@@ -311,6 +311,15 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <ul>
 	 * <li>remplit le Properties Java <code>preferences</code> 
 	 * avec des [clé-valeur] stockées en dur dans la classe.</li>
+	 * <li>instancie tous les attributs de la classe.</li>
+	 * <ul>
+	 * <li>instancie pathAbsoluPreferencesProperties si nécessaire.</li>
+	 * <li>instancie filePreferencesProperties si nécessaire.</li>
+	 * <li>Crée sur le disque dur l'arborescence et le fichier 
+	 * filePreferencesProperties VIDE si nécessaire.</li>
+	 * <li>lit dans un template le commentaire à ajouter au début du 
+	 * UtilisateurCerbere_RG.properties et le stocke dans commentaire.</li>
+	 * </ul>
 	 * <li>remplit le fichier <code>filePreferencesProperties</code> 
 	 * (UtilisateurCerbere_RG.properties) 
 	 * avec le contenu de <code>preferences</code> 
@@ -332,10 +341,17 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* Ajoute les propriétés initiales à preferences. */
+			/* remplit le Properties Java <code>preferences</code> 
+			 * avec des [clé-valeur] stockées en dur dans la classe. */
 			ajouterPropertiesEnDur();
 			
-			/* initialise les fichiers preferences. */
+			/* instancie pathAbsoluPreferencesProperties si nécessaire. */
+			/* instancie filePreferencesProperties si nécessaire. */
+			/* Crée sur le disque dur l'arborescence et le fichier 
+			 * filePreferencesProperties VIDE si nécessaire.*/
+			/* lit dans un template le commentaire à ajouter au début du 
+			 * UtilisateurCerbere_RG.properties et le stocke 
+			 * dans commentaire.*/
 			instancierAttributsFichierProperties();
 			
 			/* ECRITURE SUR DISQUE. */
@@ -427,19 +443,16 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * <b>Instancie tous les attributs</b> relatifs 
 	 * au fichier de preferences <b>si ils sont null</b>.<br/>
-	 * <b>Crée le fichier UtilisateurCerbere_RG.properties vide</b> 
+	 * <b>Crée le fichier UtilisateurCerbere_RG.properties VIDE</b> 
 	 * (et son arborescence) 
 	 * sur HDD <b>si il n'existe pas déjà</b>.<br/>
-	 * <b>obtient le path du UtilisateurCerbere_RG.properties</b> 
-	 * dans les ressources externes auprès du 
-	 * <b>ConfigurationApplicationManager</b>.<br/>
 	 * <ul>
-	 * <li>instancie pathAbsoluPreferencesProperties.</li>
-	 * <li>instancie filePreferencesProperties.</li>
+	 * <li>instancie pathAbsoluPreferencesProperties si nécessaire.</li>
+	 * <li>instancie filePreferencesProperties si nécessaire.</li>
 	 * <li>Crée sur le disque dur l'arborescence et le fichier 
-	 * filePreferencesProperties si nécessaire.</li>
-	 * <li>ajoute le commentaire au début du 
-	 * UtilisateurCerbere_RG.properties.</li>
+	 * filePreferencesProperties VIDE si nécessaire.</li>
+	 * <li>lit dans un template le commentaire à ajouter au début du 
+	 * UtilisateurCerbere_RG.properties et le stocke dans commentaire.</li>
 	 * </ul>
 	 *
 	 * @throws Exception
@@ -449,29 +462,26 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* obtient le path du properties dans les 
-			 * ressources externes auprès du 
-			 * ConfigurationApplicationManager. */
-			final Path pathRessourcesExternes 
-			= Paths.get(ConfigurationApplicationManager
-					.getPathRessourcesExternes());
-		
-			if (pathAbsoluPreferencesProperties == null) {
-				pathAbsoluPreferencesProperties 
-				= pathRessourcesExternes
-					.resolve("preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties");
-			}
+			/* instancie pathAbsoluPreferencesProperties si nécessaire. */
+			instancierPathAbsoluPreferencesProperties();
 			
+			/* instancie filePreferencesProperties si nécessaire. */
 			if (filePreferencesProperties == null) {
-				filePreferencesProperties 
-				= pathAbsoluPreferencesProperties.toFile();
 				
+				filePreferencesProperties 
+					= pathAbsoluPreferencesProperties.toFile();
+				
+				/* Crée sur le disque dur l'arborescence et le fichier 
+				 * filePreferencesProperties VIDE si nécessaire.*/
 				if (!filePreferencesProperties.exists()) {
 					creerRepertoiresArbo(filePreferencesProperties);
 					Files.createFile(pathAbsoluPreferencesProperties);
 				}				
 			}
 			
+			/* lit dans un template le commentaire à ajouter au début du 
+			 * UtilisateurCerbere_RG.properties et le stocke 
+			 * dans commentaire.*/
 			if (commentaire == null) {
 				commentaire 
 					= lireTemplateString(cheminRelatifTemplateCommentaire);
@@ -482,6 +492,51 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	} // Fin de instancierAttributsFichierProperties().____________________
 	
 
+	
+	/**
+	 * instancie pathAbsoluPreferencesProperties.<br/>
+	 * <ul>
+	 * <li>ne fait rien si pathAbsoluPreferencesProperties 
+	 * n'est pas null.</li>
+	 * <li>obtient le path des ressources externes auprès 
+	 * du ConfigurationApplicationManager.</li>
+	 * <li>calcule le path du UtilisateurCerbere_RG.properties 
+	 * via un resolve par rapport au path des ressources externes.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	private static void instancierPathAbsoluPreferencesProperties() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/* ne fait rien si pathAbsoluPreferencesProperties 
+			 * n'est pas null. */
+			if (pathAbsoluPreferencesProperties == null) {
+				
+				/* obtient le path du properties dans les 
+				 * ressources externes auprès du 
+				 * ConfigurationApplicationManager. */
+				final Path pathRessourcesExternes 
+				= Paths.get(ConfigurationApplicationManager
+						.getPathRessourcesExternes());
+				
+				/* calcule le path du UtilisateurCerbere_RG.properties 
+				 * via un resolve par rapport au path 
+				 * des ressources externes. */
+				pathAbsoluPreferencesProperties 
+				= pathRessourcesExternes
+					.resolve("preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties")
+						.toAbsolutePath()
+							.normalize();
+			}
+
+		} // Fin du bloc synchronized.__________________
+			
+	} // Fin de instancierPathAbsoluPreferencesProperties()._______________
+	
+	
 	
 	/**
 	 * Crée sur disque dur l'arborescence des répertoires 
@@ -1032,6 +1087,133 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 
 	
 	/**
+	 * retourne la valeur du Boolean pAttribut dans le fichier properties.<br/>
+	 *
+	 * @param pAttribut
+	 * @param pFournirKey
+	 * @param pValeurEnDur
+	 * @return Boolean
+	 * 
+	 * @throws Exception
+	 */
+	private static Boolean fournirAttribut(
+			Boolean pAttribut
+				, final String pFournirKey
+					, final String pValeurEnDur) 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			instancierAttributsFichierProperties();
+			
+			/* crée le Properties preferences et 
+			 * le remplit avec des valeurs en dur si nécessaire. */
+			if (filePreferencesProperties == null 
+					|| !filePreferencesProperties.exists() 
+						|| filePreferencesProperties.length() == 0) {
+				creerFichierPropertiesInitial();
+			}
+						
+			/* lit le fichier properties et alimente preferences. */
+			lireFichierPreferencesProperties();
+						
+			if (pAttribut == null) {
+				
+				/* lecture dans le properties. */
+				final String valeurStringSale 
+					= preferences
+						.getProperty(pFournirKey);
+				
+				String valeurString = null;
+				
+				if (!StringUtils.isBlank(valeurStringSale)) {
+					
+					/* nettoyage de la valeur lue dans le properties. */
+					valeurString 
+						= valeurStringSale.trim();
+					
+					try {
+						
+						pAttribut 
+							= Boolean.parseBoolean(valeurString);
+						
+					} catch (Exception e) {
+						
+						pAttribut 
+							= Boolean.parseBoolean(pValeurEnDur);
+						
+					}
+					
+				}
+				else {
+					
+					pAttribut 
+						= Boolean.parseBoolean(pValeurEnDur);
+				}
+			}
+			
+			return pAttribut;
+			
+		}
+		
+	}
+	
+
+	
+	/**
+	 * .<br/>
+	 *
+	 * @param pValue
+	 * @param pAttribut
+	 * @param pFournirKey
+	 * 
+	 * @throws Exception
+	 */
+	private static void setterAttribut(
+			final Boolean pValue
+				, Boolean pAttribut
+					, final String pFournirKey) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/* ne fait rien si le paramètre est null
+			 * ou ne modifie pas la valeur existante. */
+			if (pValue != null 
+					&& !pValue
+						.equals(pAttribut)) {
+				
+				pAttribut = pValue;
+				
+				final String valeurString 
+					= pAttribut.toString();
+				
+				/* crée le Properties preferences et le fichier 
+				 * UtilisateurCerbere_RG.properties
+				 * et les remplit avec des valeurs en dur si nécessaire. */
+				if (filePreferencesProperties == null 
+						|| !filePreferencesProperties.exists()) {
+					creerFichierPropertiesInitial();
+				}
+				
+				/* modifie preferences avec la nouvelle valeur 
+				 * passée dans le setter. */
+				creerOuModifierProperty(
+						pFournirKey
+							, valeurString);
+				
+				/* ré-écrit entièrement le fichier 
+				 * UtilisateurCerbere_RG.properties mis à jour. */
+				enregistrerFichierPreferencesProperties();
+
+			}
+
+		} // Fin du bloc synchronized.__________________
+						
+	}
+
+
+	
+	/**
 	 * fournit une String pour l'affichage de preferences.properties.<br/>
 	 * <ul>
 	 * <li>crée le fichier preferences.properties et alimente 
@@ -1348,9 +1530,9 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de getFilePreferencesProperties().____________________________
-
-
-
+	
+	
+	
 	/**
 	 * retourne le <code>validerRGUtilisateurCivilite</code> 
 	 * par défaut de l'application.<br/>
@@ -1379,52 +1561,57 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* instancie les attributs de fichier si nécessaire. */
-			/* alimente Properties avec le contenu 
-			 * du fichier properties. */
-			lireFichierPreferencesProperties();
+//			/* instancie les attributs de fichier si nécessaire. */
+//			/* alimente Properties avec le contenu 
+//			 * du fichier properties. */
+//			lireFichierPreferencesProperties();
+//			
+//			/* crée le Properties preferences et 
+//			 * le remplit avec des valeurs en dur si nécessaire. */
+//			if (filePreferencesProperties == null 
+//					|| !filePreferencesProperties.exists()) {
+//				creerFichierPropertiesInitial();
+//			}
+//			
+//			if (validerRGUtilisateurCivilite == null) {
+//				
+//				/* lecture dans le properties. */
+//				final String valeurString 
+//					= preferences
+//						.getProperty(
+//								fournirKeyValiderRGUtilisateurCivilite())
+//									.trim();
+//				
+//				if (!StringUtils.isBlank(valeurString)) {
+//					
+//					try {
+//						
+//						validerRGUtilisateurCivilite 
+//							= Boolean.parseBoolean(valeurString);
+//						
+//					} catch (Exception e) {
+//						
+//						validerRGUtilisateurCivilite 
+//							= Boolean.parseBoolean(
+//								STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
+//						
+//					}
+//					
+//				}
+//				else {
+//					
+//					validerRGUtilisateurCivilite 
+//						= Boolean.parseBoolean(
+//						STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
+//				}
+//			}
+//			
+//			return validerRGUtilisateurCivilite;
 			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
-			if (filePreferencesProperties == null 
-					|| !filePreferencesProperties.exists()) {
-				creerFichierPropertiesInitial();
-			}
-			
-			if (validerRGUtilisateurCivilite == null) {
-				
-				/* lecture dans le properties. */
-				final String valeurString 
-					= preferences
-						.getProperty(
-								fournirKeyValiderRGUtilisateurCivilite())
-									.trim();
-				
-				if (!StringUtils.isBlank(valeurString)) {
-					
-					try {
-						
-						validerRGUtilisateurCivilite 
-							= Boolean.parseBoolean(valeurString);
-						
-					} catch (Exception e) {
-						
-						validerRGUtilisateurCivilite 
-							= Boolean.parseBoolean(
-								STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
-						
-					}
-					
-				}
-				else {
-					
-					validerRGUtilisateurCivilite 
-						= Boolean.parseBoolean(
-						STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
-				}
-			}
-			
-			return validerRGUtilisateurCivilite;
+			return fournirAttribut(
+					validerRGUtilisateurCivilite
+					, fournirKeyValiderRGUtilisateurCivilite()
+					, STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -1470,7 +1657,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		return fournirValiderRGUtilisateurCivilite();
 	} // Fin de getValiderRGUtilisateurCivilite()._________________________
 	
-
+	
 	
 	/**
 	* Setter du <b>SINGLETON de validerRGUtilisateurCivilite par défaut 
@@ -1496,41 +1683,45 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * @throws Exception 
 	*/
 	public static void setValiderRGUtilisateurCivilite(
-			final Boolean pValue) 
-												throws Exception {
+			final Boolean pValue) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ne fait rien si le paramètre est null
-			 * ou ne modifie pas la valeur existante. */
-			if (pValue != null 
-					&& !pValue
-						.equals(validerRGUtilisateurCivilite)) {
-				
-				validerRGUtilisateurCivilite = pValue;
-				
-				final String valeurString 
-					= validerRGUtilisateurCivilite.toString();
-				
-				/* crée le Properties preferences et le fichier 
-				 * UtilisateurCerbere_RG.properties
-				 * et les remplit avec des valeurs en dur si nécessaire. */
-				if (filePreferencesProperties == null 
-						|| !filePreferencesProperties.exists()) {
-					creerFichierPropertiesInitial();
-				}
-				
-				/* modifie preferences avec la nouvelle valeur 
-				 * passée dans le setter. */
-				creerOuModifierProperty(
-						fournirKeyValiderRGUtilisateurCivilite()
-							, valeurString);
-				
-				/* ré-écrit entièrement le fichier 
-				 * UtilisateurCerbere_RG.properties mis à jour. */
-				enregistrerFichierPreferencesProperties();
-
-			}
+//			/* ne fait rien si le paramètre est null
+//			 * ou ne modifie pas la valeur existante. */
+//			if (pValue != null 
+//					&& !pValue
+//						.equals(validerRGUtilisateurCivilite)) {
+//				
+//				validerRGUtilisateurCivilite = pValue;
+//				
+//				final String valeurString 
+//					= validerRGUtilisateurCivilite.toString();
+//				
+//				/* crée le Properties preferences et le fichier 
+//				 * UtilisateurCerbere_RG.properties
+//				 * et les remplit avec des valeurs en dur si nécessaire. */
+//				if (filePreferencesProperties == null 
+//						|| !filePreferencesProperties.exists()) {
+//					creerFichierPropertiesInitial();
+//				}
+//				
+//				/* modifie preferences avec la nouvelle valeur 
+//				 * passée dans le setter. */
+//				creerOuModifierProperty(
+//						fournirKeyValiderRGUtilisateurCivilite()
+//							, valeurString);
+//				
+//				/* ré-écrit entièrement le fichier 
+//				 * UtilisateurCerbere_RG.properties mis à jour. */
+//				enregistrerFichierPreferencesProperties();
+//
+//			}
+			
+			setterAttribut(
+					pValue
+						, validerRGUtilisateurCivilite
+							, fournirKeyValiderRGUtilisateurCivilite());
 
 		} // Fin du bloc synchronized.__________________
 						
@@ -1562,55 +1753,60 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* instancie les attributs de fichier si nécessaire. */
-			/* alimente Properties avec le contenu 
-			 * du fichier properties. */
-			lireFichierPreferencesProperties();
+//			/* instancie les attributs de fichier si nécessaire. */
+//			/* alimente Properties avec le contenu 
+//			 * du fichier properties. */
+//			lireFichierPreferencesProperties();
+//			
+//			/* crée le Properties preferences et 
+//			 * le remplit avec des valeurs en dur si nécessaire. */
+//			if (filePreferencesProperties == null 
+//					|| !filePreferencesProperties.exists()) {
+//				creerFichierPropertiesInitial();
+//			}
+//			
+//			if (validerRGUtilisateurCiviliteRenseigne01 == null) {
+//				
+//				/* lecture dans le properties. */
+//				final String valeurString 
+//					= preferences
+//						.getProperty(
+//								fournirKeyValiderRGUtilisateurCiviliteRenseigne01())
+//									.trim();
+//				
+//				if (!StringUtils.isBlank(
+//						valeurString)) {
+//					
+//					try {
+//						
+//						validerRGUtilisateurCiviliteRenseigne01 
+//							= Boolean.parseBoolean(
+//									valeurString);
+//						
+//					} catch (Exception e) {
+//						
+//						validerRGUtilisateurCiviliteRenseigne01 
+//							= Boolean.parseBoolean(
+//								STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
+//						
+//					}
+//					
+//				}
+//				else {
+//					
+//					validerRGUtilisateurCiviliteRenseigne01 
+//						= Boolean.parseBoolean(
+//								STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
+//				}
+//			}
+//			
+//			return validerRGUtilisateurCiviliteRenseigne01;
 			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
-			if (filePreferencesProperties == null 
-					|| !filePreferencesProperties.exists()) {
-				creerFichierPropertiesInitial();
-			}
-			
-			if (validerRGUtilisateurCiviliteRenseigne01 == null) {
-				
-				/* lecture dans le properties. */
-				final String valeurString 
-					= preferences
-						.getProperty(
-								fournirKeyValiderRGUtilisateurCiviliteRenseigne01())
-									.trim();
-				
-				if (!StringUtils.isBlank(
-						valeurString)) {
-					
-					try {
-						
-						validerRGUtilisateurCiviliteRenseigne01 
-							= Boolean.parseBoolean(
-									valeurString);
-						
-					} catch (Exception e) {
-						
-						validerRGUtilisateurCiviliteRenseigne01 
-							= Boolean.parseBoolean(
-								STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
-						
-					}
-					
-				}
-				else {
-					
-					validerRGUtilisateurCiviliteRenseigne01 
-						= Boolean.parseBoolean(
-								STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
-				}
-			}
-			
-			return validerRGUtilisateurCiviliteRenseigne01;
-			
+			return fournirAttribut(
+					validerRGUtilisateurCiviliteRenseigne01
+					, fournirKeyValiderRGUtilisateurCiviliteRenseigne01()
+					, STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
+
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de fournirValiderRGUtilisateurCiviliteRenseigne01().__________
@@ -1685,37 +1881,42 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ne fait rien si le paramètre est null
-			 * ou ne modifie pas la valeur existante. */
-			if (pValue != null 
-					&& !pValue
-						.equals(validerRGUtilisateurCiviliteRenseigne01)) {
-				
-				validerRGUtilisateurCiviliteRenseigne01 = pValue;
-				
-				final String valeurString 
-					= validerRGUtilisateurCiviliteRenseigne01.toString();
-				
-				/* crée le Properties preferences et le fichier 
-				 * UtilisateurCerbere_RG.properties
-				 * et les remplit avec des valeurs en dur si nécessaire. */
-				if (filePreferencesProperties == null 
-						|| !filePreferencesProperties.exists()) {
-					creerFichierPropertiesInitial();
-				}
-				
-				/* modifie preferences avec la nouvelle valeur 
-				 * passée dans le setter. */
-				creerOuModifierProperty(
-						fournirKeyValiderRGUtilisateurCiviliteRenseigne01()
-							, valeurString);
-				
-				/* ré-écrit entièrement le fichier 
-				 * UtilisateurCerbere_RG.properties mis à jour. */
-				enregistrerFichierPreferencesProperties();
+//			/* ne fait rien si le paramètre est null
+//			 * ou ne modifie pas la valeur existante. */
+//			if (pValue != null 
+//					&& !pValue
+//						.equals(validerRGUtilisateurCiviliteRenseigne01)) {
+//				
+//				validerRGUtilisateurCiviliteRenseigne01 = pValue;
+//				
+//				final String valeurString 
+//					= validerRGUtilisateurCiviliteRenseigne01.toString();
+//				
+//				/* crée le Properties preferences et le fichier 
+//				 * UtilisateurCerbere_RG.properties
+//				 * et les remplit avec des valeurs en dur si nécessaire. */
+//				if (filePreferencesProperties == null 
+//						|| !filePreferencesProperties.exists()) {
+//					creerFichierPropertiesInitial();
+//				}
+//				
+//				/* modifie preferences avec la nouvelle valeur 
+//				 * passée dans le setter. */
+//				creerOuModifierProperty(
+//						fournirKeyValiderRGUtilisateurCiviliteRenseigne01()
+//							, valeurString);
+//				
+//				/* ré-écrit entièrement le fichier 
+//				 * UtilisateurCerbere_RG.properties mis à jour. */
+//				enregistrerFichierPreferencesProperties();
+//
+//			}
 
-			}
-
+			setterAttribut(
+					pValue
+						, validerRGUtilisateurCiviliteRenseigne01
+							, fournirKeyValiderRGUtilisateurCiviliteRenseigne01());
+			
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGUtilisateurCiviliteRenseigne01(...).___________
@@ -1746,54 +1947,59 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* instancie les attributs de fichier si nécessaire. */
-			/* alimente Properties avec le contenu 
-			 * du fichier properties. */
-			lireFichierPreferencesProperties();
+//			/* instancie les attributs de fichier si nécessaire. */
+//			/* alimente Properties avec le contenu 
+//			 * du fichier properties. */
+//			lireFichierPreferencesProperties();
+//			
+//			/* crée le Properties preferences et 
+//			 * le remplit avec des valeurs en dur si nécessaire. */
+//			if (filePreferencesProperties == null 
+//					|| !filePreferencesProperties.exists()) {
+//				creerFichierPropertiesInitial();
+//			}
+//			
+//			if (validerRGUtilisateurCiviliteLitteral02 == null) {
+//				
+//				/* lecture dans le properties. */
+//				final String valeurString 
+//					= preferences
+//						.getProperty(
+//								fournirKeyValiderRGUtilisateurCiviliteLitteral02())
+//									.trim();
+//				
+//				if (!StringUtils.isBlank(
+//						valeurString)) {
+//					
+//					try {
+//						
+//						validerRGUtilisateurCiviliteLitteral02 
+//							= Boolean.parseBoolean(
+//									valeurString);
+//						
+//					} catch (Exception e) {
+//						
+//						validerRGUtilisateurCiviliteLitteral02 
+//							= Boolean.parseBoolean(
+//								STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
+//						
+//					}
+//					
+//				}
+//				else {
+//					
+//					validerRGUtilisateurCiviliteLitteral02 
+//						= Boolean.parseBoolean(
+//								STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
+//				}
+//			}
+//			
+//			return validerRGUtilisateurCiviliteLitteral02;
 			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
-			if (filePreferencesProperties == null 
-					|| !filePreferencesProperties.exists()) {
-				creerFichierPropertiesInitial();
-			}
-			
-			if (validerRGUtilisateurCiviliteLitteral02 == null) {
-				
-				/* lecture dans le properties. */
-				final String valeurString 
-					= preferences
-						.getProperty(
-								fournirKeyValiderRGUtilisateurCiviliteLitteral02())
-									.trim();
-				
-				if (!StringUtils.isBlank(
-						valeurString)) {
-					
-					try {
-						
-						validerRGUtilisateurCiviliteLitteral02 
-							= Boolean.parseBoolean(
-									valeurString);
-						
-					} catch (Exception e) {
-						
-						validerRGUtilisateurCiviliteLitteral02 
-							= Boolean.parseBoolean(
-								STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
-						
-					}
-					
-				}
-				else {
-					
-					validerRGUtilisateurCiviliteLitteral02 
-						= Boolean.parseBoolean(
-								STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
-				}
-			}
-			
-			return validerRGUtilisateurCiviliteLitteral02;
+			return fournirAttribut(
+					validerRGUtilisateurCiviliteLitteral02
+					, fournirKeyValiderRGUtilisateurCiviliteLitteral02()
+					, STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -1869,37 +2075,42 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ne fait rien si le paramètre est null
-			 * ou ne modifie pas la valeur existante. */
-			if (pValue != null 
-					&& !pValue
-						.equals(validerRGUtilisateurCiviliteLitteral02)) {
-				
-				validerRGUtilisateurCiviliteLitteral02 = pValue;
-				
-				final String valeurString 
-					= validerRGUtilisateurCiviliteLitteral02.toString();
-				
-				/* crée le Properties preferences et le fichier 
-				 * UtilisateurCerbere_RG.properties
-				 * et les remplit avec des valeurs en dur si nécessaire. */
-				if (filePreferencesProperties == null 
-						|| !filePreferencesProperties.exists()) {
-					creerFichierPropertiesInitial();
-				}
-				
-				/* modifie preferences avec la nouvelle valeur 
-				 * passée dans le setter. */
-				creerOuModifierProperty(
-						fournirKeyValiderRGUtilisateurCiviliteLitteral02()
-							, valeurString);
-				
-				/* ré-écrit entièrement le fichier 
-				 * UtilisateurCerbere_RG.properties mis à jour. */
-				enregistrerFichierPreferencesProperties();
+//			/* ne fait rien si le paramètre est null
+//			 * ou ne modifie pas la valeur existante. */
+//			if (pValue != null 
+//					&& !pValue
+//						.equals(validerRGUtilisateurCiviliteLitteral02)) {
+//				
+//				validerRGUtilisateurCiviliteLitteral02 = pValue;
+//				
+//				final String valeurString 
+//					= validerRGUtilisateurCiviliteLitteral02.toString();
+//				
+//				/* crée le Properties preferences et le fichier 
+//				 * UtilisateurCerbere_RG.properties
+//				 * et les remplit avec des valeurs en dur si nécessaire. */
+//				if (filePreferencesProperties == null 
+//						|| !filePreferencesProperties.exists()) {
+//					creerFichierPropertiesInitial();
+//				}
+//				
+//				/* modifie preferences avec la nouvelle valeur 
+//				 * passée dans le setter. */
+//				creerOuModifierProperty(
+//						fournirKeyValiderRGUtilisateurCiviliteLitteral02()
+//							, valeurString);
+//				
+//				/* ré-écrit entièrement le fichier 
+//				 * UtilisateurCerbere_RG.properties mis à jour. */
+//				enregistrerFichierPreferencesProperties();
+//
+//			}
 
-			}
-
+			setterAttribut(
+					pValue
+						, validerRGUtilisateurCiviliteLitteral02
+							, fournirKeyValiderRGUtilisateurCiviliteLitteral02());
+			
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGUtilisateurCiviliteLitteral02(...).____________
@@ -1930,54 +2141,59 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* instancie les attributs de fichier si nécessaire. */
-			/* alimente Properties avec le contenu 
-			 * du fichier properties. */
-			lireFichierPreferencesProperties();
+//			/* instancie les attributs de fichier si nécessaire. */
+//			/* alimente Properties avec le contenu 
+//			 * du fichier properties. */
+//			lireFichierPreferencesProperties();
+//			
+//			/* crée le Properties preferences et 
+//			 * le remplit avec des valeurs en dur si nécessaire. */
+//			if (filePreferencesProperties == null 
+//					|| !filePreferencesProperties.exists()) {
+//				creerFichierPropertiesInitial();
+//			}
+//			
+//			if (validerRGUtilisateurCiviliteLongueur03 == null) {
+//				
+//				/* lecture dans le properties. */
+//				final String valeurString 
+//					= preferences
+//						.getProperty(
+//								fournirKeyValiderRGUtilisateurCiviliteLongueur03())
+//									.trim();
+//				
+//				if (!StringUtils.isBlank(
+//						valeurString)) {
+//					
+//					try {
+//						
+//						validerRGUtilisateurCiviliteLongueur03 
+//							= Boolean.parseBoolean(
+//									valeurString);
+//						
+//					} catch (Exception e) {
+//						
+//						validerRGUtilisateurCiviliteLongueur03 
+//							= Boolean.parseBoolean(
+//								STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
+//						
+//					}
+//					
+//				}
+//				else {
+//					
+//					validerRGUtilisateurCiviliteLongueur03 
+//						= Boolean.parseBoolean(
+//								STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
+//				}
+//			}
+//			
+//			return validerRGUtilisateurCiviliteLongueur03;
 			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
-			if (filePreferencesProperties == null 
-					|| !filePreferencesProperties.exists()) {
-				creerFichierPropertiesInitial();
-			}
-			
-			if (validerRGUtilisateurCiviliteLongueur03 == null) {
-				
-				/* lecture dans le properties. */
-				final String valeurString 
-					= preferences
-						.getProperty(
-								fournirKeyValiderRGUtilisateurCiviliteLongueur03())
-									.trim();
-				
-				if (!StringUtils.isBlank(
-						valeurString)) {
-					
-					try {
-						
-						validerRGUtilisateurCiviliteLongueur03 
-							= Boolean.parseBoolean(
-									valeurString);
-						
-					} catch (Exception e) {
-						
-						validerRGUtilisateurCiviliteLongueur03 
-							= Boolean.parseBoolean(
-								STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
-						
-					}
-					
-				}
-				else {
-					
-					validerRGUtilisateurCiviliteLongueur03 
-						= Boolean.parseBoolean(
-								STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
-				}
-			}
-			
-			return validerRGUtilisateurCiviliteLongueur03;
+			return fournirAttribut(
+					validerRGUtilisateurCiviliteLongueur03
+					, fournirKeyValiderRGUtilisateurCiviliteLongueur03()
+					, STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -2053,37 +2269,42 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ne fait rien si le paramètre est null
-			 * ou ne modifie pas la valeur existante. */
-			if (pValue != null 
-					&& !pValue
-						.equals(validerRGUtilisateurCiviliteLongueur03)) {
-				
-				validerRGUtilisateurCiviliteLongueur03 = pValue;
-				
-				final String valeurString 
-					= validerRGUtilisateurCiviliteLongueur03.toString();
-				
-				/* crée le Properties preferences et le fichier 
-				 * UtilisateurCerbere_RG.properties
-				 * et les remplit avec des valeurs en dur si nécessaire. */
-				if (filePreferencesProperties == null 
-						|| !filePreferencesProperties.exists()) {
-					creerFichierPropertiesInitial();
-				}
-				
-				/* modifie preferences avec la nouvelle valeur 
-				 * passée dans le setter. */
-				creerOuModifierProperty(
-						fournirKeyValiderRGUtilisateurCiviliteLongueur03()
-							, valeurString);
-				
-				/* ré-écrit entièrement le fichier 
-				 * UtilisateurCerbere_RG.properties mis à jour. */
-				enregistrerFichierPreferencesProperties();
+//			/* ne fait rien si le paramètre est null
+//			 * ou ne modifie pas la valeur existante. */
+//			if (pValue != null 
+//					&& !pValue
+//						.equals(validerRGUtilisateurCiviliteLongueur03)) {
+//				
+//				validerRGUtilisateurCiviliteLongueur03 = pValue;
+//				
+//				final String valeurString 
+//					= validerRGUtilisateurCiviliteLongueur03.toString();
+//				
+//				/* crée le Properties preferences et le fichier 
+//				 * UtilisateurCerbere_RG.properties
+//				 * et les remplit avec des valeurs en dur si nécessaire. */
+//				if (filePreferencesProperties == null 
+//						|| !filePreferencesProperties.exists()) {
+//					creerFichierPropertiesInitial();
+//				}
+//				
+//				/* modifie preferences avec la nouvelle valeur 
+//				 * passée dans le setter. */
+//				creerOuModifierProperty(
+//						fournirKeyValiderRGUtilisateurCiviliteLongueur03()
+//							, valeurString);
+//				
+//				/* ré-écrit entièrement le fichier 
+//				 * UtilisateurCerbere_RG.properties mis à jour. */
+//				enregistrerFichierPreferencesProperties();
+//
+//			}
 
-			}
-
+			setterAttribut(
+					pValue
+						, validerRGUtilisateurCiviliteLongueur03
+							, fournirKeyValiderRGUtilisateurCiviliteLongueur03());
+			
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGUtilisateurCiviliteLitteral02(...).____________

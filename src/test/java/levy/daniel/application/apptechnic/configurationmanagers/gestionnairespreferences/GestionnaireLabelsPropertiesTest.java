@@ -39,6 +39,11 @@ public class GestionnaireLabelsPropertiesTest {
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>
 	 */
 	public static final Boolean AFFICHAGE_GENERAL = true;
+	
+	/**
+	 * "unused".<br/>
+	 */
+	public static final String UNUSED = "unused";
 
 	/**
 	 * " : ".<br/>
@@ -78,7 +83,6 @@ public class GestionnaireLabelsPropertiesTest {
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
 	 */
 	public GestionnaireLabelsPropertiesTest() {
 		super();
@@ -93,7 +97,7 @@ public class GestionnaireLabelsPropertiesTest {
 	 * </ul>
 	 * @throws Exception 
 	 */
-	@SuppressWarnings("unused")
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testcreerFichierProperties() throws Exception {
 		
