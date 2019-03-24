@@ -218,33 +218,47 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	
 		
 	/**
-	 * Properties encapsulant les préférences.<br/>
+	 * java.util.Properties encapsulant les préférences.<br/>
 	 */
 	private static Properties preferences = new Properties();
 	
 	/**
-	 * Path absolu vers UtilisateurCerbere_RG.properties.<br/>
+	 * Path absolu vers le fichier properties contenant les preferences
+	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
 	 */
 	private static Path pathAbsoluPreferencesProperties;
 	
 	/**
-	 * commentaire à ajouter en haut du fichier properties.<br/>
+	 * Chemin relatif (par rapport à ressources_externes) 
+	 * du fichier properties contenant les preferences
+	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * "preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties"
+	 */
+	private static final String CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING 
+		= "preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties";
+	
+	/**
+	 * Modélisation Java du fichier properties contenant les preferences
+	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 */
+	private static File filePreferencesProperties;
+	
+	/**
+	 * commentaire à ajouter en haut du fichier properties 
+	 * contenant les preferences 
+	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
 	 */
 	private static String commentaire;
 	
 	/**
 	 * Chemin relatif (par rapport à src/main/resources) 
 	 * du template contenant le commentataire à ajouter 
-	 * au dessus de UtilisateurCerbere_RG.properties.<br/>
+	 * en haut du fichier properties contenant les preferences 
+	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
 	 * "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_RG_properties_commentaires.txt"
 	 */
-	private static String cheminRelatifTemplateCommentaire 
+	private static final String CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE 
 		= "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_RG_properties_commentaires.txt";
-	
-	/**
-	 * Modélisation Java du fichier UtilisateurCerbere_RG.properties.<br/>
-	 */
-	private static File filePreferencesProperties;
 
 	
 	/**
@@ -282,7 +296,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * doit se conformer à une nomenclature".<br/>
 	 */
 	private static Boolean validerRGUtilisateurCiviliteNomenclature04;
-	
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -306,20 +320,14 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * <b>sauvegarde sur disque un fichier 
 	 * UtilisateurCerbere_RG.properties initial</b> alimenté par des 
-	 * propriétés [clé-valeur] écrites en dur 
+	 * propriétés [clé-valeur] <b>écrites en dur</b> 
 	 * dans la présente classe.<br/>
 	 * <ul>
-	 * <li>remplit le Properties Java <code>preferences</code> 
+	 * <li>remplit le java.util.Properties <code>preferences</code> 
 	 * avec des [clé-valeur] stockées en dur dans la classe.</li>
-	 * <li>instancie tous les attributs de la classe.</li>
-	 * <ul>
-	 * <li>instancie pathAbsoluPreferencesProperties si nécessaire.</li>
-	 * <li>instancie filePreferencesProperties si nécessaire.</li>
-	 * <li>Crée sur le disque dur l'arborescence et le fichier 
-	 * filePreferencesProperties VIDE si nécessaire.</li>
-	 * <li>lit dans un template le commentaire à ajouter au début du 
-	 * UtilisateurCerbere_RG.properties et le stocke dans commentaire.</li>
-	 * </ul>
+	 * <li>crée le fichier properties contenant les préférences 
+	 * <code>filePreferencesProperties</code> VIDE 
+	 * sur le disque si il n'existe pas.</li>
 	 * <li>remplit le fichier <code>filePreferencesProperties</code> 
 	 * (UtilisateurCerbere_RG.properties) 
 	 * avec le contenu de <code>preferences</code> 
@@ -333,6 +341,10 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>ré-écrit (écrase) tout le fichier à chaque appel.</li>
 	 * <li>trace EX_TEC_INITIALISATION_07.</li>
 	 * </ul>
+	 * <p>
+	 * <img src="../../../../../../../../../../../javadoc/images/apptechnic/preferences/methode_creerFichierPropertiesInitial_activites.png" 
+	 * alt="diagramme d'activités de la méthode creerFichierPropertiesInitial()" />
+	 * </p>
 	 * 
 	 * @throws Exception 
 	 */
@@ -345,26 +357,15 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			 * avec des [clé-valeur] stockées en dur dans la classe. */
 			ajouterPropertiesEnDur();
 			
-			/* instancie pathAbsoluPreferencesProperties si nécessaire. */
-			/* instancie filePreferencesProperties si nécessaire. */
-			/* Crée sur le disque dur l'arborescence et le fichier 
-			 * filePreferencesProperties VIDE si nécessaire.*/
-			/* lit dans un template le commentaire à ajouter au début du 
-			 * UtilisateurCerbere_RG.properties et le stocke 
-			 * dans commentaire.*/
-			instancierAttributsFichierProperties();
+			/* crée le fichier properties contenant les préférences 
+			 * filePreferencesProperties VIDE sur le disque 
+			 * si il n'existe pas. */
+			creerFichierPreferencesPropertiesVide();
 			
-			/* ECRITURE SUR DISQUE. */
-			/* try-with-resource qui se charge du close(). */
-			try (Writer writer = Files.newBufferedWriter(
-					pathAbsoluPreferencesProperties, CHARSET_UTF8)) {
-				
-				/* enregistre le Properties preferences sur disque dur 
-				 * dans le fichier preferences.properties correspondant. */
-				preferences.store(writer, commentaire);
-				
-			}
-			
+			/* remplit le fichier filePreferencesProperties avec 
+			 * preferences. */
+			enregistrerPreferencesDansFichierProperties();
+						
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de creerFichierPropertiesInitial().___________________________
@@ -373,7 +374,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 
 	/**
 	 * <b>Ajoute des propriétés initiales stockées en dur</b> 
-	 * dans la classe au Properties <b>preferences</b>.<br/>
+	 * dans la classe au java.util.Properties <b>preferences</b>.<br/>
 	 * <ul>
 	 * civilite
 	 * <li>ajoute le validerRGUtilisateurCivilite 
@@ -443,21 +444,17 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * <b>Instancie tous les attributs</b> relatifs 
 	 * au fichier de preferences <b>si ils sont null</b>.<br/>
-	 * <b>Crée le fichier UtilisateurCerbere_RG.properties VIDE</b> 
-	 * (et son arborescence) 
-	 * sur HDD <b>si il n'existe pas déjà</b>.<br/>
 	 * <ul>
-	 * <li>instancie pathAbsoluPreferencesProperties si nécessaire.</li>
-	 * <li>instancie filePreferencesProperties si nécessaire.</li>
-	 * <li>Crée sur le disque dur l'arborescence et le fichier 
-	 * filePreferencesProperties VIDE si nécessaire.</li>
-	 * <li>lit dans un template le commentaire à ajouter au début du 
-	 * UtilisateurCerbere_RG.properties et le stocke dans commentaire.</li>
+	 * <li>instancie <code>pathAbsoluPreferencesProperties</code> 
+	 * si nécessaire.</li>
+	 * <li>instancie <code>filePreferencesProperties</code> 
+	 * si nécessaire.</li>
+	 * <li>instancie <code>commentaire</code> si nécessaire.</li>
 	 * </ul>
 	 *
 	 * @throws Exception
 	 */
-	private static void instancierAttributsFichierProperties() 
+	private static void instancierAttributsStatiques() 
 			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
@@ -466,26 +463,10 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			instancierPathAbsoluPreferencesProperties();
 			
 			/* instancie filePreferencesProperties si nécessaire. */
-			if (filePreferencesProperties == null) {
-				
-				filePreferencesProperties 
-					= pathAbsoluPreferencesProperties.toFile();
-				
-				/* Crée sur le disque dur l'arborescence et le fichier 
-				 * filePreferencesProperties VIDE si nécessaire.*/
-				if (!filePreferencesProperties.exists()) {
-					creerRepertoiresArbo(filePreferencesProperties);
-					Files.createFile(pathAbsoluPreferencesProperties);
-				}				
-			}
+			instancierFilePreferencesProperties();
 			
-			/* lit dans un template le commentaire à ajouter au début du 
-			 * UtilisateurCerbere_RG.properties et le stocke 
-			 * dans commentaire.*/
-			if (commentaire == null) {
-				commentaire 
-					= lireTemplateString(cheminRelatifTemplateCommentaire);
-			}
+			/* instancie commentaire si nécesaire. */
+			instancierCommentaire();
 						
 		} // Fin du bloc synchronized.__________________
 		
@@ -494,7 +475,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 
 	
 	/**
-	 * instancie pathAbsoluPreferencesProperties.<br/>
+	 * instancie <code>pathAbsoluPreferencesProperties</code>.<br/>
 	 * <ul>
 	 * <li>ne fait rien si pathAbsoluPreferencesProperties 
 	 * n'est pas null.</li>
@@ -502,6 +483,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * du ConfigurationApplicationManager.</li>
 	 * <li>calcule le path du UtilisateurCerbere_RG.properties 
 	 * via un resolve par rapport au path des ressources externes.</li>
+	 * <li>alimente <code>pathAbsoluPreferencesProperties</code></li>
 	 * </ul>
 	 *
 	 * @throws Exception
@@ -527,7 +509,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 				 * des ressources externes. */
 				pathAbsoluPreferencesProperties 
 				= pathRessourcesExternes
-					.resolve("preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties")
+					.resolve(CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING)
 						.toAbsolutePath()
 							.normalize();
 			}
@@ -535,6 +517,73 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 			
 	} // Fin de instancierPathAbsoluPreferencesProperties()._______________
+	
+
+	
+	/**
+	 * instancie <code>filePreferencesProperties</code>.<br/>
+	 * <ul>
+	 * <li>ne fait rien si filePreferencesProperties n'est pas null.</li>
+	 * <li>instancie <code>pathAbsoluPreferencesProperties</code> 
+	 * si nécessaire.</li>
+	 * <li>alimente <code>filePreferencesProperties</code>.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	private static void instancierFilePreferencesProperties() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/* ne fait rien si filePreferencesProperties 
+			 * n'est pas null. */
+			if (filePreferencesProperties == null) {
+				
+				/* instancie pathAbsoluPreferencesProperties 
+				 * si nécessaire. */
+				instancierPathAbsoluPreferencesProperties();
+				
+				/* alimente filePreferencesProperties. */
+				filePreferencesProperties 
+					= pathAbsoluPreferencesProperties.toFile();
+				
+			}
+						
+		} // Fin du bloc synchronized.__________________		
+		
+	} // Fin de instancierFilePreferencesProperties()._____________________
+	
+
+	
+	/**
+	 * instancie <code>commentaire</code>.<br/>
+	 * <ul>
+	 * <li>ne fait rien si commentaire n'est pas null.</li>
+	 * <li>lit dans un template le commentaire à ajouter 
+	 * au début du fichier properties contenant les preferences.</li>
+	 * <li>alimente <code>commentaire</code>.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	private static void instancierCommentaire() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/* ne fait rien si commentaire n'est pas null. */
+			if (commentaire == null) {
+				
+				/* lit dans un template le commentaire à ajouter au début du 
+				 * UtilisateurCerbere_RG.properties et le stocke 
+				 * dans commentaire.*/
+				commentaire 
+					= lireTemplateString(CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE);
+			}
+		} // Fin du bloc synchronized.__________________	
+		
+	} // Fin de instancierCommentaire().___________________________________
 	
 	
 	
@@ -575,20 +624,53 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 						
 	} // Fin de creerRepertoiresArbo(...)._________________________________
 	
+
+	
+	/**
+	 * crée sur disque le fichier properties contenant les preferences
+	 * <code>UtilisateurCerbere_RG.properties</code> <b>VIDE</b> 
+	 * <i>si il n'existe pas déjà</i>.<br/>
+	 * <ul>
+	 * <li>crée l'arboresence parente du fichier properties 
+	 * si elle n'existe pas déjà.</li>
+	 * <li>crée le fichier properties VIDE 
+	 * (<code>Files.createFile(Path ...)</code>).</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	private static void creerFichierPreferencesPropertiesVide() 
+													throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/* Crée sur le disque dur l'arborescence et le fichier 
+			 * filePreferencesProperties VIDE si nécessaire.*/
+			if (!filePreferencesProperties.exists()) {
+				
+				/* crée l'arboresence parente du fichier properties 
+				 * si elle n'existe pas déjà. */
+				creerRepertoiresArbo(filePreferencesProperties);
+				
+				/* crée le fichier properties VIDE. */
+				Files.createFile(pathAbsoluPreferencesProperties);
+			}
+			
+		} // Fin du bloc synchronized.__________________
+				
+	} // Fin de creerFichierPreferencesPropertiesVide().___________________
+	
 	
 	
 	/**
-	 * <b>lit le fichier <code>
-	 * ressources_externes/preferences/metier/utilisateurs/
+	 * <b>lit en UTF-8 le fichier properties contenant les preferences 
+	 * <code>ressources_externes/preferences/metier/utilisateurs/
 	 * UtilisateurCerbere_RG.properties</b></code> 
-	 * et alimente le <i>Properties</i> <b>preferences</b> 
-	 * en le décodant en UTF8.<br/>
+	 * et alimente le <i>java.util.Properties</i> <b>preferences</b>.<br/>
 	 * <ul>
-	 * <li>initialise les attributs relatifs 
-	 * aux fichiers preferences.</li>
 	 * <li>décode le fichier .properties en UTF8 et le charge 
-	 * dans le Properties preferences.</li>
-	 * <li><code>preferences.load(inputStream);</code></li>
+	 * dans le java.util.Properties <code>preferences</code>.</li>
+	 * <li><code>preferences.load(BufferedReader);</code></li>
 	 * <li>trace EX_TEC_PARAMETRAGE_02.</li>
 	 * </ul>
 	 * @throws Exception 
@@ -598,9 +680,6 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* initialise les attributs relatifs aux fichiers preferences. */
-			instancierAttributsFichierProperties();
-					
 			/* try-with-resource qui se charge du close(). */
 			try (Reader reader = Files.newBufferedReader(
 					pathAbsoluPreferencesProperties, CHARSET_UTF8)) {
@@ -618,14 +697,13 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 
 	
 	/**
-	 * <b>Enregistre en UTF8</b> le <i>Properties</i> preferences dans 
-	 * le <i>fichier</i> 
+	 * <b>Enregistre en UTF8</b> le <i>java.util.Properties</i> 
+	 * preferences dans le <i>fichier</i> properties 
+	 * contenant les preferences
 	 * <code><b>ressources_externes/preferences/metier/utilisateurs/
 	 * UtilisateurCerbere_RG.properties</b></code>.<br/>
 	 * <ul>
-	 * <li>initialise le <i>Properties</i> <b>preferences</b> 
-	 * et remplit le <i>fichier</i> .properties si nécessaire.</li>
-	 * <li>enregistre le <i>Properties</i> <b>preferences</b> 
+	 * <li>enregistre le <i>java.util.Properties</i> <b>preferences</b> 
 	 * sur disque dur dans le <i>fichier</i> 
 	 * .properties correspondant.</li>
 	 * <li>ajoute le commentaire au début de preferences.properties.</li>
@@ -635,23 +713,27 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>trace EX_FONCT_MEMORISATION_05.</li>
 	 * <li>trace EX_TEC_MEMORISATION_06.</li>
 	 * </ul>
+	 * - ne fait rien si le fichier properties n'existe pas.<br/>
+	 * - ne fait rien si preferences est vide.<br/>
+	 * <br/>
 	 * 
 	 * @throws Exception 
 	 */
-	private static void enregistrerFichierPreferencesProperties() 
+	private static void enregistrerPreferencesDansFichierProperties() 
 			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
+			/* ne fait rien si le fichier properties n'existe pas. */
 			if (filePreferencesProperties == null 
 					|| !filePreferencesProperties.exists()) {
-				creerFichierPropertiesInitial();
+				return;
 			}
 			
-			/* initialise les fichiers preferences si nécessaire. */
-			instancierAttributsFichierProperties();
+			/* ne fait rien si preferences est vide. */
+			if (preferences.isEmpty()) {
+				return;
+			}
 			
 			/* try-with-resource qui se charge du close(). */
 			try (Writer writer = Files.newBufferedWriter(
@@ -1087,12 +1169,36 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 
 	
 	/**
-	 * retourne la valeur du Boolean pAttribut dans le fichier properties.<br/>
+	 * Méthod générique permettant de factoriser 
+	 * les Getters des attributs.<br/>
+	 * retourne la valeur du Boolean pAttribut 
+	 * dans le fichier properties.<br/>
+	 * <ul>
+	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
+	 * <li><b>alimente l'attribut pAttribut avec sa valeur 
+	 * dans le java.util.Properties <code>preferences</code>.</b></li>
+	 * <ul>
+	 * <li>nettoie la valeur lue dans le properties avec un trim().</li>
+	 * <li>parse la valeur nettoyée lue dans le properties 
+	 * et l'affecte à pAttribut.</li>
+	 * <li>parse la valeur en dur si problème 
+	 * et l'affecte à pAttribut.</li>
+	 * </ul>
+	 * <li><b>retourne la valeur de l'attribut 
+	 * dans le fichier properties</b>.</li>
+	 * </ul>
 	 *
-	 * @param pAttribut
-	 * @param pFournirKey
-	 * @param pValeurEnDur
-	 * @return Boolean
+	 * @param pAttribut : Boolean : 
+	 * un attribut de la classe (SINGLETON) comme 
+	 * <code>validerRGUtilisateurCivilite</code>
+	 * @param pFournirKey : String : 
+	 * clé de l'attribut Boolean pAttribut dans le fichier properties.
+	 * @param pValeurEnDur : String : 
+	 * valeur initiale stockée en dur dans la classe pour pAttribut.
+	 * 
+	 * @return Boolean : 
+	 * l'attribut Boolean passé en paramètre tel qu'il est stocké 
+	 * dans le fichier properties.<br/>
 	 * 
 	 * @throws Exception
 	 */
@@ -1100,23 +1206,15 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			Boolean pAttribut
 				, final String pFournirKey
 					, final String pValeurEnDur) 
-			throws Exception {
+									throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			instancierAttributsFichierProperties();
+			/*  alimente le java.util.Properties preferences. */
+			alimenterPreferences();
 			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
-			if (filePreferencesProperties == null 
-					|| !filePreferencesProperties.exists() 
-						|| filePreferencesProperties.length() == 0) {
-				creerFichierPropertiesInitial();
-			}
-						
-			/* lit le fichier properties et alimente preferences. */
-			lireFichierPreferencesProperties();
-						
+			/* alimente l'attribut pAttribut avec sa valeur 
+			 * dans le fichier properties. */
 			if (pAttribut == null) {
 				
 				/* lecture dans le properties. */
@@ -1128,17 +1226,22 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 				
 				if (!StringUtils.isBlank(valeurStringSale)) {
 					
-					/* nettoyage de la valeur lue dans le properties. */
+					/* nettoie la valeur lue dans le properties 
+					 * avec un trim(). */
 					valeurString 
 						= valeurStringSale.trim();
 					
 					try {
 						
+						/* parse la valeur nettoyée lue dans 
+						 * le properties et l'affecte à pAttribut. */
 						pAttribut 
 							= Boolean.parseBoolean(valeurString);
 						
 					} catch (Exception e) {
 						
+						/* parse la valeur en dur si problème 
+						 * et l'affecte à pAttribut. */
 						pAttribut 
 							= Boolean.parseBoolean(pValeurEnDur);
 						
@@ -1147,25 +1250,48 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 				}
 				else {
 					
+					/* parse la valeur en dur si problème 
+					 * et l'affecte à pAttribut. */
 					pAttribut 
 						= Boolean.parseBoolean(pValeurEnDur);
 				}
 			}
 			
+			/* retourne la valeur de l'attribut dans 
+			 * le fichier properties. */
 			return pAttribut;
 			
-		}
+		} // Fin du bloc synchronized.__________________
 		
-	}
+	} // Fin de fournirAttribut(...).______________________________________
 	
 
 	
 	/**
-	 * .<br/>
+	 * Méthod générique permettant de factoriser 
+	 * les Setters des attributs.<br/>
+	 * change la valeur du Boolean pAttribut en pValue
+	 * et l'écrit sur disque dans le fichier properties.<br/>
+	 * <ul>
+	 * <li>ne fait rien si le paramètre pValue est null
+	 * ou ne modifie pas la valeur existante de pAttribut.</li>
+	 * <li>affecte la nouvelle valeur pValue à l'attribut pAttribut.</li>
+	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
+	 * <li>modifie le java.util.Properties <code>preferences</code></b> 
+	 * avec la nouvelle valeur pValue passée en paramètre</li>
+	 * <li>ré-écrit entièrement le fichier properties mis à jour 
+	 * avec les nouvelles valeurs dans le java.util.Properties 
+	 * <code>preferences</code>.</li>
+	 * </ul>
 	 *
-	 * @param pValue
-	 * @param pAttribut
-	 * @param pFournirKey
+	 * @param pValue : Boolean : 
+	 * nouvelle valeur à passer à pAttribut et à stocker 
+	 * dans le fichier properties de preferences.
+	 * @param pAttribut : Boolean : 
+	 * un attribut de la classe (SINGLETON) comme 
+	 * <code>validerRGUtilisateurCivilite</code> 
+	 * @param pFournirKey : String : 
+	 * clé de l'attribut Boolean pAttribut dans le fichier properties.
 	 * 
 	 * @throws Exception
 	 */
@@ -1176,80 +1302,78 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* ne fait rien si le paramètre est null
-			 * ou ne modifie pas la valeur existante. */
+			/* ne fait rien si le paramètre pValue est null
+			 * ou ne modifie pas la valeur existante de pAttribut. */
 			if (pValue != null 
 					&& !pValue
 						.equals(pAttribut)) {
 				
+				/* affecte la nouvelle valeur pValue à 
+				 * l'attribut pAttribut. */
 				pAttribut = pValue;
 				
 				final String valeurString 
 					= pAttribut.toString();
 				
-				/* crée le Properties preferences et le fichier 
-				 * UtilisateurCerbere_RG.properties
-				 * et les remplit avec des valeurs en dur si nécessaire. */
-				if (filePreferencesProperties == null 
-						|| !filePreferencesProperties.exists()) {
-					creerFichierPropertiesInitial();
-				}
+				/* alimente le java.util.Properties preferences. */
+				alimenterPreferences();
 				
-				/* modifie preferences avec la nouvelle valeur 
-				 * passée dans le setter. */
+				/* modifie le java.util.Properties preferences 
+				 * avec la nouvelle valeur pValue passée en paramètre. */
 				creerOuModifierProperty(
 						pFournirKey
 							, valeurString);
 				
-				/* ré-écrit entièrement le fichier 
-				 * UtilisateurCerbere_RG.properties mis à jour. */
-				enregistrerFichierPreferencesProperties();
+				/* ré-écrit entièrement le fichier properties mis à jour 
+				 * avec les nouvelles valeurs dans le 
+				 * java.util.Properties preferences. */
+				enregistrerPreferencesDansFichierProperties();
 
 			}
 
 		} // Fin du bloc synchronized.__________________
 						
-	}
+	} // Fin de setterAttribut(...)._______________________________________
 
 
 	
 	/**
-	 * fournit une String pour l'affichage de preferences.properties.<br/>
+	 * alimente le java.util.Properties <code>preferences</code>.<br/>
 	 * <ul>
-	 * <li>crée le fichier preferences.properties et alimente 
-	 * le Properties preferences avec des valeurs en dur 
-	 * si preferences est vide.</li>
-	 * <li>trace EX_FONCT_PARAMETRAGE_01</li>
+	 * <li>instancie tous les attributs statiques si nécessaire.</li>
+	 * <li>crée le fichier properties si il n'existe pas 
+	 * (la première fois).</li>
+	 * <li>lit le contenu du fichier properties si il existe.</li>
+	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
 	 * </ul>
-	 *
-	 * @return : String.<br/>
-	 * @throws Exception 
+	 * <p>
+	 * <img src="../../../../../../../../../../../javadoc/images/apptechnic/preferences/methode_alimenterPreferences_activites.png" 
+	 * alt="diagramme d'activités de la méthode alimenterPreferences()" />
+	 * </p>
+	 * 
+	 * @throws Exception
 	 */
-	public static String afficherPreferences() throws Exception {
-
+	private static void alimenterPreferences() throws Exception {
+		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* crée le fichier preferences.properties et alimente 
-			 * le Properties preferences avec des valeurs en dur 
-			 * si preferences est vide. */
-			if (preferences.isEmpty()) {
+			/* instancie tous les attributs statiques si nécessaire. */
+			instancierAttributsStatiques();
+			
+			/* crée le fichier properties si il n'existe pas 
+			 * (la première fois). */
+			if (filePreferencesProperties == null 
+					|| !filePreferencesProperties.exists()) {
 				creerFichierPropertiesInitial();
-			}
-						
-			final StringBuffer stb = new StringBuffer();
-			
-			for (final String key : preferences.stringPropertyNames()) {
-				stb.append(key);
-				stb.append(EGAL);
-				stb.append(preferences.getProperty(key));
-				stb.append(SAUT_LIGNE_JAVA);
+			} else {
+				
+				/* lit le contenu du fichier properties si il existe. */
+				lireFichierPreferencesProperties();
 			}
 			
-			return stb.toString();
-
 		} // Fin du bloc synchronized.__________________
 		
-	} // Fin de afficherPreferences()._____________________________________
+	} // Fin de alimenterPreferences().____________________________________
 	
 
 	
@@ -1257,9 +1381,8 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <b>Crée ou met à jour une Property</b> dans 
 	 * le <i>Properties</i> <b>preferences</b>.<br/>
 	 * <ul>
-	 * <li>initialise le <i>Properties</i> <b>preferences</b> 
-	 * et remplit le <i>fichier</i> .properties si nécessaire.</li>
-	 * <li>Crée ou maj dans l'objet Properties <b>preferences</b> 
+	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
+	 * <li>Crée ou maj dans le java.util.Properties <b>preferences</b> 
 	 * <i>sans enregistrer la modification sur le disque dur</i>.</li>
 	 * <li><code>preferences.setProperty(pKey, pValue);</code></li>
 	 * <li>trace EX_FONCT_PARAMETRAGE_03.</li>
@@ -1275,18 +1398,14 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * 
 	 * @throws Exception 
 	 */
-	public static boolean creerOuModifierProperty(
+	private static boolean creerOuModifierProperty(
 			final String pKey
 				, final String pValue) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
-			if (filePreferencesProperties == null 
-					|| !filePreferencesProperties.exists()) {
-				creerFichierPropertiesInitial();
-			}
+			/*  alimente le java.util.Properties preferences. */
+			alimenterPreferences();
 			
 			/* retourne false si pKey == null. */
 			if (pKey == null) {
@@ -1313,8 +1432,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <b>Retire une Property</b> dans 
 	 * le <i>Properties</i> <b>preferences</b>.<br/>
 	 * <ul>
-	 * <li>initialise le <i>Properties</i> <b>preferences</b> 
-	 * et remplit le <i>fichier</i> .properties si nécessaire.</li>
+	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
 	 * <li>retire dans l'objet Properties <b>preferences</b> 
 	 * <i>sans enregistrer la modification sur le disque dur 
 	 * (.properties)</i>.</li>
@@ -1329,18 +1447,14 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * 
 	 * @throws Exception 
 	 */
-	public static boolean retirerProperty(
+	private static boolean retirerProperty(
 			final String pKey) 
 					throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
-			if (filePreferencesProperties == null 
-					|| !filePreferencesProperties.exists()) {
-				creerFichierPropertiesInitial();
-			}
+			/*  alimente le java.util.Properties preferences. */
+			alimenterPreferences();
 			
 			/* retourne false si pKey == null. */
 			if (pKey == null) {
@@ -1361,8 +1475,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * vide le <i>Properties</i> <b>preferences</b>.<br/>
 	 * <ul>
-	 * <li>initialise le <i>Properties</i> <b>preferences</b> 
-	 * et remplit le <i>fichier</i> .properties si nécessaire.</li>
+	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
 	 * <li>vide l'objet <i>Properties</i> <b>preferences</b> 
 	 * sans vider le <i>fichier</i> .properties correspondant 
 	 * sur le disque dur.</li>
@@ -1376,16 +1489,12 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * 
 	 * @throws Exception 
 	 */
-	public static boolean viderPreferences() throws Exception {
+	private static boolean viderPreferences() throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-			/* crée le Properties preferences et 
-			 * le remplit avec des valeurs en dur si nécessaire. */
-			if (filePreferencesProperties == null 
-					|| !filePreferencesProperties.exists()) {
-				creerFichierPropertiesInitial();
-			}
+			/*  alimente le java.util.Properties preferences. */
+			alimenterPreferences();
 				
 			final Set<String> clesSet 
 				= preferences.stringPropertyNames();
@@ -1406,24 +1515,170 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de viderPreferences().________________________________________
+
+
+
+	/**
+	 * Getter du java.util.Properties encapsulant les préférences.<br/>
+	 * SINGLETON.<br/>
+	 * <ul>
+	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
+	 * <li>retourne le java.util.Properties <code>preferences</code>.</li>
+	 * <li>trace EX_FONCT_PARAMETRAGE_01</li>
+	 * </ul>
+	 *
+	 * @return preferences : Properties.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Properties getPreferences() throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/*  alimente le java.util.Properties preferences. */
+			alimenterPreferences();
+			
+			return preferences;
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de getPreferences().__________________________________________
 	
 	
 	
 	/**
-	 * Getter du commentaire à ajouter en haut du fichier properties.<br/>
-	 * <br/>
+	 * fournit une String pour l'affichage de preferences.properties.<br/>
+	 * <ul>
+	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
+	 * <li>affiche le contenu de preferences</li>
+	 * <li>trace EX_FONCT_PARAMETRAGE_01</li>
+	 * </ul>
+	 *
+	 * @return : String.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static String afficherPreferences() throws Exception {
+
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			/*  alimente le java.util.Properties preferences. */
+			alimenterPreferences();
+			
+			final StringBuffer stb = new StringBuffer();
+			
+			for (final String key : preferences.stringPropertyNames()) {
+				stb.append(key);
+				stb.append(EGAL);
+				stb.append(preferences.getProperty(key));
+				stb.append(SAUT_LIGNE_JAVA);
+			}
+			
+			return stb.toString();
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de afficherPreferences()._____________________________________
+
+
+	
+	/**
+	 * Getter du Path absolu vers le fichier properties 
+	 * contenant les preferences 
+	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * SINGLETON.<br/>
+	 *
+	 * @return pathAbsoluPreferencesProperties : Path.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Path getPathAbsoluPreferencesProperties() 
+											throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			if (pathAbsoluPreferencesProperties == null) {
+				instancierPathAbsoluPreferencesProperties();
+			}
+			
+			return pathAbsoluPreferencesProperties;
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de getPathAbsoluPreferencesProperties().______________________
+
+
+		
+	/**
+	 * Getter du Chemin relatif (par rapport à ressources_externes) 
+	 * du fichier properties contenant les preferences
+	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * "preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties"
+	 *
+	 * @return CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING : String.<br/>
+	 */
+	public static final String getCheminRelatifPreferencesPropertiesString() {
+		return CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING;
+	} // Fin de getCheminRelatifPreferencesPropertiesString()._____________
+
+
+
+	/**
+	 * Getter de la  Modélisation Java du fichier properties 
+	 * contenant les preferences 
+	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * SINGLETON.<br/>
+	 *
+	 * @return filePreferencesProperties : File.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static File getFilePreferencesProperties() throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			if (filePreferencesProperties == null) {				
+				instancierFilePreferencesProperties();
+			}
+			
+			return filePreferencesProperties;
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de getFilePreferencesProperties().____________________________
+	
+	
+	
+	/**
+	 * Getter du commentaire à ajouter en haut du fichier properties 
+	 * contenant les preferences 
+	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * SINGLETON.<br/>
 	 *
 	 * @return commentaire : String.<br/>
+	 * 
+	 * @throws Exception 
 	 */
-	public static String getCommentaire() {
-		return commentaire;
+	public static String getCommentaire() throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			if (commentaire == null) {
+				instancierCommentaire();
+			}
+			
+			return commentaire;
+			
+		} // Fin du bloc synchronized.__________________
+				
 	} // Fin de getCommentaire().__________________________________________
 	
 	
 	
 	/**
-	* Setter du commentaire à ajouter en haut du fichier properties.<br/>
-	* <br/>
+	* Setter du commentaire à ajouter en haut du fichier properties 
+	* contenant les preferences 
+	* <code>UtilisateurCerbere_RG.properties</code>.<br/>
 	*
 	* @param pCommentaire : String : 
 	* valeur à passer à commentaire.<br/>
@@ -1442,94 +1697,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * "commentaires_properties/commentaires_preferences_properties.txt"
 	 * <br/>
 	 *
-	 * @return cheminRelatifTemplateCommentaire : String.<br/>
+	 * @return CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE : String.<br/>
 	 */
 	public static String getCheminRelatifTemplateCommentaire() {
-		return cheminRelatifTemplateCommentaire;
+		return CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE;
 	} // Fin de getCheminRelatifTemplateCommentaire()._____________________
-
-
-
-	/**
-	 * Getter du Properties encapsulant les préférences.<br/>
-	 * SINGLETON.<br/>
-	 * <ul>
-	 * <li>crée le fichier UtilisateurCerbere_RG.properties et alimente 
-	 * le Properties preferences avec des valeurs en dur 
-	 * si preferences est vide.</li>
-	 * <li>trace EX_FONCT_PARAMETRAGE_01</li>
-	 * </ul>
-	 *
-	 * @return preferences : Properties.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	public static Properties getPreferences() throws Exception {
-		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			
-			/* crée le fichier UtilisateurCerbere_RG.properties et alimente 
-			 * le Properties preferences avec des valeurs en dur 
-			 * si preferences est vide. */
-			if (preferences.isEmpty()) {
-				creerFichierPropertiesInitial();
-			}
-			
-			return preferences;
-			
-		} // Fin du bloc synchronized.__________________
-		
-	} // Fin de getPreferences().__________________________________________
-
-
-		
-	/**
-	 * Getter du Path absolu vers UtilisateurCerbere_RG.properties.<br/>
-	 * SINGLETON.<br/>
-	 *
-	 * @return pathAbsoluPreferencesProperties : Path.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	public static Path getPathAbsoluPreferencesProperties() 
-											throws Exception {
-		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			
-			if (pathAbsoluPreferencesProperties == null) {
-				instancierAttributsFichierProperties();
-			}
-			
-			return pathAbsoluPreferencesProperties;
-			
-		} // Fin du bloc synchronized.__________________
-		
-	} // Fin de getPathAbsoluPreferencesProperties().______________________
-
-
-		
-	/**
-	 * Getter de la  Modélisation Java du fichier 
-	 * UtilisateurCerbere_RG.properties.<br/>
-	 * SINGLETON.<br/>
-	 *
-	 * @return filePreferencesProperties : File.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	public static File getFilePreferencesProperties() throws Exception {
-		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			
-			if (filePreferencesProperties == null) {
-				creerFichierPropertiesInitial();
-			}
-			
-			return filePreferencesProperties;
-			
-		} // Fin du bloc synchronized.__________________
-		
-	} // Fin de getFilePreferencesProperties().____________________________
 	
 	
 	
@@ -1560,54 +1732,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			
-//			/* instancie les attributs de fichier si nécessaire. */
-//			/* alimente Properties avec le contenu 
-//			 * du fichier properties. */
-//			lireFichierPreferencesProperties();
-//			
-//			/* crée le Properties preferences et 
-//			 * le remplit avec des valeurs en dur si nécessaire. */
-//			if (filePreferencesProperties == null 
-//					|| !filePreferencesProperties.exists()) {
-//				creerFichierPropertiesInitial();
-//			}
-//			
-//			if (validerRGUtilisateurCivilite == null) {
-//				
-//				/* lecture dans le properties. */
-//				final String valeurString 
-//					= preferences
-//						.getProperty(
-//								fournirKeyValiderRGUtilisateurCivilite())
-//									.trim();
-//				
-//				if (!StringUtils.isBlank(valeurString)) {
-//					
-//					try {
-//						
-//						validerRGUtilisateurCivilite 
-//							= Boolean.parseBoolean(valeurString);
-//						
-//					} catch (Exception e) {
-//						
-//						validerRGUtilisateurCivilite 
-//							= Boolean.parseBoolean(
-//								STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
-//						
-//					}
-//					
-//				}
-//				else {
-//					
-//					validerRGUtilisateurCivilite 
-//						= Boolean.parseBoolean(
-//						STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
-//				}
-//			}
-//			
-//			return validerRGUtilisateurCivilite;
-			
+						
 			return fournirAttribut(
 					validerRGUtilisateurCivilite
 					, fournirKeyValiderRGUtilisateurCivilite()
@@ -1686,38 +1811,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			final Boolean pValue) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			
-//			/* ne fait rien si le paramètre est null
-//			 * ou ne modifie pas la valeur existante. */
-//			if (pValue != null 
-//					&& !pValue
-//						.equals(validerRGUtilisateurCivilite)) {
-//				
-//				validerRGUtilisateurCivilite = pValue;
-//				
-//				final String valeurString 
-//					= validerRGUtilisateurCivilite.toString();
-//				
-//				/* crée le Properties preferences et le fichier 
-//				 * UtilisateurCerbere_RG.properties
-//				 * et les remplit avec des valeurs en dur si nécessaire. */
-//				if (filePreferencesProperties == null 
-//						|| !filePreferencesProperties.exists()) {
-//					creerFichierPropertiesInitial();
-//				}
-//				
-//				/* modifie preferences avec la nouvelle valeur 
-//				 * passée dans le setter. */
-//				creerOuModifierProperty(
-//						fournirKeyValiderRGUtilisateurCivilite()
-//							, valeurString);
-//				
-//				/* ré-écrit entièrement le fichier 
-//				 * UtilisateurCerbere_RG.properties mis à jour. */
-//				enregistrerFichierPreferencesProperties();
-//
-//			}
-			
+						
 			setterAttribut(
 					pValue
 						, validerRGUtilisateurCivilite
@@ -1752,55 +1846,6 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			
-//			/* instancie les attributs de fichier si nécessaire. */
-//			/* alimente Properties avec le contenu 
-//			 * du fichier properties. */
-//			lireFichierPreferencesProperties();
-//			
-//			/* crée le Properties preferences et 
-//			 * le remplit avec des valeurs en dur si nécessaire. */
-//			if (filePreferencesProperties == null 
-//					|| !filePreferencesProperties.exists()) {
-//				creerFichierPropertiesInitial();
-//			}
-//			
-//			if (validerRGUtilisateurCiviliteRenseigne01 == null) {
-//				
-//				/* lecture dans le properties. */
-//				final String valeurString 
-//					= preferences
-//						.getProperty(
-//								fournirKeyValiderRGUtilisateurCiviliteRenseigne01())
-//									.trim();
-//				
-//				if (!StringUtils.isBlank(
-//						valeurString)) {
-//					
-//					try {
-//						
-//						validerRGUtilisateurCiviliteRenseigne01 
-//							= Boolean.parseBoolean(
-//									valeurString);
-//						
-//					} catch (Exception e) {
-//						
-//						validerRGUtilisateurCiviliteRenseigne01 
-//							= Boolean.parseBoolean(
-//								STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
-//						
-//					}
-//					
-//				}
-//				else {
-//					
-//					validerRGUtilisateurCiviliteRenseigne01 
-//						= Boolean.parseBoolean(
-//								STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
-//				}
-//			}
-//			
-//			return validerRGUtilisateurCiviliteRenseigne01;
 			
 			return fournirAttribut(
 					validerRGUtilisateurCiviliteRenseigne01
@@ -1881,37 +1926,6 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-//			/* ne fait rien si le paramètre est null
-//			 * ou ne modifie pas la valeur existante. */
-//			if (pValue != null 
-//					&& !pValue
-//						.equals(validerRGUtilisateurCiviliteRenseigne01)) {
-//				
-//				validerRGUtilisateurCiviliteRenseigne01 = pValue;
-//				
-//				final String valeurString 
-//					= validerRGUtilisateurCiviliteRenseigne01.toString();
-//				
-//				/* crée le Properties preferences et le fichier 
-//				 * UtilisateurCerbere_RG.properties
-//				 * et les remplit avec des valeurs en dur si nécessaire. */
-//				if (filePreferencesProperties == null 
-//						|| !filePreferencesProperties.exists()) {
-//					creerFichierPropertiesInitial();
-//				}
-//				
-//				/* modifie preferences avec la nouvelle valeur 
-//				 * passée dans le setter. */
-//				creerOuModifierProperty(
-//						fournirKeyValiderRGUtilisateurCiviliteRenseigne01()
-//							, valeurString);
-//				
-//				/* ré-écrit entièrement le fichier 
-//				 * UtilisateurCerbere_RG.properties mis à jour. */
-//				enregistrerFichierPreferencesProperties();
-//
-//			}
-
 			setterAttribut(
 					pValue
 						, validerRGUtilisateurCiviliteRenseigne01
@@ -1946,55 +1960,6 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			
-//			/* instancie les attributs de fichier si nécessaire. */
-//			/* alimente Properties avec le contenu 
-//			 * du fichier properties. */
-//			lireFichierPreferencesProperties();
-//			
-//			/* crée le Properties preferences et 
-//			 * le remplit avec des valeurs en dur si nécessaire. */
-//			if (filePreferencesProperties == null 
-//					|| !filePreferencesProperties.exists()) {
-//				creerFichierPropertiesInitial();
-//			}
-//			
-//			if (validerRGUtilisateurCiviliteLitteral02 == null) {
-//				
-//				/* lecture dans le properties. */
-//				final String valeurString 
-//					= preferences
-//						.getProperty(
-//								fournirKeyValiderRGUtilisateurCiviliteLitteral02())
-//									.trim();
-//				
-//				if (!StringUtils.isBlank(
-//						valeurString)) {
-//					
-//					try {
-//						
-//						validerRGUtilisateurCiviliteLitteral02 
-//							= Boolean.parseBoolean(
-//									valeurString);
-//						
-//					} catch (Exception e) {
-//						
-//						validerRGUtilisateurCiviliteLitteral02 
-//							= Boolean.parseBoolean(
-//								STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
-//						
-//					}
-//					
-//				}
-//				else {
-//					
-//					validerRGUtilisateurCiviliteLitteral02 
-//						= Boolean.parseBoolean(
-//								STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
-//				}
-//			}
-//			
-//			return validerRGUtilisateurCiviliteLitteral02;
 			
 			return fournirAttribut(
 					validerRGUtilisateurCiviliteLitteral02
@@ -2075,37 +2040,6 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-//			/* ne fait rien si le paramètre est null
-//			 * ou ne modifie pas la valeur existante. */
-//			if (pValue != null 
-//					&& !pValue
-//						.equals(validerRGUtilisateurCiviliteLitteral02)) {
-//				
-//				validerRGUtilisateurCiviliteLitteral02 = pValue;
-//				
-//				final String valeurString 
-//					= validerRGUtilisateurCiviliteLitteral02.toString();
-//				
-//				/* crée le Properties preferences et le fichier 
-//				 * UtilisateurCerbere_RG.properties
-//				 * et les remplit avec des valeurs en dur si nécessaire. */
-//				if (filePreferencesProperties == null 
-//						|| !filePreferencesProperties.exists()) {
-//					creerFichierPropertiesInitial();
-//				}
-//				
-//				/* modifie preferences avec la nouvelle valeur 
-//				 * passée dans le setter. */
-//				creerOuModifierProperty(
-//						fournirKeyValiderRGUtilisateurCiviliteLitteral02()
-//							, valeurString);
-//				
-//				/* ré-écrit entièrement le fichier 
-//				 * UtilisateurCerbere_RG.properties mis à jour. */
-//				enregistrerFichierPreferencesProperties();
-//
-//			}
-
 			setterAttribut(
 					pValue
 						, validerRGUtilisateurCiviliteLitteral02
@@ -2140,55 +2074,6 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-			
-//			/* instancie les attributs de fichier si nécessaire. */
-//			/* alimente Properties avec le contenu 
-//			 * du fichier properties. */
-//			lireFichierPreferencesProperties();
-//			
-//			/* crée le Properties preferences et 
-//			 * le remplit avec des valeurs en dur si nécessaire. */
-//			if (filePreferencesProperties == null 
-//					|| !filePreferencesProperties.exists()) {
-//				creerFichierPropertiesInitial();
-//			}
-//			
-//			if (validerRGUtilisateurCiviliteLongueur03 == null) {
-//				
-//				/* lecture dans le properties. */
-//				final String valeurString 
-//					= preferences
-//						.getProperty(
-//								fournirKeyValiderRGUtilisateurCiviliteLongueur03())
-//									.trim();
-//				
-//				if (!StringUtils.isBlank(
-//						valeurString)) {
-//					
-//					try {
-//						
-//						validerRGUtilisateurCiviliteLongueur03 
-//							= Boolean.parseBoolean(
-//									valeurString);
-//						
-//					} catch (Exception e) {
-//						
-//						validerRGUtilisateurCiviliteLongueur03 
-//							= Boolean.parseBoolean(
-//								STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
-//						
-//					}
-//					
-//				}
-//				else {
-//					
-//					validerRGUtilisateurCiviliteLongueur03 
-//						= Boolean.parseBoolean(
-//								STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
-//				}
-//			}
-//			
-//			return validerRGUtilisateurCiviliteLongueur03;
 			
 			return fournirAttribut(
 					validerRGUtilisateurCiviliteLongueur03
@@ -2269,37 +2154,6 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
-//			/* ne fait rien si le paramètre est null
-//			 * ou ne modifie pas la valeur existante. */
-//			if (pValue != null 
-//					&& !pValue
-//						.equals(validerRGUtilisateurCiviliteLongueur03)) {
-//				
-//				validerRGUtilisateurCiviliteLongueur03 = pValue;
-//				
-//				final String valeurString 
-//					= validerRGUtilisateurCiviliteLongueur03.toString();
-//				
-//				/* crée le Properties preferences et le fichier 
-//				 * UtilisateurCerbere_RG.properties
-//				 * et les remplit avec des valeurs en dur si nécessaire. */
-//				if (filePreferencesProperties == null 
-//						|| !filePreferencesProperties.exists()) {
-//					creerFichierPropertiesInitial();
-//				}
-//				
-//				/* modifie preferences avec la nouvelle valeur 
-//				 * passée dans le setter. */
-//				creerOuModifierProperty(
-//						fournirKeyValiderRGUtilisateurCiviliteLongueur03()
-//							, valeurString);
-//				
-//				/* ré-écrit entièrement le fichier 
-//				 * UtilisateurCerbere_RG.properties mis à jour. */
-//				enregistrerFichierPreferencesProperties();
-//
-//			}
-
 			setterAttribut(
 					pValue
 						, validerRGUtilisateurCiviliteLongueur03
