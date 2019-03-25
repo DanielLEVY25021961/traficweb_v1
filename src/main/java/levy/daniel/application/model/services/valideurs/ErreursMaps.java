@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -11,7 +12,7 @@ import org.apache.commons.logging.LogFactory;
  * CLASSE ErreursMaps :<br/>
  * Encapsulation (PURE FABRICATION) chargée de contenir deux Maps 
  * contenant les erreurs lors de la validation d'un OBJET METIER 
- * par un service.<br/>
+ * par un service.
  * <ul>
  * <li>une Map&lt;String,String&gt; <code>errorsMap</code> contenant les 
  * éventuels messages d'erreur pour chaque attribut avec 
@@ -99,6 +100,55 @@ public class ErreursMaps {
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
 
+	
+	/**
+	 * .<br/>
+	 *
+	 * @param pAttribut : String : .<br/>
+	 * @param pMessage : String :  .<br/>
+	 */
+	public void ajouterEntreeAErrorsMap(
+			final String pAttribut
+				, final String pMessage) {
+		this.errorsMap.put(pAttribut, pMessage);
+	} // Fin de ajouterEntreeAErrorsMap(...).______________________________
+	
+	
+	
+	/**
+	 * .<br/>
+	 *
+	 * @param pAttribut : String : .<br/>
+	 * @param pMessages : List&lt;String&gt; :  .<br/>
+	 */
+	public void ajouterEntreeAErrorsMapDetaille(
+			final String pAttribut
+				, final List<String> pMessages) {
+		this.errorsMapDetaille.put(pAttribut, pMessages);
+	}
+	
+
+	
+	/**
+	 * .<br/>
+	 *
+	 * @param pAttribut : String : .<br/>
+	 * @param pMessage : String :  .<br/>
+	 */
+	public void ajouterMessageAAttributDansErrorsMapDetaille(
+			final String pAttribut
+				, final String pMessage) {
+		
+		final List<String> liste = this.errorsMapDetaille.get(pAttribut);
+		
+		if (liste != null) {
+			if (!StringUtils.isBlank(pMessage)) {
+				liste.add(pMessage);
+			}
+		}
+	}
+
+	
 	
 	/**
 	 * Getter de la Map&lt;String,String&gt; contenant les 

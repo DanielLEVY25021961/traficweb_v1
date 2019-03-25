@@ -18,6 +18,7 @@ import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateur
 import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
 import levy.daniel.application.model.services.metier.utilisateurs.UtilisateurCerbereResponse;
 import levy.daniel.application.model.services.transformeurs.metier.utilisateurs.IUtilisateurCerbereTransformeurService;
+import levy.daniel.application.model.services.valideurs.ErreursMaps;
 import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUtilisateurCerbereValideurService;
 
 /**
@@ -133,8 +134,11 @@ public class UtilisateurCerbereService implements IUtilisateurCerbereService {
 		 * REGLES DE GESTION sur le DTO transformé 
 		 * par l'application des REGLES METIER 
 		 * (récupère la Map des erreurs pour chaque attribut). */
+		final ErreursMaps erreursMaps = 
+				this.valideurService.valider(dtoTransforme);
+		
 		final Map<String, String> errorsMap 
-			= this.valideurService.valider(dtoTransforme);
+			= erreursMaps.getErrorsMap();
 		
 		/* retourne une Reponse d'erreur si le SERVICE 
 		 * Valideur signale des erreurs. */

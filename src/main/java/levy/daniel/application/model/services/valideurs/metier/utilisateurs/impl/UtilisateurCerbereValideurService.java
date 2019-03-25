@@ -1,7 +1,7 @@
 package levy.daniel.application.model.services.valideurs.metier.utilisateurs.impl;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.utilisateurs.UtilisateurCerbereGestionnairePreferencesRG;
 import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
+import levy.daniel.application.model.services.valideurs.ErreursMaps;
 import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUtilisateurCerbereValideurService;
 
 /**
@@ -63,30 +64,31 @@ public class UtilisateurCerbereValideurService
 	 * @throws Exception 
 	 */
 	@Override
-	public Map<String, String> valider(
+	public ErreursMaps valider(
 			final IUtilisateurCerbereDTO pDto) throws Exception {
 		
 		if (pDto == null) {
 			return null;
 		}
 		
-		/* instanciation d'une nouvelle MAP à chaque appel de la méthode. */
-		final Map<String, String> errorsMap 
-			= new ConcurrentHashMap<String, String>();
-		
+		/* instanciation d'une nouvelle encapsulation des MAPS 
+		 * à chaque appel de la méthode. */
+		final ErreursMaps erreursMap 
+			= new ErreursMaps();
+				
 		/* VALIDATIONS pour chaque attribut. */
-		this.validerCivilite(pDto, errorsMap);
-		this.validerPrenom(pDto, errorsMap);
-		this.validerNom(pDto, errorsMap);
-		this.validerTel(pDto, errorsMap);
-		this.validerEmail(pDto, errorsMap);
-		this.validerService(pDto, errorsMap);
-		this.validerUnite(pDto, errorsMap);
-		this.validerProfil(pDto, errorsMap);
-		this.validerPortee(pDto, errorsMap);
-		this.validerRestriction(pDto, errorsMap);
+		this.validerCivilite(pDto, erreursMap);
+//		this.validerPrenom(pDto, erreursMap);
+//		this.validerNom(pDto, erreursMap);
+//		this.validerTel(pDto, erreursMap);
+//		this.validerEmail(pDto, erreursMap);
+//		this.validerService(pDto, erreursMap);
+//		this.validerUnite(pDto, erreursMap);
+//		this.validerProfil(pDto, erreursMap);
+//		this.validerPortee(pDto, erreursMap);
+//		this.validerRestriction(pDto, erreursMap);
 		
-		return errorsMap;
+		return erreursMap;
 		
 	} // Fin de valider(...).______________________________________________
 
@@ -94,40 +96,52 @@ public class UtilisateurCerbereValideurService
 	
 	/**
 	 * applique les REGLES DE GESTION sur la civilite.<br/>
-	 * alimente pErrorsMap avec les éventuels messages d'erreur.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
 	 * <ul>
 	 * <li>récupère l'interrupteur général auprès du 
 	 * Gestionnaire de préferences.</li>
 	 * <li>ne contrôle rien si l'interrupteur général est à false.</li>
-	 * <li>récupère l'interrupteur de chaque RG auprès 
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
 	 * du Gestionnaire de préferences.</li>
-	 * <li>applique le contrôle si interrupteur général + interrupteur de chaque RG sont à true.</li>
+	 * <li>applique le contrôle si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
 	 * </ul>
 	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
+	 * - ne fait rien si pErreursMaps == null.<br/>
 	 * <br/>
 	 *
 	 * @param pDto : IUtilisateurCerbereDTO : 
 	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
 	 * 
 	 * @throws Exception 
 	 */
 	private void validerCivilite(
 			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) throws Exception {
+				, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* ne fait rien si pDto == null. */
 		if (pDto == null) {
 			return;
 		}
 		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
+		/* ne fait rien si pErreursMaps == null. */
+		if (pErreursMaps == null) {
 			return;
 		}
 		
+		/* nom de l'attribut concerné par la validation. */
+		final String nomAttribut = "civilite";
+		
+		/* instanciation d'une nouvelle liste de message 
+		 * pour errorsMapDetaille de erreursMap POUR CHAQUE ATTRIBUT. */
+		final List<String> messages = new ArrayList<String>();
+		
+		/* AJOUT d'une Entree dans errorsMapDetaille 
+		 * de erreursMap POUR CHAQUE ATTRIBUT. */
+		pErreursMaps.ajouterEntreeAErrorsMapDetaille(nomAttribut, messages);
+
 		/* récupère l'interrupteur général auprès 
 		 * du Gestionnaire de préferences. */
 		final Boolean interrupteurGeneralCivilite 
@@ -145,363 +159,591 @@ public class UtilisateurCerbereValideurService
 			= UtilisateurCerbereGestionnairePreferencesRG
 				.getValiderRGUtilisateurCiviliteRenseigne01();
 		
+		final Boolean interrupteurCiviliteLitteral02 
+			= UtilisateurCerbereGestionnairePreferencesRG
+				.getValiderRGUtilisateurCiviliteLitteral02();
+
+		final Boolean interrupteurCiviliteLongueur03 
+			= UtilisateurCerbereGestionnairePreferencesRG
+				.getValiderRGUtilisateurCiviliteLongueur03();
+
+		final Boolean interrupteurCiviliteNomenclature04 
+			= UtilisateurCerbereGestionnairePreferencesRG
+				.getValiderRGUtilisateurCiviliteNomenclature04();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		boolean rg4 = false;
+		
+		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurGeneralCivilite 
 				&& interrupteurCiviliteRenseigne01) {
-			this.validerRGUtilisateurCiviliteRenseigne01(pDto, pErrorsMap);
+			renseigne = this.validerRGUtilisateurCiviliteRenseigne01(
+					nomAttribut, pDto, pErreursMaps);
 		}
 		
+		ok = renseigne;
 		
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurGeneralCivilite 
+					&& interrupteurCiviliteLitteral02) {
+				rg2 = this.validerRGUtilisateurCiviliteLitteral02(
+						nomAttribut, pDto, pErreursMaps);
+			}
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurGeneralCivilite 
+					&& interrupteurCiviliteLongueur03) {
+				rg3 = this.validerRGUtilisateurCiviliteLongueur03(
+						nomAttribut, pDto, pErreursMaps);
+			}
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurGeneralCivilite 
+					&& interrupteurCiviliteNomenclature04) {
+				rg4 = this.validerRGUtilisateurCiviliteNomenclature04(
+						nomAttribut, pDto, pErreursMaps);
+			}
+			
+			ok = renseigne && rg2 && rg3 && rg4;
+			
+		}
+		
+		if (!ok) {
+			
+			final String messageConcatene = "";
+			
+			pErreursMaps.ajouterEntreeAErrorsMap(nomAttribut, messageConcatene);
+		}
+				
 	} // Fin de validerCivilite(...).______________________________________
 
 
 	
 	/**
 	 * .<br/>
-	 *
-	 * @param pDto
-	 * @param pErrorsMap : void :  .<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>civilite</code>.<br/>
+	 * @param pDto : IUtilisateurCerbereDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
 	 */
-	private void validerRGUtilisateurCiviliteRenseigne01(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
+	private boolean validerRGUtilisateurCiviliteRenseigne01(
+			final String pAttribut
+				, final IUtilisateurCerbereDTO pDto
+					, final ErreursMaps pErreursMaps) {
 		
-		/* ne fait rien si pDto == null. */
+		/* retourne false si pDto == null. */
 		if (pDto == null) {
-			return;
+			return false;
 		}
 		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
 		}
 		
+		/* message utilisateur de la RG. */
+		final String message 
+			= "la civilité doit obligatoirement être renseignée";
+		
+		// TEST ***************
 		if (StringUtils.isBlank(pDto.getCivilite())) {
-			pErrorsMap.put(
-					"civilite"
-					, "la civilité doit obligatoirement être renseignée");
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
 		}
 		
+		return true;		
 
 	}
-	
-	
-	
-	/**
-	 * applique les REGLES DE GESTION sur le prenom.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
-	 * <br/>
-	 *
-	 * @param pDto : IUtilisateurCerbereDTO : 
-	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
-	 */
-	private void validerPrenom(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
-		
-		/* ne fait rien si pDto == null. */
-		if (pDto == null) {
-			return;
-		}
-		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
-		}
-		
-		if (StringUtils.isBlank(pDto.getPrenom())) {
-			pErrorsMap.put(
-					"prenom"
-					, "le prénom doit obligatoirement être renseigné");
-		}
-		
-	} // Fin de validerPrenom(...).________________________________________
-
-
-	
-	/**
-	 * applique les REGLES DE GESTION sur le nom.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
-	 * <br/>
-	 *
-	 * @param pDto : IUtilisateurCerbereDTO : 
-	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
-	 */
-	private void validerNom(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
-		
-		/* ne fait rien si pDto == null. */
-		if (pDto == null) {
-			return;
-		}
-		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
-		}
-		
-		if (StringUtils.isBlank(pDto.getNom())) {
-			pErrorsMap.put(
-					"nom"
-					, "le nom doit obligatoirement être renseigné");
-		}
-		
-	} // Fin de validerPrenom(...).________________________________________
 
 	
 	
 	/**
-	 * applique les REGLES DE GESTION sur le tel.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
-	 * <br/>
+	 * .<br/>
 	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>civilite</code>.<br/>
 	 * @param pDto : IUtilisateurCerbereDTO : 
 	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
 	 */
-	private void validerTel(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
+	private boolean validerRGUtilisateurCiviliteLitteral02(
+			final String pAttribut
+				, final IUtilisateurCerbereDTO pDto
+					, final ErreursMaps pErreursMaps) {
 		
-		/* ne fait rien si pDto == null. */
+		/* retourne false si pDto == null. */
 		if (pDto == null) {
-			return;
+			return false;
 		}
 		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
 		}
 		
-		return;
+		/* message utilisateur de la RG. */
+		final String message 
+			= "la civilité doit obligatoirement être littérale";
 		
-	} // Fin de validerTel(...).___________________________________________
-
-
-	
-	/**
-	 * applique les REGLES DE GESTION sur le email.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
-	 * <br/>
-	 *
-	 * @param pDto : IUtilisateurCerbereDTO : 
-	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
-	 */
-	private void validerEmail(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
-		
-		/* ne fait rien si pDto == null. */
-		if (pDto == null) {
-			return;
+		// TEST ***************
+		if (StringUtils.isBlank(pDto.getCivilite())) {
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
 		}
 		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
-		}
+		return true;
 		
-		if (StringUtils.isBlank(pDto.getEmail())) {
-			pErrorsMap.put(
-					"email"
-					, "l'email doit obligatoirement être renseigné");
-		}
-		
-	} // Fin de validerEmail(...)._________________________________________
+	}
 
 	
 	
 	/**
-	 * applique les REGLES DE GESTION sur le service.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
-	 * <br/>
+	 * .<br/>
 	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>civilite</code>.<br/>
 	 * @param pDto : IUtilisateurCerbereDTO : 
 	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
 	 */
-	private void validerService(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
+	private boolean validerRGUtilisateurCiviliteLongueur03(
+			final String pAttribut
+				, final IUtilisateurCerbereDTO pDto
+					, final ErreursMaps pErreursMaps) {
 		
-		/* ne fait rien si pDto == null. */
+		/* retourne false si pDto == null. */
 		if (pDto == null) {
-			return;
+			return false;
 		}
 		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
 		}
 		
-		return;
+		/* message utilisateur de la RG. */
+		final String message 
+			= "la longueur de la civilité doit obligatoirement être inférieure à 15 caractères";
 		
-	} // Fin de validerService(...)._______________________________________
-
-
-	
-	/**
-	 * applique les REGLES DE GESTION sur l'unite.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
-	 * <br/>
-	 *
-	 * @param pDto : IUtilisateurCerbereDTO : 
-	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
-	 */
-	private void validerUnite(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
-		
-		/* ne fait rien si pDto == null. */
-		if (pDto == null) {
-			return;
+		// TEST ***************
+		if (StringUtils.isBlank(pDto.getCivilite())) {
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
 		}
 		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
-		}
+		return true;
 		
-		if (StringUtils.isBlank(pDto.getUnite())) {
-			pErrorsMap.put(
-					"unite"
-					, "l'unité doit obligatoirement être renseignée");
-		}
-		
-	} // Fin de validerUnite(...)._________________________________________
+	}
 
 	
 	
 	/**
-	 * applique les REGLES DE GESTION sur le profil.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
-	 * <br/>
+	 * .<br/>
 	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>civilite</code>.<br/>
 	 * @param pDto : IUtilisateurCerbereDTO : 
 	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
 	 */
-	private void validerProfil(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
+	private boolean validerRGUtilisateurCiviliteNomenclature04(
+			final String pAttribut
+				, final IUtilisateurCerbereDTO pDto
+					, final ErreursMaps pErreursMaps) {
 		
-		/* ne fait rien si pDto == null. */
+		/* retourne false si pDto == null. */
 		if (pDto == null) {
-			return;
+			return false;
 		}
 		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
 		}
 		
-		if (StringUtils.isBlank(pDto.getProfil())) {
-			pErrorsMap.put(
-					"profil"
-					, "le profil doit obligatoirement être renseignée");
+		/* message utilisateur de la RG. */
+		final String message 
+			= "la civilité doit obligatoirement respecter une liste finie de valeurs";
+		
+		// TEST ***************
+		if (StringUtils.isBlank(pDto.getCivilite())) {
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
 		}
 		
-	} // Fin de validerProfil(...).________________________________________
+		return true;
+		
+	}
 
 	
 	
-	/**
-	 * applique les REGLES DE GESTION sur la portee.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
-	 * <br/>
-	 *
-	 * @param pDto : IUtilisateurCerbereDTO : 
-	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
-	 */
-	private void validerPortee(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
-		
-		/* ne fait rien si pDto == null. */
-		if (pDto == null) {
-			return;
-		}
-		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
-		}
-		
-		return;
-		
-	} // Fin de validerPortee(...)._______________________________________
-
-	
-	
-	/**
-	 * applique les REGLES DE GESTION sur la restriction.<br/>
-	 * alimente pErrorsMap avece les éventuels messages d'erreur.<br/>
-	 * <br/>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErrorsMap == null.<br/>
-	 * <br/>
-	 *
-	 * @param pDto : IUtilisateurCerbereDTO : 
-	 * DTO à contrôler.<br/>
-	 * @param pErrorsMap : Map&lt;String,String&gt; : 
-	 * map des messages d'erreur pour chaque champ.<br/>
-	 */
-	private void validerRestriction(
-			final IUtilisateurCerbereDTO pDto
-				, final Map<String, String> pErrorsMap) {
-		
-		/* ne fait rien si pDto == null. */
-		if (pDto == null) {
-			return;
-		}
-		
-		/* ne fait rien si pErrorsMap == null. */
-		if (pErrorsMap == null) {
-			return;
-		}
-		
-		return;
-		
-	} // Fin de validerRestriction(...).___________________________________
+//	/**
+//	 * applique les REGLES DE GESTION sur le prenom.<br/>
+//	 * alimente pErreursMaps avece les éventuels messages d'erreur.<br/>
+//	 * <br/>
+//	 * - ne fait rien si pDto == null.<br/>
+//	 * - ne fait rien si pErreursMaps == null.<br/>
+//	 * <br/>
+//	 *
+//	 * @param pDto : IUtilisateurCerbereDTO : 
+//	 * DTO à contrôler.<br/>
+//	 * @param pErreursMaps : Map&lt;String,String&gt; : 
+//	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+//	 */
+//	private void validerPrenom(
+//			final IUtilisateurCerbereDTO pDto
+//				, ErreursMaps pErreursMaps) {
+//		
+//		/* ne fait rien si pDto == null. */
+//		if (pDto == null) {
+//			return;
+//		}
+//		
+//		/* ne fait rien si pErreursMaps == null. */
+//		if (pErreursMaps == null) {
+//			return;
+//		}
+//		
+//		if (StringUtils.isBlank(pDto.getPrenom())) {
+//			pErreursMaps.put(
+//					"prenom"
+//					, "le prénom doit obligatoirement être renseigné");
+//		}
+//		
+//	} // Fin de validerPrenom(...).________________________________________
+//
+//
+//	
+//	/**
+//	 * applique les REGLES DE GESTION sur le nom.<br/>
+//	 * alimente pErreursMaps avece les éventuels messages d'erreur.<br/>
+//	 * <br/>
+//	 * - ne fait rien si pDto == null.<br/>
+//	 * - ne fait rien si pErreursMaps == null.<br/>
+//	 * <br/>
+//	 *
+//	 * @param pDto : IUtilisateurCerbereDTO : 
+//	 * DTO à contrôler.<br/>
+//	 * @param pErreursMaps : Map&lt;String,String&gt; : 
+//	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+//	 */
+//	private void validerNom(
+//			final IUtilisateurCerbereDTO pDto
+//				, final ErreursMaps pErreursMaps) {
+//		
+//		/* ne fait rien si pDto == null. */
+//		if (pDto == null) {
+//			return;
+//		}
+//		
+//		/* ne fait rien si pErreursMaps == null. */
+//		if (pErreursMaps == null) {
+//			return;
+//		}
+//		
+//		if (StringUtils.isBlank(pDto.getNom())) {
+//			pErreursMaps.put(
+//					"nom"
+//					, "le nom doit obligatoirement être renseigné");
+//		}
+//		
+//	} // Fin de validerPrenom(...).________________________________________
+//
+//	
+//	
+//	/**
+//	 * applique les REGLES DE GESTION sur le tel.<br/>
+//	 * alimente pErreursMaps avece les éventuels messages d'erreur.<br/>
+//	 * <br/>
+//	 * - ne fait rien si pDto == null.<br/>
+//	 * - ne fait rien si pErreursMaps == null.<br/>
+//	 * <br/>
+//	 *
+//	 * @param pDto : IUtilisateurCerbereDTO : 
+//	 * DTO à contrôler.<br/>
+//	 * @param pErreursMaps : Map&lt;String,String&gt; : 
+//	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+//	 */
+//	private void validerTel(
+//			final IUtilisateurCerbereDTO pDto
+//				, final ErreursMaps pErreursMaps) {
+//		
+//		/* ne fait rien si pDto == null. */
+//		if (pDto == null) {
+//			return;
+//		}
+//		
+//		/* ne fait rien si pErreursMaps == null. */
+//		if (pErreursMaps == null) {
+//			return;
+//		}
+//		
+//		return;
+//		
+//	} // Fin de validerTel(...).___________________________________________
+//
+//
+//	
+//	/**
+//	 * applique les REGLES DE GESTION sur le email.<br/>
+//	 * alimente pErreursMaps avece les éventuels messages d'erreur.<br/>
+//	 * <br/>
+//	 * - ne fait rien si pDto == null.<br/>
+//	 * - ne fait rien si pErreursMaps == null.<br/>
+//	 * <br/>
+//	 *
+//	 * @param pDto : IUtilisateurCerbereDTO : 
+//	 * DTO à contrôler.<br/>
+//	 * @param pErreursMaps : Map&lt;String,String&gt; : 
+//	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+//	 */
+//	private void validerEmail(
+//			final IUtilisateurCerbereDTO pDto
+//				, final ErreursMaps pErreursMaps) {
+//		
+//		/* ne fait rien si pDto == null. */
+//		if (pDto == null) {
+//			return;
+//		}
+//		
+//		/* ne fait rien si pErreursMaps == null. */
+//		if (pErreursMaps == null) {
+//			return;
+//		}
+//		
+//		if (StringUtils.isBlank(pDto.getEmail())) {
+//			pErreursMaps.put(
+//					"email"
+//					, "l'email doit obligatoirement être renseigné");
+//		}
+//		
+//	} // Fin de validerEmail(...)._________________________________________
+//
+//	
+//	
+//	/**
+//	 * applique les REGLES DE GESTION sur le service.<br/>
+//	 * alimente pErreursMaps avece les éventuels messages d'erreur.<br/>
+//	 * <br/>
+//	 * - ne fait rien si pDto == null.<br/>
+//	 * - ne fait rien si pErreursMaps == null.<br/>
+//	 * <br/>
+//	 *
+//	 * @param pDto : IUtilisateurCerbereDTO : 
+//	 * DTO à contrôler.<br/>
+//	 * @param pErreursMaps : Map&lt;String,String&gt; : 
+//	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+//	 */
+//	private void validerService(
+//			final IUtilisateurCerbereDTO pDto
+//				, final ErreursMaps pErreursMaps) {
+//		
+//		/* ne fait rien si pDto == null. */
+//		if (pDto == null) {
+//			return;
+//		}
+//		
+//		/* ne fait rien si pErreursMaps == null. */
+//		if (pErreursMaps == null) {
+//			return;
+//		}
+//		
+//		return;
+//		
+//	} // Fin de validerService(...)._______________________________________
+//
+//
+//	
+//	/**
+//	 * applique les REGLES DE GESTION sur l'unite.<br/>
+//	 * alimente pErreursMaps avece les éventuels messages d'erreur.<br/>
+//	 * <br/>
+//	 * - ne fait rien si pDto == null.<br/>
+//	 * - ne fait rien si pErreursMaps == null.<br/>
+//	 * <br/>
+//	 *
+//	 * @param pDto : IUtilisateurCerbereDTO : 
+//	 * DTO à contrôler.<br/>
+//	 * @param pErreursMaps : Map&lt;String,String&gt; : 
+//	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+//	 */
+//	private void validerUnite(
+//			final IUtilisateurCerbereDTO pDto
+//				, final ErreursMaps pErreursMaps) {
+//		
+//		/* ne fait rien si pDto == null. */
+//		if (pDto == null) {
+//			return;
+//		}
+//		
+//		/* ne fait rien si pErreursMaps == null. */
+//		if (pErreursMaps == null) {
+//			return;
+//		}
+//		
+//		if (StringUtils.isBlank(pDto.getUnite())) {
+//			pErreursMaps.put(
+//					"unite"
+//					, "l'unité doit obligatoirement être renseignée");
+//		}
+//		
+//	} // Fin de validerUnite(...)._________________________________________
+//
+//	
+//	
+//	/**
+//	 * applique les REGLES DE GESTION sur le profil.<br/>
+//	 * alimente pErreursMaps avece les éventuels messages d'erreur.<br/>
+//	 * <br/>
+//	 * - ne fait rien si pDto == null.<br/>
+//	 * - ne fait rien si pErreursMaps == null.<br/>
+//	 * <br/>
+//	 *
+//	 * @param pDto : IUtilisateurCerbereDTO : 
+//	 * DTO à contrôler.<br/>
+//	 * @param pErreursMaps : Map&lt;String,String&gt; : 
+//	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+//	 */
+//	private void validerProfil(
+//			final IUtilisateurCerbereDTO pDto
+//				, final ErreursMaps pErreursMaps) {
+//		
+//		/* ne fait rien si pDto == null. */
+//		if (pDto == null) {
+//			return;
+//		}
+//		
+//		/* ne fait rien si pErreursMaps == null. */
+//		if (pErreursMaps == null) {
+//			return;
+//		}
+//		
+//		if (StringUtils.isBlank(pDto.getProfil())) {
+//			pErreursMaps.put(
+//					"profil"
+//					, "le profil doit obligatoirement être renseignée");
+//		}
+//		
+//	} // Fin de validerProfil(...).________________________________________
+//
+//	
+//	
+//	/**
+//	 * applique les REGLES DE GESTION sur la portee.<br/>
+//	 * alimente pErreursMaps avece les éventuels messages d'erreur.<br/>
+//	 * <br/>
+//	 * - ne fait rien si pDto == null.<br/>
+//	 * - ne fait rien si pErreursMaps == null.<br/>
+//	 * <br/>
+//	 *
+//	 * @param pDto : IUtilisateurCerbereDTO : 
+//	 * DTO à contrôler.<br/>
+//	 * @param pErreursMaps : Map&lt;String,String&gt; : 
+//	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+//	 */
+//	private void validerPortee(
+//			final IUtilisateurCerbereDTO pDto
+//				, final ErreursMaps pErreursMaps) {
+//		
+//		/* ne fait rien si pDto == null. */
+//		if (pDto == null) {
+//			return;
+//		}
+//		
+//		/* ne fait rien si pErreursMaps == null. */
+//		if (pErreursMaps == null) {
+//			return;
+//		}
+//		
+//		return;
+//		
+//	} // Fin de validerPortee(...)._______________________________________
+//
+//	
+//	
+//	/**
+//	 * applique les REGLES DE GESTION sur la restriction.<br/>
+//	 * alimente pErreursMaps avece les éventuels messages d'erreur.<br/>
+//	 * <br/>
+//	 * - ne fait rien si pDto == null.<br/>
+//	 * - ne fait rien si pErreursMaps == null.<br/>
+//	 * <br/>
+//	 *
+//	 * @param pDto : IUtilisateurCerbereDTO : 
+//	 * DTO à contrôler.<br/>
+//	 * @param pErreursMaps : ErreursMaps : 
+//	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+//	 */
+//	private void validerRestriction(
+//			final IUtilisateurCerbereDTO pDto
+//				, final ErreursMaps pErreursMaps) {
+//		
+//		/* ne fait rien si pDto == null. */
+//		if (pDto == null) {
+//			return;
+//		}
+//		
+//		/* ne fait rien si pErreursMaps == null. */
+//		if (pErreursMaps == null) {
+//			return;
+//		}
+//		
+//		return;
+//		
+//	} // Fin de validerRestriction(...).___________________________________
 	
 	
 	
