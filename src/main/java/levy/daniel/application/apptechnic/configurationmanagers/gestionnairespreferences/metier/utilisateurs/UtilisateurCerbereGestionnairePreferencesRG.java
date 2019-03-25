@@ -200,10 +200,10 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * clé de validerRGUtilisateurCiviliteNomenclature04 dans 
 	 * UtilisateurCerbere_RG.properties<br/>
-	 * "valider.UtilisateurCerbere.civilite.longueur"<br/>
+	 * "valider.UtilisateurCerbere.civilite.nomenclature"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04 
-		= "valider.UtilisateurCerbere.civilite.longueur";
+		= "valider.UtilisateurCerbere.civilite.nomenclature";
 	
 	/**
 	 * validerRGUtilisateurCiviliteNomenclature04 par défaut 
@@ -2161,7 +2161,121 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			
 		} // Fin du bloc synchronized.__________________
 						
-	} // Fin de setValiderRGUtilisateurCiviliteLitteral02(...).____________
+	} // Fin de setValiderRGUtilisateurCiviliteLongueur03(...).____________
+
+
+
+	/**
+	 * retourne le validerRGUtilisateurCiviliteNomenclature04 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurCiviliteNomenclature04 stocké 
+	 * dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGUtilisateurCiviliteNomenclature04 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGUtilisateurCiviliteNomenclature04() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGUtilisateurCiviliteNomenclature04
+					, fournirKeyValiderRGUtilisateurCiviliteNomenclature04()
+					, STRING_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirvaliderRGUtilisateurCiviliteNomenclature04()._______
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGUtilisateurCiviliteNomenclature04 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * "valider.UtilisateurCerbere.civilite.nomenclature".<br/>
+	 *
+	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGUtilisateurCiviliteNomenclature04() {
+		return KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04;
+	} // Fin de fournirKeyValiderRGUtilisateurCiviliteNomenclature04().____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGUtilisateurCiviliteNomenclature04 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurCiviliteNomenclature04 
+	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGUtilisateurCiviliteNomenclature04 stocké en dur 
+	 * dans la classe (false) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGUtilisateurCiviliteNomenclature04 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGUtilisateurCiviliteNomenclature04() 
+													throws Exception {
+		return fournirValiderRGUtilisateurCiviliteNomenclature04();
+	} // Fin de getValiderRGUtilisateurCiviliteNomenclature04().___________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGUtilisateurCiviliteNomenclature04 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGUtilisateurCiviliteNomenclature04.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGUtilisateurCiviliteNomenclature04(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGUtilisateurCiviliteNomenclature04
+							, fournirKeyValiderRGUtilisateurCiviliteNomenclature04());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGUtilisateurCiviliteNomenclature04(...).________
 
 			
 	

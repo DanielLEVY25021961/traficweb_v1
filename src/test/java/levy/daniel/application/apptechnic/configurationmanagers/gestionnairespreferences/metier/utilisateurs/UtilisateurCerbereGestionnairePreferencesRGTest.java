@@ -609,6 +609,164 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 		assertFalse("Le Boolean doit valoir false : ", validerRGBoolean);
 
 	} // Fin de testGetValiderRGUtilisateurCiviliteLitteral02().___________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGUtilisateurCiviliteLongueur03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGUtilisateurCiviliteLongueur03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE UtilisateurCerbereGestionnairePreferencesRGTest - méthode testGetValiderRGUtilisateurCiviliteLongueur03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= UtilisateurCerbereGestionnairePreferencesRG
+				.getValiderRGUtilisateurCiviliteLongueur03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGUtilisateurCiviliteLongueur03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurCiviliteLongueur03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= UtilisateurCerbereGestionnairePreferencesRG
+				.getValiderRGUtilisateurCiviliteLongueur03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGUtilisateurCiviliteLongueur03 après passage à true : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a true dans le properties. */
+		assertTrue("Le Boolean doit valoir true : ", validerRGBoolean);
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurCiviliteLongueur03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= UtilisateurCerbereGestionnairePreferencesRG
+			.getValiderRGUtilisateurCiviliteLongueur03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGUtilisateurCiviliteLongueur03 après passage à false : " + validerRGBoolean);
+		}
+		
+		assertFalse("Le Boolean doit valoir false : ", validerRGBoolean);
+
+	} // Fin de testGetValiderRGUtilisateurCiviliteLongueur03().___________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGUtilisateurCiviliteNomenclature04().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGUtilisateurCiviliteNomenclature04() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE UtilisateurCerbereGestionnairePreferencesRGTest - méthode testGetValiderRGUtilisateurCiviliteNomenclature04() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= UtilisateurCerbereGestionnairePreferencesRG
+				.getValiderRGUtilisateurCiviliteNomenclature04();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGUtilisateurCiviliteNomenclature04 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurCiviliteNomenclature04(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= UtilisateurCerbereGestionnairePreferencesRG
+				.getValiderRGUtilisateurCiviliteNomenclature04();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGUtilisateurCiviliteNomenclature04 après passage à true : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a true dans le properties. */
+		assertTrue("Le Boolean doit valoir true : ", validerRGBoolean);
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurCiviliteNomenclature04(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= UtilisateurCerbereGestionnairePreferencesRG
+			.getValiderRGUtilisateurCiviliteNomenclature04();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGUtilisateurCiviliteNomenclature04 après passage à false : " + validerRGBoolean);
+		}
+		
+		assertFalse("Le Boolean doit valoir false : ", validerRGBoolean);
+
+	} // Fin de testGetValiderRGUtilisateurCiviliteNomenclature04()._______
 	
 
 	
