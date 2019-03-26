@@ -17,7 +17,8 @@ import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUti
 
 /**
  * CLASSE UtilisateurCerbereValideurService :<br/>
- * .<br/>
+ * classe concrète chargée de valider toutes les Règles de Gestion (RG) 
+ * s'appliquant à tous les attributs du DTO de l'OBJET METIER.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
