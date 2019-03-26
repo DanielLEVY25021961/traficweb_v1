@@ -37,6 +37,14 @@ import org.apache.commons.logging.LogFactory;
  * </ul>
  * </li>
  * </ul>
+ * 
+ * <hr/>
+ * 
+ * <p>
+ * <img src="../../../../../../../../../javadoc/images/model/services/valideurs/ErreursMaps_diagramme_de_classes.png" 
+ * alt="diagramme de classes du ErrorsMaps" />
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
