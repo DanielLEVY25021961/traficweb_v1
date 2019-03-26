@@ -5,7 +5,9 @@ import levy.daniel.application.model.services.valideurs.ErreursMaps;
 
 /**
  * INTERFACE IUtilisateurCerbereValideurService :<br/>
- * .<br/>
+ * INTERFACE modélisant les SERVICES VALIDEURS chargés 
+ * de valider toutes les Règles de Gestion (RG) 
+ * s'appliquant à tous les attributs du DTO de l'OBJET METIER.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -28,11 +30,13 @@ public interface IUtilisateurCerbereValideurService {
 	
 	
 	/**
-	 * applique les REGLES DE GESTION sur chaque attribut d'un DTO 
-	 * et retourne une Encapsulation <code>ErreurMaps</code>.<br/>
+	 * <b>applique les REGLES DE GESTION sur chaque attribut d'un DTO</b> 
+	 * et retourne une Encapsulation <code>{@link ErreursMaps}</code>.<br/>
 	 * ErreurMaps est une PURE FABRICATION chargée de contenir deux Maps 
 	 * contenant les erreurs lors de la validation d'un OBJET METIER 
-	 * par un service.
+	 * par un service.<br/>
+	 * Les deux Maps (errorsMap et errorsMapDetaille) 
+	 * sont VIDES OU PAS ENSEMBLE.<br/>
 	 * <ul>
 	 * <li>une Map&lt;String,String&gt; <code>errorsMap</code> contenant les 
 	 * éventuels messages d'erreur pour chaque attribut avec 
@@ -57,6 +61,21 @@ public interface IUtilisateurCerbereValideurService {
 	 * - les Maps retournées ne sont jamais null. 
 	 * TESTER si elle sont VIDES.<br/>
 	 * - retourne null si pDto == null.<br/>
+	 * 
+	 * <p>
+	 * <b><span style="text-decoration: underline;">
+	 * Fonctionnement de la validation (diagramme de séquence) : 
+	 * </span>
+	 * </p>
+	 * <p>
+	 * <img src="../../../../../../../../../../../javadoc/images/model/services/valideurs/service_valideur-methode_valider-sequence_1.png" 
+	 * alt="diagramme de séquence de la validation" />
+	 * </p>
+	 * <p>
+	 * <img src="../../../../../../../../../../../javadoc/images/model/services/valideurs/service_valideur-methode_valider-sequence_2.png" 
+	 * alt="diagramme de séquence de la validation" />
+	 * </p>
+	 * 
 	 * <br/>
 	 *
 	 * @param pDto : IUtilisateurCerbereDTO : DTO.<br/>
