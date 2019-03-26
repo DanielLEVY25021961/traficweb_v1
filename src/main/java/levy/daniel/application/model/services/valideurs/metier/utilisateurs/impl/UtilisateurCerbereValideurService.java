@@ -2,6 +2,8 @@ package levy.daniel.application.model.services.valideurs.metier.utilisateurs.imp
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -22,6 +24,9 @@ import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUti
  *<br/>
  * 
  * - Mots-clé :<br/>
+ * SAUT_LIGNE_JAVA, System.getProperty("line.separator"), <br/>
+ * concaténation d'une liste de String, concatenation d'une liste,<br/>
+ * ATTENTION System.getProperty("line.separator") est blank,<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -40,6 +45,26 @@ public class UtilisateurCerbereValideurService
 	// ************************ATTRIBUTS************************************/
 
 	/**
+	 * séparateur utilisé pour la concaténation 
+	 * des divers messages de violation des RG pour 
+	 * un attribut dans une Map&lt;String,String&gt; 
+	 * <code>errorsMap</code><br/>
+	 * System.getProperty("line.separator")
+	 */
+	public static final String SEPARATEUR_MESSAGES 
+		= System.getProperty("line.separator");
+		
+	/**
+	 * '\n'.<br/>
+	 */
+	public static final char SAUT_LIGNE = '\n';
+	
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String MOINS_ESPACE = " - ";
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -57,6 +82,107 @@ public class UtilisateurCerbereValideurService
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
+
+	
+	/**
+	 *concatène les lignes comprises dans pListe en les séparant 
+	 * avec SEPARATEUR_MESSAGES.<br/>
+	 * <ul>
+	 * <li>ignore les lignes vides.</li>
+	 * <li>n'ajoute pas de séparateur à la dernière ligne de la liste.</li>
+	 * </ul>
+	 * - retourne null si pList == null.<br/>
+	 * <br/>
+	 *
+	 * @param pList : List&lt;String&gt;
+	 * 
+	 * @return : String : ligne unique concaténée.<br/>
+	 */
+	private String concatenerListeStrings(
+			final List<String> pList) {
+		return this.concatenerListeStrings(pList, SEPARATEUR_MESSAGES);
+	} // Fin de concatenerListeStrings(...)._______________________________
+	
+	
+	
+	/**
+	 * concatène les lignes comprises dans pListe en les séparant 
+	 * avec pSeparateur.<br/>
+	 * <ul>
+	 * <li>ignore les lignes vides.</li>
+	 * <li>n'ajoute pas de séparateur à la dernière ligne de la liste.</li>
+	 * </ul>
+	 * - retourne null si pList == null.<br/>
+	 * <br/>
+	 *
+	 * @param pList : List&lt;String&gt;
+	 * @param pSeparateur : String : 
+	 * séparateur utilisé pour la concaténation 
+	 * des divers messages de violation des RG pour 
+	 * un attribut dans une Map&lt;String,String&gt; 
+	 * <code>errorsMap</code><br/>
+	 * 
+	 * @return : String : ligne unique concaténée.<br/>
+	 */
+	private String concatenerListeStrings(
+			final List<String> pList
+				, final String pSeparateur) {
+		
+		/* retourne null si pList == null. */
+		if (pList == null) {
+			return null;
+		}
+		
+		final StringBuilder stb = new StringBuilder();
+		final int taille = pList.size();
+		int compteur = 0;
+		
+		for (final String ligne : pList) {
+			
+			compteur++;
+			
+			/* ignore les lignes vides. */
+			if (!StringUtils.isBlank(ligne)) {
+				stb.append(ligne);
+			}
+			
+			/* n'ajoute pas de séparateur à la dernière ligne de la liste. */
+			if (compteur < taille) {
+				stb.append(pSeparateur);
+			}
+		}
+		
+		return stb.toString();
+		
+	} // Fin de concatenerListeStrings(...)._______________________________
+
+
+	
+	/**
+	 * crée une nouvelle entrée dans la map 
+	 * <code>this.errorsMapDetaille</code>.<br/>
+	 * <ul>
+	 * <li>ne peut crée l'entrée que si elle n'existe pas déjà.</li>
+	 * </ul>
+	 *
+	 * @param pErreursMaps : ErreursMaps
+	 * @param pNomAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>civilite</code>.<br/>
+	 */
+	private void creerEntreeDansErrorsMapDetaille(
+			final ErreursMaps pErreursMaps, final String pNomAttribut) {
+		
+		/* instanciation d'une nouvelle liste de message 
+		 * pour errorsMapDetaille de erreursMap POUR CHAQUE ATTRIBUT. */
+		final List<String> messages = new ArrayList<String>();
+		
+		/* AJOUT d'une Entree dans errorsMapDetaille 
+		 * de erreursMap POUR CHAQUE ATTRIBUT. */
+		pErreursMaps.ajouterEntreeAErrorsMapDetaille(pNomAttribut, messages);
+		
+	} // Fin de creerEntreeDansErrorsMapDetaille(...)._____________________
+	
 	
 	
 	/**
@@ -100,14 +226,15 @@ public class UtilisateurCerbereValideurService
 	 * <ul>
 	 * <li>récupère l'interrupteur général auprès du 
 	 * Gestionnaire de préferences.</li>
-	 * <li>ne contrôle rien si l'interrupteur général est à false.</li>
+	 * <li>ne contrôle rien et retourne true 
+	 * si l'interrupteur général est à false.</li>
 	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
 	 * du Gestionnaire de préferences.</li>
 	 * <li>applique le contrôle si 
 	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
 	 * </ul>
-	 * - ne fait rien si pDto == null.<br/>
-	 * - ne fait rien si pErreursMaps == null.<br/>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
 	 * <br/>
 	 *
 	 * @param pDto : IUtilisateurCerbereDTO : 
@@ -117,40 +244,33 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @throws Exception 
 	 */
-	private void validerCivilite(
+	private boolean validerCivilite(
 			final IUtilisateurCerbereDTO pDto
 				, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* ne fait rien si pDto == null. */
+		/* retourne false si pDto == null. */
 		if (pDto == null) {
-			return;
+			return false;
 		}
 		
-		/* ne fait rien si pErreursMaps == null. */
+		/* retourne false si pErreursMaps == null. */
 		if (pErreursMaps == null) {
-			return;
+			return false;
 		}
 		
 		/* nom de l'attribut concerné par la validation. */
 		final String nomAttribut = "civilite";
-		
-		/* instanciation d'une nouvelle liste de message 
-		 * pour errorsMapDetaille de erreursMap POUR CHAQUE ATTRIBUT. */
-		final List<String> messages = new ArrayList<String>();
-		
-		/* AJOUT d'une Entree dans errorsMapDetaille 
-		 * de erreursMap POUR CHAQUE ATTRIBUT. */
-		pErreursMaps.ajouterEntreeAErrorsMapDetaille(nomAttribut, messages);
-
+				
 		/* récupère l'interrupteur général auprès 
 		 * du Gestionnaire de préferences. */
 		final Boolean interrupteurGeneralCivilite 
 		= UtilisateurCerbereGestionnairePreferencesRG
 			.getValiderRGUtilisateurCivilite();
 		
-		/* ne contrôle rien si l'interrupteur général est à false. */
+		/* ne contrôle rien et retourne true 
+		 * si l'interrupteur général est à false. */
 		if (!interrupteurGeneralCivilite) {
-			return;
+			return true;
 		}
 		
 		/* récupère l'interrupteur de chaque RG 
@@ -221,14 +341,25 @@ public class UtilisateurCerbereValideurService
 		
 		if (!ok) {
 			
-			final String messageConcatene = "";
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(nomAttribut);
 			
-			pErreursMaps.ajouterEntreeAErrorsMap(nomAttribut, messageConcatene);
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							nomAttribut, messageConcatene);
+			}
+			
 		}
+		
+		return ok;
 				
 	} // Fin de validerCivilite(...).______________________________________
-
-
+	
+	
 	
 	/**
 	 * .<br/>
@@ -266,11 +397,14 @@ public class UtilisateurCerbereValideurService
 		// TEST ***************
 		if (StringUtils.isBlank(pDto.getCivilite())) {
 			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
 					pAttribut, message);
 			
-			/* retoune false si la RG n'est pas validée. */
+			/* retourne false si la RG n'est pas validée. */
 			return false;
 		}
 		
@@ -314,7 +448,16 @@ public class UtilisateurCerbereValideurService
 			= "la civilité doit obligatoirement être littérale";
 		
 		// TEST ***************
-		if (StringUtils.isBlank(pDto.getCivilite())) {
+		final String civilite = pDto.getCivilite();
+		
+		final String motif = "\\D+";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(civilite);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
@@ -366,6 +509,9 @@ public class UtilisateurCerbereValideurService
 		// TEST ***************
 		if (StringUtils.isBlank(pDto.getCivilite())) {
 			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
 					pAttribut, message);
@@ -415,6 +561,9 @@ public class UtilisateurCerbereValideurService
 		
 		// TEST ***************
 		if (StringUtils.isBlank(pDto.getCivilite())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(

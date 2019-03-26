@@ -79,16 +79,18 @@ public interface IConstantesApplicatives {
 	char CROCHET_FERMANT = ']';
 	
 
+	/**
+	 * System.getProperty("line.separator").
+	 */
+	String SAUT_LIGNE_PLATEFORME = System.getProperty("line.separator");
 	
 	/**
-	 * SAUT_LIGNE_PLATEFORME : String :<br/>
 	 * "\n".<br/>
 	 */
 	String SAUT_LIGNE_JAVA = "\n";
 	
 
 	/**
-	 * SAUT_LIGNE_HTML : String :<br/>
 	 * "<br/>".<br/>
 	 */
 	String SAUT_LIGNE_HTML = "<br/>";

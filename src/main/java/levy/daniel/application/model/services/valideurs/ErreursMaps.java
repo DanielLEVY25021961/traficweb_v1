@@ -1,7 +1,10 @@
 package levy.daniel.application.model.services.valideurs;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang3.StringUtils;
@@ -56,6 +59,26 @@ public class ErreursMaps {
 	// ************************ATTRIBUTS************************************/
 
 	/**
+	 * séparateur utilisé pour la concaténation 
+	 * des divers messages de violation des RG pour 
+	 * un attribut dans une Map&lt;String,String&gt; 
+	 * <code>errorsMap</code><br/>
+	 * System.getProperty("line.separator")
+	 */
+	public static final String SEPARATEUR_MESSAGES 
+		= System.getProperty("line.separator");
+		
+	/**
+	 * '\n'.<br/>
+	 */
+	public static final char SAUT_LIGNE = '\n';
+	
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String MOINS_ESPACE = " - ";
+
+	/**
 	 * Map&lt;String,String&gt; contenant les 
 	 * éventuels messages d'erreur pour chaque attribut avec 
 	 * toutes les violations des Règles de Gestion (RG) sur une seule ligne :
@@ -102,38 +125,71 @@ public class ErreursMaps {
 
 	
 	/**
-	 * .<br/>
+	 * insère une entrée dans <code>this.errorsMap</code> pour pAttribut 
+	 * avec le message concaténé pMessage.<br/>
+	 * <br/>
+	 * - ne fait rien si pAttribut est blank.<br/>
+	 * - ne fait rien si pMessage == null.<br/>
+	 * <br/>
 	 *
-	 * @param pAttribut : String : .<br/>
-	 * @param pMessage : String :  .<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pMessage : String : 
+	 * message concaténé à ajouter à <code>this.errorsMap</code> 
+	 * pour pAttribut.<br/>
 	 */
 	public void ajouterEntreeAErrorsMap(
 			final String pAttribut
 				, final String pMessage) {
+		
+		/* ne fait rien si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return;
+		}
+		
+		/* ne fait rien si pMessage == null. */
+		if (pMessage == null) {
+			return;
+		}
+		
+		/* insère une entrée dans this.errorsMap pour pAttribut 
+		 * avec le message concaténé pMessage. */
 		this.errorsMap.put(pAttribut, pMessage);
+		
 	} // Fin de ajouterEntreeAErrorsMap(...).______________________________
 	
 	
 	
 	/**
-	 * .<br/>
+	 * ajoute une <b>nouvelle</b> entrée dans 
+	 * <code>this.errorsMapDetaille</code>.<br/>
+	 * <ul>
+	 * <li>ne fait rien si la clé existe déjà dans la map.</li>
+	 * </ul>
 	 *
-	 * @param pAttribut : String : .<br/>
-	 * @param pMessages : List&lt;String&gt; :  .<br/>
+	 * @param pAttribut : String : nom d'un attribut.<br/>
+	 * @param pMessages : List&lt;String&gt; : liste de messages.<br/>
 	 */
 	public void ajouterEntreeAErrorsMapDetaille(
 			final String pAttribut
 				, final List<String> pMessages) {
-		this.errorsMapDetaille.put(pAttribut, pMessages);
-	}
+		
+		/* ne fait rien si la clé existe déjà dans la map. */
+		if (!this.errorsMapDetaille.containsKey(pAttribut)) {
+			this.errorsMapDetaille.put(pAttribut, pMessages);
+		}
+		
+	} // Fin de ajouterEntreeAErrorsMapDetaille(...).______________________
 	
 
 	
 	/**
 	 * .<br/>
 	 *
-	 * @param pAttribut : String : .<br/>
-	 * @param pMessage : String :  .<br/>
+	 * @param pAttribut : String : nom d'un attribut.<br/>
+	 * @param pMessage : String : 
+	 * message concaténé à ajouter à <code>this.errorsMap</code> 
+	 * pour pAttribut.<br/>
 	 */
 	public void ajouterMessageAAttributDansErrorsMapDetaille(
 			final String pAttribut
@@ -148,6 +204,158 @@ public class ErreursMaps {
 		}
 	}
 
+	
+	
+	/**
+	 * retourne la liste des messages contenue dans 
+	 * <code>this.errorsMapDetaille</code> pour l'attribut pAttribut.<br/>
+	 * <br/>
+	 * - retourne null si pAttribut n'existe pas dans la Map.<br/>
+	 * <br/>
+	 *
+	 * @param pAttribut : String : nom d'un attribut.
+	 * 
+	 * @return : List&lt;String&gt; : 
+	 * liste des essages de violation des RG.<br/>
+	 */
+	public List<String> fournirListeMessagesAttribut(
+			final String pAttribut) {		
+		return this.errorsMapDetaille.get(pAttribut);
+	} // Fin de fournirListeMessagesAttribut(...)._________________________
+
+
+	
+	/**
+	 * fournit une String pour l'affichage de 
+	 * <code>this.errorsMap</code>.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public String afficherErrorsMap() {
+		return this.afficherMapStringString(this.errorsMap);
+	} // Fin de afficherErrorsMap()._______________________________________
+	
+	
+	
+	/**
+	 * fournit une String pour l'affichage à la console 
+	 * d'une Map&lt;String, String&gt;.<br/>
+	 * <br/>
+	 * retourne null si pMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pMap : Map&lt;String, String&gt;
+	 * 
+	 * @return : String.<br/>
+	 */
+	public String afficherMapStringString(
+			final Map<String, String> pMap) {
+		
+		/* retourne null si pMap == null. */
+		if (pMap == null) {
+			return null;
+		}
+		
+		final StringBuilder stb = new StringBuilder();
+		
+		final Set<Entry<String, String>> entrySet = pMap.entrySet();
+		
+		final Iterator<Entry<String, String>> ite = entrySet.iterator();
+		
+		while (ite.hasNext()) {
+			
+			final Entry<String, String> entry = ite.next();
+			
+			final String key = entry.getKey();
+			final String value = entry.getValue();
+			
+			stb.append(key);
+			stb.append(MOINS_ESPACE);
+			stb.append(value);
+			stb.append(SAUT_LIGNE);
+		}
+		
+		return stb.toString();
+		
+	} // Fin de afficherMapStringString(...).______________________________
+	
+
+	
+	/**
+	 * fournit une String pour l'affichage de 
+	 * <code>this.errorsMapDetaille</code>.<br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public String afficherErrorsMapDetaille() {
+		return this.afficherMapStringList(this.errorsMapDetaille);
+	} // Fin de afficherErrorsMapDetaille()._______________________________
+	
+	
+	
+	/**
+	 * fournit une String pour l'affichage 
+	 * d'une Map&lt;String, List&lt;String&gt;&gt;<br/>
+	 * <ul>
+	 * <li>sépare chaque ligne avec SAUT_LIGNE.</li>
+	 * <li>sapare les clés-valeurs avec des tirets.</li>
+	 * </ul>
+	 * return null si pMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pMap : Map&lt;String, List&lt;String&gt;&gt;.<br/>
+	 * 
+	 * @return : String.<br/>
+	 */
+	public String afficherMapStringList(
+			final Map<String, List<String>> pMap) {
+		
+		/* return null si pMap == null. */
+		if (pMap == null) {
+			return null;
+		}
+		
+		
+		final StringBuilder stb = new StringBuilder();
+		
+		final Set<Entry<String, List<String>>> entrySet 
+			= pMap.entrySet();
+		
+		final Iterator<Entry<String, List<String>>> ite 
+			= entrySet.iterator();
+		
+		while (ite.hasNext()) {
+			
+			final Entry<String, List<String>> entry = ite.next();
+			final String nomAttribut = entry.getKey();
+			final List<String> listeMessages = entry.getValue();
+			
+			if (!listeMessages.isEmpty()) {
+				stb.append(nomAttribut);
+				stb.append(SAUT_LIGNE);
+			}
+			
+			
+			int compteur = 0;
+			
+			for (final String message : listeMessages) {
+				compteur++;
+				stb.append(message);
+				
+				if (compteur < listeMessages.size()) {
+					stb.append(MOINS_ESPACE);
+				}
+			}
+			
+			stb.append(SAUT_LIGNE);
+			
+		}
+		
+		return stb.toString();
+		
+	} // Fin de afficherMapStringList(...).________________________________
+	
 	
 	
 	/**

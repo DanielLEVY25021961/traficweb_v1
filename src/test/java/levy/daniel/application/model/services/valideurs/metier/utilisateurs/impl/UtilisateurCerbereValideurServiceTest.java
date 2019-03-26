@@ -1,5 +1,8 @@
 package levy.daniel.application.model.services.valideurs.metier.utilisateurs.impl;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
@@ -77,7 +80,13 @@ public class UtilisateurCerbereValideurServiceTest {
 	
 	/**
 	 * .<br/>
-	 * : void :  .<br/>
+	 * <ul>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * </ul>
 	 * 
 	 * @throws Exception 
 	 */
@@ -113,13 +122,44 @@ public class UtilisateurCerbereValideurServiceTest {
 		
 		ErreursMaps erreurMaps = null;
 		
-		/* test du non-renseigné*/
+		/* TEST DU NON RENSEIGNE ***** */
 		dto.setCivilite("");
 		
 		// VALIDATION PAR LE SERVICE.
 		erreurMaps = service.valider(dto);
 		
-		System.out.println(erreurMaps.getErrorsMap());
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* civilite non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+		/* TEST DU RENSEIGNE. ********* */
+		dto.setCivilite("M.");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* civilite renseigne avec M. *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
 		
 	} // Fin de testValiderCivilite()._______________________________________
 
