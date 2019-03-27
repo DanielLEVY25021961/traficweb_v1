@@ -19,6 +19,57 @@ import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUti
  * CLASSE UtilisateurCerbereValideurService :<br/>
  * classe concrète chargée de valider toutes les Règles de Gestion (RG) 
  * s'appliquant à tous les attributs du DTO de l'OBJET METIER.<br/>
+ * 
+ * <p>
+ * <b>applique dans sa méthode valider(DTO) 
+ * les REGLES DE GESTION sur chaque attribut d'un DTO</b> 
+ * et retourne une Encapsulation <code>{@link ErreursMaps}</code>.<br/>
+ * ErreurMaps est une PURE FABRICATION chargée de contenir deux Maps 
+ * contenant les erreurs lors de la validation d'un OBJET METIER 
+ * par un service.<br/>
+ * Les deux Maps (errorsMap et errorsMapDetaille) 
+ * sont VIDES OU PAS ENSEMBLE.<br/>
+ * <ul>
+ * <li>une Map&lt;String,String&gt; <code>errorsMap</code> contenant les 
+ * éventuels messages d'erreur pour chaque attribut avec 
+ * toutes les violations des Règles de Gestion (RG) sur une seule ligne 
+ * (compatible avec la map errors de SPRING) :
+ * <ul>
+ * <li>String : le nom de l'attribut</li>
+ * <li>String : le message d'erreur pour l'attribut concaténé 
+ * sur une seule ligne</li>
+ * </ul>
+ * </li>
+ * <li>une Map&lt;String,List&lt;String&gt;&gt; <code>errorsMapDetaille</code> 
+ * contenant les éventuels messages d'erreur pour chaque attribut avec 
+ * chaque violation des Règles de Gestion (RG) dans une liste de lignes 
+ * pour chaque attribut :
+ * <ul>
+ * <li>String : le nom de l'attribut</li>
+ * <li>List&lt;String&gt; : les messages d'erreur pour l'attribut 
+ * dans une liste avec une entrée par RG violée par l'attribut</li>
+ * </ul>
+ * </li>
+ * </ul>
+ * - les Maps retournées ne sont jamais null. 
+ * TESTER si elle sont VIDES.<br/>
+ * - retourne null si pDto == null.<br/>
+ * </p>
+ * 	 
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Fonctionnement de la validation (diagramme de séquence) : 
+ * </span>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../javadoc/images/model/services/valideurs/service_valideur-methode_valider-sequence_1.png" 
+ * alt="diagramme de séquence de la validation" />
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../javadoc/images/model/services/valideurs/service_valideur-methode_valider-sequence_2.png" 
+ * alt="diagramme de séquence de la validation" />
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -198,13 +249,35 @@ public class UtilisateurCerbereValideurService
 			return null;
 		}
 		
-		/* instanciation d'une nouvelle encapsulation des MAPS 
+		/* instancie une nouvelle ErreursMaps (encapsulation des MAPS 
+		 * des messages de violation de RG détaillés et concaténés) 
 		 * à chaque appel de la méthode. */
 		final ErreursMaps erreursMap 
 			= new ErreursMaps();
 				
 		/* VALIDATIONS pour chaque attribut. */
-		this.validerCivilite(pDto, erreursMap);
+		boolean civiliteValide = false;
+		
+		/* CIVILITE. */
+		/* nom de l'attribut concerné par la validation. */
+		final String attributCivilite = "civilite";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralCivilite 
+		= UtilisateurCerbereGestionnairePreferencesRG
+			.getValiderRGUtilisateurCivilite();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralCivilite) {
+			civiliteValide 
+				= this.validerCivilite(
+						pDto, attributCivilite, erreursMap);
+		} else {
+			civiliteValide = true;
+		}
+		
 //		this.validerPrenom(pDto, erreursMap);
 //		this.validerNom(pDto, erreursMap);
 //		this.validerTel(pDto, erreursMap);
@@ -225,21 +298,22 @@ public class UtilisateurCerbereValideurService
 	 * applique les REGLES DE GESTION sur la civilite.<br/>
 	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
 	 * <ul>
-	 * <li>récupère l'interrupteur général auprès du 
-	 * Gestionnaire de préferences.</li>
-	 * <li>ne contrôle rien et retourne true 
-	 * si l'interrupteur général est à false.</li>
 	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
 	 * du Gestionnaire de préferences.</li>
-	 * <li>applique le contrôle si 
+	 * <li>n'applique le contrôle de validation d'une RG que si 
 	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
 	 * </ul>
 	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
 	 * - retourne false si pErreursMaps == null.<br/>
 	 * <br/>
 	 *
 	 * @param pDto : IUtilisateurCerbereDTO : 
 	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
 	 * @param pErreursMaps : ErreursMaps : 
 	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
 	 * 
@@ -247,31 +321,22 @@ public class UtilisateurCerbereValideurService
 	 */
 	private boolean validerCivilite(
 			final IUtilisateurCerbereDTO pDto
-				, final ErreursMaps pErreursMaps) throws Exception {
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
 			return false;
 		}
 		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
 			return false;
 		}
 		
-		/* nom de l'attribut concerné par la validation. */
-		final String nomAttribut = "civilite";
-				
-		/* récupère l'interrupteur général auprès 
-		 * du Gestionnaire de préferences. */
-		final Boolean interrupteurGeneralCivilite 
-		= UtilisateurCerbereGestionnairePreferencesRG
-			.getValiderRGUtilisateurCivilite();
-		
-		/* ne contrôle rien et retourne true 
-		 * si l'interrupteur général est à false. */
-		if (!interrupteurGeneralCivilite) {
-			return true;
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
 		}
 		
 		/* récupère l'interrupteur de chaque RG 
@@ -302,38 +367,51 @@ public class UtilisateurCerbereValideurService
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
-		if (interrupteurGeneralCivilite 
-				&& interrupteurCiviliteRenseigne01) {
+		if (interrupteurCiviliteRenseigne01) {
 			renseigne = this.validerRGUtilisateurCiviliteRenseigne01(
-					nomAttribut, pDto, pErreursMaps);
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
 		}
 		
 		ok = renseigne;
 		
+		/* n'applique les contrôles de validation des autres RG (format, longueur, fourchette, ...) que si la RG RENSEIGNE est validée. */
 		if (renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
 			 * + interrupteur de chaque RG + renseigne sont à true. */
-			if (interrupteurGeneralCivilite 
-					&& interrupteurCiviliteLitteral02) {
+			if (interrupteurCiviliteLitteral02) {
 				rg2 = this.validerRGUtilisateurCiviliteLitteral02(
-						nomAttribut, pDto, pErreursMaps);
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
 			}
 			
 			/* applique le contrôle si interrupteur général 
 			 * + interrupteur de chaque RG + renseigne sont à true. */
-			if (interrupteurGeneralCivilite 
-					&& interrupteurCiviliteLongueur03) {
+			if (interrupteurCiviliteLongueur03) {
 				rg3 = this.validerRGUtilisateurCiviliteLongueur03(
-						nomAttribut, pDto, pErreursMaps);
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
 			}
 			
 			/* applique le contrôle si interrupteur général 
 			 * + interrupteur de chaque RG + renseigne sont à true. */
-			if (interrupteurGeneralCivilite 
-					&& interrupteurCiviliteNomenclature04) {
+			if (interrupteurCiviliteNomenclature04) {
 				rg4 = this.validerRGUtilisateurCiviliteNomenclature04(
-						nomAttribut, pDto, pErreursMaps);
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg4 = true;
 			}
 			
 			ok = renseigne && rg2 && rg3 && rg4;
@@ -343,7 +421,7 @@ public class UtilisateurCerbereValideurService
 		if (!ok) {
 			
 			final List<String> listeAConcatener 
-				= pErreursMaps.fournirListeMessagesAttribut(nomAttribut);
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
 			
 			final String messageConcatene 
 				= this.concatenerListeStrings(listeAConcatener);
@@ -351,7 +429,7 @@ public class UtilisateurCerbereValideurService
 			if (messageConcatene != null) {
 				pErreursMaps
 					.ajouterEntreeAErrorsMap(
-							nomAttribut, messageConcatene);
+							pAttribut, messageConcatene);
 			}
 			
 		}
