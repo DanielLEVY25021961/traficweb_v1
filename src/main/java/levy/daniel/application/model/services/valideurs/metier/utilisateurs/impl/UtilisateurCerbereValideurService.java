@@ -440,7 +440,7 @@ public class UtilisateurCerbereValideurService
 	
 	
 	/**
-	 * .<br/>
+	 * valide la RG renseigne pour la civilite.<br/>
 	 * 
 	 * @param pAttribut : String : 
 	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
@@ -488,12 +488,12 @@ public class UtilisateurCerbereValideurService
 		
 		return true;		
 
-	}
+	} // Fin de validerRGUtilisateurCiviliteRenseigne01(...).______________
 
 	
 	
 	/**
-	 * .<br/>
+	 * valide la RG litteral pour la civilite.<br/>
 	 *
 	 * @param pAttribut : String : 
 	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
@@ -547,7 +547,7 @@ public class UtilisateurCerbereValideurService
 		
 		return true;
 		
-	}
+	} // Fin de validerRGUtilisateurCiviliteLitteral02(...)._______________
 
 	
 	
@@ -584,8 +584,12 @@ public class UtilisateurCerbereValideurService
 		final String message 
 			= "la longueur de la civilité doit obligatoirement être inférieure à 15 caractères";
 		
+		final int longueurMax = 15;
+		
 		// TEST ***************
-		if (StringUtils.isBlank(pDto.getCivilite())) {
+		final String civilite = pDto.getCivilite();
+		
+		if (civilite.length() > longueurMax) {
 			
 			/* crée si nécessaire une entrée dans errorsMapDetaille. */
 			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
@@ -600,7 +604,7 @@ public class UtilisateurCerbereValideurService
 		
 		return true;
 		
-	}
+	} // Fin de validerRGUtilisateurCiviliteLongueur03(...)._______________
 
 	
 	

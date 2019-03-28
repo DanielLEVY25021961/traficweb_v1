@@ -4,13 +4,17 @@ package levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg
 
 /**
  * Enumeration EnumTypesValidation :<br/>
- * .<br/>
+ * Enumeration des types de validation.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
  *<br/>
  * 
  * - Mots-clé :<br/>
+ * énumération, enumération, enumeration, Enumeration,<br/>
+ * Enumeration à 2 valeurs, à deux champs, <br/>
+ * constructeur à 2 valeurs, constructeur à 2 paramètres, <br/>
+ * constructeur à 2 arguments,<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -35,6 +39,7 @@ public enum EnumTypesValidation {
 	 * Attribut devant être entièrement littéral avec des lettres 
 	 * de l'alphabet et des caractères spéciaux (-, _, ...)
 	 * (pas de chiffres).<br/>
+	 * expression régulière : "\\D+"
 	 */
 	LITTERAL(2, "champ littéral (lettres et caractères spéciaux)")
 	

@@ -81,9 +81,9 @@ public class UtilisateurCerbereValideurServiceTest {
 	/**
 	 * .<br/>
 	 * <ul>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
 	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
-	 * <li></li>
-	 * <li></li>
+	 * <li>garantit que la RG LITTERAL fonctionne.</li>
 	 * <li></li>
 	 * <li></li>
 	 * </ul>
@@ -159,8 +159,81 @@ public class UtilisateurCerbereValideurServiceTest {
 				, erreurMaps.getErrorsMap().isEmpty());
 		assertTrue("ErrorsMapDetaille doit être vide : "
 				, erreurMaps.getErrorsMapDetaille().isEmpty());
-
 		
+		/* TEST DU LITTERAL. ********* */
+		dto.setCivilite("Maître_8");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* civilite renseigne avec Maître_8 *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+
+		/* garantit que la RG LITTERAL fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+		dto.setCivilite("Maître");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* civilite renseigne avec Maître *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		/* TEST DE LONGUEUR. ********* */
+		dto.setCivilite("Maître_8_fghjfjhgfhjgfjfjfhjgjjgfh");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* civilite renseigne avec Maître_8_fghjfjhgfhjgfjfjfhjgjjgfh *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+
+		/* garantit que la RG LITTERAL fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+		dto.setCivilite("Maître");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* civilite renseigne avec Maître *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
 	} // Fin de testValiderCivilite()._______________________________________
 
 
