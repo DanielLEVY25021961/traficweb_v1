@@ -64,8 +64,7 @@ import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUti
  * <p>
  * <img src="../../../../../../../../../../../../javadoc/images/model/services/valideurs/service_valideur-methode_valider-sequence_1.png" 
  * alt="diagramme de séquence de la validation" />
- * </p>
- * <p>
+ * 
  * <img src="../../../../../../../../../../../../javadoc/images/model/services/valideurs/service_valideur-methode_valider-sequence_2.png" 
  * alt="diagramme de séquence de la validation" />
  * </p>
