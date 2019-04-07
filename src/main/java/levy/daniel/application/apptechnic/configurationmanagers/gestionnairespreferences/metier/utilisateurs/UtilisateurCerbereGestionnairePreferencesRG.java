@@ -215,8 +215,82 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR 
 		= "false";
-	
 		
+	/**
+	 * clé de validerRGUtilisateurPrenom dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.prenom"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_PRENOM 
+		= "valider.UtilisateurCerbere.prenom";
+	
+	/**
+	 * validerRGUtilisateurPrenom par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire la 
+	 * valeur indiquée dans le fichier properties contenant 
+	 * les preferences.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_PRENOM_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGUtilisateurPrenomRenseigne01 dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.prenom.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_PRENOM_RENSEIGNE_01 
+		= "valider.UtilisateurCerbere.prenom.renseigne";
+	
+	/**
+	 * validerRGUtilisateurPrenomRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire la 
+	 * valeur indiquée dans le fichier properties contenant 
+	 * les preferences.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_PRENOM_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGUtilisateurPrenomLitteral02 dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.prenom.litteral"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_PRENOM_LITTERAL_02 
+		= "valider.UtilisateurCerbere.prenom.litteral";
+	
+	/**
+	 * validerRGUtilisateurPrenomLitteral02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire la 
+	 * valeur indiquée dans le fichier properties contenant 
+	 * les preferences.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_PRENOM_LITTERAL_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGUtilisateurPrenomLongueur03 dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.prenom.longueur"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_PRENOM_LONGUEUR_03 
+		= "valider.UtilisateurCerbere.prenom.longueur";
+	
+	/**
+	 * validerRGUtilisateurPrenomLongueur03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire la 
+	 * valeur indiquée dans le fichier properties contenant 
+	 * les preferences.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_PRENOM_LONGUEUR_03_EN_DUR 
+		= "true";
+				
 	/**
 	 * java.util.Properties encapsulant les préférences.<br/>
 	 */
@@ -297,6 +371,36 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	private static Boolean validerRGUtilisateurCiviliteNomenclature04;
 
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur le <i>prenom</i> de l'utilisateur.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles du <i>prenom</i> 
+	 * de l'Utilisateur.<br/>
+	 */
+	private static Boolean validerRGUtilisateurPrenom;
+	
+	/**
+	 * Boolean activant la RG-Utilisateur-Prenom-01 : 
+	 * "la prenom de l'Utilisateur 
+	 * doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGUtilisateurPrenomRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-Utilisateur-Prenom-02 : 
+	 * "le prenom de l'Utilisateur ne doit comporter que des 
+	 * lettres de l'alphabet et des caractères spéciaux (-, _, ...)
+	 * (pas de chiffres)".<br/>
+	 */
+	private static Boolean validerRGUtilisateurPrenomLitteral02;
+	
+	/**
+	 * Boolean activant la RG-Utilisateur-Prenom-03 : 
+	 * "le prenom de l'Utilisateur ne doit pas excéder 50 caractères".<br/>
+	 */
+	private static Boolean validerRGUtilisateurPrenomLongueur03;
+
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).

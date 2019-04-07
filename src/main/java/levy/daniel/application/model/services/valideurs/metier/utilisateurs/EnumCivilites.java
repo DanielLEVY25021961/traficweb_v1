@@ -1,8 +1,16 @@
 package levy.daniel.application.model.services.valideurs.metier.utilisateurs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ENUMERATION EnumCivilites :<br/>
  * Enumération des civilités.<br/>
+ * chaque Enumeration comprend 2 valeurs :
+ * <ul>
+ * <li>valeur abrégée (par exemple M.)</li>
+ * <li>valeur complète (par exemple Monsieur)</li>
+ * </ul>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -101,6 +109,82 @@ public enum EnumCivilites {
 		return this.civilite;
 	} // Fin de getCivilite()._____________________________________________
 	
-		
 
+	
+	/**
+	 * retourne la liste des abréviations possibles 
+	 * contenues dans la présente Enumeration.<br/>
+	 * par exemple M., Mme, Mlle, ...<br/>
+	 *
+	 * @return : List&lt;String&gt; : 
+	 * Liste des abréviations contenues dans l'Enumeration.<br/>
+	 */
+	public static final List<String> getListeAbreviations() {
+		
+		final EnumCivilites[] enumerations = values();
+		
+		final List<String> resultat = new ArrayList<String>();
+		
+		for (int i = 0; i < enumerations.length; i++) {
+			
+			final String abrev = enumerations[i].getAbreviation();
+			
+			resultat.add(abrev);
+		}
+		
+		return resultat;
+		
+	} // Fin de getListeAbreviations().____________________________________
+	
+	
+
+	/**
+	 * retourne la liste des noms complets possibles 
+	 * contenus dans la présente Enumeration.<br/>
+	 * par exemple Monsieur, Madamee, Mademoiselle, ...<br/>
+	 *
+	 * @return : List&lt;String&gt; : 
+	 * Liste des noms complets contenus dans l'Enumeration.<br/>
+	 */
+	public static final List<String> getListeComplets() {
+		
+		final EnumCivilites[] enumerations = values();
+		
+		final List<String> resultat = new ArrayList<String>();
+		
+		for (int i = 0; i < enumerations.length; i++) {
+			
+			final String complet = enumerations[i].getCivilite();
+			
+			resultat.add(complet);
+		}
+		
+		return resultat;
+		
+	} // Fin de getListeComplets().________________________________________
+	
+
+	
+	/**
+	 * retourne la liste de toutes les valeurs (abrégées ou pas) 
+	 * contenues dans la présente énumération.<br/>
+	 * Par exemple M., Monsieur, Mme, ...<br/>
+	 *
+	 * @return : List&lt;String&gt; : 
+	 * Liste de toutes les valeurs (abrégées ou pas)
+	 *  contenues dans l'Enumeration.<br/>
+	 */
+	public static final List<String> getListeValeursPossibles() {
+		
+		final List<String> resultat = new ArrayList<String>();
+		
+		resultat.addAll(getListeAbreviations());
+		resultat.addAll(getListeComplets());
+		
+		return resultat;
+		
+	} // Fin de getListeValeursPossibles().________________________________
+	
+	
+	
 } // FIN DE L' ENUMERATION EnumCivilites.------------------------------------

@@ -11,7 +11,8 @@
  * <ul>
  * <li>La langue par défaut de l'application (Locale par défaut)</li>
  * <li>L'encodage par défaut de l'application (Charset par défaut)</li>
- * <li>...</li>
+ * <li>Le paramétrage des Règles de Gestion (RG) s'appliquant sur 
+ * chaque attribut de chaque OBJET METIER de l'application.</li>
  * </ul>
  * <p>Plus généralement, les préférences de l'application sont tous 
  * les <b>paramètres</b> que l'administrateur doit ne 

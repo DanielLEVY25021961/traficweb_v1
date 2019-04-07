@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.utilisateurs.UtilisateurCerbereGestionnairePreferencesRG;
 import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
 import levy.daniel.application.model.services.valideurs.ErreursMaps;
+import levy.daniel.application.model.services.valideurs.metier.utilisateurs.EnumCivilites;
 import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUtilisateurCerbereValideurService;
 
 /**
@@ -216,7 +217,9 @@ public class UtilisateurCerbereValideurService
 	 * <li>ne peut crée l'entrée que si elle n'existe pas déjà.</li>
 	 * </ul>
 	 *
-	 * @param pErreursMaps : ErreursMaps
+	 * @param pErreursMaps : ErreursMaps : 
+	 * Encapsulation (pure fabrication) des Maps d'erreurs 
+	 * concaténées et détaillées.<br/>
 	 * @param pNomAttribut : String : 
 	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
 	 * comme <code>civilite</code>.<br/>
@@ -377,7 +380,9 @@ public class UtilisateurCerbereValideurService
 		
 		ok = renseigne;
 		
-		/* n'applique les contrôles de validation des autres RG (format, longueur, fourchette, ...) que si la RG RENSEIGNE est validée. */
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
 		if (renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
@@ -472,7 +477,7 @@ public class UtilisateurCerbereValideurService
 		final String message 
 			= "la civilité doit obligatoirement être renseignée";
 		
-		// TEST ***************
+		// CONTROLE ***************
 		if (StringUtils.isBlank(pDto.getCivilite())) {
 			
 			/* crée si nécessaire une entrée dans errorsMapDetaille. */
@@ -525,7 +530,7 @@ public class UtilisateurCerbereValideurService
 		final String message 
 			= "la civilité doit obligatoirement être littérale";
 		
-		// TEST ***************
+		// CONTROLE ***************
 		final String civilite = pDto.getCivilite();
 		
 		final String motif = "\\D+";
@@ -580,13 +585,15 @@ public class UtilisateurCerbereValideurService
 			return false;
 		}
 		
-		/* message utilisateur de la RG. */
-		final String message 
-			= "la longueur de la civilité doit obligatoirement être inférieure à 15 caractères";
 		
 		final int longueurMax = 15;
 		
-		// TEST ***************
+		/* message utilisateur de la RG. */
+		final String message 
+			= "la civilité doit obligatoirement comporter " 
+					+ longueurMax + " caractères maximum";
+		
+		// CONTROLE ***************
 		final String civilite = pDto.getCivilite();
 		
 		if (civilite.length() > longueurMax) {
@@ -641,8 +648,13 @@ public class UtilisateurCerbereValideurService
 		final String message 
 			= "la civilité doit obligatoirement respecter une liste finie de valeurs";
 		
-		// TEST ***************
-		if (StringUtils.isBlank(pDto.getCivilite())) {
+		// CONTROLE ***************
+		final String civilite = pDto.getCivilite();
+		
+		final List<String> valeursPossibles 
+			= EnumCivilites.getListeValeursPossibles();
+		
+		if (!valeursPossibles.contains(civilite)) {
 			
 			/* crée si nécessaire une entrée dans errorsMapDetaille. */
 			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);

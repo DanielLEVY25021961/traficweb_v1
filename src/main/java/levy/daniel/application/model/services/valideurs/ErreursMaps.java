@@ -237,6 +237,14 @@ public class ErreursMaps {
 	 * fournit une String pour l'affichage de 
 	 * <code>this.errorsMap</code>.<br/>
 	 * <br/>
+	 * Par exemple, pour un attribut civilite :
+	 * <pre>
+	 * attribut : civilite
+	 * erreurs concaténées : 
+	 * la civilité doit obligatoirement être littérale
+	 * la civilité doit obligatoirement comporter 15 caractères maximum
+	 * la civilité doit obligatoirement respecter une liste finie de valeurs
+	 * </pre>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -250,6 +258,14 @@ public class ErreursMaps {
 	 * fournit une String pour l'affichage à la console 
 	 * d'une Map&lt;String, String&gt;.<br/>
 	 * <br/>
+	 * Par exemple, pour un attribut civilite :
+	 * <pre>
+	 * attribut : civilite
+	 * erreurs concaténées : 
+	 * la civilité doit obligatoirement être littérale
+	 * la civilité doit obligatoirement comporter 15 caractères maximum
+	 * la civilité doit obligatoirement respecter une liste finie de valeurs
+	 * </pre>
 	 * retourne null si pMap == null.<br/>
 	 * <br/>
 	 *
@@ -278,9 +294,13 @@ public class ErreursMaps {
 			final String key = entry.getKey();
 			final String value = entry.getValue();
 			
+			stb.append("attribut : ");
 			stb.append(key);
-			stb.append(MOINS_ESPACE);
+			stb.append(SAUT_LIGNE);
+			stb.append("erreurs concaténées : ");
+			stb.append(SAUT_LIGNE);
 			stb.append(value);
+			stb.append(SAUT_LIGNE);
 			stb.append(SAUT_LIGNE);
 		}
 		
@@ -293,6 +313,15 @@ public class ErreursMaps {
 	/**
 	 * fournit une String pour l'affichage de 
 	 * <code>this.errorsMapDetaille</code>.<br/>
+	 * <br/>
+	 * Par exemple, pour un attribut civilite :
+	 * <pre>
+	 * attribut : civilite
+	 * liste des messages d'erreur : 
+	 *  - la civilité doit obligatoirement être littérale
+	 *  - la civilité doit obligatoirement comporter 15 caractères maximum
+	 *  - la civilité doit obligatoirement respecter une liste finie de valeurs
+	 * </pre>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -305,10 +334,15 @@ public class ErreursMaps {
 	/**
 	 * fournit une String pour l'affichage 
 	 * d'une Map&lt;String, List&lt;String&gt;&gt;<br/>
-	 * <ul>
-	 * <li>sépare chaque ligne avec SAUT_LIGNE.</li>
-	 * <li>sapare les clés-valeurs avec des tirets.</li>
-	 * </ul>
+	 * <br/>
+	 * Par exemple, pour un attribut civilite :
+	 * <pre>
+	 * attribut : civilite
+	 * liste des messages d'erreur : 
+	 *  - la civilité doit obligatoirement être littérale
+	 *  - la civilité doit obligatoirement comporter 15 caractères maximum
+	 *  - la civilité doit obligatoirement respecter une liste finie de valeurs
+	 * </pre>
 	 * return null si pMap == null.<br/>
 	 * <br/>
 	 *
@@ -340,6 +374,7 @@ public class ErreursMaps {
 			final List<String> listeMessages = entry.getValue();
 			
 			if (!listeMessages.isEmpty()) {
+				stb.append("attribut : ");
 				stb.append(nomAttribut);
 				stb.append(SAUT_LIGNE);
 			}
@@ -347,12 +382,18 @@ public class ErreursMaps {
 			
 			int compteur = 0;
 			
+			stb.append("liste des messages d'erreur : ");
+			stb.append(SAUT_LIGNE);
+			
 			for (final String message : listeMessages) {
+				
 				compteur++;
+				
+				stb.append(MOINS_ESPACE);
 				stb.append(message);
 				
 				if (compteur < listeMessages.size()) {
-					stb.append(MOINS_ESPACE);
+					stb.append(SAUT_LIGNE);
 				}
 			}
 			

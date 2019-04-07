@@ -102,7 +102,7 @@ public interface IUtilisateurCerbereValideurService {
 	 * @param pDto : IUtilisateurCerbereDTO : DTO.<br/>
 	 * @return : ErreursMaps : 
 	 * pure fabrication contenant les maps des messages 
-	 * d'erreur pour chaque attribut.<br/>
+	 * d'erreur (concaténés et détaillés) pour chaque attribut.<br/>
 	 * 
 	 * @throws Exception 
 	 */
