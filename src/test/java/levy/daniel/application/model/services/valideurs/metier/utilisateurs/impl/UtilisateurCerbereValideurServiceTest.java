@@ -97,7 +97,7 @@ public class UtilisateurCerbereValideurServiceTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -114,7 +114,12 @@ public class UtilisateurCerbereValideurServiceTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			UtilisateurCerbereGestionnairePreferencesRG.afficherPreferences();
+			System.out.println();
+			System.out.println("PREFERENCES");
+			System.out.println(
+					UtilisateurCerbereGestionnairePreferencesRG
+						.afficherPreferences());
+			System.out.println();
 		}
 				
 		/* instanciation d'un SERVICE. */
@@ -273,6 +278,56 @@ public class UtilisateurCerbereValideurServiceTest {
 				, erreurMaps.getErrorsMapDetaille().isEmpty());
 
 	} // Fin de testValiderCivilite()._______________________________________
+
+	
+	
+	/**
+	 * teste la validation du prenom 
+	 * validerPrenom(IUtilisateurCerbereDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG LITTERAL fonctionne.</li>
+	 * <li>garantit que la RG LONGUEUR fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPrenom() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE UtilisateurCerbereValideurServiceTest - méthode testValiderPrenom() ********** ");
+		}
+
+		/* active toutes les RG. */
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurPrenom(true);
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurPrenomRenseigne01(true);
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurPrenomLitteral02(true);
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurPrenomLongueur03(true);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println("PREFERENCES");
+			System.out.println(
+					UtilisateurCerbereGestionnairePreferencesRG
+						.afficherPreferences());
+			System.out.println();
+		}
+				
+		/* instanciation d'un SERVICE. */
+		UtilisateurCerbereValideurService service 
+			= new UtilisateurCerbereValideurService();
+		
+	}
 
 
 } // FIN DE LA CLASSE UtilisateurCerbereValideurServiceTest.-----------------
