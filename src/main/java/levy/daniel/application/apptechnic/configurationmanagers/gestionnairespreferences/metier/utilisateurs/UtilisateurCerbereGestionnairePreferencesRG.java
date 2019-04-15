@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -1656,6 +1657,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
 	 * <li>affiche le contenu de preferences</li>
 	 * <li>trace EX_FONCT_PARAMETRAGE_01</li>
+	 * <li>trie un Set&lt;String&gt;.</li>
 	 * </ul>
 	 *
 	 * @return : String.<br/>
@@ -1671,7 +1673,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			
 			final StringBuffer stb = new StringBuffer();
 			
-			for (final String key : preferences.stringPropertyNames()) {
+			/* trie un Set<String>. */
+			final TreeSet<String> setTrie 
+				= new TreeSet<String>(preferences.stringPropertyNames());
+			
+			for (final String key : setTrie) {
 				stb.append(key);
 				stb.append(EGAL);
 				stb.append(preferences.getProperty(key));

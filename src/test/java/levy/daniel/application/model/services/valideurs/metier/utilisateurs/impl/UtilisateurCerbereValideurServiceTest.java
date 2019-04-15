@@ -82,6 +82,7 @@ public class UtilisateurCerbereValideurServiceTest {
 	 * teste la validation de la civilite 
 	 * validerCivilite(IUtilisateurCerbereDTO, String, ErreursMaps).<br/>
 	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
 	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
 	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
 	 * <li>garantit que la RG LITTERAL fonctionne.</li>
@@ -259,6 +260,22 @@ public class UtilisateurCerbereValideurServiceTest {
 		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
 				, erreurMaps.getErrorsMapDetaille().isEmpty());
 		
+		/* garantit que l'interrupteur général attribut fonctionne. */
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurCivilite(false);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* civilite renseigne avec zozo et interrupteur ATTRIBUT desactivé *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurCivilite(true);
+		
 		dto.setCivilite("Monsieur");
 		
 		// VALIDATION PAR LE SERVICE.
@@ -285,6 +302,11 @@ public class UtilisateurCerbereValideurServiceTest {
 	 * teste la validation du prenom 
 	 * validerPrenom(IUtilisateurCerbereDTO, String, ErreursMaps).<br/>
 	 * <ul>
+	 * <li>garantit que l'interrupteur general à false 
+	 * désactive les contrôles sur l'attribut.</li>
+	 * <li>garantit que l'interrupteur general à true 
+	 * active les contrôles sur l'attribut.</li>
+	 * <li>garantit que les interrupteurs de RG fonctionnent.</li>
 	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
 	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
 	 * <li>garantit que la RG LITTERAL fonctionne.</li>
@@ -299,7 +321,7 @@ public class UtilisateurCerbereValideurServiceTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -313,8 +335,129 @@ public class UtilisateurCerbereValideurServiceTest {
 		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurPrenomLitteral02(true);
 		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurPrenomLongueur03(true);
 		
-		/* AFFICHAGE A LA CONSOLE. */
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
+		
+		/* instanciation d'un SERVICE. */
+		UtilisateurCerbereValideurService service 
+			= new UtilisateurCerbereValideurService();
+		
+		ErreursMaps erreurMaps = null;
+		
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPrenom("");
+		
+		/* desactive l'interrupteur général attribut. */
 		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("DESACTIVE L'INTERRUPTEUR GENERAL D'ATTRIBUT");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurPrenom(false);
+		
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+
+		/* AFFICHAGE A LA CONSOLE DES ERREURS. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "prenom non renseigne et interrupteur general désactivé");
+		
+		/* garantit que l'interrupteur general à false 
+		 * désactive les contrôles sur l'attribut. */
+		this.assertPasErreurs(erreurMaps);
+		
+		/* active l'interrupteur général attribut. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("ACTIVE L'INTERRUPTEUR GENERAL D'ATTRIBUT");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurPrenom(true);
+		
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE DES ERREURS. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "prenom non renseigne et interrupteur general activé");
+		
+		/* garantit que l'interrupteur general à true 
+		 * active les contrôles sur l'attribut. */
+		this.assertErreurs(erreurMaps);
+		
+		dto.setPrenom("Adalbert");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "prenom renseigne avec Adalbert");
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		this.assertPasErreurs(erreurMaps);
+		
+		dto.setPrenom("MauvaisPrenom8");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "prenom renseigne avec MauvaisPrenom8");
+		
+		/* garantit que la RG LITTERAL fonctionne. */
+		this.assertErreurs(erreurMaps);
+		
+		/* active l'interrupteur général attribut. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("DESACTIVE L'INTERRUPTEUR RG");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurPrenomLitteral02(false);
+		
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
+
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "prenom renseigne avec MauvaisPrenom8 et RG LITTERAL désactivée");
+		
+		/* garantit que les interrupteurs de RG fonctionnent. */
+		this.assertPasErreurs(erreurMaps);
+
+	} // Fin de testValiderPrenom()._______________________________________
+
+
+	
+	/**
+	 * affiche les preferences à la console.<br/>
+	 *
+	 * @param pAffichage : boolean.
+	 * 
+	 * @throws Exception
+	 */
+	private void afficherPreferences(
+			final boolean pAffichage) throws Exception {
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && pAffichage) {
 			System.out.println();
 			System.out.println("PREFERENCES");
 			System.out.println(
@@ -322,12 +465,66 @@ public class UtilisateurCerbereValideurServiceTest {
 						.afficherPreferences());
 			System.out.println();
 		}
-				
-		/* instanciation d'un SERVICE. */
-		UtilisateurCerbereValideurService service 
-			= new UtilisateurCerbereValideurService();
 		
-	}
+	} // Fin de afficherPreferences(...).__________________________________
+	
 
+	
+	/**
+	 * affiche à la console les erreurs.<br/>
+	 *
+	 * @param pAffichage : boolean
+	 * @param pErreursMaps : ErreursMaps
+	 * @param pString : String.<br/>
+	 */
+	private void afficherErreurs(
+			final boolean pAffichage
+				, final ErreursMaps pErreursMaps
+					, final String pString) {
+		
+		/* AFFICHAGE A LA CONSOLE DES ERREURS. */
+		if (AFFICHAGE_GENERAL && pAffichage) {
+			System.out.println("******* " + pString  + " *******");
+			System.out.println("ErrorsMap : \n" + pErreursMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + pErreursMaps.afficherErrorsMapDetaille());
+		}
+		
+	} // Fin de afficherErreurs(...).______________________________________
+	
 
+	
+	/**
+	 * garantit que le service ne lève pas d'erreurs.<br/>
+	 *
+	 * @param pErreursMaps : ErreursMaps.<br/>
+	 */
+	private void assertPasErreurs(
+			final ErreursMaps pErreursMaps) {
+		
+		assertTrue("ErrorsMap doit être vide : "
+				, pErreursMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, pErreursMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de assertPasErreurs(...)._____________________________________
+	
+
+	
+	/**
+	 * garantit que le service lève des erreurs.<br/>
+	 *
+	 * @param pErreursMaps : ErreursMaps.<br/>
+	 */
+	private void assertErreurs(
+			final ErreursMaps pErreursMaps) {
+		
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, pErreursMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, pErreursMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de assertErreurs(...).________________________________________
+	
+	
+	
 } // FIN DE LA CLASSE UtilisateurCerbereValideurServiceTest.-----------------
