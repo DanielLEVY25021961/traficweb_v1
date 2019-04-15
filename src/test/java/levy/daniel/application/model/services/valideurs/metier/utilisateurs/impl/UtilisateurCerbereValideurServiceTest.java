@@ -321,7 +321,7 @@ public class UtilisateurCerbereValideurServiceTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -420,9 +420,9 @@ public class UtilisateurCerbereValideurServiceTest {
 		/* garantit que la RG LITTERAL fonctionne. */
 		this.assertErreurs(erreurMaps);
 		
-		/* active l'interrupteur général attribut. */
+		/* désactive l'interrupteur RG LITTERAL. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("DESACTIVE L'INTERRUPTEUR RG");
+			System.out.println("DESACTIVE L'INTERRUPTEUR RG LITTERAL");
 		}
 		UtilisateurCerbereGestionnairePreferencesRG
 			.setValiderRGUtilisateurPrenomLitteral02(false);
@@ -441,8 +441,254 @@ public class UtilisateurCerbereValideurServiceTest {
 		
 		/* garantit que les interrupteurs de RG fonctionnent. */
 		this.assertPasErreurs(erreurMaps);
+		
+		/* réactive l'interrupteur RG*/
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurPrenomLitteral02(true);
+		
+		dto.setPrenom("MauvaisPrenomTropLongmlmlmlmlmmlmlmlmlmlmlmlmmlmlmmlmlmlmlmlmlmlmlmlmlmlmlm");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "prenom renseigne avec MauvaisPrenomTropLongmlmlmlmlmmlmlmlmlmlmlmlmmlmlmmlmlmlmlmlmlmlmlmlmlmlmlm");
+		
+		/* garantit que la RG LONGUEUR fonctionne. */
+		this.assertErreurs(erreurMaps);
+		
+		/* désactive l'interrupteur RG LONGUEUR. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("DESACTIVE L'INTERRUPTEUR RG LONGUEUR");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurPrenomLongueur03(false);
+		
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
 
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "prenom renseigne avec MauvaisPrenomTropLongmlmlmlmlmmlmlmlmlmlmlmlmmlmlmmlmlmlmlmlmlmlmlmlmlmlmlm et RG LONGUEUR désactivée");
+		
+		/* garantit que les interrupteurs de RG fonctionnent. */
+		this.assertPasErreurs(erreurMaps);
+		
+		/* ré-active l'interrupteur RG LONGUEUR. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("RE-ACTIVE L'INTERRUPTEUR RG LONGUEUR");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurPrenomLongueur03(true);
+
+		dto.setPrenom("Bon Prénom");
+		
 	} // Fin de testValiderPrenom()._______________________________________
+
+	
+	
+	/**
+	 * teste la validation du nom 
+	 * validerNom(IUtilisateurCerbereDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur general à false 
+	 * désactive les contrôles sur l'attribut.</li>
+	 * <li>garantit que l'interrupteur general à true 
+	 * active les contrôles sur l'attribut.</li>
+	 * <li>garantit que les interrupteurs de RG fonctionnent.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG LITTERAL fonctionne.</li>
+	 * <li>garantit que la RG LONGUEUR fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderNom() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE UtilisateurCerbereValideurServiceTest - méthode testValiderNom() ********** ");
+		}
+
+		/* active toutes les RG. */
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurNom(true);
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurNomRenseigne01(true);
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurNomLitteral02(true);
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurNomLongueur03(true);
+		
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
+		
+		/* instanciation d'un SERVICE. */
+		UtilisateurCerbereValideurService service 
+			= new UtilisateurCerbereValideurService();
+		
+		ErreursMaps erreurMaps = null;
+		
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setNom("");
+		
+		/* desactive l'interrupteur général attribut. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("DESACTIVE L'INTERRUPTEUR GENERAL D'ATTRIBUT");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG.setValiderRGUtilisateurNom(false);
+		
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+
+		/* AFFICHAGE A LA CONSOLE DES ERREURS. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "nom non renseigne et interrupteur general désactivé");
+		
+		/* garantit que l'interrupteur general à false 
+		 * désactive les contrôles sur l'attribut. */
+		this.assertPasErreurs(erreurMaps);
+		
+		/* active l'interrupteur général attribut. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("ACTIVE L'INTERRUPTEUR GENERAL D'ATTRIBUT");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurNom(true);
+		
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE DES ERREURS. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "nom non renseigne et interrupteur general activé");
+		
+		/* garantit que l'interrupteur general à true 
+		 * active les contrôles sur l'attribut. */
+		this.assertErreurs(erreurMaps);
+		
+		dto.setNom("Bon Nom");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "nom renseigne avec Adalbert");
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		this.assertPasErreurs(erreurMaps);
+		
+		dto.setNom("MauvaisNom8");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "nom renseigne avec MauvaisNom8");
+		
+		/* garantit que la RG LITTERAL fonctionne. */
+		this.assertErreurs(erreurMaps);
+		
+		/* désactive l'interrupteur RG LITTERAL. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("DESACTIVE L'INTERRUPTEUR RG LITTERAL");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurNomLitteral02(false);
+		
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
+
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "nom renseigne avec MauvaisNom8 et RG LITTERAL désactivée");
+		
+		/* garantit que les interrupteurs de RG fonctionnent. */
+		this.assertPasErreurs(erreurMaps);
+		
+		/* réactive l'interrupteur RG*/
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurNomLitteral02(true);
+		
+		dto.setNom("MauvaisNomTropLongmlmlmlmlmmlmlmlmlmlmlmlmmlmlmmlmlmlmlmlmlmlmlmlmlmlmlm");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "nom renseigne avec MauvaisNomTropLongmlmlmlmlmmlmlmlmlmlmlmlmmlmlmmlmlmlmlmlmlmlmlmlmlmlmlm");
+		
+		/* garantit que la RG LONGUEUR fonctionne. */
+		this.assertErreurs(erreurMaps);
+		
+		/* désactive l'interrupteur RG LONGUEUR. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("DESACTIVE L'INTERRUPTEUR RG LONGUEUR");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurNomLongueur03(false);
+		
+		/* AFFICHAGE DES PREFERENCES. */
+		this.afficherPreferences(affichage);
+
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = service.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		this.afficherErreurs(
+				affichage
+					, erreurMaps
+					, "nom renseigne avec MauvaisNomTropLongmlmlmlmlmmlmlmlmlmlmlmlmmlmlmmlmlmlmlmlmlmlmlmlmlmlmlm et RG LONGUEUR désactivée");
+		
+		/* garantit que les interrupteurs de RG fonctionnent. */
+		this.assertPasErreurs(erreurMaps);
+
+		/* ré-active l'interrupteur RG LONGUEUR. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("RE-ACTIVE L'INTERRUPTEUR RG LONGUEUR");
+		}
+		UtilisateurCerbereGestionnairePreferencesRG
+			.setValiderRGUtilisateurNomLongueur03(true);
+
+		dto.setNom("Bon Nom");
+		
+	} // Fin de testValiderNom().__________________________________________
 
 
 	

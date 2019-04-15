@@ -291,6 +291,81 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	public static final String STRING_VALIDER_UTILISATEUR_PRENOM_LONGUEUR_03_EN_DUR 
 		= "true";
+		
+	/**
+	 * clé de validerRGUtilisateurNom dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.nom"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_NOM 
+		= "valider.UtilisateurCerbere.nom";
+	
+	/**
+	 * validerRGUtilisateurNom par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire la 
+	 * valeur indiquée dans le fichier properties contenant 
+	 * les preferences.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_NOM_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGUtilisateurNomRenseigne01 dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.nom.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_NOM_RENSEIGNE_01 
+		= "valider.UtilisateurCerbere.nom.renseigne";
+	
+	/**
+	 * validerRGUtilisateurNomRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire la 
+	 * valeur indiquée dans le fichier properties contenant 
+	 * les preferences.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_NOM_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGUtilisateurNomLitteral02 dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.nom.litteral"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_NOM_LITTERAL_02 
+		= "valider.UtilisateurCerbere.nom.litteral";
+	
+	/**
+	 * validerRGUtilisateurNomLitteral02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire la 
+	 * valeur indiquée dans le fichier properties contenant 
+	 * les preferences.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_NOM_LITTERAL_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGUtilisateurNomLongueur03 dans 
+	 * UtilisateurCerbere_RG.properties<br/>
+	 * "valider.UtilisateurCerbere.nom.longueur"<br/>
+	 */
+	public static final String KEY_VALIDER_UTILISATEUR_NOM_LONGUEUR_03 
+		= "valider.UtilisateurCerbere.nom.longueur";
+	
+	/**
+	 * validerRGUtilisateurNomLongueur03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire la 
+	 * valeur indiquée dans le fichier properties contenant 
+	 * les preferences.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_UTILISATEUR_NOM_LONGUEUR_03_EN_DUR 
+		= "true";
 				
 	/**
 	 * java.util.Properties encapsulant les préférences.<br/>
@@ -401,6 +476,35 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	private static Boolean validerRGUtilisateurPrenomLongueur03;
 
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur le <i>nom</i> de l'utilisateur.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles du <i>nom</i> 
+	 * de l'Utilisateur.<br/>
+	 */
+	private static Boolean validerRGUtilisateurNom;
+	
+	/**
+	 * Boolean activant la RG-Utilisateur-Nom-01 : 
+	 * "la nom de l'Utilisateur 
+	 * doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGUtilisateurNomRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-Utilisateur-Nom-02 : 
+	 * "le nom de l'Utilisateur ne doit comporter que des 
+	 * lettres de l'alphabet et des caractères spéciaux (-, _, ...)
+	 * (pas de chiffres)".<br/>
+	 */
+	private static Boolean validerRGUtilisateurNomLitteral02;
+	
+	/**
+	 * Boolean activant la RG-Utilisateur-Nom-03 : 
+	 * "le nom de l'Utilisateur ne doit pas excéder 50 caractères".<br/>
+	 */
+	private static Boolean validerRGUtilisateurNomLongueur03;
+
 	
 	/**
 	 * LOG : Log : 
@@ -510,6 +614,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
 			
+			/* CIVILITE. */
 			/* ajoute le validerRGUtilisateurCivilite 
 			 * par défaut stocké en dur. */
 			preferences.setProperty(
@@ -539,6 +644,57 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04
 						, STRING_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR);
+			
+			/* PRENOM. */
+			/* ajoute le validerRGUtilisateurPrenom 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_PRENOM
+						, STRING_VALIDER_UTILISATEUR_PRENOM_EN_DUR);
+			
+			/* ajoute le validerRGUtilisateurPrenomRenseigne01 
+			 * par défaut stockée en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_PRENOM_RENSEIGNE_01
+						, STRING_VALIDER_UTILISATEUR_PRENOM_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGUtilisateurPrenomLitteral02 
+			 * par défaut stockée en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_PRENOM_LITTERAL_02
+						, STRING_VALIDER_UTILISATEUR_PRENOM_LITTERAL_02_EN_DUR);
+			
+			/* ajoute le validerRGUtilisateurPrenomLongueur03 
+			 * par défaut stockée en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_PRENOM_LONGUEUR_03
+						, STRING_VALIDER_UTILISATEUR_PRENOM_LONGUEUR_03_EN_DUR);
+			
+			/* NOM. */
+			/* ajoute le validerRGUtilisateurNom 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_NOM
+						, STRING_VALIDER_UTILISATEUR_NOM_EN_DUR);
+			
+			/* ajoute le validerRGUtilisateurNomRenseigne01 
+			 * par défaut stockée en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_NOM_RENSEIGNE_01
+						, STRING_VALIDER_UTILISATEUR_NOM_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGUtilisateurNomLitteral02 
+			 * par défaut stockée en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_NOM_LITTERAL_02
+						, STRING_VALIDER_UTILISATEUR_NOM_LITTERAL_02_EN_DUR);
+			
+			/* ajoute le validerRGUtilisateurNomLongueur03 
+			 * par défaut stockée en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_UTILISATEUR_NOM_LONGUEUR_03
+						, STRING_VALIDER_UTILISATEUR_NOM_LONGUEUR_03_EN_DUR);
+
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -2400,9 +2556,9 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>lit le validerRGUtilisateurPrenom stocké 
 	 * dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
-	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe (true) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
@@ -2449,10 +2605,10 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>lit le validerRGUtilisateurPrenom 
 	 * stocké dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
 	 * - retourne le validerRGUtilisateurPrenom stocké en dur 
-	 * dans la classe (false) 
+	 * dans la classe (true) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
@@ -2514,9 +2670,9 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>lit le validerRGUtilisateurPrenomRenseigne01 stocké 
 	 * dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
-	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe (true) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
@@ -2563,10 +2719,10 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>lit le validerRGUtilisateurPrenomRenseigne01 
 	 * stocké dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
 	 * - retourne le validerRGUtilisateurPrenomRenseigne01 stocké en dur 
-	 * dans la classe (false) 
+	 * dans la classe (true) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
@@ -2628,7 +2784,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>lit le validerRGUtilisateurPrenomLitteral02 stocké 
 	 * dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
 	 * - retourne la valeur stockée en dur dans la classe (false) 
 	 * si le properties ne peut être lu 
@@ -2677,10 +2833,10 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>lit le validerRGUtilisateurPrenomLitteral02 
 	 * stocké dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
 	 * - retourne le validerRGUtilisateurPrenomLitteral02 stocké en dur 
-	 * dans la classe (false) 
+	 * dans la classe (true) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
@@ -2742,9 +2898,9 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>lit le validerRGUtilisateurPrenomLongueur03 stocké 
 	 * dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
-	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe (true) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
@@ -2791,10 +2947,10 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <li>lit le validerRGUtilisateurPrenomLongueur03 
 	 * stocké dans UtilisateurCerbere_RG.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
 	 * - retourne le validerRGUtilisateurPrenomLongueur03 stocké en dur 
-	 * dans la classe (false) 
+	 * dans la classe (true) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
@@ -2846,6 +3002,466 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGUtilisateurPrenomLongueur03(...).______________
+	
+	
+	
+	/**
+	 * retourne le <code>validerRGUtilisateurNom</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur le <i>nom</i> de l'Utilisateur.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles du <i>nom</i> 
+	 * de l'Utilisateur.<br/>
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurNom stocké 
+	 * dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGUtilisateurNom 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGUtilisateurNom() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGUtilisateurNom
+					, fournirKeyValiderRGUtilisateurNom()
+					, STRING_VALIDER_UTILISATEUR_NOM_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGUtilisateurNom().__________________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGUtilisateurNom 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * "valider.UtilisateurCerbere.nom".<br/>
+	 *
+	 * @return KEY_VALIDER_UTILISATEUR_NOM : String.<br/>
+	 */
+	public static String fournirKeyValiderRGUtilisateurNom() {
+		return KEY_VALIDER_UTILISATEUR_NOM;
+	} // Fin de fournirKeyValiderRGUtilisateurNom()._______________________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGUtilisateurNom par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurNom 
+	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGUtilisateurNom stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGUtilisateurNom : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGUtilisateurNom() 
+													throws Exception {
+		return fournirValiderRGUtilisateurNom();
+	} // Fin de getValiderRGUtilisateurNom().______________________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGUtilisateurNom par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGUtilisateurNom.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGUtilisateurNom(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGUtilisateurNom
+							, fournirKeyValiderRGUtilisateurNom());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGUtilisateurNom(...).___________________________
+
+
+
+	/**
+	 * retourne le validerRGUtilisateurNomRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurNomRenseigne01 stocké 
+	 * dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGUtilisateurNomRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGUtilisateurNomRenseigne01() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGUtilisateurNomRenseigne01
+					, fournirKeyValiderRGUtilisateurNomRenseigne01()
+					, STRING_VALIDER_UTILISATEUR_NOM_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGUtilisateurNomRenseigne01()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGUtilisateurNomRenseigne01 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * "valider.UtilisateurCerbere.nom.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_UTILISATEUR_NOM_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGUtilisateurNomRenseigne01() {
+		return KEY_VALIDER_UTILISATEUR_NOM_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGUtilisateurNomRenseigne01().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGUtilisateurNomRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurNomRenseigne01 
+	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGUtilisateurNomRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGUtilisateurNomRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGUtilisateurNomRenseigne01() 
+													throws Exception {
+		return fournirValiderRGUtilisateurNomRenseigne01();
+	} // Fin de getValiderRGUtilisateurNomRenseigne01().___________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGUtilisateurNomRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGUtilisateurNomRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGUtilisateurNomRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGUtilisateurNomRenseigne01
+							, fournirKeyValiderRGUtilisateurNomRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGUtilisateurNomRenseigne01(...).________________
+
+
+
+	/**
+	 * retourne le validerRGUtilisateurNomLitteral02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurNomLitteral02 stocké 
+	 * dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGUtilisateurNomLitteral02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGUtilisateurNomLitteral02() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGUtilisateurNomLitteral02
+					, fournirKeyValiderRGUtilisateurNomLitteral02()
+					, STRING_VALIDER_UTILISATEUR_NOM_LITTERAL_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGUtilisateurNomLitteral02().________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGUtilisateurNomLitteral02 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * "valider.UtilisateurCerbere.nom.litteral".<br/>
+	 *
+	 * @return KEY_VALIDER_UTILISATEUR_NOM_LITTERAL_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGUtilisateurNomLitteral02() {
+		return KEY_VALIDER_UTILISATEUR_NOM_LITTERAL_02;
+	} // Fin de fournirKeyValiderRGUtilisateurNomLitteral02()._____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGUtilisateurNomLitteral02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurNomLitteral02 
+	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGUtilisateurNomLitteral02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGUtilisateurNomLitteral02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGUtilisateurNomLitteral02() 
+													throws Exception {
+		return fournirValiderRGUtilisateurNomLitteral02();
+	} // Fin de getValiderRGUtilisateurNomLitteral02().____________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGUtilisateurNomLitteral02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGUtilisateurNomLitteral02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGUtilisateurNomLitteral02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGUtilisateurNomLitteral02
+							, fournirKeyValiderRGUtilisateurNomLitteral02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGUtilisateurNomLitteral02(...)._________________
+
+
+
+	/**
+	 * retourne le validerRGUtilisateurNomLongueur03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurNomLongueur03 stocké 
+	 * dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGUtilisateurNomLongueur03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGUtilisateurNomLongueur03() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGUtilisateurNomLongueur03
+					, fournirKeyValiderRGUtilisateurNomLongueur03()
+					, STRING_VALIDER_UTILISATEUR_NOM_LONGUEUR_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirvaliderRGUtilisateurNomLongueur03().________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGUtilisateurNomLongueur03 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * "valider.UtilisateurCerbere.nom.longueur".<br/>
+	 *
+	 * @return KEY_VALIDER_UTILISATEUR_NOM_LONGUEUR_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGUtilisateurNomLongueur03() {
+		return KEY_VALIDER_UTILISATEUR_NOM_LONGUEUR_03;
+	} // Fin de fournirKeyValiderRGUtilisateurNomLongueur03()._____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGUtilisateurNomLongueur03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGUtilisateurNomLongueur03 
+	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGUtilisateurNomLongueur03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGUtilisateurNomLongueur03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGUtilisateurNomLongueur03() 
+													throws Exception {
+		return fournirValiderRGUtilisateurNomLongueur03();
+	} // Fin de getValiderRGUtilisateurNomLongueur03().____________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGUtilisateurNomLongueur03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGUtilisateurNomLongueur03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGUtilisateurNomLongueur03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGUtilisateurNomLongueur03
+							, fournirKeyValiderRGUtilisateurNomLongueur03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGUtilisateurNomLongueur03(...)._________________
 
 			
 	
