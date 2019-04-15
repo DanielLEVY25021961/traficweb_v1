@@ -3,6 +3,9 @@ package levy.daniel.application.model.services.valideurs.metier.utilisateurs.imp
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
@@ -770,6 +773,60 @@ public class UtilisateurCerbereValideurServiceTest {
 				, pErreursMaps.getErrorsMapDetaille().isEmpty());
 		
 	} // Fin de assertErreurs(...).________________________________________
+	
+
+	
+	/**
+	 * .<br/>
+	 *
+	 * @throws Exception : void :  .<br/>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderTel() throws Exception {
+		
+		final String numTelBon1 = "03 84 41 80 47";
+		final String numTelBon2 = "03-84-41-80-47";
+		final String numTelBon3 = "03.84.41.80.47";
+		final String numTelBon4 = "0384418047";
+		
+		final String motif2Chiffres = "(\\d\\d)";
+		final String motifTiretOuPointOuEspaceOuRien = "([\\-\\.\\x20])?";
+		
+		final String motifTelFrancais2 
+			= "^(\\d\\d)([\\-\\.\\x20])?(\\d\\d)([\\-\\.\\x20])?(\\d\\d)([\\-\\.\\x20])?(\\d\\d)([\\-\\.\\x20])?(\\d\\d)([\\-\\.\\x20])?$";
+		
+		/* 03-84-41-80-47 ou 03.84.41.80.47 ou 03 84 41 80 47 ou 0384418047 */
+		final String motifTelFrancais 
+			= "^" 
+					+ motif2Chiffres + motifTiretOuPointOuEspaceOuRien 
+					+ motif2Chiffres + motifTiretOuPointOuEspaceOuRien
+					+ motif2Chiffres + motifTiretOuPointOuEspaceOuRien
+					+ motif2Chiffres + motifTiretOuPointOuEspaceOuRien
+					+ motif2Chiffres + motifTiretOuPointOuEspaceOuRien 
+					+ "$";
+		
+		System.out.println("MOTIF = " + motifTelFrancais);
+		
+		final Pattern pattern = Pattern.compile(motifTelFrancais);
+		
+		final Matcher matcher = pattern.matcher(numTelBon4);
+		
+		if (matcher.matches()) {
+			
+			System.out.println("C'est bon : " + matcher.group());
+			final int nombreGroups = matcher.groupCount();
+			System.out.println("nombre de groupes capturés : " + nombreGroups);
+			
+			for (int i = 0; i < nombreGroups; i++) {
+				System.out.println("Group(" + i + ") = " + matcher.group(i));
+			}
+			
+		} else {
+			System.out.println("Ne matche pas");
+		}
+		
+	}
 	
 	
 	
