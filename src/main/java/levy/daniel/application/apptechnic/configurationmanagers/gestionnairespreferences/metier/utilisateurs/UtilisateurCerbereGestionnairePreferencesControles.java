@@ -170,25 +170,44 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		= "la civilite de l'Utilisateur ne doit comporter que des "
 				+ "lettres de l'alphabet et des caractères spéciaux "
 				+ "(-, _, ... pas de chiffres)";
-		
+
 	/**
-	 * clé de validerRGUtilisateurCiviliteLongueur03 dans 
+	 * clé de valeurUtilisateurCiviliteLongueur03 dans 
 	 * UtilisateurCerbere_CONTROLES.properties<br/>
-	 * "valider.UtilisateurCerbere.civilite.longueur"<br/>
+	 * "valeur.UtilisateurCerbere.civilite.longueur"<br/>
 	 */
-	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03 
-		= "valider.UtilisateurCerbere.civilite.longueur";
+	public static final String KEY_VALEUR_UTILISATEUR_CIVILITE_LONGUEUR_03 
+		= "valeur.UtilisateurCerbere.civilite.longueur";
 	
 	/**
-	 * validerRGUtilisateurCiviliteLongueur03 par défaut 
+	 * valeurUtilisateurCiviliteLongueur03 par défaut 
 	 * de l'application en dur.<br/>
 	 * N'est utilisé que si l'application ne peut lire le 
-	 * validerRGUtilisateurCiviliteLongueur03 
+	 * valeurUtilisateurCiviliteLongueur03 
 	 * indiqué dans UtilisateurCerbere_CONTROLES.properties.<br/>
-	 * "false".<br/>
+	 * "15".<br/>
 	 */
-	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR 
-		= "false";
+	public static final String VALEUR_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR 
+		= "15";
+
+	/**
+	 * clé de messageUtilisateurCiviliteLongueur03 dans 
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
+	 * "message.UtilisateurCerbere.civilite.longueur"<br/>
+	 */
+	public static final String KEY_MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03 
+		= "message.UtilisateurCerbere.civilite.longueur";
+	
+	/**
+	 * messageUtilisateurCiviliteLongueur03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageUtilisateurCiviliteLongueur03 
+	 * indiqué dans UtilisateurCerbere_CONTROLES.properties.<br/>
+	 * "la civilite de l'Utilisateur ne doit pas excéder 15 caractères".<br/>
+	 */
+	public static final String MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR 
+		= "la civilite de l'Utilisateur ne doit pas excéder 15 caractères";
 		
 	/**
 	 * clé de validerRGUtilisateurCiviliteNomenclature04 dans 
@@ -418,10 +437,16 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	private static String messageUtilisateurCiviliteLitteral02;
 	
 	/**
-	 * Boolean activant la RG-Utilisateur-Civilite-03 : 
+	 * valeur pour la RG-Utilisateur-Civilite-03 comme 15 dans : 
 	 * "la civilite de l'Utilisateur ne doit pas excéder 15 caractères".<br/>
 	 */
-	private static Boolean validerRGUtilisateurCiviliteLongueur03;
+	private static String valeurUtilisateurCiviliteLongueur03;
+	
+	/**
+	 * message émis par la RG-Utilisateur-Civilite-03 : 
+	 * "la civilite de l'Utilisateur ne doit pas excéder 15 caractères".<br/>
+	 */
+	private static String messageUtilisateurCiviliteLongueur03;
 	
 	/**
 	 * Boolean activant la RG-Utilisateur-Civilite-04 : 
@@ -575,7 +600,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 * par défaut stockée en dur.</li>
 	 * <li>ajoute le messageUtilisateurCiviliteLitteral02 
 	 * par défaut stockée en dur.</li>
-	 * <li>ajoute le validerRGUtilisateurCiviliteLongueur03 
+	 * <li>ajoute le messageUtilisateurCiviliteLongueur03 
 	 * par défaut stockée en dur.</li>
 	 * <li>ajoute le validerRGUtilisateurCiviliteNomenclature04 
 	 * par défaut stockée en dur.</li>
@@ -610,11 +635,11 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 					KEY_MESSAGE_UTILISATEUR_CIVILITE_LITTERAL_02
 						, MESSAGE_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
 			
-			/* ajoute le validerRGUtilisateurCiviliteLongueur03 
+			/* ajoute le messageUtilisateurCiviliteLongueur03 
 			 * par défaut stockée en dur.*/
 			preferences.setProperty(
-					KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03
-						, STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
+					KEY_MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03
+						, MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
 			
 			/* ajoute le validerRGUtilisateurCiviliteNomenclature04 
 			 * par défaut stockée en dur.*/
@@ -2158,10 +2183,10 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 
 
 	/**
-	 * retourne le validerRGUtilisateurCiviliteLongueur03 
+	 * retourne le messageUtilisateurCiviliteLongueur03 
 	 * par défaut de l'application.<br/>
 	 * <ul>
-	 * <li>lit le validerRGUtilisateurCiviliteLongueur03 stocké 
+	 * <li>lit le messageUtilisateurCiviliteLongueur03 stocké 
 	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>false sinon (stocké en dur dans la classe).</li>
@@ -2171,7 +2196,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return : Boolean : validerRGUtilisateurCiviliteLongueur03 
+	 * @return : Boolean : messageUtilisateurCiviliteLongueur03 
 	 * dans les préférences.<br/>
 	 * 
 	 * @throws Exception 
@@ -2182,9 +2207,9 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
-					validerRGUtilisateurCiviliteLongueur03
+					messageUtilisateurCiviliteLongueur03
 					, fournirKeyValiderRGUtilisateurCiviliteLongueur03()
-					, STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
+					, MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -2193,35 +2218,35 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 
 	
 	/**
-	 * Getter de la clé du validerRGUtilisateurCiviliteLongueur03 
+	 * Getter de la clé du messageUtilisateurCiviliteLongueur03 
 	 * par défaut de l'application 
 	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.civilite.longueur".<br/>
 	 *
-	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03 : String.<br/>
+	 * @return KEY_MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03 : String.<br/>
 	 */
 	public static String fournirKeyValiderRGUtilisateurCiviliteLongueur03() {
-		return KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03;
+		return KEY_MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03;
 	} // Fin de fournirKeyValiderRGUtilisateurCiviliteLongueur03().________
 
 
 
 	/**
-	 * Getter du <b>SINGLETON de validerRGUtilisateurCiviliteLongueur03 
+	 * Getter du <b>SINGLETON de messageUtilisateurCiviliteLongueur03 
 	 * par défaut dans l'application</b>.
 	 * <ul>
-	 * <li>lit le validerRGUtilisateurCiviliteLongueur03 
+	 * <li>lit le messageUtilisateurCiviliteLongueur03 
 	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>false sinon (stocké en dur dans la classe).</li>
 	 * </ul>
-	 * - retourne le validerRGUtilisateurCiviliteLongueur03 stocké en dur 
+	 * - retourne le messageUtilisateurCiviliteLongueur03 stocké en dur 
 	 * dans la classe (false) 
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return validerRGUtilisateurCiviliteLongueur03 : Boolean.<br/>
+	 * @return messageUtilisateurCiviliteLongueur03 : Boolean.<br/>
 	 * 
 	 * @throws Exception 
 	 */
@@ -2233,7 +2258,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 
 	
 	/**
-	* Setter du <b>SINGLETON de validerRGUtilisateurCiviliteLongueur03 
+	* Setter du <b>SINGLETON de messageUtilisateurCiviliteLongueur03 
 	* par défaut dans l'application</b>.<br/>
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
@@ -2251,7 +2276,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* <br/>
 	*
 	* @param pValue : Boolean : 
-	* valeur à passer à validerRGUtilisateurCiviliteLongueur03.<br/>
+	* valeur à passer à messageUtilisateurCiviliteLongueur03.<br/>
 	* 
 	 * @throws Exception 
 	*/
@@ -2262,7 +2287,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 			
 			setterAttribut(
 					pValue
-						, validerRGUtilisateurCiviliteLongueur03
+						, messageUtilisateurCiviliteLongueur03
 							, fournirKeyValiderRGUtilisateurCiviliteLongueur03());
 			
 		} // Fin du bloc synchronized.__________________
