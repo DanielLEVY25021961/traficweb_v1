@@ -25,13 +25,15 @@ import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
 
 
 /**
- * CLASSE <b>UtilisateurCerbereGestionnairePreferencesRG</b> :<br/>
+ * CLASSE <b>UtilisateurCerbereGestionnairePreferencesControles</b> :<br/>
  * Classe Utilitaire chargée de gérer les 
- * <b>préférences relatives aux REGLES DE GESTION (RG) applicables 
+ * <b>préférences relatives aux CONTROLES applicables 
  * à un {@link UtilisateurCerbere}</b>.<br/>
  * <ul>
- * <li>gère comme des préférences les booleens 
- * qui activent ou non les contrôles des RG.</li>
+ * <li>gère comme des préférences les messages 
+ * émis lors des contrôles des RG.</li>
+ * <li>gère comme des préférences les valeurs paramétrables 
+ * des contrôles des RG (longueur maximale d'un champ, ...).</li>
  * </ul>
  * <br/>
  * 
@@ -59,15 +61,15 @@ import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
  * @since 24 juil. 2018
  *
  */
-public final class UtilisateurCerbereGestionnairePreferencesRG {
+public final class UtilisateurCerbereGestionnairePreferencesControles {
 	
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * "Classe UtilisateurCerbereGestionnairePreferencesRG".<br/>
+	 * "Classe UtilisateurCerbereGestionnairePreferencesControles".<br/>
 	 */
-	public static final String CLASSE_UTILISATEURCERBERE_GESTIONNAIRE_PREFS_RG 
-		= "Classe UtilisateurCerbereGestionnairePreferencesRG";
+	public static final String CLASSE_UTILISATEURCERBERE_GESTIONNAIRE_PREFS_CONTROLES 
+		= "Classe UtilisateurCerbereGestionnairePreferencesControles";
 
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
@@ -126,66 +128,52 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * '='.<br/>
 	 */
 	public static final char EGAL = '=';
-		
+			
 	/**
-	 * clé de validerRGUtilisateurCivilite dans 
-	 * UtilisateurCerbere_RG.properties<br/>
-	 * "valider.UtilisateurCerbere.civilite"<br/>
+	 * clé de messageUtilisateurCiviliteRenseigne01 dans 
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
+	 * "message.UtilisateurCerbere.civilite.renseigne"<br/>
 	 */
-	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE 
-		= "valider.UtilisateurCerbere.civilite";
+	public static final String KEY_MESSAGE_UTILISATEUR_CIVILITE_RENSEIGNE_01 
+		= "message.UtilisateurCerbere.civilite.renseigne";
 	
 	/**
-	 * validerRGUtilisateurCivilite par défaut de l'application en dur.<br/>
-	 * N'est utilisé que si l'application ne peut lire le 
-	 * validerRGUtilisateurCivilite 
-	 * indiqué dans UtilisateurCerbere_RG.properties.<br/>
-	 * "false".<br/>
-	 */
-	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR 
-		= "false";
-	
-	/**
-	 * clé de validerRGUtilisateurCiviliteRenseigne01 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
-	 * "valider.UtilisateurCerbere.civilite.renseigne"<br/>
-	 */
-	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01 
-		= "valider.UtilisateurCerbere.civilite.renseigne";
-	
-	/**
-	 * validerRGUtilisateurCiviliteRenseigne01 par défaut 
+	 * messageUtilisateurCiviliteRenseigne01 par défaut 
 	 * de l'application en dur.<br/>
 	 * N'est utilisé que si l'application ne peut lire le 
-	 * validerRGUtilisateurCiviliteRenseigne01 
-	 * indiqué dans UtilisateurCerbere_RG.properties.<br/>
-	 * "false".<br/>
+	 * messageUtilisateurCiviliteRenseigne01 
+	 * indiqué dans UtilisateurCerbere_CONTROLES.properties.<br/>
+	 * "la civilité doit obligatoirement être renseignée".<br/>
 	 */
-	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR 
-		= "false";
+	public static final String MESSAGE_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR 
+		= "la civilité doit obligatoirement être renseignée";
 		
 	/**
-	 * clé de validerRGUtilisateurCiviliteLitteral02 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
-	 * "valider.UtilisateurCerbere.civilite.litteral"<br/>
+	 * clé de messageUtilisateurCiviliteLitteral02 dans 
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
+	 * "message.UtilisateurCerbere.civilite.litteral"<br/>
 	 */
-	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02 
-		= "valider.UtilisateurCerbere.civilite.litteral";
+	public static final String KEY_MESSAGE_UTILISATEUR_CIVILITE_LITTERAL_02 
+		= "message.UtilisateurCerbere.civilite.litteral";
 	
 	/**
-	 * validerRGUtilisateurCiviliteLitteral02 par défaut 
+	 * messageUtilisateurCiviliteLitteral02 par défaut 
 	 * de l'application en dur.<br/>
 	 * N'est utilisé que si l'application ne peut lire le 
-	 * validerRGUtilisateurCiviliteLitteral02 
-	 * indiqué dans UtilisateurCerbere_RG.properties.<br/>
-	 * "false".<br/>
+	 * messageUtilisateurCiviliteLitteral02 
+	 * indiqué dans UtilisateurCerbere_CONTROLES.properties.<br/>
+	 * "la civilite de l'Utilisateur ne doit comporter que des 
+	 * lettres de l'alphabet et des caractères spéciaux (-, _, ...)
+	 * (pas de chiffres)".<br/>
 	 */
-	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR 
-		= "false";
+	public static final String MESSAGE_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR 
+		= "la civilite de l'Utilisateur ne doit comporter que des "
+				+ "lettres de l'alphabet et des caractères spéciaux "
+				+ "(-, _, ... pas de chiffres)";
 		
 	/**
 	 * clé de validerRGUtilisateurCiviliteLongueur03 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.civilite.longueur"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03 
@@ -196,7 +184,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * de l'application en dur.<br/>
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * validerRGUtilisateurCiviliteLongueur03 
-	 * indiqué dans UtilisateurCerbere_RG.properties.<br/>
+	 * indiqué dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "false".<br/>
 	 */
 	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR 
@@ -204,7 +192,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 	/**
 	 * clé de validerRGUtilisateurCiviliteNomenclature04 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.civilite.nomenclature"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04 
@@ -215,7 +203,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * de l'application en dur.<br/>
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * validerRGUtilisateurCiviliteNomenclature04 
-	 * indiqué dans UtilisateurCerbere_RG.properties.<br/>
+	 * indiqué dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "false".<br/>
 	 */
 	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR 
@@ -223,7 +211,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 	/**
 	 * clé de validerRGUtilisateurPrenom dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.prenom"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_PRENOM 
@@ -241,7 +229,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	
 	/**
 	 * clé de validerRGUtilisateurPrenomRenseigne01 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.prenom.renseigne"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_PRENOM_RENSEIGNE_01 
@@ -260,7 +248,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 	/**
 	 * clé de validerRGUtilisateurPrenomLitteral02 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.prenom.litteral"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_PRENOM_LITTERAL_02 
@@ -279,7 +267,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 	/**
 	 * clé de validerRGUtilisateurPrenomLongueur03 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.prenom.longueur"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_PRENOM_LONGUEUR_03 
@@ -298,7 +286,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 	/**
 	 * clé de validerRGUtilisateurNom dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.nom"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_NOM 
@@ -316,7 +304,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	
 	/**
 	 * clé de validerRGUtilisateurNomRenseigne01 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.nom.renseigne"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_NOM_RENSEIGNE_01 
@@ -335,7 +323,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 	/**
 	 * clé de validerRGUtilisateurNomLitteral02 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.nom.litteral"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_NOM_LITTERAL_02 
@@ -354,7 +342,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 		
 	/**
 	 * clé de validerRGUtilisateurNomLongueur03 dans 
-	 * UtilisateurCerbere_RG.properties<br/>
+	 * UtilisateurCerbere_CONTROLES.properties<br/>
 	 * "valider.UtilisateurCerbere.nom.longueur"<br/>
 	 */
 	public static final String KEY_VALIDER_UTILISATEUR_NOM_LONGUEUR_03 
@@ -378,29 +366,29 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	
 	/**
 	 * Path absolu vers le fichier properties contenant les preferences
-	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
 	 */
 	private static Path pathAbsoluPreferencesProperties;
 	
 	/**
 	 * Chemin relatif (par rapport à ressources_externes) 
 	 * du fichier properties contenant les preferences
-	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
-	 * "preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties"
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
+	 * "preferences/metier/utilisateurs/UtilisateurCerbere_CONTROLES.properties"
 	 */
 	private static final String CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING 
-		= "preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties";
+		= "preferences/metier/utilisateurs/UtilisateurCerbere_CONTROLES.properties";
 	
 	/**
 	 * Modélisation Java du fichier properties contenant les preferences
-	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
 	 */
 	private static File filePreferencesProperties;
 	
 	/**
 	 * commentaire à ajouter en haut du fichier properties 
 	 * contenant les preferences 
-	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
 	 */
 	private static String commentaire;
 	
@@ -408,35 +396,26 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * Chemin relatif (par rapport à src/main/resources) 
 	 * du template contenant le commentataire à ajouter 
 	 * en haut du fichier properties contenant les preferences 
-	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
 	 * "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_RG_properties_commentaires.txt"
 	 */
 	private static final String CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE 
 		= "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_RG_properties_commentaires.txt";
-
 	
 	/**
-	 * Boolean activant <b>globalement</b> les contrôles 
-	 * sur la <i>civilite</i> de l'utilisateur.<br/>
-	 * <b>interrupteur GENERAL</b> sur les contrôles de la <i>civilité</i> 
-	 * de l'Utilisateur.<br/>
-	 */
-	private static Boolean validerRGUtilisateurCivilite;
-	
-	/**
-	 * Boolean activant la RG-Utilisateur-Civilite-01 : 
+	 * message émis par la RG-Utilisateur-Civilite-01 : 
 	 * "la civilite de l'Utilisateur 
 	 * doit être renseignée".<br/>
 	 */
-	private static Boolean validerRGUtilisateurCiviliteRenseigne01;
+	private static String messageUtilisateurCiviliteRenseigne01;
 	
 	/**
-	 * Boolean activant la RG-Utilisateur-Civilite-02 : 
+	 * message émis par la RG-Utilisateur-Civilite-02 : 
 	 * "la civilite de l'Utilisateur ne doit comporter que des 
 	 * lettres de l'alphabet et des caractères spéciaux (-, _, ...)
 	 * (pas de chiffres)".<br/>
 	 */
-	private static Boolean validerRGUtilisateurCiviliteLitteral02;
+	private static String messageUtilisateurCiviliteLitteral02;
 	
 	/**
 	 * Boolean activant la RG-Utilisateur-Civilite-03 : 
@@ -515,7 +494,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereGestionnairePreferencesRG.class);
+		= LogFactory.getLog(UtilisateurCerbereGestionnairePreferencesControles.class);
 	
 	// *************************METHODES************************************/
 	
@@ -524,7 +503,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * private pour bloquer l'instanciation<br/>
 	 */
-	private UtilisateurCerbereGestionnairePreferencesRG() {
+	private UtilisateurCerbereGestionnairePreferencesControles() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -532,7 +511,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	
 	/**
 	 * <b>sauvegarde sur disque un fichier 
-	 * UtilisateurCerbere_RG.properties initial</b> alimenté par des 
+	 * UtilisateurCerbere_CONTROLES.properties initial</b> alimenté par des 
 	 * propriétés [clé-valeur] <b>écrites en dur</b> 
 	 * dans la présente classe.<br/>
 	 * <ul>
@@ -542,12 +521,12 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <code>filePreferencesProperties</code> VIDE 
 	 * sur le disque si il n'existe pas.</li>
 	 * <li>remplit le fichier <code>filePreferencesProperties</code> 
-	 * (UtilisateurCerbere_RG.properties) 
+	 * (UtilisateurCerbere_CONTROLES.properties) 
 	 * avec le contenu de <code>preferences</code> 
 	 * ([clé-valeur] stockées en dur dans la classe).</li>
 	 * <li>Ecrit en UTF8 le Properties <code>preferences</code> dans 
 	 * le File <code>filePreferencesProperties</code> 
-	 * modélisant le fichier UtilisateurCerbere_RG.properties en positionnant 
+	 * modélisant le fichier UtilisateurCerbere_CONTROLES.properties en positionnant 
 	 * le <code>commentaire</code> au dessus.</li>
 	 * <li>Utilise <code>preferences.store(writer, commentaire);</code> 
 	 * avec un try-with-resource.</li>
@@ -564,7 +543,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static void creerFichierPropertiesInitial() 
 											throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* remplit le Properties Java <code>preferences</code> 
 			 * avec des [clé-valeur] stockées en dur dans la classe. */
@@ -592,9 +571,9 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * civilite
 	 * <li>ajoute le validerRGUtilisateurCivilite 
 	 * par défaut stocké en dur.</li>
-	 * <li>ajoute le validerRGUtilisateurCiviliteRenseigne01 
+	 * <li>ajoute le messageUtilisateurCiviliteRenseigne01 
 	 * par défaut stockée en dur.</li>
-	 * <li>ajoute le validerRGUtilisateurCiviliteLitteral02 
+	 * <li>ajoute le messageUtilisateurCiviliteLitteral02 
 	 * par défaut stockée en dur.</li>
 	 * <li>ajoute le validerRGUtilisateurCiviliteLongueur03 
 	 * par défaut stockée en dur.</li>
@@ -616,26 +595,20 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	private static void ajouterPropertiesEnDur() {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			/* CIVILITE. */
-			/* ajoute le validerRGUtilisateurCivilite 
-			 * par défaut stocké en dur. */
-			preferences.setProperty(
-					KEY_VALIDER_UTILISATEUR_CIVILITE
-						, STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
-			
-			/* ajoute le validerRGUtilisateurCiviliteRenseigne01 
+			/* CIVILITE. */			
+			/* ajoute le messageUtilisateurCiviliteRenseigne01 
 			 * par défaut stockée en dur.*/
 			preferences.setProperty(
-					KEY_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01
-						, STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
+					KEY_MESSAGE_UTILISATEUR_CIVILITE_RENSEIGNE_01
+						, MESSAGE_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
 			
-			/* ajoute le validerRGUtilisateurCiviliteLitteral02 
+			/* ajoute le messageUtilisateurCiviliteLitteral02 
 			 * par défaut stockée en dur.*/
 			preferences.setProperty(
-					KEY_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02
-						, STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
+					KEY_MESSAGE_UTILISATEUR_CIVILITE_LITTERAL_02
+						, MESSAGE_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
 			
 			/* ajoute le validerRGUtilisateurCiviliteLongueur03 
 			 * par défaut stockée en dur.*/
@@ -722,7 +695,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static void instancierAttributsStatiques() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* instancie pathAbsoluPreferencesProperties si nécessaire. */
 			instancierPathAbsoluPreferencesProperties();
@@ -746,7 +719,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * n'est pas null.</li>
 	 * <li>obtient le path des ressources externes auprès 
 	 * du ConfigurationApplicationManager.</li>
-	 * <li>calcule le path du UtilisateurCerbere_RG.properties 
+	 * <li>calcule le path du UtilisateurCerbere_CONTROLES.properties 
 	 * via un resolve par rapport au path des ressources externes.</li>
 	 * <li>alimente <code>pathAbsoluPreferencesProperties</code></li>
 	 * </ul>
@@ -756,7 +729,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static void instancierPathAbsoluPreferencesProperties() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* ne fait rien si pathAbsoluPreferencesProperties 
 			 * n'est pas null. */
@@ -769,7 +742,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 				= Paths.get(ConfigurationApplicationManager
 						.getPathRessourcesExternes());
 				
-				/* calcule le path du UtilisateurCerbere_RG.properties 
+				/* calcule le path du UtilisateurCerbere_CONTROLES.properties 
 				 * via un resolve par rapport au path 
 				 * des ressources externes. */
 				pathAbsoluPreferencesProperties 
@@ -799,7 +772,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static void instancierFilePreferencesProperties() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* ne fait rien si filePreferencesProperties 
 			 * n'est pas null. */
@@ -835,13 +808,13 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static void instancierCommentaire() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* ne fait rien si commentaire n'est pas null. */
 			if (commentaire == null) {
 				
 				/* lit dans un template le commentaire à ajouter au début du 
-				 * UtilisateurCerbere_RG.properties et le stocke 
+				 * UtilisateurCerbere_CONTROLES.properties et le stocke 
 				 * dans commentaire.*/
 				commentaire 
 					= lireTemplateString(CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE);
@@ -870,7 +843,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static void creerRepertoiresArbo(
 			final File pFile) throws IOException {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* ne fait rien si pFile == null. */
 			if (pFile == null) {
@@ -893,7 +866,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	
 	/**
 	 * crée sur disque le fichier properties contenant les preferences
-	 * <code>UtilisateurCerbere_RG.properties</code> <b>VIDE</b> 
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code> <b>VIDE</b> 
 	 * <i>si il n'existe pas déjà</i>.<br/>
 	 * <ul>
 	 * <li>crée l'arboresence parente du fichier properties 
@@ -907,7 +880,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static void creerFichierPreferencesPropertiesVide() 
 													throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* Crée sur le disque dur l'arborescence et le fichier 
 			 * filePreferencesProperties VIDE si nécessaire.*/
@@ -930,7 +903,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * <b>lit en UTF-8 le fichier properties contenant les preferences 
 	 * <code>ressources_externes/preferences/metier/utilisateurs/
-	 * UtilisateurCerbere_RG.properties</b></code> 
+	 * UtilisateurCerbere_CONTROLES.properties</b></code> 
 	 * et alimente le <i>java.util.Properties</i> <b>preferences</b>.<br/>
 	 * <ul>
 	 * <li>décode le fichier .properties en UTF8 et le charge 
@@ -943,7 +916,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static void lireFichierPreferencesProperties() 
 												throws Exception {
 
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* try-with-resource qui se charge du close(). */
 			try (Reader reader = Files.newBufferedReader(
@@ -966,7 +939,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * preferences dans le <i>fichier</i> properties 
 	 * contenant les preferences
 	 * <code><b>ressources_externes/preferences/metier/utilisateurs/
-	 * UtilisateurCerbere_RG.properties</b></code>.<br/>
+	 * UtilisateurCerbere_CONTROLES.properties</b></code>.<br/>
 	 * <ul>
 	 * <li>enregistre le <i>java.util.Properties</i> <b>preferences</b> 
 	 * sur disque dur dans le <i>fichier</i> 
@@ -987,7 +960,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static void enregistrerPreferencesDansFichierProperties() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* ne fait rien si le fichier properties n'existe pas. */
 			if (filePreferencesProperties == null 
@@ -1049,7 +1022,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			final String pCheminRelatifTemplate) 
 									throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* retourne null si pCheminRelatifTemplate est blank. */
 			if (StringUtils.isBlank(pCheminRelatifTemplate)) {
@@ -1099,7 +1072,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			final String pCheminRelatifTemplate) 
 									throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* retourne null si pCheminRelatifTemplate est blank. */
 			if (StringUtils.isBlank(pCheminRelatifTemplate)) {
@@ -1168,7 +1141,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			final File pFile
 				, final Charset pCharset) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* Retourne null si pFile est null. */
 			if (pFile == null) {
@@ -1217,7 +1190,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 				+ "écrit dans ce Charset (MalformedInputException)";
 				
 				/* LOG de niveau Error. */
-				loggerError(CLASSE_UTILISATEURCERBERE_GESTIONNAIRE_PREFS_RG
+				loggerError(CLASSE_UTILISATEURCERBERE_GESTIONNAIRE_PREFS_CONTROLES
 						, METHODE_LIRE_STRINGS_DANS_FILE 
 						+ SEPARATEUR_MOINS_AERE 
 						+ message
@@ -1232,12 +1205,12 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			catch (IOException ioe) {
 				
 				/* LOG de niveau Error. */
-				loggerError(CLASSE_UTILISATEURCERBERE_GESTIONNAIRE_PREFS_RG
+				loggerError(CLASSE_UTILISATEURCERBERE_GESTIONNAIRE_PREFS_CONTROLES
 						, METHODE_LIRE_STRINGS_DANS_FILE
 						, ioe);
 				
 				final String message 
-				= CLASSE_UTILISATEURCERBERE_GESTIONNAIRE_PREFS_RG 
+				= CLASSE_UTILISATEURCERBERE_GESTIONNAIRE_PREFS_CONTROLES 
 				+ SEPARATEUR_MOINS_AERE 
 				+ METHODE_LIRE_STRINGS_DANS_FILE 
 				+ SEPARATEUR_MOINS_AERE 
@@ -1274,7 +1247,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static String creerStringAPartirDeListe(
 			final List<String> pList) {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* retourne null si pList == null. */
 			if (pList == null) {
@@ -1436,7 +1409,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Méthod générique permettant de factoriser 
 	 * les Getters des attributs.<br/>
-	 * retourne la valeur du Boolean pAttribut 
+	 * retourne la valeur du String pAttribut 
 	 * dans le fichier properties.<br/>
 	 * <ul>
 	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
@@ -1444,36 +1417,35 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * dans le java.util.Properties <code>preferences</code>.</b></li>
 	 * <ul>
 	 * <li>nettoie la valeur lue dans le properties avec un trim().</li>
-	 * <li>parse la valeur nettoyée lue dans le properties 
-	 * et l'affecte à pAttribut.</li>
-	 * <li>parse la valeur en dur si problème 
-	 * et l'affecte à pAttribut.</li>
+	 * <li>affecte la valeur nettoyée lue dans le properties à pAttribut 
+	 * si le properties est accessible.</li>
+	 * <li>affecte la valeur en dur à pAttribut si problème.</li>
 	 * </ul>
 	 * <li><b>retourne la valeur de l'attribut 
 	 * dans le fichier properties</b>.</li>
 	 * </ul>
 	 *
-	 * @param pAttribut : Boolean : 
+	 * @param pAttribut : String : 
 	 * un attribut de la classe (SINGLETON) comme 
-	 * <code>validerRGUtilisateurCivilite</code>
+	 * <code>messageUtilisateurCiviliteRenseigne01</code>
 	 * @param pFournirKey : String : 
-	 * clé de l'attribut Boolean pAttribut dans le fichier properties.
+	 * clé de l'attribut String pAttribut dans le fichier properties.
 	 * @param pValeurEnDur : String : 
 	 * valeur initiale stockée en dur dans la classe pour pAttribut.
 	 * 
-	 * @return Boolean : 
-	 * l'attribut Boolean passé en paramètre tel qu'il est stocké 
+	 * @return String : 
+	 * l'attribut String passé en paramètre tel qu'il est stocké 
 	 * dans le fichier properties.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	private static Boolean fournirAttribut(
-			Boolean pAttribut
+	private static String fournirAttribut(
+			String pAttribut
 				, final String pFournirKey
 					, final String pValeurEnDur) 
 									throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/*  alimente le java.util.Properties preferences. */
 			alimenterPreferences();
@@ -1493,32 +1465,16 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 					
 					/* nettoie la valeur lue dans le properties 
 					 * avec un trim(). */
-					valeurString 
+					pAttribut 
 						= valeurStringSale.trim();
-					
-					try {
-						
-						/* parse la valeur nettoyée lue dans 
-						 * le properties et l'affecte à pAttribut. */
-						pAttribut 
-							= Boolean.parseBoolean(valeurString);
-						
-					} catch (Exception e) {
-						
-						/* parse la valeur en dur si problème 
-						 * et l'affecte à pAttribut. */
-						pAttribut 
-							= Boolean.parseBoolean(pValeurEnDur);
-						
-					}
 					
 				}
 				else {
 					
-					/* parse la valeur en dur si problème 
+					/* prend valeur en dur si problème 
 					 * et l'affecte à pAttribut. */
 					pAttribut 
-						= Boolean.parseBoolean(pValeurEnDur);
+						= pValeurEnDur.trim();
 				}
 			}
 			
@@ -1535,7 +1491,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Méthod générique permettant de factoriser 
 	 * les Setters des attributs.<br/>
-	 * change la valeur du Boolean pAttribut en pValue
+	 * change la valeur du String pAttribut en pValue
 	 * et l'écrit sur disque dans le fichier properties.<br/>
 	 * <ul>
 	 * <li>ne fait rien si le paramètre pValue est null
@@ -1549,10 +1505,10 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * <code>preferences</code>.</li>
 	 * </ul>
 	 *
-	 * @param pValue : Boolean : 
+	 * @param pValue : String : 
 	 * nouvelle valeur à passer à pAttribut et à stocker 
 	 * dans le fichier properties de preferences.
-	 * @param pAttribut : Boolean : 
+	 * @param pAttribut : String : 
 	 * un attribut de la classe (SINGLETON) comme 
 	 * <code>validerRGUtilisateurCivilite</code> 
 	 * @param pFournirKey : String : 
@@ -1561,11 +1517,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * @throws Exception
 	 */
 	private static void setterAttribut(
-			final Boolean pValue
-				, Boolean pAttribut
+			final String pValue
+				, String pAttribut
 					, final String pFournirKey) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* ne fait rien si le paramètre pValue est null
 			 * ou ne modifie pas la valeur existante de pAttribut. */
@@ -1620,7 +1576,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	private static void alimenterPreferences() throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/* instancie tous les attributs statiques si nécessaire. */
 			instancierAttributsStatiques();
@@ -1667,7 +1623,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			final String pKey
 				, final String pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/*  alimente le java.util.Properties preferences. */
 			alimenterPreferences();
@@ -1716,7 +1672,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 			final String pKey) 
 					throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/*  alimente le java.util.Properties preferences. */
 			alimenterPreferences();
@@ -1756,7 +1712,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	private static boolean viderPreferences() throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/*  alimente le java.util.Properties preferences. */
 			alimenterPreferences();
@@ -1798,7 +1754,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	public static Properties getPreferences() throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/*  alimente le java.util.Properties preferences. */
 			alimenterPreferences();
@@ -1826,7 +1782,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	public static String afficherPreferences() throws Exception {
 
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			/*  alimente le java.util.Properties preferences. */
 			alimenterPreferences();
@@ -1855,7 +1811,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter du Path absolu vers le fichier properties 
 	 * contenant les preferences 
-	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
 	 * SINGLETON.<br/>
 	 *
 	 * @return pathAbsoluPreferencesProperties : Path.<br/>
@@ -1865,7 +1821,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static Path getPathAbsoluPreferencesProperties() 
 											throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			if (pathAbsoluPreferencesProperties == null) {
 				instancierPathAbsoluPreferencesProperties();
@@ -1882,8 +1838,8 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter du Chemin relatif (par rapport à ressources_externes) 
 	 * du fichier properties contenant les preferences
-	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
-	 * "preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties"
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
+	 * "preferences/metier/utilisateurs/UtilisateurCerbere_CONTROLES.properties"
 	 *
 	 * @return CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING : String.<br/>
 	 */
@@ -1896,7 +1852,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la  Modélisation Java du fichier properties 
 	 * contenant les preferences 
-	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
 	 * SINGLETON.<br/>
 	 *
 	 * @return filePreferencesProperties : File.<br/>
@@ -1905,7 +1861,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	public static File getFilePreferencesProperties() throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			if (filePreferencesProperties == null) {				
 				instancierFilePreferencesProperties();
@@ -1922,7 +1878,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter du commentaire à ajouter en haut du fichier properties 
 	 * contenant les preferences 
-	 * <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
 	 * SINGLETON.<br/>
 	 *
 	 * @return commentaire : String.<br/>
@@ -1931,7 +1887,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 */
 	public static String getCommentaire() throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			if (commentaire == null) {
 				instancierCommentaire();
@@ -1948,7 +1904,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	* Setter du commentaire à ajouter en haut du fichier properties 
 	* contenant les preferences 
-	* <code>UtilisateurCerbere_RG.properties</code>.<br/>
+	* <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
 	*
 	* @param pCommentaire : String : 
 	* valeur à passer à commentaire.<br/>
@@ -1963,7 +1919,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter du Chemin relatif (par rapport à src/main/resources) 
 	 * du template contenant le commentaire à ajouter 
-	 * au dessus de UtilisateurCerbere_RG.properties.<br/>
+	 * au dessus de UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "commentaires_properties/commentaires_preferences_properties.txt"
 	 * <br/>
 	 *
@@ -1972,213 +1928,94 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static String getCheminRelatifTemplateCommentaire() {
 		return CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE;
 	} // Fin de getCheminRelatifTemplateCommentaire()._____________________
-	
-	
-	
+
+
+
 	/**
-	 * retourne le <code>validerRGUtilisateurCivilite</code> 
+	 * retourne le messageUtilisateurCiviliteRenseigne01 
 	 * par défaut de l'application.<br/>
-	 * Boolean activant <b>globalement</b> les contrôles 
-	 * sur la <i>civilite</i> de l'Utilisateur.<br/>
-	 * <b>interrupteur GENERAL</b> sur les contrôles de la <i>civilite</i> 
-	 * de l'Utilisateur.<br/>
 	 * <ul>
-	 * <li>lit le validerRGUtilisateurCivilite stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * <li>lit le messageUtilisateurCiviliteRenseigne01 stocké 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
 	 * </ul>
-	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return : Boolean : validerRGUtilisateurCivilite 
+	 * @return : String : messageUtilisateurCiviliteRenseigne01 
 	 * dans les préférences.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	private static Boolean fournirValiderRGUtilisateurCivilite() 
+	private static String fournirMessageUtilisateurCiviliteRenseigne01() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-						
-			return fournirAttribut(
-					validerRGUtilisateurCivilite
-					, fournirKeyValiderRGUtilisateurCivilite()
-					, STRING_VALIDER_UTILISATEUR_CIVILITE_EN_DUR);
-			
-		} // Fin du bloc synchronized.__________________
-		
-	} // Fin de fournirValiderRGUtilisateurCivilite()._____________________
-	
-
-	
-	/**
-	 * Getter de la clé du validerRGUtilisateurCivilite 
-	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
-	 * "valider.UtilisateurCerbere.civilite".<br/>
-	 *
-	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE : String.<br/>
-	 */
-	public static String fournirKeyValiderRGUtilisateurCivilite() {
-		return KEY_VALIDER_UTILISATEUR_CIVILITE;
-	} // Fin de fournirKeyValiderRGUtilisateurCivilite().__________________
-
-
-
-	/**
-	 * Getter du <b>SINGLETON de validerRGUtilisateurCivilite par défaut 
-	 * dans l'application</b>.
-	 * <ul>
-	 * <li>lit le validerRGUtilisateurCivilite 
-	 * stocké dans UtilisateurCerbere_RG.properties 
-	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
-	 * </ul>
-	 * - retourne le validerRGUtilisateurCivilite stocké en dur 
-	 * dans la classe (false) 
-	 * si le properties ne peut être lu 
-	 * (trace EX_TEC_INITIALISATION_08).<br/>
-	 * <br/>
-	 *
-	 * @return validerRGUtilisateurCivilite : Boolean.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	public static Boolean getValiderRGUtilisateurCivilite() 
-													throws Exception {
-		return fournirValiderRGUtilisateurCivilite();
-	} // Fin de getValiderRGUtilisateurCivilite()._________________________
-	
-	
-	
-	/**
-	* Setter du <b>SINGLETON de validerRGUtilisateurCivilite par défaut 
-	* dans l'application</b>.<br/>
-	* <b>Enregistre la valeur sur disque</b>.<br/>
-	* <ul>
-	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
-	* en dur si nécessaire.</li>
-	* <li>modifie preferences avec la nouvelle valeur 
-	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
-	* mis à jour.</li>
-	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
-	* </ul>
-	* - ne fait rien si le paramètre est null 
-	* ou ne modifie pas la valeur existante.<br/>
-	* <br/>
-	*
-	* @param pValue : Boolean : 
-	* valeur à passer à validerRGUtilisateurCivilite.<br/>
-	* 
-	 * @throws Exception 
-	*/
-	public static void setValiderRGUtilisateurCivilite(
-			final Boolean pValue) throws Exception {
-		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
-						
-			setterAttribut(
-					pValue
-						, validerRGUtilisateurCivilite
-							, fournirKeyValiderRGUtilisateurCivilite());
-
-		} // Fin du bloc synchronized.__________________
-						
-	} // Fin de setValiderRGUtilisateurCivilite(...).______________________
-
-
-
-	/**
-	 * retourne le validerRGUtilisateurCiviliteRenseigne01 
-	 * par défaut de l'application.<br/>
-	 * <ul>
-	 * <li>lit le validerRGUtilisateurCiviliteRenseigne01 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
-	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
-	 * </ul>
-	 * - retourne la valeur stockée en dur dans la classe (false) 
-	 * si le properties ne peut être lu 
-	 * (trace EX_TEC_INITIALISATION_08).<br/>
-	 * <br/>
-	 *
-	 * @return : Boolean : validerRGUtilisateurCiviliteRenseigne01 
-	 * dans les préférences.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	private static Boolean fournirValiderRGUtilisateurCiviliteRenseigne01() 
-			throws Exception {
-		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
-					validerRGUtilisateurCiviliteRenseigne01
-					, fournirKeyValiderRGUtilisateurCiviliteRenseigne01()
-					, STRING_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
+					messageUtilisateurCiviliteRenseigne01
+					, fournirKeyMessageUtilisateurCiviliteRenseigne01()
+					, MESSAGE_UTILISATEUR_CIVILITE_RENSEIGNE_01_EN_DUR);
 
 		} // Fin du bloc synchronized.__________________
 		
-	} // Fin de fournirValiderRGUtilisateurCiviliteRenseigne01().__________
+	} // Fin de fournirMessageUtilisateurCiviliteRenseigne01().____________
 	
 
 	
 	/**
-	 * Getter de la clé du validerRGUtilisateurCiviliteRenseigne01 
+	 * Getter de la clé du messageUtilisateurCiviliteRenseigne01 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
-	 * "valider.UtilisateurCerbere.civilite.renseigne".<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
+	 * "message.UtilisateurCerbere.civilite.renseigne".<br/>
 	 *
-	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01 : String.<br/>
+	 * @return KEY_MESSAGE_UTILISATEUR_CIVILITE_RENSEIGNE_01 : String.<br/>
 	 */
-	public static String fournirKeyValiderRGUtilisateurCiviliteRenseigne01() {
-		return KEY_VALIDER_UTILISATEUR_CIVILITE_RENSEIGNE_01;
-	} // Fin de fournirKeyValiderRGUtilisateurCiviliteRenseigne01()._______
+	public static String fournirKeyMessageUtilisateurCiviliteRenseigne01() {
+		return KEY_MESSAGE_UTILISATEUR_CIVILITE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageUtilisateurCiviliteRenseigne01()._________
 
 
 
 	/**
-	 * Getter du <b>SINGLETON de validerRGUtilisateurCiviliteRenseigne01 
+	 * Getter du <b>SINGLETON de messageUtilisateurCiviliteRenseigne01 
 	 * par défaut dans l'application</b>.
 	 * <ul>
-	 * <li>lit le validerRGUtilisateurCiviliteRenseigne01 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * <li>lit le messageUtilisateurCiviliteRenseigne01 stocké 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
 	 * </ul>
-	 * - retourne le validerRGUtilisateurCiviliteRenseigne01 stocké en dur 
-	 * dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return validerRGUtilisateurCiviliteRenseigne01 : Boolean.<br/>
+	 * @return messageUtilisateurCiviliteRenseigne01 : Boolean.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	public static Boolean getValiderRGUtilisateurCiviliteRenseigne01() 
+	public static String getMessageUtilisateurCiviliteRenseigne01() 
 													throws Exception {
-		return fournirValiderRGUtilisateurCiviliteRenseigne01();
-	} // Fin de getValiderRGUtilisateurCiviliteRenseigne01().______________
+		return fournirMessageUtilisateurCiviliteRenseigne01();
+	} // Fin de getMessageUtilisateurCiviliteRenseigne01().________________
 	
 
 	
 	/**
-	* Setter du <b>SINGLETON de validerRGUtilisateurCiviliteRenseigne01 
+	* Setter du <b>SINGLETON de messageUtilisateurCiviliteRenseigne01 
 	* par défaut dans l'application</b>.<br/>
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -2186,113 +2023,112 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
 	*
-	* @param pValue : Boolean : 
-	* valeur à passer à validerRGUtilisateurCiviliteRenseigne01.<br/>
+	* @param pValue : String : 
+	* valeur à passer à messageUtilisateurCiviliteRenseigne01.<br/>
 	* 
 	 * @throws Exception 
 	*/
-	public static void setValiderRGUtilisateurCiviliteRenseigne01(
-			final Boolean pValue) throws Exception {
+	public static void setMessageUtilisateurCiviliteRenseigne01(
+			final String pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
-						, validerRGUtilisateurCiviliteRenseigne01
-							, fournirKeyValiderRGUtilisateurCiviliteRenseigne01());
+						, messageUtilisateurCiviliteRenseigne01
+							, fournirKeyMessageUtilisateurCiviliteRenseigne01());
 			
 		} // Fin du bloc synchronized.__________________
 						
-	} // Fin de setValiderRGUtilisateurCiviliteRenseigne01(...).___________
+	} // Fin de setMessageUtilisateurCiviliteRenseigne01(...)._____________
 
 
 
 	/**
-	 * retourne le validerRGUtilisateurCiviliteLitteral02 
+	 * retourne le messageUtilisateurCiviliteLitteral02 
 	 * par défaut de l'application.<br/>
 	 * <ul>
-	 * <li>lit le validerRGUtilisateurCiviliteLitteral02 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * <li>lit le messageUtilisateurCiviliteLitteral02 stocké 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
 	 * </ul>
-	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return : Boolean : validerRGUtilisateurCiviliteLitteral02 
+	 * @return : String : messageUtilisateurCiviliteLitteral02 
 	 * dans les préférences.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	private static Boolean fournirValiderRGUtilisateurCiviliteLitteral02() 
+	private static String fournirMessageUtilisateurCiviliteLitteral02() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
-					validerRGUtilisateurCiviliteLitteral02
-					, fournirKeyValiderRGUtilisateurCiviliteLitteral02()
-					, STRING_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
+					messageUtilisateurCiviliteLitteral02
+					, fournirKeyMessageUtilisateurCiviliteLitteral02()
+					, MESSAGE_UTILISATEUR_CIVILITE_LITTERAL_02_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
-	} // Fin de fournirValiderRGUtilisateurCiviliteLitteral02().___________
+	} // Fin de fournirMessageUtilisateurCiviliteLitteral02()._____________
 	
 
 	
 	/**
-	 * Getter de la clé du validerRGUtilisateurCiviliteLitteral02 
+	 * Getter de la clé du messageUtilisateurCiviliteLitteral02 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
-	 * "valider.UtilisateurCerbere.civilite.litteral".<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
+	 * "message.UtilisateurCerbere.civilite.litteral".<br/>
 	 *
-	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02 : String.<br/>
+	 * @return KEY_MESSAGE_UTILISATEUR_CIVILITE_LITTERAL_02 : String.<br/>
 	 */
-	public static String fournirKeyValiderRGUtilisateurCiviliteLitteral02() {
-		return KEY_VALIDER_UTILISATEUR_CIVILITE_LITTERAL_02;
-	} // Fin de fournirKeyValiderRGUtilisateurCiviliteLitteral02().________
+	public static String fournirKeyMessageUtilisateurCiviliteLitteral02() {
+		return KEY_MESSAGE_UTILISATEUR_CIVILITE_LITTERAL_02;
+	} // Fin de fournirKeyMessageUtilisateurCiviliteLitteral02().__________
 
 
 
 	/**
-	 * Getter du <b>SINGLETON de validerRGUtilisateurCiviliteLitteral02 
+	 * Getter du <b>SINGLETON de messageUtilisateurCiviliteLitteral02 
 	 * par défaut dans l'application</b>.
 	 * <ul>
-	 * <li>lit le validerRGUtilisateurCiviliteLitteral02 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * <li>lit le messageUtilisateurCiviliteLitteral02 stocké 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
 	 * </ul>
-	 * - retourne le validerRGUtilisateurCiviliteLitteral02 stocké en dur 
-	 * dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return validerRGUtilisateurCiviliteLitteral02 : Boolean.<br/>
+	 * @return messageUtilisateurCiviliteLitteral02 : Boolean.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	public static Boolean getValiderRGUtilisateurCiviliteLitteral02() 
+	public static String getMessageUtilisateurCiviliteLitteral02() 
 													throws Exception {
-		return fournirValiderRGUtilisateurCiviliteLitteral02();
-	} // Fin de getValiderRGUtilisateurCiviliteLitteral02()._______________
+		return fournirMessageUtilisateurCiviliteLitteral02();
+	} // Fin de getMessageUtilisateurCiviliteLitteral02()._________________
 	
 
 	
 	/**
-	* Setter du <b>SINGLETON de validerRGUtilisateurCiviliteLitteral02 
+	* Setter du <b>SINGLETON de messageUtilisateurCiviliteLitteral02 
 	* par défaut dans l'application</b>.<br/>
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -2300,24 +2136,24 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
 	*
-	* @param pValue : Boolean : 
-	* valeur à passer à validerRGUtilisateurCiviliteLitteral02.<br/>
+	* @param pValue : String : 
+	* valeur à passer à messageUtilisateurCiviliteLitteral02.<br/>
 	* 
 	 * @throws Exception 
 	*/
-	public static void setValiderRGUtilisateurCiviliteLitteral02(
-			final Boolean pValue) throws Exception {
+	public static void setMessageUtilisateurCiviliteLitteral02(
+			final String pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
-						, validerRGUtilisateurCiviliteLitteral02
-							, fournirKeyValiderRGUtilisateurCiviliteLitteral02());
+						, messageUtilisateurCiviliteLitteral02
+							, fournirKeyMessageUtilisateurCiviliteLitteral02());
 			
 		} // Fin du bloc synchronized.__________________
 						
-	} // Fin de setValiderRGUtilisateurCiviliteLitteral02(...).____________
+	} // Fin de setMessageUtilisateurCiviliteLitteral02(...).______________
 
 
 
@@ -2326,7 +2162,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut de l'application.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurCiviliteLongueur03 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>false sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2343,7 +2179,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurCiviliteLongueur03() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
 					validerRGUtilisateurCiviliteLongueur03
@@ -2359,7 +2195,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurCiviliteLongueur03 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.civilite.longueur".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_LONGUEUR_03 : String.<br/>
@@ -2375,7 +2211,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurCiviliteLongueur03 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>false sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2402,11 +2238,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -2422,7 +2258,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurCiviliteLongueur03(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
@@ -2440,7 +2276,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut de l'application.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurCiviliteNomenclature04 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>false sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2457,7 +2293,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurCiviliteNomenclature04() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
 					validerRGUtilisateurCiviliteNomenclature04
@@ -2473,7 +2309,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurCiviliteNomenclature04 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.civilite.nomenclature".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04 : String.<br/>
@@ -2489,7 +2325,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurCiviliteNomenclature04 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>false sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2516,11 +2352,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -2536,7 +2372,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurCiviliteNomenclature04(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
@@ -2558,7 +2394,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * de l'Utilisateur.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurPrenom stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2575,7 +2411,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurPrenom() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 						
 			return fournirAttribut(
 					validerRGUtilisateurPrenom
@@ -2591,7 +2427,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurPrenom 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.prenom".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_PRENOM : String.<br/>
@@ -2607,7 +2443,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurPrenom 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2634,11 +2470,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -2654,7 +2490,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurPrenom(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 						
 			setterAttribut(
 					pValue
@@ -2672,7 +2508,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut de l'application.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurPrenomRenseigne01 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2689,7 +2525,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurPrenomRenseigne01() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
 					validerRGUtilisateurPrenomRenseigne01
@@ -2705,7 +2541,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurPrenomRenseigne01 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.prenom.renseigne".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_PRENOM_RENSEIGNE_01 : String.<br/>
@@ -2721,7 +2557,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurPrenomRenseigne01 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2748,11 +2584,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -2768,7 +2604,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurPrenomRenseigne01(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
@@ -2786,7 +2622,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut de l'application.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurPrenomLitteral02 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2803,7 +2639,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurPrenomLitteral02() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
 					validerRGUtilisateurPrenomLitteral02
@@ -2819,7 +2655,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurPrenomLitteral02 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.prenom.litteral".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_PRENOM_LITTERAL_02 : String.<br/>
@@ -2835,7 +2671,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurPrenomLitteral02 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2862,11 +2698,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -2882,7 +2718,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurPrenomLitteral02(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
@@ -2900,7 +2736,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut de l'application.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurPrenomLongueur03 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2917,7 +2753,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurPrenomLongueur03() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
 					validerRGUtilisateurPrenomLongueur03
@@ -2933,7 +2769,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurPrenomLongueur03 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.prenom.longueur".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_PRENOM_LONGUEUR_03 : String.<br/>
@@ -2949,7 +2785,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurPrenomLongueur03 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -2976,11 +2812,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -2996,7 +2832,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurPrenomLongueur03(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
@@ -3018,7 +2854,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * de l'Utilisateur.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurNom stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -3035,7 +2871,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurNom() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 						
 			return fournirAttribut(
 					validerRGUtilisateurNom
@@ -3051,7 +2887,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurNom 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.nom".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_NOM : String.<br/>
@@ -3067,7 +2903,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurNom 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -3094,11 +2930,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -3114,7 +2950,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurNom(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 						
 			setterAttribut(
 					pValue
@@ -3132,7 +2968,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut de l'application.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurNomRenseigne01 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -3149,7 +2985,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurNomRenseigne01() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
 					validerRGUtilisateurNomRenseigne01
@@ -3165,7 +3001,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurNomRenseigne01 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.nom.renseigne".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_NOM_RENSEIGNE_01 : String.<br/>
@@ -3181,7 +3017,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurNomRenseigne01 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -3208,11 +3044,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -3228,7 +3064,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurNomRenseigne01(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
@@ -3246,7 +3082,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut de l'application.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurNomLitteral02 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -3263,7 +3099,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurNomLitteral02() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
 					validerRGUtilisateurNomLitteral02
@@ -3279,7 +3115,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurNomLitteral02 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.nom.litteral".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_NOM_LITTERAL_02 : String.<br/>
@@ -3295,7 +3131,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurNomLitteral02 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -3322,11 +3158,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -3342,7 +3178,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurNomLitteral02(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
@@ -3360,7 +3196,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut de l'application.<br/>
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurNomLongueur03 stocké 
-	 * dans UtilisateurCerbere_RG.properties 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -3377,7 +3213,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static Boolean fournirValiderRGUtilisateurNomLongueur03() 
 			throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
 					validerRGUtilisateurNomLongueur03
@@ -3393,7 +3229,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	/**
 	 * Getter de la clé du validerRGUtilisateurNomLongueur03 
 	 * par défaut de l'application 
-	 * dans UtilisateurCerbere_RG.properties.<br/>
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
 	 * "valider.UtilisateurCerbere.nom.longueur".<br/>
 	 *
 	 * @return KEY_VALIDER_UTILISATEUR_NOM_LONGUEUR_03 : String.<br/>
@@ -3409,7 +3245,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * par défaut dans l'application</b>.
 	 * <ul>
 	 * <li>lit le validerRGUtilisateurNomLongueur03 
-	 * stocké dans UtilisateurCerbere_RG.properties 
+	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
 	 * <li>true sinon (stocké en dur dans la classe).</li>
 	 * </ul>
@@ -3436,11 +3272,11 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
 	* <li>crée le Properties preferences et le fichier 
-	* UtilisateurCerbere_RG.properties et les remplit avec des valeurs 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
-	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_RG.properties 
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
@@ -3456,7 +3292,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	public static void setValiderRGUtilisateurNomLongueur03(
 			final Boolean pValue) throws Exception {
 		
-		synchronized (UtilisateurCerbereGestionnairePreferencesRG.class) {
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
@@ -3469,4 +3305,4 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 
 			
 	
-} // FIN DE LA CLASSE UtilisateurCerbereGestionnairePreferencesRG.-----------
+} // FIN DE LA CLASSE UtilisateurCerbereGestionnairePreferencesControles.----
