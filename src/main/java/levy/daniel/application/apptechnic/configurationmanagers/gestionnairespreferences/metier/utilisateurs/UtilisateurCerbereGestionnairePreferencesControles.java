@@ -14,6 +14,8 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -210,23 +212,23 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		= "la civilite de l'Utilisateur ne doit pas excéder 15 caractères";
 		
 	/**
-	 * clé de validerRGUtilisateurCiviliteNomenclature04 dans 
+	 * clé de messageUtilisateurCiviliteNomenclature04 dans 
 	 * UtilisateurCerbere_CONTROLES.properties<br/>
-	 * "valider.UtilisateurCerbere.civilite.nomenclature"<br/>
+	 * "message.UtilisateurCerbere.civilite.nomenclature"<br/>
 	 */
-	public static final String KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04 
-		= "valider.UtilisateurCerbere.civilite.nomenclature";
+	public static final String KEY_MESSAGE_UTILISATEUR_CIVILITE_NOMENCLATURE_04 
+		= "message.UtilisateurCerbere.civilite.nomenclature";
 	
 	/**
-	 * validerRGUtilisateurCiviliteNomenclature04 par défaut 
+	 * messageUtilisateurCiviliteNomenclature04 par défaut 
 	 * de l'application en dur.<br/>
 	 * N'est utilisé que si l'application ne peut lire le 
-	 * validerRGUtilisateurCiviliteNomenclature04 
+	 * messageUtilisateurCiviliteNomenclature04 
 	 * indiqué dans UtilisateurCerbere_CONTROLES.properties.<br/>
-	 * "false".<br/>
+	 * "la civilite de l'Utilisateur doit se conformer à une nomenclature".<br/>
 	 */
-	public static final String STRING_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR 
-		= "false";
+	public static final String MESSAGE_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR 
+		= "la civilite de l'Utilisateur doit se conformer à une nomenclature";
 		
 	/**
 	 * clé de validerRGUtilisateurPrenom dans 
@@ -449,11 +451,11 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	private static String messageUtilisateurCiviliteLongueur03;
 	
 	/**
-	 * Boolean activant la RG-Utilisateur-Civilite-04 : 
+	 * message émis par la RG-Utilisateur-Civilite-04 : 
 	 * "la civilite de l'Utilisateur 
 	 * doit se conformer à une nomenclature".<br/>
 	 */
-	private static Boolean validerRGUtilisateurCiviliteNomenclature04;
+	private static String messageUtilisateurCiviliteNomenclature04;
 
 	/**
 	 * Boolean activant <b>globalement</b> les contrôles 
@@ -602,7 +604,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 * par défaut stockée en dur.</li>
 	 * <li>ajoute le messageUtilisateurCiviliteLongueur03 
 	 * par défaut stockée en dur.</li>
-	 * <li>ajoute le validerRGUtilisateurCiviliteNomenclature04 
+	 * <li>ajoute le messageUtilisateurCiviliteNomenclature04 
 	 * par défaut stockée en dur.</li>
 	 * <li></li>
 	 * <li></li>
@@ -638,14 +640,17 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 			/* ajoute le messageUtilisateurCiviliteLongueur03 
 			 * par défaut stockée en dur.*/
 			preferences.setProperty(
+					KEY_VALEUR_UTILISATEUR_CIVILITE_LONGUEUR_03
+						, VALEUR_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
+			preferences.setProperty(
 					KEY_MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03
 						, MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
 			
-			/* ajoute le validerRGUtilisateurCiviliteNomenclature04 
+			/* ajoute le messageUtilisateurCiviliteNomenclature04 
 			 * par défaut stockée en dur.*/
 			preferences.setProperty(
-					KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04
-						, STRING_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR);
+					KEY_MESSAGE_UTILISATEUR_CIVILITE_NOMENCLATURE_04
+						, MESSAGE_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR);
 			
 			/* PRENOM. */
 			/* ajoute le validerRGUtilisateurPrenom 
@@ -1510,8 +1515,151 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de fournirAttribut(...).______________________________________
-	
 
+	
+	
+	/**
+	 * Méthod générique permettant de factoriser 
+	 * les Getters des attributs possédant une valeur numérique à changer.<br/>
+	 * retourne la valeur du String pAttribut 
+	 * dans le fichier properties.<br/>
+	 * Par exemple :<br/>
+	 * si la valeur dans pAttribut vaut "la civilite de l'Utilisateur 
+	 * ne doit pas excéder 15 caractères", 
+	 * et  pValeurAInjecter vaut "127", la méthode retourne 
+	 * "la civilite de l'Utilisateur ne doit pas excéder 127 caractères".<br/>
+	 * <ul>
+	 * <li>alimente le java.util.Properties <code>preferences</code>.</li>
+	 * <li><b>alimente l'attribut pAttribut avec sa valeur 
+	 * dans le java.util.Properties <code>preferences</code>.</b></li>
+	 * <ul>
+	 * <li>nettoie la valeur lue dans le properties avec un trim().</li>
+	 * <li>remplace le nombre dans la valeur lue dans le properties 
+	 * par la valeur à injecter.</li>
+	 * <li>affecte la valeur nettoyée lue dans le properties à pAttribut 
+	 * si le properties est accessible.</li>
+	 * <li>affecte la valeur en dur à pAttribut si problème.</li>
+	 * </ul>
+	 * <li><b>retourne la valeur de l'attribut 
+	 * dans le fichier properties</b>.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * un attribut de la classe (SINGLETON) comme 
+	 * <code>messageUtilisateurCiviliteLongueur03</code>
+	 * @param pFournirKey : String : 
+	 * clé de l'attribut String pAttribut dans le fichier properties.
+	 * @param pValeurAInjecter : String : 
+	 * valeur numérique à substituer dans pAttribut.
+	 * @param pValeurEnDur : String : 
+	 * valeur initiale stockée en dur dans la classe pour pAttribut.
+	 * 
+	 * @return String : 
+	 * l'attribut String passé en paramètre tel qu'il est stocké 
+	 * dans le fichier properties.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	private static String fournirAttributSubstitue(
+			String pAttribut
+				, final String pFournirKey
+					, final String pValeurAInjecter
+						, final String pValeurEnDur) 
+										throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			/*  alimente le java.util.Properties preferences. */
+			alimenterPreferences();
+			
+			/* alimente l'attribut pAttribut avec sa valeur 
+			 * dans le fichier properties. */
+			if (pAttribut == null) {
+				
+				/* lecture dans le properties. */
+				final String valeurStringSale 
+					= preferences
+						.getProperty(pFournirKey);
+				
+				String valeurString = null;
+				
+				if (!StringUtils.isBlank(valeurStringSale)) {
+					
+					/* nettoie la valeur lue dans le properties 
+					 * avec un trim(). */
+					pAttribut 
+						= valeurStringSale.trim();
+					
+					/* remplace le nombre par la valeur à injecter. */
+					pAttribut = remplacerNombreParValeur(
+							pAttribut, pValeurAInjecter);
+				}
+				else {
+					
+					/* prend valeur en dur si problème 
+					 * et l'affecte à pAttribut. */
+					pAttribut 
+						= pValeurEnDur.trim();
+				}
+			}
+			
+			/* retourne la valeur de l'attribut dans 
+			 * le fichier properties. */
+			return pAttribut;
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirAttributSubstitue(...)._____________________________
+
+
+	
+	/**
+	 * remplace le premier nombre rencontré dans une String pString 
+	 * par la valeur pValeurAInjecter.<br/>
+	 * Par exemple :<br/>
+	 * <code>remplacerNombreParValeur("la civilite de l'Utilisateur 
+	 * ne doit pas excéder 15 caractères", "127")</code> retourne 
+	 * "la civilite de l'Utilisateur ne doit pas excéder 127 caractères".<br/>
+	 * <ul>
+	 * <li>utilise une REGEX avec le motif "(\\d+)" 
+	 * pour trouver le nombre à substituer.</li>
+	 * <li>utilise <code>matcher.replaceFirst(pValeurAInjecter)</code> 
+	 * pour substituer la valeur à injecter au nombre trouvé.</li>
+	 * </ul>
+	 *
+	 * @param pString : String : 
+	 * chaine de caractères comportant un nombre à substituer.
+	 * @param pValeurAInjecter : String : valeur de substitution.
+	 * 
+	 * @return : String : chaine substituée.<br/>
+	 */
+	private static String remplacerNombreParValeur(
+			final String pString
+				, final String pValeurAInjecter) {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			String resultat = null;
+			
+			final String motif = "(\\d+)";
+			
+			final Pattern pattern = Pattern.compile(motif);
+			
+			final Matcher matcher = pattern.matcher(pString);
+			
+			if (matcher.find()) {
+								
+				resultat = matcher.replaceFirst(pValeurAInjecter);
+				
+			}
+			
+			return resultat;
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de remplacerNombreParValeur(...)._____________________________
+	
+	
 	
 	/**
 	 * Méthod générique permettant de factoriser 
@@ -2183,37 +2331,151 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 
 
 	/**
+	 * retourne le valeurUtilisateurCiviliteLongueur03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le valeurUtilisateurCiviliteLongueur03 stocké 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>"15" sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe ("15") 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : valeurUtilisateurCiviliteLongueur03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirValeurUtilisateurCiviliteLongueur03() 
+			throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					valeurUtilisateurCiviliteLongueur03
+					, fournirKeyValeurUtilisateurCiviliteLongueur03()
+					, VALEUR_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValeurUtilisateurCiviliteLongueur03().______________
+	
+
+	
+	/**
+	 * Getter de la clé du valeurUtilisateurCiviliteLongueur03 
+	 * par défaut de l'application 
+	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
+	 * "valeur.UtilisateurCerbere.civilite.longueur".<br/>
+	 *
+	 * @return KEY_VALEUR_UTILISATEUR_CIVILITE_LONGUEUR_03 : String.<br/>
+	 */
+	public static String fournirKeyValeurUtilisateurCiviliteLongueur03() {
+		return KEY_VALEUR_UTILISATEUR_CIVILITE_LONGUEUR_03;
+	} // Fin de fournirKeyValeurUtilisateurCiviliteLongueur03().___________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de valeurUtilisateurCiviliteLongueur03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le valeurUtilisateurCiviliteLongueur03 stocké 
+	 * dans UtilisateurCerbere_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>"15" sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe ("15") 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return valeurUtilisateurCiviliteLongueur03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getValeurUtilisateurCiviliteLongueur03() 
+													throws Exception {
+		return fournirValeurUtilisateurCiviliteLongueur03();
+	} // Fin de getValeurUtilisateurCiviliteLongueur03().__________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de valeurUtilisateurCiviliteLongueur03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à valeurUtilisateurCiviliteLongueur03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValeurUtilisateurCiviliteLongueur03(
+			final String pValue) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, valeurUtilisateurCiviliteLongueur03
+							, fournirKeyValeurUtilisateurCiviliteLongueur03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValeurUtilisateurCiviliteLongueur03(...)._______________
+
+
+
+	/**
 	 * retourne le messageUtilisateurCiviliteLongueur03 
 	 * par défaut de l'application.<br/>
 	 * <ul>
 	 * <li>lit le messageUtilisateurCiviliteLongueur03 stocké 
 	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
 	 * </ul>
-	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return : Boolean : messageUtilisateurCiviliteLongueur03 
+	 * @return : String : messageUtilisateurCiviliteLongueur03 
 	 * dans les préférences.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	private static Boolean fournirValiderRGUtilisateurCiviliteLongueur03() 
+	private static String fournirMessageUtilisateurCiviliteLongueur03() 
 			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			return fournirAttribut(
+			return fournirAttributSubstitue(
 					messageUtilisateurCiviliteLongueur03
-					, fournirKeyValiderRGUtilisateurCiviliteLongueur03()
+					, fournirKeyMessageUtilisateurCiviliteLongueur03()
+					, getValeurUtilisateurCiviliteLongueur03()
 					, MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
-	} // Fin de fournirvaliderRGUtilisateurCiviliteLongueur03().___________
+	} // Fin de fournirMessageUtilisateurCiviliteLongueur03()._____________
 	
 
 	
@@ -2221,13 +2483,13 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 * Getter de la clé du messageUtilisateurCiviliteLongueur03 
 	 * par défaut de l'application 
 	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
-	 * "valider.UtilisateurCerbere.civilite.longueur".<br/>
+	 * "message.UtilisateurCerbere.civilite.longueur".<br/>
 	 *
 	 * @return KEY_MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03 : String.<br/>
 	 */
-	public static String fournirKeyValiderRGUtilisateurCiviliteLongueur03() {
+	public static String fournirKeyMessageUtilisateurCiviliteLongueur03() {
 		return KEY_MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03;
-	} // Fin de fournirKeyValiderRGUtilisateurCiviliteLongueur03().________
+	} // Fin de fournirKeyMessageUtilisateurCiviliteLongueur03().__________
 
 
 
@@ -2238,22 +2500,21 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 * <li>lit le messageUtilisateurCiviliteLongueur03 
 	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
 	 * </ul>
-	 * - retourne le messageUtilisateurCiviliteLongueur03 stocké en dur 
-	 * dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return messageUtilisateurCiviliteLongueur03 : Boolean.<br/>
+	 * @return messageUtilisateurCiviliteLongueur03 : String.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	public static Boolean getValiderRGUtilisateurCiviliteLongueur03() 
+	public static String getMessageUtilisateurCiviliteLongueur03() 
 													throws Exception {
-		return fournirValiderRGUtilisateurCiviliteLongueur03();
-	} // Fin de getValiderRGUtilisateurCiviliteLongueur03()._______________
+		return fournirMessageUtilisateurCiviliteLongueur03();
+	} // Fin de getMessageUtilisateurCiviliteLongueur03()._________________
 	
 
 	
@@ -2275,104 +2536,103 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
 	*
-	* @param pValue : Boolean : 
+	* @param pValue : String : 
 	* valeur à passer à messageUtilisateurCiviliteLongueur03.<br/>
 	* 
 	 * @throws Exception 
 	*/
-	public static void setValiderRGUtilisateurCiviliteLongueur03(
-			final Boolean pValue) throws Exception {
+	public static void setMessageUtilisateurCiviliteLongueur03(
+			final String pValue) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
 						, messageUtilisateurCiviliteLongueur03
-							, fournirKeyValiderRGUtilisateurCiviliteLongueur03());
+							, fournirKeyMessageUtilisateurCiviliteLongueur03());
 			
 		} // Fin du bloc synchronized.__________________
 						
-	} // Fin de setValiderRGUtilisateurCiviliteLongueur03(...).____________
+	} // Fin de setMessageUtilisateurCiviliteLongueur03(...).______________
 
 
 
 	/**
-	 * retourne le validerRGUtilisateurCiviliteNomenclature04 
+	 * retourne le messageUtilisateurCiviliteNomenclature04 
 	 * par défaut de l'application.<br/>
 	 * <ul>
-	 * <li>lit le validerRGUtilisateurCiviliteNomenclature04 stocké 
+	 * <li>lit le messageUtilisateurCiviliteNomenclature04 stocké 
 	 * dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
 	 * </ul>
-	 * - retourne la valeur stockée en dur dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return : Boolean : validerRGUtilisateurCiviliteNomenclature04 
+	 * @return : String : messageUtilisateurCiviliteNomenclature04 
 	 * dans les préférences.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	private static Boolean fournirValiderRGUtilisateurCiviliteNomenclature04() 
+	private static String fournirMessageUtilisateurCiviliteNomenclature04() 
 			throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			return fournirAttribut(
-					validerRGUtilisateurCiviliteNomenclature04
-					, fournirKeyValiderRGUtilisateurCiviliteNomenclature04()
-					, STRING_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR);
+					messageUtilisateurCiviliteNomenclature04
+					, fournirKeyMessageUtilisateurCiviliteNomenclature04()
+					, MESSAGE_UTILISATEUR_CIVILITE_NOMENCLATURE_04_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
-	} // Fin de fournirvaliderRGUtilisateurCiviliteNomenclature04()._______
+	} // Fin de fournirMessageUtilisateurCiviliteNomenclature04()._________
 	
 
 	
 	/**
-	 * Getter de la clé du validerRGUtilisateurCiviliteNomenclature04 
+	 * Getter de la clé du messageUtilisateurCiviliteNomenclature04 
 	 * par défaut de l'application 
 	 * dans UtilisateurCerbere_CONTROLES.properties.<br/>
-	 * "valider.UtilisateurCerbere.civilite.nomenclature".<br/>
+	 * "message.UtilisateurCerbere.civilite.nomenclature".<br/>
 	 *
-	 * @return KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04 : String.<br/>
+	 * @return KEY_MESSAGE_UTILISATEUR_CIVILITE_NOMENCLATURE_04 : String.<br/>
 	 */
-	public static String fournirKeyValiderRGUtilisateurCiviliteNomenclature04() {
-		return KEY_VALIDER_UTILISATEUR_CIVILITE_NOMENCLATURE_04;
-	} // Fin de fournirKeyValiderRGUtilisateurCiviliteNomenclature04().____
+	public static String fournirKeyMessageUtilisateurCiviliteNomenclature04() {
+		return KEY_MESSAGE_UTILISATEUR_CIVILITE_NOMENCLATURE_04;
+	} // Fin de fournirKeyMessageUtilisateurCiviliteNomenclature04().______
 
 
 
 	/**
-	 * Getter du <b>SINGLETON de validerRGUtilisateurCiviliteNomenclature04 
+	 * Getter du <b>SINGLETON de messageUtilisateurCiviliteNomenclature04 
 	 * par défaut dans l'application</b>.
 	 * <ul>
-	 * <li>lit le validerRGUtilisateurCiviliteNomenclature04 
+	 * <li>lit le messageUtilisateurCiviliteNomenclature04 
 	 * stocké dans UtilisateurCerbere_CONTROLES.properties 
 	 * si il n'est pas null.</li>
-	 * <li>false sinon (stocké en dur dans la classe).</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
 	 * </ul>
-	 * - retourne le validerRGUtilisateurCiviliteNomenclature04 stocké en dur 
-	 * dans la classe (false) 
+	 * - retourne la valeur stockée en dur dans la classe
 	 * si le properties ne peut être lu 
 	 * (trace EX_TEC_INITIALISATION_08).<br/>
 	 * <br/>
 	 *
-	 * @return validerRGUtilisateurCiviliteNomenclature04 : Boolean.<br/>
+	 * @return messageUtilisateurCiviliteNomenclature04 : String.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	public static Boolean getValiderRGUtilisateurCiviliteNomenclature04() 
+	public static String getMessageUtilisateurCiviliteNomenclature04() 
 													throws Exception {
-		return fournirValiderRGUtilisateurCiviliteNomenclature04();
-	} // Fin de getValiderRGUtilisateurCiviliteNomenclature04().___________
+		return fournirMessageUtilisateurCiviliteNomenclature04();
+	} // Fin de getMessageUtilisateurCiviliteNomenclature04()._____________
 	
 
 	
 	/**
-	* Setter du <b>SINGLETON de validerRGUtilisateurCiviliteNomenclature04 
+	* Setter du <b>SINGLETON de messageUtilisateurCiviliteNomenclature04 
 	* par défaut dans l'application</b>.<br/>
 	* <b>Enregistre la valeur sur disque</b>.<br/>
 	* <ul>
@@ -2389,24 +2649,24 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
 	*
-	* @param pValue : Boolean : 
-	* valeur à passer à validerRGUtilisateurCiviliteNomenclature04.<br/>
+	* @param pValue : String : 
+	* valeur à passer à messageUtilisateurCiviliteNomenclature04.<br/>
 	* 
 	 * @throws Exception 
 	*/
-	public static void setValiderRGUtilisateurCiviliteNomenclature04(
-			final Boolean pValue) throws Exception {
+	public static void setMessageUtilisateurCiviliteNomenclature04(
+			final String pValue) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
 			setterAttribut(
 					pValue
-						, validerRGUtilisateurCiviliteNomenclature04
-							, fournirKeyValiderRGUtilisateurCiviliteNomenclature04());
+						, messageUtilisateurCiviliteNomenclature04
+							, fournirKeyMessageUtilisateurCiviliteNomenclature04());
 			
 		} // Fin du bloc synchronized.__________________
 						
-	} // Fin de setValiderRGUtilisateurCiviliteNomenclature04(...).________
+	} // Fin de setMessageUtilisateurCiviliteNomenclature04(...).__________
 	
 	
 	

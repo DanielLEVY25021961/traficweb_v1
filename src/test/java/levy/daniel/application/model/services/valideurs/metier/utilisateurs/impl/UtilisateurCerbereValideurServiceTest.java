@@ -826,7 +826,40 @@ public class UtilisateurCerbereValideurServiceTest {
 			System.out.println("Ne matche pas");
 		}
 		
-	}
+	} // Fin de testValiderTel().__________________________________________
+	
+
+	
+	/**
+	 * .<br/>
+	 *
+	 * @throws Exception : void :  .<br/>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testRemplacer() throws Exception {
+		
+		final String string = "la civilite de l'Utilisateur ne doit pas excéder 15 caractères";
+		final String valeurRemplacement = "127";
+		
+		final String motif = "(\\d+)";
+		
+		final Pattern pattern = Pattern.compile(motif);
+		
+		final Matcher matcher = pattern.matcher(string);
+		
+		if (matcher.find()) {
+			
+			final String groupTrouve = matcher.group();
+			
+			System.out.println("Groupe trouvé : " + groupTrouve);
+			
+			final String chaineSubstituee = matcher.replaceFirst(valeurRemplacement);
+			
+			System.out.println("Chaine finale : " + chaineSubstituee);
+		}
+		
+	} // Fin de testRemplacer().___________________________________________
 	
 	
 	
