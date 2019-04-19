@@ -862,5 +862,64 @@ public class UtilisateurCerbereValideurServiceTest {
 	} // Fin de testRemplacer().___________________________________________
 	
 	
+	/**
+	 * .<br/>
+	 *
+	 * @throws Exception : void :  .<br/>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderFormat1Nombre() throws Exception {
+		
+		final String stringBon = "la civilite de l'Utilisateur ne doit pas excéder 15 caractères";
+		
+		final String motif = "^(\\D*)(\\d+)(\\D*)$";
+		
+		final Pattern pattern = Pattern.compile(motif);
+		
+		final Matcher matcher = pattern.matcher(stringBon);
+		
+		if (matcher.matches()) {
+			System.out.println("MATCHE");
+		} else {
+			System.out.println("NE MATCHE PAS");
+		}
+		
+	} // Fin de testValiderFormat1Nombre().________________________________
+
+	
+	/**
+	 * .<br/>
+	 *
+	 * @throws Exception : void :  .<br/>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testExtraireNombreUnique() throws Exception {
+		
+		final String stringBon = "la civilite de l'Utilisateur ne doit pas excéder 150 caractères";
+		
+		final String motif = "^(\\D*)(\\d+)(\\D*)$";
+		
+		final Pattern pattern = Pattern.compile(motif);
+		
+		final Matcher matcher = pattern.matcher(stringBon);
+		
+		if (matcher.matches()) {
+			
+			System.out.println("MATCHE");
+			
+			int nombreGroupes = matcher.groupCount();
+			
+			for (int i = 0; i <= nombreGroupes; i++) {
+				System.out.println("Groupe(" + i + ") = " + matcher.group(i));
+			}
+			
+		} else {
+			System.out.println("NE MATCHE PAS");
+		}
+		
+	} // Fin de testExtraireNombreUnique().________________________________
+
 	
 } // FIN DE LA CLASSE UtilisateurCerbereValideurServiceTest.-----------------

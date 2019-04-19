@@ -1657,6 +1657,92 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		
 	} // Fin de remplacerNombreParValeur(...)._____________________________
 	
+
+	
+	/**
+	 * Retourne un boolean à true si pString 
+	 * est de la forme "....[1 Nombre] ..." comme 
+	 * <i>"la civilite de l'Utilisateur ne doit pas 
+	 * excéder 15 caractères"</i>.<br/>
+	 * <ul>
+	 * <li>utilise la Regex "^(\\D*)(\\d+)(\\D*)$" qui matche si pString 
+	 * ne comporte <b>qu'un et un seul nombre</b>.</li>
+	 * </ul>
+	 *
+	 * @param pString : String
+	 * 
+	 * @return : boolean : 
+	 * true si la chaine de caractères ne comporte 
+	 * qu'un et un seul nombre.<br/>
+	 */
+	private static boolean respecteFormat1Nombre(
+			final String pString) {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			boolean resultat = false;
+			
+			/* motif : chaine de caractères ne comporte 
+			 * qu'un et un seul nombre*/
+			final String motif = "^(\\D*)(\\d+)(\\D*)$";
+			
+			final Pattern pattern = Pattern.compile(motif);
+			
+			final Matcher matcher = pattern.matcher(pString);
+			
+			if (matcher.matches()) {
+				resultat = true;
+			} 
+			
+			return resultat;
+			
+		} // Fin du bloc synchronized.__________________
+				
+	} // Fin de respecteFormat1Nombre(...).________________________________
+
+
+	
+	/**
+	 * Extrait et Retourne un nombre contenu dans pString si pString 
+	 * est de la forme "....[1 Nombre] ..." comme 
+	 * <i>"la civilite de l'Utilisateur ne doit pas 
+	 * excéder 15 caractères"</i>.<br/>
+	 * <ul>
+	 * <li>utilise la Regex "^(\\D*)(\\d+)(\\D*)$" qui matche si pString 
+	 * ne comporte <b>qu'un et un seul nombre</b>.</li>
+	 * <li><code>extraire1Nombre("ne doit pas excéder 15 caractères")</code> 
+	 * retourne 15.</li>
+	 * </ul>
+	 *
+	 * @param pString : String
+	 * 
+	 * @return : String : le nombre unique contenu dans pString.<br/>
+	 */
+	private static String extraire1Nombre(
+			final String pString) {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			String resultat = null;
+			
+			/* motif : chaine de caractères ne comporte 
+			 * qu'un et un seul nombre*/
+			final String motif = "^(\\D*)(\\d+)(\\D*)$";
+			
+			final Pattern pattern = Pattern.compile(motif);
+			
+			final Matcher matcher = pattern.matcher(pString);
+			
+			if (matcher.matches()) {
+				resultat = matcher.group(2);				
+			}
+			
+			return resultat;
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de extraire1Nombre(...).______________________________________
+		
 	
 	
 	/**
@@ -1704,9 +1790,6 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 				 * l'attribut pAttribut. */
 				pAttribut = pValue;
 				
-				final String valeurString 
-					= pAttribut.toString();
-				
 				/* alimente le java.util.Properties preferences. */
 				alimenterPreferences();
 				
@@ -1714,7 +1797,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 				 * avec la nouvelle valeur pValue passée en paramètre. */
 				creerOuModifierProperty(
 						pFournirKey
-							, valeurString);
+							, pAttribut);
 				
 				/* ré-écrit entièrement le fichier properties mis à jour 
 				 * avec les nouvelles valeurs dans le 
@@ -2412,6 +2495,8 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* de l'attribut lié au présent.</li>
 	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
@@ -2430,10 +2515,45 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			setterAttribut(
-					pValue
-						, valeurUtilisateurCiviliteLongueur03
-							, fournirKeyValeurUtilisateurCiviliteLongueur03());
+			/* ne fait rien si le paramètre pValue est null
+			 * ou ne modifie pas la valeur existante de pAttribut. */
+			if (pValue != null 
+					&& !pValue
+						.equals(valeurUtilisateurCiviliteLongueur03)) {
+				
+				/* affecte la nouvelle valeur pValue à 
+				 * l'attribut pAttribut. */
+				valeurUtilisateurCiviliteLongueur03 = pValue;
+				
+				/* affecte la nouvelle valeur à l'attribut lié 
+				 * au présent pAttribut. */
+				messageUtilisateurCiviliteLongueur03 
+				= remplacerNombreParValeur(
+						messageUtilisateurCiviliteLongueur03
+							, valeurUtilisateurCiviliteLongueur03);
+				
+				/* alimente le java.util.Properties preferences. */
+				alimenterPreferences();
+				
+				/* modifie le java.util.Properties preferences 
+				 * avec la nouvelle valeur pValue passée en paramètre. */
+				creerOuModifierProperty(
+						fournirKeyValeurUtilisateurCiviliteLongueur03()
+							, valeurUtilisateurCiviliteLongueur03);
+				
+				/* modifie le java.util.Properties preferences 
+				 * avec la nouvelle valeur de l'attribut lié 
+				 * au présent pAttribut. */
+				creerOuModifierProperty(
+						fournirKeyMessageUtilisateurCiviliteLongueur03()
+							, messageUtilisateurCiviliteLongueur03);
+				
+				/* ré-écrit entièrement le fichier properties mis à jour 
+				 * avec les nouvelles valeurs dans le 
+				 * java.util.Properties preferences. */
+				enregistrerPreferencesDansFichierProperties();
+				
+			}
 			
 		} // Fin du bloc synchronized.__________________
 						
@@ -2465,10 +2585,9 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			return fournirAttributSubstitue(
+			return fournirAttribut(
 					messageUtilisateurCiviliteLongueur03
 					, fournirKeyMessageUtilisateurCiviliteLongueur03()
-					, getValeurUtilisateurCiviliteLongueur03()
 					, MESSAGE_UTILISATEUR_CIVILITE_LONGUEUR_03_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
