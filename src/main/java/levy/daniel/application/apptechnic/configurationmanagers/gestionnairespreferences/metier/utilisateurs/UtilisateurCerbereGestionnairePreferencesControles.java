@@ -428,10 +428,10 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 * du template contenant le commentataire à ajouter 
 	 * en haut du fichier properties contenant les preferences 
 	 * <code>UtilisateurCerbere_CONTROLES.properties</code>.<br/>
-	 * "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_RG_properties_commentaires.txt"
+	 * "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_CONTROLES_properties_commentaires.txt"
 	 */
 	private static final String CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE 
-		= "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_RG_properties_commentaires.txt";
+		= "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_CONTROLES_properties_commentaires.txt";
 	
 	/**
 	 * message émis par la RG-Utilisateur-Civilite-01 : 
@@ -1809,6 +1809,233 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setterAttribut(...)._______________________________________
+	
+
+	
+	/**
+	* Méthod générique permettant de factoriser 
+	* les Setters des attributs valeur liés à un unique attribut message.<br/>
+	* Par exemple, l'attribut message 
+	* <code>messageUtilisateurCiviliteLongueur03</code> 
+	* susceptible de contenir 
+	* "la civilite de l'Utilisateur ne doit pas excéder 15 caractères" 
+	* est lié à l'attribut valeur 
+	* <code>valeurUtilisateurCiviliteLongueur03</code> 
+	* qui doit alors contenir "15".<br/>
+	* Setter du <b>SINGLETON de pAttributValeur comme 
+	* <code>valeurUtilisateurCiviliteLongueur03</code> 
+	* par défaut dans l'application</b>.<br/>
+	* pAttributValeur est la valeur d'un attribut message 
+	* <i>à une seule valeur</i> lié comme 
+	* <code>messageUtilisateurCiviliteLongueur03</code>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* de l'attribut lié au présent.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à pAttributValeur.<br/>
+	* @param pAttributValeur : String : 
+	* un attribut de la classe (SINGLETON) lié à 
+	* un unique attribut message comme 
+	* <code>valeurUtilisateurCiviliteLongueur03</code> 
+	* @param pKeyAttributValeur : String : 
+	* clé de l'attribut String pAttributValeur dans le fichier properties.
+	* @param pAttributMessageLie : String : 
+	* un attribut de la classe (SINGLETON) lié à 
+	* un unique attribut valeur comme 
+	* <code>messageUtilisateurCiviliteLongueur03</code> 
+	* @param pKeyAttributMessageLie : String : 
+	* clé de l'attribut String pAttributMessageLie dans le fichier properties.
+	* 
+	 * @throws Exception 
+	*/
+	private static void setterValeurAttributLieAUnAttribut(
+			final String pValue
+				, String pAttributValeur
+					, final String pKeyAttributValeur
+						, String pAttributMessageLie
+							, final String pKeyAttributMessageLie) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			/* ne fait rien si le paramètre pValue est null
+			 * ou ne modifie pas la valeur existante de pAttribut. */
+			if (pValue != null 
+					&& !pValue
+						.equals(pAttributValeur)) {
+				
+				/* affecte la nouvelle valeur pValue à 
+				 * l'attribut pAttribut. */
+				pAttributValeur = pValue;
+				
+				/* affecte la nouvelle valeur à l'attribut lié 
+				 * au présent pAttribut. */
+				pAttributMessageLie 
+				= remplacerNombreParValeur(
+						pAttributMessageLie
+							, pAttributValeur);
+				
+				/* alimente le java.util.Properties preferences. */
+				alimenterPreferences();
+				
+				/* modifie le java.util.Properties preferences 
+				 * avec la nouvelle valeur pValue passée en paramètre. */
+				creerOuModifierProperty(
+						pKeyAttributValeur
+							, pAttributValeur);
+				
+				/* ré-écrit entièrement le fichier properties mis à jour 
+				 * avec les nouvelles valeurs dans le 
+				 * java.util.Properties preferences. */
+				enregistrerPreferencesDansFichierProperties();
+				
+				/* modifie le java.util.Properties preferences 
+				 * avec la nouvelle valeur de l'attribut lié 
+				 * au présent pAttribut. */
+				creerOuModifierProperty(
+						pKeyAttributMessageLie
+							, pAttributMessageLie);
+				
+				/* ré-écrit entièrement le fichier properties mis à jour 
+				 * avec les nouvelles valeurs dans le 
+				 * java.util.Properties preferences. */
+				enregistrerPreferencesDansFichierProperties();
+				
+			}
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setterValeurAttributLieAUnAttribut(...).___________________
+	
+
+	
+	/**
+	* Méthod générique permettant de factoriser 
+	* les Setters des attributs message liés à un unique attribut valeur.<br/>
+	* Par exemple, l'attribut message 
+	* <code>messageUtilisateurCiviliteLongueur03</code> 
+	* susceptible de contenir 
+	* "la civilite de l'Utilisateur ne doit pas excéder 15 caractères" 
+	* est lié à l'attribut valeur 
+	* <code>valeurUtilisateurCiviliteLongueur03</code> 
+	* qui doit alors contenir "15".<br/>
+	* Setter du <b>SINGLETON de pAttributMessage comme 
+	* <code>messageUtilisateurCiviliteLongueur03</code> 
+	* par défaut dans l'application</b>.<br/>
+	* pAttributMessage est un attribut message 
+	* <i>à une seule valeur</i> liée comme 
+	* <code>valeurUtilisateurCiviliteLongueur03</code>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* UtilisateurCerbere_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>affecte la nouvelle valeur à l'attribut 
+	* lié au présent pAttribut.</li>
+	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si la nouvelle valeur pValue 
+	* ne respecte pas le bon format.<br/>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à pAttributMessage.<br/>
+	*  @param pAttributValeurLiee : String : 
+	* un attribut de la classe (SINGLETON) lié à 
+	* un unique attribut message comme 
+	* <code>valeurUtilisateurCiviliteLongueur03</code> 
+	* @param pKeyAttributValeurLiee : String : 
+	* clé de l'attribut String pAttributValeurLiee dans le fichier properties.
+	* @param pAttributMessage : String : 
+	* un attribut de la classe (SINGLETON) lié à 
+	* un unique attribut valeur comme 
+	* <code>messageUtilisateurCiviliteLongueur03</code> 
+	* @param pKeyAttributMessage : String : 
+	* clé de l'attribut String pAttributMessageLie dans le fichier properties.
+	* 
+	* @throws Exception 
+	*/
+	private static void setMessageAttributLieAUnAttribut(
+			final String pValue
+				, String pAttributValeurLiee
+					, final String pKeyAttributValeurLiee
+				, String pAttributMessage
+					, final String pKeyAttributMessage) throws Exception {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			/* ne fait rien si la nouvelle valeur pValue 
+			 * ne respecte pas le bon format. */
+			if (!respecteFormat1Nombre(pValue)) {
+				return;
+			}
+			
+			/* ne fait rien si le paramètre pValue est null
+			 * ou ne modifie pas la valeur existante de pAttribut. */
+			if (pValue != null 
+					&& !pValue
+						.equals(pAttributMessage)) {
+				
+				/* affecte la nouvelle valeur pValue à 
+				 * l'attribut pAttribut. */
+				pAttributMessage = pValue;
+				
+				/* affecte la nouvelle valeur à l'attribut lié 
+				 * au présent pAttribut. */
+				pAttributValeurLiee 
+				= extraire1Nombre(
+						pAttributMessage);
+				
+				/* alimente le java.util.Properties preferences. */
+				alimenterPreferences();
+				
+				/* modifie le java.util.Properties preferences 
+				 * avec la nouvelle valeur pValue passée en paramètre. */
+				creerOuModifierProperty(
+						pKeyAttributValeurLiee
+							, pAttributValeurLiee);
+				
+				/* ré-écrit entièrement le fichier properties mis à jour 
+				 * avec les nouvelles valeurs dans le 
+				 * java.util.Properties preferences. */
+				enregistrerPreferencesDansFichierProperties();
+				
+				/* modifie le java.util.Properties preferences 
+				 * avec la nouvelle valeur de l'attribut lié 
+				 * au présent pAttribut. */
+				creerOuModifierProperty(
+						pKeyAttributMessage
+							, pAttributMessage);
+				
+				/* ré-écrit entièrement le fichier properties mis à jour 
+				 * avec les nouvelles valeurs dans le 
+				 * java.util.Properties preferences. */
+				enregistrerPreferencesDansFichierProperties();
+				
+			}
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageAttributLieAUnAttribut(...)._____________________
 
 
 	
@@ -2174,7 +2401,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 * Getter du Chemin relatif (par rapport à src/main/resources) 
 	 * du template contenant le commentaire à ajouter 
 	 * au dessus de UtilisateurCerbere_CONTROLES.properties.<br/>
-	 * "commentaires_properties/commentaires_preferences_properties.txt"
+	 * "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_RG_properties_commentaires.txt"
 	 * <br/>
 	 *
 	 * @return CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE : String.<br/>
@@ -2514,46 +2741,13 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 			final String pValue) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
-			
-			/* ne fait rien si le paramètre pValue est null
-			 * ou ne modifie pas la valeur existante de pAttribut. */
-			if (pValue != null 
-					&& !pValue
-						.equals(valeurUtilisateurCiviliteLongueur03)) {
-				
-				/* affecte la nouvelle valeur pValue à 
-				 * l'attribut pAttribut. */
-				valeurUtilisateurCiviliteLongueur03 = pValue;
-				
-				/* affecte la nouvelle valeur à l'attribut lié 
-				 * au présent pAttribut. */
-				messageUtilisateurCiviliteLongueur03 
-				= remplacerNombreParValeur(
-						messageUtilisateurCiviliteLongueur03
-							, valeurUtilisateurCiviliteLongueur03);
-				
-				/* alimente le java.util.Properties preferences. */
-				alimenterPreferences();
-				
-				/* modifie le java.util.Properties preferences 
-				 * avec la nouvelle valeur pValue passée en paramètre. */
-				creerOuModifierProperty(
-						fournirKeyValeurUtilisateurCiviliteLongueur03()
-							, valeurUtilisateurCiviliteLongueur03);
-				
-				/* modifie le java.util.Properties preferences 
-				 * avec la nouvelle valeur de l'attribut lié 
-				 * au présent pAttribut. */
-				creerOuModifierProperty(
-						fournirKeyMessageUtilisateurCiviliteLongueur03()
-							, messageUtilisateurCiviliteLongueur03);
-				
-				/* ré-écrit entièrement le fichier properties mis à jour 
-				 * avec les nouvelles valeurs dans le 
-				 * java.util.Properties preferences. */
-				enregistrerPreferencesDansFichierProperties();
-				
-			}
+						
+			setterValeurAttributLieAUnAttribut(
+					pValue
+					, valeurUtilisateurCiviliteLongueur03
+						, fournirKeyValeurUtilisateurCiviliteLongueur03()
+					, messageUtilisateurCiviliteLongueur03
+						, fournirKeyMessageUtilisateurCiviliteLongueur03());
 			
 		} // Fin du bloc synchronized.__________________
 						
@@ -2645,10 +2839,14 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
+	* <li>affecte la nouvelle valeur à l'attribut 
+	* lié au présent pAttribut.</li>
 	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
+	* - ne fait rien si la nouvelle valeur pValue 
+	* ne respecte pas le bon format.<br/>
 	* - ne fait rien si le paramètre est null 
 	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
@@ -2662,11 +2860,13 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 			final String pValue) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
-			
-			setterAttribut(
+						
+			setMessageAttributLieAUnAttribut(
 					pValue
-						, messageUtilisateurCiviliteLongueur03
-							, fournirKeyMessageUtilisateurCiviliteLongueur03());
+					, valeurUtilisateurCiviliteLongueur03
+					, fournirKeyValeurUtilisateurCiviliteLongueur03()
+					, messageUtilisateurCiviliteLongueur03
+					, fournirKeyMessageUtilisateurCiviliteLongueur03());
 			
 		} // Fin du bloc synchronized.__________________
 						
@@ -3097,6 +3297,8 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* de l'attribut lié au présent.</li>
 	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
@@ -3115,10 +3317,12 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			setterAttribut(
+			setterValeurAttributLieAUnAttribut(
 					pValue
-						, valeurUtilisateurPrenomLongueur03
-							, fournirKeyValeurUtilisateurPrenomLongueur03());
+					, valeurUtilisateurPrenomLongueur03
+						, fournirKeyValeurUtilisateurPrenomLongueur03()
+					, messageUtilisateurPrenomLongueur03
+						, fournirKeyMessageUtilisateurPrenomLongueur03());
 			
 		} // Fin du bloc synchronized.__________________
 						
@@ -3150,10 +3354,9 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			return fournirAttributSubstitue(
+			return fournirAttribut(
 					messageUtilisateurPrenomLongueur03
 					, fournirKeyMessageUtilisateurPrenomLongueur03()
-					, getValeurUtilisateurPrenomLongueur03()
 					, MESSAGE_UTILISATEUR_PRENOM_LONGUEUR_03_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
@@ -3211,6 +3414,8 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* de l'attribut lié au présent.</li>
 	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
@@ -3229,11 +3434,13 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			setterAttribut(
+				setMessageAttributLieAUnAttribut(
 					pValue
-						, messageUtilisateurPrenomLongueur03
-							, fournirKeyMessageUtilisateurPrenomLongueur03());
-			
+					, valeurUtilisateurPrenomLongueur03
+					, fournirKeyValeurUtilisateurPrenomLongueur03()
+					, messageUtilisateurPrenomLongueur03
+					, fournirKeyMessageUtilisateurPrenomLongueur03());
+
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageUtilisateurPrenomLongueur03(...).________________
@@ -3550,6 +3757,8 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* de l'attribut lié au présent.</li>
 	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
@@ -3568,10 +3777,12 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			setterAttribut(
+			setterValeurAttributLieAUnAttribut(
 					pValue
-						, valeurUtilisateurNomLongueur03
-							, fournirKeyValeurUtilisateurNomLongueur03());
+					, valeurUtilisateurNomLongueur03
+						, fournirKeyValeurUtilisateurNomLongueur03()
+					, messageUtilisateurNomLongueur03
+						, fournirKeyMessageUtilisateurNomLongueur03());
 			
 		} // Fin du bloc synchronized.__________________
 						
@@ -3603,10 +3814,9 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			return fournirAttributSubstitue(
+			return fournirAttribut(
 					messageUtilisateurNomLongueur03
 					, fournirKeyMessageUtilisateurNomLongueur03()
-					, getValeurUtilisateurNomLongueur03()
 					, MESSAGE_UTILISATEUR_NOM_LONGUEUR_03_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
@@ -3664,6 +3874,8 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* en dur si nécessaire.</li>
 	* <li>modifie preferences avec la nouvelle valeur 
 	* passée dans le setter.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* de l'attribut lié au présent.</li>
 	* <li>ré-écrit entièrement le fichier UtilisateurCerbere_CONTROLES.properties 
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
@@ -3682,11 +3894,13 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
 			
-			setterAttribut(
+			setMessageAttributLieAUnAttribut(
 					pValue
-						, messageUtilisateurNomLongueur03
-							, fournirKeyMessageUtilisateurNomLongueur03());
-			
+					, valeurUtilisateurNomLongueur03
+					, fournirKeyValeurUtilisateurNomLongueur03()
+					, messageUtilisateurNomLongueur03
+					, fournirKeyMessageUtilisateurNomLongueur03());
+
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageUtilisateurNomLongueur03(...).___________________

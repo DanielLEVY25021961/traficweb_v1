@@ -1,0 +1,11 @@
+# ############## UtilisateurCerbere_CONTROLES.properties ###############
+# Encodé en UTF-8
+#
+# Fichier properties EXTERNE ne devant pas être inclus dans le classpath.
+# Fichier MODIFIABLE par la Maîtrise d'Ouvrage (MOA) via une
+# GESTION DE PREFERENCES.
+#
+# ######################################################################
+# Contient les paramétrages des CONTROLES (messages, valeurs, ...)
+# pour l'OBJET METIER : UtilisateurCerbere 
+# ######################################################################
