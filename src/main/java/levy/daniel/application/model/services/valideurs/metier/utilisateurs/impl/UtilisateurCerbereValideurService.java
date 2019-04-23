@@ -10,6 +10,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.utilisateurs.UtilisateurCerbereGestionnairePreferencesControles;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.utilisateurs.UtilisateurCerbereGestionnairePreferencesRG;
 import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
 import levy.daniel.application.model.services.valideurs.ErreursMaps;
@@ -256,7 +257,9 @@ public class UtilisateurCerbereValideurService
 		 * à chaque appel de la méthode. */
 		final ErreursMaps erreursMap 
 			= new ErreursMaps();
-						
+		
+		boolean valide = false;
+		
 		/* CIVILITE. */
 		/* VALIDATIONS pour chaque attribut. */
 		boolean civiliteValide = false;
@@ -333,6 +336,10 @@ public class UtilisateurCerbereValideurService
 //		this.validerProfil(pDto, erreursMap);
 //		this.validerPortee(pDto, erreursMap);
 //		this.validerRestriction(pDto, erreursMap);
+		
+		valide = civiliteValide && prenomValide && nomValide;
+		
+		System.out.println("valide ? : " + valide);
 		
 		return erreursMap;
 		
@@ -501,11 +508,13 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurCiviliteRenseigne01(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -519,7 +528,8 @@ public class UtilisateurCerbereValideurService
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "la civilité doit obligatoirement être renseignée";
+			= UtilisateurCerbereGestionnairePreferencesControles
+				.getMessageUtilisateurCiviliteRenseigne01();
 		
 		// CONTROLE ***************
 		if (StringUtils.isBlank(pDto.getCivilite())) {
@@ -543,6 +553,10 @@ public class UtilisateurCerbereValideurService
 	
 	/**
 	 * valide la RG LITTERAL pour la civilite.<br/>
+	 * <ul>
+	 * <li>utilise la regex "\\D+" qui signifie 
+	 * 'que des lettres et des caractères spéciaux (pas de chiffres)'.</li>
+	 * </ul>
 	 *
 	 * @param pAttribut : String : 
 	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
@@ -554,11 +568,13 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurCiviliteLitteral02(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -572,7 +588,8 @@ public class UtilisateurCerbereValideurService
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "la civilité doit obligatoirement être littérale";
+			= UtilisateurCerbereGestionnairePreferencesControles
+				.getMessageUtilisateurCiviliteLitteral02();
 		
 		// CONTROLE ***************
 		final String civilite = pDto.getCivilite();
@@ -613,11 +630,13 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurCiviliteLongueur03(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -628,14 +647,23 @@ public class UtilisateurCerbereValideurService
 		if (pErreursMaps == null) {
 			return false;
 		}
+				
+		final String longueurMaxString 
+		= UtilisateurCerbereGestionnairePreferencesControles
+			.getValeurUtilisateurCiviliteLongueur03();
 		
+		int longueurMax = 15;
 		
-		final int longueurMax = 15;
+		try {
+			longueurMax = Integer.parseInt(longueurMaxString);
+		} catch (Exception e) {
+			longueurMax = 15;
+		}
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "la civilité doit obligatoirement comporter " 
-					+ longueurMax + " caractères maximum";
+			= UtilisateurCerbereGestionnairePreferencesControles
+				.getMessageUtilisateurCiviliteLongueur03();
 		
 		// CONTROLE ***************
 		final String civilite = pDto.getCivilite();
@@ -672,11 +700,12 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurCiviliteNomenclature04(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -690,7 +719,8 @@ public class UtilisateurCerbereValideurService
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "la civilité doit obligatoirement respecter une liste finie de valeurs";
+			= UtilisateurCerbereGestionnairePreferencesControles
+				.getMessageUtilisateurCiviliteNomenclature04();
 		
 		// CONTROLE ***************
 		final String civilite = pDto.getCivilite();
@@ -861,11 +891,13 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurPrenomRenseigne01(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -879,7 +911,8 @@ public class UtilisateurCerbereValideurService
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "le prénom doit obligatoirement être renseigné";
+			= UtilisateurCerbereGestionnairePreferencesControles
+				.getMessageUtilisateurPrenomRenseigne01();
 		
 		// CONTROLE ***************
 		if (StringUtils.isBlank(pDto.getPrenom())) {
@@ -903,6 +936,10 @@ public class UtilisateurCerbereValideurService
 	
 	/**
 	 * valide la RG LITTERAL pour le prenom.<br/>
+	 * <ul>
+	 * <li>utilise la regex "\\D+" qui signifie 
+	 * 'que des lettres et des caractères spéciaux (pas de chiffres)'.</li>
+	 * </ul>
 	 *
 	 * @param pAttribut : String : 
 	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
@@ -914,11 +951,13 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurPrenomLitteral02(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -932,7 +971,8 @@ public class UtilisateurCerbereValideurService
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "le prénom doit obligatoirement être littéral";
+			= UtilisateurCerbereGestionnairePreferencesControles
+				.getMessageUtilisateurPrenomLitteral02();
 		
 		// CONTROLE ***************
 		final String prenom = pDto.getPrenom();
@@ -973,11 +1013,13 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurPrenomLongueur03(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -989,13 +1031,22 @@ public class UtilisateurCerbereValideurService
 			return false;
 		}
 		
+		final String longueurMaxString 
+		= UtilisateurCerbereGestionnairePreferencesControles
+			.getValeurUtilisateurPrenomLongueur03();
 		
-		final int longueurMax = 30;
+		int longueurMax = 30;
+		
+		try {
+			longueurMax = Integer.parseInt(longueurMaxString);
+		} catch (Exception e) {
+			longueurMax = 30;
+		}
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "le prénom doit obligatoirement comporter " 
-					+ longueurMax + " caractères maximum";
+			= UtilisateurCerbereGestionnairePreferencesControles
+			.getMessageUtilisateurPrenomLongueur03();
 		
 		// CONTROLE ***************
 		final String prenom = pDto.getPrenom();
@@ -1163,11 +1214,13 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurNomRenseigne01(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -1181,7 +1234,8 @@ public class UtilisateurCerbereValideurService
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "le nom doit obligatoirement être renseigné";
+			= UtilisateurCerbereGestionnairePreferencesControles
+				.getMessageUtilisateurNomRenseigne01();
 		
 		// CONTROLE ***************
 		if (StringUtils.isBlank(pDto.getNom())) {
@@ -1205,6 +1259,10 @@ public class UtilisateurCerbereValideurService
 	
 	/**
 	 * valide la RG LITTERAL pour le nom.<br/>
+	 * <ul>
+	 * <li>utilise la regex "\\D+" qui signifie 
+	 * 'que des lettres et des caractères spéciaux (pas de chiffres)'.</li>
+	 * </ul>
 	 *
 	 * @param pAttribut : String : 
 	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
@@ -1216,11 +1274,13 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurNomLitteral02(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -1234,7 +1294,8 @@ public class UtilisateurCerbereValideurService
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "le nom doit obligatoirement être littéral";
+			= UtilisateurCerbereGestionnairePreferencesControles
+				.getMessageUtilisateurNomLitteral02();
 		
 		// CONTROLE ***************
 		final String nom = pDto.getNom();
@@ -1275,11 +1336,13 @@ public class UtilisateurCerbereValideurService
 	 * 
 	 * @return boolean : 
 	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
 	 */
 	private boolean validerRGUtilisateurNomLongueur03(
 			final String pAttribut
 				, final IUtilisateurCerbereDTO pDto
-					, final ErreursMaps pErreursMaps) {
+					, final ErreursMaps pErreursMaps) throws Exception {
 		
 		/* retourne false si pDto == null. */
 		if (pDto == null) {
@@ -1291,13 +1354,22 @@ public class UtilisateurCerbereValideurService
 			return false;
 		}
 		
+		final String longueurMaxString 
+		= UtilisateurCerbereGestionnairePreferencesControles
+			.getValeurUtilisateurNomLongueur03();
 		
-		final int longueurMax = 30;
+		int longueurMax = 30;
+		
+		try {
+			longueurMax = Integer.parseInt(longueurMaxString);
+		} catch (Exception e) {
+			longueurMax = 30;
+		}
 		
 		/* message utilisateur de la RG. */
 		final String message 
-			= "le nom doit obligatoirement comporter " 
-					+ longueurMax + " caractères maximum";
+			= UtilisateurCerbereGestionnairePreferencesControles
+				.getMessageUtilisateurNomLongueur03();
 		
 		// CONTROLE ***************
 		final String nom = pDto.getNom();

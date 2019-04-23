@@ -32,7 +32,7 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.
  * @since 12 mars 2019
  *
  */
-public class UtilisateurCerbereGestionnaireRG 
+public final class UtilisateurCerbereGestionnaireRG 
 					extends AbstractGestionnaireRG {
 
 	// ************************ATTRIBUTS************************************/

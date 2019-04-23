@@ -225,7 +225,8 @@ public class UtilisateurCerbereResponse {
 	* @param pDto : IUtilisateurCerbereDTO : 
 	* valeur à passer à this.dto.<br/>
 	*/
-	public final void setDto(IUtilisateurCerbereDTO pDto) {
+	public final void setDto(
+			final IUtilisateurCerbereDTO pDto) {
 		this.dto = pDto;
 	}
 
@@ -250,7 +251,8 @@ public class UtilisateurCerbereResponse {
 	* @param pErrorsMap : Map<String,String> : 
 	* valeur à passer à this.errorsMap.<br/>
 	*/
-	public final void setErrorsMap(Map<String, String> pErrorsMap) {
+	public final void setErrorsMap(
+			final Map<String, String> pErrorsMap) {
 		this.errorsMap = pErrorsMap;
 	}
 
@@ -275,7 +277,8 @@ public class UtilisateurCerbereResponse {
 	* @param pMessagesErrorUtilisateurList : List<String> : 
 	* valeur à passer à this.messagesErrorUtilisateurList.<br/>
 	*/
-	public final void setMessagesErrorUtilisateurList(List<String> pMessagesErrorUtilisateurList) {
+	public final void setMessagesErrorUtilisateurList(
+			final List<String> pMessagesErrorUtilisateurList) {
 		this.messagesErrorUtilisateurList = pMessagesErrorUtilisateurList;
 	}
 
@@ -300,7 +303,8 @@ public class UtilisateurCerbereResponse {
 	* @param pMessageGlobal : String : 
 	* valeur à passer à this.messageGlobal.<br/>
 	*/
-	public final void setMessageGlobal(String pMessageGlobal) {
+	public final void setMessageGlobal(
+			final String pMessageGlobal) {
 		this.messageGlobal = pMessageGlobal;
 	}
 	

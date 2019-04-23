@@ -226,7 +226,7 @@ public class MyMutablePersistenceUnitInfo
 	 * <li>toujours false si on utilise les classes annotées. </li>
 	 * </ul>
 	 */
-	private boolean excludeUnlistedClasses; // NOPMD by daniel.levy on 28/01/19 10:32
+	private boolean excludeUnlistedClasses;  // NOPMD by daniel.levy on 23/04/19 11:16
 		
 	/**
 	 * mode d'utilisation du cache de 2nd niveau par l'ORM.
@@ -589,7 +589,7 @@ public class MyMutablePersistenceUnitInfo
 		} else {
 			this.mappingFileNames = pMappingFileNames;
 //			for (final String mappingFileName : this.mappingFileNames) {
-//				super.addMappingFileName(mappingFileName); // NOPMD by daniel.levy on 28/01/19 10:48
+//				super.addMappingFileName(mappingFileName); 
 //			}
 		}
 		
@@ -599,7 +599,7 @@ public class MyMutablePersistenceUnitInfo
 		} else {
 			this.jarFileUrls = pJarFileUrls;
 //			for (final URL jarFileUrl : this.jarFileUrls) {
-//				super.addJarFileUrl(jarFileUrl); // NOPMD by daniel.levy on 28/01/19 10:49
+//				super.addJarFileUrl(jarFileUrl); 
 //			}
 		}
 				
@@ -611,7 +611,7 @@ public class MyMutablePersistenceUnitInfo
 		} else {
 			this.managedClassNames = pManagedClassNames;
 //			for (final String managedClassName : this.managedClassNames) {
-//				super.addManagedClassName(managedClassName); // NOPMD by daniel.levy on 28/01/19 10:49
+//				super.addManagedClassName(managedClassName); 
 //			}
 		}
 		
@@ -620,7 +620,7 @@ public class MyMutablePersistenceUnitInfo
 		} else {
 			this.managedPackages = pManagedPackages;
 //			for (final String managedPackage : this.managedPackages) {
-//				super.addManagedPackage(managedPackage); // NOPMD by daniel.levy on 28/01/19 10:49
+//				super.addManagedPackage(managedPackage); 
 //			}
 		}
 		

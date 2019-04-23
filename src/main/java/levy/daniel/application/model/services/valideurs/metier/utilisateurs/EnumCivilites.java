@@ -82,7 +82,8 @@ public enum EnumCivilites {
 	 * @param pAbreviation
 	 * @param pCivilite
 	 */
-	EnumCivilites(String pAbreviation, String pCivilite) {
+	EnumCivilites(
+			final String pAbreviation, final String pCivilite) {
 		this.abreviation = pAbreviation;
 		this.civilite = pCivilite;		
 	} // Fin de CONSTRUCTEUR COMPLET.______________________________________
@@ -119,7 +120,7 @@ public enum EnumCivilites {
 	 * @return : List&lt;String&gt; : 
 	 * Liste des abréviations contenues dans l'Enumeration.<br/>
 	 */
-	public static final List<String> getListeAbreviations() {
+	public static List<String> getListeAbreviations() {
 		
 		final EnumCivilites[] enumerations = values();
 		
@@ -146,7 +147,7 @@ public enum EnumCivilites {
 	 * @return : List&lt;String&gt; : 
 	 * Liste des noms complets contenus dans l'Enumeration.<br/>
 	 */
-	public static final List<String> getListeComplets() {
+	public static List<String> getListeComplets() {
 		
 		final EnumCivilites[] enumerations = values();
 		
@@ -174,7 +175,7 @@ public enum EnumCivilites {
 	 * Liste de toutes les valeurs (abrégées ou pas)
 	 *  contenues dans l'Enumeration.<br/>
 	 */
-	public static final List<String> getListeValeursPossibles() {
+	public static List<String> getListeValeursPossibles() {
 		
 		final List<String> resultat = new ArrayList<String>();
 		

@@ -1887,7 +1887,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 *
 	 * @return CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING : String.<br/>
 	 */
-	public static final String getCheminRelatifPreferencesPropertiesString() {
+	public static String getCheminRelatifPreferencesPropertiesString() {
 		return CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING;
 	} // Fin de getCheminRelatifPreferencesPropertiesString()._____________
 

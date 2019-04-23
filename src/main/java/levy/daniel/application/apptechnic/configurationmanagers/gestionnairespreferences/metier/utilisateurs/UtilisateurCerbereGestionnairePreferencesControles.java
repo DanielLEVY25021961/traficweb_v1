@@ -1487,8 +1487,6 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 					= preferences
 						.getProperty(pFournirKey);
 				
-				String valeurString = null;
-				
 				if (!StringUtils.isBlank(valeurStringSale)) {
 					
 					/* nettoie la valeur lue dans le properties 
@@ -1579,8 +1577,6 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 					= preferences
 						.getProperty(pFournirKey);
 				
-				String valeurString = null;
-				
 				if (!StringUtils.isBlank(valeurStringSale)) {
 					
 					/* nettoie la valeur lue dans le properties 
@@ -1658,6 +1654,46 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	} // Fin de remplacerNombreParValeur(...)._____________________________
 	
 
+	
+	/**
+	 * Retourne un boolean à true si pString 
+	 * est de la forme "[1 Nombre]" comme 
+	 * <i>"15"</i>.<br/>
+	 * <ul>
+	 * <li>utilise la Regex "^(\\d+)$" qui matche si pString 
+	 * est <b>un nombre</b>.</li>
+	 * </ul>
+	 *
+	 * @param pString : String
+	 * 
+	 * @return : boolean : 
+	 * true si la chaine est un nombre.<br/>
+	 */
+	private static boolean est1Nombre(
+			final String pString) {
+		
+		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			boolean resultat = false;
+			
+			/* motif : chaine de caractères est un nombre. */
+			final String motif = "^(\\d+)$";
+			
+			final Pattern pattern = Pattern.compile(motif);
+			
+			final Matcher matcher = pattern.matcher(pString);
+			
+			if (matcher.matches()) {
+				resultat = true;
+			} 
+			
+			return resultat;
+			
+		} // Fin du bloc synchronized.__________________
+				
+	} // Fin de est1Nombre(...).___________________________________________
+
+	
 	
 	/**
 	 * Retourne un boolean à true si pString 
@@ -1841,6 +1877,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
+	* - ne fait rien si pValue n'est pas un nombre.<br/>
 	* - ne fait rien si le paramètre est null 
 	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
@@ -1870,6 +1907,11 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 							, final String pKeyAttributMessageLie) throws Exception {
 		
 		synchronized (UtilisateurCerbereGestionnairePreferencesControles.class) {
+			
+			/* ne fait rien si pValue n'est pas un nombre. */
+			if (!est1Nombre(pValue)) {
+				return;
+			}
 			
 			/* ne fait rien si le paramètre pValue est null
 			 * ou ne modifie pas la valeur existante de pAttribut. */
@@ -2324,7 +2366,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 *
 	 * @return CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING : String.<br/>
 	 */
-	public static final String getCheminRelatifPreferencesPropertiesString() {
+	public static String getCheminRelatifPreferencesPropertiesString() {
 		return CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING;
 	} // Fin de getCheminRelatifPreferencesPropertiesString()._____________
 
@@ -2728,6 +2770,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
+	* - ne fait rien si pValue n'est pas un nombre.<br/>
 	* - ne fait rien si le paramètre est null 
 	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
@@ -3303,6 +3346,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
+	* - ne fait rien si pValue n'est pas un nombre.<br/>
 	* - ne fait rien si le paramètre est null 
 	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>
@@ -3763,6 +3807,7 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	* mis à jour.</li>
 	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
 	* </ul>
+	* - ne fait rien si pValue n'est pas un nombre.<br/>
 	* - ne fait rien si le paramètre est null 
 	* ou ne modifie pas la valeur existante.<br/>
 	* <br/>

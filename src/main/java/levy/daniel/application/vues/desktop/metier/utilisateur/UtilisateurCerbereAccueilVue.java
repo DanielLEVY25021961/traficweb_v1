@@ -360,7 +360,7 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 				final Stage stage = new Stage();
 								
 				/* Instancie une VUE CREATION. */
-				UtilisateurCerbereCreationVue vueCreation 
+				final UtilisateurCerbereCreationVue vueCreation 
 					= new UtilisateurCerbereCreationVue(
 							stage, UtilisateurCerbereAccueilVue.this);
 				
@@ -474,6 +474,9 @@ public class UtilisateurCerbereAccueilVue extends AnchorPane {
 			.addListener(new ChangeListener<String>() {
 				
 				/* récupération du CONTROLLER. */
+				/**
+				 * CONTROLLER.<br/>
+				 */
 				private IUtilisateurCerbereController 
 							utilisateurCerbereControllerLocal 
 				= UtilisateurCerbereAccueilVue.this
