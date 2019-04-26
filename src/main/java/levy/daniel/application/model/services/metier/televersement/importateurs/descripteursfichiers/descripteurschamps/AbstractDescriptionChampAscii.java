@@ -1,0 +1,1962 @@
+package levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps;
+
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.IConstantes;
+import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
+import levy.daniel.application.exceptions.technical.impl.MapNullException;
+import levy.daniel.application.exceptions.technical.impl.MapVideException;
+import levy.daniel.application.exceptions.technical.impl.TableauNullException;
+import levy.daniel.application.exceptions.technical.impl.TableauVideException;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+/**
+ * class AbstractDescriptionChampAscii :<br/>
+ * CLASSE ABSTRAITE décrivant un champ 
+ * (correspondant à une ligne de la description) 
+ * dans une description de fichier ASCII comme un HIT ou un HistoNatF07.<br/>
+ * <br/>
+ * La description d'un champ de fichier ASCII diffère 
+ * de la description d'un champ de fichier csv car on besoin :<br/>
+ * - des colonnes de début et de fin localisant le champ dans un fichier ASCII 
+ * (par exemple, le département est localisé entre 
+ * les colonnes 1 et 3 dans un HIT ASCII),<br/>
+ * - de l'ordre du champ dans un fichier csv.<br/>
+ * <br/>
+ * Par exemple, le champ décrit à la 2ème ligne de la description
+ * d'un fichier HistoNatF07 a pour intitulé 'Numéro de Section', est
+ * situé dans les  colonnes 4 à 9, ...<br/>
+ * <br/>
+ * La description d'un HistonatF07 commence par :<br/>
+ * ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;colonneDebut;colonneFin;longueurCalculee;<br/>
+ * 1;1-3;3;Numéro de Département;cadré à gauche. Ex: dept 13 = 130;numDepartement;Integer;false;1;3;3;<br/>
+ * 2;4-9;6;Numéro de Section;;numSection;String;false;4;9;6;<br/>
+ * <br/>
+ * CLASSE chargée via ses constructeurs et sa méthode 
+ * lireChamp(String[] pTokens) de : <br/> 
+ * <br/>
+ * - 1 - stocker dans une Map&lt;Integer, String&gt;
+ * 'entetesDescriptionMap' :<br/>
+ * 1a - l'ordre des colonnes d'une description de fichier.<br/>
+ * 1b - le libellé (java) des colonnes de la description
+ * de fichier.<br/>
+ * Par exemple :<br/>
+ * (1, 'Ordre des champs'), (2, 'colonnes'), (3, 'longueur')
+ * , (4, 'intitule'), ...
+ * dans le cas d'un HistonatF07.<br/>
+ * <br/>
+ * - 2 - stocker dans une Map&lt;Integer, String&gt;
+ * 'valeursDescriptionMap' :<br/>
+ * 2a - l'ordre des colonnes d'une description de fichier.<br/>
+ * 2b - la valeur (String) pour un champ (ligne) donné dans la description
+ * de fichier.<br/>
+ * Par exemple :<br/>
+ * (1, '1'), (2, '1-3'), (3, '3'), (4, 'Numéro de Département'), ...
+ * dans le cas du champ 'numéro de département' (ligne 1) de la
+ * description d'un HistonatF07.<br/>
+ * <br/>
+ * - Hérite de AbstractRapporteur ce qui
+ * garantit que tous les DescriptionChamp rapporteront.<br/>
+ * <br/>
+ * <br/>
+ *
+ * - Exemple d'utilisation :<br/>
+ * <br/>
+ * <blockquote>//Création d'un tableau de valeurs (tokens)
+ * représentant la description du champ 'Numéro de Département' : </blockquote>
+ * <code>public static final String[] NUM_DEPT_DESC 
+ * = {"1", "1-3", "3", "Numéro de Département"
+ * , "Cadré à droite", "numDepartment"
+ * , "Integer", "false"};</code><br/>
+ * <br/>
+ * <blockquote>// instanciation d'un DescriptionChampHistoF07.</blockquote>
+ * <code>AbstractDescriptionChampAscii desc 
+ * = new DescriptionChampHistoF07();</code><br/>
+ * <br/>
+ * <blockquote>// Lecture du tableau de valeurs.</blockquote>
+ * <code>desc.lireChamp(NUM_DEPT_DESC);</code><br/>
+ * <blockquote>// Impression de la Map de valeurs obtenues.</blockquote>
+ * <code>System.out.println(desc.valeursMapToString());</code><br/>
+ * <br/>
+ *
+ * - Mots-clé :<br/>
+ * Regex, Pattern, compile, Matcher, StringUtils, <br/>
+ * Expression régulière, Expression reguliere, regex,<br/>
+ * Nettoyer caractères de non-mot en début et en fin de chaîne,
+ * composée ou non.<br/>
+ * <br/>
+ *
+ * - Dépendances :<br/>
+ * <br/>
+ *
+ *
+ * @author Levy Lévy
+ * @version 1.0
+ * @since 27 juil. 2011
+ *
+ */
+public abstract class AbstractDescriptionChampAscii 
+							extends AbstractDescriptionChamp {
+
+	// ************************ATTRIBUTS**********************************/
+	/* CONSTANTES. */
+	/**
+	 * CLASSE_ABSTRACTDESCRIPTIONCHAMP : String : <br/>
+	 * "CLASSE AbstractDescriptionChampAscii - ".<br/>
+	 */
+	public static final String CLASSE_ABSTRACTDESCRIPTIONCHAMP 
+		= "CLASSE AbstractDescriptionChampAscii - ";
+	
+	
+	/**
+	 * CONSTRUCTEUR_ABSTRACTDESCRIPTIONCHAMPASCII : String : <br/>
+	 * "Constructeur AbstractDescriptionChampAscii() - ".<br/>
+	 */
+	public static final String CONSTRUCTEUR_ABSTRACTDESCRIPTIONCHAMPASCII 
+		= "Constructeur AbstractDescriptionChampAscii() - ";
+	
+	
+	/**
+	 * METHODE_TROUVERCOLONNEDEBUTFIN : String :<br/>
+	 * "Méthode trouverColonneDebutFin(String pColonnes) - ".<br/>
+	 */
+	public static final String METHODE_TROUVERCOLONNEDEBUTFIN 
+		= "Méthode trouverColonneDebutFin(String pColonnes) - ";
+	
+	
+	/**
+	 * MESSAGE_COLONNES_INTROUVABLES : String :<br/>
+	 * "Impossible de trouver des colonnes 
+	 * dans la chaine passée en paramètre : ".<br/>
+	 */
+	public static final String MESSAGE_COLONNES_INTROUVABLES 
+		= "Impossible de trouver des colonnes " 
+			+ "dans la chaine passée en paramètre : ";
+	
+	
+	
+	/**
+	 * METHODE_LIRECHAMP : String : <br/>
+	 * "Méthode lireChamp(int[] pTokens) - ".<br/>
+	 */
+	public static final String METHODE_LIRECHAMP 
+	= "Méthode lireChamp(int[] pTokens) - ";
+	
+
+	
+	/**
+	 * MESSAGE_COLONNES_NULL : String :<br/>
+	 * "La chaine pColonnes passée en paramètre est null.".<br/>
+	 */
+	public static final String MESSAGE_COLONNES_NULL 
+	= "La chaine pColonnes passée en paramètre est null.";
+
+	
+	/**
+	 * MESSAGE_COLONNES_INVERSEES : String :<br/>
+	 * "Vous avez probablement inversé l'ordre des colonnes : ".<br/>
+	 */
+	public static final String MESSAGE_COLONNES_INVERSEES 
+		= "Vous avez probablement inversé l'ordre des colonnes : ";
+
+	
+	
+	/**
+	 * colonnes : String :<br/>
+	 * Colonne unique ou fourchette de colonnes positionnant 
+	 * le champ à lire dans une ligne d'un HistoNatF07.<br/>
+	 * C'est la valeur fournie dans la description de fichier HistoNatF07 
+	 * comme 4-9 par exemple.<br/>
+	 * Par exemple, 'Numéro de Section' est situé entre les colonnes 
+	 * 4 et 9 d'une ligne d'un HistoNatF07.<br/>
+	 */
+	protected String colonnes;
+	
+	
+	/**
+	 * longueur : Integer :<br/>
+	 * Longueur (nombre de colonnes) du champ 
+	 * fournie dans la description.<br/>
+	 */
+	protected Integer longueur;
+	
+
+	
+	/**
+	 * colonneDebut : Integer :<br/>
+	 * Colonne de début du champ (1-based) fournie dans la description 
+	 * de fichier HistoNatF07 comme 4 pour 4-9 (dans colonnes) 
+	 * par exemple.<br/>
+	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 */
+	protected Integer colonneDebut;
+	
+	
+	/**
+	 * colonneFin : Integer :<br/>
+	 * Colonne de fin du champ (1-based) fournie dans la description 
+	 * de fichier HistoNatF07 comme 9 pour 4-9 (dans colonnes) 
+	 * par exemple.<br/>
+	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 */
+	protected Integer colonneFin;
+	
+		
+	/**
+	 * longueurCalculee : Integer :<br/>
+	 * calcul : colonneFin - colonneDebut.<br/>
+	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 */
+	protected Integer longueurCalculee;
+	
+
+	
+	/**
+	 * LOG : Log : 
+	 * Logger pour Log4j (utilisant commons-logging).
+	 */
+	private static final Log LOG = LogFactory
+			.getLog(AbstractDescriptionChampAscii.class);
+
+	
+	
+	
+	// *************************METHODES**********************************/
+
+	/**
+	 * method CONSTRUCTEUR AbstractDescriptionChampAscii() :<br/>
+	 * CONSTRUCTEUR D'ARITE 0 permettant d'instancier
+	 * un AbstractDescriptionChampAscii 'tout nu'.<br/>
+	 * - lit dans messagestechniques.properties si il faut
+	 * rapporter ou pas.<br/>
+	 * <br/>
+	 * A utiliser avec les setters ou en instanciant
+	 * la Map&lt;Integer, String&gt; 'entetesDescriptionMap'
+	 * en son sein.<br/>
+	 * <br/>
+	 * - Il FAUT ALIMENTER 'nombreColonnesObligatoires' dans
+	 * l'appel de ce constructeur par les classes concrètes.<br/>
+	 * <br/>
+	 * - Alimente le 'nombreColonnesObligatoires', c'est à dire
+	 * les colonnes qui doivent obligatoirement être fournies
+	 * dans la description de fichier (d'autres colonnes comme 
+	 * 'colonne de début', 'colonne de fin', 'longueur', ... 
+	 * peuvent être calculées après l'import sans avoir été 
+	 * directement fournies dans la description de fichier.
+	 * Il suffit d'avoir fourni un champ 'colonnes' sous 
+	 * la forme '14-24').<br/>
+	 */
+	public AbstractDescriptionChampAscii() {
+		
+		super();
+		
+		/* Détermination de la valeur du boolean qui
+		 * stipule si il faut logger la lecture du champ
+		 * ou pas. */
+		final String cleLogDescription 
+				= this.recupererCleLogErreur();
+
+		final String logDescriptionString 
+		= ConfigurationApplicationManager
+			.getBundleMessagesTechniques()
+				.getString(cleLogDescription);
+		
+		if (StringUtils.containsIgnoreCase(logDescriptionString, "true")) {
+			this.logDescription = true;
+		}
+		else {
+			this.logDescription = false;
+		}
+		
+		/* Instanciation du rapportDescriptionStb
+		 * si le boolean est à true. */
+		if (this.logDescription) {
+			this.rapportDescriptionStb = new StringBuffer();
+		}
+		
+		/* Instanciation de la Map décrivant les champs
+		 * dans la définition des fichiers HistoNat_F07. */
+		this.entetesDescriptionMap = new TreeMap<Integer, String>();
+		
+		/* Remplissage de la Map. ***********/
+		/* ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;
+		 * typeJava;aNomenclature;
+		 * colonneDebut;colonneFin;longueurCalculee; */
+		this.entetesDescriptionMap.put(1, "ordreChamps");
+		this.entetesDescriptionMap.put(2, "colonnes");
+		this.entetesDescriptionMap.put(3, "longueur");
+		this.entetesDescriptionMap.put(4, "intitule");
+		this.entetesDescriptionMap.put(5, "nomenclature");
+		this.entetesDescriptionMap.put(6, "champJava");
+		this.entetesDescriptionMap.put(7, "typeJava");
+		this.entetesDescriptionMap.put(8, "aNomenclature");
+		
+		/* Alimentation du nombre de colonnes
+		 * à fournir obligatoirement dans la description
+		 * de fichier en entrée. */
+		this.nombreColonnesObligatoires = 8;
+		
+		/* Champs à calculer */
+		this.entetesDescriptionMap.put(9, "colonneDebut");
+		this.entetesDescriptionMap.put(10, "colonneFin");
+		this.entetesDescriptionMap.put(11, "longueurCalculee");
+		
+	} // Fin de CONSTRUCTEUR AbstractDescriptionChampAscii().___________________
+	
+	
+	
+	/**
+	 * method CONSTRUCTEUR AbstractDescriptionChampAscii(
+	 * SortedMap<Integer, String> pColonnesDescriptionMap) :<br/>
+	 * CONSTRUCTEUR D'ARITE 1.<br/>
+	 * <br/>
+	 *  - lit dans messagestechniques.properties si il faut
+	 * rapporter ou pas.<br/>
+	 * - Permet de construire un AbstractDescriptionChampAscii
+	 * en lui passant la Map des colonnes de la description
+	 * du fichier 'entetesDescriptionMap'.<br/>
+	 * <br/>
+	 * - Il FAUT ALIMENTER 'nombreColonnesObligatoires' dans
+	 * l'appel de ce constructeur par les classes concrètes.<br/>
+	 * <br/>
+	 *
+	 * @param pColonnesDescriptionMap : la Map des colonnes de la 
+	 * description du fichier.<br/>
+	 * 
+	 * @throws MapNullException lorsque : la Map passée en paramètre
+	 * est null.<br/>
+	 * @throws MapVideException lorsque : la Map passée en paramètre
+	 * est vide.<br/>
+	 */
+	public AbstractDescriptionChampAscii(
+			final SortedMap<Integer, String> pColonnesDescriptionMap) 
+				throws MapNullException, MapVideException {
+		
+		super();
+		
+		/* Détermination de la valeur du boolean qui
+		 * stipule si il faut logger la lecture du champ
+		 * ou pas. */
+		final String cleLogDescription 
+			= this.recupererCleLogErreur();
+
+		final String logDescriptionString 
+		= ConfigurationApplicationManager
+			.getBundleMessagesTechniques()
+				.getString(cleLogDescription);
+		
+		if (StringUtils.containsIgnoreCase(logDescriptionString, "true")) {
+			this.logDescription = true;
+		}
+		else {
+			this.logDescription = false;
+		}
+		
+		/* Instanciation du rapportDescriptionStb
+		 * si le boolean est à true. */
+		if (this.logDescription) {
+			this.rapportDescriptionStb = new StringBuffer();
+		}
+		
+		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
+		/* Map null. */
+		if (pColonnesDescriptionMap == null) {
+			
+			final String cleMapNull
+			= "abstractdescriptionchamp.constructeur.mapnull";
+
+			final String messageMapNull 
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleMapNull);
+
+			final String message 
+			= CLASSE_ABSTRACTDESCRIPTIONCHAMP 
+			+ CONSTRUCTEUR_ABSTRACTDESCRIPTIONCHAMPASCII 
+			+ messageMapNull;
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new MapNullException(message);
+			
+		} // Fin de Map null.________________________________________
+		
+		/* Map vide. */
+		if (pColonnesDescriptionMap.isEmpty()) {
+			
+			final String cleMapVide
+			= "abstractdescriptionchamp.constructeur.mapvide";
+
+			final String messageMapVide 
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleMapVide);
+
+			final String message 
+			= CLASSE_ABSTRACTDESCRIPTIONCHAMP 
+			+ CONSTRUCTEUR_ABSTRACTDESCRIPTIONCHAMPASCII 
+			+ messageMapVide;
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new MapVideException(message);
+			
+		} // Fin de Map vide._______________________________________
+		
+		// **************PARAMETRES VALIDES****************************/
+		/* Passage des paramètres aux attributs. */
+		this.entetesDescriptionMap = pColonnesDescriptionMap;
+		
+		/* Alimentation du nombre de colonnes
+		 * à fournir obligatoirement dans la description
+		 * de fichier en entrée. */
+		this.nombreColonnesObligatoires = 8;
+				
+	} // Fin de CONSTRUCTEUR AbstractDescriptionChampAscii(
+	 // Map<Integer, String> pColonnesDescriptionMap)._____________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String toString() {
+		
+		if (this.ordreChamps != null && this.intitule != null) {
+			
+			return "Ligne : " + this.ordreChamps.toString() 
+					+ " : " + this.intitule;
+		}
+		
+		return "null";
+		
+	} // Fin de toString().________________________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void lireChamp(
+			final String[] pTokens) 
+				throws 
+					TableauNullException
+						, TableauVideException
+							, ExceptionImport {
+				
+		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
+		/* pTokens null. */
+		/* LOG, rapport d'erreur et Exception. */
+		this.traiterTokensNull(pTokens);
+		
+		/* pTokens vide. */
+		/* LOG, rapport d'erreur et Exception. */
+		this.traiterTokensVide(pTokens);
+		
+		/* Tableau de longueur trop petite. */
+		/* LOG, rapport d'erreur et Exception. */
+		this.traiterTokensLongueur(pTokens);
+		
+		// **************PARAMETRES VALIDES****************************/
+		
+		/* INSTANCIATION DE LA MAP valeursDescriptionMap. */
+		this.valeursDescriptionMap = new TreeMap<Integer, String>();
+		
+		/* Instanciation de la Map des longueurs. */
+		this.longueursDescriptionMap = new TreeMap<Integer, Integer>();
+		
+		/* Lecture des Tokens pour un HistoF07 : */
+		/* ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;
+		 * typeJava;aNomenclature;
+		 * colonneDebut;colonneFin;longueurCalculee; */
+		String ordreChampsString =null;
+		String colonnesString = null;
+		String longueurString = null;
+		String intituleString = null;
+		String nomenclatureString = null;
+		String champJavaString = null;
+		String typeJavaString = null;
+		String aNomenclatureString = null;
+		
+		/* Champs calculés. */
+		String colonneDebutString = null;
+		String colonneFinString = null;
+		String longueurCalculeeString = null;
+
+		
+		//* 1 - LECTURE DE L'ORDRE DES CHAMPS. ************/
+		ordreChampsString = this.recupererOrdreChamps(pTokens);
+		
+		/* Insertion dans la Map des Valeurs. */
+		this.valeursDescriptionMap.put(1, ordreChampsString);
+		
+		/* Insertion dans la Map des longueurs. */
+		this.longueursDescriptionMap.put(1, ordreChampsString.length());
+		
+	 // FIN DE LECTURE DE L'ORDRE DES CHAMPS. ************/
+		
+		
+		
+		//* 2 - LECTURE DE 'COLONNES'. **************************/
+		/* Si NON RENSEIGNE, exception. */
+		this.traiterTokensColonnesNonRenseigne(pTokens);
+		
+		/* Sinon, CHAMP RENSEIGNE. */
+			
+		/* Lecture de colonnes. */
+		colonnesString = pTokens[1];
+		
+		/* Nettoie le token. */
+		final String colonnesnettoye = nettoyerString(colonnesString);
+		
+		/* Extraction des positions de début et de fin
+		 * si colonnes était de la forme '1-3'. */
+		/* Jette une ExceptionImport si c'est impossible. */
+		int[] colonnesDetectees = null;
+		
+		try {
+			colonnesDetectees = this.trouverColonneDebutFin(colonnesnettoye);
+		} catch (Exception e1) {
+			
+			final String messageExc = e1.getMessage();
+			final String message 
+			= this.getNomClasse()
+			+ METHODE_LIRECHAMP 
+			+ messageExc;
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message, e1);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new ExceptionImport(message, e1);
+		}
+		
+		/* Passage aux attributs. */
+		this.colonnes = colonnesnettoye;	
+		
+		if (colonnesDetectees != null) {
+			
+			this.colonneDebut = colonnesDetectees[0];
+			this.colonneFin = colonnesDetectees[1];
+			/* Calcul de la longueur. */
+			this.longueurCalculee = this.colonneFin - this.colonneDebut + 1;
+			
+			colonneDebutString = Integer.toString(this.colonneDebut);							
+			colonneFinString = Integer.toString(this.colonneFin);		
+			longueurCalculeeString 
+				= Integer.toString(this.longueurCalculee);
+		
+			/* Insertion dans la Map des Valeurs. ******/
+			this.valeursDescriptionMap.put(2, colonnesnettoye);
+			
+			this.valeursDescriptionMap.put(9, colonneDebutString);
+			this.valeursDescriptionMap.put(10, colonneFinString);
+			this.valeursDescriptionMap.put(11, longueurCalculeeString);
+			
+			/* Insertion dans la Map des longueurs. */
+			this.longueursDescriptionMap.put(2
+					, colonnesnettoye.length());
+			
+			this.longueursDescriptionMap.put(9
+					, colonneDebutString.length());
+			this.longueursDescriptionMap.put(10
+					, colonneFinString.length());
+			this.longueursDescriptionMap.put(11
+					, longueurCalculeeString.length());
+			
+		}
+		
+	 // FIN DE LECTURE DE 'COLONNES'. ************/
+		
+		
+		//* 3 - LECTURE DE 'LONGUEUR'. **************************/
+		/* longueur n'a aucun intérêt puisque l'on peut
+		 * la calculer. On admet donc qu'elle ne soit
+		 * pas renseignée */
+		/* Insertion dans la Map des Valeurs. */
+		
+		/* Si 'longueur' est renseignée, on vérifie qu'elle
+		 * est bien parsable en Integer.
+		 * Sinon, on l'annule. */
+		
+		String longueurNettoyee = null;
+		
+		if (pTokens[2] != null) {
+			
+			longueurString = pTokens[2];
+			longueurNettoyee = nettoyerString(longueurString);
+			
+			try {
+				/* Passage aux attributs. */
+				this.longueur = Integer.parseInt(longueurNettoyee);
+			} catch (NumberFormatException e) {
+				longueurNettoyee = null;
+			}
+		}
+		
+		/* Insertion dans la Map des Valeurs. ******/
+		this.valeursDescriptionMap.put(3, longueurNettoyee);
+		
+		/* Insertion dans la Map des longueurs. */
+		if (longueurNettoyee != null) {
+			this.longueursDescriptionMap.put(3
+					, longueurNettoyee.length());
+		}
+		else {
+			this.longueursDescriptionMap.put(3
+					, 0);
+		}
+		// FIN DE LECTURE DE 'LONGUEUR'. ************/
+		
+		
+		//* 4 - LECTURE DE 'INTITULE'. **************************/
+		/* Si NON RENSEIGNE, exception. */
+		this.traiterTokensIntituleNonRenseigne(pTokens);
+		
+		/* Sinon, CHAMP RENSEIGNE. */
+		/* Insertion dans la Map des Valeurs. */
+		intituleString = pTokens[3];
+		
+		/* Ne nettoie pas. 
+		 * Enlève juste d'éventuels guillemets.*/
+		final String intituleNettoye 
+			= StringUtils.remove(intituleString, "\"");
+		
+		/* Passage aux attributs. */
+		this.intitule = intituleNettoye;
+		
+		/* Insertion dans la Map des Valeurs. ******/
+		this.valeursDescriptionMap.put(4, intituleNettoye);
+		
+		/* Insertion dans la Map des longueurs. */
+		this.longueursDescriptionMap.put(4, intituleNettoye.length());
+		// FIN DE LECTURE DE 'INTITULE'. ************/
+		
+		
+		//* 5 - LECTURE DE 'NOMENCLATURE'. **************************/
+		/* Nomenclature peut ne pas être renseigné si le champ
+		 * n'avait pas de nomenclature.
+		 *  On admet donc qu'elle ne soit
+		 * pas renseignée */
+		/* Insertion dans la Map des Valeurs. */
+		nomenclatureString = pTokens[4];
+		
+		/* Ne nettoie pas.
+		 * Enlève juste d'éventuels guillemets. */
+		final String nomenclatureNettoye 
+			= StringUtils.remove(nomenclatureString, "\"");
+		
+		/* Passage aux attributs. */
+		this.nomenclature = nomenclatureNettoye;
+		
+		/* Insertion dans la Map des Valeurs. ******/
+		this.valeursDescriptionMap.put(5, nomenclatureNettoye);
+		
+		/* Insertion dans la Map des longueurs. */
+		if (nomenclatureNettoye != null) {
+			this.longueursDescriptionMap
+				.put(5, nomenclatureNettoye.length());
+		}
+		else {
+			this.longueursDescriptionMap
+				.put(5, 0);
+		}		
+		// FIN DE LECTURE DE 'NOMENCLATURE'. ************/
+		
+		
+		//* 6 - LECTURE DE 'CHAMP JAVA'. **************************/
+		/* Si NON RENSEIGNE, exception. */
+		this.traiterTokensChampJavaNonRenseigne(pTokens);
+		
+		/* Sinon, CHAMP RENSEIGNE. */
+		/* Insertion dans la Map des Valeurs. */
+		champJavaString = pTokens[5];
+		
+		final String champJavaNettoye = nettoyerString(champJavaString);
+		
+		/* Passage aux attributs. */
+		this.champJava = champJavaNettoye;
+		
+		/* Insertion dans la Map des Valeurs. ******/
+		this.valeursDescriptionMap.put(6, champJavaNettoye);
+		
+		/* Insertion dans la Map des longueurs. */
+		this.longueursDescriptionMap.put(6, champJavaNettoye.length());
+		// FIN DE LECTURE DE 'CHAMP JAVA'. ************/
+
+		
+		//* 7 - LECTURE DE 'TYPE JAVA'. **************************/
+		/* Si NON RENSEIGNE, exception. */
+		this.traiterTokensTypeJavaNonRenseigne(pTokens);
+		
+		
+		/* Sinon, CHAMP RENSEIGNE. */
+		/* Insertion dans la Map des Valeurs. */
+		typeJavaString = pTokens[6];
+		
+		final String typeJavaNettoye = nettoyerString(typeJavaString);
+		
+		/* Passage aux attributs. */
+		this.typeJava = typeJavaNettoye;
+		
+		/* Insertion dans la Map des Valeurs. ******/
+		this.valeursDescriptionMap.put(7, typeJavaNettoye);
+		
+		/* Insertion dans la Map des longueurs. */
+		this.longueursDescriptionMap.put(7, typeJavaNettoye.length());
+		// FIN DE LECTURE DE 'TYPE JAVA'. ************/
+		
+		
+		//* 8 - LECTURE DE 'A NOMENCLATURE'. **************************/
+		/* Si NON RENSEIGNE, exception. */
+		this.traiterTokensANomenclatureNonRenseigne(pTokens);
+		
+		/* Sinon, CHAMP RENSEIGNE. */
+		aNomenclatureString = pTokens[7];
+		
+		String aNomenclatureNettoye 
+			= nettoyerString(aNomenclatureString);
+		
+		/* Sinon, CHAMP RENSEIGNE à true
+		 * si la valeur est true avec n'importe quelle casse. */		
+		if (Boolean.parseBoolean(aNomenclatureNettoye)) {
+			
+			/*Le champ nomenclature doit être
+			 * renseigné si aNomenclature est à true. */
+			if (StringUtils.isNotBlank(nomenclatureString)) {
+				
+				/* Transformation de 'True' ou 'tRue',...
+				 * en 'true'. */
+				aNomenclatureNettoye = "true";
+				
+				/* Passage aux attributs. */
+				this.aNomenclature = true;
+				
+				/* Insertion dans la Map des Valeurs. */
+				this.valeursDescriptionMap.put(8, aNomenclatureNettoye);
+				
+				/* Insertion dans la Map des longueurs. */
+				this.longueursDescriptionMap.put(8
+						, aNomenclatureNettoye.length());
+			}
+			
+			/* Sinon, l'utilisateur doit fournir une 
+			 * nomenclature. */
+			else {
+				
+				final String cleANomenclatureTrue
+					= this.getCleANomenclatureTrue();
+
+				final String messageANomenclatureVide
+				= ConfigurationApplicationManager
+					.getBundleMessagesTechniques()
+						.getString(cleANomenclatureTrue);
+
+				final String message 
+				= this.getNomClasse() 
+				+ METHODE_LIRECHAMP 
+				+ messageANomenclatureVide;
+
+				/* Logge. */
+				if (LOG.isFatalEnabled()) {
+					LOG.fatal(message);
+				}
+				
+				/* Rapport d'erreur. */
+				if (this.logDescription) {
+					this.rapportDescriptionStb.append(message);
+					this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				}
+
+				/* Jette une Exception circonstanciée. */
+				throw new ExceptionImport(message);
+				
+			} // Fin de pas de nomenclature
+						
+		} // Fin de aNomenclature renseigné avec qqchose ressemblant à true._
+		
+		/* Sinon, CHAMP RENSEIGNE à false. */
+		else {
+			
+			aNomenclatureNettoye = "false";
+			
+			/* Passage aux attributs. */
+			this.aNomenclature = false;
+			
+			/* Insertion dans la Map des Valeurs. */
+			this.valeursDescriptionMap.put(8, aNomenclatureNettoye);
+			
+			/* Insertion dans la Map des longueurs. */
+			this.longueursDescriptionMap.put(8
+					, aNomenclatureNettoye.length());
+			
+		}		
+		// FIN DE LECTURE DE 'A NOMENCLATURE'. ************/
+		
+		/* 9 - CALCUL de COLONNE DE DEBUT. ***************************/
+		/* Réalisé dans 2 - COLONNES. */
+		
+		/* 10 - CALCUL de COLONNE DE FIN. ****************************/
+		/* Réalisé dans 2 - COLONNES. */
+		
+		/* 10 - CALCUL de LONGUEUR CALCULEE. **************************/
+		/* Réalisé dans 2 - COLONNES. */
+		
+	} // Fin de lireChamp(
+	// int[] pTokens)._____________________________________________________
+
+
+
+	/**
+	 * method traiterTokensNull(
+	 * String[] pTokens) :<br/>
+	 * - LOG.fatal si pTokens est null.<br/>
+	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
+	 * - Jette une TableauNullException commentée si pTokens est null.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @throws TableauNullException lorsque : pTokens est null.<br/>
+	 */
+	private void traiterTokensNull(
+			final String[] pTokens) 
+				throws TableauNullException {
+		
+		if (pTokens == null) {
+			
+			final String cleTableauNull
+				= this.getCleTableauNull();
+
+			final String messageTableauNull 
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleTableauNull);
+
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP 
+			+ messageTableauNull;
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new TableauNullException(message);
+			
+		} // Fin de if (pTokens == null)._____________________________
+		
+	} // Fin de traiterTokensNull(
+	 // String[] pTokens)._________________________________________________
+	
+
+	
+	/**
+	 * method traiterTokensVide(
+	 * String[] pTokens) :<br/>
+	 * - LOG.fatal si pTokens est vide.<br/>
+	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
+	 * - Jette une TableauVideException commentée si pTokens est vide.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @throws TableauVideException lorsque : pTokens est vide.<br/>
+	 */
+	private void traiterTokensVide(
+			final String[] pTokens) 
+				throws TableauVideException {
+		
+		if (pTokens.length == 0) {
+			
+			final String cleTableauVide
+				= this.getCleTableauVide();
+
+			final String messageTableauVide
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleTableauVide);
+
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP 
+			+ messageTableauVide;
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new TableauVideException(message);
+			
+		} // Fin de if (pTokens.length == 0)._________________________
+		
+	} // Fin de traiterTokensVide(
+	 // String[] pTokens)._________________________________________________
+
+	
+	
+	/**
+	 * method traiterTokensLongueur(
+	 * String[] pTokens) :<br/>
+	 * - LOG.fatal si pTokens n'a pas la longueur minimale requise.<br/>
+	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
+	 * - Jette une ExceptionImport commentée si pTokens est trop court.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @throws ExceptionImport lorsque : pTokens est trop court.<br/>
+	 */
+	private void traiterTokensLongueur(
+			final String[] pTokens) 
+				throws ExceptionImport {
+		
+		if (pTokens.length < this.nombreColonnesObligatoires) {
+			
+			final String cleTableauPetit
+				= this.getCleTableauTropPetit();
+
+			final String messageTableauPetit
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleTableauPetit);
+
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP 
+			+ messageTableauPetit
+			+ pTokens.length
+			+ " au lieu de "
+			+ this.nombreColonnesObligatoires
+			+ " attendus" 
+			+ "\nLigne en cause : " 
+			+ tokensToString(pTokens);
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new ExceptionImport(message);
+			
+		} // Fin de pToken trop court._____________________________
+		
+	} // Fin de traiterTokensLongueur(
+	 // String[] pTokens)._________________________________________________
+	
+
+	
+	/**
+	 * method traiterTokensOrdreChampsNonRenseigne(
+	 * String[] pTokens) :<br/>
+	 * - LOG.fatal si pTokens[0] (ordreChamps) n'est pas renseigné.<br/>
+	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
+	 * - Jette une ExceptionImport commentée si pTokens[0] (ordreChamps) 
+	 * n'est pas renseigné.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @throws ExceptionImport lorsque : pTokens[0] (ordreChamps) 
+	 * n'est pas renseigné.<br/>
+	 */
+	private void traiterTokensOrdreChampsNonRenseigne(
+			final String[] pTokens) 
+				throws ExceptionImport {
+		
+		if (StringUtils.isBlank(pTokens[0])) {
+			
+			final String cleOrdreChampVide
+				= this.getCleOrdreChampVide();
+
+			final String messageOrdreChampVide
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleOrdreChampVide);
+
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP 
+			+ messageOrdreChampVide 
+			+ tokensToString(pTokens);
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new ExceptionImport(message);
+			
+		} // Fin de ordreChamps non renseigné.________________________
+		
+	} // Fin de traiterTokensOrdreChampsNonRenseigne(
+	 // String[] pTokens)._________________________________________________
+	
+
+	
+	/**
+	 * method traiterTokensColonnesNonRenseigne(
+	 * String[] pTokens) :<br/>
+	 * - LOG.fatal si pTokens[1] (colonnes) n'est pas renseigné.<br/>
+	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
+	 * - Jette une ExceptionImport commentée si pTokens[1] (colonnes) 
+	 * n'est pas renseigné.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @throws ExceptionImport lorsque : pTokens[1] (colonnes) 
+	 * n'est pas renseigné.<br/>
+	 */
+	private void traiterTokensColonnesNonRenseigne(
+			final String[] pTokens) 
+				throws ExceptionImport {
+		
+		if (StringUtils.isBlank(pTokens[1])) {
+			
+			final String clecolonneVide
+				= this.getCleColonneVide();
+
+			final String messageColonneVide
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(clecolonneVide);
+
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP 
+			+ messageColonneVide 
+			+ tokensToString(pTokens);
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new ExceptionImport(message);
+			
+		} // Fin de colonnes non renseigné._______________________
+		
+	} // Fin de traiterTokensColonnesNonRenseigne(
+	 // String[] pTokens)._________________________________________________
+	
+
+	
+	/**
+	 * method traiterTokensIntituleNonRenseigne(
+	 * String[] pTokens) :<br/>
+	 * - LOG.fatal si pTokens[3] (intitule) n'est pas renseigné.<br/>
+	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
+	 * - Jette une ExceptionImport commentée si pTokens[3] (intitule) 
+	 * n'est pas renseigné.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @throws ExceptionImport lorsque : pTokens[3] (intitule) 
+	 * n'est pas renseigné.<br/>
+	 */
+	private void traiterTokensIntituleNonRenseigne(
+			final String[] pTokens) 
+				throws ExceptionImport {
+		
+		if (StringUtils.isBlank(pTokens[3])) {
+			
+			final String cleintituleeVide
+				= this.getCleIntituleVide();
+
+			final String messageIntituleVide
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleintituleeVide);
+
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP 
+			+ messageIntituleVide 
+			+ tokensToString(pTokens);
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new ExceptionImport(message);
+			
+		} // Fin de intitulé non renseigné.___________________
+
+	} // Fin de traiterTokensIntituleNonRenseigne(
+	 // String[] pTokens)._________________________________________________
+	
+
+	
+	/**
+	 * method traiterTokensChampJavaNonRenseigne(
+	 * String[] pTokens) :<br/>
+	 * - LOG.fatal si pTokens[5] (champJava) n'est pas renseigné.<br/>
+	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
+	 * - Jette une ExceptionImport commentée si pTokens[5] (champJava) 
+	 * n'est pas renseigné.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @throws ExceptionImport lorsque : pTokens[5] (champJava) 
+	 * n'est pas renseigné.<br/>
+	 */
+	private void traiterTokensChampJavaNonRenseigne(
+			final String[] pTokens) 
+				throws ExceptionImport {
+		
+		if (StringUtils.isBlank(pTokens[5])) {
+			
+			final String cleChampJavaVide
+				= this.getCleChampJavaVide();
+
+			final String messageChampJavaVide
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleChampJavaVide);
+
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP 
+			+ messageChampJavaVide 
+			+ tokensToString(pTokens);
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new ExceptionImport(message);
+			
+		} // Fin de champJava non renseigné._____________________________
+		
+	} // Fin de traiterTokensChampJavaNonRenseigne(
+	 // String[] pTokens)._________________________________________________
+	
+	
+	
+	/**
+	 * method traiterTokensTypeJavaNonRenseigne(
+	 * String[] pTokens) :<br/>
+	 * - LOG.fatal si pTokens[6] (typeJava) n'est pas renseigné.<br/>
+	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
+	 * - Jette une ExceptionImport commentée si pTokens[6] (typeJava) 
+	 * n'est pas renseigné.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @throws ExceptionImport lorsque : pTokens[6] (typeJava) 
+	 * n'est pas renseigné.<br/>
+	 */
+	private void traiterTokensTypeJavaNonRenseigne(
+			final String[] pTokens) 
+				throws ExceptionImport {
+		
+		if (StringUtils.isBlank(pTokens[6])) {
+			
+			final String cleTypeJavaVide
+				= this.getCleTypeJavaVide();
+
+			final String messageTypeJavaVide
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleTypeJavaVide);
+
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP 
+			+ messageTypeJavaVide 
+			+ tokensToString(pTokens);
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new ExceptionImport(message);
+			
+		} // Fin de typeJava non renseigné._____________________________
+
+	} // Fin de traiterTokensTypeJavaNonRenseigne(
+	 // String[] pTokens)._________________________________________________
+	
+	
+	
+	/**
+	 * method traiterTokensANomenclatureNonRenseigne(
+	 * String[] pTokens) :<br/>
+	 * - LOG.fatal si pTokens[7] (aNomenclature) n'est pas renseigné.<br/>
+	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
+	 * - Jette une ExceptionImport commentée si pTokens[7] (aNomenclature) 
+	 * n'est pas renseigné.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @throws ExceptionImport lorsque : pTokens[7] (aNomenclature) 
+	 * n'est pas renseigné.<br/>
+	 */
+	private void traiterTokensANomenclatureNonRenseigne(
+			final String[] pTokens) 
+				throws ExceptionImport {
+		
+		if (StringUtils.isBlank(pTokens[7])) {
+			
+			final String cleANomenclatureVide
+				= this.getCleANomenclatureVide();
+
+			final String messageANomenclatureVide
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechniques()
+					.getString(cleANomenclatureVide);
+
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP 
+			+ messageANomenclatureVide 
+			+ tokensToString(pTokens);
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logDescription) {
+				this.rapportDescriptionStb.append(message);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+			}
+
+			/* Jette une Exception circonstanciée. */
+			throw new ExceptionImport(message);
+			
+		} // Fin de aNomenclature non renseigné.___________________
+		
+	} // Fin de traiterTokensANomenclatureNonRenseigne(
+	 // String[] pTokens)._________________________________________________
+	
+	
+	
+	/**
+	 * method recupererOrdreChamps(
+	 * String[] pTokens) :<br/>
+	 * - Récupère et retourne ordreChamps (pTokens[0]) dans le tableau de Tokens 
+	 * de la description.<br/>
+	 * - Alimente directement l'attribut ordreChamps.<br/>
+	 * <br/>
+	 *
+	 * @param pTokens : String[].<br/>
+	 * 
+	 * @return String : ordreChamps sous forme de String.<br/>
+	 * 
+	 * @throws ExceptionImport lorsque :<br/> 
+	 * - pTokens[0] (ordreChamps) n'est pas renseigné.<br/>
+	 * - pTokens[0] (ordreChamps) n'est pas homogène à un entier.<br/>
+	 */
+	private String recupererOrdreChamps(
+			final String[] pTokens) throws ExceptionImport {
+		
+		/* Si NON RENSEIGNE, exception, */
+		this.traiterTokensOrdreChampsNonRenseigne(pTokens);
+				
+		/* Sinon, CHAMP ORDRE DES CHAMPS RENSEIGNE. */
+		String ordreChampsString = null;
+		String ordrechampNettoye = null;
+		
+		try {
+			
+			/* Nettoyage du champ (retrait des "",...). */			 
+			ordrechampNettoye = nettoyerString(pTokens[0]);
+			
+			/* Essaie de parser la String ordrechampNettoye 
+			 * en int pour VERIFIER LE FORMAT. */
+			this.ordreChamps = Integer.parseInt(ordrechampNettoye);
+			
+			/* Passe pTokens[0] à la chaine
+			 * si il est parsable en Integer. */
+			ordreChampsString 
+				= ordrechampNettoye;
+						
+		}
+		
+		/* Si le contenu dans ordreChamps de la description
+		 *  n'était pas homogène à un entier. */
+		catch (NumberFormatException nfe) {
+			
+			final String message1 
+			= this.getNomClasse() 
+			+ METHODE_LIRECHAMP
+			+ "la valeur 'Ordre des champs' n'est pas convenablement "
+			+ "renseignée pour cette ligne. ERREUR : "
+			+ ordrechampNettoye 
+			+ " n'était pas parsable en Integer.";
+			
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message1);
+			}
+			
+			/* Rapport événtuel. */
+			if (this.logDescription) {
+						
+				this.rapportDescriptionStb.append(message1);
+				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				
+			} // Fin de rapport éventuel.__________________
+			
+			/*Si pTokens[0] n'était pas parsable en int,
+			 * essaie d'identifier le nombre. */
+			
+			/* MOTIF recherchant les nombres n'importe où
+			 * au milieu d'une chaine.*/
+			final String motif = ".*?(\\d+).*?";
+			final Pattern pattern 
+				= Pattern.compile(motif);
+			final Matcher matcherNombre 
+				= pattern.matcher(ordrechampNettoye);
+			
+			if (matcherNombre.matches()) {
+				
+				/* Récupération de la chaine qui matche. */
+				ordreChampsString 
+					= matcherNombre.group(1);
+				
+				this.ordreChamps = Integer.parseInt(ordrechampNettoye);
+			
+			/* ERREUR DE FORMAT. */
+			} else {
+				
+				final String message 
+				= this.getNomClasse() 
+				+ METHODE_LIRECHAMP
+				+ "l'ordre des champs n'est pas parsable "
+				+ "en nombre : " + pTokens[0];
+				
+				/* Logge. */
+				if (LOG.isFatalEnabled()) {
+					LOG.fatal(message);
+				}
+				
+				/* Rapport d'erreur. */
+				if (this.logDescription) {
+					this.rapportDescriptionStb.append(message);
+					this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				}
+				
+				/* Jette une Exception circonstanciée. */
+				throw new ExceptionImport(
+					message, nfe);
+				
+			} // Fin de l'erreur de format._____________
+			
+		} // Fin de NumberFormatException.__________________________
+		
+		return ordreChampsString;
+		
+	} // Fin de recupererOrdreChamps(
+	 // String[] pTokens)._________________________________________________
+	
+	
+	
+	/**
+	 * method trouverColonneDebutFin(String pColonnes) :<br/>
+	 * Recoit dans pColonnes "7" ou "18" ou "14-123".<br/>
+	 * Retourne un tableau de 2 entiers correspondant
+	 * aux colonnes de début et de fin 
+	 * (par exemple 14 et 123 pour "14-123").<br/>
+	 * <br/>
+	 * Retourne la même colonne de début et de fin 
+	 * si il s'agissait d'une colonne unique.<br/>
+	 * <br/>
+	 * - jette une ExceptionImport et LOG.fatal si pColonnes est null.<br/>
+	 * <br/>
+	 *
+	 * @param pColonnes : String : "7" ou "125" ou "7 - 26"<br/>
+	 * 
+	 * @return colonnesDebutEtFin : int[] : tableau comportant
+	 * les colonnes de début et de fin.<br/>
+	 * 
+	 * @throws ExceptionImport lorsque :<br/>
+	 * - la chaine de caractères indiquant les colonnes
+	 * passée en paramètre est null.<br/>
+	 * - Il est impossible de trouver des colonnes 
+	 * dans la chaine de caractères passée en paramètre.<br/>
+	 */
+	public final int[] trouverColonneDebutFin(
+			final String pColonnes) 
+					throws ExceptionImport {
+		
+		/* Déclaration-initialisation d'un tableau de int
+		 * que la méthode va retourner. */
+		int[] colonnesDebutEtFin = null;
+
+		
+		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
+		if (pColonnes == null) {
+			
+			final String message 
+				= CLASSE_ABSTRACTDESCRIPTIONCHAMP 
+				+ METHODE_TROUVERCOLONNEDEBUTFIN
+				+ MESSAGE_COLONNES_NULL;
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			throw new ExceptionImport(message);
+			
+		} // Fin de if (pColonnes == null)._______________________________
+
+		
+		
+		
+		// **************PARAMETRES VALIDES****************************/
+		
+		
+		/* Déclaration-initialisation d'un motif détectant
+		 * les numéros de colonne unique (comme "7" ou "124" par exemple)*/
+		/* N'IMPORTE QUOI - QUE DES CHIFFRES 
+		 * (AU MOINS UN CHIFFRE OU PLUS) - N'IMPORTE QUOI . */
+		/* "\\W*?(\\d{1,})\\W*?". */
+		final String motifColonneUnique = "\\W*?(\\d+)\\W*?";
+		
+		/* Déclaration-initialisation d'un motif détectant
+		 * les fourchettes de colonnes (comme 7-124 ou 7-  124). */
+		/* ZERO OU PLUSIEURS ESPACES - UN CHIFFRE OU PLUS - 
+		 * ZERO OU PLUSIEURS ESPACES - 
+		 * UN TIRET - ZERO OU PLUSIEURS ESPACES - UN CHIFFRE OU PLUS
+		 * - ZERO OU PLUSIEURS ESPACES. */
+		/* "\\s*(\\d{1,})\\s*-\\s*(\\d+)\\s*" */
+		/* N'IMPORTE QUOI - UN CHIFFRE OU PLUS - 
+		 * ZERO OU PLUSIEURS ESPACES - 
+		 * UN TIRET - ZERO OU PLUSIEURS ESPACES - UN CHIFFRE OU PLUS
+		 * - N'IMPORTE QUOI. */
+		/* ".*?(\\d{1,})\\s*-\\s*(\\d+).*?". */
+		final String motifDeuxColonnes = ".*?(\\d{1,})\\s*-\\s*(\\d+).*?";
+		
+		/* Instanciation des Pattern. */
+		final Pattern patternColUnique 
+			= Pattern.compile(motifColonneUnique);
+		final Pattern patternDeuxColonnes 
+			= Pattern.compile(motifDeuxColonnes);
+		
+		/* Instanciation d'un Matcher. */
+		final Matcher matcherColUnique 
+			= patternColUnique.matcher(pColonnes);
+		final Matcher matcherDeuxColonnes 
+			= patternDeuxColonnes.matcher(pColonnes);
+
+		
+		
+		/* Si pColonnes ne contenait qu'une colonne unique :*/
+		if (matcherColUnique.matches()) {
+			
+			/* Récupération de la chaine de caractères trouvée. */
+			final String colonneUnique 
+				= matcherColUnique.group(1);
+			
+			/*Instanciation du tableau de int à 2 éléments.*/
+			colonnesDebutEtFin = new int[2];
+			
+			/* Affectation aux colonne de début et de fin*/
+			colonnesDebutEtFin[0] 
+			                   = Integer.parseInt(colonneUnique);
+			
+			colonnesDebutEtFin[1] 
+			                   = Integer.parseInt(colonneUnique);
+			
+		} // Fin de Si Colonne Unique.____________________________________
+		
+
+		
+		
+		/* Si pColonnes contenait une fourchette de colonnes :*/
+		else if (matcherDeuxColonnes.matches()) {
+			
+			/* Récupération des groupes capturant trouvés. */
+			final String colonneDebutInterne 
+				= matcherDeuxColonnes.group(1);
+			final String colonneFinInterne 
+				= matcherDeuxColonnes.group(2);
+			
+			/*Instanciation du tableau de int à 2 éléments.*/
+			colonnesDebutEtFin = new int[2];
+			
+			/* Vérifie que la colonne de fin est
+			 * >= à la colonne de début*/
+			if (Integer.parseInt(colonneFinInterne) 
+					>= Integer.parseInt(colonneDebutInterne)) {
+				
+				/* Affectation aux colonne de début et de fin*/
+				colonnesDebutEtFin[0] 
+				                   = Integer.parseInt(colonneDebutInterne);
+				
+				colonnesDebutEtFin[1] 
+				                   = Integer.parseInt(colonneFinInterne);
+			}
+			/* Sinon, les colonnes sont inversées. */
+			else {
+				
+				final String message 
+				= CLASSE_ABSTRACTDESCRIPTIONCHAMP 
+				+ METHODE_TROUVERCOLONNEDEBUTFIN
+				+ MESSAGE_COLONNES_INVERSEES
+				+ "colonne de début = "
+				+ colonneDebutInterne
+				+ '\t'
+				+ "colonne de fin = "
+				+ colonneFinInterne;
+			
+				if (LOG.isFatalEnabled()) {
+					LOG.fatal(message);
+				}
+			
+				throw new ExceptionImport(message);
+			}
+			
+			
+			
+		} // Fin de si Fourchette de Colonnes.____________________________
+		
+		else {
+			
+			final String message 
+				= CLASSE_ABSTRACTDESCRIPTIONCHAMP 
+				+ METHODE_TROUVERCOLONNEDEBUTFIN
+				+ MESSAGE_COLONNES_INTROUVABLES
+				+ pColonnes;
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			throw new ExceptionImport(message);
+			
+		}
+		
+		/* Renvoi du tableau comportant les colonnes de début
+		 * et de fin.*/
+		return colonnesDebutEtFin;
+		
+	} // Fin de trouverColonneDebutFin(String pColonnes).___________________
+	
+
+	
+	/**
+	 * method getColonnes() :<br/>
+	 * Getter de la Colonne unique ou fourchette de colonnes positionnant 
+	 * le champ à lire dans une ligne d'un HistoNatF07.<br/>
+	 * C'est la valeur fournie dans la description de fichier HistoNatF07 
+	 * comme 4-9 par exemple.<br/>
+	 * Par exemple, 'Numéro de Section' est situé entre les colonnes 
+	 * 4 et 9 d'une ligne d'un HistoNatF07.<br/>
+	 * <br/>
+	 *
+	 * @return colonnes : String.<br/>
+	 */
+	public final String getColonnes() {
+		return this.colonnes;
+	} // Fin de getColonnes()._____________________________________________
+
+
+
+	/**
+	 * method setColonnes(
+	 * String pColonnes) :<br/>
+	 * Setter de la Colonne unique ou fourchette de colonnes positionnant 
+	 * le champ à lire dans une ligne d'un HistoNatF07.<br/>
+	 * C'est la valeur fournie dans la description de fichier HistoNatF07 
+	 * comme 4-9 par exemple.<br/>
+	 * Par exemple, 'Numéro de Section' est situé entre les colonnes 
+	 * 4 et 9 d'une ligne d'un HistoNatF07.<br/>
+	 * <br/>
+	 *
+	 * @param pColonnes : String : valeur à passer à colonnes.<br/>
+	 */
+	public final void setColonnes(
+			final String pColonnes) {
+		this.colonnes = pColonnes;
+	} // Fin de setColonnes(
+	 // String pColonnes)._________________________________________________
+
+
+
+	/**
+	 * method getLongueur() :<br/>
+	 * Getter de la Longueur (nombre de colonnes) du champ 
+	 * fournie dans la description.<br/>
+	 * <br/>
+	 *
+	 * @return longueur : Integer.<br/>
+	 */
+	public final Integer getLongueur() {
+		return this.longueur;
+	} // Fin de getLongueur()._____________________________________________
+
+
+
+	/**
+	 * method setLongueur(
+	 * Integer pLongueur) :<br/>
+	 * Setter de la Longueur (nombre de colonnes) du champ 
+	 * fournie dans la description.<br/>
+	 * <br/>
+	 *
+	 * @param pLongueur : Integer : 
+	 * valeur à passer à longueur.<br/>
+	 */
+	public final void setLongueur(
+			final Integer pLongueur) {
+		this.longueur = pLongueur;
+	} // Fin de setLongueur(
+	 // Integer pLongueur).________________________________________________
+
+
+
+	/**
+	 * method getColonneDebut() :<br/>
+	 * Getter de la Colonne de début du champ (1-based) 
+	 * fournie dans la description 
+	 * de fichier HistoNatF07 comme 4 pour 4-9 (dans colonnes) 
+	 * par exemple.<br/>
+	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * <br/>
+	 *
+	 * @return colonneDebut : Integer.<br/>
+	 */
+	public final Integer getColonneDebut() {
+		return this.colonneDebut;
+	} // Fin de getColonneDebut()._________________________________________
+
+
+
+	/**
+	 * method setColonneDebut(
+	 * Integer pColonneDebut) :<br/>
+	 * Getter de la Colonne de début du champ (1-based) 
+	 * fournie dans la description 
+	 * de fichier HistoNatF07 comme 4 pour 4-9 (dans colonnes) 
+	 * par exemple.<br/>
+	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * <br/>
+	 *
+	 * @param pColonneDebut : Integer : valeur à passer à colonneDebut.<br/>
+	 */
+	public final void setColonneDebut(
+			final Integer pColonneDebut) {
+		this.colonneDebut = pColonneDebut;
+	} // Fin de setColonneDebut(
+	 // Integer pColonneDebut).____________________________________________
+
+
+
+	/**
+	 * method getColonneFin() :<br/>
+	 * Getter de la Colonne de fin (1-based) du champ 
+	 * fournie dans la description 
+	 * de fichier HistoNatF07 comme 9 pour 4-9 (dans colonnes) 
+	 * par exemple.<br/>
+	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * <br/>
+	 *
+	 * @return colonneFin : Integer.<br/>
+	 */
+	public final Integer getColonneFin() {
+		return this.colonneFin;
+	} // Fin de getColonneFin().___________________________________________
+
+
+
+	/**
+	 * method setColonneFin(
+	 * Integer pColonneFin) :<br/>
+	 * Setter de la Colonne de fin du champ (1-based) 
+	 * fournie dans la description 
+	 * de fichier HistoNatF07 comme 9 pour 4-9 (dans colonnes) 
+	 * par exemple.<br/>
+	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * <br/>
+	 *
+	 * @param pColonneFin : Integer : 
+	 * valeur à passer à colonneFin.<br/>
+	 */
+	public final void setColonneFin(
+			final Integer pColonneFin) {
+		this.colonneFin = pColonneFin;
+	} // Fin de setColonneFin(
+	 // Integer pColonneFin).______________________________________________
+
+
+
+	/**
+	 * method getLongueurCalculee() :<br/>
+	 * Getter du calcul : colonneFin - colonneDebut.<br/>
+	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * <br/>
+	 *
+	 * @return longueurCalculee : Integer.<br/>
+	 */
+	public final Integer getLongueurCalculee() {
+		return this.longueurCalculee;
+	} // Fin de getLongueurCalculee()._____________________________________
+
+
+
+	/**
+	 * method setLongueurCalculee(
+	 * Integer pLongueurCalculee) :<br/>
+	 * Setter du calcul : colonneFin - colonneDebut.<br/>
+	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * <br/>
+	 *
+	 * @param pLongueurCalculee : Integer : 
+	 * valeur à passer à longueurCalculee.<br/>
+	 */
+	public final void setLongueurCalculee(
+			final Integer pLongueurCalculee) {
+		this.longueurCalculee = pLongueurCalculee;
+	} // Fin de setLongueurCalculee(
+	 // Integer pLongueurCalculee).________________________________________
+
+		
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getNomChampJava() {
+		return this.getChampJava();
+	} // Fin de getNomChampJava().___________________________________________
+
+	
+
+	
+	/**
+	 * method getNomClasse() :<br/>
+	 * Retourne le nom de la Classe.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getNomClasse();
+	
+
+	
+	/**
+	 * method getCleANomenclatureTrue() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ANomenclature à true et la nomenclature vide.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleANomenclatureTrue();
+	
+	
+	
+	/**
+	 * method getCleTableauNull() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ligne de description null.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleTableauNull();
+	
+	
+	
+	/**
+	 * method getCleTableauVide() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ligne de description vide.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleTableauVide();
+	
+	
+	
+	/**
+	 * method getCleTableauTropPetit() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ligne de description trop courte.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleTableauTropPetit();
+	
+	
+	
+	/**
+	 * method getCleOrdreChampVide() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ligne de description avec ordreChamps non renseigné.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleOrdreChampVide();
+	
+	
+	
+	/**
+	 * method getCleColonneVide() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ligne de description avec colonnes non renseigné.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleColonneVide();
+	
+	
+	
+	/**
+	 * method getCleIntituleVide() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ligne de description avec intitule non renseigné.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleIntituleVide();
+	
+	
+	
+	/**
+	 * method getCleChampJavaVide() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ligne de description avec champJava non renseigné.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleChampJavaVide();
+	
+	
+	
+	/**
+	 * method getCleTypeJavaVide() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ligne de description avec typeJava non renseigné.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleTypeJavaVide();
+	
+
+		
+	/**
+	 * method getCleANomenclatureVide() :<br/>
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ligne de description avec aNomenclature non renseigné.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleANomenclatureVide();
+	
+	
+	
+} // FIN DE LA CLASSE AbstractDescriptionChampAscii.-------------------------
