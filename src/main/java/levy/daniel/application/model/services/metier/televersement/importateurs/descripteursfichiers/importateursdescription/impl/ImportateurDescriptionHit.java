@@ -1,4 +1,4 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl;
 
 import java.io.File;
 
@@ -7,8 +7,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescriptionAscii;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescriptionAscii;
 
 /**
  * class ImportateurDescriptionHit :<br/>
@@ -83,8 +83,9 @@ public class ImportateurDescriptionHit extends
 	 * method CONSTRUCTEUR ImportateurDescriptionHit() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * <br/>
+	 * @throws Exception 
 	 */
-	public ImportateurDescriptionHit() {
+	public ImportateurDescriptionHit() throws Exception {
 		
 		super();
 		
@@ -109,9 +110,11 @@ public class ImportateurDescriptionHit extends
 	 * @param pDescriptionDuFichierFile : File : 
 	 * la description de fichier à mettre 
 	 * à la disposition de l'application.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public ImportateurDescriptionHit(
-			final File pDescriptionDuFichierFile) {
+			final File pDescriptionDuFichierFile) throws Exception {
 		
 		super(new DescriptionChampHit(), pDescriptionDuFichierFile);
 		
@@ -130,14 +133,15 @@ public class ImportateurDescriptionHit extends
 	 * si il faut créer des rapports d'erreur d'import des descriptions.<br/>
 	 * - Instancie le cas échéant le rapport d'erreur.<br/>
 	 * <br/>
+	 * @throws Exception 
 	 */
-	private void determinerSiLogErreurs() {
+	private void determinerSiLogErreurs() throws Exception {
 		
 		final String cleLogImport = this.recupererCleLogErreur();
 
 		final String logImportString 
 		= ConfigurationApplicationManager
-			.getBundleMessagesTechniques()
+			.getBundleMessagesTechnique()
 				.getString(cleLogImport);
 		
 		if (StringUtils.containsIgnoreCase(logImportString, "true")) {

@@ -1,19 +1,13 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription;
-
-import java.io.IOException;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionDarwinCsv;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionHistoF07;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionHit;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionMapping;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionDarwinCsv;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionHistoF07;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionHit;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionMapping;
 
 /**
  * class FactorySingletonImportateurDescription :<br/>
@@ -99,28 +93,11 @@ public final class FactorySingletonImportateurDescription {
 	 *
 	 * @return : ImportateurDescriptionHit.<br/>
 	 * 
-	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
-	 * @throws ExceptionImport lorsque :<br/>
-	 * le fichier de description passé en paramètre pFileDescription 
-	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
-	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * les colonnes ne sont pas jointives.<br/>
-	 * @throws TableauVideException : 
-	 * si une ligne de la description est null.<br/>
-	 * @throws TableauNullException : 
-	 * si une ligne de la description est vide.<br/> 
+	 * @throws Exception 
 	 */
 	public static ImportateurDescriptionHit 
 							getImportateurDescriptionHit() 
-										throws FichierNullException
-										, TableauNullException
-										, TableauVideException
-										, ExceptionImport
-										, IOException {
+										throws Exception {
 		
 		synchronized(FactorySingletonImportateurDescription.class) {
 			
@@ -153,28 +130,11 @@ public final class FactorySingletonImportateurDescription {
 	 *
 	 * @return : ImportateurDescriptionHistoF07.<br/>
 	 * 
-	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
-	 * @throws ExceptionImport lorsque :<br/>
-	 * le fichier de description passé en paramètre pFileDescription 
-	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
-	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * les colonnes ne sont pas jointives.<br/>
-	 * @throws TableauVideException : 
-	 * si une ligne de la description est null.<br/>
-	 * @throws TableauNullException : 
-	 * si une ligne de la description est vide.<br/> 
+	 * @throws Exception 
 	 */
 	public static ImportateurDescriptionHistoF07 
 							getImportateurDescriptionHistoF07() 
-										throws FichierNullException
-										, TableauNullException
-										, TableauVideException
-										, ExceptionImport
-										, IOException {
+										throws Exception {
 		
 		synchronized(FactorySingletonImportateurDescription.class) {
 			
@@ -207,29 +167,11 @@ public final class FactorySingletonImportateurDescription {
 	 *
 	 * @return : ImportateurDescriptionDarwinCsv.<br/>
 	 * 
-	 *  @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
-	 * @throws ExceptionImport lorsque :<br/>
-	 * le fichier de description passé en paramètre pFileDescription 
-	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
-	 * le fichier de description passé en paramètre 
-	 * pFileDescription n'a pas l'extension .csv.<br/>
-	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * @throws TableauVideException : 
-	 * si une ligne de la description est null.<br/>
-	 * @throws TableauNullException : 
-	 * si une ligne de la description est vide.<br/> 
+	 * @throws Exception 
 	 */
 	public static ImportateurDescriptionDarwinCsv 
 							getImportateurDescriptionDarwinCsv() 
-								throws FichierNullException
-								, TableauNullException
-								, TableauVideException
-								, ExceptionImport
-									, IOException {
+								throws Exception {
 
 		synchronized (FactorySingletonImportateurDescription.class) {
 
@@ -262,28 +204,11 @@ public final class FactorySingletonImportateurDescription {
 	 *
 	 * @return : ImportateurDescriptionMapping.<br/>
 	 * 
-	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
-	 * @throws ExceptionImport lorsque :<br/>
-	 * le fichier de description passé en paramètre pFileDescription 
-	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
-	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * les colonnes ne sont pas jointives.<br/>
-	 * @throws TableauVideException : 
-	 * si une ligne de la description est null.<br/>
-	 * @throws TableauNullException : 
-	 * si une ligne de la description est vide.<br/> 
+	 * @throws Exception 
 	 */
 	public static ImportateurDescriptionMapping 
 							getImportateurDescriptionMapping() 
-								throws FichierNullException
-								, TableauNullException
-								, TableauVideException
-								, ExceptionImport
-									, IOException {
+								throws Exception {
 		
 		
 		synchronized (FactorySingletonImportateurDescription.class) {

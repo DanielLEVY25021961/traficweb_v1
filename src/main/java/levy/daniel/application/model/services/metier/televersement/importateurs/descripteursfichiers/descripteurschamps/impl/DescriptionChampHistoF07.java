@@ -1,13 +1,11 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl;
 
 import java.util.SortedMap;
 
-import levy.daniel.application.exceptions.technical.impl.MapNullException;
-import levy.daniel.application.exceptions.technical.impl.MapVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
 
 /**
  * class DescriptionChampHistoF07 :<br/>
@@ -109,9 +107,11 @@ public class DescriptionChampHistoF07 extends AbstractDescriptionChampAscii {
 	 * directement fournies dans la description de fichier.
 	 * Il suffit d'avoir fourni un champ 'colonnes' sous 
 	 * la forme '14-24').<br/>
+	 * 
+	 * @throws Exception 
 	 *
 	 */
-	public DescriptionChampHistoF07() {
+	public DescriptionChampHistoF07() throws Exception {
 		
 		super();
 		
@@ -142,14 +142,11 @@ public class DescriptionChampHistoF07 extends AbstractDescriptionChampAscii {
 	 * la Map des colonnes de la 
 	 * description du fichier.<br/>
 	 * 
-	 * @throws MapNullException lorsque : la Map passée en paramètre
-	 * est null.<br/>
-	 * @throws MapVideException lorsque : la Map passée en paramètre
-	 * est vide.<br/>
+	 * @throws Exception 
 	 */
 	public DescriptionChampHistoF07(
 			final SortedMap<Integer, String> pColonnesDescriptionMap) 
-					throws MapNullException, MapVideException{
+					throws Exception{
 		
 		super(pColonnesDescriptionMap);
 				

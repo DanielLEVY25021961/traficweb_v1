@@ -1,7 +1,6 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.impl;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Set;
 import java.util.SortedMap;
 
@@ -9,21 +8,31 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.exceptions.technical.impl.FichierInexistantException;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.FichierPasNormalException;
-import levy.daniel.application.exceptions.technical.impl.FichierVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.IFactoryNomenclature;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.IImporteurNomenclature;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.impl.ImporteurNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IFactoryNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IImporteurNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.impl.ImporteurNomenclature;
 
 /**
  * class FactoryNomenclatureHit :<br/>
- * Factory chargée de fournir les nomenclatures pour les HIT.<br/>
+ * Factory chargée de fournir les nomenclatures 
+ * pour les fichiers HIT.<br/>
+ * <p>
  * RESPONSABILITE : 
- * IMPORTE TOUTES LES NOMENCLATURES HIT 
- * ET LES MET A DISPOSITION DE L'APPLICATION.<br/>
- * <br/>
+ * IMPORTER TOUTES LES NOMENCLATURES HIT 
+ * ET LES METTRE A DISPOSITION DE L'APPLICATION sous forme de 
+ * <b>SINGLETONS</b>.
+ * </p>
+ * <p>
+ * Une nomenclature est un ensemble de [clé - libellé] pouvant être prises 
+ * par une variable comme par exemple pour le sens HIT :<br/>
+ * <ul>
+ * <li>1 - sens P.R. croissants route à 2 sens.</li>
+ * <li>2 - sens P.R. décroissants route à 2 sens.</li>
+ * <li>3 - Cumul des deux sens route à 2 sens.</li>
+ * <li>4 - Sens P.R. croissants route à sens unique.</li>
+ * <li>5 - Sens P.R. décroissants route à sens unique.</li>
+ * </ul>
+ * </p>
  *
  * - Exemple d'utilisation :<br/>
  *<br/>
@@ -79,45 +88,49 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 
 	// SENS.************** 
 	/**
-	 * impoNomenclatureSensHit : IImporteurNomenclature :<br/>
 	 * importeur de la Nomenclature HIT pour le SENS.<br/>
 	 */
 	private static transient IImporteurNomenclature impoNomenclatureSensHit;
-
-	
 		
 	/**
-	 * setSens : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles de sens.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés du sens pour les fichiers HIT.<br/>
 	 */
 	private static transient Set<Integer> setSens;
-	
-	
+		
 	/**
-	 * nomenclatureMapSens : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour le sens HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le sens HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapSens;
 	
 
-	// NATURE.*********	
+	// NATURE DU COMPTAGE (1 pour tous véhicules).*********	
 	/**
-	 * impoNomenclatureNatureHit : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HIT pour la nature.<br/>
+	 * importeur de la Nomenclature HIT pour la nature du comptage 
+	 * (1 pour tous véhicules).<br/>
 	 */
 	private static transient IImporteurNomenclature impoNomenclatureNatureHit;
-	
-	
+		
 	/**
-	 * setNature : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles de nature.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de nature du comptage (1 pour tous véhicules).<br/>
 	 */
 	private static transient Set<Integer> setNature;
 	
 	
 	/**
 	 * nomenclatureMapNature : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour la nature HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la nature HIT du comptage avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapNature;
 
@@ -337,11 +350,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	@Override
 	public Set<Integer> getClesPossiblesSet(
 			final int pNumeroChamp) 
-					throws FichierNullException
-					, FichierVideException
-					, FichierInexistantException
-					, FichierPasNormalException
-					, IOException {
+					throws Exception {
 		
 		Set<Integer> resultat = null;
 		
@@ -741,11 +750,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	@Override
 	public SortedMap<Integer, String> getNomenclatureMap(
 										final int pNumeroChamp) 
-												throws FichierNullException
-												, FichierVideException
-												, FichierInexistantException
-												, FichierPasNormalException
-												, IOException {
+												throws Exception {
 
 		SortedMap<Integer, String> resultat = null;
 

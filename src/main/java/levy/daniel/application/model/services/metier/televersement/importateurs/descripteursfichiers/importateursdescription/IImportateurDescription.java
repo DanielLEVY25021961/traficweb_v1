@@ -1,17 +1,17 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.SortedMap;
 
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.MapNullException;
-import levy.daniel.application.exceptions.technical.impl.MapVideException;
-import levy.daniel.application.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapVideException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
 /**
  * class IImportateurDescription :<br/>
@@ -106,6 +106,8 @@ public interface IImportateurDescription
 	 * si une ligne de la description est null.<br/>
 	 * @throws TableauNullException : 
 	 * si une ligne de la description est vide.<br/> 
+	 * 
+	 * @throws Exception 
 	 */
 	SortedMap<Integer, IDescriptionChamp> importerDescription(
 			final File pFileDescription) 
@@ -113,7 +115,7 @@ public interface IImportateurDescription
 						, TableauNullException
 							, TableauVideException
 								, ExceptionImport
-									, IOException;
+									, IOException, Exception;
 
 	
 	
@@ -176,6 +178,8 @@ public interface IImportateurDescription
 	 * si une ligne de la description est null.<br/>
 	 * @throws TableauNullException : 
 	 * si une ligne de la description est vide.<br/> 
+	 * 
+	 * @throws Exception 
 	 */
 	SortedMap<Integer, IDescriptionChamp> importerDescriptionUtf8(
 			final File pFileDescription) 
@@ -183,7 +187,7 @@ public interface IImportateurDescription
 						, TableauNullException
 							, TableauVideException
 								, ExceptionImport
-									, IOException;
+									, IOException, Exception;
 	
 
 	
@@ -246,6 +250,8 @@ public interface IImportateurDescription
 	 * si une ligne de la description est null.<br/>
 	 * @throws TableauNullException : 
 	 * si une ligne de la description est vide.<br/> 
+	 * 
+	 * @throws Exception 
 	 */
 	SortedMap<Integer, IDescriptionChamp> importerDescriptionLatin9(
 			final File pFileDescription) 
@@ -253,7 +259,7 @@ public interface IImportateurDescription
 						, TableauNullException
 							, TableauVideException
 								, ExceptionImport
-									, IOException;
+									, IOException, Exception;
 	
 	
 	
@@ -319,6 +325,8 @@ public interface IImportateurDescription
 	 * si une ligne de la description est null.<br/>
 	 * @throws TableauNullException : 
 	 * si une ligne de la description est vide.<br/> 
+	 * 
+	 * @throws Exception 
 	 */
 	SortedMap<Integer, IDescriptionChamp> importerDescription(
 			final File pFileDescription
@@ -327,7 +335,7 @@ public interface IImportateurDescription
 						, TableauNullException
 							, TableauVideException
 								, ExceptionImport
-									, IOException;
+									, IOException, Exception;
 	
 	
 
@@ -379,11 +387,12 @@ public interface IImportateurDescription
 	 * 'specificationChampsMap' est null.<br/>
 	 * @throws MapVideException lorsque : la Map 
 	 * 'specificationChampsMap' est vide.<br/>
+	 * @throws Exception 
 	 */
 	IDescriptionChamp getDescriptionChamp(
 			final Integer pOrdre) 
 				throws MapNullException
-					, MapVideException;
+					, MapVideException, Exception;
 	
 
 	

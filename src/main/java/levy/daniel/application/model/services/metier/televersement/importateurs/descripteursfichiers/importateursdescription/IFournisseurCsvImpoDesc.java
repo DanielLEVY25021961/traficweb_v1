@@ -1,13 +1,13 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
-import levy.daniel.application.exceptions.technical.impl.FichierInexistantException;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.MapNullException;
-import levy.daniel.application.exceptions.technical.impl.MapVideException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexistantException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapVideException;
 
 /**
  * class IFournisseurCsvImpoDesc :<br/>
@@ -150,13 +150,14 @@ public interface IFournisseurCsvImpoDesc {
 	 * this.descriptionDuFichierFile est inexistant.<br/>
 	 * @throws IOException  lorsque : 
 	 * problème d'écriture du fichier de sortie.<br/>
+	 * @throws Exception 
 	 */
 	File genererDescriptionCsvFile() 
 					throws MapNullException
 						, MapVideException
 							, FichierNullException
 								, FichierInexistantException
-									, IOException;
+									, IOException, Exception;
 	
 	
 		
@@ -196,6 +197,7 @@ public interface IFournisseurCsvImpoDesc {
 	 * this.descriptionDuFichierFile est inexistant.<br/>
 	 * @throws IOException  lorsque : 
 	 * problème d'écriture du fichier de sortie.<br/>
+	 * @throws Exception 
 	 */
 	File genererDescriptionCsvFile(
 			final File pFile) 
@@ -203,7 +205,7 @@ public interface IFournisseurCsvImpoDesc {
 						, MapVideException
 							, FichierNullException
 								, FichierInexistantException
-									, IOException;
+									, IOException, Exception;
 	
 	
 	
@@ -247,6 +249,7 @@ public interface IFournisseurCsvImpoDesc {
 	 * this.descriptionDuFichierFile est inexistant.<br/>
 	 * @throws IOException  lorsque : 
 	 * problème d'écriture du fichier de sortie.<br/>
+	 * @throws Exception 
 	 */
 	File genererDescriptionCsvFile(
 			final boolean pAvecLigneEntetes
@@ -255,7 +258,7 @@ public interface IFournisseurCsvImpoDesc {
 						, MapVideException
 							, FichierNullException
 								, FichierInexistantException
-									, IOException;
+									, IOException, Exception;
 	
 
 
@@ -294,13 +297,14 @@ public interface IFournisseurCsvImpoDesc {
 	 * this.descriptionDuFichierFile est inexistant.<br/>
 	 * @throws IOException  lorsque : 
 	 * problème d'écriture du fichier de sortie.<br/>
+	 * @throws Exception 
 	 */
 	File genererDescriptionCsvFileLatin9() 
 			throws MapNullException
 			, MapVideException
 			, FichierNullException
 			, FichierInexistantException
-			, IOException;
+			, IOException, Exception;
 	
 
 
@@ -338,13 +342,14 @@ public interface IFournisseurCsvImpoDesc {
 	 * this.descriptionDuFichierFile est inexistant.<br/>
 	 * @throws IOException  lorsque : 
 	 * problème d'écriture du fichier de sortie.<br/>
+	 * @throws Exception 
 	 */
 	File genererDescriptionCsvFileUtf8() 
 			throws MapNullException
 			, MapVideException
 			, FichierNullException
 			, FichierInexistantException
-			, IOException;
+			, IOException, Exception;
 	
 
 	
@@ -391,6 +396,7 @@ public interface IFournisseurCsvImpoDesc {
 	 * this.descriptionDuFichierFile est inexistant.<br/>
 	 * @throws IOException  lorsque : 
 	 * problème d'écriture du fichier de sortie.<br/>
+	 * @throws Exception 
 	 */
 	File genererDescriptionCsvFile(
 			final boolean pAvecLigneEntetes
@@ -400,7 +406,7 @@ public interface IFournisseurCsvImpoDesc {
 						, MapVideException
 							, FichierNullException
 								, FichierInexistantException
-									, IOException;
+									, IOException, Exception;
 	
 	
 	

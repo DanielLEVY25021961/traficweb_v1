@@ -1,10 +1,9 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.HashSet;
@@ -14,19 +13,19 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 
-import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.IConstantes;
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.exceptions.technical.impl.FichierInexistantException;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.MapNullException;
-import levy.daniel.application.exceptions.technical.impl.MapVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
-import levy.daniel.application.util.utilitairesstrings.FormateurChaine;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexistantException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapVideException;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
+import levy.daniel.application.model.utilitaires.utilitairesstrings.FormateurChaine;
+
 
 /**
  * class AbstractImportateurDescription :<br/>
@@ -102,7 +101,61 @@ public abstract class AbstractImportateurDescription implements
 	 */
 	public static final String METHODE_GENERERDESCRIPTION 
 		= "Méthode genererDescriptionCsvFile(boolean, File) - ";
+
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	/**
+	 * Séparateur point virgule pour les CSV.<br/>
+	 * ";"
+	 */
+	public static final String SEP_PV = ";";
+    
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String SEPARATEUR_MOINS_AERE = " - ";
+		
+	/**
+	 * "_".<br/>
+	 */
+	public static final String UNDERSCORE = "_";
 	
+	/**
+	 * Tabulation "\t".<br/>
+	 */
+	public static final String TAB = "\t";
+	
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+
+	/**
+	 * Saut de ligne généré par les éditeurs Unix.<br/>
+	 * "\n" (Retour Ligne = LINE FEED (LF)).
+	 */
+	public static final String SAUTDELIGNE_UNIX = "\n";
+
+	
+	/**
+	 * Saut de ligne généré par les éditeurs Mac.<br/>
+	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
+	 */
+	public static final String SAUTDELIGNE_MAC = "\r";
+	
+	/**
+	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
+	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).
+	 */
+	public static final String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
+	
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
+
 
 	/* ATTRIBUTS. */
 	/**
@@ -238,8 +291,7 @@ public abstract class AbstractImportateurDescription implements
 	@Override
 	public final IDescriptionChamp getDescriptionChamp(
 			final Integer pOrdre) 
-				throws MapNullException
-					, MapVideException {
+				throws Exception {
 		
 				
 		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
@@ -270,11 +322,10 @@ public abstract class AbstractImportateurDescription implements
 	 * LOG.fatal, rapporte et jette une MapNullException 
 	 * si this.specificationChampsMap est null.<br/>
 	 * <br/>
-	 *
-	 * @throws MapNullException : 
-	 * lorsque this.specificationChampsMap est null.<br/>
+	 * 
+	 * @throws Exception 
 	 */
-	private void traiterMapNull() throws MapNullException {
+	private void traiterMapNull() throws Exception {
 		
 		if (this.specificationChampsMap == null) {
 			
@@ -283,7 +334,7 @@ public abstract class AbstractImportateurDescription implements
 
 			final String messageMapNull 
 			= ConfigurationApplicationManager
-				.getBundleMessagesTechniques()
+				.getBundleMessagesTechnique()
 					.getString(cleMapNull);
 
 			final String message 
@@ -299,7 +350,7 @@ public abstract class AbstractImportateurDescription implements
 			/* Rapport d'erreur. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 			
 			/* Jette une Exception circonstanciée. */
@@ -316,11 +367,10 @@ public abstract class AbstractImportateurDescription implements
 	 * LOG.fatal, rapporte et jette une MapVideException 
 	 * si this.specificationChampsMap est vide.<br/>
 	 * <br/>
-	 *
-	 * @throws MapVideException : 
-	 * lorsque this.specificationChampsMap est vide.<br/>
+	 * 
+	 * @throws Exception 
 	 */
-	private void traiterMapVide() throws MapVideException {
+	private void traiterMapVide() throws Exception {
 		
 		if (this.specificationChampsMap.isEmpty()) {
 			
@@ -329,7 +379,7 @@ public abstract class AbstractImportateurDescription implements
 
 			final String messageMapVide 
 			= ConfigurationApplicationManager
-				.getBundleMessagesTechniques()
+				.getBundleMessagesTechnique()
 					.getString(cleMapVide);
 
 			final String message 
@@ -345,7 +395,7 @@ public abstract class AbstractImportateurDescription implements
 			/* Rapport d'erreur. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 
 			/* Jette une Exception circonstanciée. */
@@ -464,16 +514,16 @@ public abstract class AbstractImportateurDescription implements
 
 	/**
 	 * method toStringFormatte() :<br/>
-	 * Affiche la description formattée à la console.<br/>
+	 * Affiche la description formatée à la console.<br/>
 	 * <br/>
 	 *
 	 * @return : String : Chaîne de caractères 
 	 * formattée pour affichage à la console.<br/>
 	 * 
-	 * @throws ExceptionImport<br/> 
+	 * @throws Exception 
 	 */
 	@Override
-	public final String toStringFormatte() throws ExceptionImport {
+	public final String toStringFormatte() throws Exception {
 		return this.specificationChampsMapToString(this.longueursMax);
 	} // Fin de toStringFormatte().________________________________________
 	
@@ -489,10 +539,10 @@ public abstract class AbstractImportateurDescription implements
 	 * @return un String décrivant chaque champ de la spécification
 	 * du fichier : String.<br/>
 	 * 
-	 * @throws ExceptionImport 
+	 * @throws Exception 
 	 */
 	protected final String specificationChampsMapToString() 
-			throws ExceptionImport {
+			throws Exception {
 		
 		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
 		/* Map null. */
@@ -504,7 +554,7 @@ public abstract class AbstractImportateurDescription implements
 
 			final String messageMapNull 
 			= ConfigurationApplicationManager
-				.getBundleMessagesTechniques()
+				.getBundleMessagesTechnique()
 					.getString(cleMapNull);
 
 			final String message 
@@ -519,7 +569,7 @@ public abstract class AbstractImportateurDescription implements
 			/* Rapport Eventuel. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append('\n');
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 
 			throw new ExceptionImport(message);
@@ -535,7 +585,7 @@ public abstract class AbstractImportateurDescription implements
 
 			final String messageMapVide 
 			= ConfigurationApplicationManager
-				.getBundleMessagesTechniques()
+				.getBundleMessagesTechnique()
 					.getString(cleMapVide);
 
 			final String message 
@@ -550,7 +600,7 @@ public abstract class AbstractImportateurDescription implements
 			/* Rapport Eventuel. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append('\n');
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 
 			throw new ExceptionImport(message);
@@ -562,7 +612,7 @@ public abstract class AbstractImportateurDescription implements
 		
 		final StringBuffer stb = new StringBuffer();
 		
-		stb.append('\n');
+		stb.append(NEWLINE);
 		
 		final Set<Entry<Integer, IDescriptionChamp>> 
 		setEntry 
@@ -579,7 +629,7 @@ public abstract class AbstractImportateurDescription implements
 			final IDescriptionChamp desc = entry.getValue();
 			
 			stb.append(desc.descriptionChampToString());
-			stb.append('\n');
+			stb.append(NEWLINE);
 						
 		}
 				
@@ -603,11 +653,11 @@ public abstract class AbstractImportateurDescription implements
 	 * 
 	 * @return String.<br/>
 	 * 
-	 * @throws ExceptionImport<br/>
+	 * @throws Exception 
 	 */
 	protected final String specificationChampsMapToString(
 			final int[] pLongueursMax) 
-						throws ExceptionImport {
+						throws Exception {
 		
 		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
 		/* Map null. */
@@ -619,7 +669,7 @@ public abstract class AbstractImportateurDescription implements
 
 			final String messageMapNull 
 			= ConfigurationApplicationManager
-				.getBundleMessagesTechniques()
+				.getBundleMessagesTechnique()
 					.getString(cleMapNull);
 
 			final String message 
@@ -634,7 +684,7 @@ public abstract class AbstractImportateurDescription implements
 			/* Rapport Eventuel. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append('\n');
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 
 			throw new ExceptionImport(message);
@@ -650,7 +700,7 @@ public abstract class AbstractImportateurDescription implements
 
 			final String messageMapVide 
 			= ConfigurationApplicationManager
-				.getBundleMessagesTechniques()
+				.getBundleMessagesTechnique()
 					.getString(cleMapVide);
 
 			final String message 
@@ -665,7 +715,7 @@ public abstract class AbstractImportateurDescription implements
 			/* Rapport Eventuel. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append('\n');
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 
 			throw new ExceptionImport(message);
@@ -705,7 +755,7 @@ public abstract class AbstractImportateurDescription implements
 			} // Fin du balayage des en-tetes.______________________
 			
 			/* Saut de ligne. */
-			stb.append('\n');
+			stb.append(NEWLINE);
 			
 		} // Fin de if (colonnesDeDescription != null)._________________
 
@@ -747,7 +797,7 @@ public abstract class AbstractImportateurDescription implements
 			} // Fin du balayage des valeurs.______________________
 			
 			/* Saut de ligne. */
-			stb.append('\n');
+			stb.append(NEWLINE);
 			
 		} // Fin du balayage de la Map.______________________
 				
@@ -834,10 +884,10 @@ public abstract class AbstractImportateurDescription implements
 		for (int i = 1; i <= taille; i++) {
 			final String entete = this.descriptionChamp.getEnteteparColonne(i);
 			stb.append(entete);
-			stb.append(IConstantes.TAB);
+			stb.append(TAB);
 		}
 		
-		stb.append(IConstantes.SAUT_LIGNE);
+		stb.append(NEWLINE);
 		
 		return stb.toString();
 		
@@ -959,7 +1009,7 @@ public abstract class AbstractImportateurDescription implements
 		/* Ajout de la ligne d'en-tête si pAvecLigneEntetes. */
 		if (pAvecLigneEntetes) {
 			stb.append(this.fournirLigneEnTetesCsv());
-			stb.append(IConstantes.SAUT_LIGNE);
+			stb.append(NEWLINE);
 		}
 		
 		int compteurLigne = 0;
@@ -981,7 +1031,7 @@ public abstract class AbstractImportateurDescription implements
 			stb.append(desc.fournirLigneValeursCsv());
 			
 			if (compteurLigne < nombreLignes) {
-				stb.append(IConstantes.SAUT_LIGNE);
+				stb.append(NEWLINE);
 			}
 			
 		}
@@ -998,11 +1048,7 @@ public abstract class AbstractImportateurDescription implements
 	 */
 	@Override
 	public final File genererDescriptionCsvFile() 
-					throws MapNullException
-						, MapVideException
-							, FichierNullException
-								, FichierInexistantException
-									, IOException {
+					throws Exception {
 		
 		return this.genererDescriptionCsvFile(true, null);
 		
@@ -1016,11 +1062,7 @@ public abstract class AbstractImportateurDescription implements
 	@Override
 	public final File genererDescriptionCsvFile(
 			final File pFile) 
-					throws MapNullException
-						, MapVideException
-							, FichierNullException
-								, FichierInexistantException
-									, IOException {
+					throws Exception {
 		
 		return this.genererDescriptionCsvFile(true, pFile);
 		
@@ -1036,11 +1078,7 @@ public abstract class AbstractImportateurDescription implements
 	public final File genererDescriptionCsvFile(
 			final boolean pAvecLigneEntetes
 				, final File pFile) 
-					throws MapNullException
-						, MapVideException
-							, FichierNullException
-								, FichierInexistantException
-									, IOException {
+					throws Exception {
 		
 		// ************* PARAMETRES INVALIDES ***************************/
 			
@@ -1141,15 +1179,11 @@ public abstract class AbstractImportateurDescription implements
 	 */
 	@Override
 	public final File genererDescriptionCsvFileLatin9() 
-			throws MapNullException
-			, MapVideException
-			, FichierNullException
-			, FichierInexistantException
-			, IOException {
+			throws Exception {
 		
 		return this.genererDescriptionCsvFile(
 				true, null
-				, IConstantes.CHARSET_LATIN9);
+				, Charset.forName("ISO-8859-15"));
 		
 	} // Fin de genererDescriptionCsvFileLatin9()._________________________
 	
@@ -1160,15 +1194,11 @@ public abstract class AbstractImportateurDescription implements
 	 */
 	@Override
 	public final File genererDescriptionCsvFileUtf8() 
-			throws MapNullException
-			, MapVideException
-			, FichierNullException
-			, FichierInexistantException
-			, IOException {
+			throws Exception {
 		
 		return this.genererDescriptionCsvFile(
 				true, null
-				, IConstantes.CHARSET_UTF8);
+				, Charset.forName("UTF-8"));
 		
 	} // Fin de genererDescriptionCsvFileUtf8().___________________________
 	
@@ -1176,17 +1206,14 @@ public abstract class AbstractImportateurDescription implements
 	
 	/**
 	 * {@inheritDoc}
+	 * @throws Exception 
 	 */
 	@Override
 	public final File genererDescriptionCsvFile(
 			final boolean pAvecLigneEntetes
 				, final File pFile
 					, final Charset pCharset) 
-					throws MapNullException
-						, MapVideException
-							, FichierNullException
-								, FichierInexistantException
-									, IOException {
+					throws Exception {
 		
 		// ************* PARAMETRES INVALIDES ***************************/
 			
@@ -1292,10 +1319,9 @@ public abstract class AbstractImportateurDescription implements
 	 * si this.descriptionDuFichierFile est null.<br/>
 	 * <br/>
 	 * 
-	 * @throws FichierNullException lorsque : 
-	 * descriptionDuFichierFile est null.<br/> 
+	 * @throws Exception 
 	 */
-	private void traiterDescriptionFileNull() throws FichierNullException {
+	private void traiterDescriptionFileNull() throws Exception {
 		
 		if (this.descriptionDuFichierFile == null) {
 			
@@ -1304,7 +1330,7 @@ public abstract class AbstractImportateurDescription implements
 				+ ".genererdescription.filenull";
 
 			final String messageFileNull 
-			= ConfigurationApplicationManager.getBundleMessagesTechniques()
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
 					.getString(cleFileNull);
 
 			final String message 
@@ -1320,7 +1346,7 @@ public abstract class AbstractImportateurDescription implements
 			/* Rapport d'erreur. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 			
 			/* Jette une Exception circonstanciée. */
@@ -1371,7 +1397,7 @@ public abstract class AbstractImportateurDescription implements
 			/* Rapport d'erreur. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 			
 			/* Jette une Exception circonstanciée. */
@@ -1396,7 +1422,7 @@ public abstract class AbstractImportateurDescription implements
 			/* Rapport d'erreur. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 			
 			/* Jette une Exception circonstanciée. */

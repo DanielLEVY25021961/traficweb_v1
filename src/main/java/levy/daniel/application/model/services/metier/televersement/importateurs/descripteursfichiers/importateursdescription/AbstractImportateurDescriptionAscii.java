@@ -1,27 +1,24 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.SortedMap;
 import java.util.TreeMap;
-
-import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.IConstantes;
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
 /**
  * class AbstractImportateurDescriptionAscii :<br/>
@@ -47,6 +44,54 @@ public abstract class AbstractImportateurDescriptionAscii extends
 		AbstractImportateurDescription {
 
 	// ************************ATTRIBUTS************************************/
+	
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	/**
+	 * Séparateur point virgule pour les CSV.<br/>
+	 * ";"
+	 */
+	public static final String SEP_PV = ";";
+    
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String SEPARATEUR_MOINS_AERE = " - ";
+		
+	/**
+	 * "_".<br/>
+	 */
+	public static final String UNDERSCORE = "_";
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+
+	/**
+	 * Saut de ligne généré par les éditeurs Unix.<br/>
+	 * "\n" (Retour Ligne = LINE FEED (LF)).
+	 */
+	public static final String SAUTDELIGNE_UNIX = "\n";
+
+	
+	/**
+	 * Saut de ligne généré par les éditeurs Mac.<br/>
+	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
+	 */
+	public static final String SAUTDELIGNE_MAC = "\r";
+	
+	/**
+	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
+	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).
+	 */
+	public static final String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
+	
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
 
 	/**
 	 * LOG : Log : 
@@ -99,11 +144,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	@Override
 	public final SortedMap<Integer, IDescriptionChamp> importerDescription(
 			final File pFileDescription) 
-					throws FichierNullException
-						, TableauNullException
-							, TableauVideException
-								, ExceptionImport
-									, IOException {
+					throws Exception {
 		
 		File fileDescription = null;
 		
@@ -153,7 +194,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 			/* Instancie un Pattern chargé de retrouver le 
 			 * séparateur ';' dans la ligne. */
 			final String[] tokens 
-				= IConstantes.PATTERN_SEPARATEUR_CSV.split(ligneLue);
+				= Pattern.compile(SEP_PV).split(ligneLue);
 			
 			/* saute la ligne d'en-tête le cas échéant en se basant 
 			 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête HistonatF07 
@@ -216,7 +257,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 				
 				final String message 
 				= desc.toString() 
-				+ IConstantes.SEPARATEUR_MOINS_AERE
+				+ SEPARATEUR_MOINS_AERE
 				+ this.getNomClasse()
 				+ METHODE_IMPORTERDESCRIPTION 
 				+ messageDescripteur;
@@ -226,7 +267,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 										
 					if (this.logImportDescription) {
 						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+						this.rapportImportDescriptionStb.append(NEWLINE);
 						
 					}
 					
@@ -239,7 +280,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 				
 				final String message 
 				= "MAUVAIS FICHIER DE DESCRIPTION ???" 
-				+ IConstantes.SEPARATEUR_MOINS_AERE
+				+ SEPARATEUR_MOINS_AERE
 				+ this.getNomClasse()
 				+ METHODE_IMPORTERDESCRIPTION 
 				+ messageDescripteur;
@@ -254,7 +295,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 										
 					if (this.logImportDescription) {
 						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+						this.rapportImportDescriptionStb.append(NEWLINE);
 						
 					}
 					
@@ -306,14 +347,10 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	@Override
 	public final SortedMap<Integer, IDescriptionChamp> importerDescriptionUtf8(
 			final File pFileDescription) 
-					throws FichierNullException
-						, TableauNullException
-							, TableauVideException
-								, ExceptionImport
-									, IOException {
+					throws Exception {
 		
 		return this.importerDescription(
-				pFileDescription, IConstantes.CHARSET_UTF8);
+				pFileDescription, Charset.forName("UTF-8"));
 		
 	} // Fin de importerDescriptionUtf8(
 	 // File pFileDescription).____________________________________________
@@ -326,14 +363,10 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	@Override
 	public final SortedMap<Integer, IDescriptionChamp> importerDescriptionLatin9(
 			final File pFileDescription) 
-					throws FichierNullException
-						, TableauNullException
-							, TableauVideException
-								, ExceptionImport
-									, IOException {
+					throws Exception {
 		
 		return this.importerDescription(
-				pFileDescription, IConstantes.CHARSET_LATIN9);
+				pFileDescription, Charset.forName("ISO-8859-15"));
 		
 	} // Fin de importerDescriptionLatin9(
 	 // File pFileDescription).____________________________________________
@@ -347,11 +380,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	public final SortedMap<Integer, IDescriptionChamp> importerDescription(
 			final File pFileDescription
 				, final Charset pCharset) 
-					throws FichierNullException
-						, TableauNullException
-							, TableauVideException
-								, ExceptionImport
-									, IOException {
+					throws Exception {
 		
 		File fileDescription = null;
 		
@@ -381,7 +410,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 		Charset charset = null;
 		
 		if (pCharset == null) {
-			charset = IConstantes.CHARSET_UTF8;
+			charset = Charset.forName("UTF-8");
 		}
 		else {
 			charset = pCharset;
@@ -411,7 +440,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 			/* Instancie un Pattern chargé de retrouver le 
 			 * séparateur ';' dans la ligne. */
 			final String[] tokens 
-				= IConstantes.PATTERN_SEPARATEUR_CSV.split(ligneLue);
+				= Pattern.compile(SEP_PV).split(ligneLue);
 			
 			/* saute la ligne d'en-tête le cas échéant en se basant 
 			 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête HistonatF07 
@@ -477,7 +506,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 				
 				final String message 
 				= desc.toString() 
-				+ IConstantes.SEPARATEUR_MOINS_AERE
+				+ SEPARATEUR_MOINS_AERE
 				+ this.getNomClasse()
 				+ METHODE_IMPORTERDESCRIPTION 
 				+ messageDescripteur;
@@ -487,7 +516,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 										
 					if (this.logImportDescription) {
 						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+						this.rapportImportDescriptionStb.append(NEWLINE);
 						
 					}
 					
@@ -500,7 +529,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 				
 				final String message 
 				= "MAUVAIS FICHIER DE DESCRIPTION ???" 
-				+ IConstantes.SEPARATEUR_MOINS_AERE
+				+ SEPARATEUR_MOINS_AERE
 				+ this.getNomClasse()
 				+ METHODE_IMPORTERDESCRIPTION 
 				+ messageDescripteur;
@@ -515,7 +544,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 										
 					if (this.logImportDescription) {
 						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+						this.rapportImportDescriptionStb.append(NEWLINE);
 						
 					}
 					
@@ -592,7 +621,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 			/* Rapport d'erreur. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 			
 			/* Jette une Exception circonstanciée. */
@@ -619,11 +648,10 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	 * @param pDesc : IDescriptionChamp : 
 	 * "Ligne" de la description du fichier.<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : un nom de champ java 
-	 * existe en doublon dans la description.<br/>
+	 * @throws Exception 
 	 */
 	private void controlerUniciteNomJava(
-			final IDescriptionChamp pDesc) throws ExceptionImport {
+			final IDescriptionChamp pDesc) throws Exception {
 		
 		/* ne fait rien si pDesc est null. */
 		if (pDesc == null) {
@@ -645,12 +673,12 @@ public abstract class AbstractImportateurDescriptionAscii extends
 
 				final String messageMauvaisNomChamp 
 				= ConfigurationApplicationManager
-					.getBundleMessagesTechniques()
+					.getBundleMessagesTechnique()
 						.getString(cleMauvaisNomChamp);
 
 				final String message 
 				= pDesc.toString() 
-				+ IConstantes.SEPARATEUR_MOINS_AERE
+				+ SEPARATEUR_MOINS_AERE
 				+ this.getNomClasse() 
 				+ METHODE_IMPORTERDESCRIPTION
 				+ messageMauvaisNomChamp 
@@ -690,9 +718,11 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	 *
 	 * @param pDesc : IDescriptionChamp : 
 	 * "Ligne" de la description du fichier.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	private void controlerLongueur(
-			final IDescriptionChamp pDesc) {
+			final IDescriptionChamp pDesc) throws Exception {
 		
 		/* ne fait rien si pDesc est null. */
 		if (pDesc == null) {
@@ -719,12 +749,12 @@ public abstract class AbstractImportateurDescriptionAscii extends
 
 			final String messageBadLongueur
 			= ConfigurationApplicationManager
-				.getBundleMessagesTechniques()
+				.getBundleMessagesTechnique()
 					.getString(cleBadLongueur);
 
 			final String message 
 			= desc.toString() 
-			+ IConstantes.SEPARATEUR_MOINS_AERE 
+			+ SEPARATEUR_MOINS_AERE 
 			+ this.getNomClasse()
 			+ METHODE_IMPORTERDESCRIPTION
 			+ messageBadLongueur
@@ -766,12 +796,11 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	 * @param pDesc : IDescriptionChamp : 
 	 * "Ligne" de la description du fichier.<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : 
-	 * l'ordre des champs n'est pas jointif.<br/>
+	 * @throws Exception 
 	 */
 	private void controlerJointif(
 			final int pCompteurDeLigne
-				, final IDescriptionChamp pDesc) throws ExceptionImport {
+				, final IDescriptionChamp pDesc) throws Exception {
 		
 		/* ne fait rien si pDesc est null. */
 		if (pDesc == null) {
@@ -806,15 +835,15 @@ public abstract class AbstractImportateurDescriptionAscii extends
 
 					final String messagePasJointif
 					= ConfigurationApplicationManager
-						.getBundleMessagesTechniques()
+						.getBundleMessagesTechnique()
 							.getString(clePasJointif);
 
 					final String message 
 					= "Ligne " 
 					+ pCompteurDeLigne 
-					+ IConstantes.SEPARATEUR_MOINS_AERE 
+					+ SEPARATEUR_MOINS_AERE 
 					+ pDesc.getIntitule() 
-					+ IConstantes.SEPARATEUR_MOINS_AERE 
+					+ SEPARATEUR_MOINS_AERE 
 					+ this.getNomClasse()
 					+ METHODE_IMPORTERDESCRIPTION
 					+ messagePasJointif
@@ -862,13 +891,12 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	 * @param pDesc : IDescriptionChamp : 
 	 * "Ligne" de la description du fichier.<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : 
-	 * les colonnes ne sont pas jointives.<br/>
+	 * @throws Exception 
 	 */
 	protected void controlerColonnesJointives(
 			final int pCompteurDeLigne
 				, final IDescriptionChamp pDesc) 
-								throws ExceptionImport {
+								throws Exception {
 		
 		/* ne fait rien si pDesc est null. */
 		if (pDesc == null) {
@@ -908,15 +936,15 @@ public abstract class AbstractImportateurDescriptionAscii extends
 
 					final String messagePasJointif
 					= ConfigurationApplicationManager
-						.getBundleMessagesTechniques()
+						.getBundleMessagesTechnique()
 							.getString(cleColonnesPasJointives);
 
 					final String message 
 					= "Ligne " 
 					+ pCompteurDeLigne 
-					+ IConstantes.SEPARATEUR_MOINS_AERE 
+					+ SEPARATEUR_MOINS_AERE 
 					+ desc.getIntitule() 
-					+ IConstantes.SEPARATEUR_MOINS_AERE 
+					+ SEPARATEUR_MOINS_AERE 
 					+ this.getNomClasse()
 					+ METHODE_IMPORTERDESCRIPTION
 					+ messagePasJointif

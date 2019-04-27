@@ -1,4 +1,4 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,20 +7,20 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.IConstantes;
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampMapping;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescription;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampMapping;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescription;
 
 /**
  * class ImportateurDescriptionMapping :<br/>
@@ -77,6 +77,54 @@ public class ImportateurDescriptionMapping extends
 	public static final String CLASSE_IMPORTATEURDESCRIPTIONMAPPING 
 		= "CLASSE ImportateurDescriptionMapping - ";
 	
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	/**
+	 * Séparateur point virgule pour les CSV.<br/>
+	 * ";"
+	 */
+	public static final String SEP_PV = ";";
+    
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String SEPARATEUR_MOINS_AERE = " - ";
+		
+	/**
+	 * "_".<br/>
+	 */
+	public static final String UNDERSCORE = "_";
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+
+	/**
+	 * Saut de ligne généré par les éditeurs Unix.<br/>
+	 * "\n" (Retour Ligne = LINE FEED (LF)).
+	 */
+	public static final String SAUTDELIGNE_UNIX = "\n";
+
+	
+	/**
+	 * Saut de ligne généré par les éditeurs Mac.<br/>
+	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
+	 */
+	public static final String SAUTDELIGNE_MAC = "\r";
+	
+	/**
+	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
+	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).
+	 */
+	public static final String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
+	
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
+	
 	
 	/**
 	 * LOG : Log : 
@@ -89,11 +137,11 @@ public class ImportateurDescriptionMapping extends
 	// *************************METHODES************************************/
 	
 	/**
-	 * method CONSTRUCTEUR ImportateurDescriptionMapping() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
+	 * 
+	 * @throws Exception 
 	 */
-	public ImportateurDescriptionMapping() {
+	public ImportateurDescriptionMapping() throws Exception {
 		
 		super();
 		
@@ -118,9 +166,11 @@ public class ImportateurDescriptionMapping extends
 	 * @param pDescriptionDuFichierFile : File : 
 	 * la description de fichier à mettre 
 	 * à la disposition de l'application.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public ImportateurDescriptionMapping(
-			final File pDescriptionDuFichierFile) {
+			final File pDescriptionDuFichierFile) throws Exception {
 		
 		super(new DescriptionChampMapping(), pDescriptionDuFichierFile);
 		
@@ -139,14 +189,15 @@ public class ImportateurDescriptionMapping extends
 	 * si il faut créer des rapports d'erreur d'import des descriptions.<br/>
 	 * - Instancie le cas échéant le rapport d'erreur.<br/>
 	 * <br/>
+	 * @throws Exception 
 	 */
-	private void determinerSiLogErreurs() {
+	private void determinerSiLogErreurs() throws Exception {
 		
 		final String cleLogImport = this.recupererCleLogErreur();
 
 		final String logImportString 
 		= ConfigurationApplicationManager
-			.getBundleMessagesTechniques()
+			.getBundleMessagesTechnique()
 				.getString(cleLogImport);
 		
 		if (StringUtils.containsIgnoreCase(logImportString, "true")) {
@@ -208,29 +259,12 @@ public class ImportateurDescriptionMapping extends
 	 * 
 	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 * 
-	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
-	 * @throws ExceptionImport lorsque :<br/>
-	 * le fichier de description passé en paramètre pFileDescription 
-	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
-	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * les colonnes ne sont pas jointives.<br/>
-	 * @throws TableauVideException : 
-	 * si une ligne de la description est null.<br/>
-	 * @throws TableauNullException : 
-	 * si une ligne de la description est vide.<br/> 
+	 * @throws Exception 
 	 */
 	@Override
 	public SortedMap<Integer, IDescriptionChamp> importerDescription(
 			final File pFileDescription) 
-					throws FichierNullException
-					, TableauNullException
-						, TableauVideException
-							, ExceptionImport
-								, IOException {
+					throws Exception {
 		
 		File fileDescription = null;
 		
@@ -280,7 +314,7 @@ public class ImportateurDescriptionMapping extends
 			/* Instancie un Pattern chargé de retrouver le 
 			 * séparateur ';' dans la ligne. */
 			final String[] tokens 
-				= IConstantes.PATTERN_SEPARATEUR_CSV.split(ligneLue);
+				= Pattern.compile(";").split(ligneLue);
 			
 			/* saute la ligne d'en-tête le cas échéant en se basant 
 			 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête du Mapping 
@@ -314,7 +348,7 @@ public class ImportateurDescriptionMapping extends
 				
 				final String message 
 				= desc.toString() 
-				+ IConstantes.SEPARATEUR_MOINS_AERE
+				+ SEPARATEUR_MOINS_AERE
 				+ CLASSE_IMPORTATEURDESCRIPTIONMAPPING
 				+ METHODE_IMPORTERDESCRIPTION 
 				+ messageDescripteur;
@@ -324,7 +358,7 @@ public class ImportateurDescriptionMapping extends
 										
 					if (this.logImportDescription) {
 						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+						this.rapportImportDescriptionStb.append(NEWLINE);
 						
 					}
 					
@@ -337,7 +371,7 @@ public class ImportateurDescriptionMapping extends
 				
 				final String message 
 				= "MAUVAIS FICHIER DE DESCRIPTION ???" 
-				+ IConstantes.SEPARATEUR_MOINS_AERE
+				+ SEPARATEUR_MOINS_AERE
 				+ CLASSE_IMPORTATEURDESCRIPTIONMAPPING 
 				+ METHODE_IMPORTERDESCRIPTION 
 				+ messageDescripteur;
@@ -352,7 +386,7 @@ public class ImportateurDescriptionMapping extends
 										
 					if (this.logImportDescription) {
 						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+						this.rapportImportDescriptionStb.append(NEWLINE);
 						
 					}
 					
@@ -477,7 +511,7 @@ public class ImportateurDescriptionMapping extends
 			/* Rapport d'erreur. */
 			if (this.logImportDescription) {
 				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
 			
 			/* Jette une Exception circonstanciée. */
@@ -504,11 +538,10 @@ public class ImportateurDescriptionMapping extends
 	 * @param pDesc : IDescriptionChamp : 
 	 * "Ligne" de la description du fichier.<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : un nom de champ java 
-	 * existe en doublon dans la description.<br/>
+	 * @throws Exception 
 	 */
 	private void controlerUniciteNomJava(
-			final IDescriptionChamp pDesc) throws ExceptionImport {
+			final IDescriptionChamp pDesc) throws Exception {
 		
 		/* ne fait rien si pDesc est null. */
 		if (pDesc == null) {
@@ -533,12 +566,12 @@ public class ImportateurDescriptionMapping extends
 	
 				final String messageMauvaisNomChamp 
 				= ConfigurationApplicationManager
-					.getBundleMessagesTechniques()
+					.getBundleMessagesTechnique()
 						.getString(cleMauvaisNomChamp);
 	
 				final String message 
 				= desc.toString() 
-				+ IConstantes.SEPARATEUR_MOINS_AERE
+				+ SEPARATEUR_MOINS_AERE
 				+ CLASSE_IMPORTATEURDESCRIPTIONMAPPING 
 				+ METHODE_IMPORTERDESCRIPTION
 				+ messageMauvaisNomChamp 
@@ -582,12 +615,11 @@ public class ImportateurDescriptionMapping extends
 	 * @param pDesc : IDescriptionChamp : 
 	 * "Ligne" de la description du fichier.<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : 
-	 * l'ordre des champs n'est pas jointif.<br/>
+	 * @throws Exception 
 	 */
 	private void controlerJointif(
 			final int pCompteurDeLigne
-				, final IDescriptionChamp pDesc) throws ExceptionImport {
+				, final IDescriptionChamp pDesc) throws Exception {
 		
 		/* ne fait rien si pDesc est null. */
 		if (pDesc == null) {
@@ -627,15 +659,15 @@ public class ImportateurDescriptionMapping extends
 	
 					final String messagePasJointif
 					= ConfigurationApplicationManager
-						.getBundleMessagesTechniques()
+						.getBundleMessagesTechnique()
 							.getString(clePasJointif);
 	
 					final String message 
 					= "Ligne " 
 					+ pCompteurDeLigne 
-					+ IConstantes.SEPARATEUR_MOINS_AERE 
+					+ SEPARATEUR_MOINS_AERE 
 					+ desc.getIntitule() 
-					+ IConstantes.SEPARATEUR_MOINS_AERE 
+					+ SEPARATEUR_MOINS_AERE 
 					+ CLASSE_IMPORTATEURDESCRIPTIONMAPPING 
 					+ METHODE_IMPORTERDESCRIPTION
 					+ messagePasJointif
@@ -682,13 +714,12 @@ public class ImportateurDescriptionMapping extends
 	 * @param pDesc : IDescriptionChamp : 
 	 * "Ligne" de la description du fichier.<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : 
-	 * les colonnes ne sont pas jointives.<br/>
+	 * @throws Exception 
 	 */
 	private void controlerColonnesJointives(
 			final int pCompteurDeLigne
 				, final IDescriptionChamp pDesc) 
-								throws ExceptionImport {
+								throws Exception {
 		
 		/* ne fait rien si pDesc est null. */
 		if (pDesc == null) {
@@ -729,15 +760,15 @@ public class ImportateurDescriptionMapping extends
 	
 					final String messagePasJointif
 					= ConfigurationApplicationManager
-						.getBundleMessagesTechniques()
+						.getBundleMessagesTechnique()
 							.getString(clePasJointif);
 	
 					final String message 
 					= "Ligne " 
 					+ pCompteurDeLigne 
-					+ IConstantes.SEPARATEUR_MOINS_AERE 
+					+ SEPARATEUR_MOINS_AERE 
 					+ desc.getIntitule() 
-					+ IConstantes.SEPARATEUR_MOINS_AERE 
+					+ SEPARATEUR_MOINS_AERE 
 					+ CLASSE_IMPORTATEURDESCRIPTIONMAPPING
 					+ METHODE_IMPORTERDESCRIPTION
 					+ messagePasJointif

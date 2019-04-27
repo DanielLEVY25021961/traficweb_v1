@@ -1,6 +1,6 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription;
 
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 
 /**
  * class IFormatteurLongueursImpoDesc :<br/>
@@ -87,8 +87,9 @@ public interface IFormatteurLongueursImpoDesc {
 	 * formattée pour affichage à la console.<br/>
 	 * 
 	 * @throws ExceptionImport<br/> 
+	 * @throws Exception 
 	 */
-	String toStringFormatte() throws ExceptionImport;
+	String toStringFormatte() throws ExceptionImport, Exception;
 	
 	
 	

@@ -1,14 +1,14 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl;
 
 import java.io.File;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHistoF07;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescriptionAscii;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHistoF07;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescriptionAscii;
 
 /**
  * class ImportateurDescriptionHistoF07 :<br/>
@@ -83,8 +83,10 @@ public class ImportateurDescriptionHistoF07 extends
 	 * method CONSTRUCTEUR ImportateurDescriptionHistoF07() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * <br/>
+	 * 
+	 * @throws Exception 
 	 */
-	public ImportateurDescriptionHistoF07() {
+	public ImportateurDescriptionHistoF07() throws Exception {
 		
 		super();
 		
@@ -109,9 +111,11 @@ public class ImportateurDescriptionHistoF07 extends
 	 * @param pDescriptionDuFichierFile : File : 
 	 * la description de fichier à mettre 
 	 * à la disposition de l'application.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public ImportateurDescriptionHistoF07(
-			final File pDescriptionDuFichierFile) {
+			final File pDescriptionDuFichierFile) throws Exception {
 		
 		super(new DescriptionChampHistoF07(), pDescriptionDuFichierFile);
 		
@@ -130,14 +134,16 @@ public class ImportateurDescriptionHistoF07 extends
 	 * si il faut créer des rapports d'erreur d'import des descriptions.<br/>
 	 * - Instancie le cas échéant le rapport d'erreur.<br/>
 	 * <br/>
+	 * 
+	 * @throws Exception 
 	 */
-	private void determinerSiLogErreurs() {
+	private void determinerSiLogErreurs() throws Exception {
 		
 		final String cleLogImport = this.recupererCleLogErreur();
 
 		final String logImportString 
 		= ConfigurationApplicationManager
-			.getBundleMessagesTechniques()
+			.getBundleMessagesTechnique()
 				.getString(cleLogImport);
 		
 		if (StringUtils.containsIgnoreCase(logImportString, "true")) {

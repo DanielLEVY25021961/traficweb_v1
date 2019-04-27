@@ -1,10 +1,10 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps;
 
 import java.util.SortedMap;
 
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauVideException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
 
 /**
  * class IDescriptionChamp :<br/>
@@ -72,12 +72,14 @@ public interface IDescriptionChamp
 	 * - Une valeur dans le tableau de tokens décrivant le champ
 	 * dans la description de fichier est manquante
 	 * ou inadmissible. <br/>
+	 * 
+	 * @throws Exception 
 	 */
 	void lireChamp(String[] pTokens)
 		throws 
 			TableauNullException
 				, TableauVideException
-					, ExceptionImport;
+					, ExceptionImport, Exception;
 	
 
 	

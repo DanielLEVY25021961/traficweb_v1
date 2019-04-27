@@ -1,4 +1,4 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps;
 
 /**
  * class IFournisseurJTable :<br/>

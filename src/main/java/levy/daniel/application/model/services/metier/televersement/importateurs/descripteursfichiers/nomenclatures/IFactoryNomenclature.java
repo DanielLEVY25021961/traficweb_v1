@@ -57,13 +57,14 @@ public interface IFactoryNomenclature {
 	 * @throws FichierInexistantException  : si pNomenclature n'existe pas.<br/>
 	 * @throws FichierPasNormalException : si pNomenclature est un répertoire.<br/>
 	 * @throws IOException : si problème d'entrée/sortie.<br/>
+	 * @throws Exception 
 	 */
 	Set<Integer> getClesPossiblesSet(int pNumeroChamp) 
 					throws FichierNullException
 					, FichierVideException
 					, FichierInexistantException
 					, FichierPasNormalException
-					, IOException;
+					, IOException, Exception;
 	
 	
 	
@@ -91,13 +92,14 @@ public interface IFactoryNomenclature {
 	 * @throws FichierInexistantException  : si pNomenclature n'existe pas.<br/>
 	 * @throws FichierPasNormalException : si pNomenclature est un répertoire.<br/>
 	 * @throws IOException : si problème d'entrée/sortie.<br/>
+	 * @throws Exception 
 	 */
 	SortedMap<Integer, String> getNomenclatureMap(int pNumeroChamp) 
 					throws FichierNullException
 					, FichierVideException
 					, FichierInexistantException
 					, FichierPasNormalException
-					, IOException;
+					, IOException, Exception;
 	
 	
 	

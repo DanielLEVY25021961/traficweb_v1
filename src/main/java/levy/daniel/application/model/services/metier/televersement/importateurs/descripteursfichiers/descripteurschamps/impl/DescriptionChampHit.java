@@ -1,13 +1,11 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl;
 
 import java.util.SortedMap;
 
-import levy.daniel.application.exceptions.technical.impl.MapNullException;
-import levy.daniel.application.exceptions.technical.impl.MapVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
 
 /**
  * class DescriptionChampHit :<br/>
@@ -94,8 +92,6 @@ public class DescriptionChampHit extends AbstractDescriptionChampAscii {
 	// *************************METHODES************************************/
 	
 	/**
-	 * method CONSTRUCTEUR DescriptionChampHit() :<br/>
-	 * <br/>
 	 * CONSTRUCTEUR D'ARITE 0 permettant d'instancier
 	 * un DescriptionChampHit en instanciant et alimentant
 	 * la Map&lt;Integer, String&gt; 'entetesDescriptionMap'
@@ -109,12 +105,12 @@ public class DescriptionChampHit extends AbstractDescriptionChampAscii {
 	 * directement fournies dans la description de fichier.
 	 * Il suffit d'avoir fourni un champ 'colonnes' sous 
 	 * la forme '14-24').<br/>
+	 * 
+	 * @throws Exception 
 	 *
 	 */
-	public DescriptionChampHit() {
-		
-		super();
-		
+	public DescriptionChampHit() throws Exception {		
+		super();		
 	} // Fin de CONSTRUCTEUR DescriptionChampHit().___________________
 	
 	
@@ -142,14 +138,11 @@ public class DescriptionChampHit extends AbstractDescriptionChampAscii {
 	 * la Map des colonnes de la 
 	 * description du fichier.<br/>
 	 * 
-	 * @throws MapNullException lorsque : la Map passée en paramètre
-	 * est null.<br/>
-	 * @throws MapVideException lorsque : la Map passée en paramètre
-	 * est vide.<br/>
+	 * @throws Exception 
 	 */
 	public DescriptionChampHit(
 			final SortedMap<Integer, String> pColonnesDescriptionMap) 
-					throws MapNullException, MapVideException{
+					throws Exception{
 		
 		super(pColonnesDescriptionMap);
 				

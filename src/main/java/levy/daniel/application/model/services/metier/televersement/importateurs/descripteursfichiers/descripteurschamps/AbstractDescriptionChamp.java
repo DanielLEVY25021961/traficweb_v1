@@ -1,4 +1,4 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps;
 
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -7,9 +7,7 @@ import java.util.SortedMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import levy.daniel.application.IConstantes;
-
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -39,7 +37,63 @@ public abstract class AbstractDescriptionChamp
 								implements IDescriptionChamp {
 
 	// ************************ATTRIBUTS************************************/
+	
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	/**
+	 * Séparateur point virgule pour les CSV.<br/>
+	 * ";"
+	 */
+	public static final String SEP_PV = ";";
+    
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String SEPARATEUR_MOINS_AERE = " - ";
+		
+	/**
+	 * "_".<br/>
+	 */
+	public static final String UNDERSCORE = "_";	
+	
+	/**
+	 * Tabulation "\t".<br/>
+	 */
+	public static final String TAB = "\t";
 
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+
+	/**
+	 * Saut de ligne généré par les éditeurs Unix.<br/>
+	 * "\n" (Retour Ligne = LINE FEED (LF)).
+	 */
+	public static final String SAUTDELIGNE_UNIX = "\n";
+
+	
+	/**
+	 * Saut de ligne généré par les éditeurs Mac.<br/>
+	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
+	 */
+	public static final String SAUTDELIGNE_MAC = "\r";
+	
+	/**
+	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
+	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).
+	 */
+	public static final String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
+	
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
+
+	
+	
 	/* ATTRIBUTS. */
 	/**
 	 * entetesDescriptionMap : SortedMap&lt;Integer,String&gt; : <br/>
@@ -353,7 +407,7 @@ public abstract class AbstractDescriptionChamp
 			
 			stb.append(valeur);
 			
-			stb.append(IConstantes.SEP_PV);
+			stb.append(SEP_PV);
 		}
 		
 		return stb.toString();
@@ -393,7 +447,7 @@ public abstract class AbstractDescriptionChamp
 			
 			stb.append(valeur);
 			
-			stb.append(IConstantes.SEP_PV);
+			stb.append(SEP_PV);
 		}
 		
 		return stb.toString();
@@ -625,7 +679,7 @@ public abstract class AbstractDescriptionChamp
 		
 		for (int i = 0; i < pTokens.length; i++) {
 			stb.append(pTokens[i]);
-			stb.append(IConstantes.SEP_PV);
+			stb.append(SEP_PV);
 		}
 		
 		return stb.toString();
@@ -664,11 +718,11 @@ public abstract class AbstractDescriptionChamp
 			
 			stb.append(valeur);
 			
-			stb.append(IConstantes.TAB);
+			stb.append(TAB);
 		}
 		
 		/* Passage à la ligne. */
-		stb.append(IConstantes.SAUT_LIGNE);
+		stb.append(NEWLINE);
 								
 		return stb.toString();
 	

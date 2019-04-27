@@ -1,14 +1,14 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps;
 
 import java.util.SortedMap;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.exceptions.technical.impl.MapNullException;
-import levy.daniel.application.exceptions.technical.impl.MapVideException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapVideException;
 
 /**
  * class AbstractDescriptionChampCsv :<br/>
@@ -125,8 +125,10 @@ public abstract class AbstractDescriptionChampCsv
 	 * - Il FAUT ALIMENTER 'nombreColonnesObligatoires' dans
 	 * l'appel de ce constructeur par les classes concrètes.<br/>
 	 * <br/>
+	 * 
+	 * @throws Exception 
 	 */
-	public AbstractDescriptionChampCsv() {
+	public AbstractDescriptionChampCsv() throws Exception {
 		
 		super();
 		
@@ -138,7 +140,7 @@ public abstract class AbstractDescriptionChampCsv
 
 		final String logDescriptionString 
 		= ConfigurationApplicationManager
-			.getBundleMessagesTechniques()
+			.getBundleMessagesTechnique()
 				.getString(cleLogDescription);
 		
 		if (StringUtils.containsIgnoreCase(logDescriptionString, "true")) {
@@ -176,14 +178,11 @@ public abstract class AbstractDescriptionChampCsv
 	 * @param pColonnesDescriptionMap : la Map des colonnes de la 
 	 * description du fichier.<br/>
 	 * 
-	 * @throws MapNullException lorsque : la Map passée en paramètre
-	 * est null.<br/>
-	 * @throws MapVideException lorsque : la Map passée en paramètre
-	 * est vide.<br/>
+	 * @throws Exception 
 	 */
 	public AbstractDescriptionChampCsv(
 			final SortedMap<Integer, String> pColonnesDescriptionMap) 
-				throws MapNullException, MapVideException {
+				throws Exception {
 		
 		super();
 		
@@ -195,7 +194,7 @@ public abstract class AbstractDescriptionChampCsv
 
 		final String logDescriptionString 
 		= ConfigurationApplicationManager
-			.getBundleMessagesTechniques()
+			.getBundleMessagesTechnique()
 				.getString(cleLogDescription);
 		
 		if (StringUtils.containsIgnoreCase(logDescriptionString, "true")) {
@@ -220,7 +219,7 @@ public abstract class AbstractDescriptionChampCsv
 
 			final String messageMapNull 
 			= ConfigurationApplicationManager
-				.getBundleMessagesTechniques()
+				.getBundleMessagesTechnique()
 					.getString(cleMapNull);
 
 			final String message 
@@ -252,7 +251,7 @@ public abstract class AbstractDescriptionChampCsv
 
 			final String messageMapVide 
 			= ConfigurationApplicationManager
-				.getBundleMessagesTechniques()
+				.getBundleMessagesTechnique()
 					.getString(cleMapVide);
 
 			final String message 

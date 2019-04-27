@@ -1,21 +1,16 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.impl;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Set;
 import java.util.SortedMap;
 
-import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.exceptions.technical.impl.FichierInexistantException;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.FichierPasNormalException;
-import levy.daniel.application.exceptions.technical.impl.FichierVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.IFactoryNomenclature;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.IImporteurNomenclature;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.impl.ImporteurNomenclature;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IFactoryNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IImporteurNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.impl.ImporteurNomenclature;
 
 /**
  * class FactoryNomenclatureDarwinCsv :<br/>
@@ -127,11 +122,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	@Override
 	public Set<Integer> getClesPossiblesSet(
 			final int pNumeroChamp) 
-					throws FichierNullException
-					, FichierVideException
-					, FichierInexistantException
-					, FichierPasNormalException
-					, IOException {
+					throws Exception {
 		
 		Set<Integer> resultat = null;
 		
@@ -208,11 +199,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	@Override
 	public SortedMap<Integer, String> getNomenclatureMap(
 										final int pNumeroChamp) 
-												throws FichierNullException
-												, FichierVideException
-												, FichierInexistantException
-												, FichierPasNormalException
-												, IOException {
+												throws Exception {
 
 		SortedMap<Integer, String> resultat = null;
 

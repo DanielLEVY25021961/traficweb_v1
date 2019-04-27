@@ -1,22 +1,19 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.IConstantes;
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.exceptions.technical.impl.MapNullException;
-import levy.daniel.application.exceptions.technical.impl.MapVideException;
-import levy.daniel.application.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauVideException;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampCsv;
-
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampCsv;
 
 /**
  * class DescriptionChampDarwinCsv :<br/>
@@ -93,6 +90,55 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 */
 	public static final String METHODE_LIRECHAMP 
 	= "Méthode lireChamp(int[] pTokens) - ";
+
+	
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	/**
+	 * Séparateur point virgule pour les CSV.<br/>
+	 * ";"
+	 */
+	public static final String SEP_PV = ";";
+    
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String SEPARATEUR_MOINS_AERE = " - ";
+		
+	/**
+	 * "_".<br/>
+	 */
+	public static final String UNDERSCORE = "_";
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+
+	/**
+	 * Saut de ligne généré par les éditeurs Unix.<br/>
+	 * "\n" (Retour Ligne = LINE FEED (LF)).
+	 */
+	public static final String SAUTDELIGNE_UNIX = "\n";
+
+	
+	/**
+	 * Saut de ligne généré par les éditeurs Mac.<br/>
+	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
+	 */
+	public static final String SAUTDELIGNE_MAC = "\r";
+	
+	/**
+	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
+	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).
+	 */
+	public static final String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
+	
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
 	
 	
 	/**
@@ -116,9 +162,10 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 * - Alimente le 'nombreColonnesObligatoires', c'est à dire
 	 * les colonnes qui doivent obligatoirement être fournies
 	 * dans la description de fichier.<br/>
-	 *
+	 * 
+	 * @throws Exception 
 	 */
-	public DescriptionChampDarwinCsv() {
+	public DescriptionChampDarwinCsv() throws Exception {
 		
 		super();
 		
@@ -160,14 +207,11 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 * @param pColonnesDescriptionMap : la Map des colonnes de la 
 	 * description du fichier.<br/>
 	 * 
-	 * @throws MapNullException lorsque : la Map passée en paramètre
-	 * est null.<br/>
-	 * @throws MapVideException lorsque : la Map passée en paramètre
-	 * est vide.<br/>
+	 * @throws Exception 
 	 */
 	public DescriptionChampDarwinCsv(
 			final SortedMap<Integer, String> pColonnesDescriptionMap) 
-					throws MapNullException, MapVideException {
+					throws Exception {
 		
 		super(pColonnesDescriptionMap);
 		
@@ -188,9 +232,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	public final void lireChamp(
 			final String[] pTokens) 
 				throws 
-					TableauNullException
-						, TableauVideException
-							, ExceptionImport {
+					Exception {
 		
 		
 		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
@@ -372,7 +414,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 				= "descriptionchampdarwincsv.lirechamp.anomenclaturetrue";
 
 				final String messageANomenclatureVide
-				= ConfigurationApplicationManager.getBundleMessagesTechniques()
+				= ConfigurationApplicationManager.getBundleMessagesTechnique()
 						.getString(cleANomenclatureVide);
 
 				final String message 
@@ -388,7 +430,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 				/* Rapport d'erreur. */
 				if (this.logDescription) {
 					this.rapportDescriptionStb.append(message);
-					this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+					this.rapportDescriptionStb.append(NEWLINE);
 				}
 
 				/* Jette une Exception circonstanciée. */
@@ -429,11 +471,11 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 *
 	 * @param pTokens : String[].<br/>
 	 * 
-	 * @throws TableauNullException lorsque : pTokens est null.<br/>
+	 * @throws Exception 
 	 */
 	private void traiterTokensNull(
 			final String[] pTokens) 
-				throws TableauNullException {
+				throws Exception {
 		
 		if (pTokens == null) {
 			
@@ -441,7 +483,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			= "descriptionchampdarwincsv.lirechamp.tableaunull";
 
 			final String messageTableauNull 
-			= ConfigurationApplicationManager.getBundleMessagesTechniques()
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
 					.getString(cleTableauNull);
 
 			final String message 
@@ -457,7 +499,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			/* Rapport d'erreur. */
 			if (this.logDescription) {
 				this.rapportDescriptionStb.append(message);
-				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportDescriptionStb.append(NEWLINE);
 			}
 
 			/* Jette une Exception circonstanciée. */
@@ -480,11 +522,11 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 *
 	 * @param pTokens : String[].<br/>
 	 * 
-	 * @throws TableauVideException lorsque : pTokens est vide.<br/>
+	 * @throws Exception 
 	 */
 	private void traiterTokensVide(
 			final String[] pTokens) 
-				throws TableauVideException {
+				throws Exception {
 		
 		if (pTokens.length == 0) {
 			
@@ -492,7 +534,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			= "descriptionchampdarwincsv.lirechamp.tableauvide";
 
 			final String messageTableauVide
-			= ConfigurationApplicationManager.getBundleMessagesTechniques()
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
 					.getString(cleTableauVide);
 
 			final String message 
@@ -508,7 +550,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			/* Rapport d'erreur. */
 			if (this.logDescription) {
 				this.rapportDescriptionStb.append(message);
-				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportDescriptionStb.append(NEWLINE);
 			}
 
 			/* Jette une Exception circonstanciée. */
@@ -531,11 +573,11 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 *
 	 * @param pTokens : String[].<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : pTokens est trop court.<br/>
+	 * @throws Exception 
 	 */
 	private void traiterTokensLongueur(
 			final String[] pTokens) 
-				throws ExceptionImport {
+				throws Exception {
 		
 		if (pTokens.length < this.nombreColonnesObligatoires) {
 			
@@ -543,7 +585,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			= "descriptionchampdarwincsv.lirechamp.tableautroppetit";
 
 			final String messageTableauPetit
-			= ConfigurationApplicationManager.getBundleMessagesTechniques()
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
 					.getString(cleTableauPetit);
 
 			final String message 
@@ -563,7 +605,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			
 			if (this.logDescription) {
 				this.rapportDescriptionStb.append(message);
-				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportDescriptionStb.append(NEWLINE);
 			}
 
 			throw new ExceptionImport(message);
@@ -586,12 +628,11 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 *
 	 * @param pTokens : String[].<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : pTokens[0] (ordreChamps) 
-	 * n'est pas renseigné.<br/>
+	 * @throws Exception 
 	 */
 	private void traiterTokensOrdreChampsNonRenseigne(
 			final String[] pTokens) 
-				throws ExceptionImport {
+				throws Exception {
 		
 		if (StringUtils.isBlank(pTokens[0])) {
 			
@@ -599,7 +640,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			= "descriptionchampdarwincsv.lirechamp.ordrechampvide";
 
 			final String messageOrdreChampVide
-			= ConfigurationApplicationManager.getBundleMessagesTechniques()
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
 					.getString(cleOrdreChampVide);
 
 			final String message 
@@ -616,7 +657,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			/* Rapport d'erreur. */
 			if (this.logDescription) {
 				this.rapportDescriptionStb.append(message);
-				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportDescriptionStb.append(NEWLINE);
 			}
 
 			/* Jette une Exception circonstanciée. */
@@ -640,12 +681,11 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 *
 	 * @param pTokens : String[].<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : pTokens[1] (intitule) 
-	 * n'est pas renseigné.<br/>
+	 * @throws Exception 
 	 */
 	private void traiterTokensIntituleNonRenseigne(
 			final String[] pTokens) 
-				throws ExceptionImport {
+				throws Exception {
 		
 		if (StringUtils.isBlank(pTokens[1])) {
 			
@@ -653,7 +693,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			= "descriptionchampdarwincsv.lirechamp.intitulevide";
 
 			final String messageIntituleVide
-			= ConfigurationApplicationManager.getBundleMessagesTechniques()
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
 					.getString(cleintituleeVide);
 
 			final String message 
@@ -670,7 +710,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			/* Rapport d'erreur. */
 			if (this.logDescription) {
 				this.rapportDescriptionStb.append(message);
-				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportDescriptionStb.append(NEWLINE);
 			}
 
 			/* Jette une Exception circonstanciée. */
@@ -694,12 +734,11 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 *
 	 * @param pTokens : String[].<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : pTokens[3] (champJava) 
-	 * n'est pas renseigné.<br/>
+	 * @throws Exception 
 	 */
 	private void traiterTokensChampJavaNonRenseigne(
 			final String[] pTokens) 
-				throws ExceptionImport {
+				throws Exception {
 		
 		if (StringUtils.isBlank(pTokens[3])) {
 			
@@ -707,7 +746,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			= "descriptionchampdarwincsv.lirechamp.champjavavide";
 
 			final String messageChampJavaVide
-			= ConfigurationApplicationManager.getBundleMessagesTechniques()
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
 					.getString(cleChampJavaVide);
 
 			final String message 
@@ -724,7 +763,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			/* Rapport d'erreur. */
 			if (this.logDescription) {
 				this.rapportDescriptionStb.append(message);
-				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportDescriptionStb.append(NEWLINE);
 			}
 
 			/* Jette une Exception circonstanciée. */
@@ -748,12 +787,11 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 *
 	 * @param pTokens : String[].<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : pTokens[4] (typeJava) 
-	 * n'est pas renseigné.<br/>
+	 * @throws Exception 
 	 */
 	private void traiterTokensTypeJavaNonRenseigne(
 			final String[] pTokens) 
-				throws ExceptionImport {
+				throws Exception {
 		
 		if (StringUtils.isBlank(pTokens[4])) {
 			
@@ -761,7 +799,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			= "descriptionchampdarwincsv.lirechamp.typejavavide";
 
 			final String messageTypeJavaVide
-			= ConfigurationApplicationManager.getBundleMessagesTechniques()
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
 					.getString(cleTypeJavaVide);
 
 			final String message 
@@ -778,7 +816,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			/* Rapport d'erreur. */
 			if (this.logDescription) {
 				this.rapportDescriptionStb.append(message);
-				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportDescriptionStb.append(NEWLINE);
 			}
 
 			/* Jette une Exception circonstanciée. */
@@ -802,12 +840,11 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 *
 	 * @param pTokens : String[].<br/>
 	 * 
-	 * @throws ExceptionImport lorsque : pTokens[5] (aNomenclature) 
-	 * n'est pas renseigné.<br/>
+	 * @throws Exception 
 	 */
 	private void traiterTokensANomenclatureNonRenseigne(
 			final String[] pTokens) 
-				throws ExceptionImport {
+				throws Exception {
 		
 		if (StringUtils.isBlank(pTokens[5])) {
 			
@@ -815,7 +852,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			= "descriptionchampdarwincsv.lirechamp.anomenclaturevide";
 
 			final String messageANomenclatureVide
-			= ConfigurationApplicationManager.getBundleMessagesTechniques()
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
 					.getString(cleANomenclatureVide);
 
 			final String message 
@@ -832,7 +869,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 			/* Rapport d'erreur. */
 			if (this.logDescription) {
 				this.rapportDescriptionStb.append(message);
-				this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportDescriptionStb.append(NEWLINE);
 			}
 
 			/* Jette une Exception circonstanciée. */
@@ -857,12 +894,10 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	 * 
 	 * @return String : ordreChamps sous forme de String.<br/>
 	 * 
-	 * @throws ExceptionImport lorsque :<br/> 
-	 * - pTokens[0] (ordreChamps) n'est pas renseigné.<br/>
-	 * - pTokens[0] (ordreChamps) n'est pas homogène à un entier.<br/>
+	 * @throws Exception 
 	 */
 	private String recupererOrdreChamps(
-			final String[] pTokens) throws ExceptionImport {
+			final String[] pTokens) throws Exception {
 		
 		/* Si NON RENSEIGNE, exception, */
 		this.traiterTokensOrdreChampsNonRenseigne(pTokens);
@@ -911,7 +946,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 				if (this.logDescription) {
 							
 					this.rapportDescriptionStb.append(message1);
-					this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+					this.rapportDescriptionStb.append(NEWLINE);
 				}
 					
 			} // Fin de rapport éventuel.__________________
@@ -952,7 +987,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 				/* Rapport d'erreur. */
 				if (this.logDescription) {
 					this.rapportDescriptionStb.append(message);
-					this.rapportDescriptionStb.append(IConstantes.SAUT_LIGNE);
+					this.rapportDescriptionStb.append(NEWLINE);
 				}
 				
 				/* Jette une Exception circonstanciée. */

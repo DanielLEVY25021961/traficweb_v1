@@ -1,9 +1,9 @@
-package levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.metier.importateurs.descripteursfichiers.nomenclatures.AbstractImporteurNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.AbstractImporteurNomenclature;
 
 /**
  * class ImporteurNomenclature :<br/>
@@ -50,14 +50,10 @@ public class ImporteurNomenclature extends AbstractImporteurNomenclature {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR ImporteurNomenclature() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
 	 */
-	public ImporteurNomenclature() {
-		
-		super();
-		
+	public ImporteurNomenclature() {		
+		super();		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 	
