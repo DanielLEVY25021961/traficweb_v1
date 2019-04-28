@@ -14,14 +14,19 @@ import org.hibernate.jpa.boot.spi.Bootstrap;
 import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import levy.daniel.application.model.utilitaires.jpa.afficheurentitymanagerfactory.AfficheurEntityManagerFactory;
 import levy.daniel.application.model.utilitaires.jpa.datasource.IMyDataSource;
 import levy.daniel.application.model.utilitaires.jpa.datasource.impl.MyDataSourceHikari;
 import levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur.LecteurConfigurationBaseSpring;
@@ -61,10 +66,10 @@ import levy.daniel.application.model.utilitaires.spring.configurateurpersistence
  * @since 12 janv. 2019
  *
  */
-//@Configuration(value="ConfigurateurSpringJPAH2Memory")
-//@PropertySources({@PropertySource("classpath:configurations_bases_jpa/configuration_H2_memory.properties")})
-//@EnableTransactionManagement
-//@ComponentScans({@ComponentScan("levy.daniel.application.model.persistence")})
+@Configuration(value="ConfigurateurSpringJPAH2Memory")
+@PropertySources({@PropertySource("classpath:configurations_bases_jpa/configuration_H2_memory.properties")})
+@EnableTransactionManagement
+@ComponentScans({@ComponentScan("levy.daniel.application.model.persistence")})
 public class ConfigurateurSpringJPAH2Memory {
 
 	// ************************ATTRIBUTS************************************/
@@ -104,9 +109,6 @@ public class ConfigurateurSpringJPAH2Memory {
 	 */
 	public ConfigurateurSpringJPAH2Memory() {
 		super();
-		System.out.println();
-		System.out.println("********* DANS LE CONSTRUCTEUR ConfigurateurSpringJPAH2Memory***************");
-		System.out.println();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 
@@ -179,9 +181,9 @@ public class ConfigurateurSpringJPAH2Memory {
 		entityManagerFactory 
 			= entityManagerFactoryBuilder.build();
 		
-		System.out.println();
-		System.out.println("=======DANS entityManagerFactory() de ConfigurateurSpringJPAH2File() ======");
-		System.out.println(AfficheurEntityManagerFactory.afficherEntityManagerFactory(entityManagerFactory));
+//		System.out.println();
+//		System.out.println("=======DANS entityManagerFactory() de ConfigurateurSpringJPAH2File() ======");
+//		System.out.println(AfficheurEntityManagerFactory.afficherEntityManagerFactory(entityManagerFactory));
 		
 		return entityManagerFactory;
 					
@@ -317,10 +319,6 @@ public class ConfigurateurSpringJPAH2Memory {
 		
 		this.environmentSpring = pEnvironmentSpring;
 		
-		System.out.println();
-		System.out.println("****** DANS LE SETTEUR setEnvironmentSpring() de ConfigurateurSpringJPAH2Memory *******");
-		System.out.println();
-		
 		/* instancie en lui passant this.environmentSpring 
 		 * un LecteurConfigurationBaseSpring chargé de lire le fichier 
 		 * properties SPRING et de préparer un 
@@ -359,11 +357,6 @@ public class ConfigurateurSpringJPAH2Memory {
 						pLecteurConfigurationBaseSpring) {
 		
 		this.lecteurConfigurationBaseSpring = pLecteurConfigurationBaseSpring;
-		
-		System.out.println();
-		System.out.println("****** DANS LE SETTEUR setLecteurConfigurationBaseSpring() de ConfigurateurSpringJPAH2Memory *******");
-		System.out.println();
-		System.out.println(this.lecteurConfigurationBaseSpring.toString());
 		
 	} // Fin de setLecteurConfigurationBaseSpring(...).____________________
 

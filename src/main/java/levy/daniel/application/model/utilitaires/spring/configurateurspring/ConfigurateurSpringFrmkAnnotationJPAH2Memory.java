@@ -3,6 +3,12 @@ package levy.daniel.application.model.utilitaires.spring.configurateurspring;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.Import;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
 import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpaspring.impl.UtilisateurCerbereDAOJPASpring;
@@ -56,11 +62,11 @@ import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpasprin
  * @since 13 janv. 2019
  *
  */
-//@Configuration(value="ConfigurateurSpringFrmkAnnotationJPAH2Memory")
-//@Import({levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2Memory.class})
-//@EnableAspectJAutoProxy
-//@EnableTransactionManagement
-//@ComponentScans({@ComponentScan("levy.daniel.application")})
+@Configuration(value="ConfigurateurSpringFrmkAnnotationJPAH2Memory")
+@Import({levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2Memory.class})
+@EnableAspectJAutoProxy
+@EnableTransactionManagement
+@ComponentScans({@ComponentScan("levy.daniel.application")})
 public class ConfigurateurSpringFrmkAnnotationJPAH2Memory {
 
 	// ************************ATTRIBUTS************************************/
@@ -104,8 +110,6 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2Memory {
 	 */
 	@Bean(value = "UtilisateurCerbereDAOJPASpring")
 	public IUtilisateurCerbereDAO utilisateurCerbereDAOJPASpring() {
-		System.out.println();
-		System.out.println("********* CLASSE ConfigurateurSpringFrmkAnnotationJPAH2Memory - j'instancie LE BEAN DAO utilisateurCerbereDAOJPASpring *********");
 		return new UtilisateurCerbereDAOJPASpring();
 	} // Fin de utilisateurCerbereDAOJPASpring().__________________________
 

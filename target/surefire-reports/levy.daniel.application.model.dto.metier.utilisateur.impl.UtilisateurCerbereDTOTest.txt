@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: levy.daniel.application.model.dto.metier.utilisateur.impl.UtilisateurCerbereDTOTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in levy.daniel.application.model.dto.metier.utilisateur.impl.UtilisateurCerbereDTOTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in levy.daniel.application.model.dto.metier.utilisateur.impl.UtilisateurCerbereDTOTest

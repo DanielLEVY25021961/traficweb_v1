@@ -78,7 +78,7 @@ public class ConfigurationApplicationManagerTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -86,7 +86,8 @@ public class ConfigurationApplicationManagerTest {
 			System.out.println("********** CLASSE ConfigurationApplicationManagerTest - méthode testGetPathRessourcesExternes() ********** ");
 		}
 
-		final String pathRessourcesExternesString = ConfigurationApplicationManager.getPathRessourcesExternes();
+		final String pathRessourcesExternesString 
+			= ConfigurationApplicationManager.getPathRessourcesExternes();
 		
 		final Path pathRessourcesExternes 
 			= Paths.get(pathRessourcesExternesString);

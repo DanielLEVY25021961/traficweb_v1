@@ -1,11 +1,16 @@
 package levy.daniel.application.apptechnic.configurationmanagers.gestionnairesdescriptions;
 
 import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -24,26 +29,35 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * de l'application.<br/>
  * Met à disposition de l'ensemble de l'application 
  * des Singletons.<br/>
- * <br/>
  * <ul>
  * <li>La méthode getCheminDescriptions fournit un Singleton 
  * du chemin vers les descriptions des fichiers 
- * (HIT, HISTO_F07, Darwin.csv, ...).</li><br/>
+ * (HIT, HISTO_F07, Darwin.csv, ...).</li>
  * <li>Les méthodes getNomDescriptionXXX fournissent un singleton  
  * du nom du fichier de description du fichierXXX 
- * (HIT, HISTO_F07, Darwin.csv, ...).</li><br/>
+ * (HIT, HISTO_F07, Darwin.csv, ...).</li>
  * <li>Les méthodes getFichierDescriptionXXX fournissent un singleton  
  * du fichier de description du fichierXXX 
- * (HIT, HISTO_F07, Darwin.csv, ...).</li><br/>
+ * (HIT, HISTO_F07, Darwin.csv, ...).</li>
  * </ul>
  *
  * - Exemple d'utilisation :<br/>
+ * <code>
+ * // Récupère la description des fichiers HIT.<br/>
+ * File fichierDescriptionHit = ConfigurationDescriptionsFichiersManager.getFichierDescriptionHit();<br/>
+ *  // récupère un message d'erreur provoqué par la méthode précédente si problème de config (null si OK).<br/>
+ * String messageIndividuelRapport = ConfigurationDescriptionsFichiersManager.getMessageIndividuelRapport();<br/>
+ *  // ...<br/>
+ *  // récupère le rapport des erreurs de configuration de l'ensemble des méthodes de la classe si problème de config (null si OK).<br/>
+ * String rapportConfigurationCsv = ConfigurationDescriptionsFichiersManager.getRapportConfigurationCsv();<br/>
+ * </code>
  *<br/>
  * 
  * - Mots-clé :<br/>
  * pattern délégation, DELEGATION, <br/>
  * pattern Singleton, singleton, <br/>
  * Rapport du chargement de la configuration au format csv,<br/>
+ * Resource, resource, ressources, URL, URI,<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -65,23 +79,20 @@ public final class ConfigurationDescriptionsFichiersManager {
 	 */
 	public static final String CLASSE_CONFIGURATIONDESCRIPTIONSFICHIERSMANAGER 
 		= "Classe ConfigurationDescriptionsFichiersManager";
-	
-	
+		
 	/**
 	 * METHODE_GET_CHEMINSDESCRIPTIONS : String :<br/>
 	 * "Méthode getCheminDescriptions()".<br/>
 	 */
 	public static final String METHODE_GET_CHEMINSDESCRIPTIONS 
 		= "Méthode getCheminDescriptions()";
-	
-	
+		
 	/**
 	 * METHODE_GET_NOMDESCRIPTIONHIT : String :<br/>
 	 * "Méthode getNomDescriptionHit()".<br/>
 	 */
 	public static final String METHODE_GET_NOMDESCRIPTIONHIT 
 		= "Méthode getNomDescriptionHit()";
-
 	
 	/**
 	 * METHODE_GET_FICHIERDESCRIPTIONHIT : String :<br/>
@@ -89,15 +100,13 @@ public final class ConfigurationDescriptionsFichiersManager {
 	 */
 	public static final String METHODE_GET_FICHIERDESCRIPTIONHIT 
 		= "Méthode getFichierDescriptionHit()";
-	
-	
+		
 	/**
 	 * METHODE_GET_NOMDESCRIPTIONHISTOF07 : String :<br/>
 	 * "Méthode getNomDescriptionHistoF07()".<br/>
 	 */
 	public static final String METHODE_GET_NOMDESCRIPTIONHISTOF07 
 		= "Méthode getNomDescriptionHistoF07()";
-
 	
 	/**
 	 * METHODE_GET_FICHIERDESCRIPTIONHISTOF07 : String :<br/>
@@ -105,15 +114,13 @@ public final class ConfigurationDescriptionsFichiersManager {
 	 */
 	public static final String METHODE_GET_FICHIERDESCRIPTIONHISTOF07 
 		= "Méthode getFichierDescriptionHistoF07()";
-	
-	
+		
 	/**
 	 * METHODE_GET_NOMDESCRIPTIONDARWINCSV : String :<br/>
 	 * "Méthode getNomDescriptionDarwinCsv()".<br/>
 	 */
 	public static final String METHODE_GET_NOMDESCRIPTIONDARWINCSV 
 		= "Méthode getNomDescriptionDarwinCsv()";
-
 	
 	/**
 	 * METHODE_GET_FICHIERDESCRIPTIONDARWIN : String :<br/>
@@ -121,15 +128,13 @@ public final class ConfigurationDescriptionsFichiersManager {
 	 */
 	public static final String METHODE_GET_FICHIERDESCRIPTIONDARWIN 
 		= "Méthode getFichierDescriptionDarwinCsv()";
-	
-	
+		
 	/**
 	 * METHODE_GET_NOMDESCRIPTIONMAPPING : String :<br/>
 	 * "Méthode getNomDescriptionMapping()".<br/>
 	 */
 	public static final String METHODE_GET_NOMDESCRIPTIONMAPPING 
 		= "Méthode getNomDescriptionMapping()";
-
 	
 	/**
 	 * METHODE_GET_FICHIERDESCRIPTIONMAPPING : String :<br/>
@@ -157,8 +162,7 @@ public final class ConfigurationDescriptionsFichiersManager {
 	 * Séparateur pour les CSV ";".<br/>
 	 */
 	public static final String SEP_PV = ";";
-
-    
+   
 	/**
 	 * SEPARATEUR_MOINS_AERE : String :<br/>
 	 * " - ".<br/>
@@ -199,104 +203,129 @@ public final class ConfigurationDescriptionsFichiersManager {
 	// ******************************************************************
 	
 	/**
-	 * cheminDescriptions : String :<br/>
-	 * Chemin des descriptions de fichier 
-	 * stocké dans application.properties.<br/>
-	 * ".\\ressources\\descriptions\\".<br/>
+	 * <b>Chemin relatif par rapport au classpath (contexte) 
+	 * du répertoire [descriptions de fichier] sous forme de String</b> 
+	 * stocké dans le fichier <code>application.properties</code> .<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Descriptions de fichier" sous le contexte target/classes.<br/>
 	 * Clé = "application.repertoire.ressources.descriptions".<br/>
 	 */
 	private static transient String cheminDescriptions;
 
+	/**
+	 * <b>Path relatif par rapport au classpath (contexte) 
+	 * du répertoire [descriptions de fichier] sous forme de String</b> 
+	 * stocké dans le fichier <code>application.properties</code> .<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Descriptions de fichier" sous le contexte target/classes.<br/>
+	 * Clé = "application.repertoire.ressources.descriptions".<br/>
+	 */
+	private static transient Path pathDescriptions;
 	
 	/**
-	 * nomDescriptionHit : String :<br/>
-	 * Nom du fichier de description du HIT
-	 * stocké dans application.properties.<br/>
-	 * "2014-07-19_Description_HIT_Utf8.csv".<br/>
+	 * <b>Chemin relatif par rapport au répertoire [descriptions de fichier] 
+	 * de la description du HIT</b>.<br/>
+	 * Ce chemin est stocké dans <code>application.properties</code> 
+	 * dans le classpath sous le contexte.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "Hit/Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.descriptions.hit".<br/>
 	 */
 	private static transient String nomDescriptionHit;
-	
-	
+		
 	/**
-	 * fichierDescriptionHIT : File :<br/>
-	 * Fichier sur disque au format csv 
-	 * encodé en UTF-8
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8
 	 * contenant la description du HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient File fichierDescriptionHIT;
-	
-	
+		
 	/**
-	 * nomDescriptionHistoF07 : String :<br/>
-	 * Nom du fichier de description du HistoF07 
-	 * stocké dans application.properties.<br/>
-	 * "2014-07-19_Description_HistoF07_Utf8.csv".<br/>
+	 * <b>Chemin relatif par rapport au répertoire [descriptions de fichier] 
+	 * de la description du HistoF07</b>.<br/>
+	 * Ce chemin est stocké dans <code>application.properties</code> 
+	 * dans le classpath sous le contexte.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.descriptions.histof07".<br/>
 	 */
 	private static transient String nomDescriptionHistoF07;
-
 	
 	/**
-	 * fichierDescriptionHistoF07 : File :<br/>
-	 * Fichier sur disque au format csv 
-	 * encodé en UTF-8
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8
 	 * contenant la description du HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient File fichierDescriptionHistoF07;
 
-
 	/**
-	 * nomDescriptionDarwinCsv : String :<br/>
-	 * Nom du fichier de description du Darwin.csv
-	 * stocké dans application.properties.<br/>
-	 * "Description_DarwinCsv.csv".<br/>
+	 * <b>Chemin relatif par rapport au répertoire [descriptions de fichier] 
+	 * de la description du Darwin.csv</b>.<br/>
+	 * Ce chemin est stocké dans <code>application.properties</code> 
+	 * dans le classpath sous le contexte.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.descriptions.darwincsv".<br/>
 	 */
 	private static transient String nomDescriptionDarwinCsv;
-
 	
 	/**
-	 * fichierDescriptionDarwinCsv : File :<br/>
-	 * Fichier sur disque au format csv
-	 * encodé en UTF-8 
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 
 	 * contenant la description du DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient File fichierDescriptionDarwinCsv;
 
-
 	/**
-	 * nomDescriptionMapping : String :<br/>
-	 * Nom du fichier de description du Mapping Histo-Hit-Darwin-Isidor 
-	 * stocké dans application.properties.<br/>
-	 * "Description_MAPPING_HistoF07_Hit_Darwin_Isidor.csv".<br/>
+	 * <b>Chemin relatif par rapport au répertoire [descriptions de fichier] 
+	 * de la description du Mapping Histo-Hit-Darwin-Isidor</b>.<br/>
+	 * Ce chemin est stocké dans <code>application.properties</code> 
+	 * dans le classpath sous le contexte.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "Mapping/Descriptions en UTF-8/2014-07-19_Description_Mapping_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.descriptions.mapping".<br/>
 	 */
 	private static transient String nomDescriptionMapping;
-
 	
 	/**
-	 * fichierDescriptionMapping : File :<br/>
-	 * Fichier sur disque au format csv
-	 * encodé en UTF-8 
-	 * contenant la description du MAPPING.<br/>
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 
+	 * contenant la description du MAPPING entre 
+	 * les différents types de fichiers (Histo-Hit-Darwin-Isidor).<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient File fichierDescriptionMapping;
 
 
 	/**
-	 * rapportConfigurationCsv : String :<br/>
 	 * Rapport du chargement de la configuration au format csv.<br/>
 	 * Le rapport est null si il n'y a eu aucun 
 	 * problème d'initialisation de l'application.<br/>
+	 * Par exemple : <br/>
+	 * "Classe ConfigurationDescriptionsFichiersManager - 
+	 * Méthode getNomDescriptionHit() - 
+	 * La clé 'application.repertoire.ressources.descriptions.hit' 
+	 * n'existe pas dans application_fr_FR.properties;".<br/>
+	 * "Classe ConfigurationDescriptionsFichiersManager - 
+	 * Méthode getNomDescriptionDarwinCsv() - 
+	 * La valeur associée à la clé 
+	 * 'application.repertoire.ressources.descriptions.darwincsv' 
+	 * n'existe pas (null ou vide) dans application_fr_FR.properties;".<br/>
 	 */
 	private static transient String rapportConfigurationCsv;
 
 	
 	/**
-	 * messageIndividuelRapport : String :<br/>
 	 * Message pour le Rapport du chargement de la configuration au format csv 
 	 * généré par chaque méthode individuellement.<br/>
+	 * Par exemple : <br/>
+	 * "Classe ConfigurationDescriptionsFichiersManager - 
+	 * Méthode getNomDescriptionHit() - 
+	 * La clé 'application.repertoire.ressources.descriptions.hit' 
+	 * n'existe pas dans applicationfr_FR.properties;".<br/>
 	 */
 	private static transient String messageIndividuelRapport;
 	
@@ -313,10 +342,8 @@ public final class ConfigurationDescriptionsFichiersManager {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR ConfigurationDescriptionsFichiersManager() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * private pour interdire l'instanciation.<br/>
-	 * <br/>
 	 */
 	private ConfigurationDescriptionsFichiersManager() {
 		super();
@@ -325,17 +352,28 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 
 	/**
-	 * method getCheminDescriptions() :<br/>
-	 * Getter du Chemin des descriptions de fichier 
-	 * stocké dans application.properties.<br/>
-	 * ".\\ressources\\descriptions\\".<br/>
-	 * <br/>
+	 * Getter du <b>Chemin relatif par rapport au classpath (contexte) 
+	 * du répertoire [descriptions de fichier] sous forme de String</b> 
+	 * stocké dans le fichier <code>application.properties</code> .<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Descriptions de fichier" sous le contexte target/classes.<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * <code>application_fr_FR.properties</code>.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirCheminDescriptionsEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par <code>fournirCheminDescriptionsEnDur()</code>.</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.descriptions".<br/>
 	 * <br/>
@@ -358,11 +396,11 @@ public final class ConfigurationDescriptionsFichiersManager {
 		/* Bloc synchronized. */
 		synchronized (ConfigurationDescriptionsFichiersManager.class) {
 			
-			/* Reset du messageIndividuelRapport. */
-			messageIndividuelRapport = null;
-			
 			if (cheminDescriptions == null) {
 				
+				/* Reset du messageIndividuelRapport. */
+				messageIndividuelRapport = null;
+								
 				if (ConfigurationApplicationManager
 						.getBundleApplication() != null) {
 					
@@ -464,9 +502,11 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method fournirCleCheminDescriptions() :<br/>
-	 * clé du chemin des chemins des descriptions de fichiers dans 
-	 * application_fr_FR.properties.<br/>
+	 * retourne la 
+	 * clé du Chemin relatif par rapport au classpath (contexte) 
+	 * du répertoire [descriptions de fichier].<br/>
+	 * la clé est stockée dans 
+	 * <code>application_fr_FR.properties</code>.<br/>
 	 * Clé = "application.repertoire.ressources.descriptions".
 	 * <br/>
 	 *
@@ -480,33 +520,70 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method fournirCheminDescriptionsEnDur() :<br/>
 	 * Fournit une valeur stockée en dur 
-	 * dans la classe pour cheminDescriptions.<br/>
+	 * dans la classe pour <code>cheminDescriptions</code>.<br/>
 	 * <br/>
-	 * ".\\ressources\\Descriptions de fichier\\".<br/>
+	 * "ressources/Descriptions de fichier".<br/>
 	 * <br/>
 	 *
-	 * @return : String : ".\\ressources\\Descriptions de fichier\\".<br/>
+	 * @return : String : "ressources/Descriptions de fichier".<br/>
 	 */
 	private static String fournirCheminDescriptionsEnDur() {
 		return "ressources/Descriptions de fichier";
 	} // Fin de fournirCheminDescriptionsEnDur().__________________________
 	
-	
+
 	
 	/**
-	 * method getNomDescriptionHit() :<br/>
-	 * Getter du Nom du fichier de description du HIT
-	 * stocké dans application.properties.<br/>
-	 * "2014-07-19_Description_HIT_Utf8.csv".<br/>
-	 * <br/>
+	 * Getter du <b>Path relatif par rapport au classpath (contexte) 
+	 * du répertoire [descriptions de fichier] sous forme de String</b> 
+	 * stocké dans le fichier <code>application.properties</code> .<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Descriptions de fichier" sous le contexte target/classes.<br/>
+	 * Clé = "application.repertoire.ressources.descriptions".<br/>
+	 *
+	 * @return : Path.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Path getPathDescriptions() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationDescriptionsFichiersManager.class) {
+			
+			return Paths.get(getCheminDescriptions());
+			
+		} // Fin de synchronized.________________________________________
+		
+	} // Fin de getPathDescriptions()._____________________________________
+	
+
+	
+	/**
+	 * Getter du <b>Chemin relatif par rapport 
+	 * au répertoire [descriptions de fichier] 
+	 * de la description du HIT</b>.<br/>
+	 * Ce chemin est stocké dans <code>application.properties</code> 
+	 * dans le classpath sous le contexte.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "Hit/Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv".<br/>
 	 *  <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomDescriptionHitEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomDescriptionHitEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.descriptions.hit".<br/>
 	 * <br/>
@@ -529,11 +606,11 @@ public final class ConfigurationDescriptionsFichiersManager {
 		/* Bloc synchronized. */
 		synchronized (ConfigurationDescriptionsFichiersManager.class) {
 			
-			/* Reset du messageIndividuelRapport. */
-			messageIndividuelRapport = null;
-			
 			if (nomDescriptionHit == null) {
 				
+				/* Reset du messageIndividuelRapport. */
+				messageIndividuelRapport = null;
+
 				if (ConfigurationApplicationManager
 						.getBundleApplication() != null) {
 					
@@ -625,7 +702,7 @@ public final class ConfigurationDescriptionsFichiersManager {
 				} // Fin de if (getBundleApplication() == null).___
 								
 			} // Fin de if (variable == null).______________________
-			
+
 			return nomDescriptionHit;
 									
 		} // Fin de synchronized.________________________________________
@@ -635,9 +712,10 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method fournirCleNomDescriptionHit() :<br/>
-	 * clé du nom de la description de fichier HIT dans 
-	 * application_fr_FR.properties.<br/>
+	 * retourne la clé du 
+	 * Chemin relatif par rapport au répertoire [descriptions de fichier] 
+	 * de la description du HIT.<br/>
+	 * La clé est stockée dans <code>application_fr_FR.properties</code>.<br/>
 	 * Clé = "application.repertoire.ressources.descriptions.hit".
 	 * <br/>
 	 *
@@ -651,15 +729,14 @@ public final class ConfigurationDescriptionsFichiersManager {
 	
 	
 	/**
-	 * method fournirNomDescriptionHitEnDur() :<br/>
 	 * Fournit une valeur stockée en dur 
-	 * dans la classe pour nomDescriptionHit.<br/>
+	 * dans la classe pour <code>nomDescriptionHit</code>.<br/>
 	 * <br/>
-	 * "Hit\\Descriptions en UTF-8\\2014-07-19_Description_HIT_Utf8.csv".<br/>
+	 * "Hit/Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv".<br/>
 	 * <br/>
 	 *
 	 * @return : String : 
-	 * "Hit\\Descriptions en UTF-8\\2014-07-19_Description_HIT_Utf8.csv".<br/>
+	 * "Hit/Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv".<br/>
 	 */
 	private static String fournirNomDescriptionHitEnDur() {
 		return "Hit/Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv";
@@ -668,12 +745,12 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method getFichierDescriptionHit() :<br/>
-	 * Fournit le Fichier sur disque au format csv 
-	 * contenant la description du HIT en UTF-8.<br/>
-	 * <br/>
-	 * .\\ressources\\Descriptions de fichier\\Hit\\Descriptions en UTF-8
-	 * \\2014-07-19_Description_HIT_Utf8.csv.<br/>
+	 * Getter du <b>Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8
+	 * contenant la description du HIT</b>.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "context/ressources/Descriptions de fichier/Hit
+	 * /Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -695,9 +772,26 @@ public final class ConfigurationDescriptionsFichiersManager {
 			
 			/* Instanciation du Singleton fichierDescriptionHIT. */
 			if (fichierDescriptionHIT == null) {
-								
+				
+				final Path pathRelatifDescriptionHit 
+					= Paths.get(getNomDescriptionHit());
+				
+				Path pathRelatifContextDescriptionHit 
+					= getPathDescriptions()
+						.resolve(pathRelatifDescriptionHit);
+				
+				final ClassLoader classloader 
+					= ConfigurationDescriptionsFichiersManager.class
+						.getClassLoader();
+				
+				final URL urlRessources 
+					= classloader
+						.getResource(pathRelatifContextDescriptionHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
 				fichierDescriptionHIT 
-				= new File(getCheminDescriptions() + getNomDescriptionHit());
+					= new File(uriRessources.getPath());
 				
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
@@ -715,17 +809,30 @@ public final class ConfigurationDescriptionsFichiersManager {
 	
 	
 	/**
-	 * method getNomDescriptionHistoF07() :<br/>
-	 * Getter du Nom du fichier de description du HistoF07 
-	 * stocké dans application.properties.<br/>
-	 * "2014-07-19_Description_HistoF07_Utf8.csv".<br/>
-	 * <br/>
+	 * Getter du <b>Chemin relatif par rapport au répertoire 
+	 * [descriptions de fichier] 
+	 * de la description du HistoF07</b>.<br/>
+	 * Ce chemin est stocké dans <code>application.properties</code> 
+	 * dans le classpath sous le contexte.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomDescriptionHistoF07EnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomDescriptionHistoF07EnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.descriptions.histof07".<br/>
 	 * <br/>
@@ -855,9 +962,10 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method fournirCleNomDescriptionHistoF07() :<br/>
-	 * clé du nom de la description de fichier HISTO_F07 dans 
-	 * application_fr_FR.properties.<br/>
+	 * retourne la clé du 
+	 * Chemin relatif par rapport au répertoire [descriptions de fichier] 
+	 * de la description du HISTOF07.<br/>
+	 * La clé est stockée dans <code>application_fr_FR.properties</code>.<br/>
 	 * Clé = "application.repertoire.ressources.descriptions.histof07".
 	 * <br/>
 	 *
@@ -871,28 +979,28 @@ public final class ConfigurationDescriptionsFichiersManager {
 	
 	
 	/**
-	 * method fournirNomDescriptionHistoF07EnDur() :<br/>
 	 * Fournit une valeur stockée en dur 
-	 * dans la classe pour nomDescriptionHistoF07.<br/>
+	 * dans la classe pour <code>nomDescriptionHistoF07</code>.<br/>
 	 * <br/>
-	 * "HistonatF07\\Descriptions en UTF-8\\2014-07-19_Description_HistoF07_Utf8.csv".<br/>
+	 * "HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv".<br/>
 	 * <br/>
 	 *
 	 * @return : String : 
-	 * "HistonatF07\\Descriptions en UTF-8\\2014-07-19_Description_HistoF07_Utf8.csv".<br/>
+	 * "HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv".<br/>
 	 */
 	private static String fournirNomDescriptionHistoF07EnDur() {
 		return "HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv";
 	} // Fin de fournirNomDescriptionHistoF07EnDur().______________________
 	
 
+	
 	/**
-	 * method getFichierDescriptionHistoF07() :<br/>
-	 * Fournit le Fichier sur disque au format csv 
-	 * contenant la description du HISTO_F07 en UTF-8.<br/>
-	 * <br/>
-	 * .\\ressources\\Descriptions de fichier\\HistonatF07\\
-	 * Descriptions en UTF-8\\2014-07-19_Description_HistoF07_Utf8.csv.<br/>
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8
+	 * contenant la description du HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "context/ressources/Descriptions de fichier/HistonatF07/
+	 * Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -915,8 +1023,25 @@ public final class ConfigurationDescriptionsFichiersManager {
 			/* Instanciation du Singleton fichierDescriptionHistoF07. */
 			if (fichierDescriptionHistoF07 == null) {
 				
+				final Path pathRelatifDescriptionHistoF07 
+					= Paths.get(getNomDescriptionHistoF07());
+				
+				Path pathRelatifContextDescriptionHistoF07 
+					= getPathDescriptions()
+						.resolve(pathRelatifDescriptionHistoF07);
+				
+				final ClassLoader classloader 
+					= ConfigurationDescriptionsFichiersManager.class
+						.getClassLoader();
+				
+				final URL urlRessources 
+					= classloader
+						.getResource(pathRelatifContextDescriptionHistoF07.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
 				fichierDescriptionHistoF07 
-				= new File(getCheminDescriptions() + getNomDescriptionHistoF07());
+					= new File(uriRessources.getPath());
 				
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
@@ -935,17 +1060,30 @@ public final class ConfigurationDescriptionsFichiersManager {
 	
 	
 	/**
-	 * method getNomDescriptionDarwinCsv() :<br/>
-	 * Getter du Nom du fichier de description du Darwin.csv
-	 * stocké dans application.properties.<br/>
-	 * "Description_DarwinCsv.csv".<br/>
-	 * <br/>
+	 * Getter du <b>Chemin relatif par rapport au répertoire 
+	 * [descriptions de fichier] 
+	 * de la description du Darwin.csv</b>.<br/>
+	 * Ce chemin est stocké dans <code>application.properties</code> 
+	 * dans le classpath sous le contexte.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomDescriptionDarwinCsvEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomDescriptionDarwinCsvEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.descriptions.darwincsv".<br/>
 	 * <br/>
@@ -967,11 +1105,11 @@ public final class ConfigurationDescriptionsFichiersManager {
 		
 		/* Bloc synchronized. */
 		synchronized (ConfigurationDescriptionsFichiersManager.class) {
-			
-			/* Reset du messageIndividuelRapport. */
-			messageIndividuelRapport = null;
 
 			if (nomDescriptionDarwinCsv == null) {
+				
+				/* Reset du messageIndividuelRapport. */
+				messageIndividuelRapport = null;
 
 				if (ConfigurationApplicationManager
 							.getBundleApplication() != null) {
@@ -1065,7 +1203,7 @@ public final class ConfigurationDescriptionsFichiersManager {
 				} // Fin de if (getBundleApplication() == null).___
 
 			} // Fin de if (variable == null).______________________
-
+			
 			return nomDescriptionDarwinCsv;
 
 		} // Fin de synchronized.________________________________________
@@ -1075,9 +1213,11 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method fournirCleNomDescriptionDarwinCsv() :<br/>
-	 * clé du nom de la description de fichier DARWIN_CSV dans 
-	 * application_fr_FR.properties.<br/>
+	 * retourne la clé du 
+	 * Chemin relatif par rapport au répertoire 
+	 * [descriptions de fichier] 
+	 * de la description du DARWIN.CSV<br/>
+	 * La clé est stockée dans <code>application_fr_FR.properties</code>.<br/>
 	 * Clé = "application.repertoire.ressources.descriptions.darwincsv".
 	 * <br/>
 	 *
@@ -1091,29 +1231,29 @@ public final class ConfigurationDescriptionsFichiersManager {
 	
 	
 	/**
-	 * method fournirNomDescriptionDarwinCsvEnDur() :<br/>
 	 * Fournit une valeur stockée en dur 
-	 * dans la classe pour nomDescriptionDarwinCsv.<br/>
+	 * dans la classe pour <code>nomDescriptionDarwinCsv</code>.<br/>
 	 * <br/>
-	 * "Darwin csv\\Descriptions en UTF-8\\2014-07-19_Description_DarwinCsv_Utf8.csv".<br/>
+	 * "Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv".<br/>
 	 * <br/>
 	 *
 	 * @return : String : 
-	 * "Darwin csv\\Descriptions en UTF-8\\2014-07-19_Description_DarwinCsv_Utf8.csv".<br/>
+	 * "Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv".<br/>
 	 */
 	private static String fournirNomDescriptionDarwinCsvEnDur() {
-		return "Darwin csv\\Descriptions en UTF-8\\2014-07-19_Description_DarwinCsv_Utf8.csv";
+		return "Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv";
 	} // Fin de fournirNomDescriptionDarwinCsvEnDur()._____________________
 	
 
 	
 	/**
-	 * method getFichierDescriptionDarwinCsv() :<br/>
-	 * Fournit le Fichier sur disque au format csv 
-	 * contenant la description du DARWIN_CSV en UTF-8.<br/>
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 
+	 * contenant la description du DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 * <br/>
-	 * .\\ressources\\Descriptions de fichier\\Darwin csv
-	 * \\Descriptions en UTF-8\\2014-07-19_Description_DarwinCsv_Utf8.csv.<br/>
+	 * context/ressources/Descriptions de fichier/Darwin csv/
+	 * Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv.<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1135,10 +1275,27 @@ public final class ConfigurationDescriptionsFichiersManager {
 			
 			/* Instanciation du Singleton fichierDescriptionDarwinCsv. */
 			if (fichierDescriptionDarwinCsv == null) {
+			
+				final Path pathRelatifDescriptionDarwinCsv 
+					= Paths.get(getNomDescriptionDarwinCsv());
+				
+				Path pathRelatifContextDescriptionDarwinCsv 
+					= getPathDescriptions()
+						.resolve(pathRelatifDescriptionDarwinCsv);
+				
+				final ClassLoader classloader 
+					= ConfigurationDescriptionsFichiersManager.class
+						.getClassLoader();
+				
+				final URL urlRessources 
+					= classloader
+						.getResource(pathRelatifContextDescriptionDarwinCsv.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
 				
 				fichierDescriptionDarwinCsv 
-				= new File(getCheminDescriptions() + getNomDescriptionDarwinCsv());
-				
+					= new File(uriRessources.getPath());
+
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -1156,18 +1313,29 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method getNomDescriptionMapping() :<br/>
-	 * Getter du Nom du fichier de description 
-	 * du Mapping Histo-Hit-Darwin-Isidor 
-	 * stocké dans application.properties.<br/>
-	 * "Description_MAPPING_HistoF07_Hit_Darwin_Isidor.csv".<br/>
-	 * <br/>
+	 * Getter du <b>Chemin relatif par rapport au répertoire [descriptions de fichier] 
+	 * de la description du Mapping Histo-Hit-Darwin-Isidor</b>.<br/>
+	 * Ce chemin est stocké dans <code>application.properties</code> 
+	 * dans le classpath sous le contexte.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "Mapping/Descriptions en UTF-8/2014-07-19_Description_Mapping_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomDescriptionMappingEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomDescriptionMappingEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.descriptions.mapping".<br/>
 	 * <br/>
@@ -1190,10 +1358,10 @@ public final class ConfigurationDescriptionsFichiersManager {
 		/* Bloc synchronized. */
 		synchronized (ConfigurationDescriptionsFichiersManager.class) {
 
-			/* Reset du messageIndividuelRapport. */
-			messageIndividuelRapport = null;
-
 			if (nomDescriptionMapping == null) {
+
+				/* Reset du messageIndividuelRapport. */
+				messageIndividuelRapport = null;
 
 				if (ConfigurationApplicationManager
 							.getBundleApplication() != null) {
@@ -1297,9 +1465,10 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method fournirCleNomDescriptionMapping() :<br/>
-	 * clé du nom de la description de fichier MAPPING dans 
-	 * application_fr_FR.properties.<br/>
+	 * retourne la clé du 
+	 * Chemin relatif par rapport au répertoire [descriptions de fichier] 
+	 * de la description du Mapping Histo-Hit-Darwin-Isidor.<br/>
+	 * La clé est stockée dans <code>application_fr_FR.properties</code>.<br/>
 	 * Clé = "application.repertoire.ressources.descriptions.mapping".
 	 * <br/>
 	 *
@@ -1313,15 +1482,14 @@ public final class ConfigurationDescriptionsFichiersManager {
 	
 	
 	/**
-	 * method fournirNomDescriptionMappingEnDur() :<br/>
 	 * Fournit une valeur stockée en dur 
-	 * dans la classe pour nomDescriptionMapping.<br/>
+	 * dans la classe pour <code>nomDescriptionMapping</code>.<br/>
 	 * <br/>
-	 * "Mapping\\Descriptions en UTF-8\\2014-07-19_Description_Mapping_Utf8.csv".<br/>
+	 * "Mapping/Descriptions en UTF-8/2014-07-19_Description_Mapping_Utf8.csv".<br/>
 	 * <br/>
 	 *
 	 * @return : String : 
-	 * "Mapping\\Descriptions en UTF-8\\2014-07-19_Description_Mapping_Utf8.csv".<br/>
+	 * "Mapping/Descriptions en UTF-8/2014-07-19_Description_Mapping_Utf8.csv".<br/>
 	 */
 	private static String fournirNomDescriptionMappingEnDur() {
 		return "Mapping/Descriptions en UTF-8/2014-07-19_Description_Mapping_Utf8.csv";
@@ -1329,15 +1497,15 @@ public final class ConfigurationDescriptionsFichiersManager {
 	
 
 	
-	
 	/**
-	 * method getFichierDescriptionMapping() :<br/>
-	 * Fournit le Fichier sur disque au format csv 
-	 * encodé en UTF-8
-	 * contenant la description du MAPPING.<br/>
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 
+	 * contenant la description du MAPPING entre 
+	 * les différents types de fichiers (Histo-Hit-Darwin-Isidor).<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 * <br/>
-	 * .\\ressources\\Descriptions de fichier\\Mapping\\
-	 * Descriptions en UTF-8\\2014-07-19_Description_Mapping_Utf8.csv.<br/>
+	 * "context/ressources/Descriptions de fichier/Mapping/
+	 * Descriptions en UTF-8/2014-07-19_Description_Mapping_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1360,9 +1528,26 @@ public final class ConfigurationDescriptionsFichiersManager {
 			/* Instanciation du Singleton fichierDescriptionMapping. */
 			if (fichierDescriptionMapping == null) {
 				
-				fichierDescriptionMapping 
-				= new File(getCheminDescriptions() + getNomDescriptionMapping());
+				final Path pathRelatifDescriptionMapping 
+				= Paths.get(getNomDescriptionMapping());
+			
+				Path pathRelatifContextDescriptionMapping 
+					= getPathDescriptions()
+						.resolve(pathRelatifDescriptionMapping);
 				
+				final ClassLoader classloader 
+					= ConfigurationDescriptionsFichiersManager.class
+						.getClassLoader();
+				
+				final URL urlRessources 
+					= classloader
+						.getResource(pathRelatifContextDescriptionMapping.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierDescriptionMapping 
+					= new File(uriRessources.getPath());
+
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -1380,8 +1565,18 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method getRapportConfigurationCsv() :<br/>
-	 * Getter du Rapport du chargement de la configuration au format csv.<br/>
+	 * Getter du Rapport du chargement de la configuration au format csv 
+	 * pour toute la classe <code>rapportConfigurationCsv</code>.<br/>
+	 * Par exemple : <br/>
+	 * "Classe ConfigurationDescriptionsFichiersManager - 
+	 * Méthode getNomDescriptionHit() - 
+	 * La clé 'application.repertoire.ressources.descriptions.hit' 
+	 * n'existe pas dans application_fr_FR.properties;".<br/>
+	 * "Classe ConfigurationDescriptionsFichiersManager - 
+	 * Méthode getNomDescriptionDarwinCsv() - 
+	 * La valeur associée à la clé 
+	 * 'application.repertoire.ressources.descriptions.darwincsv' 
+	 * n'existe pas (null ou vide) dans application_fr_FR.properties;".<br/>
 	 * <br/>
 	 * - Le rapport est null si il n'y a eu aucun 
 	 * problème d'initialisation de l'application.<br/>
@@ -1403,11 +1598,14 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method getMessageIndividuelRapport() :<br/>
-	 * Getter du Message pour le 
+	 * Getter du Message <code>messageIndividuelRapport</code> pour le 
 	 * Rapport du chargement de la configuration au format csv 
 	 * généré par chaque méthode individuellement.<br/>
-	 * <br/>
+	 * Par exemple : <br/>
+	 * "Classe ConfigurationDescriptionsFichiersManager - 
+	 * Méthode getNomDescriptionHit() - 
+	 * La clé 'application.repertoire.ressources.descriptions.hit' 
+	 * n'existe pas dans applicationfr_FR.properties;".<br/>
 	 *
 	 * @return messageIndividuelRapport : String.<br/>
 	 */
@@ -1423,10 +1621,6 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method creerMessageManqueCle(
-	 * String pMethode
-	 * , String pCle
-	 * , ResourceBundle pBundle) :<br/>
 	 * Crée un message pour le LOG et le rapport de configuration csv 
 	 * si une clé est absente dans un ResourceBundle.<br/>
 	 * <br/>
@@ -1462,24 +1656,17 @@ public final class ConfigurationDescriptionsFichiersManager {
 			stb.append(pCle);
 			stb.append("' n'existe pas dans ");
 			stb.append(pBundle.getBaseBundleName());
-			stb.append("fr_FR.properties");
+			stb.append("_fr_FR.properties");
 			
 			return stb.toString();
 			
 		} // Fin de synchronized.________________________________________
 		
-	} // Fin de creerMessageManqueCle(
-	 // String pMethode
-	 // , String pCle
-	 // , ResourceBundle pBundle)._________________________________________
+	} // Fin de creerMessageManqueCle(...).________________________________
 	
 
 	
 	/**
-	 * method creerMessageManqueValeur(
-	 * String pMethode
-	 * , String pCle
-	 * , ResourceBundle pBundle) :<br/>
 	 * Crée un message pour le LOG et le rapport de configuration csv 
 	 * si une valeur en face d'une clé est absente 
 	 * dans un ResourceBundle.<br/>
@@ -1510,28 +1697,24 @@ public final class ConfigurationDescriptionsFichiersManager {
 			stb.append(pCle);
 			stb.append("' n'existe pas (null ou vide) dans ");
 			stb.append(pBundle.getBaseBundleName());
-			stb.append("fr_FR.properties");
+			stb.append("_fr_FR.properties");
 			
 			return stb.toString();
 			
 		} // Fin de synchronized.________________________________________
 		
-	} // Fin de creerMessageManqueValeur(
-	 // String pMethode
-	 // , String pCle
-	 // , ResourceBundle pBundle)._________________________________________
+	} // Fin de creerMessageManqueValeur(...)._____________________________
 
 
 	
 	/**
-	 * method ajouterMessageAuRapportConfigurationCsv(
-	 * String pMessage) :<br/>
-	 * Rajoute le message pMessage au rapport 
-	 * de chargement de la configuration au format csv (à la ligne).<br/>
+	 * Rajoute (à la ligne) le message pMessage au rapport 
+	 * de chargement de la configuration au format csv 
+	 * <code>rapportConfigurationCsv</code>.<br/>
 	 * <br/>
 	 * - Ne fait rien si pMessage est blank.<br/>
 	 * - Ne Rajoute PAS l'en-tête (avec BOM_UTF-8) 
-	 * pour le rapport de chargement de la configuration si nécessaire.<br/>
+	 * au rapport de chargement de la configuration.<br/>
 	 * <br/>
 	 *
 	 * @param pMessage : String : Message à rajouter 
@@ -1570,22 +1753,18 @@ public final class ConfigurationDescriptionsFichiersManager {
 
 	
 	/**
-	 * method traiterFichier(
-	 * File pFile
-	 * , String pMethode) :<br/>
 	 * LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
 	 * si pFile est null, inexistant, répertoire ou vide.<br/>
-	 * <br/>
 	 * <ul>
 	 * <li>LOG.FATAL, rapporte et jette 
-	 * une FichierNullRunTimeException si pFile est null.</li><br/>
+	 * une FichierNullRunTimeException si pFile est null.</li>
 	 * <li>LOG.FATAL, rapporte et jette 
-	 * une FichierInexistantRunTimeException si pFile est inexistant.</li><br/>
+	 * une FichierInexistantRunTimeException si pFile est inexistant.</li>
 	 * <li>LOG.FATAL, rapporte et jette 
-	 * une FichierRepertoireRunTimeException si pFile est un répertoire.</li><br/>
+	 * une FichierRepertoireRunTimeException si pFile est un répertoire.</li>
 	 * <li>LOG.FATAL, rapporte et jette 
-	 * une FichierVideRunTimeException si pFile est vide.</li><br/>
+	 * une FichierVideRunTimeException si pFile est vide.</li>
 	 * </ul>
 	 *
 	 * @param pFile : File.<br/>
@@ -1709,16 +1888,11 @@ public final class ConfigurationDescriptionsFichiersManager {
 			
 		} // Fin de synchronized.________________________________________
 		
-	} // Fin de traiterFichier(
-	 // File pFile
-	 // , String pMethode).________________________________________________
+	} // Fin de traiterFichier(...)._______________________________________
 	
 
 	
 	/**
-	 * method creerMessageMauvaisFichier(
-	 * String pMethode
-	 * , String pMessage) :<br/>
 	 * Crée un message pour le LOG et le rapport de configuration csv 
 	 * si un Fichier de ressources (Description de fichier, nomenclature, ...) 
 	 * est introuvable.<br/>
@@ -1750,9 +1924,123 @@ public final class ConfigurationDescriptionsFichiersManager {
 			
 		} // Fin de synchronized.________________________________________
 		
-	} // Fin de creerMessageMauvaisFichier(
-	 // String pMethode
-	// , String pMessage)._________________________________________________
+	} // Fin de creerMessageMauvaisFichier(...).___________________________
+	
+
+	
+	/**
+	 * retourne le <b>chemin sous forme de String 
+	 * du répertoire ressources dans le classpath</b> sous target/classes.<br/>
+	 * "D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\
+	 * target\classes\ressources"<br/>
+	 *
+	 * @return : String : 
+	 * chemin sous forme de String du répertoire 
+	 * ressources dans le classpath.<br/>
+	 * 
+	 * @throws URISyntaxException 
+	 */
+	public static String retournerRessourcesSousTargetClasses() 
+			throws URISyntaxException {
+		
+		synchronized (ConfigurationDescriptionsFichiersManager.class) {
+			
+			final ClassLoader classloader 
+			= ConfigurationDescriptionsFichiersManager.class
+				.getClassLoader();
+		
+			final URL urlRessources 
+				= classloader
+					.getResource("ressources");
+			
+			final URI uriRessources = urlRessources.toURI();
+					
+			final String uriRessourcesString = uriRessources.getPath();
+			
+			final File ressourcesFile = new File(uriRessourcesString);
+			
+			final String pathRessourcesString 
+				= ressourcesFile.getAbsolutePath();
+			
+			return pathRessourcesString;
+
+		} // Fin de synchronized.________________________________________
+
+	} // Fin de retournerRessourcesSousTargetClasses().____________________
+	
+
+	
+	/**
+	 * retourne le <b>chemin sous forme de String 
+	 * du répertoire classes dans le classpath</b> sous target.<br/>
+	 * "D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\
+	 * target\classes"<br/>
+	 *
+	 * @return : String : 
+	 * chemin sous forme de String du répertoire 
+	 * classes dans le classpath.<br/>
+	 * 
+	 * @throws URISyntaxException
+	 */
+	public static String retournerClassesSousTarget() 
+			throws URISyntaxException {
+		
+		synchronized (ConfigurationDescriptionsFichiersManager.class) {
+			
+			final String pathRessourcesString 
+				= retournerRessourcesSousTargetClasses();
+			
+			final Path pathRessources = Paths.get(pathRessourcesString);
+			
+			final Path pathClasses = pathRessources.getParent();
+			
+			final String pathClassesString = pathClasses.toString();
+			
+			return pathClassesString;
+			
+		} // Fin de synchronized.________________________________________
+
+	} // Fin de retournerClassesSousTarget().______________________________
+	
+	
+
+	/**
+	 * retourne le 
+	 * <b>path relatif de pFile par rapport à target/classes</b> (contexte).<br/>
+	 * <ul>
+	 * <li>Par exemple :<br/>
+	 * <code>fournirPathRelatifSousTargetClasses(fichierDescriptionHit)</code> 
+	 * retourne 
+	 * 'ressources/Descriptions de fichier/Hit/Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv'
+	 * </li>
+	 * </ul>
+	 *
+	 * @param pFile : File : ressource dans le classpath.<br/>
+	 * 
+	 * @return Path : path relatif de pFile par rapport à target/classes.<br/>
+	 * 
+	 * @throws URISyntaxException
+	 */
+	public static Path fournirPathRelatifSousTargetClasses(final File pFile) 
+						throws URISyntaxException {
+		
+		synchronized (ConfigurationDescriptionsFichiersManager.class) {
+			
+			final String pathClassesString 
+			= ConfigurationDescriptionsFichiersManager
+				.retournerClassesSousTarget();
+		
+			final Path pathClasses = Paths.get(pathClassesString);
+			
+			final Path pathPFile = pFile.toPath();
+			
+			final Path pathRelatifPFile = pathClasses.relativize(pathPFile);
+			
+			return pathRelatifPFile;
+			
+		} // Fin de synchronized.________________________________________
+				
+	} // Fin de fournirPathRelatifSousTargetClasses(...).__________________	
 	
 
 
