@@ -17,13 +17,12 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
 
 
 /**
- * class ConfigurationNomenclaturesDarwinManager :<br/>
+ * CLASSE ConfigurationNomenclaturesDarwinManager :<br/>
  * Classe UTILITAIRE 
  * chargée de gérer la configuration des 
  * NOMENCLATURES DES CHAMPS A NOMENCLATURE DU FICHIER DARWIN_CSV.<br/>
  * Met à disposition de l'ensemble de l'application 
  * des <b>Singletons</b>.<br/>
- * <br/>
  * <ul>
  * <li>La méthode getCheminNomenclaturesDarwinUtf8 fournit un Singleton 
  * du chemin vers les nomenclatures encodées en UTF-8 

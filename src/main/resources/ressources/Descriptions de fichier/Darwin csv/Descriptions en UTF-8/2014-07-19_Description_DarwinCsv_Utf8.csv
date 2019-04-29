@@ -1,10 +1,10 @@
-ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature;
-1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;
+﻿ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature;
+1;Identifiant de la section;Identifiant de la section;objetID;Integer;false;
 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;
-3;Département du PR Origine;Département du PR Origine  ('début');depPrd;String;false;
-4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;
-5;PR Origine;PR Origine  ('début');prd;Integer;false;
-6;Abscisse du point Origine;Abscisse du point Origine par rapport au PR Origine  ('début');absd;Integer;false;
+3;Département du PR Origine;Département du PR Origine  ('début');depPrD;String;false;
+4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrD;String;false;
+5;PR Origine;PR Origine  ('début');prD;Integer;false;
+6;Abscisse du point Origine;Abscisse du point Origine par rapport au PR Origine  ('début');absD;Integer;false;
 7;Département du PR Extremité;Département du PR Extremité ('fin');depPrf;String;false;
 8;Code Concession du PR Extremité;Code Concession du PR Extremité  ('fin');concessionPrf;String;false;
 9;PR Extremité;PR Extremité  ('fin');prf;Integer;false;
