@@ -40,6 +40,15 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * du fichier de description du fichierXXX 
  * (HIT, HISTO_F07, Darwin.csv, ...).</li>
  * </ul>
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ConfigurationDescriptionsFichiersManager : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesdescriptions/classe_ConfigurationDescriptionsFichiersManager.png" 
+ * alt="Diagramme de classe du ConfigurationDescriptionsFichiersManager" />
+ * </p>
  *
  * - Exemple d'utilisation :<br/>
  * <code>

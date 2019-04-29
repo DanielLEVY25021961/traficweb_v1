@@ -62,6 +62,15 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
  * </li>
  * </ul>
  * </ul>
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ConfigurationBundlesManager : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesbundles/classe_ConfigurationBundlesManager.png" 
+ * alt="Diagramme de classe du ConfigurationBundlesManager" />
+ * </p>
  *
  * - Exemple d'utilisation :<br/>
  * <code>// retourne le ResourceBundle bundleApplication qui encapsule application.properties</code><br/>

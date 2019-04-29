@@ -61,7 +61,7 @@ import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUti
  * <p>
  * <b><span style="text-decoration:underline;">
  * Fonctionnement de la validation (diagramme de séquence) : 
- * </span>
+ * </span></b>
  * </p>
  * <p>
  * <img src="../../../../../../../../../../../../javadoc/images/model/services/valideurs/service_valideur-methode_valider-sequence_1.png" 
