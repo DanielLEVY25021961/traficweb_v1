@@ -22,19 +22,19 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * chargée de gérer la configuration des 
  * NOMENCLATURES DES CHAMPS A NOMENCLATURE DU FICHIER HIT.<br/>
  * Met à disposition de l'ensemble de l'application 
- * des Singletons.<br/>
+ * des <b>Singletons</b>.<br/>
  * <br/>
  * <ul>
  * <li>La méthode getCheminNomenclaturesHitUtf8 fournit un Singleton 
  * du chemin vers les nomenclatures encodées en UTF-8 
  * des champs à nomenclature 
- * du fichier HIT.</li><br/>
+ * du fichier HIT.</li>
  * <li>Les méthodes getNomNomenclatureXXX fournissent un singleton  
  * du nom du fichier de nomenclature du champXXX 
- * encodé en UTF-8 dans le HIT.</li><br/>
+ * encodé en UTF-8 dans le HIT.</li>
  * <li>Les méthodes getFichierNomenclatureXXX fournissent un singleton  
  * du fichier de nomenclature du champXXX 
- * encodé en UTF-8 dans le HIT.</li><br/>
+ * encodé en UTF-8 dans le HIT.</li>
  * </ul>
  *
  * - Exemple d'utilisation :<br/>

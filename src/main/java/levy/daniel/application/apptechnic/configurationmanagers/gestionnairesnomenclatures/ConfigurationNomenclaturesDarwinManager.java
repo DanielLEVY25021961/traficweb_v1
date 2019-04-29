@@ -20,21 +20,21 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * class ConfigurationNomenclaturesDarwinManager :<br/>
  * Classe UTILITAIRE 
  * chargée de gérer la configuration des 
- * NOMENCLATURES DES CHAMPS A NOMENCLATURE DU FICHIER DARWIN.<br/>
+ * NOMENCLATURES DES CHAMPS A NOMENCLATURE DU FICHIER DARWIN_CSV.<br/>
  * Met à disposition de l'ensemble de l'application 
- * des Singletons.<br/>
+ * des <b>Singletons</b>.<br/>
  * <br/>
  * <ul>
  * <li>La méthode getCheminNomenclaturesDarwinUtf8 fournit un Singleton 
  * du chemin vers les nomenclatures encodées en UTF-8 
  * des champs à nomenclature 
- * du fichier DARWIN.</li><br/>
+ * du fichier DARWIN.</li>
  * <li>Les méthodes getNomNomenclatureXXX fournissent un singleton  
  * du nom du fichier de nomenclature du champXXX 
- * encodé en UTF-8 dans le DARWIN.</li><br/>
+ * encodé en UTF-8 dans le DARWIN.</li>
  * <li>Les méthodes getFichierNomenclatureXXX fournissent un singleton  
  * du fichier de nomenclature du champXXX 
- * encodé en UTF-8 dans le DARWIN.</li><br/>
+ * encodé en UTF-8 dans le DARWIN.</li>
  * </ul>
  *
  * - Exemple d'utilisation :<br/>

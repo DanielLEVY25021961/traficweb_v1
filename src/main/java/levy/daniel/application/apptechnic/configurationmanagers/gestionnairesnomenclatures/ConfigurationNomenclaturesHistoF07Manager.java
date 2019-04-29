@@ -21,19 +21,19 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * chargée de gérer la configuration des 
  * NOMENCLATURES DES CHAMPS A NOMENCLATURE DU FICHIER HISTO_F07.<br/>
  * Met à disposition de l'ensemble de l'application 
- * des Singletons.<br/>
+ * des <b>Singletons</b>.<br/>
  * <br/>
  * <ul>
  * <li>La méthode getCheminNomenclaturesHistoF07Utf8 fournit un Singleton 
  * du chemin vers les nomenclatures encodées en UTF-8 
  * des champs à nomenclature 
- * du fichier HISTO_F07.</li><br/>
+ * du fichier HISTO_F07.</li>
  * <li>Les méthodes getNomNomenclatureXXX fournissent un singleton  
  * du nom du fichier de nomenclature du champXXX 
- * encodé en UTF-8 dans le HISTO_F07.</li><br/>
+ * encodé en UTF-8 dans le HISTO_F07.</li>
  * <li>Les méthodes getFichierNomenclatureXXX fournissent un singleton  
  * du fichier de nomenclature du champXXX 
- * encodé en UTF-8 dans le HISTO_F07.</li><br/>
+ * encodé en UTF-8 dans le HISTO_F07.</li>
  * </ul>
  *
  * - Exemple d'utilisation :<br/>

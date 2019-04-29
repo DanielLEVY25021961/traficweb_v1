@@ -1300,25 +1300,26 @@ public final class ConfigurationBundlesManager {
 				/* Accède au répertoire externe 
 				 * contenant le properties. */
 				final File repertoireRessourcesParametrables 
-				= new File(pPathRepRessourcesExternes);
+					= new File(pPathRepRessourcesExternes);
 				
 				/* Récupére les URL de tous les properties 
 				 * contenus dans le répertoire externe
 				 * (xxx_fr_FR.properties, xxx_en_US.properties, ...). */
 				final URL[] urlsRessourcesParametrables 
-				= {repertoireRessourcesParametrables.toURI().toURL()};
+					= {repertoireRessourcesParametrables.toURI().toURL()};
 
 				/* Instancie un ClassLoader pointant 
 				 * sur le répertoire externe. */
 				final ClassLoader loaderRessourcesParametrables 
 					= new URLClassLoader(urlsRessourcesParametrables);
 				
-				/* Récupère le properties externe voulu. */
+				/* Récupère le properties (ResourceBundle) externe voulu. */
 				resultat 
 					= ResourceBundle
-						.getBundle(pNomBaseProperties
-										, locale
-											, loaderRessourcesParametrables);			
+						.getBundle(
+								pNomBaseProperties
+									, locale
+										, loaderRessourcesParametrables);			
 				
 			}
 			catch (Exception exc) {
