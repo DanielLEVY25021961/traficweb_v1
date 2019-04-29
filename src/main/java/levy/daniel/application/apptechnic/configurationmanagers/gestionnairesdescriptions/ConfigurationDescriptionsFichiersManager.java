@@ -776,13 +776,12 @@ public final class ConfigurationDescriptionsFichiersManager {
 				final Path pathRelatifDescriptionHit 
 					= Paths.get(getNomDescriptionHit());
 				
-				Path pathRelatifContextDescriptionHit 
+				final Path pathRelatifContextDescriptionHit 
 					= getPathDescriptions()
 						.resolve(pathRelatifDescriptionHit);
-				
+								
 				final ClassLoader classloader 
-					= ConfigurationDescriptionsFichiersManager.class
-						.getClassLoader();
+					= Thread.currentThread().getContextClassLoader();
 				
 				final URL urlRessources 
 					= classloader
@@ -1026,13 +1025,12 @@ public final class ConfigurationDescriptionsFichiersManager {
 				final Path pathRelatifDescriptionHistoF07 
 					= Paths.get(getNomDescriptionHistoF07());
 				
-				Path pathRelatifContextDescriptionHistoF07 
+				final Path pathRelatifContextDescriptionHistoF07 
 					= getPathDescriptions()
 						.resolve(pathRelatifDescriptionHistoF07);
 				
 				final ClassLoader classloader 
-					= ConfigurationDescriptionsFichiersManager.class
-						.getClassLoader();
+				= Thread.currentThread().getContextClassLoader();
 				
 				final URL urlRessources 
 					= classloader
@@ -1279,13 +1277,12 @@ public final class ConfigurationDescriptionsFichiersManager {
 				final Path pathRelatifDescriptionDarwinCsv 
 					= Paths.get(getNomDescriptionDarwinCsv());
 				
-				Path pathRelatifContextDescriptionDarwinCsv 
+				final Path pathRelatifContextDescriptionDarwinCsv 
 					= getPathDescriptions()
 						.resolve(pathRelatifDescriptionDarwinCsv);
 				
 				final ClassLoader classloader 
-					= ConfigurationDescriptionsFichiersManager.class
-						.getClassLoader();
+					= Thread.currentThread().getContextClassLoader();
 				
 				final URL urlRessources 
 					= classloader
@@ -1531,13 +1528,12 @@ public final class ConfigurationDescriptionsFichiersManager {
 				final Path pathRelatifDescriptionMapping 
 				= Paths.get(getNomDescriptionMapping());
 			
-				Path pathRelatifContextDescriptionMapping 
+				final Path pathRelatifContextDescriptionMapping 
 					= getPathDescriptions()
 						.resolve(pathRelatifDescriptionMapping);
 				
 				final ClassLoader classloader 
-					= ConfigurationDescriptionsFichiersManager.class
-						.getClassLoader();
+				= Thread.currentThread().getContextClassLoader();
 				
 				final URL urlRessources 
 					= classloader
@@ -1946,8 +1942,7 @@ public final class ConfigurationDescriptionsFichiersManager {
 		synchronized (ConfigurationDescriptionsFichiersManager.class) {
 			
 			final ClassLoader classloader 
-			= ConfigurationDescriptionsFichiersManager.class
-				.getClassLoader();
+			= Thread.currentThread().getContextClassLoader();
 		
 			final URL urlRessources 
 				= classloader

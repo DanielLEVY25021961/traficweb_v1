@@ -256,7 +256,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		final File fichierDescriptionHit 
 			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionHit();
 
-		final File fichierDescriptionHit_1 
+		final File fichierDescriptionHit1 
 			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionHit();
 
 		final String messageIndividuelRapport 
@@ -286,7 +286,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		
 		/* garantit que getFichierDescriptionHit() retourne un singleton. */
 		assertSame("doit retourner un singleton : "
-				, fichierDescriptionHit, fichierDescriptionHit_1);
+				, fichierDescriptionHit, fichierDescriptionHit1);
 		
 		/* garantit que getFichierDescriptionHit() retourne "ressources\Descriptions de fichier\Hit\Descriptions en UTF-8\2014-07-19_Description_HIT_Utf8.csv". */
 		assertEquals("le fichier de la description HIT doit être situé sous le contexte sous 'ressources/Descriptions de fichier/Hit/Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv' : "
@@ -341,7 +341,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		final String cheminDescriptionHistoF07 
 			= ConfigurationDescriptionsFichiersManager.getNomDescriptionHistoF07();
 		
-		final String cheminDescriptionHistoF07_1 
+		final String cheminDescriptionHistoF071 
 			= ConfigurationDescriptionsFichiersManager.getNomDescriptionHistoF07();
 		
 		final String messageIndividuelRapport 
@@ -372,7 +372,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		
 		/* garantit que getNomDescriptionHistoF07() retourne un singleton. */
 		assertSame("doit retourner un singleton : "
-				, cheminDescriptionHistoF07, cheminDescriptionHistoF07_1);
+				, cheminDescriptionHistoF07, cheminDescriptionHistoF071);
 		
 		/* garantit que le message d'erreur de configuration de la méthode est null. */
 		assertNull("le message d'erreur de la configuration doit être null : "
@@ -417,7 +417,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		final File fichierDescriptionHistoF07 
 			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionHistoF07();
 		
-		final File fichierDescriptionHistoF07_1 
+		final File fichierDescriptionHistoF071 
 			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionHistoF07();
 		
 		final String messageIndividuelRapport 
@@ -447,7 +447,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		
 		/* garantit que getFichierDescriptionHistoF07() retourne un singleton. */
 		assertSame("doit retourner un singleton : "
-				, fichierDescriptionHistoF07, fichierDescriptionHistoF07_1);
+				, fichierDescriptionHistoF07, fichierDescriptionHistoF071);
 		
 		/* garantit que getFichierDescriptionHistoF07() retourne "ressources/Descriptions de fichier/HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv". */
 		assertEquals("le fichier de la description HISTOF07 doit être situé sous le contexte sous 'ressources/Descriptions de fichier/HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv' : "
@@ -502,7 +502,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		final String cheminDescriptionDarwinCsv 
 			= ConfigurationDescriptionsFichiersManager.getNomDescriptionDarwinCsv();
 		
-		final String cheminDescriptionDarwinCsv_1 
+		final String cheminDescriptionDarwinCsv1 
 			= ConfigurationDescriptionsFichiersManager.getNomDescriptionDarwinCsv();
 		
 		final String messageIndividuelRapport 
@@ -533,7 +533,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		
 		/* garantit que getNomDescriptionDarwinCsv() retourne un singleton. */
 		assertSame("doit retourner un singleton : "
-				, cheminDescriptionDarwinCsv, cheminDescriptionDarwinCsv_1);
+				, cheminDescriptionDarwinCsv, cheminDescriptionDarwinCsv1);
 		
 		/* garantit que le message d'erreur de configuration de la méthode est null. */
 		assertNull("le message d'erreur de la configuration doit être null : "
@@ -578,7 +578,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		final File fichierDescriptionDarwinCsv 
 			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionDarwinCsv();
 		
-		final File fichierDescriptionDarwinCsv_1 
+		final File fichierDescriptionDarwinCsv1 
 			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionDarwinCsv();
 		
 		final String messageIndividuelRapport 
@@ -608,7 +608,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		
 		/* garantit que getFichierDescriptionDarwinCsv() retourne un singleton. */
 		assertSame("doit retourner un singleton : "
-				, fichierDescriptionDarwinCsv, fichierDescriptionDarwinCsv_1);
+				, fichierDescriptionDarwinCsv, fichierDescriptionDarwinCsv1);
 		
 		/* garantit que getFichierDescriptionDarwinCsv() retourne "ressources/Descriptions de fichier/Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv". */
 		assertEquals("le fichier de la description DARWIN_CSV doit être situé sous le contexte sous 'ressources/Descriptions de fichier/Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv' : "
@@ -663,7 +663,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		final String cheminDescriptionMapping 
 			= ConfigurationDescriptionsFichiersManager.getNomDescriptionMapping();
 		
-		final String cheminDescriptionMapping_1 
+		final String cheminDescriptionMapping1 
 			= ConfigurationDescriptionsFichiersManager.getNomDescriptionMapping();
 		
 		final String messageIndividuelRapport 
@@ -694,7 +694,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		
 		/* garantit que getNomDescriptionMapping() retourne un singleton. */
 		assertSame("doit retourner un singleton : "
-				, cheminDescriptionMapping, cheminDescriptionMapping_1);
+				, cheminDescriptionMapping, cheminDescriptionMapping1);
 		
 		/* garantit que le message d'erreur de configuration de la méthode est null. */
 		assertNull("le message d'erreur de la configuration doit être null : "
@@ -739,7 +739,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		final File fichierDescriptionMapping 
 			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionMapping();
 		
-		final File fichierDescriptionMapping_1 
+		final File fichierDescriptionMapping1 
 			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionMapping();
 		
 		final String messageIndividuelRapport 
@@ -769,7 +769,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		
 		/* garantit que getFichierDescriptionMapping() retourne un singleton. */
 		assertSame("doit retourner un singleton : "
-				, fichierDescriptionMapping, fichierDescriptionMapping_1);
+				, fichierDescriptionMapping, fichierDescriptionMapping1);
 		
 		/* garantit que getFichierDescriptionMapping() retourne "ressources/Descriptions de fichier/Mapping/Descriptions en UTF-8/2014-07-19_Description_Mapping_Utf8.csv". */
 		assertEquals("le fichier de la description DARWIN_CSV doit être situé sous le contexte sous 'ressources/Descriptions de fichier/Mapping/Descriptions en UTF-8/2014-07-19_Description_Mapping_Utf8.csv' : "
