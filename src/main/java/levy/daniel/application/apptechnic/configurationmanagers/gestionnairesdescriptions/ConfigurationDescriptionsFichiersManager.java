@@ -22,23 +22,53 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
 
 
 /**
- * class ConfigurationDescriptionsFichiersManager :<br/>
+ * CLASSE ConfigurationDescriptionsFichiersManager :<br/>
  * Classe UTILITAIRE 
  * Chargée de gérer la configuration des 
- * CHEMINS DES DESCRIPTIONS DES FICHIERS 
+ * <b>CHEMINS DES DESCRIPTIONS DES FICHIERS</b> 
  * de l'application.<br/>
+ * Les descriptions des fichiers sont des <i>ressources</i> 
+ * indispensables à l'application <b>positionnées dans le classpath</b>.<br/>
+ * <p>
+ * Les descriptions des fichiers seront donc <b>intégrées au livrable</b> 
+ * (jar ou war) à chaque build de l'application.
+ * </p>
+ * <p>
+ * Les descriptions des fichiers étant des <b>ressources internes
+ * intégrées dans le classpath</b>, elle doivent être accédées 
+ * en <i>mode RESSOURCES</i> 
+ * (et pas en mode FILE) puisque leur localisation finale (contexte) dépendra 
+ * de l'installation du livrable (jar ou war) par le centre-serveur.<br/>
+ * <br/>
+ * <code> // Récupération du ClassLoader dans le contexte.</code><br/>
+ * <code><b>ClassLoader classloader = Thread.currentThread().getContextClassLoader();</b></code><br/>
+ * <code> // Récupération auprès du ClassLoader de l'URL de la ressource dans le contexte.</code><br/>
+ * <code><b>URL urlRessources = classloader.getResource("ressources/ressourceXXX.csv");</b></code><br/>
+ * <code> // Transformation de l'URL (Uniform Resource Locator) en URI (Uniform Resource Identifier).</code><br/>
+ * <code><b>URI uriRessources = urlRessources.toURI();</b></code><br/>
+ * <code> // Récupération de la ressource sous forme de File.</code><br/>
+ * <code><b>File ressourceFile = new File(uriRessources.getPath());</b></code><br/>
+ * </p>
+ * <p>
  * Met à disposition de l'ensemble de l'application 
- * des Singletons.<br/>
+ * des <b>Singletons</b>.
+ * </p>
  * <ul>
- * <li>La méthode getCheminDescriptions fournit un Singleton 
- * du chemin vers les descriptions des fichiers 
- * (HIT, HISTO_F07, Darwin.csv, ...).</li>
- * <li>Les méthodes getNomDescriptionXXX fournissent un singleton  
- * du nom du fichier de description du fichierXXX 
- * (HIT, HISTO_F07, Darwin.csv, ...).</li>
+ * <li>La méthode <code>getCheminDescriptions()</code> fournit un Singleton 
+ * du chemin du répertoire parent contenant les descriptions des fichiers 
+ * (HIT, HISTO_F07, Darwin.csv, ...).<br/>
+ * Elle retourne en principe 'ressources/Descriptions de fichier'.</li>
+ * <li>Les méthodes getNomDescriptionXXX() fournissent un singleton  
+ * du chemin relatif (par rapport au répertoire 
+ * [ressource/descriptions de fichier])  du fichier de description CSV 
+ * du fichierXXX (HIT, HISTO_F07, Darwin.csv, ...).<br/>
+ * Par exemple, <code>getNomDescriptionHit()</code> retourne le chemin relatif 
+ * "Hit/Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv".</li>
  * <li>Les méthodes getFichierDescriptionXXX fournissent un singleton  
  * du fichier de description du fichierXXX 
- * (HIT, HISTO_F07, Darwin.csv, ...).</li>
+ * (HIT, HISTO_F07, Darwin.csv, ...).<br/>
+ * Par exemple <code>getFichierDescriptionHit()</code> retourne 
+ * le fichier de description du HIT sous forme de File.</li>
  * </ul>
  * <p>
  * <b><span style="text-decoration:underline;">
@@ -49,16 +79,19 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesdescriptions/classe_ConfigurationDescriptionsFichiersManager.png" 
  * alt="Diagramme de classe du ConfigurationDescriptionsFichiersManager" />
  * </p>
+ * <br/>
  *
- * - Exemple d'utilisation :<br/>
+ *<p>
+ * - Exemple d'utilisation :
+ * </p>
  * <code>
  * // Récupère la description des fichiers HIT.<br/>
- * File fichierDescriptionHit = ConfigurationDescriptionsFichiersManager.getFichierDescriptionHit();<br/>
+ * <b>File fichierDescriptionHit = ConfigurationDescriptionsFichiersManager.getFichierDescriptionHit();</b><br/>
  *  // récupère un message d'erreur provoqué par la méthode précédente si problème de config (null si OK).<br/>
- * String messageIndividuelRapport = ConfigurationDescriptionsFichiersManager.getMessageIndividuelRapport();<br/>
+ * <b>String messageIndividuelRapport = ConfigurationDescriptionsFichiersManager.getMessageIndividuelRapport();</b><br/>
  *  // ...<br/>
  *  // récupère le rapport des erreurs de configuration de l'ensemble des méthodes de la classe si problème de config (null si OK).<br/>
- * String rapportConfigurationCsv = ConfigurationDescriptionsFichiersManager.getRapportConfigurationCsv();<br/>
+ * <b>String rapportConfigurationCsv = ConfigurationDescriptionsFichiersManager.getRapportConfigurationCsv();</b><br/>
  * </code>
  *<br/>
  * 
@@ -67,6 +100,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * pattern Singleton, singleton, <br/>
  * Rapport du chargement de la configuration au format csv,<br/>
  * Resource, resource, ressources, URL, URI,<br/>
+ * ClassLoader, Thread.currentThread().getContextClassLoader(), <br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -794,7 +828,8 @@ public final class ConfigurationDescriptionsFichiersManager {
 				
 				final URL urlRessources 
 					= classloader
-						.getResource(pathRelatifContextDescriptionHit.toString());
+						.getResource(
+								pathRelatifContextDescriptionHit.toString());
 				
 				final URI uriRessources = urlRessources.toURI();
 				

@@ -13,7 +13,7 @@
  * </p>
  * <p>
  * Les ResourceBundles sont la modélisation Java des <b>fichiers properties</b>
- * situés sous le classpath.<br/>
+ * situés <i>sous le classpath</i>.<br/>
  * Il est néanmoins possible d'adresser des fichiers properties 
  * <i>externes au classpath</i> comme des ResourceBundle 
  * en utilisant le ClassLoader.
