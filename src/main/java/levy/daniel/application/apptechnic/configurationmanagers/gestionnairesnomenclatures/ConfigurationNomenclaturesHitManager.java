@@ -17,10 +17,10 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
 
 
 /**
- * class ConfigurationNomenclaturesHitManager :<br/>
+ * CLASSE ConfigurationNomenclaturesHitManager :<br/>
  * Classe UTILITAIRE 
  * chargée de gérer la configuration des 
- * NOMENCLATURES DES CHAMPS A NOMENCLATURE DU FICHIER HIT.<br/>
+ * NOMENCLATURES DE TOUS LES CHAMPS A NOMENCLATURE DU FICHIER HIT.<br/>
  * Met à disposition de l'ensemble de l'application 
  * des <b>Singletons</b>.<br/>
  * <br/>
@@ -36,8 +36,11 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * du fichier de nomenclature du champXXX 
  * encodé en UTF-8 dans le HIT.</li>
  * </ul>
+ * <br/>
  *
- * - Exemple d'utilisation :<br/>
+ * <p>
+ * - Exemple d'utilisation :
+ * </p>
  *<br/>
  * 
  * - Mots-clé :<br/>

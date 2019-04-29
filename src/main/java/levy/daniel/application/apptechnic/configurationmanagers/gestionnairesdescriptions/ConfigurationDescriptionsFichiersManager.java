@@ -29,6 +29,9 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * de l'application.<br/>
  * Les descriptions des fichiers sont des <i>ressources</i> 
  * indispensables à l'application <b>positionnées dans le classpath</b>.<br/>
+ * Les descriptions des fichiers utilisées dans la présente application 
+ * sont toutes au <b>format CSV</b> et <b>encodées en UTF-8 avec BOM</b> 
+ * pour être facilement lisibles dans Microsoft Excel.
  * <p>
  * Les descriptions des fichiers seront donc <b>intégrées au livrable</b> 
  * (jar ou war) à chaque build de l'application.

@@ -41,7 +41,9 @@ import org.apache.commons.logging.LogFactory;
  * <br/><br/>
  * <br/>
  *
- * - Exemples d'utilisation :<br/>
+ *<p>
+ * - Exemples d'utilisation :
+ * </p>
  * <code><i>// Récupération de la Locale américaine depuis l'IHM.</i></code><br/>
  * <b><code>final Locale localeEu = 
  * LocaleManager.recupererLocaleIHM("anglais (Etats-Unis)");</code></b><br/>

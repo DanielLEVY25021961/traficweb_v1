@@ -2,6 +2,9 @@
  * class package-info :<br/>
  * Ce package contient toutes les classes utiles pour la lecture 
  * des <b>descriptions de fichier</b> de l'application.<br/>
+ * Les descriptions des fichiers utilisées dans la présente application 
+ * sont toutes au <b>format CSV</b> et <b>encodées en UTF-8 avec BOM</b> 
+ * pour être facilement lisibles dans Microsoft Excel.
  * <p>
  * Les descriptions de fichiers sont des <b>ressources internes au classpath
  * (fichiers csv le plus souvent) ne devant pas être modifiées</b>.<br/> 

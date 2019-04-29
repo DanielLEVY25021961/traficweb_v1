@@ -18,10 +18,28 @@
  * <br/><br/>
  * <br/>
  *
- * - Exemple d'utilisation :<br/>
+ * <p>
+ * - Exemples d'utilisation :
+ * </p>
+ * <code><i>// Récupération de la Locale américaine depuis l'IHM.</i></code><br/>
+ * <b><code>final Locale localeEu = 
+ * LocaleManager.recupererLocaleIHM("anglais (Etats-Unis)");</code></b><br/>
+ * <br/>
+ * <code><i>// SELECTION de la Locale américaine depuis l'IHM.</i></code><br/>
+ * <b><code>LocaleManager.selectionnerLocaleApplication("anglais (Etats-Unis)");
+ * </code></b><br/>
+ * <code><i>// Récupération du SINGLETON de Locale en cours 
+ * depuis n'importe où dans l'application.</i></code><br/>
+ * <code>final Locale localeApplication 
+ * = <b>LocaleManager.getLocaleApplication()</b>;</code><br/>
  *<br/>
  * 
  * - Mots-clé :<br/>
+ * Locale, Locale("fr", "FR") en France, <br/>
+ * instancier une Locale, SINGLETON, singleton,<br/>
+ * sélectionner une Locale, selectionner une locale,<br/>
+ * afficherListString, afficherList<String>, afficher Liste String, <br/>
+ * afficherListeString, <br/>
  * <br/>
  *
  * - Dépendances :<br/>
