@@ -58,7 +58,8 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * </p>
  * 
  * <ul>
- * <li>La méthode getCheminNomenclaturesHitUtf8 fournit un Singleton 
+ * <li>La méthode <code>getCheminNomenclaturesHitUtf8()</code> 
+ * fournit un Singleton 
  * du chemin du répertoire parent contenant les nomenclatures 
  * encodées en UTF-8 des champs à nomenclature du fichier HIT.<br/>
  * Elle retourne en principe 
@@ -75,6 +76,12 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * <p>
  * - Exemple d'utilisation :
  * </p>
+ * <code> // Récupération de la nomenclature du SENS sous forme de File.</code><br/>
+ * <code><b>File fichierNomenclatureHitSens = ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitSensUtf8();</b></code><br/>
+ * <code> // Récupération de l'éventuel message d'erreur de la méthode (null si OK)</code><br/>
+ * <code><b>String messageIndividuelRapport = ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();</b></code><br/>
+ * <code> // Récupération de l'éventuel message d'erreur de la classe pour l'ensemble des méthodes (null si OK)</code><br/>
+ * <code><b>String rapportConfigurationCsv = ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();</b></code><br/>
  *<br/>
  * 
  * - Mots-clé :<br/>
