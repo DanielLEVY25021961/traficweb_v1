@@ -906,6 +906,159 @@ public class ConfigurationNomenclaturesHistoF07ManagerTest {
 
 	} // Fin de testGetFichierNomenclatureHistoF07ClassementRouteUtf8().________
 
+	
+	
+	/**
+	 * teste la méthode getNomNomenclatureHistoF07ClasseLargeurChausseeU().<br/>
+	 * <ul>
+	 * <li>garantit que getNomNomenclatureHistoF07ClasseLargeurChausseeU() ne retourne pas null.</li>
+	 * <li>garantit que getNomNomenclatureHistoF07ClasseLargeurChausseeU() retourne "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * <p>
+	 * commenter la ligne 
+	 * "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.histof07 = 2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv"
+	 * dans le fichier <code>application_fr_FR.properties</code> 
+	 * sous les resources 
+	 * pour faire apparaitre les message et rapport d'erreur.
+	 * </p>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetNomNomenclatureHistoF07ClasseLargeurChausseeU() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHistoF07ManagerTest - méthode testGetNomNomenclatureHistoF07ClasseLargeurChausseeU() ********** ");
+		}
+
+		final String cheminNomenclatureHistoF07ClasseLargeurChausseeU 
+			= ConfigurationNomenclaturesHistoF07Manager.getNomNomenclatureHistoF07ClasseLargeurChausseeU();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHistoF07Manager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHistoF07Manager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("cheminNomenclatureHistoF07ClasseLargeurChausseeU : " 
+					+ cheminNomenclatureHistoF07ClasseLargeurChausseeU);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+		
+		/* garantit que getNomNomenclatureHistoF07ClasseLargeurChausseeU() ne retourne pas null. */
+		assertNotNull(
+				"Le chemin de la nomenclature (String) ne doit pas être null : "
+					, cheminNomenclatureHistoF07ClasseLargeurChausseeU);
+		
+		/* garantit que getNomNomenclatureHistoF07ClasseLargeurChausseeU() retourne "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv". */
+		assertEquals("le nom de la nomenclature doit valoir '2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv' : "
+				, "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv"
+					, cheminNomenclatureHistoF07ClasseLargeurChausseeU);
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetNomNomenclatureHistoF07ClasseLargeurChausseeU()._________
+
+
+	
+	/**
+	 * teste la méthode getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8().<br/>
+	 * <ul>
+	 * <li>garantit que getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() ne retourne pas null.</li>
+	 * <li>garantit que getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() retourne un fichier existant.</li>
+	 * <li>garantit que getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() retourne un singleton.</li>
+	 * <li>garantit que getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() retourne le fichier sous le contexte à
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHistoF07ManagerTest - méthode testGetFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() ********** ");
+		}
+
+		final File fichierNomenclatureHistoF07ClasseLargeurChausseeU 
+			= ConfigurationNomenclaturesHistoF07Manager.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8();
+
+		final File fichierNomenclatureHistoF07ClasseLargeurChausseeU1 
+			= ConfigurationNomenclaturesHistoF07Manager.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8();
+
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHistoF07Manager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHistoF07Manager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("fichierNomenclatureHistoF07ClasseLargeurChausseeU : " 
+					+ fichierNomenclatureHistoF07ClasseLargeurChausseeU);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+			
+		/* garantit que getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() ne retourne pas null. */
+		assertNotNull(
+				"Le fichier de nomenclature HISTO_F07 CLASSE DE LARGEUR DE CHAUSSEE UNIQUE ne doit pas être null : "
+					, fichierNomenclatureHistoF07ClasseLargeurChausseeU);
+		
+		/* garantit que getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() retourne un fichier existant. */
+		assertTrue("fichierNomenclatureHistoF07ClasseLargeurChausseeU doit exister : "
+				, fichierNomenclatureHistoF07ClasseLargeurChausseeU.exists());
+		
+		/* garantit que getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, fichierNomenclatureHistoF07ClasseLargeurChausseeU, fichierNomenclatureHistoF07ClasseLargeurChausseeU1);
+		
+		/* garantit que getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() retourne "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv". */
+		assertEquals("le fichier de nomenclature HISTO_F07 CLASSE DE LARGEUR DE CHAUSSEE UNIQUE doit être situé sous le contexte sous 'ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv' : "
+				, Paths.get("ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv")
+					, fournirPathRelatifSousTargetClasses(fichierNomenclatureHistoF07ClasseLargeurChausseeU));
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8()._
+
 
 	
 	/**

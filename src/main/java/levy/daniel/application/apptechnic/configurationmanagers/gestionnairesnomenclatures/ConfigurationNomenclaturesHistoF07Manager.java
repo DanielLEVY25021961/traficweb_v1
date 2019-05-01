@@ -372,30 +372,26 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 	private static transient File fichierNomenclatureHistoF07ClassementRouteUtf8;
 	
 	/**
-	 * nomNomenclatureHistoF07ClasseLargeurChausseeU : String :<br/>
-	 * Nom du fichier de nomenclature 
-	 * de la classe de largeur de chaussée unique
-	 * pour les HISTO_F07 en UTF-8
+	 * Nom du fichier de nomenclature de la 
+	 * CLASSE DE LARGEUR DE CHAUSSEE UNIQUE pour les HISTO_F07 en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_HistoF07_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.histof07"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF07ClasseLargeurChausseeU;
-	
-		
+			
 	/**
-	 * fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
 	 * dans un HISTO_F07.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\HistoF07\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_HistoF07_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8;
 	
-
 	/**
 	 * nomNomenclatureHistoF07ClasseLargeurChausseesS : String :<br/>
 	 * Nom du fichier de nomenclature 
@@ -1925,19 +1921,28 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 
 	
 	/**
-	 * method getNomNomenclatureHistoF07ClasseLargeurChausseeU() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * de la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
-	 * pour les HISTO_F07 en UTF-8
+	 * Getter du Nom du fichier de nomenclature de la 
+	 * CLASSE DE LARGEUR DE CHAUSSEE UNIQUE pour les HISTO_F07 en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_HistoF07_Utf8.csv".<br/>
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHistoF07ClasseLargeurChausseeUEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHistoF07ClasseLargeurChausseeUEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.histof07".<br/>
 	 * <br/>
@@ -2068,12 +2073,12 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 
 
 	/**
-	 * method fournirCleNomNomenclatureHistoF07ClasseLargeurChausseeU() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 
 	 * de la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
 	 * dans le HISTO_F07 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_HistoF07_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.histof07".<br/>
 	 * <br/>
 	 *
@@ -2087,30 +2092,26 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 	
 	
 	/**
-	 * method fournirNomNomenclatureHistoF07ClasseLargeurChausseeUEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
-	 * dans un HISTO_F07.<br/>
+	 * pour <code>nomNomenclatureHistoF07ClasseLargeurChausseeU</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_HistoF07_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF07ClasseLargeurChausseeUEnDur() {
-		return "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_HistoF07_Utf8.csv";
+		return "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF07ClasseLargeurChausseeUEnDur().____
 	
 	
 	
 	/**
-	 * method getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
 	 * dans un HISTO_F07.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\HistoF07\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_HistoF07_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF07_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2132,11 +2133,27 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8 == null) {
+
+				final Path pathRelatifNomenclatureClasseLargeurChausseeUHistoF07 
+					= Paths.get(getNomNomenclatureHistoF07ClasseLargeurChausseeU());
+		
+				final Path pathRelatifContextNomenclatureClasseLargeurChausseeUHistoF07 
+					= getPathNomenclaturesHistoF07Utf8()
+						.resolve(pathRelatifNomenclatureClasseLargeurChausseeUHistoF07);
 								
-				fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8 
-				= new File(getCheminNomenclaturesHistoF07Utf8() 
-						+ getNomNomenclatureHistoF07ClasseLargeurChausseeU());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureClasseLargeurChausseeUHistoF07.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8 
+					= new File(uriRessources.getPath());
+								
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
