@@ -56,6 +56,36 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 	public static final String UNUSED = "unused";
 	
 	/**
+	 * "doit comporter moins de 30 caractères".
+	 */
+	public static final String DOIT_COMPORTER_MOINS_30 
+		= "doit comporter moins de 30 caractères";
+	
+	/**
+	 * "la valeur doit valoir : '50'".
+	 */
+	public static final String VALEUR_DOIT_VALOIR_50 
+		= "la valeur doit valoir : '50'";
+	
+	/**
+	 * "message = ".
+	 */
+	public static final String MESSAGE 
+		= "message = ";
+	
+	/**
+	 * "le fichier properties doit avoir été généré sur disque : ".
+	 */
+	public static final String PROPERTIES_SUR_DISQUE 
+		= "le fichier properties doit avoir été généré sur disque : ";
+	
+	/**
+	 * "valeur = ".
+	 */
+	public static final String VALEUR 
+		= "valeur = ";
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -117,7 +147,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		
 		/* garantit que afficherPreferences() crée le fichier 
 		 * properties avec des valeurs en dur. */
-		assertTrue("le fichier properties doit avoir été généré sur disque : "
+		assertTrue(PROPERTIES_SUR_DISQUE
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.getFilePreferencesProperties().exists());
 		
@@ -219,7 +249,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		
 		/* garantit que getPreferences() crée le fichier 
 		 * properties avec des valeurs en dur si il n'existait pas. */
-		assertTrue("le fichier properties doit avoir été généré sur disque : "
+		assertTrue(PROPERTIES_SUR_DISQUE
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.getFilePreferencesProperties().exists());
 		
@@ -281,7 +311,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		
 		/* garantit que getMessageUtilisateurCiviliteRenseigne01() crée le fichier 
 		 * properties avec des valeurs en dur si il n'existait pas. */
-		assertTrue("le fichier properties doit avoir été généré sur disque : "
+		assertTrue(PROPERTIES_SUR_DISQUE
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.getFilePreferencesProperties().exists());
 				
@@ -295,7 +325,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefString);
 			System.out.println();
-			System.out.println("message = " + message);
+			System.out.println(MESSAGE + message);
 			System.out.println();
 		}
 		
@@ -324,7 +354,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefStringModifiee);
 			System.out.println();
-			System.out.println("message = " + messageModifie);
+			System.out.println(MESSAGE + messageModifie);
 			System.out.println();
 		}
 		
@@ -354,7 +384,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefStringModifiee2);
 			System.out.println();
-			System.out.println("message = " + messageModifie2);
+			System.out.println(MESSAGE + messageModifie2);
 			System.out.println();
 		}
 		
@@ -410,7 +440,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		
 		/* garantit que getMessageUtilisateurCiviliteLongueur03() crée le fichier 
 		 * properties avec des valeurs en dur si il n'existait pas. */
-		assertTrue("le fichier properties doit avoir été généré sur disque : "
+		assertTrue(PROPERTIES_SUR_DISQUE
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.getFilePreferencesProperties().exists());
 				
@@ -424,8 +454,8 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefString);
 			System.out.println();
-			System.out.println("message = " + message);
-			System.out.println("valeur = " + valeur);
+			System.out.println(MESSAGE + message);
+			System.out.println(VALEUR + valeur);
 			System.out.println();
 		}
 		
@@ -464,8 +494,8 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefStringModifiee1);
 			System.out.println();
-			System.out.println("message = " + messageModifie1);
-			System.out.println("valeur = " + valeurModifie1);
+			System.out.println(MESSAGE + messageModifie1);
+			System.out.println(VALEUR + valeurModifie1);
 			System.out.println();
 		}
 		
@@ -484,7 +514,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		/* modification du message2 */
 		UtilisateurCerbereGestionnairePreferencesControles
 			.setMessageUtilisateurCiviliteLongueur03(
-					"doit comporter moins de 30 caractères");
+					DOIT_COMPORTER_MOINS_30);
 		
 		final String messageModifie2 
 		= UtilisateurCerbereGestionnairePreferencesControles
@@ -504,8 +534,8 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefStringModifiee2);
 			System.out.println();
-			System.out.println("message = " + messageModifie2);
-			System.out.println("valeur = " + valeurModifie2);
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println(VALEUR + valeurModifie2);
 			System.out.println();
 		}
 
@@ -513,7 +543,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		/* garantit que setMessageUtilisateurCiviliteRenseigne01(...) 
 		 * modifie le message dans le fichier properties. */
 		assertEquals("le message doit valoir : 'doit comporter moins de 30 caractères'"
-				, "doit comporter moins de 30 caractères"
+				, DOIT_COMPORTER_MOINS_30
 					, messageModifie2);
 		
 		assertEquals("la valeur doit valoir : '30'"
@@ -565,7 +595,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		
 		/* garantit que getMessageUtilisateurPrenomLongueur03() crée le fichier 
 		 * properties avec des valeurs en dur si il n'existait pas. */
-		assertTrue("le fichier properties doit avoir été généré sur disque : "
+		assertTrue(PROPERTIES_SUR_DISQUE
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.getFilePreferencesProperties().exists());
 				
@@ -579,13 +609,13 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefString);
 			System.out.println();
-			System.out.println("message = " + message);
-			System.out.println("valeur = " + valeur);
+			System.out.println(MESSAGE + message);
+			System.out.println(VALEUR + valeur);
 			System.out.println();
 		}
 		
 		/* garantit que le getter fonctionne bien. */
-		assertEquals("la valeur doit valoir : '50'"
+		assertEquals(VALEUR_DOIT_VALOIR_50
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.VALEUR_UTILISATEUR_PRENOM_LONGUEUR_03_EN_DUR
 					, valeur);
@@ -619,14 +649,14 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefStringModifiee1);
 			System.out.println();
-			System.out.println("message = " + messageModifie1);
-			System.out.println("valeur = " + valeurModifie1);
+			System.out.println(MESSAGE + messageModifie1);
+			System.out.println(VALEUR + valeurModifie1);
 			System.out.println();
 		}
 		
 		/* garantit que le message et la valeur ne sont pas modifiés 
 		 * si le nouveau message n'a pas le bon format. */
-		assertEquals("la valeur doit valoir : '50'"
+		assertEquals(VALEUR_DOIT_VALOIR_50
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.VALEUR_UTILISATEUR_PRENOM_LONGUEUR_03_EN_DUR
 					, valeurModifie1);
@@ -639,7 +669,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		/* modification du message2 */
 		UtilisateurCerbereGestionnairePreferencesControles
 			.setMessageUtilisateurPrenomLongueur03(
-					"doit comporter moins de 30 caractères");
+					DOIT_COMPORTER_MOINS_30);
 		
 		final String messageModifie2 
 		= UtilisateurCerbereGestionnairePreferencesControles
@@ -659,8 +689,8 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefStringModifiee2);
 			System.out.println();
-			System.out.println("message = " + messageModifie2);
-			System.out.println("valeur = " + valeurModifie2);
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println(VALEUR + valeurModifie2);
 			System.out.println();
 		}
 
@@ -668,7 +698,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		/* garantit que setMessageUtilisateurPrenomRenseigne01(...) 
 		 * modifie le message dans le fichier properties. */
 		assertEquals("le message doit valoir : 'doit comporter moins de 30 caractères'"
-				, "doit comporter moins de 30 caractères"
+				, DOIT_COMPORTER_MOINS_30
 					, messageModifie2);
 		
 		assertEquals("la valeur doit valoir : '30'"
@@ -720,7 +750,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		
 		/* garantit que getMessageUtilisateurNomLongueur03() crée le fichier 
 		 * properties avec des valeurs en dur si il n'existait pas. */
-		assertTrue("le fichier properties doit avoir été généré sur disque : "
+		assertTrue(PROPERTIES_SUR_DISQUE
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.getFilePreferencesProperties().exists());
 				
@@ -734,13 +764,13 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefString);
 			System.out.println();
-			System.out.println("message = " + message);
-			System.out.println("valeur = " + valeur);
+			System.out.println(MESSAGE + message);
+			System.out.println(VALEUR + valeur);
 			System.out.println();
 		}
 		
 		/* garantit que le getter fonctionne bien. */
-		assertEquals("la valeur doit valoir : '50'"
+		assertEquals(VALEUR_DOIT_VALOIR_50
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.VALEUR_UTILISATEUR_NOM_LONGUEUR_03_EN_DUR
 					, valeur);
@@ -774,14 +804,14 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefStringModifiee1);
 			System.out.println();
-			System.out.println("message = " + messageModifie1);
-			System.out.println("valeur = " + valeurModifie1);
+			System.out.println(MESSAGE + messageModifie1);
+			System.out.println(VALEUR + valeurModifie1);
 			System.out.println();
 		}
 		
 		/* garantit que le message et la valeur ne sont pas modifiés 
 		 * si le nouveau message n'a pas le bon format. */
-		assertEquals("la valeur doit valoir : '50'"
+		assertEquals(VALEUR_DOIT_VALOIR_50
 				, UtilisateurCerbereGestionnairePreferencesControles
 				.VALEUR_UTILISATEUR_NOM_LONGUEUR_03_EN_DUR
 					, valeurModifie1);
@@ -794,7 +824,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		/* modification du message2 */
 		UtilisateurCerbereGestionnairePreferencesControles
 			.setMessageUtilisateurNomLongueur03(
-					"doit comporter moins de 30 caractères");
+					DOIT_COMPORTER_MOINS_30);
 		
 		final String messageModifie2 
 		= UtilisateurCerbereGestionnairePreferencesControles
@@ -814,8 +844,8 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(prefStringModifiee2);
 			System.out.println();
-			System.out.println("message = " + messageModifie2);
-			System.out.println("valeur = " + valeurModifie2);
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println(VALEUR + valeurModifie2);
 			System.out.println();
 		}
 
@@ -823,7 +853,7 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		/* garantit que setMessageUtilisateurNomRenseigne01(...) 
 		 * modifie le message dans le fichier properties. */
 		assertEquals("le message doit valoir : 'doit comporter moins de 30 caractères'"
-				, "doit comporter moins de 30 caractères"
+				, DOIT_COMPORTER_MOINS_30
 					, messageModifie2);
 		
 		assertEquals("la valeur doit valoir : '30'"

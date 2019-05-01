@@ -54,7 +54,25 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 	 * "unused".<br/>
 	 */
 	public static final String UNUSED = "unused";
+	
+	/**
+	 * "Le Boolean doit valoir false : ".
+	 */
+	public static final String BOOLEAN_DOIT_VALOIR_FALSE 
+		= "Le Boolean doit valoir false : ";
 
+	/**
+	 * "Le Boolean doit valoir true : ".
+	 */
+	public static final String BOOLEAN_DOIT_VALOIR_TRUE 
+		= "Le Boolean doit valoir true : ";
+	
+	/**
+	 * "la valeur doit être à true : ".
+	 */
+	public static final String VALEUR_DOIT_ETRE_TRUE 
+		= "la valeur doit être à true : ";
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -152,11 +170,11 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 				, UtilisateurCerbereGestionnairePreferencesRG
 				.getFilePreferencesProperties().exists());
 		
-		assertTrue("la valeur doit être à true : "
+		assertTrue(VALEUR_DOIT_ETRE_TRUE
 				, UtilisateurCerbereGestionnairePreferencesRG
 					.getValiderRGUtilisateurCivilite());
 
-		assertTrue("la valeur doit être à true : "
+		assertTrue(VALEUR_DOIT_ETRE_TRUE
 				, UtilisateurCerbereGestionnairePreferencesRG
 					.getValiderRGUtilisateurCiviliteLitteral02());
 		
@@ -234,11 +252,11 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 
 		/* garantit que getPreferences() lit les preferences 
 		 * dans le properties existant. */
-		assertTrue("la valeur doit être à true : "
+		assertTrue(VALEUR_DOIT_ETRE_TRUE
 				, UtilisateurCerbereGestionnairePreferencesRG
 					.getValiderRGUtilisateurCivilite());
 
-		assertTrue("la valeur doit être à true : "
+		assertTrue(VALEUR_DOIT_ETRE_TRUE
 				, UtilisateurCerbereGestionnairePreferencesRG
 					.getValiderRGUtilisateurCiviliteLitteral02());
 
@@ -430,7 +448,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 		}
 		
 		/* garantit que le Boolean a bien été passé a true dans le properties. */
-		assertTrue("Le Boolean doit valoir true : ", validerRGBoolean);
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
 		
 		/* passe le Boolean à false. */
 		/* ***************************************** */
@@ -448,7 +466,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 			System.out.println("validerRGUtilisateurCivilite après passage à false : " + validerRGBoolean);
 		}
 		
-		assertFalse("Le Boolean doit valoir false : ", validerRGBoolean);
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
 
 	} // Fin de testGetValiderRGUtilisateurCivilite()._____________________
 
@@ -509,7 +527,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 		}
 		
 		/* garantit que le Boolean a bien été passé a true dans le properties. */
-		assertTrue("Le Boolean doit valoir true : ", validerRGBoolean);
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
 		
 		/* passe le Boolean à false. */
 		/* ***************************************** */
@@ -527,7 +545,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 			System.out.println("validerRGUtilisateurCiviliteRenseigne01 après passage à false : " + validerRGBoolean);
 		}
 		
-		assertFalse("Le Boolean doit valoir false : ", validerRGBoolean);
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
 
 	} // Fin de testGetValiderRGUtilisateurCiviliteRenseigne01().__________
 
@@ -588,7 +606,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 		}
 		
 		/* garantit que le Boolean a bien été passé a true dans le properties. */
-		assertTrue("Le Boolean doit valoir true : ", validerRGBoolean);
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
 		
 		/* passe le Boolean à false. */
 		/* ***************************************** */
@@ -606,7 +624,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 			System.out.println("validerRGUtilisateurCiviliteLitteral02 après passage à false : " + validerRGBoolean);
 		}
 		
-		assertFalse("Le Boolean doit valoir false : ", validerRGBoolean);
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
 
 	} // Fin de testGetValiderRGUtilisateurCiviliteLitteral02().___________
 
@@ -667,7 +685,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 		}
 		
 		/* garantit que le Boolean a bien été passé a true dans le properties. */
-		assertTrue("Le Boolean doit valoir true : ", validerRGBoolean);
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
 		
 		/* passe le Boolean à false. */
 		/* ***************************************** */
@@ -685,7 +703,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 			System.out.println("validerRGUtilisateurCiviliteLongueur03 après passage à false : " + validerRGBoolean);
 		}
 		
-		assertFalse("Le Boolean doit valoir false : ", validerRGBoolean);
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
 
 	} // Fin de testGetValiderRGUtilisateurCiviliteLongueur03().___________
 
@@ -746,7 +764,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 		}
 		
 		/* garantit que le Boolean a bien été passé a true dans le properties. */
-		assertTrue("Le Boolean doit valoir true : ", validerRGBoolean);
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
 		
 		/* passe le Boolean à false. */
 		/* ***************************************** */
@@ -764,7 +782,7 @@ public class UtilisateurCerbereGestionnairePreferencesRGTest {
 			System.out.println("validerRGUtilisateurCiviliteNomenclature04 après passage à false : " + validerRGBoolean);
 		}
 		
-		assertFalse("Le Boolean doit valoir false : ", validerRGBoolean);
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
 
 	} // Fin de testGetValiderRGUtilisateurCiviliteNomenclature04()._______
 	

@@ -1,6 +1,11 @@
 package levy.daniel.application.apptechnic.configurationmanagers.gestionnairesnomenclatures;
 
 import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -20,15 +25,44 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * CLASSE ConfigurationNomenclaturesHitManager :<br/>
  * Classe UTILITAIRE 
  * chargée de gérer la configuration des 
- * NOMENCLATURES DE TOUS LES CHAMPS A NOMENCLATURE DU FICHIER HIT.<br/>
- * Met à disposition de l'ensemble de l'application 
- * des <b>Singletons</b>.<br/>
+ * <b>NOMENCLATURES DE TOUS LES CHAMPS A NOMENCLATURE DU FICHIER HIT</b>.<br/>
+ * Les nomenclatures sont des <i>ressources</i> 
+ * indispensables à l'application <b>positionnées dans le classpath</b>.<br/>
+ * Les nomenclatures utilisées dans la présente application 
+ * sont toutes au <b>format CSV</b> et <b>encodées en UTF-8 avec BOM</b> 
+ * pour être facilement lisibles dans Microsoft Excel.
+ * <p>
+ * Les nomenclatures seront donc <b>intégrées au livrable</b> 
+ * (jar ou war) à chaque build de l'application.
+ * </p>
+ * <p>
+ * Les nomenclatures étant des <b>ressources internes
+ * intégrées dans le classpath</b>, elle doivent être accédées 
+ * en <i>mode RESSOURCES</i> 
+ * (et pas en mode FILE) puisque leur localisation finale (contexte) dépendra 
+ * de l'installation du livrable (jar ou war) par le centre-serveur.<br/>
  * <br/>
+ * <code> // Récupération du ClassLoader dans le contexte.</code><br/>
+ * <code><b>ClassLoader classloader = Thread.currentThread().getContextClassLoader();</b></code><br/>
+ * <code> // Récupération auprès du ClassLoader de l'URL de la ressource dans le contexte.</code><br/>
+ * <code><b>URL urlRessources = classloader.getResource("ressources/ressourceXXX.csv");</b></code><br/>
+ * <code> // Transformation de l'URL (Uniform Resource Locator) en URI (Uniform Resource Identifier).</code><br/>
+ * <code><b>URI uriRessources = urlRessources.toURI();</b></code><br/>
+ * <code> // Récupération de la ressource sous forme de File.</code><br/>
+ * <code><b>File ressourceFile = new File(uriRessources.getPath());</b></code><br/>
+ * </p>
+ * 
+ * <p>
+ * Met à disposition de l'ensemble de l'application 
+ * des <b>Singletons</b>.
+ * </p>
+ * 
  * <ul>
  * <li>La méthode getCheminNomenclaturesHitUtf8 fournit un Singleton 
- * du chemin vers les nomenclatures encodées en UTF-8 
- * des champs à nomenclature 
- * du fichier HIT.</li>
+ * du chemin du répertoire parent contenant les nomenclatures 
+ * encodées en UTF-8 des champs à nomenclature du fichier HIT.<br/>
+ * Elle retourne en principe 
+ * 'ressources/Nomenclatures/Hit/Nomenclatures en UTF-8'.</li>
  * <li>Les méthodes getNomNomenclatureXXX fournissent un singleton  
  * du nom du fichier de nomenclature du champXXX 
  * encodé en UTF-8 dans le HIT.</li>
@@ -210,85 +244,86 @@ public final class ConfigurationNomenclaturesHitManager {
 	// HIT.*********************
 	
 	/**
-	 * cheminNomenclaturesHitUtf8 : String :<br/>
-	 * Chemin des nomenclatures en UTF-8 des champs pour les HIT
-	 * stocké dans application.properties.<br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8\\".<br/>
+	 * <b>Chemin relatif par rapport au classpath (contexte) 
+	 * du répertoire [Nomenclatures en UTF-8] sous forme de String</b> 
+	 * stocké dans le fichier <code>application.properties</code>.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.chemin.hit.utf8".<br/>
 	 */
 	private static transient String cheminNomenclaturesHitUtf8;
-	
+
+	/**
+	 * <b>Path relatif par rapport au classpath (contexte) 
+	 * du répertoire [Nomenclatures en UTF-8] sous forme de String</b> 
+	 * stocké dans le fichier <code>application.properties</code>.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.chemin.hit.utf8".<br/>
+	 */
+	private static transient Path pathNomenclaturesHitUtf8;
 	
 	/**
-	 * nomNomenclatureHitSens : String :<br/>
 	 * Nom du fichier de nomenclature du sens pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 * "2014-07-15_Nomenclature_Sens_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.sens.hit".<br/>
 	 */
 	private static transient String nomNomenclatureHitSens;
-
 	
 	/**
-	 * fichierNomenclatureHitSensUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le SENS
-	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8\\
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour le SENS dans un HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
 	 * 2014-07-15_Nomenclature_Sens_Hit_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHitSensUtf8;
-
 	
 	/**
-	 * nomNomenclatureHitNature : String :<br/>
-	 * Nom du fichier de nomenclature de la nature pour les HIT en UTF-8
+	 * Nom du fichier de nomenclature de la NATURE DU COMPTAGE 
+	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 * "2014-07-15_Nomenclature_Nature_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.nature.hit".<br/>
 	 */
 	private static transient String nomNomenclatureHitNature;
-
 	
 	/**
-	 * fichierNomenclatureHitNatureUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * la NATURE du comptage 
-	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Nature_Hit_Utf8.csv".<br/>
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour la NATURE DU COMPTAGE dans un HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_Nature_Hit_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHitNatureUtf8;
 	
-
 	/**
-	 * nomNomenclatureHitCatAdminRoute : String :<br/>
 	 * Nom du fichier de nomenclature de la catégorie administrative 
 	 * de la route pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Categorie_Adm_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_CatAdminRoute_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.catadminroute.hit"<br/>	 
 	 * */
 	private static transient String nomNomenclatureHitCatAdminRoute;
-
 		
 	/**
-	 * fichierNomenclatureHitCatAdminRouteUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
 	 * Nomenclature pour 
 	 * la CATEGORIE ADMINISTRATIVE de la route 
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Categorie_Adm_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_CatAdminRoute_Hit_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHitCatAdminRouteUtf8;
 	
-
 	/**
 	 * nomNomenclatureHitTypeComptage : String :<br/>
 	 * Nom du fichier de nomenclature du type de comptage 
@@ -298,7 +333,6 @@ public final class ConfigurationNomenclaturesHitManager {
 	 * Clé = "application.repertoire.ressources.nomenclatures.typecomptage.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitTypeComptage;
-
 		
 	/**
 	 * fichierNomenclatureHitTypeComptageUtf8 : File :<br/>
@@ -312,7 +346,6 @@ public final class ConfigurationNomenclaturesHitManager {
 	 */
 	private static transient File fichierNomenclatureHitTypeComptageUtf8;
 	
-
 	/**
 	 * nomNomenclatureHitClassementRoute : String :<br/>
 	 * Nom du fichier de nomenclature du classement de la route 
@@ -322,7 +355,6 @@ public final class ConfigurationNomenclaturesHitManager {
 	 * Clé = "application.repertoire.ressources.nomenclatures.classementroute.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitClassementRoute;
-
 		
 	/**
 	 * fichierNomenclatureHitClassementRouteUtf8 : File :<br/>
@@ -336,7 +368,6 @@ public final class ConfigurationNomenclaturesHitManager {
 	 */
 	private static transient File fichierNomenclatureHitClassementRouteUtf8;
 	
-
 	/**
 	 * nomNomenclatureHitClasseLargeurChausseeU : String :<br/>
 	 * Nom du fichier de nomenclature 
@@ -347,8 +378,7 @@ public final class ConfigurationNomenclaturesHitManager {
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitClasseLargeurChausseeU;
-	
-		
+			
 	/**
 	 * fichierNomenclatureHitClasseLargeurChausseeUUtf8 : File :<br/>
 	 * Fichier sur disque encodé en UTF-8 contenant la 
@@ -361,7 +391,6 @@ public final class ConfigurationNomenclaturesHitManager {
 	 */
 	private static transient File fichierNomenclatureHitClasseLargeurChausseeUUtf8;
 	
-
 	/**
 	 * nomNomenclatureHitClasseLargeurChausseesS : String :<br/>
 	 * Nom du fichier de nomenclature 
@@ -372,8 +401,7 @@ public final class ConfigurationNomenclaturesHitManager {
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseess.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitClasseLargeurChausseesS;
-	
-		
+			
 	/**
 	 * fichierNomenclatureHitClasseLargeurChausseesSUtf8 : File :<br/>
 	 * Fichier sur disque encodé en UTF-8 contenant la 
@@ -386,7 +414,6 @@ public final class ConfigurationNomenclaturesHitManager {
 	 */
 	private static transient File fichierNomenclatureHitClasseLargeurChausseesSUtf8;
 	
-
 	/**
 	 * nomNomenclatureHitTypeReseau : String :<br/>
 	 * Nom du fichier de nomenclature du type de réseau
@@ -396,8 +423,7 @@ public final class ConfigurationNomenclaturesHitManager {
 	 * Clé = "application.repertoire.ressources.nomenclatures.typereseau.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitTypeReseau;
-	
-		
+			
 	/**
 	 * fichierNomenclatureHitTypeReseauUtf8 : File :<br/>
 	 * Fichier sur disque encodé en UTF-8 contenant la 
@@ -410,7 +436,6 @@ public final class ConfigurationNomenclaturesHitManager {
 	 */
 	private static transient File fichierNomenclatureHitTypeReseauUtf8;
 	
-
 	/**
 	 * nomNomenclatureHitPrPk : String :<br/>
 	 * Nom du fichier de nomenclature du type PR/PK
@@ -420,8 +445,7 @@ public final class ConfigurationNomenclaturesHitManager {
 	 * Clé = "application.repertoire.ressources.nomenclatures.prpk.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitPrPk;
-	
-		
+			
 	/**
 	 * fichierNomenclatureHitPrPkUtf8 : File :<br/>
 	 * Fichier sur disque encodé en UTF-8 contenant la 
@@ -434,7 +458,6 @@ public final class ConfigurationNomenclaturesHitManager {
 	 */
 	private static transient File fichierNomenclatureHitPrPkUtf8;
 	
-
 	/**
 	 * rapportConfigurationCsv : String :<br/>
 	 * Rapport du chargement de la configuration au format csv.<br/>
@@ -442,7 +465,6 @@ public final class ConfigurationNomenclaturesHitManager {
 	 * problème d'initialisation de l'application.<br/>
 	 */
 	private static transient String rapportConfigurationCsv;
-
 	
 	/**
 	 * messageIndividuelRapport : String :<br/>
@@ -464,10 +486,8 @@ public final class ConfigurationNomenclaturesHitManager {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR ConfigurationNomenclaturesHitManager() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * private pour interdire l'instanciation.<br/>
-	 * <br/>
 	 */
 	private ConfigurationNomenclaturesHitManager() {
 		super();
@@ -476,17 +496,28 @@ public final class ConfigurationNomenclaturesHitManager {
 	
 
 	/**
-	 * method getCheminNomenclaturesHitUtf8() :<br/>
-	 * Getter du Chemin des nomenclatures en UTF-8 des champs pour les HIT
-	 * stocké dans application.properties.<br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8\\".<br/>
-	 * <br/>
+	 * Getter du <b>Chemin relatif par rapport au classpath (contexte) 
+	 * du répertoire [Nomenclatures en UTF-8] sous forme de String</b> 
+	 * stocké dans le fichier <code>application.properties</code>.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirCheminNomenclaturesHitUtf8EnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirCheminNomenclaturesHitUtf8EnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.chemin.hit.utf8".<br/>
 	 * <br/>
@@ -612,15 +643,41 @@ public final class ConfigurationNomenclaturesHitManager {
 		} // Fin de synchronized.________________________________________
 
 	} // Fin de getCheminNomenclaturesHitUtf8().___________________________
+	
+
+	
+	/**
+	 * Getter du <b>Path relatif par rapport au classpath (contexte) 
+	 * du répertoire [Nomenclatures en UTF-8] sous forme de String</b> 
+	 * stocké dans le fichier <code>application.properties</code>.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.chemin.hit.utf8".<br/>
+	 *
+	 * @return : Path.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Path getPathNomenclaturesHitUtf8() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationNomenclaturesHitManager.class) {
+			
+			return Paths.get(getCheminNomenclaturesHitUtf8());
+			
+		} // Fin de synchronized.________________________________________
+		
+	} // Fin de getPathNomenclaturesHitUtf8()._____________________________
 
 	
 	
 	/**
-	 * method fournirCleCheminNomenclaturesHitUtf8() :<br/>
-	 * clé du chemin des chemins des nomenclatures en UTF-8 
-	 * des HIT dans 
-	 * application_fr_FR.properties.<br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8\\".<br/>
+	 * retourne la 
+	 * clé du Chemin relatif par rapport au classpath (contexte) 
+	 * du répertoire [Nomenclatures en UTF-8].<br/>
+	 * la clé est stockée dans 
+	 * <code>application_fr_FR.properties</code>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.chemin.hit.utf8".<br/>
 	 * <br/>
 	 *
@@ -634,16 +691,14 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirCheminNomenclaturesHitUtf8EnDur() :<br/>
 	 * Fournit une valeur stockée en dur 
-	 * dans la classe pour chemins des nomenclatures en UTF-8 
-	 * des HIT.<br/>
+	 * dans la classe pour <code>cheminNomenclaturesHitUtf8</code>.<br/>
 	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8\\".<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8".<br/>
 	 * <br/>
 	 *
 	 * @return : String : 
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8\\".<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8".<br/>
 	 */
 	private static String fournirCheminNomenclaturesHitUtf8EnDur() {
 		return "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8";
@@ -652,7 +707,6 @@ public final class ConfigurationNomenclaturesHitManager {
 
 
 	/**
-	 * method getNomNomenclatureHitSens() :<br/>
 	 * Getter du Nom du fichier de nomenclature 
 	 * du SENS 
 	 * pour les HIT en UTF-8
@@ -661,10 +715,21 @@ public final class ConfigurationNomenclaturesHitManager {
 	 * <br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHitSensEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHitSensEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.sens.hit".<br/>
 	 * <br/>
@@ -794,10 +859,8 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirCleNomNomenclatureHitSens() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
-	 * du SENS 
-	 * dans le HIT 
+	 * retourne la clé du nom de la nomenclature en UTF-8 
+	 * du SENS dans le HIT 
 	 * stockée dans application_fr_FR.properties.<br/>
 	 * "2014-07-15_Nomenclature_Sens_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.sens.hit".<br/>
@@ -813,7 +876,6 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirNomNomenclatureHitSensEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
 	 * pour le Nom du fichier de nomenclature en UTF-8 
 	 * concernant le SENS 
@@ -829,15 +891,16 @@ public final class ConfigurationNomenclaturesHitManager {
 	
 	
 	/**
-	 * method getFichierNomenclatureHitSensUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le SENS
-	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8\\
+	 * Getter du <b>Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8
+	 * contenant la nomenclature des SENS dans le HIT</b>.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "context/ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
 	 * 2014-07-15_Nomenclature_Sens_Hit_Utf8.csv".<br/>
 	 * <br/>
+	 * - LOG.FATAL, rapporte 
+	 * et jette une RunTimeException 
+	 * si pFile est null, inexistant, répertoire ou vide.<br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
 	 * si pFile est null, inexistant, répertoire ou vide.<br/>
@@ -858,11 +921,27 @@ public final class ConfigurationNomenclaturesHitManager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHitSensUtf8 == null) {
-								
-				fichierNomenclatureHitSensUtf8 
-				= new File(getCheminNomenclaturesHitUtf8() 
-						+ getNomNomenclatureHitSens());
 				
+				final Path pathRelatifNomenclatureSensHit 
+					= Paths.get(getNomNomenclatureHitSens());
+			
+				final Path pathRelatifContextNomenclatureSensHit 
+					= getPathNomenclaturesHitUtf8()
+						.resolve(pathRelatifNomenclatureSensHit);
+								
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
+				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureSensHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHitSensUtf8 
+					= new File(uriRessources.getPath());
+								
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -879,19 +958,27 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method getNomNomenclatureHitNature() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * de la NATURE du comptage 
+	 * Getter du Nom du fichier de nomenclature de la NATURE DU COMPTAGE 
 	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * "2014-07-15_Nomenclature_Nature_Hit_Utf8.csv".<br/>
-	 * <br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHitNatureEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHitNatureEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.nature.hit".<br/>
 	 * <br/>
@@ -1021,11 +1108,10 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirCleNomNomenclatureHitNature() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
-	 * de NATURE du comptage 
-	 * dans le HIT 
-	 * stockée dans application_fr_FR.properties.<br/>
+	 * retourne la clé 
+	 * du Nom du fichier de nomenclature de la NATURE DU COMPTAGE 
+	 * pour les HIT en UTF-8
+	 * stocké dans application.properties.<br/>
 	 * "2014-07-15_Nomenclature_Nature_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.nature.hit".<br/>
 	 * <br/>
@@ -1040,11 +1126,8 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirNomNomenclatureHitNatureEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant la NATURE du comptage
-	 * dans un HIT.<br/>
+	 * pour le <code>nomNomenclatureHitNature</code>.<br/>
 	 *
 	 * @return : String : 
 	 * "2014-07-15_Nomenclature_Nature_Hit_Utf8.csv".<br/>
@@ -1056,14 +1139,12 @@ public final class ConfigurationNomenclaturesHitManager {
 	
 	
 	/**
-	 * method getFichierNomenclatureHitNatureUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * la NATURE du comptage 
-	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Nature_Hit_Utf8.csv".<br/>
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour la NATURE DU COMPTAGE dans un HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_Nature_Hit_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1085,11 +1166,27 @@ public final class ConfigurationNomenclaturesHitManager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHitNatureUtf8 == null) {
+
+				final Path pathRelatifNomenclatureNatureHit 
+				= Paths.get(getNomNomenclatureHitNature());
+		
+				final Path pathRelatifContextNomenclatureNatureHit 
+					= getPathNomenclaturesHitUtf8()
+						.resolve(pathRelatifNomenclatureNatureHit);
 								
-				fichierNomenclatureHitNatureUtf8 
-				= new File(getCheminNomenclaturesHitUtf8() 
-						+ getNomNomenclatureHitNature());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureNatureHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHitNatureUtf8 
+					= new File(uriRessources.getPath());
+
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -1106,19 +1203,28 @@ public final class ConfigurationNomenclaturesHitManager {
 
 
 	/**
-	 * method getNomNomenclatureHitCatAdminRoute() :<br/>
-	 * Getter Nom du fichier de nomenclature 
-	 * de la CATEGORIE ADMINISTRATIVE de la route 
-	 * pour les HIT en UTF-8
+	 * Getter du Nom du fichier de nomenclature de la catégorie administrative 
+	 * de la route pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Categorie_Adm_Hit_Utf8.csv".<br/> 
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_CatAdminRoute_Hit_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHitCatAdminRouteEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHitCatAdminRouteEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.catadminroute.hit".<br/>
 	 * <br/>
@@ -1248,12 +1354,11 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirCleNomNomenclatureHitCatAdminRoute() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
+	 * retourne la clé du nom de la nomenclature en UTF-8 
 	 * de CATEGORIE ADMINISTRATIVE de la route 
 	 * dans le HIT 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_Categorie_Adm_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CatAdminRoute_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.catadminroute.hit".<br/>
 	 * <br/>
 	 *
@@ -1267,30 +1372,27 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirNomNomenclatureHitCatAdminRouteEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant la CATEGORIE ADMINISTRATIVE de la route
-	 * dans un HIT.<br/>
+	 * pour <code>nomNomenclatureHitCatAdminRoute</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_Categorie_Adm_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CatAdminRoute_Hit_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHitCatAdminRouteEnDur() {
-		return "2014-07-15_Nomenclature_Categorie_Adm_Hit_Utf8.csv";
+		return "2014-07-15_Nomenclature_CatAdminRoute_Hit_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHitCatAdminRouteEnDur()._____________
 	
 
 	
 	/**
-	 * method getFichierNomenclatureHitCatAdminRouteUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
 	 * Nomenclature pour 
 	 * la CATEGORIE ADMINISTRATIVE de la route 
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Categorie_Adm_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_CatAdminRoute_Hit_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1312,11 +1414,27 @@ public final class ConfigurationNomenclaturesHitManager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHitCatAdminRouteUtf8 == null) {
+
+				final Path pathRelatifNomenclatureCatAdminRouteHit 
+				= Paths.get(getNomNomenclatureHitCatAdminRoute());
+		
+				final Path pathRelatifContextNomenclatureCatAdminRouteHit 
+					= getPathNomenclaturesHitUtf8()
+						.resolve(pathRelatifNomenclatureCatAdminRouteHit);
 								
-				fichierNomenclatureHitCatAdminRouteUtf8 
-				= new File(getCheminNomenclaturesHitUtf8() 
-						+ getNomNomenclatureHitCatAdminRoute());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureCatAdminRouteHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHitCatAdminRouteUtf8 
+					= new File(uriRessources.getPath());
+
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -3071,6 +3189,121 @@ public final class ConfigurationNomenclaturesHitManager {
 	} // Fin de creerMessageMauvaisFichier(
 	 // String pMethode
 	// , String pMessage)._________________________________________________
+	
+
+	
+	/**
+	 * retourne le <b>chemin sous forme de String 
+	 * du répertoire ressources dans le classpath</b> sous target/classes.<br/>
+	 * "D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\
+	 * target\classes\ressources"<br/>
+	 *
+	 * @return : String : 
+	 * chemin sous forme de String du répertoire 
+	 * ressources dans le classpath.<br/>
+	 * 
+	 * @throws URISyntaxException 
+	 */
+	public static String retournerRessourcesSousTargetClasses() 
+			throws URISyntaxException {
+		
+		synchronized (ConfigurationNomenclaturesHitManager.class) {
+			
+			final ClassLoader classloader 
+			= Thread.currentThread().getContextClassLoader();
+		
+			final URL urlRessources 
+				= classloader
+					.getResource("ressources");
+			
+			final URI uriRessources = urlRessources.toURI();
+					
+			final String uriRessourcesString = uriRessources.getPath();
+			
+			final File ressourcesFile = new File(uriRessourcesString);
+			
+			final String pathRessourcesString 
+				= ressourcesFile.getAbsolutePath();
+			
+			return pathRessourcesString;
+
+		} // Fin de synchronized.________________________________________
+
+	} // Fin de retournerRessourcesSousTargetClasses().____________________
+	
+
+	
+	/**
+	 * retourne le <b>chemin sous forme de String 
+	 * du répertoire classes dans le classpath</b> sous target.<br/>
+	 * "D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\
+	 * target\classes"<br/>
+	 *
+	 * @return : String : 
+	 * chemin sous forme de String du répertoire 
+	 * classes dans le classpath.<br/>
+	 * 
+	 * @throws URISyntaxException
+	 */
+	public static String retournerClassesSousTarget() 
+			throws URISyntaxException {
+		
+		synchronized (ConfigurationNomenclaturesHitManager.class) {
+			
+			final String pathRessourcesString 
+				= retournerRessourcesSousTargetClasses();
+			
+			final Path pathRessources = Paths.get(pathRessourcesString);
+			
+			final Path pathClasses = pathRessources.getParent();
+			
+			final String pathClassesString = pathClasses.toString();
+			
+			return pathClassesString;
+			
+		} // Fin de synchronized.________________________________________
+
+	} // Fin de retournerClassesSousTarget().______________________________
+	
+	
+
+	/**
+	 * retourne le 
+	 * <b>path relatif de pFile par rapport à target/classes</b> (contexte).<br/>
+	 * <ul>
+	 * <li>Par exemple :<br/>
+	 * <code>fournirPathRelatifSousTargetClasses(fichierDescriptionHit)</code> 
+	 * retourne 
+	 * 'ressources/Descriptions de fichier/Hit/Descriptions en UTF-8/2014-07-19_Description_HIT_Utf8.csv'
+	 * </li>
+	 * </ul>
+	 *
+	 * @param pFile : File : ressource dans le classpath.<br/>
+	 * 
+	 * @return Path : path relatif de pFile par rapport à target/classes.<br/>
+	 * 
+	 * @throws URISyntaxException
+	 */
+	public static Path fournirPathRelatifSousTargetClasses(final File pFile) 
+						throws URISyntaxException {
+		
+		synchronized (ConfigurationNomenclaturesHitManager.class) {
+			
+			final String pathClassesString 
+			= ConfigurationNomenclaturesHitManager
+				.retournerClassesSousTarget();
+		
+			final Path pathClasses = Paths.get(pathClassesString);
+			
+			final Path pathPFile = pFile.toPath();
+			
+			final Path pathRelatifPFile = pathClasses.relativize(pathPFile);
+			
+			return pathRelatifPFile;
+			
+		} // Fin de synchronized.________________________________________
+				
+	} // Fin de fournirPathRelatifSousTargetClasses(...).__________________	
 	
 
 	

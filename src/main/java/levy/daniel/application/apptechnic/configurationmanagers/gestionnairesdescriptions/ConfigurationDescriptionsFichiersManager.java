@@ -251,7 +251,7 @@ public final class ConfigurationDescriptionsFichiersManager {
 	/**
 	 * <b>Chemin relatif par rapport au classpath (contexte) 
 	 * du répertoire [descriptions de fichier] sous forme de String</b> 
-	 * stocké dans le fichier <code>application.properties</code> .<br/>
+	 * stocké dans le fichier <code>application.properties</code>.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Descriptions de fichier" sous le contexte target/classes.<br/>
 	 * Clé = "application.repertoire.ressources.descriptions".<br/>
