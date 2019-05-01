@@ -264,7 +264,7 @@ public final class ConfigurationNomenclaturesHitManager {
 	private static transient Path pathNomenclaturesHitUtf8;
 	
 	/**
-	 * Nom du fichier de nomenclature du sens pour les HIT en UTF-8
+	 * Nom du fichier de nomenclature du SENS pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "2014-07-15_Nomenclature_Sens_Hit_Utf8.csv".<br/>
@@ -303,7 +303,7 @@ public final class ConfigurationNomenclaturesHitManager {
 	private static transient File fichierNomenclatureHitNatureUtf8;
 	
 	/**
-	 * Nom du fichier de nomenclature de la catégorie administrative 
+	 * Nom du fichier de nomenclature de la CATEGORIE ADMINISTRATIVE 
 	 * de la route pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
@@ -325,136 +325,127 @@ public final class ConfigurationNomenclaturesHitManager {
 	private static transient File fichierNomenclatureHitCatAdminRouteUtf8;
 	
 	/**
-	 * nomNomenclatureHitTypeComptage : String :<br/>
-	 * Nom du fichier de nomenclature du type de comptage 
+	 * Nom du fichier de nomenclature du TYPE DE COMPTAGE
 	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Type_Comptage_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typecomptage.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitTypeComptage;
 		
 	/**
-	 * fichierNomenclatureHitTypeComptageUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le TYPE DE COMPTAGE 
-	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Type_Comptage_Hit_Utf8.csv".<br/>
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour le TYPE DE COMPTAGE dans un HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHitTypeComptageUtf8;
 	
 	/**
-	 * nomNomenclatureHitClassementRoute : String :<br/>
-	 * Nom du fichier de nomenclature du classement de la route 
+	 * Nom du fichier de nomenclature du CLASSEMENT DE LA ROUTE 
 	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classement_Route_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classementroute.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitClassementRoute;
 		
 	/**
-	 * fichierNomenclatureHitClassementRouteUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le CLASSEMENT DE LA ROUTE 
-	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classement_Route_Hit_Utf8.csv".<br/>
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour le CLASSEMENT DE LA ROUTE dans un HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHitClassementRouteUtf8;
 	
 	/**
-	 * nomNomenclatureHitClasseLargeurChausseeU : String :<br/>
-	 * Nom du fichier de nomenclature 
-	 * de la classe de largeur de chaussée unique
-	 * pour les HIT en UTF-8
+	 * Nom du fichier de nomenclature de la 
+	 * CLASSE DE LARGEUR DE CHAUSSEE UNIQUE pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitClasseLargeurChausseeU;
 			
 	/**
-	 * fichierNomenclatureHitClasseLargeurChausseeUUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHitClasseLargeurChausseeUUtf8;
 	
 	/**
-	 * nomNomenclatureHitClasseLargeurChausseesS : String :<br/>
-	 * Nom du fichier de nomenclature 
-	 * de la classe de largeur de chaussées séparées
-	 * pour les HIT en UTF-8
+	 * Nom du fichier de nomenclature de la 
+	 * CLASSE DE LARGEUR DE CHAUSSEES SEPAREES pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseess.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitClasseLargeurChausseesS;
 			
 	/**
-	 * fichierNomenclatureHitClasseLargeurChausseesSUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
 	 * Nomenclature pour 
 	 * la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES 
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classe_Largeur_Chausses_Séparées_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHitClasseLargeurChausseesSUtf8;
 	
 	/**
-	 * nomNomenclatureHitTypeReseau : String :<br/>
-	 * Nom du fichier de nomenclature du type de réseau
+	 * Nom du fichier de nomenclature du TYPE DE RESEAU
 	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Type_Reseau_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typereseau.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitTypeReseau;
 			
 	/**
-	 * fichierNomenclatureHitTypeReseauUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le TYPE DE RESEAU 
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le TYPE DE RESEAU 
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Type_Reseau_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHitTypeReseauUtf8;
 	
 	/**
-	 * nomNomenclatureHitPrPk : String :<br/>
 	 * Nom du fichier de nomenclature du type PR/PK
 	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_PR_PK_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.prpk.hit"<br/>
 	 */
 	private static transient String nomNomenclatureHitPrPk;
 			
 	/**
-	 * fichierNomenclatureHitPrPkUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le TYPE PR/PK
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour le TYPE PR/PK
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_PR_PK_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * ""ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHitPrPkUtf8;
 	
@@ -1451,19 +1442,28 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method getNomNomenclatureHitTypeComptage() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * du TYPE DE COMPTAGE 
+	 * Getter du Nom du fichier de nomenclature du TYPE DE COMPTAGE
 	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Type_Comptage_Hit_Utf8.csv".<br/>
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHitTypeComptageEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHitTypeComptageEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.typecomptage.hit".<br/>
 	 * <br/>
@@ -1593,12 +1593,11 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirCleNomNomenclatureHitTypeComptage() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
-	 * de TYPE DE COMPTAGE 
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 de TYPE DE COMPTAGE 
 	 * dans le HIT 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_Type_Comptage_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typecomptage.hit".<br/>
 	 * <br/>
 	 *
@@ -1612,30 +1611,25 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirNomNomenclatureHitTypeComptageEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant le TYPE DE COMPTAGE
-	 * dans un HIT.<br/>
+	 * pour le <code>nomNomenclatureHitTypeComptage</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_Type_Comptage_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHitTypeComptageEnDur() {
-		return "2014-07-15_Nomenclature_Type_Comptage_Hit_Utf8.csv";
+		return "2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHitTypeComptageEnDur().______________
 
 
 	
 	/**
-	 * method getFichierNomenclatureHitTypeComptageUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le TYPE DE COMPTAGE 
-	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Type_Comptage_Hit_Utf8.csv".<br/>
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour le TYPE DE COMPTAGE dans un HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1657,11 +1651,27 @@ public final class ConfigurationNomenclaturesHitManager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHitTypeComptageUtf8 == null) {
+
+				final Path pathRelatifNomenclatureTypeComptageHit 
+				= Paths.get(getNomNomenclatureHitTypeComptage());
+		
+				final Path pathRelatifContextNomenclatureTypeComptageHit 
+					= getPathNomenclaturesHitUtf8()
+						.resolve(pathRelatifNomenclatureTypeComptageHit);
 								
-				fichierNomenclatureHitTypeComptageUtf8 
-				= new File(getCheminNomenclaturesHitUtf8() 
-						+ getNomNomenclatureHitTypeComptage());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureTypeComptageHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHitTypeComptageUtf8 
+					= new File(uriRessources.getPath());
+
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -1678,19 +1688,28 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method getNomNomenclatureHitClassementRoute() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * du CLASSEMENT DE LA ROUTE 
+	 * Getter du Nom du fichier de nomenclature du CLASSEMENT DE LA ROUTE 
 	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classement_Route_Hit_Utf8.csv".<br/>
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHitClassementRouteEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHitClassementRouteEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.classementroute.hit".<br/>
 	 * <br/>
@@ -1820,12 +1839,11 @@ public final class ConfigurationNomenclaturesHitManager {
 
 
 	/**
-	 * method fournirCleNomNomenclatureHitClassementRoute() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
-	 * du CLASSEMENT DE LA ROUTE
-	 * dans le HIT 
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 
+	 * du CLASSEMENT DE LA ROUTE dans le HIT 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classement_Route_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classementroute.hit".<br/>
 	 * <br/>
 	 *
@@ -1839,30 +1857,25 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirNomNomenclatureHitClassementRouteEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant le CLASSEMENT DE LA ROUTE
-	 * dans un HIT.<br/>
+	 * pour <code>nomNomenclatureHitClassementRoute</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_Classement_Route_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHitClassementRouteEnDur() {
-		return "2014-07-15_Nomenclature_Classement_Route_Hit_Utf8.csv";
+		return "2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHitClassementRouteEnDur().___________
 
 
 	
 	/**
-	 * method getFichierNomenclatureHitClassementRouteUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le CLASSEMENT DE LA ROUTE 
-	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classement_Route_Hit_Utf8.csv".<br/>
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour le CLASSEMENT DE LA ROUTE dans un HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1884,11 +1897,27 @@ public final class ConfigurationNomenclaturesHitManager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHitClassementRouteUtf8 == null) {
+
+				final Path pathRelatifNomenclatureClassementRouteHit 
+				= Paths.get(getNomNomenclatureHitClassementRoute());
+		
+				final Path pathRelatifContextNomenclatureClassementRouteHit 
+					= getPathNomenclaturesHitUtf8()
+						.resolve(pathRelatifNomenclatureClassementRouteHit);
 								
-				fichierNomenclatureHitClassementRouteUtf8 
-				= new File(getCheminNomenclaturesHitUtf8() 
-						+ getNomNomenclatureHitClassementRoute());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureClassementRouteHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHitClassementRouteUtf8 
+					= new File(uriRessources.getPath());
+								
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -1905,19 +1934,28 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method getNomNomenclatureHitClasseLargeurChausseeU() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * de la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
-	 * pour les HIT en UTF-8
+	 * Getter du Nom du fichier de nomenclature de la 
+	 * CLASSE DE LARGEUR DE CHAUSSEE UNIQUE pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_Hit_Utf8.csv".<br/>
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHitClasseLargeurChausseeUEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHitClasseLargeurChausseeUEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.hit".<br/>
 	 * <br/>
@@ -2048,12 +2086,12 @@ public final class ConfigurationNomenclaturesHitManager {
 
 
 	/**
-	 * method fournirCleNomNomenclatureHitClasseLargeurChausseeU() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 
 	 * de la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
 	 * dans le HIT 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.hit".<br/>
 	 * <br/>
 	 *
@@ -2067,30 +2105,26 @@ public final class ConfigurationNomenclaturesHitManager {
 	
 	
 	/**
-	 * method fournirNomNomenclatureHitClasseLargeurChausseeUEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
-	 * dans un HIT.<br/>
+	 * pour <code>nomNomenclatureHitClasseLargeurChausseeU</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHitClasseLargeurChausseeUEnDur() {
-		return "2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_Hit_Utf8.csv";
+		return "2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHitClasseLargeurChausseeUEnDur().____
 	
 	
 	
 	/**
-	 * method getFichierNomenclatureHitClasseLargeurChausseeUUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classe_Largeur_Chausse_Unique_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2112,11 +2146,27 @@ public final class ConfigurationNomenclaturesHitManager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHitClasseLargeurChausseeUUtf8 == null) {
+
+				final Path pathRelatifNomenclatureClasseLargeurChausseeUHit 
+					= Paths.get(getNomNomenclatureHitClasseLargeurChausseeU());
+		
+				final Path pathRelatifContextNomenclatureClasseLargeurChausseeUHit 
+					= getPathNomenclaturesHitUtf8()
+						.resolve(pathRelatifNomenclatureClasseLargeurChausseeUHit);
 								
-				fichierNomenclatureHitClasseLargeurChausseeUUtf8 
-				= new File(getCheminNomenclaturesHitUtf8() 
-						+ getNomNomenclatureHitClasseLargeurChausseeU());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureClasseLargeurChausseeUHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHitClasseLargeurChausseeUUtf8 
+					= new File(uriRessources.getPath());
+								
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -2133,19 +2183,28 @@ public final class ConfigurationNomenclaturesHitManager {
 
 
 	/**
-	 * method getNomNomenclatureHitClasseLargeurChausseesS() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * de la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
-	 * pour les HIT en UTF-8
+	 * Getter du Nom du fichier de nomenclature de la 
+	 * CLASSE DE LARGEUR DE CHAUSSEES SEPAREES pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_Hit_Utf8.csv".<br/>
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHitClasseLargeurChausseesSEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHitClasseLargeurChausseesSEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.classelargeurchausseess.hit".<br/>
 	 * <br/>
@@ -2276,12 +2335,12 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirCleNomNomenclatureHitClasseLargeurChausseesS() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 
 	 * de la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
 	 * dans le HIT 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseess.hit".<br/>
 	 * <br/>
 	 *
@@ -2295,30 +2354,27 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirNomNomenclatureHitClasseLargeurChausseesSEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
-	 * dans un HIT.<br/>
+	 * pour <code>nomNomenclatureHitClasseLargeurChausseesS</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHitClasseLargeurChausseesSEnDur() {
-		return "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_Hit_Utf8.csv";
+		return "2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHitClasseLargeurChausseesSEnDur().___
 
 
 	
 	/**
-	 * method getFichierNomenclatureHitClasseLargeurChausseesSUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
 	 * Nomenclature pour 
 	 * la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES 
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classe_Largeur_Chausses_Séparées_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2340,11 +2396,27 @@ public final class ConfigurationNomenclaturesHitManager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHitClasseLargeurChausseesSUtf8 == null) {
+
+				final Path pathRelatifNomenclatureClasseLargeurChausseesSHit 
+					= Paths.get(getNomNomenclatureHitClasseLargeurChausseesS());
+		
+				final Path pathRelatifContextNomenclatureClasseLargeurChausseesSHit 
+					= getPathNomenclaturesHitUtf8()
+						.resolve(pathRelatifNomenclatureClasseLargeurChausseesSHit);
 								
-				fichierNomenclatureHitClasseLargeurChausseesSUtf8 
-				= new File(getCheminNomenclaturesHitUtf8() 
-						+ getNomNomenclatureHitClasseLargeurChausseesS());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureClasseLargeurChausseesSHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHitClasseLargeurChausseesSUtf8 
+					= new File(uriRessources.getPath());
+																
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -2361,19 +2433,28 @@ public final class ConfigurationNomenclaturesHitManager {
 
 
 	/**
-	 * method getNomNomenclatureHitTypeReseau() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * du TYPE DE RESEAU
+	 * Getter du Nom du fichier de nomenclature du TYPE DE RESEAU
 	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Type_Reseau_Hit_Utf8.csv".<br/>
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHitTypeReseauEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHitTypeReseauEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.typereseau.hit".<br/>
 	 * <br/>
@@ -2504,12 +2585,11 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirCleNomNomenclatureHitTypeReseau() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
-	 * du TYPE DE RESEAU
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 du TYPE DE RESEAU
 	 * dans le HIT 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_Type_Reseau_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typereseau.hit".<br/>
 	 * <br/>
 	 *
@@ -2523,30 +2603,26 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirNomNomenclatureHitTypeReseauEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant le TYPE DE RESEAU
-	 * dans un HIT.<br/>
+	 * pour <code>nomNomenclatureHitTypeReseau</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_Type_Reseau_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHitTypeReseauEnDur() {
-		return "2014-07-15_Nomenclature_Type_Reseau_Hit_Utf8.csv";
+		return "2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHitTypeReseauEnDur().________________
 
 
 	
 	/**
-	 * method getFichierNomenclatureHitTypeReseauUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le TYPE DE RESEAU 
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le TYPE DE RESEAU 
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Type_Reseau_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2568,11 +2644,27 @@ public final class ConfigurationNomenclaturesHitManager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHitTypeReseauUtf8 == null) {
+
+				final Path pathRelatifNomenclatureTypeReseauHit 
+				= Paths.get(getNomNomenclatureHitTypeReseau());
+		
+				final Path pathRelatifContextNomenclatureTypeReseauHit 
+					= getPathNomenclaturesHitUtf8()
+						.resolve(pathRelatifNomenclatureTypeReseauHit);
 								
-				fichierNomenclatureHitTypeReseauUtf8 
-				= new File(getCheminNomenclaturesHitUtf8() 
-						+ getNomNomenclatureHitTypeReseau());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureTypeReseauHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHitTypeReseauUtf8 
+					= new File(uriRessources.getPath());
+								
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -2589,19 +2681,28 @@ public final class ConfigurationNomenclaturesHitManager {
 
 
 	/**
-	 * method getNomNomenclatureHitPrPk() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * du TYPE PR/PK
+	 * Getter du Nom du fichier de nomenclature du type PR/PK
 	 * pour les HIT en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_PR_PK_Hit_Utf8.csv".<br/>
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHitPrPkEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHitPrPkEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.prpk.hit".<br/>
 	 * <br/>
@@ -2732,12 +2833,10 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirCleNomNomenclatureHitPrPk() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
-	 * du TYPE PR/PK
-	 * dans le HIT 
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 du TYPE PR/PK dans le HIT 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_PR_PK_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.prpk.hit".<br/>
 	 *
 	 * @return : String : 
@@ -2750,30 +2849,26 @@ public final class ConfigurationNomenclaturesHitManager {
 
 	
 	/**
-	 * method fournirNomNomenclatureHitPrPkEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant le TYPE PR/PK
-	 * dans un HIT.<br/>
+	 * pour <code>nomNomenclatureHitPrPk</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_PR_PK_Hit_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHitPrPkEnDur() {
-		return "2014-07-15_Nomenclature_PR_PK_Hit_Utf8.csv";
+		return "2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHitPrPkEnDur().______________________
 
 
 	
 	/**
-	 * method getFichierNomenclatureHitPrPkUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le TYPE PR/PK
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour le TYPE PR/PK
 	 * dans un HIT.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\Hit\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_PR_PK_Hit_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * ""ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2795,11 +2890,27 @@ public final class ConfigurationNomenclaturesHitManager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHitPrPkUtf8 == null) {
+
+				final Path pathRelatifNomenclaturePrPkHit 
+				= Paths.get(getNomNomenclatureHitPrPk());
+		
+				final Path pathRelatifContextNomenclaturePrPkHit 
+					= getPathNomenclaturesHitUtf8()
+						.resolve(pathRelatifNomenclaturePrPkHit);
 								
-				fichierNomenclatureHitPrPkUtf8 
-				= new File(getCheminNomenclaturesHitUtf8() 
-						+ getNomNomenclatureHitPrPk());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclaturePrPkHit.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHitPrPkUtf8 
+					= new File(uriRessources.getPath());
+								
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/

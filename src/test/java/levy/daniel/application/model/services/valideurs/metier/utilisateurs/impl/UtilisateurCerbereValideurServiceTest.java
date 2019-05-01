@@ -785,15 +785,15 @@ public class UtilisateurCerbereValideurServiceTest {
 	@Test
 	public void testValiderTel() throws Exception {
 		
-		final String numTelBon1 = "03 84 41 80 47"; // NOPMD by daniel.levy on 23/04/19 11:17
-		final String numTelBon2 = "03-84-41-80-47"; // NOPMD by daniel.levy on 23/04/19 11:17
-		final String numTelBon3 = "03.84.41.80.47"; // NOPMD by daniel.levy on 23/04/19 11:17
+		final String numTelBon1 = "03 84 41 80 47"; 
+		final String numTelBon2 = "03-84-41-80-47"; 
+		final String numTelBon3 = "03.84.41.80.47"; 
 		final String numTelBon4 = "0384418047";
 		
 		final String motif2Chiffres = "(\\d\\d)";
 		final String motifTiretOuPointOuEspaceOuRien = "([\\-\\.\\x20])?";
 		
-		final String motifTelFrancais2  // NOPMD by daniel.levy on 23/04/19 11:17
+		final String motifTelFrancais2  
 			= "^(\\d\\d)([\\-\\.\\x20])?(\\d\\d)([\\-\\.\\x20])?(\\d\\d)([\\-\\.\\x20])?(\\d\\d)([\\-\\.\\x20])?(\\d\\d)([\\-\\.\\x20])?$";
 		
 		/* 03-84-41-80-47 ou 03.84.41.80.47 ou 03 84 41 80 47 ou 0384418047 */

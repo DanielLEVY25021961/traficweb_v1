@@ -162,7 +162,7 @@ public class PersistenceUnitInfoJPASansXML implements PersistenceUnitInfo {
 	 * <li>toujours false si on utilise les classes annotées. </li>
 	 * </ul>
 	 */
-	private boolean excludeUnlistedClasses;  // NOPMD by daniel.levy on 23/04/19 11:18
+	private boolean excludeUnlistedClasses;  
 	
 	
 	/**

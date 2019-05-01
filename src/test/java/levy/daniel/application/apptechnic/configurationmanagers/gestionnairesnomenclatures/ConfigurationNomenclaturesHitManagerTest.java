@@ -600,6 +600,924 @@ public class ConfigurationNomenclaturesHitManagerTest {
 
 	} // Fin de testGetFichierNomenclatureHitCatAdminRouteUtf8().___________________
 
+	
+	
+	/**
+	 * teste la méthode getNomNomenclatureHitTypeComptage().<br/>
+	 * <ul>
+	 * <li>garantit que getNomNomenclatureHitTypeComptage() ne retourne pas null.</li>
+	 * <li>garantit que getNomNomenclatureHitTypeComptage() retourne "2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * <p>
+	 * commenter la ligne 
+	 * "application.repertoire.ressources.nomenclatures.typecomptage.hit = 2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv"
+	 * dans le fichier <code>application_fr_FR.properties</code> 
+	 * sous les resources 
+	 * pour faire apparaitre les message et rapport d'erreur.
+	 * </p>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetNomNomenclatureHitTypeComptage() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetNomNomenclatureHitTypeComptage() ********** ");
+		}
+
+		final String cheminNomenclatureHitTypeComptage 
+			= ConfigurationNomenclaturesHitManager.getNomNomenclatureHitTypeComptage();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("cheminNomenclatureHitTypeComptage : " 
+					+ cheminNomenclatureHitTypeComptage);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+		
+		/* garantit que getNomNomenclatureHitTypeComptage() ne retourne pas null. */
+		assertNotNull(
+				"Le chemin de la nomenclature (String) ne doit pas être null : "
+					, cheminNomenclatureHitTypeComptage);
+		
+		/* garantit que getNomNomenclatureHitTypeComptage() retourne "2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv". */
+		assertEquals("le nom de la nomenclature doit valoir '2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv' : "
+				, "2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv"
+					, cheminNomenclatureHitTypeComptage);
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetNomNomenclatureHitTypeComptage().___________________
+
+
+	
+	/**
+	 * teste la méthode getFichierNomenclatureHitTypeComptageUtf8().<br/>
+	 * <ul>
+	 * <li>garantit que getFichierNomenclatureHitTypeComptageUtf8() ne retourne pas null.</li>
+	 * <li>garantit que getFichierNomenclatureHitTypeComptageUtf8() retourne un fichier existant.</li>
+	 * <li>garantit que getFichierNomenclatureHitTypeComptageUtf8() retourne un singleton.</li>
+	 * <li>garantit que getFichierNomenclatureHitTypeComptageUtf8() retourne le fichier sous le contexte à
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetFichierNomenclatureHitTypeComptageUtf8() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetFichierNomenclatureHitTypeComptageUtf8() ********** ");
+		}
+
+		final File fichierNomenclatureHitTypeComptage 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitTypeComptageUtf8();
+
+		final File fichierNomenclatureHitTypeComptage1 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitTypeComptageUtf8();
+
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("fichierNomenclatureHitTypeComptage : " 
+					+ fichierNomenclatureHitTypeComptage);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+			
+		/* garantit que getFichierNomenclatureHitTypeComptageUtf8() ne retourne pas null. */
+		assertNotNull(
+				"Le fichier de nomenclature HIT TYPE DE COMPTAGE ne doit pas être null : "
+					, fichierNomenclatureHitTypeComptage);
+		
+		/* garantit que getFichierNomenclatureHitTypeComptageUtf8() retourne un fichier existant. */
+		assertTrue("fichierNomenclatureHitTypeComptage doit exister : "
+				, fichierNomenclatureHitTypeComptage.exists());
+		
+		/* garantit que getFichierNomenclatureHitTypeComptageUtf8() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, fichierNomenclatureHitTypeComptage, fichierNomenclatureHitTypeComptage1);
+		
+		/* garantit que getFichierNomenclatureHitTypeComptageUtf8() retourne "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv". */
+		assertEquals("le fichier de nomenclature HIT TYPE DE COMPTAGE doit être situé sous le contexte sous 'ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv' : "
+				, Paths.get("ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeComptage_Hit_Utf8.csv")
+					, fournirPathRelatifSousTargetClasses(fichierNomenclatureHitTypeComptage));
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetFichierNomenclatureHitTypeComptageUtf8().___________
+
+	
+	
+	/**
+	 * teste la méthode getNomNomenclatureHitClassementRoute().<br/>
+	 * <ul>
+	 * <li>garantit que getNomNomenclatureHitClassementRoute() ne retourne pas null.</li>
+	 * <li>garantit que getNomNomenclatureHitClassementRoute() retourne "2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * <p>
+	 * commenter la ligne 
+	 * "application.repertoire.ressources.nomenclatures.classementroute.hit = 2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv"
+	 * dans le fichier <code>application_fr_FR.properties</code> 
+	 * sous les resources 
+	 * pour faire apparaitre les message et rapport d'erreur.
+	 * </p>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetNomNomenclatureHitClassementRoute() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetNomNomenclatureHitClassementRoute() ********** ");
+		}
+
+		final String cheminNomenclatureHitClassementRoute 
+			= ConfigurationNomenclaturesHitManager.getNomNomenclatureHitClassementRoute();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("cheminNomenclatureHitClassementRoute : " 
+					+ cheminNomenclatureHitClassementRoute);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+		
+		/* garantit que getNomNomenclatureHitClassementRoute() ne retourne pas null. */
+		assertNotNull(
+				"Le chemin de la nomenclature (String) ne doit pas être null : "
+					, cheminNomenclatureHitClassementRoute);
+		
+		/* garantit que getNomNomenclatureHitClassementRoute() retourne "2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv". */
+		assertEquals("le nom de la nomenclature doit valoir '2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv' : "
+				, "2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv"
+					, cheminNomenclatureHitClassementRoute);
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetNomNomenclatureHitClassementRoute().________________
+
+
+	
+	/**
+	 * teste la méthode getFichierNomenclatureHitClassementRouteUtf8().<br/>
+	 * <ul>
+	 * <li>garantit que getFichierNomenclatureHitClassementRouteUtf8() ne retourne pas null.</li>
+	 * <li>garantit que getFichierNomenclatureHitClassementRouteUtf8() retourne un fichier existant.</li>
+	 * <li>garantit que getFichierNomenclatureHitClassementRouteUtf8() retourne un singleton.</li>
+	 * <li>garantit que getFichierNomenclatureHitClassementRouteUtf8() retourne le fichier sous le contexte à
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetFichierNomenclatureHitClassementRouteUtf8() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetFichierNomenclatureHitClassementRouteUtf8() ********** ");
+		}
+
+		final File fichierNomenclatureHitClassementRoute 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitClassementRouteUtf8();
+
+		final File fichierNomenclatureHitClassementRoute1 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitClassementRouteUtf8();
+
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("fichierNomenclatureHitClassementRoute : " 
+					+ fichierNomenclatureHitClassementRoute);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+			
+		/* garantit que getFichierNomenclatureHitClassementRouteUtf8() ne retourne pas null. */
+		assertNotNull(
+				"Le fichier de nomenclature HIT CLASSEMENT DE LA ROUTE ne doit pas être null : "
+					, fichierNomenclatureHitClassementRoute);
+		
+		/* garantit que getFichierNomenclatureHitClassementRouteUtf8() retourne un fichier existant. */
+		assertTrue("fichierNomenclatureHitClassementRoute doit exister : "
+				, fichierNomenclatureHitClassementRoute.exists());
+		
+		/* garantit que getFichierNomenclatureHitClassementRouteUtf8() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, fichierNomenclatureHitClassementRoute, fichierNomenclatureHitClassementRoute1);
+		
+		/* garantit que getFichierNomenclatureHitClassementRouteUtf8() retourne "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv". */
+		assertEquals("le fichier de nomenclature HIT CLASSEMENT DE LA ROUTE doit être situé sous le contexte sous 'ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv' : "
+				, Paths.get("ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClassementRoute_Hit_Utf8.csv")
+					, fournirPathRelatifSousTargetClasses(fichierNomenclatureHitClassementRoute));
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetFichierNomenclatureHitClassementRouteUtf8().________
+
+	
+	
+	/**
+	 * teste la méthode getNomNomenclatureHitClasseLargeurChausseeU().<br/>
+	 * <ul>
+	 * <li>garantit que getNomNomenclatureHitClasseLargeurChausseeU() ne retourne pas null.</li>
+	 * <li>garantit que getNomNomenclatureHitClasseLargeurChausseeU() retourne "2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * <p>
+	 * commenter la ligne 
+	 * "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.hit = 2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv"
+	 * dans le fichier <code>application_fr_FR.properties</code> 
+	 * sous les resources 
+	 * pour faire apparaitre les message et rapport d'erreur.
+	 * </p>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetNomNomenclatureHitClasseLargeurChausseeU() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetNomNomenclatureHitClasseLargeurChausseeU() ********** ");
+		}
+
+		final String cheminNomenclatureHitClasseLargeurChausseeU 
+			= ConfigurationNomenclaturesHitManager.getNomNomenclatureHitClasseLargeurChausseeU();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("cheminNomenclatureHitClasseLargeurChausseeU : " 
+					+ cheminNomenclatureHitClasseLargeurChausseeU);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+		
+		/* garantit que getNomNomenclatureHitClasseLargeurChausseeU() ne retourne pas null. */
+		assertNotNull(
+				"Le chemin de la nomenclature (String) ne doit pas être null : "
+					, cheminNomenclatureHitClasseLargeurChausseeU);
+		
+		/* garantit que getNomNomenclatureHitClasseLargeurChausseeU() retourne "2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv". */
+		assertEquals("le nom de la nomenclature doit valoir '2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv' : "
+				, "2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv"
+					, cheminNomenclatureHitClasseLargeurChausseeU);
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetNomNomenclatureHitClasseLargeurChausseeU()._________
+
+
+	
+	/**
+	 * teste la méthode getFichierNomenclatureHitClasseLargeurChausseeUUtf8().<br/>
+	 * <ul>
+	 * <li>garantit que getFichierNomenclatureHitClasseLargeurChausseeUUtf8() ne retourne pas null.</li>
+	 * <li>garantit que getFichierNomenclatureHitClasseLargeurChausseeUUtf8() retourne un fichier existant.</li>
+	 * <li>garantit que getFichierNomenclatureHitClasseLargeurChausseeUUtf8() retourne un singleton.</li>
+	 * <li>garantit que getFichierNomenclatureHitClasseLargeurChausseeUUtf8() retourne le fichier sous le contexte à
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetFichierNomenclatureHitClasseLargeurChausseeUUtf8() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetFichierNomenclatureHitClasseLargeurChausseeUUtf8() ********** ");
+		}
+
+		final File fichierNomenclatureHitClasseLargeurChausseeU 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitClasseLargeurChausseeUUtf8();
+
+		final File fichierNomenclatureHitClasseLargeurChausseeU1 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitClasseLargeurChausseeUUtf8();
+
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("fichierNomenclatureHitClasseLargeurChausseeU : " 
+					+ fichierNomenclatureHitClasseLargeurChausseeU);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+			
+		/* garantit que getFichierNomenclatureHitClasseLargeurChausseeUUtf8() ne retourne pas null. */
+		assertNotNull(
+				"Le fichier de nomenclature HIT CLASSE DE LARGEUR DE CHAUSSEE UNIQUE ne doit pas être null : "
+					, fichierNomenclatureHitClasseLargeurChausseeU);
+		
+		/* garantit que getFichierNomenclatureHitClasseLargeurChausseeUUtf8() retourne un fichier existant. */
+		assertTrue("fichierNomenclatureHitClasseLargeurChausseeU doit exister : "
+				, fichierNomenclatureHitClasseLargeurChausseeU.exists());
+		
+		/* garantit que getFichierNomenclatureHitClasseLargeurChausseeUUtf8() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, fichierNomenclatureHitClasseLargeurChausseeU, fichierNomenclatureHitClasseLargeurChausseeU1);
+		
+		/* garantit que getFichierNomenclatureHitClasseLargeurChausseeUUtf8() retourne "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv". */
+		assertEquals("le fichier de nomenclature HIT CLASSE DE LARGEUR DE CHAUSSEE UNIQUE doit être situé sous le contexte sous 'ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv' : "
+				, Paths.get("ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseeU_Hit_Utf8.csv")
+					, fournirPathRelatifSousTargetClasses(fichierNomenclatureHitClasseLargeurChausseeU));
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetFichierNomenclatureHitClasseLargeurChausseeUUtf8()._
+
+	
+	
+	/**
+	 * teste la méthode getNomNomenclatureHitClasseLargeurChausseesS().<br/>
+	 * <ul>
+	 * <li>garantit que getNomNomenclatureHitClasseLargeurChausseesS() ne retourne pas null.</li>
+	 * <li>garantit que getNomNomenclatureHitClasseLargeurChausseesS() retourne "2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * <p>
+	 * commenter la ligne 
+	 * "application.repertoire.ressources.nomenclatures.classelargeurchausseess.hit = 2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv"
+	 * dans le fichier <code>application_fr_FR.properties</code> 
+	 * sous les resources 
+	 * pour faire apparaitre les message et rapport d'erreur.
+	 * </p>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetNomNomenclatureHitClasseLargeurChausseesS() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetNomNomenclatureHitClasseLargeurChausseesS() ********** ");
+		}
+
+		final String cheminNomenclatureHitClasseLargeurChausseesS 
+			= ConfigurationNomenclaturesHitManager.getNomNomenclatureHitClasseLargeurChausseesS();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("cheminNomenclatureHitClasseLargeurChausseesS : " 
+					+ cheminNomenclatureHitClasseLargeurChausseesS);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+		
+		/* garantit que getNomNomenclatureHitClasseLargeurChausseesS() ne retourne pas null. */
+		assertNotNull(
+				"Le chemin de la nomenclature (String) ne doit pas être null : "
+					, cheminNomenclatureHitClasseLargeurChausseesS);
+		
+		/* garantit que getNomNomenclatureHitClasseLargeurChausseesS() retourne "2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv". */
+		assertEquals("le nom de la nomenclature doit valoir '2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv' : "
+				, "2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv"
+					, cheminNomenclatureHitClasseLargeurChausseesS);
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetNomNomenclatureHitClasseLargeurChausseesS().________
+
+
+	
+	/**
+	 * teste la méthode getFichierNomenclatureHitClasseLargeurChausseesSUtf8().<br/>
+	 * <ul>
+	 * <li>garantit que getFichierNomenclatureHitClasseLargeurChausseesSUtf8() ne retourne pas null.</li>
+	 * <li>garantit que getFichierNomenclatureHitClasseLargeurChausseesSUtf8() retourne un fichier existant.</li>
+	 * <li>garantit que getFichierNomenclatureHitClasseLargeurChausseesSUtf8() retourne un singleton.</li>
+	 * <li>garantit que getFichierNomenclatureHitClasseLargeurChausseesSUtf8() retourne le fichier sous le contexte à
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetFichierNomenclatureHitClasseLargeurChausseesSUtf8() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetFichierNomenclatureHitClasseLargeurChausseesSUtf8() ********** ");
+		}
+
+		final File fichierNomenclatureHitClasseLargeurChausseesS 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitClasseLargeurChausseesSUtf8();
+
+		final File fichierNomenclatureHitClasseLargeurChausseesS1 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitClasseLargeurChausseesSUtf8();
+
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("fichierNomenclatureHitClasseLargeurChausseesS : " 
+					+ fichierNomenclatureHitClasseLargeurChausseesS);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+			
+		/* garantit que getFichierNomenclatureHitClasseLargeurChausseesSUtf8() ne retourne pas null. */
+		assertNotNull(
+				"Le fichier de nomenclature HIT CLASSE DE LARGEUR DE CHAUSSEES SEPAREES ne doit pas être null : "
+					, fichierNomenclatureHitClasseLargeurChausseesS);
+		
+		/* garantit que getFichierNomenclatureHitClasseLargeurChausseesSUtf8() retourne un fichier existant. */
+		assertTrue("fichierNomenclatureHitClasseLargeurChausseesS doit exister : "
+				, fichierNomenclatureHitClasseLargeurChausseesS.exists());
+		
+		/* garantit que getFichierNomenclatureHitClasseLargeurChausseesSUtf8() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, fichierNomenclatureHitClasseLargeurChausseesS, fichierNomenclatureHitClasseLargeurChausseesS1);
+		
+		/* garantit que getFichierNomenclatureHitClasseLargeurChausseesSUtf8() retourne "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv". */
+		assertEquals("le fichier de nomenclature HIT CLASSE DE LARGEUR DE CHAUSSEES SEPAREES doit être situé sous le contexte sous 'ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv' : "
+				, Paths.get("ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClasseLargeurChausseesS_Hit_Utf8.csv")
+					, fournirPathRelatifSousTargetClasses(fichierNomenclatureHitClasseLargeurChausseesS));
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetFichierNomenclatureHitClasseLargeurChausseesSUtf8()._
+
+	
+	
+	/**
+	 * teste la méthode getNomNomenclatureHitTypeReseau().<br/>
+	 * <ul>
+	 * <li>garantit que getNomNomenclatureHitTypeReseau() ne retourne pas null.</li>
+	 * <li>garantit que getNomNomenclatureHitTypeReseau() retourne "2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * <p>
+	 * commenter la ligne 
+	 * "application.repertoire.ressources.nomenclatures.typereseau.hit = 2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv"
+	 * dans le fichier <code>application_fr_FR.properties</code> 
+	 * sous les resources 
+	 * pour faire apparaitre les message et rapport d'erreur.
+	 * </p>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetNomNomenclatureHitTypeReseau() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetNomNomenclatureHitTypeReseau() ********** ");
+		}
+
+		final String cheminNomenclatureHitTypeReseau 
+			= ConfigurationNomenclaturesHitManager.getNomNomenclatureHitTypeReseau();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("cheminNomenclatureHitTypeReseau : " 
+					+ cheminNomenclatureHitTypeReseau);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+		
+		/* garantit que getNomNomenclatureHitTypeReseau() ne retourne pas null. */
+		assertNotNull(
+				"Le chemin de la nomenclature (String) ne doit pas être null : "
+					, cheminNomenclatureHitTypeReseau);
+		
+		/* garantit que getNomNomenclatureHitTypeReseau() retourne "2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv". */
+		assertEquals("le nom de la nomenclature doit valoir '2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv' : "
+				, "2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv"
+					, cheminNomenclatureHitTypeReseau);
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetNomNomenclatureHitTypeReseau()._____________________
+
+
+	
+	/**
+	 * teste la méthode getFichierNomenclatureHitTypeReseauUtf8().<br/>
+	 * <ul>
+	 * <li>garantit que getFichierNomenclatureHitTypeReseauUtf8() ne retourne pas null.</li>
+	 * <li>garantit que getFichierNomenclatureHitTypeReseauUtf8() retourne un fichier existant.</li>
+	 * <li>garantit que getFichierNomenclatureHitTypeReseauUtf8() retourne un singleton.</li>
+	 * <li>garantit que getFichierNomenclatureHitTypeReseauUtf8() retourne le fichier sous le contexte à
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetFichierNomenclatureHitTypeReseauUtf8() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetFichierNomenclatureHitTypeReseauUtf8() ********** ");
+		}
+
+		final File fichierNomenclatureHitTypeReseau 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitTypeReseauUtf8();
+
+		final File fichierNomenclatureHitTypeReseau1 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitTypeReseauUtf8();
+
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("fichierNomenclatureHitTypeReseau : " 
+					+ fichierNomenclatureHitTypeReseau);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+			
+		/* garantit que getFichierNomenclatureHitTypeReseauUtf8() ne retourne pas null. */
+		assertNotNull(
+				"Le fichier de nomenclature HIT TYPE DE RESEAU ne doit pas être null : "
+					, fichierNomenclatureHitTypeReseau);
+		
+		/* garantit que getFichierNomenclatureHitTypeReseauUtf8() retourne un fichier existant. */
+		assertTrue("fichierNomenclatureHitTypeReseau doit exister : "
+				, fichierNomenclatureHitTypeReseau.exists());
+		
+		/* garantit que getFichierNomenclatureHitTypeReseauUtf8() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, fichierNomenclatureHitTypeReseau, fichierNomenclatureHitTypeReseau1);
+		
+		/* garantit que getFichierNomenclatureHitTypeReseauUtf8() retourne "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv". */
+		assertEquals("le fichier de nomenclature HIT TYPE DE RESEAU doit être situé sous le contexte sous 'ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv' : "
+				, Paths.get("ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeReseau_Hit_Utf8.csv")
+					, fournirPathRelatifSousTargetClasses(fichierNomenclatureHitTypeReseau));
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetFichierNomenclatureHitTypeReseauUtf8()._____________
+
+	
+	
+	/**
+	 * teste la méthode getNomNomenclatureHitPrPk().<br/>
+	 * <ul>
+	 * <li>garantit que getNomNomenclatureHitPrPk() ne retourne pas null.</li>
+	 * <li>garantit que getNomNomenclatureHitPrPk() retourne "2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * <p>
+	 * commenter la ligne 
+	 * "application.repertoire.ressources.nomenclatures.prpk.hit = 2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv"
+	 * dans le fichier <code>application_fr_FR.properties</code> 
+	 * sous les resources 
+	 * pour faire apparaitre les message et rapport d'erreur.
+	 * </p>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetNomNomenclatureHitPrPk() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetNomNomenclatureHitPrPk() ********** ");
+		}
+
+		final String cheminNomenclatureHitPrPk 
+			= ConfigurationNomenclaturesHitManager.getNomNomenclatureHitPrPk();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("cheminNomenclatureHitPrPk : " 
+					+ cheminNomenclatureHitPrPk);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+		
+		/* garantit que getNomNomenclatureHitPrPk() ne retourne pas null. */
+		assertNotNull(
+				"Le chemin de la nomenclature (String) ne doit pas être null : "
+					, cheminNomenclatureHitPrPk);
+		
+		/* garantit que getNomNomenclatureHitPrPk() retourne "2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv". */
+		assertEquals("le nom de la nomenclature doit valoir '2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv' : "
+				, "2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv"
+					, cheminNomenclatureHitPrPk);
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetNomNomenclatureHitPrPk().___________________________
+
+
+	
+	/**
+	 * teste la méthode getFichierNomenclatureHitPrPkUtf8().<br/>
+	 * <ul>
+	 * <li>garantit que getFichierNomenclatureHitPrPkUtf8() ne retourne pas null.</li>
+	 * <li>garantit que getFichierNomenclatureHitPrPkUtf8() retourne un fichier existant.</li>
+	 * <li>garantit que getFichierNomenclatureHitPrPkUtf8() retourne un singleton.</li>
+	 * <li>garantit que getFichierNomenclatureHitPrPkUtf8() retourne le fichier sous le contexte à
+	 * "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetFichierNomenclatureHitPrPkUtf8() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesHitManagerTest - méthode testGetFichierNomenclatureHitPrPkUtf8() ********** ");
+		}
+
+		final File fichierNomenclatureHitPrPk 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitPrPkUtf8();
+
+		final File fichierNomenclatureHitPrPk1 
+			= ConfigurationNomenclaturesHitManager.getFichierNomenclatureHitPrPkUtf8();
+
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesHitManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesHitManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("fichierNomenclatureHitPrPk : " 
+					+ fichierNomenclatureHitPrPk);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+			
+		/* garantit que getFichierNomenclatureHitPrPkUtf8() ne retourne pas null. */
+		assertNotNull(
+				"Le fichier de nomenclature HIT PR-PK ne doit pas être null : "
+					, fichierNomenclatureHitPrPk);
+		
+		/* garantit que getFichierNomenclatureHitPrPkUtf8() retourne un fichier existant. */
+		assertTrue("fichierNomenclatureHitPrPk doit exister : "
+				, fichierNomenclatureHitPrPk.exists());
+		
+		/* garantit que getFichierNomenclatureHitPrPkUtf8() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, fichierNomenclatureHitPrPk, fichierNomenclatureHitPrPk1);
+		
+		/* garantit que getFichierNomenclatureHitPrPkUtf8() retourne "ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv". */
+		assertEquals("le fichier de nomenclature HIT PR-PK doit être situé sous le contexte sous 'ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv' : "
+				, Paths.get("ressources/Nomenclatures/Hit/Nomenclatures en UTF-8/2014-07-15_Nomenclature_PrPk_Hit_Utf8.csv")
+					, fournirPathRelatifSousTargetClasses(fichierNomenclatureHitPrPk));
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetFichierNomenclatureHitPrPkUtf8().___________________
+
 
 	
 	/**

@@ -220,7 +220,7 @@ public class MutablePersistenceUnitInfoJPASpringSansXML
 	 * <li>toujours false si on utilise les classes annotées. </li>
 	 * </ul>
 	 */
-	private boolean excludeUnlistedClasses;  // NOPMD by daniel.levy on 23/04/19 11:16
+	private boolean excludeUnlistedClasses;  
 		
 	/**
 	 * mode d'utilisation du cache de 2nd niveau par l'ORM.
