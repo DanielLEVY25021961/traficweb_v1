@@ -309,14 +309,14 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 	 * teste la méthode getNomDescriptionHistoF07().<br/>
 	 * <ul>
 	 * <li>garantit que getNomDescriptionHistoF07() ne retourne pas null.</li>
-	 * <li>garantit que getNomDescriptionHistoF07() retourne "HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv".</li>
+	 * <li>garantit que getNomDescriptionHistoF07() retourne "HistoF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv".</li>
 	 * <li>garantit que getNomDescriptionHistoF07() retourne un singleton.</li>
 	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
 	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
 	 * </ul>
 	 * <p>
 	 * commenter la ligne 
-	 * "application.repertoire.ressources.descriptions.histof07 = HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv"
+	 * "application.repertoire.ressources.descriptions.histof07 = HistoF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv"
 	 * dans le fichier <code>application_fr_FR.properties</code> 
 	 * sous les resources 
 	 * pour faire apparaitre les message et rapport d'erreur.
@@ -365,9 +365,9 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 				"Le chemin de la description HISTOF07 (String) ne doit pas être null : "
 					, cheminDescriptionHistoF07);
 		
-		/* garantit que getNomDescriptionHistoF07() retourne "HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv". */
-		assertEquals("le chemin de la description HISTOF07 doit valoir 'HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv' : "
-				, "HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv"
+		/* garantit que getNomDescriptionHistoF07() retourne "HistoF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv". */
+		assertEquals("le chemin de la description HISTOF07 doit valoir 'HistoF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv' : "
+				, "HistoF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv"
 					, cheminDescriptionHistoF07);
 		
 		/* garantit que getNomDescriptionHistoF07() retourne un singleton. */
@@ -393,7 +393,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 	 * <li>garantit que getFichierDescriptionHistoF07() retourne un fichier existant.</li>
 	 * <li>garantit que getFichierDescriptionHistoF07() retourne un singleton.</li>
 	 * <li>garantit que getFichierDescriptionHistoF07() retourne le fichier sous le contexte à
-	 * "ressources/Descriptions de fichier/HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv".</li>
+	 * "ressources/Descriptions de fichier/HistoF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv".</li>
 	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
 	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
 	 * </ul>
@@ -449,9 +449,9 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		assertSame("doit retourner un singleton : "
 				, fichierDescriptionHistoF07, fichierDescriptionHistoF071);
 		
-		/* garantit que getFichierDescriptionHistoF07() retourne "ressources/Descriptions de fichier/HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv". */
-		assertEquals("le fichier de la description HISTOF07 doit être situé sous le contexte sous 'ressources/Descriptions de fichier/HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv' : "
-				, Paths.get("ressources/Descriptions de fichier/HistonatF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv")
+		/* garantit que getFichierDescriptionHistoF07() retourne "ressources/Descriptions de fichier/HistoF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv". */
+		assertEquals("le fichier de la description HISTOF07 doit être situé sous le contexte sous 'ressources/Descriptions de fichier/HistoF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv' : "
+				, Paths.get("ressources/Descriptions de fichier/HistoF07/Descriptions en UTF-8/2014-07-19_Description_HistoF07_Utf8.csv")
 					, fournirPathRelatifSousTargetClasses(fichierDescriptionHistoF07));
 		
 		/* garantit que le message d'erreur de configuration de la méthode est null. */
@@ -467,17 +467,178 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 
 	
 	/**
+	 * teste la méthode getNomDescriptionHistoF08().<br/>
+	 * <ul>
+	 * <li>garantit que getNomDescriptionHistoF08() ne retourne pas null.</li>
+	 * <li>garantit que getNomDescriptionHistoF08() retourne "HistoF08/Descriptions en UTF-8/2014-07-19_Description_HistoF08_Utf8.csv".</li>
+	 * <li>garantit que getNomDescriptionHistoF08() retourne un singleton.</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * <p>
+	 * commenter la ligne 
+	 * "application.repertoire.ressources.descriptions.histof08 = HistoF08/Descriptions en UTF-8/2014-07-19_Description_HistoF08_Utf8.csv"
+	 * dans le fichier <code>application_fr_FR.properties</code> 
+	 * sous les resources 
+	 * pour faire apparaitre les message et rapport d'erreur.
+	 * </p>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetNomDescriptionHistoF08() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationDescriptionsFichiersManagerTest - méthode testGetNomDescriptionHistoF08() ********** ");
+		}
+
+		final String cheminDescriptionHistoF08 
+			= ConfigurationDescriptionsFichiersManager.getNomDescriptionHistoF08();
+		
+		final String cheminDescriptionHistoF081 
+			= ConfigurationDescriptionsFichiersManager.getNomDescriptionHistoF08();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationDescriptionsFichiersManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationDescriptionsFichiersManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("cheminDescriptionHistoF08 : " 
+					+ cheminDescriptionHistoF08);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+		
+		/* garantit que getNomDescriptionHistoF08() ne retourne pas null. */
+		assertNotNull(
+				"Le chemin de la description HISTOF08 (String) ne doit pas être null : "
+					, cheminDescriptionHistoF08);
+		
+		/* garantit que getNomDescriptionHistoF08() retourne "HistoF08/Descriptions en UTF-8/2014-07-19_Description_HistoF08_Utf8.csv". */
+		assertEquals("le chemin de la description HISTOF08 doit valoir 'HistoF08/Descriptions en UTF-8/2014-07-19_Description_HistoF08_Utf8.csv' : "
+				, "HistoF08/Descriptions en UTF-8/2014-07-19_Description_HistoF08_Utf8.csv"
+					, cheminDescriptionHistoF08);
+		
+		/* garantit que getNomDescriptionHistoF08() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, cheminDescriptionHistoF08, cheminDescriptionHistoF081);
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetNomDescriptionHistoF08().___________________________ 
+
+
+	
+	/**
+	 * teste la méthode getFichierDescriptionHistoF08().<br/>
+	 * <ul>
+	 * <li>garantit que getFichierDescriptionHistoF08() ne retourne pas null.</li>
+	 * <li>garantit que getFichierDescriptionHistoF08() retourne un fichier existant.</li>
+	 * <li>garantit que getFichierDescriptionHistoF08() retourne un singleton.</li>
+	 * <li>garantit que getFichierDescriptionHistoF08() retourne le fichier sous le contexte à
+	 * "ressources/Descriptions de fichier/HistoF08/Descriptions en UTF-8/2014-07-19_Description_HistoF08_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetFichierDescriptionHistoF08() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationDescriptionsFichiersManagerTest - méthode testGetFichierDescriptionHistoF08() ********** ");
+		}
+
+		final File fichierDescriptionHistoF08 
+			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionHistoF08();
+		
+		final File fichierDescriptionHistoF081 
+			= ConfigurationDescriptionsFichiersManager.getFichierDescriptionHistoF08();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationDescriptionsFichiersManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationDescriptionsFichiersManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("fichierDescriptionHistoF08 : " 
+					+ fichierDescriptionHistoF08);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+			
+		/* garantit que getFichierDescriptionHistoF08() ne retourne pas null. */
+		assertNotNull(
+				"Le fichier de la description HISTOF08 (String) ne doit pas être null : "
+					, fichierDescriptionHistoF08);
+		
+		/* garantit que getFichierDescriptionHistoF08() retourne un fichier existant. */
+		assertTrue("fichierDescriptionHistoF08 doit exister : "
+				, fichierDescriptionHistoF08.exists());
+		
+		/* garantit que getFichierDescriptionHistoF08() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, fichierDescriptionHistoF08, fichierDescriptionHistoF081);
+		
+		/* garantit que getFichierDescriptionHistoF08() retourne "ressources/Descriptions de fichier/HistoF08/Descriptions en UTF-8/2014-07-19_Description_HistoF08_Utf8.csv". */
+		assertEquals("le fichier de la description HISTOF08 doit être situé sous le contexte sous 'ressources/Descriptions de fichier/HistoF08/Descriptions en UTF-8/2014-07-19_Description_HistoF08_Utf8.csv' : "
+				, Paths.get("ressources/Descriptions de fichier/HistoF08/Descriptions en UTF-8/2014-07-19_Description_HistoF08_Utf8.csv")
+					, fournirPathRelatifSousTargetClasses(fichierDescriptionHistoF08));
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetFichierDescriptionHistoF08()._______________________ 
+
+
+	
+	/**
 	 * teste la méthode getNomDescriptionDarwinCsv().<br/>
 	 * <ul>
 	 * <li>garantit que getNomDescriptionDarwinCsv() ne retourne pas null.</li>
-	 * <li>garantit que getNomDescriptionDarwinCsv() retourne "Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv".</li>
+	 * <li>garantit que getNomDescriptionDarwinCsv() retourne "DarwinCsv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv".</li>
 	 * <li>garantit que getNomDescriptionDarwinCsv() retourne un singleton.</li>
 	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
 	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
 	 * </ul>
 	 * <p>
 	 * commenter la ligne 
-	 * "application.repertoire.ressources.descriptions.darwincsv = Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv"
+	 * "application.repertoire.ressources.descriptions.darwincsv = DarwinCsv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv"
 	 * dans le fichier <code>application_fr_FR.properties</code> 
 	 * sous les resources 
 	 * pour faire apparaitre les message et rapport d'erreur.
@@ -526,9 +687,9 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 				"Le chemin de la description DARWIN_CSV (String) ne doit pas être null : "
 					, cheminDescriptionDarwinCsv);
 		
-		/* garantit que getNomDescriptionDarwinCsv() retourne "Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv". */
-		assertEquals("le chemin de la description DARWIN_CSV doit valoir 'Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv' : "
-				, "Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv"
+		/* garantit que getNomDescriptionDarwinCsv() retourne "DarwinCsv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv". */
+		assertEquals("le chemin de la description DARWIN_CSV doit valoir 'DarwinCsv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv' : "
+				, "DarwinCsv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv"
 					, cheminDescriptionDarwinCsv);
 		
 		/* garantit que getNomDescriptionDarwinCsv() retourne un singleton. */
@@ -554,7 +715,7 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 	 * <li>garantit que getFichierDescriptionDarwinCsv() retourne un fichier existant.</li>
 	 * <li>garantit que getFichierDescriptionDarwinCsv() retourne un singleton.</li>
 	 * <li>garantit que getFichierDescriptionDarwinCsv() retourne le fichier sous le contexte à
-	 * "ressources/Descriptions de fichier/Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv".</li>
+	 * "ressources/Descriptions de fichier/DarwinCsv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv".</li>
 	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
 	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
 	 * </ul>
@@ -610,9 +771,9 @@ public class ConfigurationDescriptionsFichiersManagerTest {
 		assertSame("doit retourner un singleton : "
 				, fichierDescriptionDarwinCsv, fichierDescriptionDarwinCsv1);
 		
-		/* garantit que getFichierDescriptionDarwinCsv() retourne "ressources/Descriptions de fichier/Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv". */
-		assertEquals("le fichier de la description DARWIN_CSV doit être situé sous le contexte sous 'ressources/Descriptions de fichier/Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv' : "
-				, Paths.get("ressources/Descriptions de fichier/Darwin csv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv")
+		/* garantit que getFichierDescriptionDarwinCsv() retourne "ressources/Descriptions de fichier/DarwinCsv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv". */
+		assertEquals("le fichier de la description DARWIN_CSV doit être situé sous le contexte sous 'ressources/Descriptions de fichier/DarwinCsv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv' : "
+				, Paths.get("ressources/Descriptions de fichier/DarwinCsv/Descriptions en UTF-8/2014-07-19_Description_DarwinCsv_Utf8.csv")
 					, fournirPathRelatifSousTargetClasses(fichierDescriptionDarwinCsv));
 		
 		/* garantit que le message d'erreur de configuration de la méthode est null. */

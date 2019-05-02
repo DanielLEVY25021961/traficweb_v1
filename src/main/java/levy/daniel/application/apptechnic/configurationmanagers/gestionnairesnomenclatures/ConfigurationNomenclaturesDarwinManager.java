@@ -20,21 +20,54 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * CLASSE ConfigurationNomenclaturesDarwinManager :<br/>
  * Classe UTILITAIRE 
  * chargée de gérer la configuration des 
- * NOMENCLATURES DES CHAMPS A NOMENCLATURE DU FICHIER DARWIN_CSV.<br/>
+ * <b>NOMENCLATURES DE TOUS LES CHAMPS A NOMENCLATURE DU FICHIER DARWIN_CSV</b>.<br/>
+ * Les nomenclatures sont des <i>ressources</i> 
+ * indispensables à l'application <b>positionnées dans le classpath</b>.<br/>
+ * Les nomenclatures utilisées dans la présente application 
+ * sont toutes au <b>format CSV</b> et <b>encodées en UTF-8 avec BOM</b> 
+ * pour être facilement lisibles dans Microsoft Excel.
+ * <p>
+ * Les nomenclatures seront donc <b>intégrées au livrable</b> 
+ * (jar ou war) à chaque build de l'application.
+ * </p>
+ * <p>
+ * Les nomenclatures étant des <b>ressources internes
+ * intégrées dans le classpath</b>, elle doivent être accédées 
+ * en <i>mode RESSOURCES</i> 
+ * (et pas en mode FILE) puisque leur localisation finale (contexte) dépendra 
+ * de l'installation du livrable (jar ou war) par le centre-serveur.<br/>
+ * <br/>
+ * <code> // Récupération du ClassLoader dans le contexte.</code><br/>
+ * <code><b>ClassLoader classloader = Thread.currentThread().getContextClassLoader();</b></code><br/>
+ * <code> // Récupération auprès du ClassLoader de l'URL de la ressource dans le contexte.</code><br/>
+ * <code><b>URL urlRessources = classloader.getResource("ressources/ressourceXXX.csv");</b></code><br/>
+ * <code> // Transformation de l'URL (Uniform Resource Locator) en URI (Uniform Resource Identifier).</code><br/>
+ * <code><b>URI uriRessources = urlRessources.toURI();</b></code><br/>
+ * <code> // Récupération de la ressource sous forme de File.</code><br/>
+ * <code><b>File ressourceFile = new File(uriRessources.getPath());</b></code><br/>
+ * </p>
+ * 
+ * <p>
  * Met à disposition de l'ensemble de l'application 
- * des <b>Singletons</b>.<br/>
+ * des <b>Singletons</b>.
+ * </p>
+ * 
  * <ul>
- * <li>La méthode getCheminNomenclaturesDarwinUtf8 fournit un Singleton 
- * du chemin vers les nomenclatures encodées en UTF-8 
- * des champs à nomenclature 
- * du fichier DARWIN.</li>
+ * <li>La méthode <code>getCheminNomenclaturesDarwinUtf8()</code> 
+ * fournit un Singleton 
+ * du chemin du répertoire parent contenant les nomenclatures 
+ * encodées en UTF-8 des champs à nomenclature du fichier DARWIN_CSV.<br/>
+ * Elle retourne en principe 
+ * 'ressources/Nomenclatures/Darwin/Nomenclatures en UTF-8'.</li>
  * <li>Les méthodes getNomNomenclatureXXX fournissent un singleton  
  * du nom du fichier de nomenclature du champXXX 
- * encodé en UTF-8 dans le DARWIN.</li>
+ * encodé en UTF-8 dans le HISTO_F07.</li>
  * <li>Les méthodes getFichierNomenclatureXXX fournissent un singleton  
  * du fichier de nomenclature du champXXX 
- * encodé en UTF-8 dans le DARWIN.</li>
+ * encodé en UTF-8 dans le HISTO_F07.</li>
  * </ul>
+ * <br/>
+ * 
  *
  * - Exemple d'utilisation :<br/>
  *<br/>
