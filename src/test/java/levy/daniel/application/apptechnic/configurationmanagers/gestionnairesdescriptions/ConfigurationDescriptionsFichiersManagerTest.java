@@ -17,7 +17,7 @@ import org.junit.Test;
 
 /**
  * CLASSE ConfigurationDescriptionsFichiersManagerTest :<br/>
- * Test JUnit de la classe ConfigurationDescriptionsFichiersManager.<br/>
+ * Test JUnit de la classe {@link ConfigurationDescriptionsFichiersManager}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

@@ -205,6 +205,7 @@ D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\appli
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\vues\desktop\metier\utilisateur\modelobs\impl\package-info.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\exceptions\technical\impl\CleManquanteException.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\utilitaires\spring\configurateurpersistencespring\lecteur\LecteurPropertiesProviderHibernate.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairesnomenclatures\ConfigurationNomenclaturesHistoF08Manager.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\services\metier\utilisateurs\package-info.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\services\transformeurs\metier\utilisateurs\IUtilisateurCerbereTransformeurService.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\utilitaires\spring\afficheurcontexte\package-info.java

@@ -70,6 +70,17 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * du fichier de nomenclature du champXXX 
  * encodé en UTF-8 dans le HISTO_F08.</li>
  * </ul>
+ *  
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ConfigurationNomenclaturesHistoF08Manager : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesnomenclatures/classe_GestionnaireNomenclaturesHistoF08Manager.png" 
+ * alt="Diagramme de classe du ConfigurationNomenclaturesHistoF08Manager" />
+ * </p>
+ * 
  * <br/>
  *
  * <p>
@@ -273,7 +284,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * Nom du fichier de nomenclature du SENS pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.sens.histof08".<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08Sens;
@@ -284,7 +295,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * Nomenclature pour le SENS dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08SensUtf8;
 	
@@ -293,7 +304,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.nature.histof08".<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08Nature;
@@ -305,7 +316,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08NatureUtf8;
 	
@@ -314,7 +325,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * de la route pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.catadminroute.histof08"<br/>	 
 	 * */
 	private static transient String nomNomenclatureHistoF08CatAdminRoute;
@@ -327,7 +338,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08CatAdminRouteUtf8;
 	
@@ -336,7 +347,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typecomptage.histof08"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08TypeComptage;
@@ -347,7 +358,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * Nomenclature pour le TYPE DE COMPTAGE dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08TypeComptageUtf8;
 	
@@ -356,7 +367,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classementroute.histof08"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08ClassementRoute;
@@ -367,7 +378,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * Nomenclature pour le CLASSEMENT DE LA ROUTE dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08ClassementRouteUtf8;
 	
@@ -376,7 +387,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * CLASSE DE LARGEUR DE CHAUSSEE UNIQUE pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.histof08"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08ClasseLargeurChausseeU;
@@ -388,7 +399,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08ClasseLargeurChausseeUUtf8;
 	
@@ -397,7 +408,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * CLASSE DE LARGEUR DE CHAUSSEES SEPAREES pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseess.histof08"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08ClasseLargeurChausseesS;
@@ -410,7 +421,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08ClasseLargeurChausseesSUtf8;
 	
@@ -419,7 +430,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typereseau.histof08"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08TypeReseau;
@@ -431,7 +442,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08TypeReseauUtf8;
 	
@@ -440,7 +451,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.codeconcession.histof08"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08CodeConcession;
@@ -452,7 +463,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08CodeConcessionUtf8;
 	
@@ -461,7 +472,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.profiltravers.histof08"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08ProfilTravers;
@@ -473,7 +484,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08ProfilTraversUtf8;
 	
@@ -482,7 +493,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.sousreseauindice.histof08"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF08SousReseauIndice;
@@ -494,7 +505,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF08SousReseauIndiceUtf8;
 	
@@ -752,7 +763,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * Nom du fichier de nomenclature du SENS pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -902,7 +913,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * retourne la clé du 
 	 * nom de la nomenclature en UTF-8 du SENS dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.sens.histof08".<br/>
 	 * <br/>
 	 *
@@ -919,10 +930,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * Fournit une valeur stockée en dur dans la classe 
 	 * pour <code>nomNomenclatureHistoF08Sens</code>.<br/>
 	 *
-	 * @return : String : "2014-08-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
+	 * @return : String : "2014-07-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08SensEnDur() {
-		return "2014-08-15_Nomenclature_Sens_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_Sens_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08SensEnDur()._________________
 
 	
@@ -933,7 +944,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * Nomenclature pour le SENS dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_Sens_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -971,6 +982,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureSensHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureSensHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08SensUtf8 
@@ -996,7 +1012,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -1147,7 +1163,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * nom de la nomenclature en UTF-8 de NATURE du comptage 
 	 * dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.nature.histof08".<br/>
 	 * <br/>
 	 *
@@ -1165,10 +1181,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour le <code>nomNomenclatureHistoF08Nature</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08NatureEnDur() {
-		return "2014-08-15_Nomenclature_Nature_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_Nature_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08NatureEnDur()._______________
 	
 	
@@ -1180,7 +1196,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_Nature_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1218,6 +1234,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureNatureHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureNatureHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08NatureUtf8 
@@ -1243,7 +1264,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * de la route pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -1394,7 +1415,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * de CATEGORIE ADMINISTRATIVE de la route 
 	 * dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.catadminroute.histof08".<br/>
 	 * <br/>
 	 *
@@ -1412,10 +1433,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour <code>nomNomenclatureHistoF08CatAdminRoute</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08CatAdminRouteEnDur() {
-		return "2014-08-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08CatAdminRouteEnDur()._____________
 	
 
@@ -1428,7 +1449,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_CatAdminRoute_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1466,6 +1487,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureCatAdminRouteHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureCatAdminRouteHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08CatAdminRouteUtf8 
@@ -1491,7 +1517,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -1642,7 +1668,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * nom de la nomenclature en UTF-8 de TYPE DE COMPTAGE 
 	 * dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typecomptage.histof08".<br/>
 	 * <br/>
 	 *
@@ -1660,10 +1686,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour le <code>nomNomenclatureHistoF08TypeComptage</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08TypeComptageEnDur() {
-		return "2014-08-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08TypeComptageEnDur().______________
 
 
@@ -1674,7 +1700,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * Nomenclature pour le TYPE DE COMPTAGE dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_TypeComptage_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1712,6 +1738,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureTypeComptageHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureTypeComptageHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08TypeComptageUtf8 
@@ -1737,7 +1768,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -1888,7 +1919,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * nom de la nomenclature en UTF-8 
 	 * du CLASSEMENT DE LA ROUTE dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classementroute.histof08".<br/>
 	 * <br/>
 	 *
@@ -1906,10 +1937,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour <code>nomNomenclatureHistoF08ClassementRoute</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08ClassementRouteEnDur() {
-		return "2014-08-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08ClassementRouteEnDur().___________
 
 
@@ -1920,7 +1951,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * Nomenclature pour le CLASSEMENT DE LA ROUTE dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_ClassementRoute_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -1958,6 +1989,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureClassementRouteHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureClassementRouteHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08ClassementRouteUtf8 
@@ -1983,7 +2019,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * CLASSE DE LARGEUR DE CHAUSSEE UNIQUE pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -2136,7 +2172,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * de la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
 	 * dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseeu.histof08".<br/>
 	 * <br/>
 	 *
@@ -2154,10 +2190,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour <code>nomNomenclatureHistoF08ClasseLargeurChausseeU</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08ClasseLargeurChausseeUEnDur() {
-		return "2014-08-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08ClasseLargeurChausseeUEnDur().____
 	
 	
@@ -2169,7 +2205,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseeU_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2207,6 +2243,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureClasseLargeurChausseeUHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureClasseLargeurChausseeUHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08ClasseLargeurChausseeUUtf8 
@@ -2232,7 +2273,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * CLASSE DE LARGEUR DE CHAUSSEES SEPAREES pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -2385,7 +2426,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * de la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
 	 * dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseess.histof08".<br/>
 	 * <br/>
 	 *
@@ -2403,10 +2444,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour <code>nomNomenclatureHistoF08ClasseLargeurChausseesS</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08ClasseLargeurChausseesSEnDur() {
-		return "2014-08-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08ClasseLargeurChausseesSEnDur().___
 
 
@@ -2419,7 +2460,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2457,6 +2498,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureClasseLargeurChausseesSHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureClasseLargeurChausseesSHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08ClasseLargeurChausseesSUtf8 
@@ -2482,7 +2528,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -2634,7 +2680,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * nom de la nomenclature en UTF-8 du TYPE DE RESEAU
 	 * dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typereseau.histof08".<br/>
 	 * <br/>
 	 *
@@ -2652,10 +2698,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour <code>nomNomenclatureHistoF08TypeReseau</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08TypeReseauEnDur() {
-		return "2014-08-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08TypeReseauEnDur().________________
 
 
@@ -2667,7 +2713,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_TypeReseau_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2705,6 +2751,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureTypeReseauHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureTypeReseauHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08TypeReseauUtf8 
@@ -2730,7 +2781,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -2882,7 +2933,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * nom de la nomenclature en UTF-8 du CODE CONCESSION
 	 * dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.codeconcession.histof08".<br/>
 	 * <br/>
 	 *
@@ -2900,10 +2951,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour <code>nomNomenclatureHistoF08CodeConcession</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08CodeConcessionEnDur() {
-		return "2014-08-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08CodeConcessionEnDur().________________
 
 
@@ -2915,7 +2966,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_CodeConcession_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2953,6 +3004,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureCodeConcessionHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureCodeConcessionHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08CodeConcessionUtf8 
@@ -2978,7 +3034,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -3130,7 +3186,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * nom de la nomenclature en UTF-8 du PROFIL EN TRAVERS
 	 * dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.profiltravers.histof08".<br/>
 	 * <br/>
 	 *
@@ -3148,10 +3204,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour <code>nomNomenclatureHistoF08ProfilTravers</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08ProfilTraversEnDur() {
-		return "2014-08-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08ProfilTraversEnDur().________________
 
 
@@ -3163,7 +3219,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_ProfilTravers_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -3201,6 +3257,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						.getResource(
 								pathRelatifContextNomenclatureProfilTraversHistoF08.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureProfilTraversHistoF08);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF08ProfilTraversUtf8 
@@ -3226,7 +3287,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour les HISTO_F08 en UTF-8
 	 * stocké dans application.properties.<br/>
 	 * <b>SINGLETON</b>.<br/>
-	 * "2014-08-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
 	 * application_fr_FR.properties.</li>
@@ -3378,7 +3439,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * nom de la nomenclature en UTF-8 du SOUS RESEAU INDICE
 	 * dans le HISTO_F08 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-08-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.sousreseauindice.histof08".<br/>
 	 * <br/>
 	 *
@@ -3396,10 +3457,10 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * pour <code>nomNomenclatureHistoF08SousReseauIndice</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-08-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF08SousReseauIndiceEnDur() {
-		return "2014-08-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv";
+		return "2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF08SousReseauIndiceEnDur().________________
 
 
@@ -3411,7 +3472,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	 * dans un HISTO_F08.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 * "ressources/Nomenclatures/HistoF08/Nomenclatures en UTF-8/
-	 * 2014-08-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
+	 * 2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -3448,6 +3509,11 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclatureSousReseauIndiceHistoF08.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureSousReseauIndiceHistoF08);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -3843,6 +3909,44 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	} // Fin de creerMessageMauvaisFichier(
 	 // String pMethode
 	// , String pMessage)._________________________________________________
+	
+	
+	
+	/**
+	 * Log Fatal et jette une FichierInexistantRunTimeException 
+	 * si le fichier ressource de NOMENCLATURE 
+	 * situé à pPathRelatifContextNomenclature est manquant
+	 * , ce qui annule pUrlRessources.<br/>
+	 * <br/>
+	 *
+	 * @param pUrlRessources : URL
+	 * @param pPathRelatifContextNomenclature : Path
+	 * 
+	 * @throws FichierInexistantRunTimeException
+	 */
+	private static void traiterRessourceManquante(
+			final URL pUrlRessources
+				, final Path pPathRelatifContextNomenclature) 
+						throws FichierInexistantRunTimeException {
+		
+		synchronized (ConfigurationNomenclaturesHistoF08Manager.class) {
+			
+			if (pUrlRessources == null) {
+				
+				final String message 
+				= "le fichier ressource de NOMENCLATURE : " 
+				+ pPathRelatifContextNomenclature.toString() 
+				+ " est MANQUANT";
+				
+				if (LOG.isFatalEnabled()) {
+					LOG.fatal(message);
+				}
+				
+				throw new FichierInexistantRunTimeException(message);
+			}
+		} // Fin de synchronized._________________________
+		
+	} // Fin de traiterRessourceManquante(...).____________________________
 	
 
 	

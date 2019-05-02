@@ -36,7 +36,8 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * <li>DARWIN_CSV : <code>fichierDescriptionDarwinCsv</code></li>
  * <li><code></code></li>
  * <li>MAPPING : <code>fichierDescriptionMapping</code> 
- * qui décrit les correspondances entre les différents fichiers.</li>
+ * qui décrit les correspondances entre les différents 
+ * fichiers de description.</li>
  * </ul>
  * 
  * Les descriptions des fichiers sont des <i>ressources</i> 
@@ -85,6 +86,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * Par exemple <code>getFichierDescriptionHit()</code> retourne 
  * le fichier de description du HIT sous forme de File.</li>
  * </ul>
+ * 
  * <p>
  * <b><span style="text-decoration:underline;">
  * Diagramme de classe du ConfigurationDescriptionsFichiersManager : 
@@ -94,6 +96,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesdescriptions/classe_ConfigurationDescriptionsFichiersManager.png" 
  * alt="Diagramme de classe du ConfigurationDescriptionsFichiersManager" />
  * </p>
+ * 
  * <br/>
  *
  *<p>

@@ -10,7 +10,7 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -71,6 +71,17 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * du fichier de nomenclature du champXXX 
  * encodé en UTF-8 dans le HIT.</li>
  * </ul>
+ * 
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ConfigurationNomenclaturesHitManager : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesnomenclatures/classe_GestionnaireNomenclaturesHitManager.png" 
+ * alt="Diagramme de classe du ConfigurationNomenclaturesHitManager" />
+ * </p>
+ * 
  * <br/>
  *
  * <p>
@@ -935,6 +946,11 @@ public final class ConfigurationNomenclaturesHitManager {
 						.getResource(
 								pathRelatifContextNomenclatureSensHit.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureSensHit);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHitSensUtf8 
@@ -1179,6 +1195,11 @@ public final class ConfigurationNomenclaturesHitManager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclatureNatureHit.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureNatureHit);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -1428,6 +1449,11 @@ public final class ConfigurationNomenclaturesHitManager {
 						.getResource(
 								pathRelatifContextNomenclatureCatAdminRouteHit.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureCatAdminRouteHit);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHitCatAdminRouteUtf8 
@@ -1674,6 +1700,11 @@ public final class ConfigurationNomenclaturesHitManager {
 						.getResource(
 								pathRelatifContextNomenclatureTypeComptageHit.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureTypeComptageHit);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHitTypeComptageUtf8 
@@ -1919,6 +1950,11 @@ public final class ConfigurationNomenclaturesHitManager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclatureClassementRouteHit.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureClassementRouteHit);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -2168,6 +2204,11 @@ public final class ConfigurationNomenclaturesHitManager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclatureClasseLargeurChausseeUHit.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureClasseLargeurChausseeUHit);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -2419,6 +2460,11 @@ public final class ConfigurationNomenclaturesHitManager {
 						.getResource(
 								pathRelatifContextNomenclatureClasseLargeurChausseesSHit.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureClasseLargeurChausseesSHit);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHitClasseLargeurChausseesSUtf8 
@@ -2667,6 +2713,11 @@ public final class ConfigurationNomenclaturesHitManager {
 						.getResource(
 								pathRelatifContextNomenclatureTypeReseauHit.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureTypeReseauHit);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHitTypeReseauUtf8 
@@ -2912,6 +2963,11 @@ public final class ConfigurationNomenclaturesHitManager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclaturePrPkHit.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclaturePrPkHit);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -3307,6 +3363,44 @@ public final class ConfigurationNomenclaturesHitManager {
 	} // Fin de creerMessageMauvaisFichier(
 	 // String pMethode
 	// , String pMessage)._________________________________________________
+	
+	
+	
+	/**
+	 * Log Fatal et jette une FichierInexistantRunTimeException 
+	 * si le fichier ressource de NOMENCLATURE 
+	 * situé à pPathRelatifContextNomenclature est manquant
+	 * , ce qui annule pUrlRessources.<br/>
+	 * <br/>
+	 *
+	 * @param pUrlRessources : URL
+	 * @param pPathRelatifContextNomenclature : Path
+	 * 
+	 * @throws FichierInexistantRunTimeException
+	 */
+	private static void traiterRessourceManquante(
+			final URL pUrlRessources
+				, final Path pPathRelatifContextNomenclature) 
+						throws FichierInexistantRunTimeException {
+		
+		synchronized (ConfigurationNomenclaturesHitManager.class) {
+			
+			if (pUrlRessources == null) {
+				
+				final String message 
+				= "le fichier ressource de NOMENCLATURE : " 
+				+ pPathRelatifContextNomenclature.toString() 
+				+ " est MANQUANT";
+				
+				if (LOG.isFatalEnabled()) {
+					LOG.fatal(message);
+				}
+				
+				throw new FichierInexistantRunTimeException(message);
+			}
+		} // Fin de synchronized._________________________
+		
+	} // Fin de traiterRessourceManquante(...).____________________________
 	
 
 	

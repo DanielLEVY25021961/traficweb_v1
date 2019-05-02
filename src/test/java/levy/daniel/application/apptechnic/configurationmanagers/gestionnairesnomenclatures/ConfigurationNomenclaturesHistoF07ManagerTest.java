@@ -17,7 +17,7 @@ import org.junit.Test;
 
 /**
  * CLASSE ConfigurationNomenclaturesHistoF07ManagerTest :<br/>
- * .<br/>
+ * Test JUnit de la classe {@link ConfigurationNomenclaturesHistoF07Manager}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

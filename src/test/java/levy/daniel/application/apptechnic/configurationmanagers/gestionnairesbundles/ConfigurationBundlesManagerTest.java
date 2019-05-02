@@ -20,7 +20,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
 
 /**
  * CLASSE ConfigurationBundlesManagerTest :<br/>
- * Test JUnit de la classe ConfigurationBundlesManager.<br/>
+ * Test JUnit de la classe {@link ConfigurationBundlesManager}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

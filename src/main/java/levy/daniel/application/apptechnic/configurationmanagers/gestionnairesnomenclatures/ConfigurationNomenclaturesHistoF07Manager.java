@@ -70,6 +70,17 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideR
  * du fichier de nomenclature du champXXX 
  * encodé en UTF-8 dans le HISTO_F07.</li>
  * </ul>
+ *  
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ConfigurationNomenclaturesHistoF07Manager : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesnomenclatures/classe_GestionnaireNomenclaturesHistoF07Manager.png" 
+ * alt="Diagramme de classe du ConfigurationNomenclaturesHistoF07Manager" />
+ * </p>
+ * 
  * <br/>
  *
  * <p>
@@ -971,6 +982,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 						.getResource(
 								pathRelatifContextNomenclatureSensHistoF07.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureSensHistoF07);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF07SensUtf8 
@@ -1217,6 +1233,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclatureNatureHistoF07.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureNatureHistoF07);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -1466,6 +1487,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 						.getResource(
 								pathRelatifContextNomenclatureCatAdminRouteHistoF07.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureCatAdminRouteHistoF07);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF07CatAdminRouteUtf8 
@@ -1712,6 +1738,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 						.getResource(
 								pathRelatifContextNomenclatureTypeComptageHistoF07.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureTypeComptageHistoF07);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF07TypeComptageUtf8 
@@ -1957,6 +1988,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclatureClassementRouteHistoF07.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureClassementRouteHistoF07);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -2206,6 +2242,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclatureClasseLargeurChausseeUHistoF07.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureClasseLargeurChausseeUHistoF07);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -2457,6 +2498,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 						.getResource(
 								pathRelatifContextNomenclatureClasseLargeurChausseesSHistoF07.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureClasseLargeurChausseesSHistoF07);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8 
@@ -2704,6 +2750,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclatureTypeReseauHistoF07.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureTypeReseauHistoF07);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -2953,6 +3004,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 						.getResource(
 								pathRelatifContextNomenclatureCodeConcessionHistoF07.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureCodeConcessionHistoF07);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF07CodeConcessionUtf8 
@@ -3201,6 +3257,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 						.getResource(
 								pathRelatifContextNomenclatureProfilTraversHistoF07.toString());
 				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureProfilTraversHistoF07);
+				
 				final URI uriRessources = urlRessources.toURI();
 				
 				fichierNomenclatureHistoF07ProfilTraversUtf8 
@@ -3448,6 +3509,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 					= classloader
 						.getResource(
 								pathRelatifContextNomenclatureSousReseauIndiceHistoF07.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureSousReseauIndiceHistoF07);
 				
 				final URI uriRessources = urlRessources.toURI();
 				
@@ -3843,6 +3909,44 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 	} // Fin de creerMessageMauvaisFichier(
 	 // String pMethode
 	// , String pMessage)._________________________________________________
+	
+	
+	
+	/**
+	 * Log Fatal et jette une FichierInexistantRunTimeException 
+	 * si le fichier ressource de NOMENCLATURE 
+	 * situé à pPathRelatifContextNomenclature est manquant
+	 * , ce qui annule pUrlRessources.<br/>
+	 * <br/>
+	 *
+	 * @param pUrlRessources : URL
+	 * @param pPathRelatifContextNomenclature : Path
+	 * 
+	 * @throws FichierInexistantRunTimeException
+	 */
+	private static void traiterRessourceManquante(
+			final URL pUrlRessources
+				, final Path pPathRelatifContextNomenclature) 
+						throws FichierInexistantRunTimeException {
+		
+		synchronized (ConfigurationNomenclaturesHistoF07Manager.class) {
+			
+			if (pUrlRessources == null) {
+				
+				final String message 
+				= "le fichier ressource de NOMENCLATURE : " 
+				+ pPathRelatifContextNomenclature.toString() 
+				+ " est MANQUANT";
+				
+				if (LOG.isFatalEnabled()) {
+					LOG.fatal(message);
+				}
+				
+				throw new FichierInexistantRunTimeException(message);
+			}
+		} // Fin de synchronized._________________________
+		
+	} // Fin de traiterRessourceManquante(...).____________________________
 	
 
 	
