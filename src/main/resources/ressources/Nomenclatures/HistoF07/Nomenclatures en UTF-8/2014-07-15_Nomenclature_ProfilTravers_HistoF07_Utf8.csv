@@ -1,0 +1,14 @@
+﻿code;libellé;libellé SICRE;Description SICRE;
+0;;?;classe inconnue;
+A;1V;1V;chaussée unique 1 voie;
+1;2V<7;2V<7;chaussée unique 2 voies < 7m;
+2;2V>=7;2V>=7;chaussée unique 2 voies >= 7m;
+B;3V<10.50;3V<10.50;chaussée unique 3 voies < 10.50m;
+3;3V>=10.50;3V>=10.50;chaussée unique 3 voies >= 10.50m;
+4;4V;4V;chaussée unique 4 voies;
+C;>4V;>4V;chaussée unique de plus de 4 voies;
+5;=2*1V;=2*1V;chaussées séparées 2 x 1 voie;
+6;=2*2V;=2*2V;chaussées séparées 2 x 2 voies;
+7;=2*3V;=2*3V;chaussées séparées 2 x 3 voies;
+8;=2*4V;=2*4V;chaussées séparées 2 x 4 voies;
+D;>2*4V;>2*4V;chaussées séparées plus de 2 x 4 voies;

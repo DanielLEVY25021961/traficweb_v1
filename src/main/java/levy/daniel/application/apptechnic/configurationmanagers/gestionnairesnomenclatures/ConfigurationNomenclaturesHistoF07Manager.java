@@ -393,52 +393,110 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 	private static transient File fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8;
 	
 	/**
-	 * nomNomenclatureHistoF07ClasseLargeurChausseesS : String :<br/>
-	 * Nom du fichier de nomenclature 
-	 * de la classe de largeur de chaussées séparées
-	 * pour les HISTO_F07 en UTF-8
+	 * Nom du fichier de nomenclature de la 
+	 * CLASSE DE LARGEUR DE CHAUSSEES SEPAREES pour les HISTO_F07 en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_HistoF07_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF07_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseess.histof07"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF07ClasseLargeurChausseesS;
-	
-		
+			
 	/**
-	 * fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
 	 * Nomenclature pour 
 	 * la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES 
 	 * dans un HISTO_F07.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\HistoF07\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classe_Largeur_Chausses_Séparées_HistoF07_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF07_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8;
 	
-
 	/**
-	 * nomNomenclatureHistoF07TypeReseau : String :<br/>
-	 * Nom du fichier de nomenclature du type de réseau
+	 * Nom du fichier de nomenclature du TYPE DE RESEAU
 	 * pour les HISTO_F07 en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Type_Reseau_HistoF07_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_HistoF07_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typereseau.histof07"<br/>
 	 */
 	private static transient String nomNomenclatureHistoF07TypeReseau;
-	
-		
+			
 	/**
-	 * fichierNomenclatureHistoF07TypeReseauUtf8 : File :<br/>
-	 * Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le TYPE DE RESEAU 
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le TYPE DE RESEAU 
 	 * dans un HISTO_F07.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\HistoF07\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Type_Reseau_HistoF07_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_TypeReseau_HistoF07_Utf8.csv".<br/>
 	 */
 	private static transient File fichierNomenclatureHistoF07TypeReseauUtf8;
+	
+	/**
+	 * Nom du fichier de nomenclature du CODE CONCESSION
+	 * pour les HISTO_F07 en UTF-8
+	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_HistoF07_Utf8.csv".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.codeconcession.histof07"<br/>
+	 */
+	private static transient String nomNomenclatureHistoF07CodeConcession;
+			
+	/**
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le CODE CONCESSION 
+	 * dans un HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_CodeConcession_HistoF07_Utf8.csv".<br/>
+	 */
+	private static transient File fichierNomenclatureHistoF07CodeConcessionUtf8;
+	
+	/**
+	 * Nom du fichier de nomenclature du PROFIL EN TRAVERS
+	 * pour les HISTO_F07 en UTF-8
+	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ProfilTravers_HistoF07_Utf8.csv".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.profiltravers.histof07"<br/>
+	 */
+	private static transient String nomNomenclatureHistoF07ProfilTravers;
+			
+	/**
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le PROFIL EN TRAVERS 
+	 * dans un HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ProfilTravers_HistoF07_Utf8.csv".<br/>
+	 */
+	private static transient File fichierNomenclatureHistoF07ProfilTraversUtf8;
+	
+	/**
+	 * Nom du fichier de nomenclature du SOUS RESEAU INDICE
+	 * pour les HISTO_F07 en UTF-8
+	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_SousReseauIndice_HistoF07_Utf8.csv".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.sousreseauindice.histof07"<br/>
+	 */
+	private static transient String nomNomenclatureHistoF07SousReseauIndice;
+			
+	/**
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le SOUS RESEAU INDICE 
+	 * dans un HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_SousReseauIndice_HistoF07_Utf8.csv".<br/>
+	 */
+	private static transient File fichierNomenclatureHistoF07SousReseauIndiceUtf8;
 	
 
 	/**
@@ -2170,19 +2228,28 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 
 
 	/**
-	 * method getNomNomenclatureHistoF07ClasseLargeurChausseesS() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * de la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
-	 * pour les HISTO_F07 en UTF-8
+	 * Getter du Nom du fichier de nomenclature de la 
+	 * CLASSE DE LARGEUR DE CHAUSSEES SEPAREES pour les HISTO_F07 en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_HistoF07_Utf8.csv".<br/>
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF07_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHistoF07ClasseLargeurChausseesSEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHistoF07ClasseLargeurChausseesSEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.classelargeurchausseess.histof07".<br/>
 	 * <br/>
@@ -2308,17 +2375,17 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 
 		} // Fin de synchronized.________________________________________
 
-	} // Fin de getNomNomenclatureHistoF07ClasseLargeurChausseesS().____________
+	} // Fin de getNomNomenclatureHistoF07ClasseLargeurChausseesS()._______
 
 
 	
 	/**
-	 * method fournirCleNomNomenclatureHistoF07ClasseLargeurChausseesS() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 
 	 * de la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
 	 * dans le HISTO_F07 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_HistoF07_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF07_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.classelargeurchausseess.histof07".<br/>
 	 * <br/>
 	 *
@@ -2327,35 +2394,32 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 	 */
 	private static String fournirCleNomNomenclatureHistoF07ClasseLargeurChausseesS() {
 		return "application.repertoire.ressources.nomenclatures.classelargeurchausseess.histof07";
-	} // Fin de fournirCleNomNomenclatureHistoF07ClasseLargeurChausseesS()._____
+	} // Fin de fournirCleNomNomenclatureHistoF07ClasseLargeurChausseesS().
 	
 
 	
 	/**
-	 * method fournirNomNomenclatureHistoF07ClasseLargeurChausseesSEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
-	 * dans un HISTO_F07.<br/>
+	 * pour <code>nomNomenclatureHistoF07ClasseLargeurChausseesS</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_HistoF07_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF07_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF07ClasseLargeurChausseesSEnDur() {
-		return "2014-07-15_Nomenclature_Classe_Largeur_Chaussees_Separees_HistoF07_Utf8.csv";
+		return "2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF07_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF07ClasseLargeurChausseesSEnDur().___
 
 
 	
 	/**
-	 * method getFichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
 	 * Nomenclature pour 
 	 * la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES 
 	 * dans un HISTO_F07.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\HistoF07\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Classe_Largeur_Chausses_Séparées_HistoF07_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ClasseLargeurChausseesS_HistoF07_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2377,11 +2441,27 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8 == null) {
+
+				final Path pathRelatifNomenclatureClasseLargeurChausseesSHistoF07 
+					= Paths.get(getNomNomenclatureHistoF07ClasseLargeurChausseesS());
+		
+				final Path pathRelatifContextNomenclatureClasseLargeurChausseesSHistoF07 
+					= getPathNomenclaturesHistoF07Utf8()
+						.resolve(pathRelatifNomenclatureClasseLargeurChausseesSHistoF07);
 								
-				fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8 
-				= new File(getCheminNomenclaturesHistoF07Utf8() 
-						+ getNomNomenclatureHistoF07ClasseLargeurChausseesS());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureClasseLargeurChausseesSHistoF07.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8 
+					= new File(uriRessources.getPath());
+																
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -2398,19 +2478,28 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 
 
 	/**
-	 * method getNomNomenclatureHistoF07TypeReseau() :<br/>
-	 * Getter du Nom du fichier de nomenclature 
-	 * du TYPE DE RESEAU
+	 * Getter du Nom du fichier de nomenclature du TYPE DE RESEAU
 	 * pour les HISTO_F07 en UTF-8
 	 * stocké dans application.properties.<br/>
-	 * "2014-07-15_Nomenclature_Type_Reseau_HistoF07_Utf8.csv".<br/>
-	 * <br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_HistoF07_Utf8.csv".<br/>
 	 * <ul>
 	 * <li>Essaie de fournir la valeur stockée dans 
-	 * application_fr_FR.properties.</li><br/>
+	 * application_fr_FR.properties.</li>
 	 * <li>Sinon, retourne la valeur stockée en dur 
-	 * fournie par fournirNomNomenclatureHistoF07TypeReseauEnDur().</li><br/>
-	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li><br/>
+	 * fournie par fournirNomNomenclatureHistoF07TypeReseauEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
 	 * </ul>
 	 * Clé : "application.repertoire.ressources.nomenclatures.typereseau.histof07".<br/>
 	 * <br/>
@@ -2541,12 +2630,11 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 
 	
 	/**
-	 * method fournirCleNomNomenclatureHistoF07TypeReseau() :<br/>
-	 * clé du nom de la nomenclature en UTF-8 
-	 * du TYPE DE RESEAU
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 du TYPE DE RESEAU
 	 * dans le HISTO_F07 
 	 * stockée dans application_fr_FR.properties.<br/>
-	 * "2014-07-15_Nomenclature_Type_Reseau_HistoF07_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_HistoF07_Utf8.csv".<br/>
 	 * Clé = "application.repertoire.ressources.nomenclatures.typereseau.histof07".<br/>
 	 * <br/>
 	 *
@@ -2560,30 +2648,26 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 
 	
 	/**
-	 * method fournirNomNomenclatureHistoF07TypeReseauEnDur() :<br/>
 	 * Fournit une valeur stockée en dur dans la classe 
-	 * pour le Nom du fichier de nomenclature en UTF-8 
-	 * concernant le TYPE DE RESEAU
-	 * dans un HISTO_F07.<br/>
+	 * pour <code>nomNomenclatureHistoF07TypeReseau</code>.<br/>
 	 *
 	 * @return : String : 
-	 * "2014-07-15_Nomenclature_Type_Reseau_HistoF07_Utf8.csv".<br/>
+	 * "2014-07-15_Nomenclature_TypeReseau_HistoF07_Utf8.csv".<br/>
 	 */
 	private static String fournirNomNomenclatureHistoF07TypeReseauEnDur() {
-		return "2014-07-15_Nomenclature_Type_Reseau_HistoF07_Utf8.csv";
+		return "2014-07-15_Nomenclature_TypeReseau_HistoF07_Utf8.csv";
 	} // Fin de fournirNomNomenclatureHistoF07TypeReseauEnDur().________________
 
 
 	
 	/**
-	 * method getFichierNomenclatureHistoF07TypeReseauUtf8() :<br/>
-	 * Fournit le Fichier sur disque encodé en UTF-8 contenant la 
-	 * Nomenclature pour 
-	 * le TYPE DE RESEAU 
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le TYPE DE RESEAU 
 	 * dans un HISTO_F07.<br/>
-	 * <br/>
-	 * ".\\ressources\\Nomenclatures\\HistoF07\\Nomenclatures en UTF-8
-	 * \\2014-07-15_Nomenclature_Type_Reseau_HistoF07_Utf8.csv".<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_TypeReseau_HistoF07_Utf8.csv".<br/>
 	 * <br/>
 	 * - LOG.FATAL, rapporte 
 	 * et jette une RunTimeException 
@@ -2605,11 +2689,27 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 			
 			/* Instanciation du Singleton. */
 			if (fichierNomenclatureHistoF07TypeReseauUtf8 == null) {
+
+				final Path pathRelatifNomenclatureTypeReseauHistoF07 
+				= Paths.get(getNomNomenclatureHistoF07TypeReseau());
+		
+				final Path pathRelatifContextNomenclatureTypeReseauHistoF07 
+					= getPathNomenclaturesHistoF07Utf8()
+						.resolve(pathRelatifNomenclatureTypeReseauHistoF07);
 								
-				fichierNomenclatureHistoF07TypeReseauUtf8 
-				= new File(getCheminNomenclaturesHistoF07Utf8() 
-						+ getNomNomenclatureHistoF07TypeReseau());
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
 				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureTypeReseauHistoF07.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHistoF07TypeReseauUtf8 
+					= new File(uriRessources.getPath());
+								
 				/* LOG.FATAL, rapporte 
 				 * et jette une RunTimeException 
 				 * si pFile est null, inexistant, répertoire ou vide.*/
@@ -2622,6 +2722,750 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 		} // Fin de synchronized.________________________________________
 				
 	} // Fin de getFichierNomenclatureHistoF07TypeReseauUtf8()._______________
+	
+
+
+	/**
+	 * Getter du Nom du fichier de nomenclature du CODE CONCESSION
+	 * pour les HISTO_F07 en UTF-8
+	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_HistoF07_Utf8.csv".<br/>
+	 * <ul>
+	 * <li>Essaie de fournir la valeur stockée dans 
+	 * application_fr_FR.properties.</li>
+	 * <li>Sinon, retourne la valeur stockée en dur 
+	 * fournie par fournirNomNomenclatureHistoF07CodeConcessionEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
+	 * </ul>
+	 * Clé : "application.repertoire.ressources.nomenclatures.codeconcession.histof07".<br/>
+	 * <br/>
+	 * - retourne la valeur en dur fournie par 
+	 * fournirNomNomenclatureHistoF07CodeConcessionEnDur()
+	 * , LOG.ERROR et rapporte 
+	 * si la clé n'existe pas dans le properties.<br/>
+	 * - retourne la valeur en dur fournie par 
+	 * fournirNomNomenclatureHistoF07CodeConcessionEnDur()
+	 * , LOG.ERROR et rapporte 
+	 * si la valeur associée à la clé n'existe pas dans le properties.<br/>
+	 * <br/>
+	 *
+	 * @return nomNomenclatureHistoF07CodeConcession : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getNomNomenclatureHistoF07CodeConcession() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationNomenclaturesHistoF07Manager.class) {
+
+			/* Reset du messageIndividuelRapport. */
+			messageIndividuelRapport = null;
+
+			if (nomNomenclatureHistoF07CodeConcession == null) {
+
+				if (ConfigurationApplicationManager
+						.getBundleApplication() != null) {
+
+					try {
+
+						/*
+						 * Essaie de récupérer la valeur dans le properties.
+						 */
+						final String valeur 
+							= ConfigurationApplicationManager
+								.getBundleApplication()
+									.getString(
+										fournirCleNomNomenclatureHistoF07CodeConcession());
+
+						/* Si la valeur est blank. */
+						if (StringUtils.isBlank(valeur)) {
+
+							/* Création du message. */
+							messageIndividuelRapport 
+							= creerMessageManqueValeur(
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								fournirCleNomNomenclatureHistoF07CodeConcession(),
+								ConfigurationApplicationManager
+										.getBundleApplication());
+
+							/* LOG.ERROR. */
+							if (LOG.isErrorEnabled()) {
+								LOG.error(messageIndividuelRapport);
+							}
+
+							/* Rapport. */
+							ajouterMessageAuRapportConfigurationCsv(
+									messageIndividuelRapport);
+
+							/* utilise la valeur fournie en dur. */
+							nomNomenclatureHistoF07CodeConcession 
+								= fournirNomNomenclatureHistoF07CodeConcessionEnDur();
+
+						} // Fin de Si la valeur est blank._________
+
+						/* Valeur remplie dans le properties. */
+						else {
+
+							/*
+							 * Nettoie la valeur lue dans le .properties avec
+							 * trim().
+							 */
+							final String valeurNettoyee 
+								= StringUtils
+									.trim(valeur);
+
+							nomNomenclatureHistoF07CodeConcession 
+								= valeurNettoyee;
+
+						} // Fin de Valeur remplie dans le properties.____
+
+					} catch (MissingResourceException mre) {
+
+						/* Création du message. */
+						messageIndividuelRapport 
+							= creerMessageManqueCle(
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								fournirCleNomNomenclatureHistoF07CodeConcession(),
+								ConfigurationApplicationManager
+										.getBundleApplication());
+
+						/* LOG.ERROR. */
+						if (LOG.isErrorEnabled()) {
+							LOG.error(messageIndividuelRapport, mre);
+						}
+
+						/* Rapport. */
+						ajouterMessageAuRapportConfigurationCsv(
+								messageIndividuelRapport);
+
+						/* utilise la valeur fournie en dur. */
+						nomNomenclatureHistoF07CodeConcession 
+							= fournirNomNomenclatureHistoF07CodeConcessionEnDur();
+
+					} // Fin de catch (MissingResourceException mre)._____
+
+				} // Fin de if (getBundleApplication() != null)._____
+
+				/* if (getBundleApplication() == null). */
+				else {
+
+					/* utilise la valeur fournie en dur. */
+					nomNomenclatureHistoF07CodeConcession 
+						= fournirNomNomenclatureHistoF07CodeConcessionEnDur();
+
+				} // Fin de if (getBundleApplication() == null).___
+
+			} // Fin de if (nomNomenclatureHistoF07CodeConcession == null)._________
+
+			return nomNomenclatureHistoF07CodeConcession;
+
+		} // Fin de synchronized.________________________________________
+
+	} // Fin de getNomNomenclatureHistoF07CodeConcession().__________________________
+
+
+	
+	/**
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 du CODE CONCESSION
+	 * dans le HISTO_F07 
+	 * stockée dans application_fr_FR.properties.<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_HistoF07_Utf8.csv".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.codeconcession.histof07".<br/>
+	 * <br/>
+	 *
+	 * @return : String : 
+	 * "application.repertoire.ressources.nomenclatures.codeconcession.histof07".<br/>
+	 */
+	private static String fournirCleNomNomenclatureHistoF07CodeConcession() {
+		return "application.repertoire.ressources.nomenclatures.codeconcession.histof07";
+	} // Fin de fournirCleNomNomenclatureHistoF07CodeConcession().__________________
+	
+
+	
+	/**
+	 * Fournit une valeur stockée en dur dans la classe 
+	 * pour <code>nomNomenclatureHistoF07CodeConcession</code>.<br/>
+	 *
+	 * @return : String : 
+	 * "2014-07-15_Nomenclature_CodeConcession_HistoF07_Utf8.csv".<br/>
+	 */
+	private static String fournirNomNomenclatureHistoF07CodeConcessionEnDur() {
+		return "2014-07-15_Nomenclature_CodeConcession_HistoF07_Utf8.csv";
+	} // Fin de fournirNomNomenclatureHistoF07CodeConcessionEnDur().________________
+
+
+	
+	/**
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le CODE CONCESSION 
+	 * dans un HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_CodeConcession_HistoF07_Utf8.csv".<br/>
+	 * <br/>
+	 * - LOG.FATAL, rapporte 
+	 * et jette une RunTimeException 
+	 * si pFile est null, inexistant, répertoire ou vide.<br/>
+	 * <br/>
+	 *
+	 * @return : File : fichierNomenclatureHistoF07CodeConcessionUtf8.<br/>
+	 * 
+	 * @throws Exception 
+	 * 
+	 * @throws FichierNullRunTimeException si pFile est null.<br/>
+	 * @throws FichierInexistantRunTimeException si pFile est inexistant.<br/>
+	 * @throws FichierRepertoireRunTimeException si pFile est un répertoire.<br/>
+	 * @throws FichierVideRunTimeException si pFile est vide.<br/>
+	 */
+	public static File getFichierNomenclatureHistoF07CodeConcessionUtf8() throws Exception {
+				
+		synchronized (ConfigurationNomenclaturesHistoF07Manager.class) {
+			
+			/* Instanciation du Singleton. */
+			if (fichierNomenclatureHistoF07CodeConcessionUtf8 == null) {
+
+				final Path pathRelatifNomenclatureCodeConcessionHistoF07 
+				= Paths.get(getNomNomenclatureHistoF07CodeConcession());
+		
+				final Path pathRelatifContextNomenclatureCodeConcessionHistoF07 
+					= getPathNomenclaturesHistoF07Utf8()
+						.resolve(pathRelatifNomenclatureCodeConcessionHistoF07);
+								
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
+				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureCodeConcessionHistoF07.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHistoF07CodeConcessionUtf8 
+					= new File(uriRessources.getPath());
+								
+				/* LOG.FATAL, rapporte 
+				 * et jette une RunTimeException 
+				 * si pFile est null, inexistant, répertoire ou vide.*/
+				traiterFichier(fichierNomenclatureHistoF07CodeConcessionUtf8
+						, "Méthode getFichierNomenclatureHistoF07CodeConcessionUtf8()");
+			}
+			
+			return fichierNomenclatureHistoF07CodeConcessionUtf8;
+			
+		} // Fin de synchronized.________________________________________
+				
+	} // Fin de getFichierNomenclatureHistoF07CodeConcessionUtf8().________
+	
+
+
+	/**
+	 * Getter du Nom du fichier de nomenclature du PROFIL EN TRAVERS
+	 * pour les HISTO_F07 en UTF-8
+	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_ProfilTravers_HistoF07_Utf8.csv".<br/>
+	 * <ul>
+	 * <li>Essaie de fournir la valeur stockée dans 
+	 * application_fr_FR.properties.</li>
+	 * <li>Sinon, retourne la valeur stockée en dur 
+	 * fournie par fournirNomNomenclatureHistoF07ProfilTraversEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
+	 * </ul>
+	 * Clé : "application.repertoire.ressources.nomenclatures.profiltravers.histof07".<br/>
+	 * <br/>
+	 * - retourne la valeur en dur fournie par 
+	 * fournirNomNomenclatureHistoF07ProfilTraversEnDur()
+	 * , LOG.ERROR et rapporte 
+	 * si la clé n'existe pas dans le properties.<br/>
+	 * - retourne la valeur en dur fournie par 
+	 * fournirNomNomenclatureHistoF07ProfilTraversEnDur()
+	 * , LOG.ERROR et rapporte 
+	 * si la valeur associée à la clé n'existe pas dans le properties.<br/>
+	 * <br/>
+	 *
+	 * @return nomNomenclatureHistoF07ProfilTravers : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getNomNomenclatureHistoF07ProfilTravers() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationNomenclaturesHistoF07Manager.class) {
+
+			/* Reset du messageIndividuelRapport. */
+			messageIndividuelRapport = null;
+
+			if (nomNomenclatureHistoF07ProfilTravers == null) {
+
+				if (ConfigurationApplicationManager
+						.getBundleApplication() != null) {
+
+					try {
+
+						/*
+						 * Essaie de récupérer la valeur dans le properties.
+						 */
+						final String valeur 
+							= ConfigurationApplicationManager
+								.getBundleApplication()
+									.getString(
+										fournirCleNomNomenclatureHistoF07ProfilTravers());
+
+						/* Si la valeur est blank. */
+						if (StringUtils.isBlank(valeur)) {
+
+							/* Création du message. */
+							messageIndividuelRapport 
+							= creerMessageManqueValeur(
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								fournirCleNomNomenclatureHistoF07ProfilTravers(),
+								ConfigurationApplicationManager
+										.getBundleApplication());
+
+							/* LOG.ERROR. */
+							if (LOG.isErrorEnabled()) {
+								LOG.error(messageIndividuelRapport);
+							}
+
+							/* Rapport. */
+							ajouterMessageAuRapportConfigurationCsv(
+									messageIndividuelRapport);
+
+							/* utilise la valeur fournie en dur. */
+							nomNomenclatureHistoF07ProfilTravers 
+								= fournirNomNomenclatureHistoF07ProfilTraversEnDur();
+
+						} // Fin de Si la valeur est blank._________
+
+						/* Valeur remplie dans le properties. */
+						else {
+
+							/*
+							 * Nettoie la valeur lue dans le .properties avec
+							 * trim().
+							 */
+							final String valeurNettoyee 
+								= StringUtils
+									.trim(valeur);
+
+							nomNomenclatureHistoF07ProfilTravers 
+								= valeurNettoyee;
+
+						} // Fin de Valeur remplie dans le properties.____
+
+					} catch (MissingResourceException mre) {
+
+						/* Création du message. */
+						messageIndividuelRapport 
+							= creerMessageManqueCle(
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								fournirCleNomNomenclatureHistoF07ProfilTravers(),
+								ConfigurationApplicationManager
+										.getBundleApplication());
+
+						/* LOG.ERROR. */
+						if (LOG.isErrorEnabled()) {
+							LOG.error(messageIndividuelRapport, mre);
+						}
+
+						/* Rapport. */
+						ajouterMessageAuRapportConfigurationCsv(
+								messageIndividuelRapport);
+
+						/* utilise la valeur fournie en dur. */
+						nomNomenclatureHistoF07ProfilTravers 
+							= fournirNomNomenclatureHistoF07ProfilTraversEnDur();
+
+					} // Fin de catch (MissingResourceException mre)._____
+
+				} // Fin de if (getBundleApplication() != null)._____
+
+				/* if (getBundleApplication() == null). */
+				else {
+
+					/* utilise la valeur fournie en dur. */
+					nomNomenclatureHistoF07ProfilTravers 
+						= fournirNomNomenclatureHistoF07ProfilTraversEnDur();
+
+				} // Fin de if (getBundleApplication() == null).___
+
+			} // Fin de if (nomNomenclatureHistoF07ProfilTravers == null)._________
+
+			return nomNomenclatureHistoF07ProfilTravers;
+
+		} // Fin de synchronized.________________________________________
+
+	} // Fin de getNomNomenclatureHistoF07ProfilTravers().__________________________
+
+
+	
+	/**
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 du PROFIL EN TRAVERS
+	 * dans le HISTO_F07 
+	 * stockée dans application_fr_FR.properties.<br/>
+	 * "2014-07-15_Nomenclature_ProfilTravers_HistoF07_Utf8.csv".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.profiltravers.histof07".<br/>
+	 * <br/>
+	 *
+	 * @return : String : 
+	 * "application.repertoire.ressources.nomenclatures.profiltravers.histof07".<br/>
+	 */
+	private static String fournirCleNomNomenclatureHistoF07ProfilTravers() {
+		return "application.repertoire.ressources.nomenclatures.profiltravers.histof07";
+	} // Fin de fournirCleNomNomenclatureHistoF07ProfilTravers().__________________
+	
+
+	
+	/**
+	 * Fournit une valeur stockée en dur dans la classe 
+	 * pour <code>nomNomenclatureHistoF07ProfilTravers</code>.<br/>
+	 *
+	 * @return : String : 
+	 * "2014-07-15_Nomenclature_ProfilTravers_HistoF07_Utf8.csv".<br/>
+	 */
+	private static String fournirNomNomenclatureHistoF07ProfilTraversEnDur() {
+		return "2014-07-15_Nomenclature_ProfilTravers_HistoF07_Utf8.csv";
+	} // Fin de fournirNomNomenclatureHistoF07ProfilTraversEnDur().________________
+
+
+	
+	/**
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le PROFIL EN TRAVERS 
+	 * dans un HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_ProfilTravers_HistoF07_Utf8.csv".<br/>
+	 * <br/>
+	 * - LOG.FATAL, rapporte 
+	 * et jette une RunTimeException 
+	 * si pFile est null, inexistant, répertoire ou vide.<br/>
+	 * <br/>
+	 *
+	 * @return : File : fichierNomenclatureHistoF07ProfilTraversUtf8.<br/>
+	 * 
+	 * @throws Exception 
+	 * 
+	 * @throws FichierNullRunTimeException si pFile est null.<br/>
+	 * @throws FichierInexistantRunTimeException si pFile est inexistant.<br/>
+	 * @throws FichierRepertoireRunTimeException si pFile est un répertoire.<br/>
+	 * @throws FichierVideRunTimeException si pFile est vide.<br/>
+	 */
+	public static File getFichierNomenclatureHistoF07ProfilTraversUtf8() throws Exception {
+				
+		synchronized (ConfigurationNomenclaturesHistoF07Manager.class) {
+			
+			/* Instanciation du Singleton. */
+			if (fichierNomenclatureHistoF07ProfilTraversUtf8 == null) {
+
+				final Path pathRelatifNomenclatureProfilTraversHistoF07 
+				= Paths.get(getNomNomenclatureHistoF07ProfilTravers());
+		
+				final Path pathRelatifContextNomenclatureProfilTraversHistoF07 
+					= getPathNomenclaturesHistoF07Utf8()
+						.resolve(pathRelatifNomenclatureProfilTraversHistoF07);
+								
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
+				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureProfilTraversHistoF07.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHistoF07ProfilTraversUtf8 
+					= new File(uriRessources.getPath());
+								
+				/* LOG.FATAL, rapporte 
+				 * et jette une RunTimeException 
+				 * si pFile est null, inexistant, répertoire ou vide.*/
+				traiterFichier(fichierNomenclatureHistoF07ProfilTraversUtf8
+						, "Méthode getFichierNomenclatureHistoF07ProfilTraversUtf8()");
+			}
+			
+			return fichierNomenclatureHistoF07ProfilTraversUtf8;
+			
+		} // Fin de synchronized.________________________________________
+				
+	} // Fin de getFichierNomenclatureHistoF07ProfilTraversUtf8().________
+	
+
+
+	/**
+	 * Getter du Nom du fichier de nomenclature du SOUS RESEAU INDICE
+	 * pour les HISTO_F07 en UTF-8
+	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_SousReseauIndice_HistoF07_Utf8.csv".<br/>
+	 * <ul>
+	 * <li>Essaie de fournir la valeur stockée dans 
+	 * application_fr_FR.properties.</li>
+	 * <li>Sinon, retourne la valeur stockée en dur 
+	 * fournie par fournirNomNomenclatureHistoF07SousReseauIndiceEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
+	 * </ul>
+	 * Clé : "application.repertoire.ressources.nomenclatures.sousreseauindice.histof07".<br/>
+	 * <br/>
+	 * - retourne la valeur en dur fournie par 
+	 * fournirNomNomenclatureHistoF07SousReseauIndiceEnDur()
+	 * , LOG.ERROR et rapporte 
+	 * si la clé n'existe pas dans le properties.<br/>
+	 * - retourne la valeur en dur fournie par 
+	 * fournirNomNomenclatureHistoF07SousReseauIndiceEnDur()
+	 * , LOG.ERROR et rapporte 
+	 * si la valeur associée à la clé n'existe pas dans le properties.<br/>
+	 * <br/>
+	 *
+	 * @return nomNomenclatureHistoF07SousReseauIndice : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getNomNomenclatureHistoF07SousReseauIndice() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationNomenclaturesHistoF07Manager.class) {
+
+			/* Reset du messageIndividuelRapport. */
+			messageIndividuelRapport = null;
+
+			if (nomNomenclatureHistoF07SousReseauIndice == null) {
+
+				if (ConfigurationApplicationManager
+						.getBundleApplication() != null) {
+
+					try {
+
+						/*
+						 * Essaie de récupérer la valeur dans le properties.
+						 */
+						final String valeur 
+							= ConfigurationApplicationManager
+								.getBundleApplication()
+									.getString(
+										fournirCleNomNomenclatureHistoF07SousReseauIndice());
+
+						/* Si la valeur est blank. */
+						if (StringUtils.isBlank(valeur)) {
+
+							/* Création du message. */
+							messageIndividuelRapport 
+							= creerMessageManqueValeur(
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								fournirCleNomNomenclatureHistoF07SousReseauIndice(),
+								ConfigurationApplicationManager
+										.getBundleApplication());
+
+							/* LOG.ERROR. */
+							if (LOG.isErrorEnabled()) {
+								LOG.error(messageIndividuelRapport);
+							}
+
+							/* Rapport. */
+							ajouterMessageAuRapportConfigurationCsv(
+									messageIndividuelRapport);
+
+							/* utilise la valeur fournie en dur. */
+							nomNomenclatureHistoF07SousReseauIndice 
+								= fournirNomNomenclatureHistoF07SousReseauIndiceEnDur();
+
+						} // Fin de Si la valeur est blank._________
+
+						/* Valeur remplie dans le properties. */
+						else {
+
+							/*
+							 * Nettoie la valeur lue dans le .properties avec
+							 * trim().
+							 */
+							final String valeurNettoyee 
+								= StringUtils
+									.trim(valeur);
+
+							nomNomenclatureHistoF07SousReseauIndice 
+								= valeurNettoyee;
+
+						} // Fin de Valeur remplie dans le properties.____
+
+					} catch (MissingResourceException mre) {
+
+						/* Création du message. */
+						messageIndividuelRapport 
+							= creerMessageManqueCle(
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								fournirCleNomNomenclatureHistoF07SousReseauIndice(),
+								ConfigurationApplicationManager
+										.getBundleApplication());
+
+						/* LOG.ERROR. */
+						if (LOG.isErrorEnabled()) {
+							LOG.error(messageIndividuelRapport, mre);
+						}
+
+						/* Rapport. */
+						ajouterMessageAuRapportConfigurationCsv(
+								messageIndividuelRapport);
+
+						/* utilise la valeur fournie en dur. */
+						nomNomenclatureHistoF07SousReseauIndice 
+							= fournirNomNomenclatureHistoF07SousReseauIndiceEnDur();
+
+					} // Fin de catch (MissingResourceException mre)._____
+
+				} // Fin de if (getBundleApplication() != null)._____
+
+				/* if (getBundleApplication() == null). */
+				else {
+
+					/* utilise la valeur fournie en dur. */
+					nomNomenclatureHistoF07SousReseauIndice 
+						= fournirNomNomenclatureHistoF07SousReseauIndiceEnDur();
+
+				} // Fin de if (getBundleApplication() == null).___
+
+			} // Fin de if (nomNomenclatureHistoF07SousReseauIndice == null)._________
+
+			return nomNomenclatureHistoF07SousReseauIndice;
+
+		} // Fin de synchronized.________________________________________
+
+	} // Fin de getNomNomenclatureHistoF07SousReseauIndice().__________________________
+
+
+	
+	/**
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 du SOUS RESEAU INDICE
+	 * dans le HISTO_F07 
+	 * stockée dans application_fr_FR.properties.<br/>
+	 * "2014-07-15_Nomenclature_SousReseauIndice_HistoF07_Utf8.csv".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.sousreseauindice.histof07".<br/>
+	 * <br/>
+	 *
+	 * @return : String : 
+	 * "application.repertoire.ressources.nomenclatures.sousreseauindice.histof07".<br/>
+	 */
+	private static String fournirCleNomNomenclatureHistoF07SousReseauIndice() {
+		return "application.repertoire.ressources.nomenclatures.sousreseauindice.histof07";
+	} // Fin de fournirCleNomNomenclatureHistoF07SousReseauIndice().__________________
+	
+
+	
+	/**
+	 * Fournit une valeur stockée en dur dans la classe 
+	 * pour <code>nomNomenclatureHistoF07SousReseauIndice</code>.<br/>
+	 *
+	 * @return : String : 
+	 * "2014-07-15_Nomenclature_SousReseauIndice_HistoF07_Utf8.csv".<br/>
+	 */
+	private static String fournirNomNomenclatureHistoF07SousReseauIndiceEnDur() {
+		return "2014-07-15_Nomenclature_SousReseauIndice_HistoF07_Utf8.csv";
+	} // Fin de fournirNomNomenclatureHistoF07SousReseauIndiceEnDur().________________
+
+
+	
+	/**
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le SOUS RESEAU INDICE 
+	 * dans un HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/HistoF07/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_SousReseauIndice_HistoF07_Utf8.csv".<br/>
+	 * <br/>
+	 * - LOG.FATAL, rapporte 
+	 * et jette une RunTimeException 
+	 * si pFile est null, inexistant, répertoire ou vide.<br/>
+	 * <br/>
+	 *
+	 * @return : File : fichierNomenclatureHistoF07SousReseauIndiceUtf8.<br/>
+	 * 
+	 * @throws Exception 
+	 * 
+	 * @throws FichierNullRunTimeException si pFile est null.<br/>
+	 * @throws FichierInexistantRunTimeException si pFile est inexistant.<br/>
+	 * @throws FichierRepertoireRunTimeException si pFile est un répertoire.<br/>
+	 * @throws FichierVideRunTimeException si pFile est vide.<br/>
+	 */
+	public static File getFichierNomenclatureHistoF07SousReseauIndiceUtf8() throws Exception {
+				
+		synchronized (ConfigurationNomenclaturesHistoF07Manager.class) {
+			
+			/* Instanciation du Singleton. */
+			if (fichierNomenclatureHistoF07SousReseauIndiceUtf8 == null) {
+
+				final Path pathRelatifNomenclatureSousReseauIndiceHistoF07 
+				= Paths.get(getNomNomenclatureHistoF07SousReseauIndice());
+		
+				final Path pathRelatifContextNomenclatureSousReseauIndiceHistoF07 
+					= getPathNomenclaturesHistoF07Utf8()
+						.resolve(pathRelatifNomenclatureSousReseauIndiceHistoF07);
+								
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
+				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureSousReseauIndiceHistoF07.toString());
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureHistoF07SousReseauIndiceUtf8 
+					= new File(uriRessources.getPath());
+								
+				/* LOG.FATAL, rapporte 
+				 * et jette une RunTimeException 
+				 * si pFile est null, inexistant, répertoire ou vide.*/
+				traiterFichier(fichierNomenclatureHistoF07SousReseauIndiceUtf8
+						, "Méthode getFichierNomenclatureHistoF07SousReseauIndiceUtf8()");
+			}
+			
+			return fichierNomenclatureHistoF07SousReseauIndiceUtf8;
+			
+		} // Fin de synchronized.________________________________________
+				
+	} // Fin de getFichierNomenclatureHistoF07SousReseauIndiceUtf8().________
 	
 
 
