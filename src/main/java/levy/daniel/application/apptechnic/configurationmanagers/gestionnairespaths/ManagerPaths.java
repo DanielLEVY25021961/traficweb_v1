@@ -12,31 +12,57 @@ import org.apache.commons.logging.LogFactory;
 /**
  * CLASSE <b>ManagerPaths</b> :<br/>
  * <ul>
- * <li>Classe <b>utilitaire (méthodes static)</b> chargée de fournir
- * les caractéristiques du projet courant 
- * (chemin du Workspace courant, nom du projet courant
- * , path des sources java dans le projet courant, ...).</li>
+ * <li>Classe <b>UTILITAIRE (méthodes static)</b> chargée de fournir
+ * les <b>caractéristiques du projet ECLIPSE courant</b> 
+ * (unité du projet Eclipse courant, chemin du Workspace courant
+ * , nom du projet courant, ...).</li>
  * <li>
- * classe chargée de fournir des SINGLETONS pour :
+ * classe chargée de fournir des <b>SINGLETONS</b> pour :
  * <ol>
  * <li><b>l'unité de disque dur</b> sur laquelle est située 
- * le projet courant <b>pathUniteCourante</b>.</li>
+ * le projet courant <code><b>pathUniteCourante</b></code>.</li>
  * <li>l'emplacement du <b>Workspace Eclipse</b> courant 
- * <b>pathPresentWorkspace</b>.</li>
+ * <code><b>pathPresentWorkspace</b></code>.</li>
  * <li>l'emplacement du <b>projet Eclipse</b> courant 
- * <b>pathPresentProjet</b>.</li>
+ * <code><b>pathPresentProjet</b></code>.</li>
+ * <li>le nom du <b>projet Eclipse</b> courant 
+ * <code><b>nomPresentProjet</b></code>.</li>
  * </ol>
  * </li>
  * </ul>
+ * 
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ManagerPaths : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairespaths/managerpaths/classe_ManagerPaths.png" 
+ * alt="Diagramme de classe du ManagerPaths" />
+ * </p>
+ * 
  * <br/>
  *
- * - Exemple d'utilisation :<br/>
+ * <p>
+ * - Exemple d'utilisation :
+ * </p>
+ * <code> // Récupère le PATH de l'unité courante du présent projet ECLIPSE (par exemple D:)</code><br/>
+ * <code><b>Path pathUniteCourante = ManagerPaths.getPathUniteCourante();</b></code><br/>
+ * <code> // Récupère le PATH du WORKSPACE du présent projet ECLIPSE (par exemple D:/Donnees/eclipse/eclipseworkspace)</code><br/>
+ * <code><b>Path pathPresentWorkspace = ManagerPaths.getPathPresentWorkspace();</b></code><br/>
+ * <code> // Récupère le PATH du présent projet ECLIPSE (par exemple D:/Donnees/eclipse/eclipseworkspace/traficweb_v1)</code><br/>
+ * <code><b>Path pathPresentProjet = ManagerPaths.getPathPresentProjet();</b></code><br/>
+ * <code> // Récupère le NOM du présent projet ECLIPSE (par exemple traficweb_v1)</code><br/>
+ * <code><b>String nomPresentProjet = ManagerPaths.getNomPresentProjet();</b></code><br/>
  *<br/>
  * 
  * - Mots-clé :<br/>
  * séparateur de fichiers, separateur, antislash, <br/>
  * Singleton, singleton, <br/>
  * transformer String en Path, Paths.get(String), <br/>
+ * Path du projet courant, récupérer projet eclipse courant,<br/>
+ * nom du projet courant, unité courante, projet ECLIPSE courant,
+ * workspace du projet ECLIPSE courant, <br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -200,9 +226,8 @@ public final class ManagerPaths {
 
 	
 	/**
-	 * method getPathUniteCouranteString() :<br/>
 	 * <ul>
-	 * <li><b>path "générique"</b> (avec des séparateurs slash) 
+	 * <li>retourne le <b>path "générique"</b> (avec des séparateurs slash) 
 	 * de <b>l'unité courante sur laquelle est situé le présent projet
 	 * </b> sous forme de <i>String</i>.</li>
 	 * <li>calculé à l'aide de la position de File("\")</li>
@@ -244,9 +269,8 @@ public final class ManagerPaths {
 
 		
 	/**
-	 * method getPathUniteCourante() :<br/>
 	 * <ul>
-	 * <li>Getter du <b>path "générique"</b> (avec des séparateurs slash) 
+	 * <li>retourne le <b>path "générique"</b> (avec des séparateurs slash) 
 	 * de <b>l'unité courante sur laquelle est situé le présent projet
 	 * </b> sous forme de <i>Path</i>.</li>
 	 * <li>calculé à l'aide de la position de File("\")</li>
@@ -280,9 +304,8 @@ public final class ManagerPaths {
 
 	
 	/**
-	 * method getPathPresentWorkspaceString() :<br/>
 	 * <ul>
-	 * <li>Getter du <b>path "générique"</b> (avec des séparateurs slash) 
+	 * <li>retourne le <b>path "générique"</b> (avec des séparateurs slash) 
 	 * du <b>présent workspace Eclipse</b> sous forme de <i>String</i>.</li>
 	 * <li>retourne un <b>Singleton</b>.</li>
 	 * <li>calculé avec pathPresentProjet.getParent().</li>
@@ -327,9 +350,8 @@ public final class ManagerPaths {
 
 		
 	/**
-	 * method getPathPresentWorkspace() :<br/>
 	 * <ul>
-	 * <li>getter du <b>path "générique"</b> (avec des séparateurs slash) 
+	 * <li>retourne le <b>path "générique"</b> (avec des séparateurs slash) 
 	 * du <b>présent workspace Eclipse</b> sous forme de <i>Path</i>.</li>
 	 * <li>calculé avec pathPresentProjet.getParent().</li>
 	 * <li>Par exemple : <br/>
@@ -362,9 +384,8 @@ public final class ManagerPaths {
 	
 	
 	/**
-	 * method getPathPresentProjetString() :<br/>
 	 * <ul>
-	 * <li>Getter du <b>path "générique"</b> (avec des séparateurs slash) 
+	 * <li>retourne le <b>path "générique"</b> (avec des séparateurs slash) 
 	 * du <b>présent projet Eclipse</b> sous forme de <i>String</i>.</li>
 	 * <li>retourne un <b>Singleton</b>.</li>
 	 * <li>calculé avec la position de File("").</li>
@@ -406,9 +427,8 @@ public final class ManagerPaths {
 
 		
 	/**
-	 * method getPathPresentProjet() :<br/>
 	 * <ul>
-	 * <li>getter du <b>path "générique"</b> (avec des séparateurs slash) 
+	 * <li>retourne le <b>path "générique"</b> (avec des séparateurs slash) 
 	 * du <b>présent projet Eclipse</b> sous forme de <i>Path</i>.</li>
 	 * <li>calculé avec la position de File("").</li>
 	 * <li>Par exemple : <br/>
@@ -441,9 +461,8 @@ public final class ManagerPaths {
 
 		
 	/**
-	 * method getNomPresentProjet() :<br/>
 	 * <ul>
-	 * <li>Getter du <b>nom du présent projet Eclipse</b>.</li>
+	 * <li>retourne le <b>nom du présent projet Eclipse</b>.</li>
 	 * <li>utilise <code>
 	 * pathPresentWorkspace.relativize(pathPresentProjet)
 	 * </code></li>
@@ -488,8 +507,7 @@ public final class ManagerPaths {
 	 * </li>
 	 * </ul>
 	 *
-	 * @return pathAbsoluSrcMainResourcesPresentProjet : Path : 
-	 * this.pathAbsoluSrcMainResourcesPresentProjet.<br/>
+	 * @return pathAbsoluSrcMainResourcesPresentProjet : Path.<br/>
 	 */
 	public static Path getPathAbsoluSrcMainResourcesPresentProjet() {
 		
@@ -515,8 +533,6 @@ public final class ManagerPaths {
 
 
 	/**
-	 * method retournerPathGenerique(
-	 * String pPathString) :<br/>
 	 * <ul>
 	 * <li><b>Remplace les séparateurs de fichier antislash</b> 
 	 * dans pPath par des <b>séparateurs génériques slash '/'</b>.</li>
