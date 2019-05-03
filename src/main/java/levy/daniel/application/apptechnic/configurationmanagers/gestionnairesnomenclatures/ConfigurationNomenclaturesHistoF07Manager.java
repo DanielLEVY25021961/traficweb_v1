@@ -6,7 +6,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -111,128 +110,97 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * CLASSE_CONFIGURATIONNOMENCLATURESHISTO_F07 : String :<br/>
 	 * "Classe ConfigurationNomenclaturesHistoF07Manager".<br/>
 	 */
 	public static final String CLASSE_CONFIGURATIONNOMENCLATURESHISTO_F07 
 		= "Classe ConfigurationNomenclaturesHistoF07Manager";
-	
-	
+		
 	/**
-	 * METHODE_GET_CHEMINNOMENCLATURES_HISTO_F07 : String :<br/>
 	 * "Méthode getCheminNomenclaturesHistoF07Utf8".<br/>
 	 */
 	public static final String METHODE_GET_CHEMINNOMENCLATURES_HISTO_F07 
 		= "Méthode getCheminNomenclaturesHistoF07Utf8";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F07_SENS : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF07Sens()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_SENS 
 		= "Méthode getNomNomenclatureHistoF07Sens()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F07_NATURE : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF07Nature()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_NATURE 
 		= "Méthode getNomNomenclatureHistoF07Nature()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CATADMINROUTE : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF07CatAdminRoute()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CATADMINROUTE 
 		= "Méthode getNomNomenclatureHistoF07CatAdminRoute()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPECOMPTAGE : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF07TypeComptage()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPECOMPTAGE 
 		= "Méthode getNomNomenclatureHistoF07TypeComptage()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CLASSEMENTROUTE : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF07ClassementRoute()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CLASSEMENTROUTE 
 		= "Méthode getNomNomenclatureHistoF07ClassementRoute()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CLASSELARGEURCHAUSSEEU : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF07ClasseLargeurChausseeU()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CLASSELARGEURCHAUSSEEU 
 		= "Méthode getNomNomenclatureHistoF07ClasseLargeurChausseeU()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CLASSELARGEURCHAUSSEESS : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF07ClasseLargeurChausseesS()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CLASSELARGEURCHAUSSEESS 
 		= "Méthode getNomNomenclatureHistoF07ClasseLargeurChausseesS()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF07TypeReseau()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU 
 		= "Méthode getNomNomenclatureHistoF07TypeReseau()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F07_PRPK : String :<br/>
-	 * "Méthode getNomNomenclatureHistoF07PrPk()".<br/>
+	 * "Méthode getNomNomenclatureHistoF07CodeConcession()".<br/>
 	 */
-	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_PRPK 
-		= "Méthode getNomNomenclatureHistoF07PrPk()";
+	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CODECONCESSION 
+		= "Méthode getNomNomenclatureHistoF07CodeConcession()";
 	
-
-	
-	//*****************************************************************/
-	//**************************** BOM_UTF-8 **************************/
-	//*****************************************************************/
 	/**
-	 * BOM_UTF : char :<br/>
-	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
+	 * "Méthode getNomNomenclatureHistoF07ProfilTravers()".<br/>
 	 */
-	public static final char BOM_UTF_8 = '\uFEFF';
-
+	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_PROFILTRAVERS 
+		= "Méthode getNomNomenclatureHistoF07ProfilTravers()";
+	
+	/**
+	 * "Méthode getNomNomenclatureHistoF07SousReseauIndice()".<br/>
+	 */
+	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F07_SOUSRESEAUINDICE 
+		= "Méthode getNomNomenclatureHistoF07SousReseauIndice()";
 	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
 	/**
-	 * SEP_PV : String :<br/>
+	 * ";"<br/>
 	 * Séparateur pour les CSV ";".<br/>
 	 */
 	public static final String SEP_PV = ";";
-
     
 	/**
-	 * SEPARATEUR_MOINS_AERE : String :<br/>
 	 * " - ".<br/>
 	 */
 	public static final String SEPARATEUR_MOINS_AERE = " - ";
 	
-	
-	/**
-	 * UNDERSCORE : String :<br/>
-	 * "_".<br/>
-	 */
-	public static final String UNDERSCORE = "_";
-
-
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/	
@@ -243,17 +211,6 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
 
-	
-	//*****************************************************************/
-	//**************************** LOCALE *****************************/
-	//*****************************************************************/
-	/**
-	 * LOCALE_FR : Locale : <br/>
-	 * Locale France.<br/>
-	 */
-	public static final Locale LOCALE_FR = new Locale("fr", "FR");
-
-	
 	// ******************************************************************
 	// NOMENCLATURES.****************************************************
 	// ******************************************************************
@@ -2846,7 +2803,7 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 							/* Création du message. */
 							messageIndividuelRapport 
 							= creerMessageManqueValeur(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CODECONCESSION,
 								fournirCleNomNomenclatureHistoF07CodeConcession(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -2887,7 +2844,7 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 						/* Création du message. */
 						messageIndividuelRapport 
 							= creerMessageManqueCle(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_CODECONCESSION,
 								fournirCleNomNomenclatureHistoF07CodeConcession(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -3099,7 +3056,7 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 							/* Création du message. */
 							messageIndividuelRapport 
 							= creerMessageManqueValeur(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_PROFILTRAVERS,
 								fournirCleNomNomenclatureHistoF07ProfilTravers(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -3140,7 +3097,7 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 						/* Création du message. */
 						messageIndividuelRapport 
 							= creerMessageManqueCle(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_PROFILTRAVERS,
 								fournirCleNomNomenclatureHistoF07ProfilTravers(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -3352,7 +3309,7 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 							/* Création du message. */
 							messageIndividuelRapport 
 							= creerMessageManqueValeur(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_SOUSRESEAUINDICE,
 								fournirCleNomNomenclatureHistoF07SousReseauIndice(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -3393,7 +3350,7 @@ public final class ConfigurationNomenclaturesHistoF07Manager {
 						/* Création du message. */
 						messageIndividuelRapport 
 							= creerMessageManqueCle(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F07_SOUSRESEAUINDICE,
 								fournirCleNomNomenclatureHistoF07SousReseauIndice(),
 								ConfigurationApplicationManager
 										.getBundleApplication());

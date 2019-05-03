@@ -6,7 +6,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -111,147 +110,106 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * CLASSE_CONFIGURATIONNOMENCLATURESHISTO_F08 : String :<br/>
 	 * "Classe ConfigurationNomenclaturesHistoF08Manager".<br/>
 	 */
 	public static final String CLASSE_CONFIGURATIONNOMENCLATURESHISTO_F08 
 		= "Classe ConfigurationNomenclaturesHistoF08Manager";
-	
-	
+		
 	/**
-	 * METHODE_GET_CHEMINNOMENCLATURES_HISTO_F08 : String :<br/>
 	 * "Méthode getCheminNomenclaturesHistoF08Utf8".<br/>
 	 */
 	public static final String METHODE_GET_CHEMINNOMENCLATURES_HISTO_F08 
 		= "Méthode getCheminNomenclaturesHistoF08Utf8";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F08_SENS : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF08Sens()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_SENS 
 		= "Méthode getNomNomenclatureHistoF08Sens()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F08_NATURE : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF08Nature()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_NATURE 
 		= "Méthode getNomNomenclatureHistoF08Nature()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CATADMINROUTE : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF08CatAdminRoute()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CATADMINROUTE 
 		= "Méthode getNomNomenclatureHistoF08CatAdminRoute()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPECOMPTAGE : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF08TypeComptage()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPECOMPTAGE 
 		= "Méthode getNomNomenclatureHistoF08TypeComptage()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CLASSEMENTROUTE : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF08ClassementRoute()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CLASSEMENTROUTE 
 		= "Méthode getNomNomenclatureHistoF08ClassementRoute()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CLASSELARGEURCHAUSSEEU : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF08ClasseLargeurChausseeU()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CLASSELARGEURCHAUSSEEU 
 		= "Méthode getNomNomenclatureHistoF08ClasseLargeurChausseeU()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CLASSELARGEURCHAUSSEESS : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF08ClasseLargeurChausseesS()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CLASSELARGEURCHAUSSEESS 
 		= "Méthode getNomNomenclatureHistoF08ClasseLargeurChausseesS()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPERESEAU : String :<br/>
 	 * "Méthode getNomNomenclatureHistoF08TypeReseau()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPERESEAU 
 		= "Méthode getNomNomenclatureHistoF08TypeReseau()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HISTO_F08_PRPK : String :<br/>
-	 * "Méthode getNomNomenclatureHistoF08PrPk()".<br/>
+	 * "Méthode getNomNomenclatureHistoF08CodeConcession()".<br/>
 	 */
-	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_PRPK 
-		= "Méthode getNomNomenclatureHistoF08PrPk()";
+	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CODECONCESSION 
+		= "Méthode getNomNomenclatureHistoF08CodeConcession()";
 	
-
-	
-	//*****************************************************************/
-	//**************************** BOM_UTF-8 **************************/
-	//*****************************************************************/
 	/**
-	 * BOM_UTF : char :<br/>
-	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
+	 * "Méthode getNomNomenclatureHistoF08ProfilTravers()".<br/>
 	 */
-	public static final char BOM_UTF_8 = '\uFEFF';
-
+	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_PROFILTRAVERS 
+		= "Méthode getNomNomenclatureHistoF08ProfilTravers()";
+	
+	/**
+	 * "Méthode getNomNomenclatureHistoF08SousReseauIndice()".<br/>
+	 */
+	public static final String METHODE_GET_NOMNOMENCLATURE_HISTO_F08_SOUSRESEAUINDICE 
+		= "Méthode getNomNomenclatureHistoF08SousReseauIndice()";
+	
 	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
 	/**
-	 * SEP_PV : String :<br/>
+	 * ";"<br/>
 	 * Séparateur pour les CSV ";".<br/>
 	 */
 	public static final String SEP_PV = ";";
-
-    
+   
 	/**
-	 * SEPARATEUR_MOINS_AERE : String :<br/>
 	 * " - ".<br/>
 	 */
 	public static final String SEPARATEUR_MOINS_AERE = " - ";
-	
-	
-	/**
-	 * UNDERSCORE : String :<br/>
-	 * "_".<br/>
-	 */
-	public static final String UNDERSCORE = "_";
-
-
+		
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/	
 	/**
-	 * NEWLINE : String :<br/>
 	 * Saut de ligne spécifique de la plateforme.<br/>
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
-
-	
-	//*****************************************************************/
-	//**************************** LOCALE *****************************/
-	//*****************************************************************/
-	/**
-	 * LOCALE_FR : Locale : <br/>
-	 * Locale France.<br/>
-	 */
-	public static final Locale LOCALE_FR = new Locale("fr", "FR");
 
 	
 	// ******************************************************************
@@ -2846,7 +2804,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 							/* Création du message. */
 							messageIndividuelRapport 
 							= creerMessageManqueValeur(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CODECONCESSION,
 								fournirCleNomNomenclatureHistoF08CodeConcession(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -2887,7 +2845,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						/* Création du message. */
 						messageIndividuelRapport 
 							= creerMessageManqueCle(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_CODECONCESSION,
 								fournirCleNomNomenclatureHistoF08CodeConcession(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -3099,7 +3057,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 							/* Création du message. */
 							messageIndividuelRapport 
 							= creerMessageManqueValeur(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_PROFILTRAVERS,
 								fournirCleNomNomenclatureHistoF08ProfilTravers(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -3140,7 +3098,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						/* Création du message. */
 						messageIndividuelRapport 
 							= creerMessageManqueCle(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_PROFILTRAVERS,
 								fournirCleNomNomenclatureHistoF08ProfilTravers(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -3352,7 +3310,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 							/* Création du message. */
 							messageIndividuelRapport 
 							= creerMessageManqueValeur(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_SOUSRESEAUINDICE,
 								fournirCleNomNomenclatureHistoF08SousReseauIndice(),
 								ConfigurationApplicationManager
 										.getBundleApplication());
@@ -3393,7 +3351,7 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 						/* Création du message. */
 						messageIndividuelRapport 
 							= creerMessageManqueCle(
-								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_TYPERESEAU,
+								METHODE_GET_NOMNOMENCLATURE_HISTO_F08_SOUSRESEAUINDICE,
 								fournirCleNomNomenclatureHistoF08SousReseauIndice(),
 								ConfigurationApplicationManager
 										.getBundleApplication());

@@ -11,7 +11,7 @@ import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesbundles.ConfigurationBundlesManager;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesdescriptions.ConfigurationDescriptionsFichiersManager;
-import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesnomenclatures.ConfigurationNomenclaturesDarwinManager;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesnomenclatures.ConfigurationNomenclaturesDarwinCsvManager;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesnomenclatures.ConfigurationNomenclaturesHistoF07Manager;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesnomenclatures.ConfigurationNomenclaturesHitManager;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespaths.ArboresceurPresentProjet;
@@ -80,19 +80,16 @@ public final class ConfigurationApplicationManager {
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * CLASSE_CONFIGURATION_APPLICATION_MANAGER : String :<br/>
 	 * "Classe ConfigurationApplicationManager".<br/>
 	 */
 	public static final String CLASSE_CONFIGURATION_APPLICATION_MANAGER 
 		= "Classe ConfigurationApplicationManager";
-
-
 	
 	//*****************************************************************/
 	//**************************** BOM_UTF-8 **************************/
 	//*****************************************************************/
 	/**
-	 * BOM_UTF : char :<br/>
+	 * '\uFEFF'<br/>
 	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
 	 */
 	public static final char BOM_UTF_8 = '\uFEFF';
@@ -102,21 +99,17 @@ public final class ConfigurationApplicationManager {
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
 	/**
-	 * SEP_PV : String :<br/>
+	 * ";"<br/>
 	 * Séparateur pour les CSV ";".<br/>
 	 */
 	public static final String SEP_PV = ";";
-
     
 	/**
-	 * SEPARATEUR_MOINS_AERE : String :<br/>
 	 * " - ".<br/>
 	 */
 	public static final String SEPARATEUR_MOINS_AERE = " - ";
-	
-	
+		
 	/**
-	 * UNDERSCORE : String :<br/>
 	 * "_".<br/>
 	 */
 	public static final String UNDERSCORE = "_";
@@ -126,7 +119,6 @@ public final class ConfigurationApplicationManager {
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/	
 	/**
-	 * NEWLINE : String :<br/>
 	 * Saut de ligne spécifique de la plateforme.<br/>
 	 * System.getProperty("line.separator").<br/>
 	 */
@@ -137,8 +129,8 @@ public final class ConfigurationApplicationManager {
 	//**************************** LOCALE *****************************/
 	//*****************************************************************/
 	/**
-	 * LOCALE_FR : Locale : <br/>
-	 * Locale France new Locale("fr", "FR").<br/>
+	 * Locale France <br/>
+	 * new Locale("fr", "FR").<br/>
 	 */
 	public static final Locale LOCALE_FR = new Locale("fr", "FR");
 	
@@ -3442,12 +3434,12 @@ public final class ConfigurationApplicationManager {
 			
 			/* Récupération du chemin. */
 			final String cheminNomenclaturesDarwinUtf8 
-				= ConfigurationNomenclaturesDarwinManager
-					.getCheminNomenclaturesDarwinUtf8();
+				= ConfigurationNomenclaturesDarwinCsvManager
+					.getCheminNomenclaturesDarwinCsvUtf8();
 			
 			/* Récupération du message de rapport éventuel. */
 			final String messageRapport 
-				= ConfigurationNomenclaturesDarwinManager
+				= ConfigurationNomenclaturesDarwinCsvManager
 					.getMessageIndividuelRapport();
 			
 			/* Ajout du message de rapport éventuel 
@@ -3500,12 +3492,12 @@ public final class ConfigurationApplicationManager {
 			
 			/* Récupération du nom. */
 			final String nomNomenclatureDarwinSens 
-				= ConfigurationNomenclaturesDarwinManager
-					.getNomNomenclatureDarwinSens();
+				= ConfigurationNomenclaturesDarwinCsvManager
+					.getNomNomenclatureDarwinCsvSens();
 			
 			/* Récupération du message de rapport éventuel. */
 			final String messageRapport 
-				= ConfigurationNomenclaturesDarwinManager
+				= ConfigurationNomenclaturesDarwinCsvManager
 					.getMessageIndividuelRapport();
 			
 			/* Ajout du message de rapport éventuel 
@@ -3551,14 +3543,14 @@ public final class ConfigurationApplicationManager {
 			try {
 				
 				fichierNomenclatureDarwinSensUtf8 
-					= ConfigurationNomenclaturesDarwinManager
-						.getFichierNomenclatureDarwinSensUtf8();
+					= ConfigurationNomenclaturesDarwinCsvManager
+						.getFichierNomenclatureDarwinCsvSensUtf8();
 				
 			} catch (Exception e) {
 				
 				/* Récupération du message de rapport éventuel. */
 				final String messageRapport 
-					= ConfigurationNomenclaturesDarwinManager
+					= ConfigurationNomenclaturesDarwinCsvManager
 						.getMessageIndividuelRapport();
 				
 				/* Ajout du message de rapport éventuel 

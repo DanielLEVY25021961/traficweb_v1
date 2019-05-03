@@ -6,7 +6,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -206,17 +205,6 @@ public final class ConfigurationDescriptionsFichiersManager {
 	public static final String METHODE_GET_FICHIERDESCRIPTIONMAPPING 
 		= "Méthode getFichierDescriptionMapping()";
 	
-	
-	//*****************************************************************/
-	//**************************** BOM_UTF-8 **************************/
-	//*****************************************************************/
-	/**
-	 * '\uFEFF'<br/>
-	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
-	 */
-	public static final char BOM_UTF_8 = '\uFEFF';
-
-	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
@@ -230,13 +218,6 @@ public final class ConfigurationDescriptionsFichiersManager {
 	 * " - ".<br/>
 	 */
 	public static final String SEPARATEUR_MOINS_AERE = " - ";
-	
-	
-	/**
-	 * "_".<br/>
-	 */
-	public static final String UNDERSCORE = "_";
-
 
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
@@ -246,17 +227,6 @@ public final class ConfigurationDescriptionsFichiersManager {
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
-
-	
-	//*****************************************************************/
-	//**************************** LOCALE *****************************/
-	//*****************************************************************/
-	/**
-	 * new Locale("fr", "FR")<br/>
-	 * Locale France.<br/>
-	 */
-	public static final Locale LOCALE_FR = new Locale("fr", "FR");
-
 	
 	// ******************************************************************
 	// CHEMINS, NOMS DE FICHIERS ET FICHIERS DE DESCRIPTION.*************

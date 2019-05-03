@@ -6,7 +6,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -112,148 +111,93 @@ public final class ConfigurationNomenclaturesHitManager {
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * CLASSE_CONFIGURATIONNOMENCLATURESHIT : String :<br/>
 	 * "Classe ConfigurationNomenclaturesHitManager".<br/>
 	 */
 	public static final String CLASSE_CONFIGURATIONNOMENCLATURESHIT 
 		= "Classe ConfigurationNomenclaturesHitManager";
-	
-	
+		
 	/**
-	 * METHODE_GET_CHEMINNOMENCLATURES_HIT : String :<br/>
 	 * "Méthode getCheminNomenclaturesHitUtf8".<br/>
 	 */
 	public static final String METHODE_GET_CHEMINNOMENCLATURES_HIT 
 		= "Méthode getCheminNomenclaturesHitUtf8";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HIT_SENS : String :<br/>
 	 * "Méthode getNomNomenclatureHitSens()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HIT_SENS 
 		= "Méthode getNomNomenclatureHitSens()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HIT_NATURE : String :<br/>
 	 * "Méthode getNomNomenclatureHitNature()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HIT_NATURE 
 		= "Méthode getNomNomenclatureHitNature()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HIT_CATADMINROUTE : String :<br/>
 	 * "Méthode getNomNomenclatureHitCatAdminRoute()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HIT_CATADMINROUTE 
 		= "Méthode getNomNomenclatureHitCatAdminRoute()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HIT_TYPECOMPTAGE : String :<br/>
 	 * "Méthode getNomNomenclatureHitTypeComptage()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HIT_TYPECOMPTAGE 
 		= "Méthode getNomNomenclatureHitTypeComptage()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HIT_CLASSEMENTROUTE : String :<br/>
 	 * "Méthode getNomNomenclatureHitClassementRoute()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HIT_CLASSEMENTROUTE 
 		= "Méthode getNomNomenclatureHitClassementRoute()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HIT_CLASSELARGEURCHAUSSEEU : String :<br/>
 	 * "Méthode getNomNomenclatureHitClasseLargeurChausseeU()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HIT_CLASSELARGEURCHAUSSEEU 
 		= "Méthode getNomNomenclatureHitClasseLargeurChausseeU()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HIT_CLASSELARGEURCHAUSSEESS : String :<br/>
 	 * "Méthode getNomNomenclatureHitClasseLargeurChausseesS()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HIT_CLASSELARGEURCHAUSSEESS 
 		= "Méthode getNomNomenclatureHitClasseLargeurChausseesS()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HIT_TYPERESEAU : String :<br/>
 	 * "Méthode getNomNomenclatureHitTypeReseau()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HIT_TYPERESEAU 
 		= "Méthode getNomNomenclatureHitTypeReseau()";
-
 	
 	/**
-	 * METHODE_GET_NOMNOMENCLATURE_HIT_PRPK : String :<br/>
 	 * "Méthode getNomNomenclatureHitPrPk()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_HIT_PRPK 
 		= "Méthode getNomNomenclatureHitPrPk()";
 	
-
-	
-	//*****************************************************************/
-	//**************************** BOM_UTF-8 **************************/
-	//*****************************************************************/
-	/**
-	 * BOM_UTF : char :<br/>
-	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
-	 */
-	public static final char BOM_UTF_8 = '\uFEFF';
-
-	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
 	/**
-	 * SEP_PV : String :<br/>
+	 * ";"
 	 * Séparateur pour les CSV ";".<br/>
 	 */
 	public static final String SEP_PV = ";";
-
-    
+   
 	/**
-	 * SEPARATEUR_MOINS_AERE : String :<br/>
 	 * " - ".<br/>
 	 */
 	public static final String SEPARATEUR_MOINS_AERE = " - ";
-	
-	
-	/**
-	 * UNDERSCORE : String :<br/>
-	 * "_".<br/>
-	 */
-	public static final String UNDERSCORE = "_";
-
-
+		
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/	
 	/**
-	 * NEWLINE : String :<br/>
 	 * Saut de ligne spécifique de la plateforme.<br/>
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
-
-	
-	//*****************************************************************/
-	//**************************** LOCALE *****************************/
-	//*****************************************************************/
-	/**
-	 * LOCALE_FR : Locale : <br/>
-	 * Locale France.<br/>
-	 */
-	public static final Locale LOCALE_FR = new Locale("fr", "FR");
-
 	
 	// ******************************************************************
 	// NOMENCLATURES.****************************************************

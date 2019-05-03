@@ -1,0 +1,13 @@
+﻿Code;Libellé;code HISTO_F08;
+1V;chaussée unique 1 voie;A;
+2V<7;chaussée unique 2 voies < 7m;1;
+2V>=7;chaussée unique 2 voies >= 7m;2;
+3V<10.50;chaussée unique 3 voies < 10.50m;B;
+3V>=10.50;chaussée unique 3 voies >= 10.50m;3;
+4V;chaussée unique 4 voies;4;
+>4V;chaussée unique de plus de 4 voies;C;
+=2*1V;chaussées séparées 2 x 1 voie;5;
+=2*2V;chaussées séparées 2 x 2 voies;6;
+=2*3V;chaussées séparées 2 x 3 voies;7;
+=2*4V;chaussées séparées 2 x 4 voies;8;
+>2*4V;chaussées séparées plus de 2 x 4 voies;D;
