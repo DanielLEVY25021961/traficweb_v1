@@ -460,7 +460,7 @@ public abstract class AbstractDescriptionChamp
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getEnteteparColonne(
+	public final String fournirEnteteparColonne(
 			final int pI) {
 		
 		if (this.entetesDescriptionMap != null) {
@@ -480,7 +480,7 @@ public abstract class AbstractDescriptionChamp
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getValeurparColonne(
+	public final String fournirValeurparColonne(
 			final int pI) {
 		
 		if (this.valeursDescriptionMap != null) {

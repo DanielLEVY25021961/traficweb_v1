@@ -27,9 +27,7 @@ public interface IFournisseurJTableImpoDesc {
 
 	
 	/**
-	* method getEnteteparColonne(
-	* int pI) :<br/>
-	* Getter de l'en-tête de la p-ième colonne (1-based).<br/>
+	* retourne l'en-tête de la p-ième colonne (1-based).<br/>
 	* Methode utile pour l'affichage dans une JTable par exemple.<br/>
 	* <br/>
 	* Par exemple :<br/>
@@ -50,16 +48,12 @@ public interface IFournisseurJTableImpoDesc {
 	* (ligne du fichier de description) à la
 	* p-ième colonne (1-based).<br/>
 	*/
-	String getEnteteparColonne(
-		final int pI);
+	String fournirEnteteparColonne(int pI);
 
 	
 	
 	/**
-	 * method getValeurparLigneColonne(
-	 * int pL
-	 * , int pI) :<br/>
-	 * Getter du contenu (valeur) de la p-ième colonne (1-based) 
+	 * retourne le contenu (valeur) de la p-ième colonne (1-based) 
 	 * à la l-ième ligne.<br/>
 	 * si pL=0, retourne un en-tête.<br/>
 	 * Methode utile pour l'affichage dans une JTable par exemple.<br/>
@@ -89,9 +83,7 @@ public interface IFournisseurJTableImpoDesc {
 	 * (ligne du fichier de description) à la
 	 * l-ième ligne (1-based) et la p-ième colonne (1-based).<br/>
 	 */
-	String getValeurparLigneColonne(
-		final int pL
-			, final int pI);
+	String fournirValeurparLigneColonne(int pL, int pI);
 	
 	
 

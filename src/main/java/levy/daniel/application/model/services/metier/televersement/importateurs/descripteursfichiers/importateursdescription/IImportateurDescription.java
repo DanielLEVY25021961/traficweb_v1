@@ -51,7 +51,6 @@ public interface IImportateurDescription
 	
 	
 	/**
-	 * METHODE_IMPORTERDESCRIPTION : String :<br/>
 	 * "Méthode ImporterDescription(File) - ".<br/>
 	 */
 	String METHODE_IMPORTERDESCRIPTION 
@@ -60,10 +59,8 @@ public interface IImportateurDescription
 
 		
 	/**
-	 * method importerDescription(
-	 * File pFileDescription) :<br/>
 	 * - Lit un File encodé en UTF-8 encapsulant la description du fichier 
-	 * et stocke le résultat dans la 
+	 * au format CSV et stocke le résultat dans la 
 	 * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap.<br/>
 	 * - Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
 	 * specificationChampsMap.<br/>
@@ -110,7 +107,7 @@ public interface IImportateurDescription
 	 * @throws Exception 
 	 */
 	SortedMap<Integer, IDescriptionChamp> importerDescription(
-			final File pFileDescription) 
+			File pFileDescription) 
 					throws FichierNullException
 						, TableauNullException
 							, TableauVideException
@@ -120,10 +117,8 @@ public interface IImportateurDescription
 	
 	
 	/**
-	 * method importerDescriptionUtf8(
-	 * File pFileDescription) :<br/>
 	 * - Lit un File encodé en UTF-8 encapsulant la description du fichier 
-	 * et stocke le résultat dans la 
+	 * au format CSV et stocke le résultat dans la 
 	 * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap.<br/>
 	 * - Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
 	 * specificationChampsMap.<br/>
@@ -182,7 +177,7 @@ public interface IImportateurDescription
 	 * @throws Exception 
 	 */
 	SortedMap<Integer, IDescriptionChamp> importerDescriptionUtf8(
-			final File pFileDescription) 
+			File pFileDescription) 
 					throws FichierNullException
 						, TableauNullException
 							, TableauVideException
@@ -192,10 +187,8 @@ public interface IImportateurDescription
 
 	
 	/**
-	 * method importerDescriptionLatin9(
-	 * File pFileDescription) :<br/>
 	 * - Lit un File encodé en LATIN9 encapsulant la description du fichier 
-	 * et stocke le résultat dans la 
+	 * au format CSV et stocke le résultat dans la 
 	 * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap.<br/>
 	 * - Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
 	 * specificationChampsMap.<br/>
@@ -254,7 +247,7 @@ public interface IImportateurDescription
 	 * @throws Exception 
 	 */
 	SortedMap<Integer, IDescriptionChamp> importerDescriptionLatin9(
-			final File pFileDescription) 
+			File pFileDescription) 
 					throws FichierNullException
 						, TableauNullException
 							, TableauVideException
@@ -264,11 +257,8 @@ public interface IImportateurDescription
 	
 	
 	/**
-	 * method importerDescription(
-	 * File pFileDescription
-	 * , Charset pCharset) :<br/>
 	 * - Lit un File encodé en pCharset encapsulant la description du fichier 
-	 * et stocke le résultat dans la 
+	 * au format CSV et stocke le résultat dans la 
 	 * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap.<br/>
 	 * - Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
 	 * specificationChampsMap.<br/>
@@ -329,8 +319,8 @@ public interface IImportateurDescription
 	 * @throws Exception 
 	 */
 	SortedMap<Integer, IDescriptionChamp> importerDescription(
-			final File pFileDescription
-				, final Charset pCharset) 
+			File pFileDescription
+				, Charset pCharset) 
 					throws FichierNullException
 						, TableauNullException
 							, TableauVideException
@@ -340,7 +330,6 @@ public interface IImportateurDescription
 	
 
 	/**
-	 * method fournirLigneEnTetestoString() :<br/>
 	 * Fabrique une chaine de caractères comportant tous
 	 * les éléments de description de l'en-tête de la description 
 	 * séparés par des tabulations 
@@ -358,8 +347,6 @@ public interface IImportateurDescription
 	
 	
 	/**
-	 * method getDescriptionChamp(
-	 * Integer pOrdre) :<br/>
 	 * - Retourne IDescriptionChamp d'ordre pOrdre,
 	 * c'est à dire le pOrdre-ième champ de la description
 	 * de fichier (pOrdre-ième ligne de la description).<br/>
@@ -389,15 +376,13 @@ public interface IImportateurDescription
 	 * 'specificationChampsMap' est vide.<br/>
 	 * @throws Exception 
 	 */
-	IDescriptionChamp getDescriptionChamp(
-			final Integer pOrdre) 
+	IDescriptionChamp getDescriptionChamp(Integer pOrdre) 
 				throws MapNullException
 					, MapVideException, Exception;
 	
 
 	
 	/**
-	 * method getDescriptionChamp() :<br/>
 	 * Getter de l'Encapsulation permettant de stocker toutes les valeurs 
 	 * décrivant un champ dans une description de fichier.<br/>
 	 * Par exemple :<br/>
@@ -416,8 +401,6 @@ public interface IImportateurDescription
 
 
 	/**
-	 * method setDescriptionChamp(
-	 * IDescriptionChamp pDescriptionChamp) :<br/>
 	 * Setter de l'Encapsulation permettant de stocker toutes les valeurs 
 	 * décrivant un champ dans une description de fichier.<br/>
 	 * Par exemple :<br/>
@@ -432,13 +415,11 @@ public interface IImportateurDescription
 	 * @param pDescriptionChamp : IDescriptionChamp : 
 	 * valeur à passer à descriptionChamp.<br/>
 	 */
-	void setDescriptionChamp(
-			final IDescriptionChamp pDescriptionChamp);
+	void setDescriptionChamp(IDescriptionChamp pDescriptionChamp);
 
 	
 	
 	/**
-	 * method getDescriptionDuFichierFile() :
 	 * Getter du File encapsulant un fichier comprenant la
 	 * description du fichier à lire (spécification).<br/>
 	 * Précise par exemple que les colonnes 1 à 3 comprennent le
@@ -453,8 +434,6 @@ public interface IImportateurDescription
 
 
 	/**
-	 * method setDescriptionDuFichierFile(
-	 * File pDescriptionDuFichierFile) :<br/>
 	 * Setter du File encapsulant un fichier comprenant la
 	 * description du fichier à lire (spécification).<br/>
 	 * Précise par exemple que les colonnes 1 à 3 comprennent le
@@ -464,13 +443,11 @@ public interface IImportateurDescription
 	 * 
 	 * @param pDescriptionDuFichierFile : File.<br/>
 	 */
-	void setDescriptionDuFichierFile(
-			final File pDescriptionDuFichierFile);
+	void setDescriptionDuFichierFile(File pDescriptionDuFichierFile);
 
 
 
 	/**
-	 * method getSpecificationChampsMap() :<br/>
 	 * Getter de la Description du fichier importée 
 	 * par le présent ImportateurDescription
 	 * et fournie sous forme de Map triée contenant :<br/>
@@ -491,8 +468,6 @@ public interface IImportateurDescription
 
 
 	/**
-	 * method setSpecificationChampsMap(
-	 * SortedMap&lt;Integer,IDescriptionChamp&gt; pSpecificationChampsMap) :<br/>
 	 * Setter de la Description du fichier importée 
 	 * par le présent ImportateurDescription
 	 * et fournie sous forme de Map triée contenant :<br/>
@@ -509,13 +484,12 @@ public interface IImportateurDescription
 	 * valeur à passer à specificationChampsMap.<br/>
 	 */
 	void setSpecificationChampsMap(
-			final SortedMap<Integer, IDescriptionChamp> 
+					SortedMap<Integer, IDescriptionChamp> 
 										pSpecificationChampsMap);
 
 
 	
 	/**
-	 * method getNomDescriptionChamp() :<br/>
 	 * Fournit le nom de la description des champs.<br/>
 	 * <br/>
 	 * Par exemple : <br/>

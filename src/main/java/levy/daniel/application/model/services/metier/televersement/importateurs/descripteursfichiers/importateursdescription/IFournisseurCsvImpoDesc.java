@@ -38,7 +38,6 @@ public interface IFournisseurCsvImpoDesc {
 	
 	
 	/**
-	 * method fournirLigneEnTetesCsv() :<br/>
 	 * Fournit une ligne csv avec un séparateur ';' pour les en-têtes
 	 * de la description de fichier.<br/>
 	 * <br/>
@@ -59,7 +58,6 @@ public interface IFournisseurCsvImpoDesc {
 	
 	
 	/**
-	 * method fournirLigneValeursCsv(int pL) :<br/>
 	 * Fournit une ligne csv avec un séparateur ';'
 	 * contenant les valeurs de description d'un champ 
 	 * stockées dans valeursDescriptionMap.<br/>
@@ -82,13 +80,11 @@ public interface IFournisseurCsvImpoDesc {
 	 * @return String : ligne csv contenant la description du champ 
 	 * avec séparateur ';'.<br/>
 	 */
-	String fournirLigneValeursCsv(
-			final int pL);
+	String fournirLigneValeursCsv(int pL);
 	
 	
 		
 	/**
-	 * method genererDescriptionCsvString() :<br/>
 	 * Génère la description du fichier au format csv 
 	 * avec séparateur ';' sous forme de String.<br/>
 	 * Rajoute automatiquement la ligne d'en-têtes.<br/>
@@ -102,8 +98,6 @@ public interface IFournisseurCsvImpoDesc {
 	
 	
 	/**
-	 * method genererDescriptionCsvString(
-	 * boolean pAvecLigneEntetes) :<br/>
 	 * Génère la description du fichier au format csv 
 	 * avec séparateur ';' sous forme de String.<br/>
 	 * Rajoute la ligne d'en-têtes si pAvecLigneEntetes vaut true.<br/>
@@ -115,13 +109,11 @@ public interface IFournisseurCsvImpoDesc {
 	 * @return : String : La description au format 
 	 * csv avec séparateur ';' sous forme de String.<br/>
 	 */
-	String genererDescriptionCsvString(
-			final boolean pAvecLigneEntetes);
+	String genererDescriptionCsvString(boolean pAvecLigneEntetes);
 
 	
 	
 	/**
-	 * method genererDescriptionCsvFile() :<br/>
 	 * Génère un fichier csv avec séparateur ';' de la description 
 	 * et le stocke dans le même répertoire que this.descriptionDuFichierFile 
 	 * avec l'extension _genere.csv.<br/>
@@ -162,8 +154,6 @@ public interface IFournisseurCsvImpoDesc {
 	
 		
 	/**
-	 * method genererDescriptionCsvFile(
-	 * File pFile) :<br/>
 	 * Génère un fichier csv avec séparateur ';' de la description 
 	 * et le stocke dans pFile.<br/>
 	 * Rajoute la ligne d'en-têtes.<br/>
@@ -199,8 +189,7 @@ public interface IFournisseurCsvImpoDesc {
 	 * problème d'écriture du fichier de sortie.<br/>
 	 * @throws Exception 
 	 */
-	File genererDescriptionCsvFile(
-			final File pFile) 
+	File genererDescriptionCsvFile(File pFile) 
 					throws MapNullException
 						, MapVideException
 							, FichierNullException
@@ -210,9 +199,6 @@ public interface IFournisseurCsvImpoDesc {
 	
 	
 	/**
-	 * method genererDescriptionCsvFile(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile) :<br/>
 	 * Génère un fichier csv avec séparateur ';' encodé en UTF-8 
 	 * de la description 
 	 * et le stocke dans pFile.<br/>
@@ -252,8 +238,8 @@ public interface IFournisseurCsvImpoDesc {
 	 * @throws Exception 
 	 */
 	File genererDescriptionCsvFile(
-			final boolean pAvecLigneEntetes
-				, final File pFile) 
+			boolean pAvecLigneEntetes
+				, File pFile) 
 					throws MapNullException
 						, MapVideException
 							, FichierNullException
@@ -264,7 +250,6 @@ public interface IFournisseurCsvImpoDesc {
 
 	
 	/**
-	 * method genererDescriptionCsvFileLatin9() :<br/>
 	 * Génère un fichier csv avec séparateur ';' encodé en LATIN9 
 	 * de la description 
 	 * et le stocke dans pFile.<br/>
@@ -309,7 +294,6 @@ public interface IFournisseurCsvImpoDesc {
 
 
 	/**
-	 * method genererDescriptionCsvFileUtf8() :<br/>
 	 * Génère un fichier csv avec séparateur ';' encodé en UTF-8 
 	 * de la description 
 	 * et le stocke dans pFile.<br/>
@@ -354,10 +338,6 @@ public interface IFournisseurCsvImpoDesc {
 
 	
 	/**
-	 * method genererDescriptionCsvFile(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile
-	 * , Charset pCharset) :<br/>
 	 * Génère un fichier csv avec séparateur ';' encodé en pCharset 
 	 * de la description 
 	 * et le stocke dans pFile.<br/>
@@ -399,9 +379,9 @@ public interface IFournisseurCsvImpoDesc {
 	 * @throws Exception 
 	 */
 	File genererDescriptionCsvFile(
-			final boolean pAvecLigneEntetes
-				, final File pFile
-					, final Charset pCharset) 
+			boolean pAvecLigneEntetes
+				, File pFile
+					, Charset pCharset) 
 					throws MapNullException
 						, MapVideException
 							, FichierNullException

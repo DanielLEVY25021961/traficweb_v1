@@ -25,7 +25,6 @@ public interface IRapporteur {
 	
 	
 	/**
-	 * method isLogDescription() :<br/>
 	 * Getter du boolean qui stipule si le DescriptionChamp
 	 * doit rapporter ou pas 
 	 * (rapport d'erreur lors de la lecture des descriptions).<br/>
@@ -38,8 +37,6 @@ public interface IRapporteur {
 
 
 	/**
-	 * method setLogDescription(
-	 * boolean pLogDescription) :<br/>
 	 * Setter du boolean qui stipule si le DescriptionChamp
 	 * doit rapporter ou pas 
 	 * (rapport d'erreur lors de la lecture des descriptions).<br/>
@@ -47,15 +44,12 @@ public interface IRapporteur {
 	 * 
 	 * @param pLogDescription : boolean.<br/>
 	 */
-	void setLogDescription(
-			final boolean pLogDescription);
+	void setLogDescription(boolean pLogDescription);
 
 
 		
 	/**
-	 * method getRapportDescriptionStb() :<br/>
 	 * Getter du rapport du DescriptionChamp.<br/>
-	 * <br/>
 	 * 
 	 * @return rapportDescriptionStb : StringBuffer.<br/>
 	 */
@@ -64,20 +58,15 @@ public interface IRapporteur {
 
 
 	/**
-	 * method setRapportDescriptionStb(
-	 * StringBuffer pRapportDescriptionStb) :<br/>
 	 * Setter du rapport du DescriptionChamp.<br/>
-	 * <br/>
 	 * 
 	 * @param pRapportDescriptionStb : StringBuffer.<br/>
 	 */
-	void setRapportDescriptionStb(
-			final StringBuffer pRapportDescriptionStb);
+	void setRapportDescriptionStb(StringBuffer pRapportDescriptionStb);
 
 
 			
 	/**
-	 * method recupererCleNiveauAnomalie() :<br/>
 	 * Fournit la clé du niveau d'anomalie 
 	 * stocké dans messages_techniques.properties.<br/>
 	 * <br/>
@@ -94,7 +83,6 @@ public interface IRapporteur {
 	
 	
 	/**
-	 * method recupererCleLogErreur() :<br/>
 	 * Fournit la clé du log des erreurs
 	 * stocké dans messages_techniques.properties.<br/>
 	 * <br/>

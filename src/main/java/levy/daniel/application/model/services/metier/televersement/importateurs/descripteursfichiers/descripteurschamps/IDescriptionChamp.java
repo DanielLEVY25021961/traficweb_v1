@@ -34,7 +34,6 @@ public interface IDescriptionChamp
 							, IFormatteurLongueurs {
 	
 	/**
-	 * method lireChamp() :<br/>
 	 * Methode à implémenter dans chaque DescriptionChamp.<br/>
 	 * - Chargée d'alimenter les attributs de la classe.<br/>
 	 * - Chargée d'alimenter la SortedMap&lt;Integer, String&gt;
@@ -84,7 +83,6 @@ public interface IDescriptionChamp
 
 	
 	/**
-	 * method entetesDescriptionToString() :<br/>
 	 * Fabrique une chaine de caractères comportant les
 	 * colonnes du champ (en-têtes des
 	 * colonnes dans la description) séparées par des virgules 
@@ -111,7 +109,6 @@ public interface IDescriptionChamp
 
 	
 	/**
-	 * method valeursDescriptionToString() :<br/>
 	 * Fabrique une chaine de caractères comportant les
 	 * en-têtes des colonnes dans la description concaténés
 	 * avec la valeur dans la description pour un champ
@@ -146,8 +143,6 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * method tokensToString(
-	 * String[] pTokens) :<br/>
 	 * Permet d'afficher une ligne de la description de fichier
 	 * - décomposée sous forme de tokens - sous forme de ligne 
 	 * csv avec séparateur ';'.<br/>
@@ -168,13 +163,11 @@ public interface IDescriptionChamp
 	 * 
 	 * @return String : ligne csv avec séparateur ';'.<br/>
 	 */
-	String tokensToString(
-			final String[] pTokens);
+	String tokensToString(String[] pTokens);
 	
 	
 	
 	/**
-	* method descriptionChampToString() :<br/>
 	* Fabrique une chaine de caractères comportant tous
 	* les éléments de description du champ séparés par des tabulations 
 	* et avec un saut de ligne \n à la fin.<br/>
@@ -204,9 +197,7 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * method nettoyerString(
-	 * String pString) :<br/>
-	 * Sert à retirer des caractères incongrus dans la description
+	 * retire des caractères incongrus dans la description
 	 * de fichier.<br/>
 	 * Par exemple, "Sens" devient 'sens' (guillemets nettoyés).<br/>
 	 * <br/>
@@ -217,13 +208,11 @@ public interface IDescriptionChamp
 	 * 
 	 * @return String : la chaîne nettoyée.<br/>
 	 */
-	String nettoyerString(
-			final String pString);
+	String nettoyerString(String pString);
 	
 		
 	
 	/**
-	 * method getEntetesDescriptionMap() :<br/>
 	 * Getter de la Map triée stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : le libellé (java) des colonnes de la description
@@ -249,8 +238,6 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * method setEntetesDescriptionMap(
-	 * SortedMap&lt;Integer, String&gt; pColonnesDescriptionMap) :<br/>
 	 * Setter de la Map triée stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : le libellé (java) des colonnes de la description
@@ -272,12 +259,11 @@ public interface IDescriptionChamp
 	 * de fichier.<br/>
 	 */
 	void setEntetesDescriptionMap(
-			final SortedMap<Integer, String> pColonnesDescriptionMap);
+			SortedMap<Integer, String> pColonnesDescriptionMap);
 	
 	
 	
 	/**
-	 * method getValeursDescriptionMap() :<br/>
 	 * Getter de la Map triée stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : les valeurs dans les colonnes de la description
@@ -315,8 +301,6 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * method setValeursDescriptionMap(
-	 * SortedMap&lt;Integer, String&gt; pValeurDescriptionMap) :<br/>
 	 * Setter de la Map triée stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : les valeurs dans les colonnes de la description
@@ -346,12 +330,11 @@ public interface IDescriptionChamp
 	 * de fichier pour un champ (ligne de la description) donné.<br/>
 	 */
 	void setValeursDescriptionMap(
-			final SortedMap<Integer, String> pValeursDescriptionMap);
+			SortedMap<Integer, String> pValeursDescriptionMap);
 	
 	
 	
 	/**
-	 * method getNombreColonnesObligatoires() :<br/>
 	 * Getter du nombre de colonnes que la description
 	 * de fichier fournie en entrée doit absolument comporter.<br/>
 	 * Les autres colonnes sont calculées 
@@ -367,8 +350,6 @@ public interface IDescriptionChamp
 
 	
 	/**
-	 * method setNombreColonnesObligatoires(
-	 * int pNombreColonnesObligatoires) :<br/>
 	 * Setter du nombre de colonnes que la description
 	 * de fichier fournie en entrée doit absolument comporter.<br/>
 	 * Les autres colonnes sont calculées 
@@ -379,13 +360,11 @@ public interface IDescriptionChamp
 	 * le nombre de colonnes que la description
 	 * de fichier fournie en entrée doit absolument comporter.<br/>
 	 */
-	void setNombreColonnesObligatoires(
-			final int pNombreColonnesObligatoires);
+	void setNombreColonnesObligatoires(int pNombreColonnesObligatoires);
 	
 	
 		
 	/**
-	 * method getNomChampJava() :<br/>
 	 * Getter du nom Java du champ concerné par cette description.<br/>
 	 * <br/>
 	 *
@@ -397,7 +376,6 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * method getOrdreChamps() :<br/>
 	 * Getter de l'Ordre du champ 1- based (ligne) dans la description.<br/>
 	 * Par exemple, 'Numéro de Section' est le 
 	 * deuxième champ dans la description du HistonatF07.<br/>
@@ -410,8 +388,6 @@ public interface IDescriptionChamp
 
 
 	/**
-	 * method setOrdreChamps(
-	 * Integer pOrdreChamps) :<br/>
 	 * Setter de l'Ordre du champ 1 - based (ligne) dans la description.<br/>
 	 * Par exemple, 'Numéro de Section' est le 
 	 * deuxième champ dans la description du HistonatF07.<br/>
@@ -419,14 +395,12 @@ public interface IDescriptionChamp
 	 *
 	 * @param pOrdreChamps : Integer : valeur à passer à ordreChamps.<br/>
 	 */
-	void setOrdreChamps(
-			final Integer pOrdreChamps);
+	void setOrdreChamps(Integer pOrdreChamps);
 
 
 	
 
 	/**
-	 * method getIntitule() :<br/>
 	 * Getter de l'Intitulé du champ dans la description 
 	 * comme 'Numéro de Section'.<br/>
 	 * <br/>
@@ -438,8 +412,6 @@ public interface IDescriptionChamp
 
 
 	/**
-	 * method setIntitule(
-	 * String pIntitule) :<br/>
 	 * Setter de l'Intitulé du champ dans la description 
 	 * comme 'Numéro de Section'.<br/>
 	 * <br/>
@@ -447,13 +419,11 @@ public interface IDescriptionChamp
 	 * @param pIntitule : String : 
 	 * valeur à passer à intitule.<br/>
 	 */
-	void setIntitule(
-			final String pIntitule);
+	void setIntitule(String pIntitule);
 
 
 
 	/**
-	 * method getNomenclature() :<br/>
 	 * Getter de la Nomenclature éventuelle du champ comme :<br/>
 	 * "3 - Cumul des deux sens. [sep]<br/>
 	 *  4 - Sens unique P.R. croissants.[sep]  <br/>
@@ -467,8 +437,6 @@ public interface IDescriptionChamp
 
 
 	/**
-	 * method setNomenclature(
-	 * String pNomenclature) :<br/>
 	 * Setter de la Nomenclature éventuelle du champ comme :<br/>
 	 * "3 - Cumul des deux sens. [sep]<br/>
 	 *  4 - Sens unique P.R. croissants.[sep]  <br/>
@@ -479,13 +447,11 @@ public interface IDescriptionChamp
 	 * @param pNomenclature : String : 
 	 * valeur à passer à nomenclature.<br/>
 	 */
-	void setNomenclature(
-			final String pNomenclature);
+	void setNomenclature(String pNomenclature);
 
 
 
 	/**
-	 * method getChampJava() :<br/>
 	 * Getter du Nom du champ dans l'application comme numDepartement 
 	 * pour 'Numéro de Département'.<br/>
 	 * <br/>
@@ -497,21 +463,17 @@ public interface IDescriptionChamp
 
 
 	/**
-	 * method setChampJava(
-	 * String pChampJava) :<br/>
 	 * Setter du Nom du champ dans l'application comme numDepartement 
 	 * pour 'Numéro de Département'.<br/>
 	 * <br/>
 	 *
 	 * @param pChampJava : String : valeur à passer à champJava.<br/>
 	 */
-	void setChampJava(
-			final String pChampJava);
+	void setChampJava(String pChampJava);
 
 
 
 	/**
-	 * method getTypeJava() :<br/>
 	 * Getter du type Java du champ dans l'application 
 	 * comme Integer pour 'Numéro de Département'.<br/>
 	 * <br/>
@@ -523,21 +485,17 @@ public interface IDescriptionChamp
 
 
 	/**
-	 * method setTypeJava(
-	 * String pTypeJava) :<br/>
 	 * Setter du type Java du champ dans l'application 
 	 * comme Integer pour 'Numéro de Département'.<br/>
 	 * <br/>
 	 *
 	 * @param pTypeJava : String : valeur à passer à typeJava.<br/>
 	 */
-	void setTypeJava(
-			final String pTypeJava);
+	void setTypeJava(String pTypeJava);
 
 
 
 	/**
-	 * method isANomenclature() :<br/>
 	 * Getter du boolean qui stipule si le champ 
 	 * fait l'objet d'une nomenclature.<br/>
 	 * <br/>
@@ -549,8 +507,6 @@ public interface IDescriptionChamp
 
 
 	/**
-	 * method setANomenclature(
-	 * boolean pANomenclature) :<br/>
 	 * Setter du boolean qui stipule si le champ 
 	 * fait l'objet d'une nomenclature.<br/>
 	 * <br/>
@@ -558,13 +514,11 @@ public interface IDescriptionChamp
 	 * @param pANomenclature : boolean : 
 	 * valeur à passer à aNomenclature.<br/>
 	 */
-	void setANomenclature(
-			final boolean pANomenclature);
+	void setANomenclature(boolean pANomenclature);
 
 
 	
 	/**
-	 * method getNomDescriptionChamp() :<br/>
 	 * Fournit le nom de la description des champs.<br/>
 	 * <br/>
 	 * Par exemple : <br/>

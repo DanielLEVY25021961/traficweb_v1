@@ -26,9 +26,7 @@ public interface IFournisseurJTable {
 	
 		
 	/**
-	* method getEnteteparColonne(
-	* int pI) :<br/>
-	* Getter de l'en-tête de la p-ième colonne (1-based).<br/>
+	* retourne l'en-tête de la p-ième colonne (1-based).<br/>
 	* Methode utile pour l'affichage dans une JTable par exemple.<br/>
 	* <br/>
 	* Par exemple :<br/>
@@ -49,15 +47,12 @@ public interface IFournisseurJTable {
 	* (ligne du fichier de description) à la
 	* p-ième colonne (1-based).<br/>
 	*/
-	String getEnteteparColonne(
-		final int pI);
+	String fournirEnteteparColonne(int pI);
 	
 	
 	
 	/**
-	 * method getValeurparColonne(
-	 * int pI) :<br/>
-	 * Getter du contenu (valeur) de la p-ième colonne (1-based).<br/>
+	 * retourne le contenu (valeur) de la p-ième colonne (1-based).<br/>
 	 * Methode utile pour l'affichage dans une JTable par exemple.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
@@ -79,8 +74,7 @@ public interface IFournisseurJTable {
 	 * (ligne du fichier de description) à la
 	 * p-ième colonne (1-based).<br/>
 	 */
-	String getValeurparColonne(
-		final int pI);
+	String fournirValeurparColonne(int pI);
 	
 
 

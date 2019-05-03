@@ -26,9 +26,9 @@ import java.util.SortedMap;
  */
 public interface IFormatteurLongueurs {
 	
+
 	
 	/**
-	 * method getLongueursEnTableauEnTetes() :<br/>
 	 * Retourne le tableau des longueurs des en-têtes
 	 * de chaque colonne de la description de fichier.<br/>
 	 * <br/>
@@ -45,7 +45,6 @@ public interface IFormatteurLongueurs {
 	
 	
 	/**
-	 * method getLongueursEnTableauValeurs() :<br/>
 	 * Retourne le tableau des longueurs des contenus
 	 * de chaque colonne de la description de fichier.<br/>
 	 * <br/>
@@ -62,7 +61,6 @@ public interface IFormatteurLongueurs {
 	
 	
 	/**
-	 * method afficherTableauLongueurEnTetes() :<br/>
 	 * Affichage à la console du tableau des longueurs des en-têtes.<br/>
 	 * <br/>
 	 * Méthode utile pour formater les sorties à la console 
@@ -93,8 +91,7 @@ public interface IFormatteurLongueurs {
 	
 	
 	/**
-	 * method afficherTableauLongueurValeurs() :<br/>
-	 * Affichage à la console du tableau des longueurs des valeurs.<br/>
+	 * Affiche à la console du tableau des longueurs des valeurs.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
 	 * [Longueur du contenu dans 'ordreChamps' = 1
@@ -134,7 +131,6 @@ public interface IFormatteurLongueurs {
 	
 	
 	/**
-	 * method getLongueursDescriptionMap() :<br/>
 	 * Getter de la Map triée fournissant pour un champ donné 
 	 * de la description de fichier : <br/>
 	 * - Integer : le numéro de la colonne dans la description,<br/>
@@ -151,8 +147,6 @@ public interface IFormatteurLongueurs {
 	
 	
 	/**
-	 * method setLongueursDescriptionMap(
-	 * SortedMap&lt;Integer, Integer&gt; pLongueursDescriptionMap) :<br/>
 	 * Setter de la Map triée fournissant pour un champ donné 
 	 * de la description de fichier : <br/>
 	 * - Integer : le numéro de la colonne dans la description,<br/>
@@ -165,12 +159,11 @@ public interface IFormatteurLongueurs {
 	 * @param pLongueursDescriptionMap : SortedMap&lt;Integer, Integer&gt;.<br/>
 	 */
 	void setLongueursDescriptionMap(
-			final SortedMap<Integer, Integer> pLongueursDescriptionMap);
+			SortedMap<Integer, Integer> pLongueursDescriptionMap);
 	
 
 	
 	/**
-	 * method longueursMapToString() :<br/>
 	 * Fabrique une chaine de caractères comportant les
 	 * longueurs des contenus des colonnes dans la description 
 	 *  pour un champ (ligne) donné.<br/>

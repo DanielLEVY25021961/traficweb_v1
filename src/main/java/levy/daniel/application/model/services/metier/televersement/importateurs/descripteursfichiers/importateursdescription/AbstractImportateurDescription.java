@@ -882,7 +882,7 @@ public abstract class AbstractImportateurDescription implements
 			= this.descriptionChamp.getEntetesDescriptionMap().size();
 		
 		for (int i = 1; i <= taille; i++) {
-			final String entete = this.descriptionChamp.getEnteteparColonne(i);
+			final String entete = this.descriptionChamp.fournirEnteteparColonne(i);
 			stb.append(entete);
 			stb.append(TAB);
 		}
@@ -1473,7 +1473,7 @@ public abstract class AbstractImportateurDescription implements
 	/**
 	* {@inheritDoc}	*/
 	@Override
-	public final String getEnteteparColonne(
+	public final String fournirEnteteparColonne(
 			final int pI) {
 		
 		/* retourne null si this.descriptionChamp est null. */
@@ -1481,7 +1481,7 @@ public abstract class AbstractImportateurDescription implements
 			return null;
 		}
 		
-		return this.descriptionChamp.getEnteteparColonne(pI);
+		return this.descriptionChamp.fournirEnteteparColonne(pI);
 		
 	} // Fin de getEnteteparColonne(
 	// int pI).____________________________________________________________
@@ -1492,7 +1492,7 @@ public abstract class AbstractImportateurDescription implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getValeurparLigneColonne(
+	public final String fournirValeurparLigneColonne(
 		final int pL
 			, final int pI) {
 		
@@ -1511,10 +1511,10 @@ public abstract class AbstractImportateurDescription implements
 		
 		/* si pL=0, retourne un en-tête. */
 		if (pL == 0) {
-			return desc.getEnteteparColonne(pI);
+			return desc.fournirEnteteparColonne(pI);
 		}
 		
-		return desc.getValeurparColonne(pI);
+		return desc.fournirValeurparColonne(pI);
 		
 	} // Fin de getValeurparLigneColonne(
 	 // int pL

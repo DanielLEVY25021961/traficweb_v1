@@ -27,8 +27,6 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImp
 public interface IFormatteurLongueursImpoDesc {
 	
 	/**
-	 * method mettreAJourLongueursMax(
-	 * int[] pLongueurs) :<br/>
 	 * Tient à jour le tableau contenant les longueurs maxi
 	 * des contenus dans la description de fichier
 	 * (utile pour l'affichage formatté à la console des descriptions).<br/>
@@ -38,14 +36,11 @@ public interface IFormatteurLongueursImpoDesc {
 	 * des contenus pour un champ (ligne) du fichier de
 	 * description.<br/>
 	 */
-	void mettreAJourLongueursMax(
-			final int[] pLongueurs);
+	void mettreAJourLongueursMax(int[] pLongueurs);
 	
 
 	
 	/**
-	 * method calculerLongueurMaxInt(
-	 * int pNouvelleLongueur, int pAncienneLongueur) :<br/>
 	 * Retourne le Max entre :<br/>
 	 * - la nouvelle longueur 'pNouvelleLongueur',<br/>
 	 * - une longueur int 'pAncienneLongueur' déjà existante.<br/>
@@ -59,13 +54,12 @@ public interface IFormatteurLongueursImpoDesc {
 	 * le Max(int pNouvelleLongueur, int pAncienneLongueur).<br/>
 	 */
 	int calculerLongueurMaxInt(
-			final int pNouvelleLongueur
-				, final int pAncienneLongueur);
+			int pNouvelleLongueur
+				, int pAncienneLongueur);
 	
 
 	
 	/**
-	 * method getLongueursMax() :<br/>
 	 * Getter du tableau des longueurs
 	 * maximales des contenus des champs dans une description.<br/>
 	 * Utile pour l'affichage avec des colonnes de taille fixe
@@ -79,9 +73,7 @@ public interface IFormatteurLongueursImpoDesc {
 	
 	
 	/**
-	 * method toStringFormatte() :<br/>
 	 * Affiche la description formattée à la console.<br/>
-	 * <br/>
 	 *
 	 * @return : String : Chaîne de caractères 
 	 * formattée pour affichage à la console.<br/>
@@ -94,9 +86,7 @@ public interface IFormatteurLongueursImpoDesc {
 	
 	
 	/**
-	 * method tableauIntToString(
-	 * int[] pTableauLongueurs) :<br/>
-	 * Affichage d'un tableau d'entiers.<br/>
+	 * Affiche un tableau d'entiers.<br/>
 	 * - Retourne une chaîne vide si le tableau
 	 * passé en paramètre est null.<br/>
 	 * <br/>
@@ -105,7 +95,6 @@ public interface IFormatteurLongueursImpoDesc {
 	 * 
 	 * @return String.<br/>
 	 */
-	String tableauIntToString(
-			final int[] pTableauLongueurs);
+	String tableauIntToString(int[] pTableauLongueurs);
 
 } // FIN DE L'INTERFACE IFormatteurLongueursImpoDesc.------------------------

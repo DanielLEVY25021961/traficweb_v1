@@ -29,7 +29,6 @@ public interface IRapporteurImpoDesc {
 	
 	
 	/**
-	 * method isLogImportDescription() :<br/>
 	 * Getter du boolean qui stipule si le ImportateurDescription
 	 * doit rapporter ou pas 
 	 * (rapport d'erreur lors de la lecture des descriptions).<br/>
@@ -42,22 +41,17 @@ public interface IRapporteurImpoDesc {
 
 
 	/**
-	 * method setLogImportDescription(
-	 * boolean pLogImportDescription) :<br/>
 	 * Setter du boolean qui stipule si le ImportateurDescription
 	 * doit rapporter ou pas 
 	 * (rapport d'erreur lors de la lecture des descriptions).<br/>
-	 * <br/>
 	 * 
 	 * @param pLogImportDescription : boolean.<br/>
 	 */
-	void setLogImportDescription(
-			final boolean pLogImportDescription);
+	void setLogImportDescription(boolean pLogImportDescription);
 
 
 		
 	/**
-	 * method getRapportImportDescriptionStb() :<br/>
 	 * Getter du rapport du ImportateurDescription.<br/>
 	 * <br/>
 	 * Ce rapport n'est jamais null. Tester si il est vide.<br/>
@@ -70,20 +64,16 @@ public interface IRapporteurImpoDesc {
 
 
 	/**
-	 * method setRapportImportDescriptionStb(
-	 * StringBuffer pRapportImportDescriptionStb) :<br/>
 	 * Setter du rapport du ImportateurDescription.<br/>
-	 * <br/>
 	 * 
 	 * @param pRapportImportDescriptionStb : StringBuffer.<br/>
 	 */
 	void setRapportImportDescriptionStb(
-			final StringBuffer pRapportImportDescriptionStb);
+			StringBuffer pRapportImportDescriptionStb);
 
 
 			
 	/**
-	 * method recupererCleNiveauAnomalie() :<br/>
 	 * Fournit la clé du niveau d'anomalie 
 	 * stocké dans messages_techniques.properties.<br/>
 	 * <br/>
@@ -99,7 +89,6 @@ public interface IRapporteurImpoDesc {
 	
 	
 	/**
-	 * method recupererCleLogErreur() :<br/>
 	 * Fournit la clé du log des erreurs
 	 * stocké dans messages_techniques.properties.<br/>
 	 * <br/>
