@@ -63,6 +63,7 @@ import org.apache.commons.logging.LogFactory;
  * Path du projet courant, récupérer projet eclipse courant,<br/>
  * nom du projet courant, unité courante, projet ECLIPSE courant,
  * workspace du projet ECLIPSE courant, <br/>
+ * Paths.get(".").toAbsolutePath().normalize();<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -435,6 +436,9 @@ public final class ManagerPaths {
 	 * D:/Donnees/eclipse/eclipseworkspace_neon/generation_code
 	 * </li>
 	 * </ul>
+	 * - retourne l'équivalent de 
+	 * <code>Paths.get(".").toAbsolutePath().normalize()</code><br/>
+	 * <br/>
 	 *
 	 * @return pathPresentProjet : Path.<br/>
 	 * 

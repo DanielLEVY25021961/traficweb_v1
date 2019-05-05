@@ -75,13 +75,13 @@ import org.apache.commons.logging.LogFactory;
  * (conception_appli, javadoc, logs, rapports_controle
  * , ressources_externes, ...)</li>
  * <li>une liste de Path <b>ARBORESCENCE_PROJET_SOURCE</b> contenant 
- * l'ensemble des répertoires à trouver dans le projet source.</li>
+ * l'ensemble des répertoires à trouver dans le présent projet ECLIPSE.</li>
  * <li>une map de [String,Path] <b>ARBORESCENCE_MAIN_PROJET_SOURCE_MAP</b> 
  * contenant l'ensemble des répertoires à créer dans le <b>main</b> 
- * du projet source.</li>
+ * du présent projet ECLIPSE.</li>
  * <li>une map de [String,Path] <b>ARBORESCENCE_TEST_PROJET_SOURCE_MAP</b> 
  * contenant l'ensemble des répertoires à trouver dans le <b>test</b> 
- * du projet source.</li>
+ * du présent projet ECLIPSE.</li>
  * </ol>
  * </li>
  * </ul>
@@ -310,13 +310,7 @@ import org.apache.commons.logging.LogFactory;
  *
  * - Exemple d'utilisation :<br/>
  * <code>
- * // Path du projet source<br/>
- * <b>Path projetSourcePath = Paths.get("D:/Donnees/toto");</b><br/>
- *  // (Optionnel) sélection du GroupId<br/>
- * ArboresceurPresentProjet.setGroupIdPathRelatif("newGroupId") <br/>
- * // SELECTION DU PROJET SOURCE<br/>
- * <b>ArboresceurPresentProjet.selectionnerProjetSource(projetSourcePath);</b><br/>
- *  // RECUPERATION DE L'ARBORESCENCE A CREER DANS LE PROJET SOURCE<br/>
+ *  // RECUPERATION DE L'ARBORESCENCE EXISTANTE DANS LE PROJET SOURCE A CREER DANS LE PROJET CIBLE.<br/>
  * <b>List&lt;Path&gt; arborescence = ArboresceurPresentProjet.getArborescenceProjetSource();</b><br/>
  *   // RECUPERATION DE L'ARBORESCENCE A CREER DANS LE MAIN du PROJET SOURCE<br/>
  * <b>Map&lt;String, Path&gt; arborescenceMainMap = ArboresceurPresentProjet.getArborescenceMainProjetSourceMap();</b><br/>
@@ -338,7 +332,7 @@ import org.apache.commons.logging.LogFactory;
  * - Mots-clé :<br/>
  * path.resolve(path), path.resolve, resolve, resolve(),<br/>
  * ajouter un path à un autre, <br/>
- * fournir arborescence projet source, <br/>
+ * fournir arborescence présent projet ECLIPSE, <br/>
  * Collections.sort(list, new EntryStringComparator());<br/>
  * map triée, Map triée, Map triee, SortedMap, TreeMap, <br/>
  * Comparator, comparator, <br/>
@@ -422,11 +416,11 @@ public final class ArboresceurPresentProjet {
 		= "line.separator";
 	
 	/**
+	 * <b>path ABSOLU du présent projet ECLIPSE</b>.
 	 * <ul>
-	 * <li><b>path du projet SOURCE Eclipse</b> 
-	 * dont on va trouver le code.</li>
+	 * <li>calculé par <code>Paths.get(".").toAbsolutePath().normalize()</code></li>
 	 * <li>path sous forme de <b>java.nio.file.Path</b>.</li>
-	 * <li>Singleton.</li>
+	 * <li><b>SINGLETON</b>.</li>
 	 * <li>Par exemple : <br/>
 	 * <code>D:/Donnees/eclipse/eclipseworkspace_neon/projet_users
 	 * </code></li>
@@ -435,12 +429,12 @@ public final class ArboresceurPresentProjet {
 	private static Path projetSourcePath;
 	
 	/**
+	 * <b>nom du présent projet ECLIPSE</b>.
 	 * <ul>
-	 * <li><b>nom du projet SOURCE Eclipse</b> 
-	 * dont on va trouver le code.</li>
-	 * <li>calculé par la méthode selectionnerProjetSource(Path)</li>
+	 * <li>calculé par <code>Paths.get(".").toAbsolutePath().normalize()</code> 
+	 * puis extraction du nom.</li>
 	 * <li>nom sous forme de <b>String</b>.</li>
-	 * <li>Singleton.</li>
+	 * <li>SINGLETON.</li>
 	 * <li>Par exemple : <br/>
 	 * <code>projet_users</code>
 	 * </li>
@@ -449,43 +443,55 @@ public final class ArboresceurPresentProjet {
 	private static String projetSourceNom;
 	
 	/**
-	 * path <b>relatif</b> (par rapport au projet source) 
-	 * des sources Java dans le projet source.<br/>
+	 * path <b>relatif</b> (par rapport au présent projet ECLIPSE) 
+	 * des sources Java dans le présent projet ECLIPSE.<br/>
 	 * Paths.get("src/main/java")
 	 */
 	public static final Path SRC_MAIN_JAVA_PATH_RELATIF 
 		= Paths.get("src/main/java");
 	
 	/**
-	 * <b>path absolu des sources Java</b> dans le projet source.<br/>
-	 * projetSourcePath + src/main/java<br/>
+	 * <b>path absolu des sources Java</b> dans le présent projet ECLIPSE.<br/>
+	 * projetSourcePath + SRC_MAIN_JAVA_PATH_RELATIF (src/main/java)<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Par exemple : <br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/main/java
 	 */
 	private static Path srcMainJavaPath;
 
 	/**
-	 * path <b>relatif</b> (par rapport au projet source) 
-	 * des ressources dans le projet source.<br/>
+	 * path <b>relatif</b> (par rapport au présent projet ECLIPSE) 
+	 * des ressources dans le présent projet ECLIPSE.<br/>
 	 * Paths.get("src/main/resources")
 	 */
 	public static final Path SRC_MAIN_RESOURCES_PATH_RELATIF 
 		= Paths.get("src/main/resources");
 	
 	/**
-	 * <b>path absolu des ressources</b> dans le projet source.<br/>
-	 * projetSourcePath + src/main/resources<br/>
+	 * <b>path absolu des ressources</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * projetSourcePath + SRC_MAIN_RESOURCES_PATH_RELATIF 
+	 * (src/main/resources)<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Par exemple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/main/resources
 	 */
 	private static Path srcMainResourcesPath;
 
 	/**
 	 * <b>path absolu de ressources/META-INF</b> 
-	 * dans le projet source.<br/>
-	 * srcMainResourcesPath/ + META-INF<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * projetSourcePath + SRC_MAIN_RESOURCES_PATH_RELATIF 
+	 * (src/main/resources) + META-INF<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Par exemple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/main/resources/META-INF
 	 */
 	private static Path srcMainResourcesMetaInfPath;
 
 	/**
-	 * path <b>relatif</b> (par rapport au projet source) 
-	 * des sources des tests JUnit dans le projet source.<br/>
+	 * path <b>relatif</b> (par rapport au présent projet ECLIPSE) 
+	 * des sources des tests JUnit dans le présent projet ECLIPSE.<br/>
 	 * Paths.get("src/test/java")
 	 */
 	public static final Path SRC_TEST_JAVA_PATH_RELATIF 
@@ -493,14 +499,17 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * <b>path absolu des sources des tests JUnit</b> 
-	 * dans le projet source.<br/>
-	 * projetSourcePath + src/test/java<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * projetSourcePath + SRC_TEST_JAVA_PATH_RELATIF (src/test/java)<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Par exemple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/test/java
 	 */
 	private static Path srcTestJavaPath;
 
 	/**
-	 * path <b>relatif</b> (par rapport au projet source) 
-	 * des ressources des tests JUnit dans le projet source.<br/>
+	 * path <b>relatif</b> (par rapport au présent projet ECLIPSE) 
+	 * des ressources des tests JUnit dans le présent projet ECLIPSE.<br/>
 	 * Paths.get("src/test/resources")
 	 */
 	public static final Path SRC_TEST_RESOURCES_PATH_RELATIF 
@@ -508,15 +517,22 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * <b>path absolu des ressources des tests Junit</b> 
-	 * dans le projet source.<br/>
-	 * projetSourcePath + src/test/resources<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * projetSourcePath + SRC_TEST_RESOURCES_PATH_RELATIF 
+	 * (src/test/resources)<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Par exemple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/test/resources
 	 */
 	private static Path srcTestResourcesPath;
 
 	/**
 	 * <b>path absolu des ressources/META-INF des tests Junit</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * srcTestResourcesPath/ + META-INF<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Par exmple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/test/resources/META-INF
 	 */
 	private static Path srcTestResourcesMetaInfPath;
 	
@@ -526,13 +542,15 @@ public final class ArboresceurPresentProjet {
 	 * peut être modifié par le Setter.<br/>
 	 * "levy.daniel.application".
 	 */
-	private static final String GROUPID_PAR_DEFAUT 
+	public static final String GROUPID_PAR_DEFAUT 
 	= "levy.daniel.application";
 	
 	/**
-	 * GroupId MAVEN dans le projet source.<br/>
-	 * Le groupId MAVEN (avec des .) 
-	 * peut être modifié par le Setter.<br/>
+	 * GroupId MAVEN dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Le groupId MAVEN <b>(avec des séparateurs '.')</b>.<br/> 
+	 * peut être modifié par le Setter qui recalcule le GroupId 
+	 * sous forme de PATH (avec des séparateurs '/') correspondant.<br/>
 	 * "levy.daniel.application" par défaut.
 	 */
 	private static String groupId = GROUPID_PAR_DEFAUT;
@@ -543,13 +561,17 @@ public final class ArboresceurPresentProjet {
 	 * peut être modifié par le Setter.<br/>
 	 * "levy/daniel/application".
 	 */
-	private static final String GROUPIDPATH_PAR_DEFAUT 
+	public static final String GROUPIDPATH_PAR_DEFAUT 
 		= "levy/daniel/application";
 
 	/**
 	 * path <b>relatif</b> 
 	 * (par rapport au srcMainJavaPath et au srcTestJavaPath)
 	 * correspondant au GroupId MAVEN.<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Le groupId MAVEN <b>(avec des séparateurs '/')</b>.<br/> 
+	 * peut être modifié par le Setter qui recalcule le GroupId 
+	 * sous forme Java (avec des séparateurs '.') correspondant.<br/>
 	 * - Paths.get("levy/daniel/application") par défaut.<br/>
 	 * - Sinon, utiliser le Setter.<br/>
 	 */
@@ -557,8 +579,9 @@ public final class ArboresceurPresentProjet {
 		= Paths.get(GROUPIDPATH_PAR_DEFAUT);
 	
 	/**
-	 * <b>path absolu des sources Java</b> 
-	 * dans le projet source.<br/>
+	 * <b>path absolu de la racine (sous le groupId) des sources Java</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * srcMainJavaPath + groupIdPathRelatif<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application</code>
@@ -566,17 +589,26 @@ public final class ArboresceurPresentProjet {
 	private static Path racineSourcesJavaPath;
 	
 	/**
-	 * <b>path absolu des tests JUnit</b> 
-	 * dans le projet source.<br/>
+	 * <b>path absolu de la racine (sous le groupId) des tests JUnit</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * srcTestJavaPath + groupIdPathRelatif<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application</code>
 	 */
 	private static Path racineTestsJavaPath;
-		
+	
+	/**
+	 * Path relatif de la couche <code>apptechnic</code> 
+	 * par rapport à la racine des sources Java 
+	 * <code>racineSourcesJavaPath</code>.
+	 */
+	public static final Path PATH_RELATIF_APPTECHNNIC = Paths.get(APPTECHNIC);
+	
 	/**
 	 * <b>path absolu des sources de la couche apptechnic</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * racineSourcesJavaPath + apptechnic<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/apptechnic</code>
@@ -585,16 +617,25 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>path absolu des tests JUnit de la couche apptechnic</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * racineTestsJavaPath + apptechnic<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/apptechnic</code>
 	 */
 	private static Path coucheAppTechnicTestPath;
-		
+	
+	/**
+	 * Path relatif de la couche <code>controllers</code> 
+	 * par rapport à la racine des sources Java 
+	 * <code>racineSourcesJavaPath</code>.
+	 */
+	public static final Path PATH_RELATIF_CONTROLLERS = Paths.get(CONTROLLERS);	
+	
 	/**
 	 * <b>path absolu des sources de la couche controllers</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * racineSourcesJavaPath + controllers<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/controllers</code>
@@ -603,7 +644,8 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>path absolu des tests JUnit de la couche controllers</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * racineTestsJavaPath + controllers<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/controllers</code>
@@ -613,7 +655,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * controllers/desktop</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersMainPath + desktop<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -624,7 +667,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * controllers/desktop</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersTestPath + desktop<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -635,7 +679,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * controllers/desktop/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersDesktopMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -646,7 +691,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * controllers/desktop/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersDesktopTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -657,7 +703,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * controllers/desktop/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersDesktopMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -668,7 +715,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * controllers/desktop/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersDesktopTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -679,7 +727,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * controllers/desktop/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersDesktopMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -690,7 +739,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * controllers/desktop/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersDesktopTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -701,7 +751,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * controllers/web</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersMainPath + web<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -712,7 +763,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * controllers/web</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersTestPath + web<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -723,7 +775,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * controllers/web/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersWebMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -734,7 +787,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * controllers/web/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersWebTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -745,7 +799,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * controllers/web/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersWebMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -756,7 +811,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * controllers/web/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersWebTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -767,7 +823,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * controllers/web/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersWebMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -778,7 +835,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * controllers/web/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheControllersWebTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -788,7 +846,8 @@ public final class ArboresceurPresentProjet {
 		
 	/**
 	 * <b>path absolu des sources de la couche vues</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * racineSourcesJavaPath + vues<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/vues</code>
@@ -797,7 +856,8 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>path absolu des tests JUnit de la couche vues</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * racineTestsJavaPath + vues<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/vues</code>
@@ -807,7 +867,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * vues/desktop</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesMainPath + desktop<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -818,7 +879,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * vues/desktop</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesTestPath + desktop<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -829,7 +891,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * vues/desktop/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesDesktopMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -840,7 +903,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * vues/desktop/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesDesktopTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -851,7 +915,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * vues/desktop/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesDesktopMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -862,7 +927,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * vues/desktop/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesDesktopTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -873,7 +939,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * vues/desktop/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesDesktopMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -884,7 +951,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * vues/desktop/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesDesktopTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -895,7 +963,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * vues/web</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesMainPath + web<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -906,7 +975,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * vues/web</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesTestPath + web<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -917,7 +987,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * vues/web/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesWebMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -928,7 +999,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * vues/web/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesWebTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -939,7 +1011,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * vues/web/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesWebMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -950,7 +1023,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * vues/web/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesWebTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -961,7 +1035,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * vues/web/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesWebMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application
@@ -972,7 +1047,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * vues/web/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheVuesWebTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application
@@ -982,7 +1058,8 @@ public final class ArboresceurPresentProjet {
 			
 	/**
 	 * <b>path absolu des sources de la couche model</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * racineSourcesJavaPath + model<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/model</code>
@@ -991,7 +1068,8 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>path absolu des tests JUnit de la couche model</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * racineTestsJavaPath + model<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/model</code>
@@ -1000,7 +1078,8 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>path absolu des sources de la couche model/dto</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelMainPath + dto<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1010,7 +1089,8 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * <b>path absolu des tests JUnit de la couche model/dto</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelTestPath + dto<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1020,7 +1100,8 @@ public final class ArboresceurPresentProjet {
 		
 	/**
 	 * <b>path absolu des sources de la couche model/dto/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelDTOMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1030,7 +1111,8 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * <b>path absolu des tests JUnit de la couche model/dto/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelDTOTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1040,7 +1122,8 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>path absolu des sources de la couche model/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1050,7 +1133,8 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * <b>path absolu des tests JUnit de la couche model/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1060,7 +1144,8 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>path absolu des sources de la couche model/persistence</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelMainPath + persistence<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1070,7 +1155,8 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * <b>path absolu des tests JUnit de la couche model/persistence</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelTestPath + persistence<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1081,7 +1167,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/persistence/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelPersistenceMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1092,7 +1179,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * model/persistence/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelPersistenceTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1103,7 +1191,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/persistence/daoexceptions</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelPersistenceMainPath + daoexceptions<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1114,7 +1203,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * model/persistence/daoexceptions</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelPersistenceTestPath + daoexceptions<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1125,7 +1215,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/persistence/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelPersistenceMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1136,7 +1227,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * model/persistence/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelPersistenceTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1146,7 +1238,8 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>path absolu des sources de la couche model/services</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelMainPath + services<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1156,7 +1249,8 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * <b>path absolu des tests JUnit de la couche model/services</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelTestPath + services<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1167,7 +1261,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/services/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1178,7 +1273,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * model/services/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1189,7 +1285,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/services/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1200,7 +1297,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * model/services/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1211,7 +1309,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/services/transformeurs</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesMainPath + transformeurs<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1222,7 +1321,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/services/transformeurs/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesTransformeursMainPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1233,7 +1333,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * model/services/transformeurs</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesTestPath + transformeurs<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1244,7 +1345,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * model/services/transformeurs/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesTransformeursTestPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1255,7 +1357,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/services/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1266,7 +1369,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * model/services/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1277,7 +1381,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/services/valideurs</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesMainPath + valideurs<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1288,7 +1393,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/services/valideurs/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesValideursMainPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1299,7 +1405,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des tests JUnit de la couche 
 	 * model/services/valideurs</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesTestPath + valideurs<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1310,7 +1417,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * <b>path absolu des sources de la couche 
 	 * model/services/valideurs/metier</b> 
-	 * dans les tests du projet source.<br/>
+	 * dans les tests du présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelServicesValideursTestPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1320,7 +1428,8 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>path absolu des sources de la couche model/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -1330,7 +1439,8 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * <b>path absolu des tests JUnit de la couche model/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * coucheModelTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -1340,71 +1450,82 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * repertoire externe <b>conception_appli</b>.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * projetSourcePath + conception_appli
 	 */
 	private static Path conceptionAppliPath;
 	
 	/**
 	 * repertoire externe <b>data</b>.
+	 * <b>SINGLETON</b><br/>
 	 * projetSourcePath + data
 	 */
 	private static Path dataPath;
 	
 	/**
 	 * dataPath/ + "base-" + ${projetSourceNom} + "-h2"</b>.<br/>
+	 * <b>SINGLETON</b><br/>
 	 */
 	private static Path dataH2Path;
 	
 	/**
 	 * dataPath/ + "base-" + ${projetSourceNom}-hsqldb.
+	 * <b>SINGLETON</b><br/>
 	 */
 	private static Path dataHSQLDBPath;
 	
 	/**
 	 * dataPath/ + "base-" + ${projetSourceNom} + "-JAXB"</b>.<br/>
+	 * <b>SINGLETON</b><br/>
 	 */
 	private static Path dataJAXBPath;
 	
 	/**
 	 * dataPath/ + scripts_sql.
+	 * <b>SINGLETON</b><br/>
 	 */
 	private static Path dataScriptsSqlPath;
 	
 	/**
 	 * repertoire externe <b>javadoc</b>.
+	 * <b>SINGLETON</b><br/>
 	 */
 	private static Path javadocPath;
 		
 	/**
 	 * repertoire externe <b>javadoc/images</b>.
+	 * <b>SINGLETON</b><br/>
 	 */
 	private static Path javadocImagesPath;
 	
 	/**
 	 * repertoire externe <b>logs</b>.
+	 * <b>SINGLETON</b><br/>
 	 */
 	private static Path logsPath;
 	
 	/**
 	 * repertoire externe <b>rapports_controle</b>.
+	 * <b>SINGLETON</b><br/>
 	 */
 	private static Path rapportsControlePath;
 	
 	/**
 	 * repertoire externe <b>ressources_externes</b>.
+	 * <b>SINGLETON</b><br/>
 	 */
 	private static Path ressourcesExternesPath;
 	
 	/**
 	 * Liste des répertoires (sous forme de Path) 
-	 * constituant l'arborescence à créer dans le projet source.
+	 * constituant l'arborescence à créer dans le présent projet ECLIPSE.
 	 */
 	private static final List<Path> ARBORESCENCE_PROJET_SOURCE 
 		= new LinkedList<Path>();
 	
 	/**
 	 * <b>Map des répertoires sous src/main/java</b> 
-	 * dans le projet source avec :
+	 * dans le présent projet ECLIPSE avec :
 	 * <ul>
 	 * <li>String : le chemin relatif du répertoire par rapport 
 	 * au GroupId comme <code>"model/dto"</code></li>
@@ -1417,7 +1538,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>Map des répertoires sous src/test/java</b> 
-	 * dans le projet source avec :
+	 * dans le présent projet ECLIPSE avec :
 	 * <ul>
 	 * <li>String : le chemin relatif du répertoire par rapport 
 	 * au GroupId comme <code>"model/dto"</code></li>
@@ -1430,7 +1551,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * <b>Map des répertoires externes</b> 
-	 * dans le projet source avec :
+	 * dans le présent projet ECLIPSE avec :
 	 * <ul>
 	 * <li>String : le nom du répertoire externe 
 	 * comme <code>"data"</code></li>
@@ -1470,14 +1591,14 @@ public final class ArboresceurPresentProjet {
 	 * <li><b>calcule tous les autres attributs</b> 
 	 * (paths) de la classe.</li>
 	 * <li><b>alimente la liste ARBORESCENCE_PROJET_SOURCE</b> 
-	 * contenant tous les répertoires à créer dans le projet source.</li>
+	 * contenant tous les répertoires à créer dans le présent projet ECLIPSE.</li>
 	 * <li><b>alimente la Map ARBORESCENCE_MAIN_PROJET_SOURCE_MAP</b>.</li>
 	 * <li><b>alimente la Map ARBORESCENCE_TEST_PROJET_SOURCE_MAP</b>.</li>
 	 * </ul>
 	 * - ne fait rien si pPojetSourcePath == null.<br/>
 	 * <br/>
 	 *
-	 * @param pPojetSourcePath : Path : Path du projet source dans lequel 
+	 * @param pPojetSourcePath : Path : Path du présent projet ECLIPSE dans lequel 
 	 * on va trouver une arborescence d'application n-tiers 
 	 * MAVEN SIMPLE.<br/>
 	 */
@@ -1487,15 +1608,16 @@ public final class ArboresceurPresentProjet {
 						
 			projetSourcePath 
 				= Paths.get(".").toAbsolutePath().normalize();
+			
 			projetSourceNom 
-				= extraireNom(projetSourcePath);
+				= extraireNom(getProjetSourcePath());
 			
 			/* calcule tous les autres attributs. */
 			calculerTousAttributs();
 			
 			/* alimente la liste ARBORESCENCE_PROJET_SOURCE 
 			 * contenant tous les répertoires à créer 
-			 * dans le projet source.*/
+			 * dans le présent projet ECLIPSE.*/
 			alimenterArborescence();
 			
 			/* alimente la Map ARBORESCENCE_MAIN_PROJET_SOURCE_MAP. */
@@ -1509,7 +1631,7 @@ public final class ArboresceurPresentProjet {
 			
 		} // Fin de synchronized._______________________
 		
-	} // Fin de selectionnerProjetSource(...).______________________________
+	} // Fin de calculerTout(...)._________________________________________
 
 
 	
@@ -1669,7 +1791,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Alimente la liste ARBORESCENCE_PROJET_SOURCE.<br/>
 	 * Liste des répertoires (sous forme de Path) 
-	 * constituant l'arborescence à créer dans le projet source.<br/>
+	 * constituant l'arborescence à créer dans le présent projet ECLIPSE.<br/>
 	 */
 	private static void alimenterArborescence() {
 		
@@ -1795,7 +1917,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * alimente la <b>Map des répertoires sous src/main/java</b> 
-	 * dans le projet source avec :
+	 * dans le présent projet ECLIPSE avec :
 	 * <ul>
 	 * <li>String : le chemin relatif du répertoire par rapport 
 	 * au GroupId comme <code>"model/dto"</code></li>
@@ -1877,7 +1999,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * alimente la <b>Map des répertoires sous src/test/java</b> 
-	 * dans le projet source avec :
+	 * dans le présent projet ECLIPSE avec :
 	 * <ul>
 	 * <li>String : le chemin relatif du répertoire par rapport 
 	 * au GroupId comme <code>"model/dto"</code></li>
@@ -1959,7 +2081,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * alimente la <b>Map des répertoires externes</b> 
-	 * dans le projet source avec :
+	 * dans le présent projet ECLIPSE avec :
 	 * <ul>
 	 * <li>String : le nom du répertoire externe 
 	 * comme <code>"data"</code></li>
@@ -2159,10 +2281,10 @@ public final class ArboresceurPresentProjet {
 		
 	/**
 	 * fournit le nombre de répertoires 
-	 * à créer dans le projet source.<br/>
+	 * à créer dans le présent projet ECLIPSE.<br/>
 	 *
 	 * @return : int : 
-	 * nombre de répertoires à créer dans le projet source.<br/>
+	 * nombre de répertoires à créer dans le présent projet ECLIPSE.<br/>
 	 */
 	public static int fournirNombreRepACreer() {
 		
@@ -2227,7 +2349,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le path absolu des src/main/java 
-	 * <b>srcMainJavaPath</b> dans le projet source.<br/>
+	 * <b>srcMainJavaPath</b> dans le présent projet ECLIPSE.<br/>
 	 * - ne fait rien si projetSourcePath == null.<br/>
 	 * - projetSourcePath n'a pas besoin d'exister physiquement 
 	 * sur le disque.<br/>
@@ -2250,7 +2372,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le path absolu des src/main/resources 
-	 * <b>srcMainResourcesPath</b> dans le projet source.<br/>
+	 * <b>srcMainResourcesPath</b> dans le présent projet ECLIPSE.<br/>
 	 * - ne fait rien si projetSourcePath == null.<br/>
 	 * - projetSourcePath n'a pas besoin d'exister physiquement 
 	 * sur le disque.<br/>
@@ -2273,7 +2395,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le path absolu des src/main/resources/META-INF 
-	 * <b>srcMainResourcesMetaInfPath</b> dans le projet source.<br/>
+	 * <b>srcMainResourcesMetaInfPath</b> dans le présent projet ECLIPSE.<br/>
 	 * srcMainResourcesPath/ + META-INF<br/>
 	 * - ne fait rien si srcMainResourcesPath == null.<br/>
 	 * - srcMainResourcesPath n'a pas besoin d'exister physiquement 
@@ -2297,7 +2419,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le path absolu des src/test/java 
-	 * <b>srcTestJavaPath</b> dans le projet source.<br/>
+	 * <b>srcTestJavaPath</b> dans le présent projet ECLIPSE.<br/>
 	 * - ne fait rien si projetSourcePath == null.<br/>
 	 * - projetSourcePath n'a pas besoin d'exister physiquement 
 	 * sur le disque.<br/>
@@ -2320,7 +2442,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le path absolu des src/test/resources 
-	 * <b>srcTestResourcesPath</b> dans le projet source.<br/>
+	 * <b>srcTestResourcesPath</b> dans le présent projet ECLIPSE.<br/>
 	 * - ne fait rien si projetSourcePath == null.<br/>
 	 * - projetSourcePath n'a pas besoin d'exister physiquement 
 	 * sur le disque.<br/>
@@ -2343,7 +2465,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le path absolu des src/test/resources/META-INF 
-	 * <b>srcTestResourcesMetaInfPath</b> dans le projet source.<br/>
+	 * <b>srcTestResourcesMetaInfPath</b> dans le présent projet ECLIPSE.<br/>
 	 * srcTestResourcesPath/ + META-INF<br/>
 	 * - ne fait rien si srcTestResourcesPath == null.<br/>
 	 * - srcTestResourcesPath n'a pas besoin d'exister physiquement 
@@ -2367,7 +2489,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le path absolu des src/main/java/${groupIdPathRelatif} 
-	 * <b>racineSourcesJavaPath</b> dans le projet source.<br/>
+	 * <b>racineSourcesJavaPath</b> dans le présent projet ECLIPSE.<br/>
 	 * - ne fait rien si srcMainJavaPath == null.<br/>
 	 * - srcMainJavaPath n'a pas besoin d'exister physiquement 
 	 * sur le disque.<br/>
@@ -2392,7 +2514,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le path absolu des src/test/java/${groupIdPathRelatif} 
-	 * <b>racineTestsJavaPath</b> dans le projet source.<br/>
+	 * <b>racineTestsJavaPath</b> dans le présent projet ECLIPSE.<br/>
 	 * - ne fait rien si srcTestJavaPath == null.<br/>
 	 * - srcTestJavaPath n'a pas besoin d'exister physiquement 
 	 * sur le disque.<br/>
@@ -2417,7 +2539,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le <b>path absolu des sources de la couche apptechnic</b>
-	 * <b>coucheAppTechnicMainPath</b> dans le projet source.<br/>
+	 * <b>coucheAppTechnicMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * racineSourcesJavaPath + apptechnic<br/>
 	 * - ne fait rien si racineSourcesJavaPath == null.<br/>
 	 * - racineSourcesJavaPath n'a pas besoin d'exister physiquement 
@@ -2444,7 +2566,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le <b>path absolu des tests de la couche apptechnic</b>
-	 * <b>coucheAppTechnicTestPath</b> dans le projet source.<br/>
+	 * <b>coucheAppTechnicTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * racineTestsJavaPath + apptechnic<br/>
 	 * - ne fait rien si racineTestsJavaPath == null.<br/>
 	 * - racineTestsJavaPath n'a pas besoin d'exister physiquement 
@@ -2471,7 +2593,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le <b>path absolu des sources de la couche controllers</b>
-	 * <b>coucheControllersMainPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * racineSourcesJavaPath + controllers<br/>
 	 * - ne fait rien si racineSourcesJavaPath == null.<br/>
 	 * - racineSourcesJavaPath n'a pas besoin d'exister physiquement 
@@ -2498,7 +2620,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le <b>path absolu des tests de la couche controllers</b>
-	 * <b>coucheControllersTestPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * racineTestsJavaPath + controllers<br/>
 	 * - ne fait rien si racineTestsJavaPath == null.<br/>
 	 * - racineTestsJavaPath n'a pas besoin d'exister physiquement 
@@ -2526,7 +2648,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * controllers/desktop</b>
-	 * <b>coucheControllersDesktopMainPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersDesktopMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersMainPath + desktop<br/>
 	 * - ne fait rien si coucheControllersMainPath == null.<br/>
 	 * - coucheControllersMainPath n'a pas besoin d'exister physiquement 
@@ -2554,7 +2676,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * controllers/desktop</b>
-	 * <b>coucheControllersDesktopTestPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersDesktopTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersTestPath + desktop<br/>
 	 * - ne fait rien si coucheControllersTestPath == null.<br/>
 	 * - coucheControllersTestPath n'a pas besoin d'exister physiquement 
@@ -2582,7 +2704,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * controllers/desktop/accueil</b>
-	 * <b>coucheControllersDesktopAccueilMainPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersDesktopAccueilMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopMainPath + accueil<br/>
 	 * - ne fait rien si coucheControllersDesktopMainPath == null.<br/>
 	 * - coucheControllersDesktopMainPath n'a pas besoin d'exister physiquement 
@@ -2610,7 +2732,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * controllers/desktop/accueil</b>
-	 * <b>coucheControllersDesktopAccueilTestPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersDesktopAccueilTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopTestPath + accueil<br/>
 	 * - ne fait rien si coucheControllersDesktopTestPath == null.<br/>
 	 * - coucheControllersDesktopTestPath n'a pas besoin d'exister physiquement 
@@ -2638,7 +2760,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * controllers/desktop/metier</b>
-	 * <b>coucheControllersDesktopMetierMainPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersDesktopMetierMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopMainPath + metier<br/>
 	 * - ne fait rien si coucheControllersDesktopMainPath == null.<br/>
 	 * - coucheControllersDesktopMainPath n'a pas besoin d'exister physiquement 
@@ -2666,7 +2788,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * controllers/desktop/metier</b>
-	 * <b>coucheControllersDesktopMetierTestPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersDesktopMetierTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopTestPath + metier<br/>
 	 * - ne fait rien si coucheControllersDesktopTestPath == null.<br/>
 	 * - coucheControllersDesktopTestPath n'a pas besoin d'exister physiquement 
@@ -2694,7 +2816,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * controllers/desktop/utilitaires</b>
-	 * <b>coucheControllersDesktopUtilitairesMainPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersDesktopUtilitairesMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopMainPath + utilitaires<br/>
 	 * - ne fait rien si coucheControllersDesktopMainPath == null.<br/>
 	 * - coucheControllersDesktopMainPath n'a pas besoin d'exister physiquement 
@@ -2722,7 +2844,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * controllers/desktop/utilitaires</b>
-	 * <b>coucheControllersDesktopUtilitairesTestPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersDesktopUtilitairesTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopTestPath + utilitaires<br/>
 	 * - ne fait rien si coucheControllersDesktopTestPath == null.<br/>
 	 * - coucheControllersDesktopTestPath n'a pas besoin d'exister physiquement 
@@ -2750,7 +2872,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * controllers/web</b>
-	 * <b>coucheControllersWebMainPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersWebMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersMainPath + web<br/>
 	 * - ne fait rien si coucheControllersMainPath == null.<br/>
 	 * - coucheControllersMainPath n'a pas besoin d'exister physiquement 
@@ -2778,7 +2900,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * controllers/web</b>
-	 * <b>coucheControllersWebTestPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersWebTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersTestPath + web<br/>
 	 * - ne fait rien si coucheControllersTestPath == null.<br/>
 	 * - coucheControllersTestPath n'a pas besoin d'exister physiquement 
@@ -2806,7 +2928,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * controllers/web/accueil</b>
-	 * <b>coucheControllersWebAccueilMainPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersWebAccueilMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebMainPath + accueil<br/>
 	 * - ne fait rien si coucheControllersWebMainPath == null.<br/>
 	 * - coucheControllersWebMainPath n'a pas besoin d'exister physiquement 
@@ -2834,7 +2956,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * controllers/web/accueil</b>
-	 * <b>coucheControllersWebAccueilTestPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersWebAccueilTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebTestPath + accueil<br/>
 	 * - ne fait rien si coucheControllersWebTestPath == null.<br/>
 	 * - coucheControllersWebTestPath n'a pas besoin d'exister physiquement 
@@ -2862,7 +2984,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * controllers/web/metier</b>
-	 * <b>coucheControllersWebMetierMainPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersWebMetierMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebMainPath + metier<br/>
 	 * - ne fait rien si coucheControllersWebMainPath == null.<br/>
 	 * - coucheControllersWebMainPath n'a pas besoin d'exister physiquement 
@@ -2890,7 +3012,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * controllers/web/metier</b>
-	 * <b>coucheControllersWebMetierTestPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersWebMetierTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebTestPath + metier<br/>
 	 * - ne fait rien si coucheControllersWebTestPath == null.<br/>
 	 * - coucheControllersWebTestPath n'a pas besoin d'exister physiquement 
@@ -2918,7 +3040,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * controllers/web/utilitaires</b>
-	 * <b>coucheControllersWebUtilitairesMainPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersWebUtilitairesMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebMainPath + utilitaires<br/>
 	 * - ne fait rien si coucheControllersWebMainPath == null.<br/>
 	 * - coucheControllersWebMainPath n'a pas besoin d'exister physiquement 
@@ -2946,7 +3068,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * controllers/web/utilitaires</b>
-	 * <b>coucheControllersWebUtilitairesTestPath</b> dans le projet source.<br/>
+	 * <b>coucheControllersWebUtilitairesTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebTestPath + utilitaires<br/>
 	 * - ne fait rien si coucheControllersWebTestPath == null.<br/>
 	 * - coucheControllersWebTestPath n'a pas besoin d'exister physiquement 
@@ -2973,7 +3095,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le <b>path absolu des sources de la couche vues</b>
-	 * <b>coucheVuesMainPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * racineSourcesJavaPath + vues<br/>
 	 * - ne fait rien si racineSourcesJavaPath == null.<br/>
 	 * - racineSourcesJavaPath n'a pas besoin d'exister physiquement 
@@ -3000,7 +3122,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le <b>path absolu des tests de la couche vues</b>
-	 * <b>coucheVuesTestPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * racineTestsJavaPath + vues<br/>
 	 * - ne fait rien si racineTestsJavaPath == null.<br/>
 	 * - racineTestsJavaPath n'a pas besoin d'exister physiquement 
@@ -3028,7 +3150,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * vues/desktop</b>
-	 * <b>coucheVuesDesktopMainPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesDesktopMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesMainPath + desktop<br/>
 	 * - ne fait rien si coucheVuesMainPath == null.<br/>
 	 * - coucheVuesMainPath n'a pas besoin d'exister physiquement 
@@ -3056,7 +3178,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * vues/desktop</b>
-	 * <b>coucheVuesDesktopTestPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesDesktopTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesTestPath + desktop<br/>
 	 * - ne fait rien si coucheVuesTestPath == null.<br/>
 	 * - coucheVuesTestPath n'a pas besoin d'exister physiquement 
@@ -3084,7 +3206,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * vues/desktop/accueil</b>
-	 * <b>coucheVuesDesktopAccueilMainPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesDesktopAccueilMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopMainPath + accueil<br/>
 	 * - ne fait rien si coucheVuesDesktopMainPath == null.<br/>
 	 * - coucheVuesDesktopMainPath n'a pas besoin d'exister physiquement 
@@ -3112,7 +3234,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * vues/desktop/accueil</b>
-	 * <b>coucheVuesDesktopAccueilTestPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesDesktopAccueilTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopTestPath + accueil<br/>
 	 * - ne fait rien si coucheVuesDesktopTestPath == null.<br/>
 	 * - coucheVuesDesktopTestPath n'a pas besoin d'exister physiquement 
@@ -3140,7 +3262,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * vues/desktop/metier</b>
-	 * <b>coucheVuesDesktopMetierMainPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesDesktopMetierMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopMainPath + metier<br/>
 	 * - ne fait rien si coucheVuesDesktopMainPath == null.<br/>
 	 * - coucheVuesDesktopMainPath n'a pas besoin d'exister physiquement 
@@ -3168,7 +3290,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * vues/desktop/metier</b>
-	 * <b>coucheVuesDesktopMetierTestPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesDesktopMetierTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopTestPath + metier<br/>
 	 * - ne fait rien si coucheVuesDesktopTestPath == null.<br/>
 	 * - coucheVuesDesktopTestPath n'a pas besoin d'exister physiquement 
@@ -3196,7 +3318,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * vues/desktop/utilitaires</b>
-	 * <b>coucheVuesDesktopUtilitairesMainPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesDesktopUtilitairesMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopMainPath + utilitaires<br/>
 	 * - ne fait rien si coucheVuesDesktopMainPath == null.<br/>
 	 * - coucheVuesDesktopMainPath n'a pas besoin d'exister physiquement 
@@ -3224,7 +3346,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * vues/desktop/utilitaires</b>
-	 * <b>coucheVuesDesktopUtilitairesTestPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesDesktopUtilitairesTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopTestPath + utilitaires<br/>
 	 * - ne fait rien si coucheVuesDesktopTestPath == null.<br/>
 	 * - coucheVuesDesktopTestPath n'a pas besoin d'exister physiquement 
@@ -3252,7 +3374,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * vues/web</b>
-	 * <b>coucheVuesWebMainPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesWebMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesMainPath + web<br/>
 	 * - ne fait rien si coucheVuesMainPath == null.<br/>
 	 * - coucheVuesMainPath n'a pas besoin d'exister physiquement 
@@ -3280,7 +3402,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * vues/web</b>
-	 * <b>coucheVuesWebTestPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesWebTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesTestPath + web<br/>
 	 * - ne fait rien si coucheVuesTestPath == null.<br/>
 	 * - coucheVuesTestPath n'a pas besoin d'exister physiquement 
@@ -3308,7 +3430,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * vues/web/accueil</b>
-	 * <b>coucheVuesWebAccueilMainPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesWebAccueilMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebMainPath + accueil<br/>
 	 * - ne fait rien si coucheVuesWebMainPath == null.<br/>
 	 * - coucheVuesWebMainPath n'a pas besoin d'exister physiquement 
@@ -3336,7 +3458,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * vues/web/accueil</b>
-	 * <b>coucheVuesWebAccueilTestPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesWebAccueilTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebTestPath + accueil<br/>
 	 * - ne fait rien si coucheVuesWebTestPath == null.<br/>
 	 * - coucheVuesWebTestPath n'a pas besoin d'exister physiquement 
@@ -3364,7 +3486,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * vues/web/metier</b>
-	 * <b>coucheVuesWebMetierMainPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesWebMetierMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebMainPath + metier<br/>
 	 * - ne fait rien si coucheVuesWebMainPath == null.<br/>
 	 * - coucheVuesWebMainPath n'a pas besoin d'exister physiquement 
@@ -3392,7 +3514,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * vues/web/metier</b>
-	 * <b>coucheVuesWebMetierTestPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesWebMetierTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebTestPath + metier<br/>
 	 * - ne fait rien si coucheVuesWebTestPath == null.<br/>
 	 * - coucheVuesWebTestPath n'a pas besoin d'exister physiquement 
@@ -3420,7 +3542,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * vues/web/utilitaires</b>
-	 * <b>coucheVuesWebUtilitairesMainPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesWebUtilitairesMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebMainPath + utilitaires<br/>
 	 * - ne fait rien si coucheVuesWebMainPath == null.<br/>
 	 * - coucheVuesWebMainPath n'a pas besoin d'exister physiquement 
@@ -3448,7 +3570,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * vues/web/utilitaires</b>
-	 * <b>coucheVuesWebUtilitairesTestPath</b> dans le projet source.<br/>
+	 * <b>coucheVuesWebUtilitairesTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebTestPath + utilitaires<br/>
 	 * - ne fait rien si coucheVuesWebTestPath == null.<br/>
 	 * - coucheVuesWebTestPath n'a pas besoin d'exister physiquement 
@@ -3475,7 +3597,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le <b>path absolu des sources de la couche model</b>
-	 * <b>coucheModelMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * racineSourcesJavaPath + model<br/>
 	 * - ne fait rien si racineSourcesJavaPath == null.<br/>
 	 * - racineSourcesJavaPath n'a pas besoin d'exister physiquement 
@@ -3502,7 +3624,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * calcule le <b>path absolu des tests de la couche model</b>
-	 * <b>coucheModelTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * racineTestsJavaPath + model<br/>
 	 * - ne fait rien si racineTestsJavaPath == null.<br/>
 	 * - racineTestsJavaPath n'a pas besoin d'exister physiquement 
@@ -3530,7 +3652,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/dto</b>
-	 * <b>coucheModelDTOMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelDTOMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + dto<br/>
 	 * - ne fait rien si coucheModelMainPath == null.<br/>
 	 * - coucheModelMainPath n'a pas besoin d'exister physiquement 
@@ -3558,7 +3680,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/dto</b>
-	 * <b>coucheModelDTOTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelDTOTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + dto<br/>
 	 * - ne fait rien si coucheModelTestPath == null.<br/>
 	 * - coucheModelTestPath n'a pas besoin d'exister physiquement 
@@ -3586,7 +3708,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/dto/metier</b>
-	 * <b>coucheModelDTOMetierMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelDTOMetierMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelDTOMainPath + metier<br/>
 	 * - ne fait rien si coucheModelDTOMainPath == null.<br/>
 	 * - coucheModelDTOMainPath n'a pas besoin d'exister physiquement 
@@ -3614,7 +3736,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/dto/metier</b>
-	 * <b>coucheModelDTOMetierTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelDTOMetierTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelDTOTestPath + metier<br/>
 	 * - ne fait rien si coucheModelDTOTestPath == null.<br/>
 	 * - coucheModelDTOTestPath n'a pas besoin d'exister physiquement 
@@ -3642,7 +3764,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/metier</b>
-	 * <b>coucheModelMetierMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelMetierMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + metier<br/>
 	 * - ne fait rien si coucheModelMainPath == null.<br/>
 	 * - coucheModelMainPath n'a pas besoin d'exister physiquement 
@@ -3670,7 +3792,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/metier</b>
-	 * <b>coucheModelMetierTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelMetierTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + metier<br/>
 	 * - ne fait rien si coucheModelTestPath == null.<br/>
 	 * - coucheModelTestPath n'a pas besoin d'exister physiquement 
@@ -3698,7 +3820,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/persistence</b>
-	 * <b>coucheModelPersistenceMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelPersistenceMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + persistence<br/>
 	 * - ne fait rien si coucheModelMainPath == null.<br/>
 	 * - coucheModelMainPath n'a pas besoin d'exister physiquement 
@@ -3726,7 +3848,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/persistence</b>
-	 * <b>coucheModelPersistenceTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelPersistenceTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + persistence<br/>
 	 * - ne fait rien si coucheModelTestPath == null.<br/>
 	 * - coucheModelTestPath n'a pas besoin d'exister physiquement 
@@ -3754,7 +3876,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/persistence/accueil</b>
-	 * <b>coucheModelPersistenceAccueilMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelPersistenceAccueilMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceMainPath + accueil<br/>
 	 * - ne fait rien si coucheModelPersistenceMainPath == null.<br/>
 	 * - coucheModelPersistenceMainPath n'a pas besoin d'exister physiquement 
@@ -3782,7 +3904,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/persistence/accueil</b>
-	 * <b>coucheModelPersistenceAccueilTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelPersistenceAccueilTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceTestPath + accueil<br/>
 	 * - ne fait rien si coucheModelPersistenceTestPath == null.<br/>
 	 * - coucheModelPersistenceTestPath n'a pas besoin d'exister physiquement 
@@ -3810,7 +3932,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/persistence/daoexceptions</b>
-	 * <b>coucheModelPersistenceDaoexceptionsMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelPersistenceDaoexceptionsMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceMainPath + daoexceptions<br/>
 	 * - ne fait rien si coucheModelPersistenceMainPath == null.<br/>
 	 * - coucheModelPersistenceMainPath n'a pas besoin d'exister physiquement 
@@ -3838,7 +3960,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/persistence/daoexceptions</b>
-	 * <b>coucheModelPersistenceDaoexceptionsTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelPersistenceDaoexceptionsTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceTestPath + daoexceptions<br/>
 	 * - ne fait rien si coucheModelPersistenceTestPath == null.<br/>
 	 * - coucheModelPersistenceTestPath n'a pas besoin d'exister physiquement 
@@ -3866,7 +3988,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/persistence/metier</b>
-	 * <b>coucheModelPersistenceMetierMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelPersistenceMetierMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceMainPath + metier<br/>
 	 * - ne fait rien si coucheModelPersistenceMainPath == null.<br/>
 	 * - coucheModelPersistenceMainPath n'a pas besoin d'exister physiquement 
@@ -3894,7 +4016,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/persistence/metier</b>
-	 * <b>coucheModelPersistenceMetierTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelPersistenceMetierTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceTestPath + metier<br/>
 	 * - ne fait rien si coucheModelPersistenceTestPath == null.<br/>
 	 * - coucheModelPersistenceTestPath n'a pas besoin d'exister physiquement 
@@ -3922,7 +4044,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services</b>
-	 * <b>coucheModelServicesMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + services<br/>
 	 * - ne fait rien si coucheModelMainPath == null.<br/>
 	 * - coucheModelMainPath n'a pas besoin d'exister physiquement 
@@ -3950,7 +4072,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/services</b>
-	 * <b>coucheModelServicesTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + services<br/>
 	 * - ne fait rien si coucheModelTestPath == null.<br/>
 	 * - coucheModelTestPath n'a pas besoin d'exister physiquement 
@@ -3978,7 +4100,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services/accueil</b>
-	 * <b>coucheModelServicesAccueilMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesAccueilMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + accueil<br/>
 	 * - ne fait rien si coucheModelServicesMainPath == null.<br/>
 	 * - coucheModelServicesMainPath n'a pas besoin d'exister physiquement 
@@ -4006,7 +4128,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/services/accueil</b>
-	 * <b>coucheModelServicesAccueilTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesAccueilTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + accueil<br/>
 	 * - ne fait rien si coucheModelServicesTestPath == null.<br/>
 	 * - coucheModelServicesTestPath n'a pas besoin d'exister physiquement 
@@ -4034,7 +4156,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services/metier</b>
-	 * <b>coucheModelServicesMetierMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesMetierMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + metier<br/>
 	 * - ne fait rien si coucheModelServicesMainPath == null.<br/>
 	 * - coucheModelServicesMainPath n'a pas besoin d'exister physiquement 
@@ -4062,7 +4184,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/services/metier</b>
-	 * <b>coucheModelServicesMetierTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesMetierTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + metier<br/>
 	 * - ne fait rien si coucheModelServicesTestPath == null.<br/>
 	 * - coucheModelServicesTestPath n'a pas besoin d'exister physiquement 
@@ -4090,7 +4212,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services/transformeurs</b>
-	 * <b>coucheModelServicesTransformeursMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesTransformeursMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + transformeurs<br/>
 	 * - ne fait rien si coucheModelServicesMainPath == null.<br/>
 	 * - coucheModelServicesMainPath n'a pas besoin d'exister physiquement 
@@ -4118,7 +4240,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services/transformeurs/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTransformeursMainPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -4143,7 +4265,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/services/transformeurs</b>
-	 * <b>coucheModelServicesTransformeursTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesTransformeursTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + transformeurs<br/>
 	 * - ne fait rien si coucheModelServicesTestPath == null.<br/>
 	 * - coucheModelServicesTestPath n'a pas besoin d'exister physiquement 
@@ -4171,7 +4293,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services/transformeurs/metier</b> 
-	 * dans les tests du projet source.<br/>
+	 * dans les tests du présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTransformeursTestPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -4196,7 +4318,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services/utilitaires</b>
-	 * <b>coucheModelServicesUtilitairesMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesUtilitairesMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + utilitaires<br/>
 	 * - ne fait rien si coucheModelServicesMainPath == null.<br/>
 	 * - coucheModelServicesMainPath n'a pas besoin d'exister physiquement 
@@ -4224,7 +4346,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/services/utilitaires</b>
-	 * <b>coucheModelServicesUtilitairesTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesUtilitairesTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + utilitaires<br/>
 	 * - ne fait rien si coucheModelServicesTestPath == null.<br/>
 	 * - coucheModelServicesTestPath n'a pas besoin d'exister physiquement 
@@ -4252,7 +4374,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services/valideurs</b>
-	 * <b>coucheModelServicesValideursMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesValideursMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + valideurs<br/>
 	 * - ne fait rien si coucheModelServicesMainPath == null.<br/>
 	 * - coucheModelServicesMainPath n'a pas besoin d'exister physiquement 
@@ -4280,7 +4402,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services/valideurs/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesValideursMainPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -4305,7 +4427,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/services/valideurs</b>
-	 * <b>coucheModelServicesValideursTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelServicesValideursTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + valideurs<br/>
 	 * - ne fait rien si coucheModelServicesTestPath == null.<br/>
 	 * - coucheModelServicesTestPath n'a pas besoin d'exister physiquement 
@@ -4333,7 +4455,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/services/valideurs/metier</b> 
-	 * dans les tests du projet source.<br/>
+	 * dans les tests du présent projet ECLIPSE.<br/>
 	 * coucheModelServicesValideursTestPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -4358,7 +4480,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des sources de la couche 
 	 * model/utilitaires</b>
-	 * <b>coucheModelUtilitairesMainPath</b> dans le projet source.<br/>
+	 * <b>coucheModelUtilitairesMainPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + utilitaires<br/>
 	 * - ne fait rien si coucheModelMainPath == null.<br/>
 	 * - coucheModelMainPath n'a pas besoin d'exister physiquement 
@@ -4386,7 +4508,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * calcule le <b>path absolu des tests de la couche 
 	 * model/utilitaires</b>
-	 * <b>coucheModelUtilitairesTestPath</b> dans le projet source.<br/>
+	 * <b>coucheModelUtilitairesTestPath</b> dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + utilitaires<br/>
 	 * - ne fait rien si coucheModelTestPath == null.<br/>
 	 * - coucheModelTestPath n'a pas besoin d'exister physiquement 
@@ -4771,7 +4893,15 @@ public final class ArboresceurPresentProjet {
 	
 	
 	/**
-	 * Getter de projetSourcePath.<br/>
+	 * Getter du <b>path ABSOLU du présent projet ECLIPSE</b>.
+	 * <ul>
+	 * <li>calculé par <code>Paths.get(".").toAbsolutePath().normalize()</code></li>
+	 * <li>path sous forme de <b>java.nio.file.Path</b>.</li>
+	 * <li><b>SINGLETON</b>.</li>
+	 * <li>Par exemple : <br/>
+	 * <code>D:/Donnees/eclipse/eclipseworkspace_neon/projet_users
+	 * </code></li>
+	 * </ul>
 	 *
 	 * @return projetSourcePath : Path.<br/>
 	 */
@@ -4792,7 +4922,16 @@ public final class ArboresceurPresentProjet {
 	
 	
 	/**
-	 * Getter du nom du projet source.<br/>
+	 * Getter du <b>nom du présent projet ECLIPSE</b>.
+	 * <ul>
+	 * <li>calculé par <code>Paths.get(".").toAbsolutePath().normalize()</code> 
+	 * puis extraction du nom.</li>
+	 * <li>nom sous forme de <b>String</b>.</li>
+	 * <li><b>SINGLETON</b></li>
+	 * <li>Par exemple : <br/>
+	 * <code>projet_users</code>
+	 * </li>
+	 * </ul>
 	 *
 	 * @return projetSourceNom : String.<br/>
 	 */
@@ -4820,8 +4959,12 @@ public final class ArboresceurPresentProjet {
 	
 
 	/**
-	 * Getter de srcMainJavaPath.<br/>
-	 * <b>path absolu des sources Java</b> dans le projet source.
+	 * Getter du <b>path absolu des sources Java</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
+	 * projetSourcePath + SRC_MAIN_JAVA_PATH_RELATIF (src/main/java)<br/>
+	 * Par exemple : <br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/main/java
 	 *
 	 * @return srcMainJavaPath : Path.<br/>
 	 */
@@ -4846,8 +4989,12 @@ public final class ArboresceurPresentProjet {
 	
 
 	/**
-	 * Getter de srcMainResourcesPath.<br/>
-	 * <b>path absolu des ressources</b> dans le projet source.
+	 * Getter de <b>path absolu des ressources</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
+	 * projetSourcePath + SRC_MAIN_RESOURCES_PATH_RELATIF (src/main/resources)<br/>
+	 * Par exemple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/main/resources
 	 *
 	 * @return srcMainResourcesPath : Path.<br/>
 	 */
@@ -4873,8 +5020,12 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * Getter du <b>path absolu de ressources/META-INF</b> 
-	 * dans le projet source.<br/>
-	 * srcMainResourcesPath/ + META-INF<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
+	 * projetSourcePath + SRC_MAIN_RESOURCES_PATH_RELATIF 
+	 * (src/main/resources) + META-INF<br/>
+	 * Par exemple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/main/resources/META-INF
 	 *
 	 * @return srcMainResourcesMetaInfPath : Path.<br/>
 	 */
@@ -4899,9 +5050,12 @@ public final class ArboresceurPresentProjet {
 	
 
 	/**
-	 * Getter de srcTestJavaPath.<br/>
-	 * <b>path absolu des sources des tests JUnit</b> 
-	 * dans le projet source.<br/>
+	 * Getter du <b>path absolu des sources des tests JUnit</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
+	 * projetSourcePath + SRC_TEST_JAVA_PATH_RELATIF (src/test/java)<br/>
+	 * Par exemple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/test/java
 	 *
 	 * @return srcTestJavaPath : Path.<br/>
 	 */
@@ -4926,9 +5080,13 @@ public final class ArboresceurPresentProjet {
 
 	
 	/**
-	 * Getter de srcTestResourcesPath.<br/>
-	 * <b>path absolu des ressources des tests Junit</b> 
-	 * dans le projet source.<br/>
+	 * Getter du <b>path absolu des ressources des tests Junit</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
+	 * projetSourcePath + SRC_TEST_RESOURCES_PATH_RELATIF 
+	 * (src/test/resources)<br/>
+	 * Par exemple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/test/resources
 	 *
 	 * @return srcTestResourcesPath : Path.<br/>
 	 */
@@ -4953,9 +5111,12 @@ public final class ArboresceurPresentProjet {
 	
 	
 	/**
-	 * Getter du <b>path absolu de ressources/META-INF</b> de test 
-	 * dans le projet source.<br/>
+	 * Getter du <b>path absolu des ressources/META-INF des tests Junit</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * srcTestResourcesPath/ + META-INF<br/>
+	 * Par exmple :<br/>
+	 * D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/src/test/resources/META-INF
 	 *
 	 * @return srcTestResourcesMetaInfPath : Path.<br/>
 	 */
@@ -4980,9 +5141,11 @@ public final class ArboresceurPresentProjet {
 
 	
 	/**
-	 * Getter du GroupId MAVEN dans le projet source.<br/>
-	 * Le groupId MAVEN (avec des .) 
-	 * peut être modifié par le Setter.<br/>
+	 * Getter du GroupId MAVEN dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Le groupId MAVEN <b>(avec des séparateurs '.')</b>.<br/> 
+	 * peut être modifié par le Setter qui recalcule le GroupId 
+	 * sous forme de PATH (avec des séparateurs '/') correspondant.<br/>
 	 * "levy.daniel.application" par défaut.
 	 *
 	 * @return groupId : String.<br/>
@@ -5004,19 +5167,19 @@ public final class ArboresceurPresentProjet {
 
 
 	/**
-	* Setter du GroupId MAVEN dans le projet source.<br/>
-	* Le groupId MAVEN (avec des .) 
-	* peut être modifié par le Setter.<br/>
-	* "levy.daniel.application" par défaut.<br/>
+	* Setter du GroupId MAVEN dans le présent projet ECLIPSE.<br/>
+	 * Le groupId MAVEN <b>(avec des séparateurs '.')</b>.<br/> 
+	 * peut être modifié par le Setter qui recalcule le GroupId 
+	 * sous forme de PATH (avec des séparateurs '/') correspondant.<br/>
+	 * "levy.daniel.application" par défaut.
 	* <ul>
-	* <li><b>Utiliser ce Setter AVANT l'appel à 
-	* <code>selectionnerProjetSource(Path)</code> 
-	* qui va lancer tous les calculs des chemins</b>.</li>
 	* <li><b>recalcule automatiquement groupIdPathRelatif</b>.</li>
+	* <li>recalcule automatiquement tous les attributs.</li>
 	* </ul>
 	*
 	* @param pGroupId : String : 
-	* valeur à passer à groupId comme "levy.daniel.application".<br/>
+	* valeur <b>avec des séparateurs '.'</b> à passer à groupId 
+	* comme "levy.daniel.application".<br/>
 	*/
 	public static void setGroupId(
 			final String pGroupId) {
@@ -5040,6 +5203,10 @@ public final class ArboresceurPresentProjet {
 	 * Getter du path <b>relatif</b> 
 	 * (par rapport au srcMainJavaPath et au srcTestJavaPath)
 	 * correspondant au GroupId MAVEN.<br/>
+	 * <b>SINGLETON</b><br/>
+	 * Le groupId MAVEN <b>(avec des séparateurs '/')</b>.<br/> 
+	 * peut être modifié par le Setter qui recalcule le GroupId 
+	 * sous forme Java (avec des séparateurs '.') correspondant.<br/>
 	 * - Paths.get("levy/daniel/application") par défaut.<br/>
 	 * - Sinon, utiliser le Setter.<br/>
 	 *
@@ -5070,18 +5237,18 @@ public final class ArboresceurPresentProjet {
 	* Setter du path <b>relatif</b> 
 	* (par rapport au srcMainJavaPath et au srcTestJavaPath)
 	* correspondant au GroupId MAVEN.<br/>
+	* Le groupId MAVEN <b>(avec des séparateurs '/')</b>.<br/> 
+	* peut être modifié par le Setter qui recalcule le GroupId 
+	* sous forme Java (avec des séparateurs '.') correspondant.<br/>
 	* - Paths.get("levy/daniel/application") par défaut.<br/>
-	* - Sinon, utiliser le Setter <b>et lui passer un path 
-	* relatif avec des slashes /</b>.
+	* - Sinon, utiliser le Setter.<br/>
 	* <ul>
-	* <li><b>Utiliser ce Setter AVANT l'appel à 
-	* <code>selectionnerProjetSource(Path)</code> 
-	* qui va lancer tous les calculs des chemins</b>.</li>
 	* <li><b>recalcule automatiquement groupId</b>.</li>
+	* <li>recalcule automatiquement tous les attributs.</li>
 	* </ul>
 	*
 	* @param pGroupIdPathRelatif : Path : 
-	* valeur à passer à groupIdPathRelatif.<br/>
+	* valeur <b>avec des séparateurs '/'</b> à passer à groupIdPathRelatif.<br/>
 	*/
 	public static void setGroupIdPathRelatif(
 			final Path pGroupIdPathRelatif) {
@@ -5102,9 +5269,10 @@ public final class ArboresceurPresentProjet {
 
 
 	/**
-	 * Getter de racineSourcesJavaPath.<br/>
-	 * <b>path absolu des sources Java</b> 
-	 * dans le projet source.<br/>
+	 * Getter du 
+	 * <b>path absolu de la racine (sous le groupId) des sources Java</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * srcMainJavaPath + groupIdPathRelatif<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application</code>
@@ -5132,9 +5300,10 @@ public final class ArboresceurPresentProjet {
 
 	
 	/**
-	 * Getter de racineTestsJavaPath.<br/>
-	 * <b>path absolu des sources des tests JUnit</b> 
-	 * dans le projet source.<br/>
+	 * Getter du 
+	 * <b>path absolu de la racine (sous le groupId) des tests JUnit</b> 
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b><br/>
 	 * srcTestJavaPath + groupIdPathRelatif<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application</code>
@@ -5164,7 +5333,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche apptechnic</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 * racineSourcesJavaPath + apptechnic<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5195,7 +5365,8 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche apptechnic</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 * racineTestsJavaPath + apptechnic<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5226,7 +5397,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche controllers</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * racineSourcesJavaPath + controllers<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5257,7 +5428,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche controllers</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * racineTestsJavaPath + controllers<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5288,7 +5459,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche controllers/desktop</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersMainPath + desktop<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5319,7 +5490,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche controllers/desktop</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersTestPath + desktop<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5350,7 +5521,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche controllers/desktop/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5381,7 +5552,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche controllers/desktop/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5412,7 +5583,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche controllers/desktop/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5443,7 +5614,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche controllers/desktop/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5474,7 +5645,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche controllers/desktop/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5505,7 +5676,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche controllers/desktop/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersDesktopTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5536,7 +5707,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche controllers/web</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersMainPath + web<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5567,7 +5738,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche controllers/web</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersTestPath + web<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5598,7 +5769,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche controllers/web/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5629,7 +5800,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche controllers/web/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5660,7 +5831,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche controllers/web/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5691,7 +5862,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche controllers/web/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5722,7 +5893,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche controllers/web/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5753,7 +5924,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche controllers/web/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheControllersWebTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5784,7 +5955,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche vues</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * racineSourcesJavaPath + vues<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5815,7 +5986,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche vues</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * racineTestsJavaPath + vues<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5846,7 +6017,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche vues/desktop</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesMainPath + desktop<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5877,7 +6048,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche vues/desktop</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesTestPath + desktop<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5908,7 +6079,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche vues/desktop/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -5939,7 +6110,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche vues/desktop/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -5970,7 +6141,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche vues/desktop/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -6001,7 +6172,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche vues/desktop/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -6032,7 +6203,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche vues/desktop/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -6063,7 +6234,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche vues/desktop/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesDesktopTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -6094,7 +6265,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche vues/web</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesMainPath + web<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -6125,7 +6296,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche vues/web</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesTestPath + web<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -6156,7 +6327,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche vues/web/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -6187,7 +6358,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche vues/web/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -6218,7 +6389,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche vues/web/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -6249,7 +6420,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche vues/web/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -6280,7 +6451,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche vues/web/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -6311,7 +6482,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche vues/web/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheVuesWebTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -6342,7 +6513,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * racineSourcesJavaPath + model<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/
@@ -6373,7 +6544,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * racineTestsJavaPath + model<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/
@@ -6404,7 +6575,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/dto</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + dto<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6435,7 +6606,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/dto</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + dto<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -6466,7 +6637,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/dto/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelDTOMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6497,7 +6668,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/dto/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelDTOTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -6528,7 +6699,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6559,7 +6730,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -6590,7 +6761,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/persistence</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + persistence<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6621,7 +6792,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/persistence</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + persistence<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -6652,7 +6823,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/persistence/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6683,7 +6854,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/persistence/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -6714,7 +6885,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/persistence/daoexceptions</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceMainPath + daoexceptions<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6745,7 +6916,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/persistence/daoexceptions</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceTestPath + daoexceptions<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -6776,7 +6947,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/persistence/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6807,7 +6978,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/persistence/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelPersistenceTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -6838,7 +7009,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + services<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6869,7 +7040,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/services</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + services<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -6900,7 +7071,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6931,7 +7102,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/services/accueil</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + accueil<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -6962,7 +7133,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -6993,7 +7164,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/services/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -7024,7 +7195,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services/transformeurs</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + transformeurs<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -7055,7 +7226,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services/transformeurs/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTransformeursMainPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -7086,7 +7257,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/services/transformeurs</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + transformeurs<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -7117,7 +7288,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services/transformeurs/metier</b> 
-	 * dans les tests du projet source.<br/>
+	 * dans les tests du présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTransformeursTestPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -7148,7 +7319,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -7179,7 +7350,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/services/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -7210,7 +7381,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services/valideurs</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesMainPath + valideurs<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -7241,7 +7412,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services/valideurs/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesValideursMainPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -7272,7 +7443,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/services/valideurs</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesTestPath + valideurs<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -7303,7 +7474,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/services/valideurs/metier</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelServicesValideursTestPath/ + metier<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -7334,7 +7505,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu 
 	 * de la couche model/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelMainPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/main/java/levy/daniel/application/
@@ -7365,7 +7536,7 @@ public final class ArboresceurPresentProjet {
 	/**
 	 * Getter du <b>path absolu des tests JUnit 
 	 * de la couche model/utilitaires</b> 
-	 * dans le projet source.<br/>
+	 * dans le présent projet ECLIPSE.<br/>
 	 * coucheModelTestPath + utilitaires<br/>
 	 * Par exemple : 
 	 * <code>${projet}/src/test/java/levy/daniel/application/
@@ -7682,7 +7853,7 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * Getter de la Liste des répertoires (sous forme de Path) 
-	 * constituant l'arborescence à créer dans le projet source.<br/>
+	 * constituant l'arborescence à créer dans le présent projet ECLIPSE.<br/>
 	 *
 	 * @return ARBORESCENCE_PROJET_SOURCE : List&lt;Path&gt;.<br/>
 	 */
@@ -7700,7 +7871,7 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * Getter de la <b>Map des répertoires sous src/main/java</b> 
-	 * dans le projet source avec :
+	 * dans le présent projet ECLIPSE avec :
 	 * <ul>
 	 * <li>String : le chemin relatif du répertoire par rapport 
 	 * au GroupId comme <code>"model/dto"</code></li>
@@ -7725,7 +7896,7 @@ public final class ArboresceurPresentProjet {
 
 	/**
 	 * Getter de la <b>Map des répertoires sous src/test/java</b> 
-	 * dans le projet source avec :
+	 * dans le présent projet ECLIPSE avec :
 	 * <ul>
 	 * <li>String : le chemin relatif du répertoire par rapport 
 	 * au GroupId comme <code>"model/dto"</code></li>
@@ -7750,7 +7921,7 @@ public final class ArboresceurPresentProjet {
 	
 	/**
 	 * Getter de la <b>Map des répertoires externes</b> 
-	 * dans le projet source avec :
+	 * dans le présent projet ECLIPSE avec :
 	 * <ul>
 	 * <li>String : le nom du répertoire externe 
 	 * comme <code>"data"</code></li>

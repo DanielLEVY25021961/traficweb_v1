@@ -1,10 +1,12 @@
 package levy.daniel.application.apptechnic.configurationmanagers.gestionnairespaths;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -309,6 +311,7 @@ public class ManagerPathsTest {
 	 * <li>garantit que getPathPresentProjet() ne retourne pas null.</li>
 	 * <li>garantit que getPathPresentProjet() retourne un singleton.</li>
 	 * <li>garantit que getPathPresentProjet() retourne le présent Projet ECLIPSE.</li>
+	 * <li>garantit que getPathPresentProjet() retourne l'équivalent de Paths.get(".").toAbsolutePath().normalize()</li>
 	 * </ul>
 	 * 
 	 * @throws IOException 
@@ -345,6 +348,11 @@ public class ManagerPathsTest {
 		assertSame(DOIT_RETOURNER_SINGLETON
 				, pathPresentProjet
 					, pathPresentProjet2);
+		
+		/* garantit que getPathPresentProjet() retourne l'équivalent de Paths.get(".").toAbsolutePath().normalize() */
+		assertEquals("getPathPresentProjet()"
+				, Paths.get(".").toAbsolutePath().normalize()
+					, pathPresentProjet);
 		
 	} // Fin de testGetPathPresentProjet().________________________________
 
