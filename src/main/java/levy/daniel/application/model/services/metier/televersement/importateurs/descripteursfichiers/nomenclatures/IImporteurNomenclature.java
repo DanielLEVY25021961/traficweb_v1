@@ -2,6 +2,7 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Set;
 import java.util.SortedMap;
 
@@ -57,16 +58,14 @@ public interface IImporteurNomenclature
 	
 	
 	/**
-	 * METHODE_IMPORTER_NOMENCLATURE : String :<br/>
 	 * "Méthode importerNomenclature(File pNomenclature) - ".<br/>
 	 */
-	String METHODE_IMPORTER_NOMENCLATURE 
+	String METHODE_IMPORTER_NOMENCLATURE_EN_LATIN9 
 		= "Méthode importerNomenclature(File pNomenclature) - ";
 	
 
 	
 	/**
-	 * METHODE_IMPORTER_NOMENCLATURE_EN_UTF8 : String :<br/>
 	 * "Méthode importerNomenclatureEnUtf8(File pNomenclature) - ".<br/>
 	 */
 	String METHODE_IMPORTER_NOMENCLATURE_EN_UTF8 
@@ -75,8 +74,6 @@ public interface IImporteurNomenclature
 	
 	
 	/**
-	 * method importerNomenclature(
-	 * File pNomenclature) :<br/>
 	 * Importe une Nomenclature encapsulée dans le fichier csv 
 	 * encodé en LATIN9 pNomenclature 
 	 * et la retourne sous forme de 
@@ -100,7 +97,7 @@ public interface IImporteurNomenclature
 	 * @throws IOException : si problème d'entrée/sortie.<br/>
 	 * @throws Exception 
 	 */
-	SortedMap<Integer, String> importerNomenclature(
+	SortedMap<Integer, String> importerNomenclatureEnLatin9(
 			File pNomenclature) 
 					throws FichierNullException
 						, FichierVideException
@@ -112,7 +109,6 @@ public interface IImporteurNomenclature
 	
 	
 	/**
-	 * method importerNomenclatureEnUtf8() :<br/>
 	 * Importe une Nomenclature encapsulée dans le fichier csv 
 	 * encodé en UTF-8 pNomenclature 
 	 * et la retourne sous forme de 
@@ -143,11 +139,54 @@ public interface IImporteurNomenclature
 								, FichierInexistantException
 									, FichierPasNormalException
 										, IOException, Exception;
+
+	
+	
+	/**
+	 * <b>importe une nomenclature</b> pNomenclature (fichier csv avec 
+	 * [cle : Integer - libellé : String]) 
+	 * en la <b>décodant avec pCharset</b> et la 
+	 * <b>retourne sous forme de SortedMap&lt;Integer, String&gt;</b> avec : <br/>
+	 * - Integer : la clé dans la nomenclature.<br/>
+	 * - String : le libellé dans la nomenclature.<br/>
+	 * <ul>
+	 * <li>Alimente également le set des clés possibles clesPossiblesSet.<br/></li>
+	 * <li>choisit automatiquement le Charset UTF-8 si pCharset == null.</li>
+	 * <li>utilise <code>InputStreamReader isr 
+	 * = new InputStreamReader(fis, charset);</code> pour lire le fichier.</li>
+	 * <li>utilise la Regex 
+	 * <code>Pattern.compile(SEP_PV).split(ligneLue)</code> 
+	 * pour casser les lignes de nomenclature</li>
+	 * </ul>
+	 * - LOG.FATAL et jette une exception si pNomenclature est incorrect 
+	 * (null, vide, inexistant, répertoire).<br/>
+	 * <br/>
+	 *
+	 * @param pNomenclature : File : fichier csv contenant la nomenclature.
+	 * @param pMethode : String : 
+	 * nom de la méthode appelant la présente.
+	 * @param pCharset : Charset : 
+	 * charset d'encodage de la nomenclature pNomenclature
+	 * 
+	 * @return this.nomenclatureMap : SortedMap<Integer,String> : 
+	 * la nomenclature sous forme de Map.<br/>
+	 * 
+	 * @throws FichierNullException : si pNomenclature est null.<br/>
+	 * @throws FichierVideException  : si pNomenclature est vide.<br/>
+	 * @throws FichierInexistantException  : si pNomenclature n'existe pas.<br/>
+	 * @throws FichierPasNormalException : si pNomenclature est un répertoire.<br/>
+	 * @throws IOException : si problème d'entrée/sortie.<br/>
+	 * @throws Exception 
+	 */
+	SortedMap<Integer, String> importerNomenclature(
+			File pNomenclature
+				, String pMethode
+					, Charset pCharset) 
+							throws Exception;	
 	
 	
 	
 	/**
-	 * method recupererNomClasse() :<br/>
 	 * Récupère le nom de la classe.<br/>
 	 * <br/>
 	 *
@@ -158,7 +197,6 @@ public interface IImporteurNomenclature
 	
 	
 	/**
-	 * method recupererCleImporterFileNull() :<br/>
 	 * Fournit la clé du message en cas d'import d'un fichier null
 	 * stocké dans messages_techniques.properties.<br/>
 	 * <br/>
@@ -170,7 +208,6 @@ public interface IImporteurNomenclature
 	
 		
 	/**
-	 * method recupererCleImporterFileVide() :<br/>
 	 * Fournit la clé du message en cas d'import d'un fichier vide
 	 * stocké dans messages_techniques.properties.<br/>
 	 * <br/>
@@ -182,7 +219,6 @@ public interface IImporteurNomenclature
 	
 		
 	/**
-	 * method recupererCleImporterFileInexistant() :<br/>
 	 * Fournit la clé du message en cas d'import d'un fichier inexistant
 	 * stocké dans messages_techniques.properties.<br/>
 	 * <br/>
@@ -194,7 +230,6 @@ public interface IImporteurNomenclature
 
 
 	/**
-	 * method recupererCleImporterFilePasNormal() :<br/>
 	 * Fournit la clé du message en cas d'import d'un répertoire
 	 * stocké dans messages_techniques.properties.<br/>
 	 * <br/>
@@ -206,7 +241,6 @@ public interface IImporteurNomenclature
 	
 
 	/**
-	 * method getNomenclatureMap() :<br/>
 	 * Getter de la SortedMap&lt;Integer, String&gt; triée avec : <br/>
 	 * - Integer : la clé dans la nomenclature.<br/>
 	 * - String : le libellé dans la nomenclature.<br/>
@@ -235,7 +269,6 @@ public interface IImporteurNomenclature
 
 	
 	/**
-	 * method getNomenclature() :<br/>
 	 * Getter du File en csv avec séparateur ';' 
 	 * qui encapsule la nomenclature.<br/>
 	 * <br/>
@@ -247,8 +280,6 @@ public interface IImporteurNomenclature
 	
 	
 	/**
-	 * method setNomenclature(
-	 * File pNomenclature) :<br/>
 	 * Setter du File en csv avec séparateur ';' 
 	 * qui encapsule la nomenclature.<br/>
 	 * <br/>
@@ -261,7 +292,6 @@ public interface IImporteurNomenclature
 
 	
 	/**
-	 * method getClesPossiblesSet() :<br/>
 	 * Getter de l'Ensemble des valeurs de clés possibles 
 	 * pour la nomenclature.<br/>
 	 * <br/>
@@ -273,8 +303,6 @@ public interface IImporteurNomenclature
 	
 	
 	/**
-	 * method setClesPossiblesSet(
-	 * Set&lt;Integer&gt; pClesPossiblesSet) :<br/>
 	 * Setter de l'Ensemble des valeurs de clés possibles 
 	 * pour la nomenclature.<br/>
 	 * <br/>

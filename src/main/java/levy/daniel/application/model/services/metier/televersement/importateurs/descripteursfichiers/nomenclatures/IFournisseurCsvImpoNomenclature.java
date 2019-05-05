@@ -36,7 +36,6 @@ public interface IFournisseurCsvImpoNomenclature {
 	
 	
 	/**
-	 * METHODE_GENERERNOMENCLATURE : String :<br/>
 	 * "Méthode genererNomenclatureCsvFile(....) - ".<br/>
 	 */
 	String METHODE_GENERERNOMENCLATURE 
@@ -45,7 +44,6 @@ public interface IFournisseurCsvImpoNomenclature {
 	
 		
 	/**
-	 * method fournirLigneEnTetesCsv() :<br/>
 	 * retourne "Clé;Libellé;".<br/>
 	 * <br/>
 	 *
@@ -56,7 +54,6 @@ public interface IFournisseurCsvImpoNomenclature {
 	
 	
 	/**
-	 * method fournirLigneValeursCsv(int pL) :<br/>
 	 * retourne la pL-ième ligne (1-based) de la nomenclature 
 	 * sous forme csv avec le séparateur ';'.<br/>
 	 * - retourne null si this.nomenclatureMap est null.<br/>
@@ -76,22 +73,22 @@ public interface IFournisseurCsvImpoNomenclature {
 
 	
 	/**
-	 * method genererNomenclatureCsvString() :<br/>
-	 * .<br/>
+	 * génère une nomenclature au format csv 
+	 * avec séparateur ';' sous forme de String.<br/>
+	 * Rajoute la ligne d'en-tête.<br/>
 	 * - retourne null si this.nomenclatureMap est null.<br/>
 	 * ATTENTION : faire importerNomenclature(...) 
 	 * AVANT d'utiliser cette méthode.<br/>
 	 * <br/>
 	 *
-	 * @return : String :  .<br/>
+	 * @return : String : La nomenclature au format 
+	 * csv avec séparateur ';' sous forme de String et avec en-tête.<br/>
 	 */
 	String genererNomenclatureCsvString();
 	
 	
 	
 	/**
-	 * method genererNomenclatureCsvString(
-	 * boolean pAvecLigneEntetes) :<br/>
 	 * Génère la nomenclature au format csv 
 	 * avec séparateur ';' sous forme de String.<br/>
 	 * Rajoute la ligne d'en-têtes si pAvecLigneEntetes vaut true.<br/>
@@ -111,7 +108,6 @@ public interface IFournisseurCsvImpoNomenclature {
 
 		
 	/**
-	 * method genererNomenclatureCsvFileUtf8() :<br/>
 	 * Génère un fichier csv avec séparateur ';' 
 	 * encodé en UTF-8 encapsulant la nomenclature.<br/>
 	 * rajoute la ligne d'en-tête.<br/>
@@ -137,7 +133,6 @@ public interface IFournisseurCsvImpoNomenclature {
 
 	
 	/**
-	 * method genererNomenclatureCsvFileLatin9() :<br/>
 	 * Génère un fichier csv avec séparateur ';' 
 	 * encodé en ISO-8859-15 encapsulant la nomenclature.<br/>
 	 * rajoute la ligne d'en-tête.<br/>
@@ -163,8 +158,6 @@ public interface IFournisseurCsvImpoNomenclature {
 
 	
 	/**
-	 * method genererNomenclatureCsvFileUtf8(
-	 * File pFile) :<br/>
 	 * Génère un fichier csv avec séparateur ';' 
 	 * encodé en UTF-8 encapsulant la nomenclature.<br/>
 	 * rajoute la ligne d'en-tête.<br/>
@@ -193,8 +186,6 @@ public interface IFournisseurCsvImpoNomenclature {
 
 	
 	/**
-	 * method genererNomenclatureCsvFileLatin9(
-	 * File pFile) :<br/>
 	 * Génère un fichier csv avec séparateur ';' 
 	 * encodé en ISO-8859-15 encapsulant la nomenclature.<br/>
 	 * rajoute la ligne d'en-tête.<br/>
@@ -223,9 +214,6 @@ public interface IFournisseurCsvImpoNomenclature {
 	
 	
 	/**
-	 * method genererNomenclatureCsvFileUtf8(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile) :<br/>
 	 * Génère un fichier csv avec séparateur ';' 
 	 * encodé en UTF-8 encapsulant la nomenclature.<br/>
 	 * rajoute la ligne d'en-tête si pAvecLigneEntetes vaut true.<br/>
@@ -256,9 +244,6 @@ public interface IFournisseurCsvImpoNomenclature {
 	
 	
 	/**
-	 * method genererNomenclatureCsvFileLatin9(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile) :<br/>
 	 * Génère un fichier csv avec séparateur ';' 
 	 * encodé en ISO-8859-15 encapsulant la nomenclature.<br/>
 	 * rajoute la ligne d'en-tête si pAvecLigneEntetes vaut true.<br/>
@@ -290,10 +275,6 @@ public interface IFournisseurCsvImpoNomenclature {
 	
 	
 	/**
-	 * method genererNomenclatureCsvFile(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile
-	 * , Charset pCharset) :<br/>
 	 * Génère un fichier csv avec séparateur ';' 
 	 * encodé en pCharset encapsulant la nomenclature.<br/>
 	 * rajoute la ligne d'en-tête si pAvecLigneEntetes vaut true.<br/>

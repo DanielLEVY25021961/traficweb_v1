@@ -24,9 +24,9 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
  */
 public interface IFournisseurJTableNomenclature {
 
+	
+	
 	/**
-	 * method getEnteteParColonne(
-	 * int pI) :<br/>
 	 * retourne l'en-tête de la p-Ième colonne (1-based).<br/>
 	 * <br/>
 	 * - retourne null si la p-Ième colonne (1-based) n'existe pas.<br/>
@@ -36,14 +36,11 @@ public interface IFournisseurJTableNomenclature {
 	 * 
 	 * @return : String : en-tête de la p-Ième colonne (1-based).<br/>
 	 */
-	String getEnteteParColonne(int pI);
+	String fournirEnteteParColonne(int pI);
 	
 
 	
 	/**
-	 * method getValeurParLigneColonne(
-	 * int pL
-	 * , int pC) :<br/>
 	 * retourne la valeur à la pL-ième ligne (1-based) 
 	 * et pC-ième colonne (1-based).<br/>
 	 * - retourne null si this.nomenclatureMap est null.<br/>
@@ -52,6 +49,7 @@ public interface IFournisseurJTableNomenclature {
 	 * <br/>
 	 * - retourne null si la pL-ième ligne (1-based) n'existe pas.<br/>
 	 * - retourne null si la pC-ième colonne (1-based) n'existe pas.<br/> 
+	 * - retourne null si this.nomenclatureMap est null.
 	 * <br/>
 	 *
 	 * @param pL : int : numéro de ligne (1-based).<br/>
@@ -60,7 +58,7 @@ public interface IFournisseurJTableNomenclature {
 	 * @return : String : valeur à la pL-ième ligne (1-based) 
 	 * et pC-ième colonne (1-based).<br/>
 	 */
-	String getValeurParLigneColonne(int pL, int pC);
+	String fournirValeurParLigneColonne(int pL, int pC);
 	
 	
 	

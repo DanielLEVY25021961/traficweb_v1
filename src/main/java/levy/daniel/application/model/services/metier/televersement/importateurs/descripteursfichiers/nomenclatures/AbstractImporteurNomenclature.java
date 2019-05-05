@@ -169,117 +169,72 @@ public abstract class AbstractImporteurNomenclature implements
 	
 	/**
 	 * {@inheritDoc}
-	 * @throws Exception 
 	 */
 	@Override
-	public final SortedMap<Integer, String> importerNomenclature(
+	public final SortedMap<Integer, String> importerNomenclatureEnLatin9(
 			final File pNomenclature) 
 						throws Exception {
 		
-		// ************PARAMETRES INVALIDES. *****************************/
-		/* Fichier null. */
-		this.traiterFichierNull(pNomenclature, METHODE_IMPORTER_NOMENCLATURE);
-
-		/* Fichier inexistant. */
-		this.traiterFichierInexistant(pNomenclature, METHODE_IMPORTER_NOMENCLATURE);
-
-		/* Fichier vide. */
-		this.traiterFichierVide(pNomenclature, METHODE_IMPORTER_NOMENCLATURE);
-
-		/* File directory. */
-		this.traiterFichierPasNormal(pNomenclature, METHODE_IMPORTER_NOMENCLATURE);
-
-		// ************ PARAMETRES VALIDES *******************************/
+		return this.importerNomenclature(
+				pNomenclature
+					, METHODE_IMPORTER_NOMENCLATURE_EN_LATIN9
+						, Charset.forName("ISO-8859-15"));
 		
-		/* Passage des paramètres aux attributs. */
-		this.nomenclature = pNomenclature;
-		
-		/* Map résultat. */
-		this.nomenclatureMap = new TreeMap<Integer, String>();
-		
-		/* Set à remplir. */
-		this.clesPossiblesSet = new HashSet<Integer>();
-		
-		/* Ouverture des flux. */
-		final FileInputStream fis =  new FileInputStream(this.nomenclature);
-		final InputStreamReader isr 
-			= new InputStreamReader(fis, Charset.forName("ISO-8859-15"));
-		final BufferedReader bfr = new BufferedReader(isr);
-		
-		String ligneLue = null;
-		
-		// LECTURE DES LIGNES.**********************************
-		while ((ligneLue = bfr.readLine()) != null) {
-			
-			/* Instancie un Pattern chargé de retrouver le 
-			 * séparateur ';' dans la ligne. */
-			final String[] tokens 
-				= Pattern.compile(SEP_PV).split(ligneLue);
-			
-			/* saute la ligne d'en-tête le cas échéant en se basant 
-			 * sur le fait qu'on aura 'clé' pour l'en-tête  
-			 * et une valeur entière pour toutes les lignes significatives. */
-			final String cle = tokens[0];
-			
-			if (!StringUtils.isBlank(cle)) {
-				try {
-					Integer.parseInt(cle);
-				} catch (NumberFormatException e) {
-					continue;
-				}
-			}
-			
-			/* DECOMPOSITION DE CHAQUE LIGNE. */
-			final Integer cleLue = Integer.parseInt(tokens[0]);
-			final String libelleLu = tokens[1];
-			
-			// AJOUT DANS LA MAP RESULTAT._____
-			this.nomenclatureMap.put(cleLue, libelleLu);
-			
-			// AJOUT DANS LE SET DES CLES POSSIBLES.____
-			this.clesPossiblesSet.add(cleLue);
-			
-		} // FIN LECTURE DES LIGNES.******************************
-		
-		/* FERMETURE DES FLUX. */
-		fis.close();
-		isr.close();
-		bfr.close();			
-				
-		return this.nomenclatureMap;
-		
-	} // Fin de importerNomenclature(
-	// File pNomenclature).________________________________________________
+	} // Fin de importerNomenclatureEnLatin9(...)._________________________
 
 
 	
 	/**
 	 * {@inheritDoc}
-	 * @throws Exception 
 	 */
 	@Override
 	public final SortedMap<Integer, String> importerNomenclatureEnUtf8(
 			final File pNomenclature) 
 						throws Exception {
 		
+		return this.importerNomenclature(
+				pNomenclature
+					, METHODE_IMPORTER_NOMENCLATURE_EN_UTF8
+						, Charset.forName("UTF-8"));
+		
+	} // Fin de importerNomenclatureEnUtf8(...).___________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final SortedMap<Integer, String> importerNomenclature(
+			final File pNomenclature
+				, final String pMethode
+					, final Charset pCharset) 
+							throws Exception {
+		
 		// ************PARAMETRES INVALIDES. *****************************/
 		/* Fichier null. */
-		this.traiterFichierNull(pNomenclature
-					, METHODE_IMPORTER_NOMENCLATURE_EN_UTF8);
+		this.traiterFichierNull(pNomenclature, pMethode);
 
 		/* Fichier inexistant. */
-		this.traiterFichierInexistant(pNomenclature
-					, METHODE_IMPORTER_NOMENCLATURE_EN_UTF8);
+		this.traiterFichierInexistant(pNomenclature, pMethode);
 
 		/* Fichier vide. */
-		this.traiterFichierVide(pNomenclature
-					, METHODE_IMPORTER_NOMENCLATURE_EN_UTF8);
+		this.traiterFichierVide(pNomenclature, pMethode);
 				
 		/* File directory. */
 		this.traiterFichierPasNormal(pNomenclature
-					, METHODE_IMPORTER_NOMENCLATURE_EN_UTF8);
+					, pMethode);
 
 		// ************ PARAMETRES VALIDES *******************************/
+		
+		/* choisit automatiquement le Charset UTF-8 si pCharset == null. */
+		Charset charset = null;
+		
+		if (pCharset == null) {
+			charset = Charset.forName("UTF-8");
+		} else {
+			charset = pCharset;
+		}
 		
 		/* Passage des paramètres aux attributs. */
 		this.nomenclature = pNomenclature;
@@ -292,8 +247,7 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		/* Ouverture des flux. */
 		final FileInputStream fis =  new FileInputStream(this.nomenclature);
-		final InputStreamReader isr 
-			= new InputStreamReader(fis, Charset.forName("UTF-8"));
+		final InputStreamReader isr = new InputStreamReader(fis, charset);
 		final BufferedReader bfr = new BufferedReader(isr);
 		
 		String ligneLue = null;
@@ -338,16 +292,15 @@ public abstract class AbstractImporteurNomenclature implements
 				
 		return this.nomenclatureMap;
 		
-	} // Fin de importerNomenclatureEnUtf8(
-	// File pNomenclature).________________________________________________
+	} // Fin de importerNomenclature(...)._________________________________
 	
-	
+
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getEnteteParColonne(
+	public final String fournirEnteteParColonne(
 			final int pI) {
 		
 		String entete = null;
@@ -377,7 +330,7 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getValeurParLigneColonne(
+	public final String fournirValeurParLigneColonne(
 			final int pL
 				, final int pC) {
 		
@@ -416,9 +369,7 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		return null;
 		
-	} // Fin de getValeurParLigneColonne(
-	// int pL
-	// , int pC).__________________________________________________________
+	} // Fin de getValeurParLigneColonne(...)._____________________________
 	
 	
 
@@ -475,8 +426,7 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		return null;
 		
-	} // Fin de fournirLigneValeursCsv(
-	// int pL).____________________________________________________________
+	} // Fin de fournirLigneValeursCsv(...)._______________________________
 	
 	
 

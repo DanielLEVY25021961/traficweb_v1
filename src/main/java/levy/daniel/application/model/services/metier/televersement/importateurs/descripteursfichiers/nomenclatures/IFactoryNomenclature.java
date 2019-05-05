@@ -37,8 +37,6 @@ public interface IFactoryNomenclature {
 
 	
 	/**
-	 * method getClesPossiblesSet(
-	 * int pNumeroChamp) :<br/>
 	 * Fournit les valeurs possibles d'un champ 
 	 * pNumeroChamp à nomenclature.<br/>
 	 * <br/>
@@ -69,8 +67,6 @@ public interface IFactoryNomenclature {
 	
 	
 	/**
-	 * method getNomenclatureMap(
-	 * int pNumeroChamp) :<br/>
 	 * Fournit la nomenclature d'un champ 
 	 * pNumeroChamp à nomenclature sous forme de 
 	 * SortedMap&lt;Integer, String&gt; triée avec : <br/>
