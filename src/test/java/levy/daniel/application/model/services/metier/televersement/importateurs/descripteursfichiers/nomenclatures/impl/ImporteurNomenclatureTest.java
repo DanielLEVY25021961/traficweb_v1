@@ -163,8 +163,7 @@ public class ImporteurNomenclatureTest {
 		
 		try {
 			
-			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
-				= IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(null);
+			IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(null);
 			
 		} catch (Exception e) {
 			
@@ -172,7 +171,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une FichierNullException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(null) doit jeter une FichierNullException :"
-					, e instanceof FichierNullException); // NOPMD by dan on 06/05/19 13:45
+					, e instanceof FichierNullException); 
 		}
 		
 	} // Fin de testImporterNomenclatureEnUtf8Null().______________________
@@ -207,8 +206,8 @@ public class ImporteurNomenclatureTest {
 			
 			final File nomenclatureVide = nomenclatureVidePath.toFile();
 			
-			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
-			= IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(nomenclatureVide);
+			// IMPORT
+			IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(nomenclatureVide);
 			
 		} catch (Exception e) {
 			
@@ -216,7 +215,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une FichierVideException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(vide) doit jeter une FichierVideException :"
-					, e instanceof FichierVideException); // NOPMD by dan on 06/05/19 13:44
+					, e instanceof FichierVideException); 
 		}
 		
 	} // Fin de testImporterNomenclatureEnUtf8Vide().______________________
@@ -251,8 +250,9 @@ public class ImporteurNomenclatureTest {
 			
 			final File nomenclatureInexistant = nomenclatureInexistantPath.toFile();
 			
-			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
-			= IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(nomenclatureInexistant);
+			// IMPORT
+			IMPORTEUR_NOMENCLATURE
+				.importerNomenclatureEnUtf8(nomenclatureInexistant);
 			
 		} catch (Exception e) {
 			
@@ -260,7 +260,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une FichierInexistantException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(inexistant) doit jeter une FichierInexistantException :"
-					, e instanceof FichierInexistantException); // NOPMD by dan on 06/05/19 13:44
+					, e instanceof FichierInexistantException); 
 		}
 		
 	} // Fin de testImporterNomenclatureEnUtf8Inexistant().________________
@@ -296,8 +296,8 @@ public class ImporteurNomenclatureTest {
 			final File nomenclatureRepertoire 
 				= nomenclatureRepertoirePath.toFile();
 			
-			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
-			= IMPORTEUR_NOMENCLATURE
+			// IMPORT
+			IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(nomenclatureRepertoire);
 			
 		} catch (Exception e) {
@@ -306,7 +306,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une FichierPasNormalException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(repertoire) doit jeter une FichierPasNormalException :"
-					, e instanceof FichierPasNormalException); // NOPMD by dan on 06/05/19 13:44
+					, e instanceof FichierPasNormalException); 
 		}
 		
 	} // Fin de testImporterNomenclatureEnUtf8Repertoire().________________
@@ -353,8 +353,7 @@ public class ImporteurNomenclatureTest {
 		try {
 			
 			// IMPORT ******************
-			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
-			= IMPORTEUR_NOMENCLATURE
+			IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(mauvaiseNomenclature);
 			
 			final File nomenclatureImportee 
@@ -383,7 +382,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une NomenclatureMauvaiseRunTimeException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(mauvaisenomenclature) doit jeter une NomenclatureMauvaiseRunTimeException :"
-					, e instanceof NomenclatureMauvaiseRunTimeException); // NOPMD by dan on 06/05/19 13:37
+					, e instanceof NomenclatureMauvaiseRunTimeException); 
 		}
 
 	} // Fin de testImporterMauvaiseNomenclatureEnUtf8().__________________
@@ -430,8 +429,7 @@ public class ImporteurNomenclatureTest {
 		try {
 			
 			// IMPORT ******************
-			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
-			= IMPORTEUR_NOMENCLATURE
+			IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(mauvaiseNomenclature);
 			
 			final File nomenclatureImportee 
@@ -460,7 +458,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une NomenclatureMauvaiseRunTimeException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(mauvaisenomenclature) doit jeter une NomenclatureMauvaiseRunTimeException :"
-					, e instanceof NomenclatureMauvaiseRunTimeException); // NOPMD by dan on 06/05/19 13:40
+					, e instanceof NomenclatureMauvaiseRunTimeException); 
 		}
 
 	} // Fin de testImporterMauvaiseNomenclatureEnUtf82().__________________
@@ -563,10 +561,6 @@ public class ImporteurNomenclatureTest {
 				"importerNomenclatureEnUtf8(nomenclature) doit creer clesPossibles avec 5 éléments : "
 				, clesPossibles.size() == 5);
 		
-		final String entete0 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(0); // NOPMD by dan on 06/05/19 13:44
-		final String entete1 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(1); // NOPMD by dan on 06/05/19 13:44
-		final String entete2 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(2); // NOPMD by dan on 06/05/19 13:44
-		
 	} // Fin de testImporterNomenclatureEnUtf8().________________
 
 
@@ -592,7 +586,7 @@ public class ImporteurNomenclatureTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -608,8 +602,7 @@ public class ImporteurNomenclatureTest {
 			= nomenclaturePath.toFile();
 		
 		// IMPORT ******************
-		final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:45
-		= IMPORTEUR_NOMENCLATURE
+		IMPORTEUR_NOMENCLATURE
 			.importerNomenclatureEnUtf8(nomenclature);
 		
 		
@@ -665,6 +658,144 @@ public class ImporteurNomenclatureTest {
 
 	} // Fin de testFournirEnteteParColonne()._____________________________
 	
+
+	
+	/**
+	 * Teste la méthode fournirValeurParLigneColonne(int pL, int pColonne).<br/>
+	 * <ul>
+	 * <li>garantit que fournirValeurParLigneColonne(hors indice) retourne null.</li>
+	 * <li>garantit que fournirValeurParLigneColonne(bonnesValeurs) 
+	 * retourne la bonne valeur.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testFournirValeurParLigneColonne() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImporteurNomenclatureTest - méthode testFournirValeurParLigneColonne() ********** ");
+		}
+		
+		final Path nomenclaturePath 
+		= PATH_ABSOLU_TEST_NOMENCLATURES.resolve(
+				"HistoF08/Nomenclatures en UTF-8/2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv");
+	
+		final File nomenclature 
+			= nomenclaturePath.toFile();
+		
+		// IMPORT ******************
+		IMPORTEUR_NOMENCLATURE
+			.importerNomenclatureEnUtf8(nomenclature);
+		
+		
+		final File nomenclatureImportee 
+			= IMPORTEUR_NOMENCLATURE.getNomenclature();
+		
+		final Set<Integer> clesPossibles 
+			= IMPORTEUR_NOMENCLATURE.getClesPossiblesSet();
+		
+		final String valeurL0C0 
+			= IMPORTEUR_NOMENCLATURE.fournirValeurParLigneColonne(0, 0);
+		final String valeurL1C1 
+			= IMPORTEUR_NOMENCLATURE.fournirValeurParLigneColonne(1, 1);
+		final String valeurL3C2 
+			= IMPORTEUR_NOMENCLATURE.fournirValeurParLigneColonne(3, 2);
+		final String valeurL6C2 
+			= IMPORTEUR_NOMENCLATURE.fournirValeurParLigneColonne(6, 2);
+		final String valeurL7C4 
+			= IMPORTEUR_NOMENCLATURE.fournirValeurParLigneColonne(7, 4);
+			
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
+			System.out.println();
+			System.out.println(AFFICHAGE_NOMENCLATUREMAP);
+			System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
+			System.out.println();
+			System.out.println(NOMENCLATURE_GENEREE);
+			System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
+			System.out.println();
+			System.out.println(CLES_POSSIBLES + clesPossibles.toString());
+			System.out.println();
+			System.out.println("valeurL0C0 : " + valeurL0C0);
+			System.out.println("valeurL1C1 : " + valeurL1C1);
+			System.out.println("valeurL3C2 : " + valeurL3C2);
+			System.out.println("valeurL6C2 : " + valeurL6C2);
+			System.out.println("valeurL7C4 : " + valeurL7C4);
+		}
+		
+
+		/* garantit que fournirValeurParLigneColonne(hors indice) retourne null. */
+		assertNull(
+				"fournirValeurParLigneColonne(hors indice) doit retourner null : "
+				, valeurL0C0);
+		assertNull(
+				"fournirValeurParLigneColonne(hors indice) doit retourner null : "
+				, valeurL7C4);
+		
+		/* garantit que fournirValeurParLigneColonne(1,1) retourne '1'. */
+		assertEquals(
+				"fournirValeurParLigneColonne(1,1) doit retourner '1' : "
+					, "1"
+						, valeurL1C1);
+		
+		/* garantit que fournirValeurParLigneColonne(3,2) retourne 
+		 * 'Route nationale interurbaine à caractéristiques autoroutières'. */
+		assertEquals(
+				"fournirValeurParLigneColonne(3,2) doit retourner "
+				+ "'Route nationale interurbaine à caractéristiques autoroutières' : "
+					, "Route nationale interurbaine à caractéristiques autoroutières"
+						, valeurL3C2);
+
+	} // Fin de testFournirValeurParLigneColonne().________________________
+
+	
+	
+	/**
+	 * Teste la méthode fournirLigneEnTetesCsv().<br/>
+	 * <ul>
+	 * <li>garantit que fournirLigneEnTetesCsv() retourne 'Clé;Libellé;'.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testFournirLigneEnTetesCsv() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImporteurNomenclatureTest - méthode testFournirLigneEnTetesCsv() ********** ");
+		}
+
+		final String enTeteCsv = IMPORTEUR_NOMENCLATURE.fournirLigneEnTetesCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("enTeteCsv : " + enTeteCsv);
+		}
+
+		/* garantit que fournirLigneEnTetesCsv() retourne 'Clé;Libellé;'. */
+		assertEquals("fournirLigneEnTetesCsv() doit retourner 'Clé;Libellé;' : "
+				, "Clé;Libellé;"
+				, enTeteCsv);
+		
+	} // Fin de testFournirLigneEnTetesCsv().______________________________
+
 	
 		
 } // FIN DE LA CLASSE ImporteurNomenclatureTest.-----------------------------

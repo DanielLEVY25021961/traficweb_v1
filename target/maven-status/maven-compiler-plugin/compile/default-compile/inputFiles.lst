@@ -74,6 +74,7 @@ D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\appli
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairesdescriptions\package-info.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairesrg\EnumTypesValidation.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\exceptions\technical\impl\FichierRepertoireRunTimeException.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\exceptions\technical\impl\NomenclatureMauvaiseException.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\services\metier\televersement\importateurs\descripteursfichiers\nomenclatures\AbstractImporteurNomenclature.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\utilitaires\spring\configurateurpersistencespring\lecteur\LecteurConfigurationBaseSpring.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\vues\desktop\metier\utilisateur\UtilisateurCerbereListAffichageVue.java
@@ -157,6 +158,7 @@ D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\appli
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\services\utilitaires\copieurarborescence\ICopieurArborescence.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\services\metier\televersement\importateurs\descripteursfichiers\importateursdescription\AbstractImportateurDescriptionAscii.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\controllers\web\accueil\package-info.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\exceptions\technical\impl\NomenclatureMauvaiseRunTimeException.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\controllers\desktop\metier\televersement\package-info.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\services\transformeurs\metier\package-info.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\persistence\metier\utilisateur\dao\jpaspring\impl\package-info.java
@@ -193,6 +195,7 @@ D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\appli
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\IConstantesApplicatives.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\utilitaires\spring\configurateurpersistencespring\mutablepersistenceunitinfo\package-info.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairestemplates\package-info.java
+D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairesnomenclatures\ConfigurationNomenclaturesDarwinCsvManager.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\exceptions\technical\impl\BundleManquantRunTimeException.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\exceptions\technical\impl\LigneNullException.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairesrg\generationcode\package-info.java
@@ -307,7 +310,6 @@ D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\appli
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\utilitaires\spring\configurateurpersistencespring\ConfigurateurSpringJPAH2File.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairespaths\ArboresceurPresentProjet.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\exceptions\technical\impl\TableauVideException.java
-D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\apptechnic\configurationmanagers\gestionnairesnomenclatures\ConfigurationNomenclaturesDarwinManager.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\persistence\metier\utilisateur\dao\package-info.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\services\utilitaires\copieurarborescence\IAfficheurCollections.java
 D:\Donnees\eclipse\eclipseworkspace\traficweb_v1\src\main\java\levy\daniel\application\model\services\utilitaires\package-info.java

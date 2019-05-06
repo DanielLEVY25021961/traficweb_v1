@@ -55,7 +55,6 @@ levy\daniel\application\model\services\utilitaires\copieurconcept\impl\CopieurCo
 levy\daniel\application\vues\desktop\metier\utilisateur\UtilisateurCerbereAccueilVue.class
 levy\daniel\application\apptechnic\exceptions\technical\impl\CleManquanteRunTimeException.class
 levy\daniel\application\vues\desktop\metier\utilisateur\modelobs\UtilisateurCerbereConvertisseurObservableDTO.class
-levy\daniel\application\apptechnic\configurationmanagers\gestionnairesnomenclatures\ConfigurationNomenclaturesDarwinManager.class
 levy\daniel\application\vues\desktop\metier\utilisateur\modelobs\IUtilisateurCerbereModelObs.class
 levy\daniel\application\model\services\metier\televersement\importateurs\descripteursfichiers\descripteurschamps\AbstractDescriptionChampCsv.class
 levy\daniel\application\model\utilitaires\spring\configurateurspring\ConfigurateurSpringFrmkAnnotationJPAH2File.class
@@ -109,6 +108,7 @@ levy\daniel\application\vues\desktop\metier\utilisateur\UtilisateurCerbereEditio
 levy\daniel\application\apptechnic\exceptions\technical\impl\TableauNullException.class
 levy\daniel\application\model\persistence\daoexceptions\technical\impl\DaoSQLGrammarException.class
 levy\daniel\application\model\utilitaires\spring\configurateurpersistencespring\mutablepersistenceunitinfo\MyMutablePersistenceUnitInfo.class
+levy\daniel\application\apptechnic\exceptions\technical\impl\NomenclatureMauvaiseException.class
 levy\daniel\application\model\persistence\daoexceptions\technical\impl\DaoJAXBException.class
 levy\daniel\application\apptechnic\configurationmanagers\gestionnairesrg\ComparatorRG.class
 levy\daniel\application\apptechnic\configurationmanagers\gestionnairestemplates\impl\GestionnaireTemplates.class
@@ -206,6 +206,7 @@ levy\daniel\application\vues\desktop\metier\utilisateur\UtilisateurCerbereCreati
 levy\daniel\application\model\services\utilitaires\copieurconcept\ICopieurConceptService.class
 levy\daniel\application\model\services\metier\televersement\importateurs\descripteursfichiers\nomenclatures\factorynomenclature\impl\FactoryNomenclatureHit.class
 levy\daniel\application\model\persistence\metier\utilisateur\dao\jpaspring\impl\UtilisateurCerbereDAOJPASpring.class
+levy\daniel\application\apptechnic\exceptions\technical\impl\NomenclatureMauvaiseRunTimeException.class
 levy\daniel\application\model\utilitaires\spring\configurateurpersistencespring\ConfigurateurSpringJPAH2File.class
 levy\daniel\application\vues\desktop\metier\utilisateur\UtilisateurCerbereListAffichageVueMain.class
 levy\daniel\application\apptechnic\exceptions\technical\impl\MapVideException.class
@@ -213,6 +214,7 @@ levy\daniel\application\model\services\valideurs\IValideurGeneric.class
 levy\daniel\application\model\dto\metier\utilisateur\UtilisateurCerbereConvertisseurMetierDTO.class
 levy\daniel\application\model\services\utilitaires\generateurpomxml\impl\GenerateurPOMTemplateService.class
 levy\daniel\application\model\services\utilitaires\gestionnairestemplates\IGestionnaireTemplatesService.class
+levy\daniel\application\apptechnic\configurationmanagers\gestionnairesnomenclatures\ConfigurationNomenclaturesDarwinCsvManager.class
 levy\daniel\application\vues\desktop\metier\utilisateur\UtilisateurCerbereCreationVueKO$2.class
 levy\daniel\application\model\services\utilitaires\copieurarborescence\impl\ChercheurRepertoires.class
 levy\daniel\application\model\utilitaires\normalizerurlbase\NormalizerUrlBase.class

@@ -1132,8 +1132,12 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		final StringBuilder stb = new StringBuilder();
 		
+		int compteur = 0;
+		
 		/* Parcours de l'iterator. */
 		while (ite.hasNext()) {
+			
+			compteur++;
 			
 			final Entry<Integer, String> entry = ite.next();
 			
@@ -1147,11 +1151,15 @@ public abstract class AbstractImporteurNomenclature implements
 			/* Ajout de la ligne au StringBuilder. */
 			stb.append(
 					String.format(Locale.FRANCE
-							, "Ligne : %-5d", numerolLigneLue));
+							, "Ligne %-5d =      ", compteur));
 			
 			stb.append(
 					String.format(Locale.FRANCE
-							, "%-50s", ligneLue));
+							, "Clé : %-10d", numerolLigneLue));
+			
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Libellé : %-50s", ligneLue));
 										
 			stb.append(NEWLINE);
 														
