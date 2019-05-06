@@ -1,8 +1,10 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.impl;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -94,6 +96,31 @@ public class ImporteurNomenclatureTest {
 				.toAbsolutePath().normalize();
 	
 	/**
+	 * "Nomenclature importée : ".
+	 */
+	public static final String NOMENCLATURE_IMPORTEE 
+		= "Nomenclature importée : ";
+	
+	/**
+	 * "NOMENCLATURE GENEREE : ".
+	 */
+	public static final String NOMENCLATURE_GENEREE 
+		= "NOMENCLATURE GENEREE : ";
+	
+	/**
+	 * "AFFICHAGE DE this.nomenclatureMap : ".
+	 */
+	public static final String AFFICHAGE_NOMENCLATUREMAP 
+		= "AFFICHAGE DE this.nomenclatureMap : ";
+	
+	/**
+	 * "Clés possibles : ".
+	 */
+	public static final String CLES_POSSIBLES 
+		= "Clés possibles : ";
+	
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -136,8 +163,8 @@ public class ImporteurNomenclatureTest {
 		
 		try {
 			
-			Map<Integer, String> resultat 
-			= IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(null);
+			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
+				= IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(null);
 			
 		} catch (Exception e) {
 			
@@ -145,7 +172,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une FichierNullException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(null) doit jeter une FichierNullException :"
-					, e instanceof FichierNullException);
+					, e instanceof FichierNullException); // NOPMD by dan on 06/05/19 13:45
 		}
 		
 	} // Fin de testImporterNomenclatureEnUtf8Null().______________________
@@ -180,7 +207,7 @@ public class ImporteurNomenclatureTest {
 			
 			final File nomenclatureVide = nomenclatureVidePath.toFile();
 			
-			Map<Integer, String> resultat 
+			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
 			= IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(nomenclatureVide);
 			
 		} catch (Exception e) {
@@ -189,7 +216,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une FichierVideException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(vide) doit jeter une FichierVideException :"
-					, e instanceof FichierVideException);
+					, e instanceof FichierVideException); // NOPMD by dan on 06/05/19 13:44
 		}
 		
 	} // Fin de testImporterNomenclatureEnUtf8Vide().______________________
@@ -224,7 +251,7 @@ public class ImporteurNomenclatureTest {
 			
 			final File nomenclatureInexistant = nomenclatureInexistantPath.toFile();
 			
-			Map<Integer, String> resultat 
+			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
 			= IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(nomenclatureInexistant);
 			
 		} catch (Exception e) {
@@ -233,7 +260,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une FichierInexistantException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(inexistant) doit jeter une FichierInexistantException :"
-					, e instanceof FichierInexistantException);
+					, e instanceof FichierInexistantException); // NOPMD by dan on 06/05/19 13:44
 		}
 		
 	} // Fin de testImporterNomenclatureEnUtf8Inexistant().________________
@@ -269,7 +296,7 @@ public class ImporteurNomenclatureTest {
 			final File nomenclatureRepertoire 
 				= nomenclatureRepertoirePath.toFile();
 			
-			Map<Integer, String> resultat 
+			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
 			= IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(nomenclatureRepertoire);
 			
@@ -279,7 +306,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une FichierPasNormalException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(repertoire) doit jeter une FichierPasNormalException :"
-					, e instanceof FichierPasNormalException);
+					, e instanceof FichierPasNormalException); // NOPMD by dan on 06/05/19 13:44
 		}
 		
 	} // Fin de testImporterNomenclatureEnUtf8Repertoire().________________
@@ -326,7 +353,7 @@ public class ImporteurNomenclatureTest {
 		try {
 			
 			// IMPORT ******************
-			final Map<Integer, String> resultat 
+			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
 			= IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(mauvaiseNomenclature);
 			
@@ -339,15 +366,15 @@ public class ImporteurNomenclatureTest {
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
 				System.out.println();
-				System.out.println("Nomenclature importée : " + nomenclatureImportee.getAbsolutePath());
+				System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
 				System.out.println();
-				System.out.println("AFFICHAGE DE this.nomenclatureMap : ");
+				System.out.println(AFFICHAGE_NOMENCLATUREMAP);
 				System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
 				System.out.println();
-				System.out.println("NOMENCLATURE GENEREE : ");
+				System.out.println(NOMENCLATURE_GENEREE);
 				System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
 				System.out.println();
-				System.out.println("Clés possibles : " + clesPossibles.toString());
+				System.out.println(CLES_POSSIBLES + clesPossibles.toString());
 			}
 			
 		} catch (Exception e) {
@@ -356,7 +383,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une NomenclatureMauvaiseRunTimeException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(mauvaisenomenclature) doit jeter une NomenclatureMauvaiseRunTimeException :"
-					, e instanceof NomenclatureMauvaiseRunTimeException);
+					, e instanceof NomenclatureMauvaiseRunTimeException); // NOPMD by dan on 06/05/19 13:37
 		}
 
 	} // Fin de testImporterMauvaiseNomenclatureEnUtf8().__________________
@@ -403,7 +430,7 @@ public class ImporteurNomenclatureTest {
 		try {
 			
 			// IMPORT ******************
-			final Map<Integer, String> resultat 
+			final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:44
 			= IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(mauvaiseNomenclature);
 			
@@ -416,15 +443,15 @@ public class ImporteurNomenclatureTest {
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
 				System.out.println();
-				System.out.println("Nomenclature importée : " + nomenclatureImportee.getAbsolutePath());
+				System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
 				System.out.println();
-				System.out.println("AFFICHAGE DE this.nomenclatureMap : ");
+				System.out.println(AFFICHAGE_NOMENCLATUREMAP);
 				System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
 				System.out.println();
-				System.out.println("NOMENCLATURE GENEREE : ");
+				System.out.println(NOMENCLATURE_GENEREE);
 				System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
 				System.out.println();
-				System.out.println("Clés possibles : " + clesPossibles.toString());
+				System.out.println(CLES_POSSIBLES + clesPossibles.toString());
 			}
 			
 		} catch (Exception e) {
@@ -433,7 +460,7 @@ public class ImporteurNomenclatureTest {
 			 * jette une NomenclatureMauvaiseRunTimeException. */
 			assertTrue(
 					"importerNomenclatureEnUtf8(mauvaisenomenclature) doit jeter une NomenclatureMauvaiseRunTimeException :"
-					, e instanceof NomenclatureMauvaiseRunTimeException);
+					, e instanceof NomenclatureMauvaiseRunTimeException); // NOPMD by dan on 06/05/19 13:40
 		}
 
 	} // Fin de testImporterMauvaiseNomenclatureEnUtf82().__________________
@@ -495,15 +522,15 @@ public class ImporteurNomenclatureTest {
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
-			System.out.println("Nomenclature importée : " + nomenclatureImportee.getAbsolutePath());
+			System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
 			System.out.println();
-			System.out.println("AFFICHAGE DE this.nomenclatureMap : ");
+			System.out.println(AFFICHAGE_NOMENCLATUREMAP);
 			System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
 			System.out.println();
-			System.out.println("NOMENCLATURE GENEREE : ");
+			System.out.println(NOMENCLATURE_GENEREE);
 			System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
 			System.out.println();
-			System.out.println("Clés possibles : " + clesPossibles.toString());
+			System.out.println(CLES_POSSIBLES + clesPossibles.toString());
 		}
 		
 		/* garantit que importerNomenclatureEnUtf8(nomenclature) 
@@ -536,9 +563,9 @@ public class ImporteurNomenclatureTest {
 				"importerNomenclatureEnUtf8(nomenclature) doit creer clesPossibles avec 5 éléments : "
 				, clesPossibles.size() == 5);
 		
-		final String entete0 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(0);
-		final String entete1 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(1);
-		final String entete2 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(2);
+		final String entete0 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(0); // NOPMD by dan on 06/05/19 13:44
+		final String entete1 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(1); // NOPMD by dan on 06/05/19 13:44
+		final String entete2 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(2); // NOPMD by dan on 06/05/19 13:44
 		
 	} // Fin de testImporterNomenclatureEnUtf8().________________
 
@@ -581,7 +608,7 @@ public class ImporteurNomenclatureTest {
 			= nomenclaturePath.toFile();
 		
 		// IMPORT ******************
-		final Map<Integer, String> resultat 
+		final Map<Integer, String> resultat  // NOPMD by dan on 06/05/19 13:45
 		= IMPORTEUR_NOMENCLATURE
 			.importerNomenclatureEnUtf8(nomenclature);
 		
@@ -600,15 +627,15 @@ public class ImporteurNomenclatureTest {
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
-			System.out.println("Nomenclature importée : " + nomenclatureImportee.getAbsolutePath());
+			System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
 			System.out.println();
-			System.out.println("AFFICHAGE DE this.nomenclatureMap : ");
+			System.out.println(AFFICHAGE_NOMENCLATUREMAP);
 			System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
 			System.out.println();
-			System.out.println("NOMENCLATURE GENEREE : ");
+			System.out.println(NOMENCLATURE_GENEREE);
 			System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
 			System.out.println();
-			System.out.println("Clés possibles : " + clesPossibles.toString());
+			System.out.println(CLES_POSSIBLES + clesPossibles.toString());
 			System.out.println();
 			System.out.println("entete0 : " + entete0);
 			System.out.println("entete1 : " + entete1);
