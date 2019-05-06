@@ -8,6 +8,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
@@ -96,6 +98,12 @@ public class ImporteurNomenclatureTest {
 				.toAbsolutePath().normalize();
 	
 	/**
+	 * Path absolu vers le répertoire 'temp' sous le présent projet.
+	 */
+	public static final Path PATH_ABSOLU_REPERTOIRE_TEMP 
+		= PATH_ABSOLU_PRESENT_PROJET.resolve("temp");
+	
+	/**
 	 * "Nomenclature importée : ".
 	 */
 	public static final String NOMENCLATURE_IMPORTEE 
@@ -163,6 +171,7 @@ public class ImporteurNomenclatureTest {
 		
 		try {
 			
+			// APPEL DE LA METHODE A TESTER **************
 			IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(null);
 			
 		} catch (Exception e) {
@@ -206,6 +215,7 @@ public class ImporteurNomenclatureTest {
 			
 			final File nomenclatureVide = nomenclatureVidePath.toFile();
 			
+			// APPEL DE LA METHODE A TESTER **************
 			// IMPORT
 			IMPORTEUR_NOMENCLATURE.importerNomenclatureEnUtf8(nomenclatureVide);
 			
@@ -250,6 +260,7 @@ public class ImporteurNomenclatureTest {
 			
 			final File nomenclatureInexistant = nomenclatureInexistantPath.toFile();
 			
+			// APPEL DE LA METHODE A TESTER **************
 			// IMPORT
 			IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(nomenclatureInexistant);
@@ -296,6 +307,7 @@ public class ImporteurNomenclatureTest {
 			final File nomenclatureRepertoire 
 				= nomenclatureRepertoirePath.toFile();
 			
+			// APPEL DE LA METHODE A TESTER **************
 			// IMPORT
 			IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(nomenclatureRepertoire);
@@ -352,6 +364,7 @@ public class ImporteurNomenclatureTest {
 		
 		try {
 			
+			// APPEL DE LA METHODE A TESTER **************
 			// IMPORT ******************
 			IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(mauvaiseNomenclature);
@@ -428,6 +441,7 @@ public class ImporteurNomenclatureTest {
 		
 		try {
 			
+			// APPEL DE LA METHODE A TESTER **************
 			// IMPORT ******************
 			IMPORTEUR_NOMENCLATURE
 				.importerNomenclatureEnUtf8(mauvaiseNomenclature);
@@ -506,6 +520,7 @@ public class ImporteurNomenclatureTest {
 		final File nomenclature 
 			= nomenclaturePath.toFile();
 		
+		// APPEL DE LA METHODE A TESTER **************
 		// IMPORT ******************
 		final Map<Integer, String> resultat 
 		= IMPORTEUR_NOMENCLATURE
@@ -612,6 +627,7 @@ public class ImporteurNomenclatureTest {
 		final Set<Integer> clesPossibles 
 			= IMPORTEUR_NOMENCLATURE.getClesPossiblesSet();
 		
+		// APPEL DE LA METHODE A TESTER **************
 		final String entete0 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(0);
 		final String entete1 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(1);
 		final String entete2 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(2);
@@ -702,6 +718,7 @@ public class ImporteurNomenclatureTest {
 		final Set<Integer> clesPossibles 
 			= IMPORTEUR_NOMENCLATURE.getClesPossiblesSet();
 		
+		// APPEL DE LA METHODE A TESTER **************
 		final String valeurL0C0 
 			= IMPORTEUR_NOMENCLATURE.fournirValeurParLigneColonne(0, 0);
 		final String valeurL1C1 
@@ -782,7 +799,9 @@ public class ImporteurNomenclatureTest {
 			System.out.println("********** CLASSE ImporteurNomenclatureTest - méthode testFournirLigneEnTetesCsv() ********** ");
 		}
 
-		final String enTeteCsv = IMPORTEUR_NOMENCLATURE.fournirLigneEnTetesCsv();
+		// APPEL DE LA METHODE A TESTER **************
+		final String enTeteCsv 
+			= IMPORTEUR_NOMENCLATURE.fournirLigneEnTetesCsv();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -796,6 +815,452 @@ public class ImporteurNomenclatureTest {
 		
 	} // Fin de testFournirLigneEnTetesCsv().______________________________
 
+
+	
+	/**
+	 * Teste la méthode fournirLigneValeursCsv(int pL).<br/>
+	 * <ul>
+	 * <li>garantit que fournirLigneValeursCsv(hors indice) retourne null.</li>
+	 * <li>garantit que fournirLigneValeursCsv(bon indice) 
+	 * retourne la bonne valeur.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testFournirLigneValeursCsv() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImporteurNomenclatureTest - méthode testFournirLigneValeursCsv() ********** ");
+		}
+			
+		final Path nomenclaturePath 
+		= PATH_ABSOLU_TEST_NOMENCLATURES.resolve(
+				"HistoF08/Nomenclatures en UTF-8/2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv");
+	
+		final File nomenclature 
+			= nomenclaturePath.toFile();
+		
+		// IMPORT ******************
+		IMPORTEUR_NOMENCLATURE
+			.importerNomenclatureEnUtf8(nomenclature);
+		
+		
+		final File nomenclatureImportee 
+			= IMPORTEUR_NOMENCLATURE.getNomenclature();
+		
+		final Set<Integer> clesPossibles 
+			= IMPORTEUR_NOMENCLATURE.getClesPossiblesSet();
+		
+		// APPEL DE LA METHODE A TESTER **************
+		final String valeurL0 
+			= IMPORTEUR_NOMENCLATURE.fournirLigneValeursCsv(0);
+		final String valeurL1
+			= IMPORTEUR_NOMENCLATURE.fournirLigneValeursCsv(1);
+		final String valeurL6 
+			= IMPORTEUR_NOMENCLATURE.fournirLigneValeursCsv(6);
+		final String valeurL7 
+			= IMPORTEUR_NOMENCLATURE.fournirLigneValeursCsv(7);
+			
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
+			System.out.println();
+			System.out.println(AFFICHAGE_NOMENCLATUREMAP);
+			System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
+			System.out.println();
+			System.out.println(NOMENCLATURE_GENEREE);
+			System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
+			System.out.println();
+			System.out.println(CLES_POSSIBLES + clesPossibles.toString());
+			System.out.println();
+			System.out.println("valeurL0 : " + valeurL0);
+			System.out.println("valeurL1 : " + valeurL1);
+			System.out.println("valeurL6 : " + valeurL6);
+			System.out.println("valeurL7 : " + valeurL7);
+		}
+
+		/* garantit que fournirLigneValeursCsv(hors indice) retourne null. */
+		assertNull(
+				"fournirLigneValeursCsv(hors indice) doit retourner null : "
+				, valeurL0);
+		assertNull(
+				"fournirLigneValeursCsv(hors indice) doit retourner null : "
+				, valeurL7);
+		
+		/* garantit que fournirLigneValeursCsv(1) retourne '1;Autoroute interurbaine;'. */
+		assertEquals(
+				"fournirLigneValeursCsv(1) doit retourner '1;Autoroute interurbaine;' : "
+					, "1;Autoroute interurbaine;"
+						, valeurL1);
+		
+		/* garantit que fournirLigneValeursCsv(2) retourne '9;Inconnu ou non renseigné;'. */
+		assertEquals(
+				"fournirLigneValeursCsv(6) doit retourner '9;Inconnu ou non renseigné;' : "
+					, "9;Inconnu ou non renseigné;"
+						, valeurL6);
+		
+	} // Fin de testFournirLigneValeursCsv().______________________________
+	
+	
+	
+	/**
+	 * Teste la méthode genererNomenclatureCsvString(boolean).<br/>
+	 * <ul>
+	 * <li>garantit que genererNomenclatureCsvString() ne retourne pas null.</li>
+	 * <li>garantit que genererNomenclatureCsvString(true) incorpore l'en-tête.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGenererNomenclatureCsvString() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImporteurNomenclatureTest - méthode testGenererNomenclatureCsvString() ********** ");
+		}
+				
+		final Path nomenclaturePath 
+		= PATH_ABSOLU_TEST_NOMENCLATURES.resolve(
+				"HistoF07/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeComptage_HistoF07_Utf8.csv");
+	
+		final File nomenclature 
+			= nomenclaturePath.toFile();
+		
+		// IMPORT ******************
+		IMPORTEUR_NOMENCLATURE
+			.importerNomenclatureEnUtf8(nomenclature);
+		
+		
+		final File nomenclatureImportee 
+			= IMPORTEUR_NOMENCLATURE.getNomenclature();
+		
+		final Set<Integer> clesPossibles 
+			= IMPORTEUR_NOMENCLATURE.getClesPossiblesSet();
+		
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
+			System.out.println();
+			System.out.println(AFFICHAGE_NOMENCLATUREMAP);
+			System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
+			System.out.println();
+			System.out.println(NOMENCLATURE_GENEREE);
+			System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
+			System.out.println();
+			System.out.println(CLES_POSSIBLES + clesPossibles.toString());
+		}
+		
+		// APPEL DE LA METHODE A TESTER **************
+		final String nomenclatureGenereeSansEntete 
+			= IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString(false);
+		
+		final String nomenclatureGenereeAvecEntete 
+			= IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString(true);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println("nomenclature sans en-tête : ");
+			System.out.println(nomenclatureGenereeSansEntete);
+			System.out.println();
+			System.out.println("nomenclature avec en-tête : ");
+			System.out.println(nomenclatureGenereeAvecEntete);
+		}
+		
+		/* garantit que genererNomenclatureCsvString() ne retourne pas null. */
+		assertNotNull(
+				"nomenclatureGenereeSansEntete ne doit pas être null : "
+					, nomenclatureGenereeSansEntete);
+		assertNotNull(
+				"nomenclatureGenereeAvecEntete ne doit pas être null : "
+					, nomenclatureGenereeAvecEntete);
+		
+		/* garantit que genererNomenclatureCsvString(true) incorpore l'en-tête. */
+		assertTrue(
+				"genererNomenclatureCsvString(true) doit contenir l'en-tête : "
+					, nomenclatureGenereeAvecEntete
+					.contains(IMPORTEUR_NOMENCLATURE.fournirLigneEnTetesCsv()));
+		
+	} // Fin de testGenererNomenclatureCsvString().________________________
+
+	
+	
+	/**
+	 * Teste la méthode genererNomenclatureCsvFileUtf8().<br/>
+	 * <ul>
+	 * li>garantit que genererNomenclatureCsvFileUtf8(...) 
+	 * génère la nomenclature sur disque.</li>
+	 * <li>détruit le fichier généré à la fin du test.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGenererNomenclatureCsvFileUtf8() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImporteurNomenclatureTest - méthode testGenererNomenclatureCsvFileUtf8() ********** ");
+		}
+				
+		final Path nomenclaturePath 
+		= PATH_ABSOLU_TEST_NOMENCLATURES.resolve(
+				"DarwinCsv/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClassementRoute_DarwinCsv_Utf8.csv");
+		
+		final File nomenclature 
+			= nomenclaturePath.toFile();
+		
+		// IMPORT ******************
+		IMPORTEUR_NOMENCLATURE
+			.importerNomenclatureEnUtf8(nomenclature);
+				
+		final File nomenclatureImportee 
+			= IMPORTEUR_NOMENCLATURE.getNomenclature();
+		
+		final Set<Integer> clesPossibles 
+			= IMPORTEUR_NOMENCLATURE.getClesPossiblesSet();
+		
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
+			System.out.println();
+			System.out.println(AFFICHAGE_NOMENCLATUREMAP);
+			System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
+			System.out.println();
+			System.out.println(NOMENCLATURE_GENEREE);
+			System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
+			System.out.println();
+			System.out.println(CLES_POSSIBLES + clesPossibles.toString());
+		}
+		
+		// APPEL DE LA METHODE A TESTER **************
+		final File nomenclatureGeneree 
+			= IMPORTEUR_NOMENCLATURE
+				.genererNomenclatureCsvFileUtf8();
+		
+		final Path nomenclatureGenereePath = nomenclatureGeneree.toPath();
+	
+		/* garantit que genererNomenclatureCsvFile(...) 
+		 * génère la nomenclature sur disque. */
+		assertTrue(
+				"le fichier généré doit exister sur disque : "
+					, nomenclatureGeneree.exists());
+		
+		/* détruit le fichier généré à la fin du test. */
+		if (nomenclatureGenereePath.toFile().exists()) {
+			Files.delete(nomenclatureGenereePath);
+		}
+		
+		if (PATH_ABSOLU_REPERTOIRE_TEMP.toFile().exists()) {
+			Files.delete(PATH_ABSOLU_REPERTOIRE_TEMP);
+		}
+		
+		
+		assertFalse("le fichier généré ne doit plus exister sur disque : "
+				, nomenclatureGeneree.exists());
+
+	} // Fin de testGenererNomenclatureCsvFileUtf8().______________________
+
+	
+	
+	/**
+	 * Teste la méthode genererNomenclatureCsvFileLatin9().<br/>
+	 * <ul>
+	 * li>garantit que genererNomenclatureCsvFileLatin9(...) 
+	 * génère la nomenclature sur disque.</li>
+	 * <li>détruit le fichier généré à la fin du test.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGenererNomenclatureCsvFileLatin9() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImporteurNomenclatureTest - méthode testGenererNomenclatureCsvFileLatin9() ********** ");
+		}
+				
+		final Path nomenclaturePath 
+		= PATH_ABSOLU_TEST_NOMENCLATURES.resolve(
+				"DarwinCsv/Nomenclatures en UTF-8/2014-07-15_Nomenclature_ClassementRoute_DarwinCsv_Utf8.csv");
+		
+		final File nomenclature 
+			= nomenclaturePath.toFile();
+		
+		// IMPORT ******************
+		IMPORTEUR_NOMENCLATURE
+			.importerNomenclatureEnUtf8(nomenclature);
+				
+		final File nomenclatureImportee 
+			= IMPORTEUR_NOMENCLATURE.getNomenclature();
+		
+		final Set<Integer> clesPossibles 
+			= IMPORTEUR_NOMENCLATURE.getClesPossiblesSet();
+		
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
+			System.out.println();
+			System.out.println(AFFICHAGE_NOMENCLATUREMAP);
+			System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
+			System.out.println();
+			System.out.println(NOMENCLATURE_GENEREE);
+			System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
+			System.out.println();
+			System.out.println(CLES_POSSIBLES + clesPossibles.toString());
+		}
+		
+		// APPEL DE LA METHODE A TESTER **************
+		final File nomenclatureGeneree 
+			= IMPORTEUR_NOMENCLATURE
+				.genererNomenclatureCsvFileLatin9();
+		
+		final Path nomenclatureGenereePath = nomenclatureGeneree.toPath();
+	
+		/* garantit que genererNomenclatureCsvFile(...) 
+		 * génère la nomenclature sur disque. */
+		assertTrue(
+				"le fichier généré doit exister sur disque : "
+					, nomenclatureGeneree.exists());
+		
+		/* détruit le fichier généré à la fin du test. */
+		if (nomenclatureGenereePath.toFile().exists()) {
+			Files.delete(nomenclatureGenereePath);
+		}
+		
+		if (PATH_ABSOLU_REPERTOIRE_TEMP.toFile().exists()) {
+			Files.delete(PATH_ABSOLU_REPERTOIRE_TEMP);
+		}
+		
+		
+		assertFalse("le fichier généré ne doit plus exister sur disque : "
+				, nomenclatureGeneree.exists());
+
+	} // Fin de testGenererNomenclatureCsvFileLatin9().____________________
+	
+
+	
+	/**
+	 * Teste la méthode genererNomenclatureCsvFile(boolean, File, Charset).<br/>
+	 * <ul>
+	 * <li>garantit que genererNomenclatureCsvFile(...) 
+	 * génère la nomenclature sur disque.</li>
+	 * <li>détruit le fichier généré à la fin du test.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGenererNomenclatureCsvFile() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImporteurNomenclatureTest - méthode testGenererNomenclatureCsvFile() ********** ");
+		}
+				
+		final Path nomenclaturePath 
+		= PATH_ABSOLU_TEST_NOMENCLATURES.resolve(
+				"HistoF07/Nomenclatures en UTF-8/2014-07-15_Nomenclature_TypeComptage_HistoF07_Utf8.csv");
+	
+		final File nomenclature 
+			= nomenclaturePath.toFile();
+		
+		// IMPORT ******************
+		IMPORTEUR_NOMENCLATURE
+			.importerNomenclatureEnUtf8(nomenclature);
+		
+		
+		final File nomenclatureImportee 
+			= IMPORTEUR_NOMENCLATURE.getNomenclature();
+		
+		final Set<Integer> clesPossibles 
+			= IMPORTEUR_NOMENCLATURE.getClesPossiblesSet();
+		
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(NOMENCLATURE_IMPORTEE + nomenclatureImportee.getAbsolutePath());
+			System.out.println();
+			System.out.println(AFFICHAGE_NOMENCLATUREMAP);
+			System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
+			System.out.println();
+			System.out.println(NOMENCLATURE_GENEREE);
+			System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
+			System.out.println();
+			System.out.println(CLES_POSSIBLES + clesPossibles.toString());
+		}
+		
+		final Path nomenclatureGenereePath 
+			= PATH_ABSOLU_REPERTOIRE_TEMP.resolve("nomenclatureGeneree.csv");
+		
+		final File nomenclatureGeneree = nomenclatureGenereePath.toFile();
+		
+		final Charset charsetUtf8 = Charset.forName("UTF-8");
+		
+		// APPEL DE LA METHODE A TESTER **************
+		IMPORTEUR_NOMENCLATURE
+			.genererNomenclatureCsvFile(
+					true, nomenclatureGeneree, charsetUtf8);
+		
+		/* garantit que genererNomenclatureCsvFile(...) 
+		 * génère la nomenclature sur disque. */
+		assertTrue(
+				"le fichier généré doit exister sur disque : "
+					, nomenclatureGeneree.exists());
+		
+		/* détruit le fichier généré à la fin du test. */
+		if (nomenclatureGenereePath.toFile().exists()) {
+			Files.delete(nomenclatureGenereePath);
+		}
+		
+		if (PATH_ABSOLU_REPERTOIRE_TEMP.toFile().exists()) {
+			Files.delete(PATH_ABSOLU_REPERTOIRE_TEMP);
+		}
+
+	} // Fin de testGenererNomenclatureCsvFile(...)._______________________
+	
 	
 		
 } // FIN DE LA CLASSE ImporteurNomenclatureTest.-----------------------------

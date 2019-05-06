@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Locale;
@@ -61,6 +63,8 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.Nomenclature
  * 
  * - Mots-clé :<br/>
  * switch-case,<br/>
+ * créer fichier vide sur disque, créer arborescence, <br/>
+ * ajouter BOM, ajouter BOM-UTF8 au début d'un fichier csv,<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -124,6 +128,16 @@ public abstract class AbstractImporteurNomenclature implements
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
+	
+	
+	//*****************************************************************/
+	//**************************** BOM_UTF-8 **************************/
+	//*****************************************************************/
+	/**
+	 * '\uFEFF'<br/>
+	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
+	 */
+	public static final char BOM_UTF_8 = '\uFEFF';
 	
 	
 	/**
@@ -632,29 +646,12 @@ public abstract class AbstractImporteurNomenclature implements
 								
 		return stb.toString();
 		
-	} // Fin de String genererNomenclatureCsvString(
-	// boolean pAvecLigneEntetes)._________________________________________
+	} // Fin de String genererNomenclatureCsvString(...).___________________
 
 	
 		
 	/**
-	 * method genererNomenclatureCsvFileUtf8() :<br/>
-	 * Génère un fichier csv avec séparateur ';' 
-	 * encodé en UTF-8 encapsulant la nomenclature.<br/>
-	 * rajoute la ligne d'en-tête.<br/>
-	 * - retourne null si this.nomenclatureMap est null.<br/>
-	 * ATTENTION : faire importerNomenclature(...) 
-	 * AVANT d'utiliser cette méthode.<br/>
-	 * <br/>
-	 * Génère automatiquement le fichier généré dans le même répertoire 
-	 * que this.nomenclature avec l'extension _genere_UTF-8.csv.<br/>
-	 * <br/>
-	 *
-	 * @return : File : Le fichier csv généré.<br/>
-	 * 
-	 * @throws IOException : si problème d'entrée/sortie.<br/>
-	 * @throws FichierInexistantException : si this.nomenclature n'existe pas.<br/>
-	 * @throws FichierNullException : si this.nomenclature est null.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final File genererNomenclatureCsvFileUtf8() 
@@ -672,23 +669,7 @@ public abstract class AbstractImporteurNomenclature implements
 	
 	
 	/**
-	 * method genererNomenclatureCsvFileLatin9() :<br/>
-	 * Génère un fichier csv avec séparateur ';' 
-	 * encodé en ISO-8859-15 encapsulant la nomenclature.<br/>
-	 * rajoute la ligne d'en-tête.<br/>
-	 * - retourne null si this.nomenclatureMap est null.<br/>
-	 * ATTENTION : faire importerNomenclature(...) 
-	 * AVANT d'utiliser cette méthode.<br/>
-	 * <br/>
-	 * Génère automatiquement le fichier généré dans le même répertoire 
-	 * que this.nomenclature avec l'extension _genere_ISO-8859-15.csv.<br/>
-	 * <br/>
-	 *
-	 * @return : File : Le fichier csv généré.<br/>
-	 * 
-	 * @throws IOException : si problème d'entrée/sortie.<br/>
-	 * @throws FichierInexistantException : si this.nomenclature n'existe pas.<br/>
-	 * @throws FichierNullException : si this.nomenclature est null.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final File genererNomenclatureCsvFileLatin9() 
@@ -706,27 +687,7 @@ public abstract class AbstractImporteurNomenclature implements
 	
 	
 	/**
-	 * method genererNomenclatureCsvFileUtf8(
-	 * File pFile) :<br/>
-	 * Génère un fichier csv avec séparateur ';' 
-	 * encodé en UTF-8 encapsulant la nomenclature.<br/>
-	 * rajoute la ligne d'en-tête.<br/>
-	 * - retourne null si this.nomenclatureMap est null.<br/>
-	 * ATTENTION : faire importerNomenclature(...) 
-	 * AVANT d'utiliser cette méthode.<br/>
-	 * <br/>
-	 * Génère automatiquement le fichier généré dans le même répertoire 
-	 * que this.nomenclature avec l'extension _genere_UTF-8.csv 
-	 * si pFile est null.<br/>
-	 * <br/>
-	 *
-	 * @param pFile : File : le fichier csv à générer.<br/>
-	 * 
-	 * @return : File : Le fichier csv généré.<br/>
-	 * 
-	 * @throws IOException : si problème d'entrée/sortie.<br/>
-	 * @throws FichierInexistantException : si this.nomenclature n'existe pas.<br/>
-	 * @throws FichierNullException : si this.nomenclature est null.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final File genererNomenclatureCsvFileUtf8(
@@ -746,27 +707,7 @@ public abstract class AbstractImporteurNomenclature implements
 	
 	
 	/**
-	 * method genererNomenclatureCsvFileLatin9(
-	 * File pFile) :<br/>
-	 * Génère un fichier csv avec séparateur ';' 
-	 * encodé en ISO-8859-15 encapsulant la nomenclature.<br/>
-	 * rajoute la ligne d'en-tête.<br/>
-	 * - retourne null si this.nomenclatureMap est null.<br/>
-	 * ATTENTION : faire importerNomenclature(...) 
-	 * AVANT d'utiliser cette méthode.<br/>
-	 * <br/>
-	 * Génère automatiquement le fichier généré dans le même répertoire 
-	 * que this.nomenclature avec l'extension _genere_ISO-8859-15.csv 
-	 * si pFile est null.<br/>
-	 * <br/>
-	 *
-	 * @param pFile : File : le fichier csv à générer.<br/>
-	 * 
-	 * @return : File : Le fichier csv généré.<br/>
-	 * 
-	 * @throws IOException : si problème d'entrée/sortie.<br/>
-	 * @throws FichierInexistantException : si this.nomenclature n'existe pas.<br/>
-	 * @throws FichierNullException : si this.nomenclature est null.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final File genererNomenclatureCsvFileLatin9(
@@ -786,30 +727,7 @@ public abstract class AbstractImporteurNomenclature implements
 	
 	
 	/**
-	 * method genererNomenclatureCsvFileUtf8(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile) :<br/>
-	 * Génère un fichier csv avec séparateur ';' 
-	 * encodé en UTF-8 encapsulant la nomenclature.<br/>
-	 * rajoute la ligne d'en-tête si pAvecLigneEntetes vaut true.<br/>
-	 * - retourne null si this.nomenclatureMap est null.<br/>
-	 * ATTENTION : faire importerNomenclature(...) 
-	 * AVANT d'utiliser cette méthode.<br/>
-	 * <br/>
-	 * Génère automatiquement le fichier généré dans le même répertoire 
-	 * que this.nomenclature avec l'extension _genere_UTF-8.csv 
-	 * si pFile est null.<br/>
-	 * <br/>
-	 *
-	 * @param pAvecLigneEntetes : boolean : boolean qui stipule 
-	 * si il faut rajouter la ligne d'en-têtes au fichier csv produit.<br/>
-	 * @param pFile : File : le fichier csv à générer.<br/>
-	 * 
-	 * @return : File : Le fichier csv généré.<br/>
-	 * 
-	 * @throws IOException : si problème d'entrée/sortie.<br/>
-	 * @throws FichierInexistantException : si this.nomenclature n'existe pas.<br/>
-	 * @throws FichierNullException : si this.nomenclature est null.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final File genererNomenclatureCsvFileUtf8(
@@ -831,30 +749,7 @@ public abstract class AbstractImporteurNomenclature implements
 
 	
 	/**
-	 * method genererNomenclatureCsvFileLatin9(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile) :<br/>
-	 * Génère un fichier csv avec séparateur ';' 
-	 * encodé en ISO-8859-15 encapsulant la nomenclature.<br/>
-	 * rajoute la ligne d'en-tête si pAvecLigneEntetes vaut true.<br/>
-	 * - retourne null si this.nomenclatureMap est null.<br/>
-	 * ATTENTION : faire importerNomenclature(...) 
-	 * AVANT d'utiliser cette méthode.<br/>
-	 * <br/>
-	 * Génère automatiquement le fichier généré dans le même répertoire 
-	 * que this.nomenclature avec l'extension _genere_ISO-8859-15.csv 
-	 * si pFile est null.<br/>
-	 * <br/>
-	 *
-	 * @param pAvecLigneEntetes : boolean : boolean qui stipule 
-	 * si il faut rajouter la ligne d'en-têtes au fichier csv produit.<br/>
-	 * @param pFile : File : le fichier csv à générer.<br/>
-	 * 
-	 * @return : File : Le fichier csv généré.<br/>
-	 * 
-	 * @throws IOException : si problème d'entrée/sortie.<br/>
-	 * @throws FichierInexistantException : si this.nomenclature n'existe pas.<br/>
-	 * @throws FichierNullException : si this.nomenclature est null.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final File genererNomenclatureCsvFileLatin9(
@@ -876,32 +771,7 @@ public abstract class AbstractImporteurNomenclature implements
 	
 	
 	/**
-	 * method genererNomenclatureCsvFile(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile
-	 * , Charset pCharset) :<br/>
-	 * Génère un fichier csv avec séparateur ';' 
-	 * encodé en pCharset encapsulant la nomenclature.<br/>
-	 * rajoute la ligne d'en-tête si pAvecLigneEntetes vaut true.<br/>
-	 * - retourne null si this.nomenclatureMap est null.<br/>
-	 * ATTENTION : faire importerNomenclature(...) 
-	 * AVANT d'utiliser cette méthode.<br/>
-	 * <br/>
-	 * Génère automatiquement le fichier généré dans le même répertoire 
-	 * que this.nomenclature avec l'extension _genere_charset.csv 
-	 * si pFile est null.<br/>
-	 * <br/>
-	 *
-	 * @param pAvecLigneEntetes : boolean : boolean qui stipule 
-	 * si il faut rajouter la ligne d'en-têtes au fichier csv produit.<br/>
-	 * @param pFile : File : le fichier csv à générer.<br/>
-	 * @param pCharset : Charset : l'encodage voulu pour le fichier généré.<br/>
-	 * 
-	 * @return : File : Le fichier csv généré.<br/>
-	 * 
-	 * @throws IOException : si problème d'entrée/sortie.<br/>
-	 * @throws FichierInexistantException : si this.nomenclature n'existe pas.<br/>
-	 * @throws FichierNullException : si this.nomenclature est null.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final File genererNomenclatureCsvFile(
@@ -918,14 +788,23 @@ public abstract class AbstractImporteurNomenclature implements
 		}
 
 		// ************ PARAMETRES VALIDES *******************************/
-				
+
+		/* choisit automatiquement le Charset UTF-8 si pCharset == null. */
+		Charset charset = null;
+		
+		if (pCharset == null) {
+			charset = Charset.forName("UTF-8");
+		} else {
+			charset = pCharset;
+		}
+
 		File fileGenere = null;
 		
 		/* Génère automatiquement le fichier de sortie dans le 
 		 * même répertoire que this.nomenclature 
 		 * avec l'extension _genere_charset.csv si pFile est null. */
 		if (pFile == null) {			
-			fileGenere = this.genererAutomatiquementFile(pCharset);			
+			fileGenere = this.genererAutomatiquementFile(charset);			
 		}
 		else {			
 			fileGenere = pFile;
@@ -935,12 +814,23 @@ public abstract class AbstractImporteurNomenclature implements
 		if (fileGenere == null) {
 			return null;
 		}
-				
+		
+		/* crée un fichier vide sur disque et son arborescence 
+		 * si il n'existe pas. */
+		if (!fileGenere.exists()) {
+			this.creerFichierVideEtArborescenceSurDisque(fileGenere);
+		}
+						
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
 		/* ECRITURE AVEC PCHARSET. */
 		final FileOutputStream fos = new FileOutputStream(fileGenere);
-		final OutputStreamWriter osw = new OutputStreamWriter(fos, pCharset);
+		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset);
 		final BufferedWriter bfw = new BufferedWriter(osw);
+		
+		/* Ajoute le BOM-UTF8 au début du fichier généré si charset vaut Charset-UTF8. */
+		if (charset.equals(Charset.forName("UTF-8"))) {
+			bfw.write(BOM_UTF_8);
+		}
 		
 		/* AJOUT DES TITRES. */
 		if (pAvecLigneEntetes) {
@@ -995,13 +885,60 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		return fileGenere;
 		
-	} // Fin de genererNomenclatureCsvFile(
-	 // boolean pAvecLigneEntetes
-	 // , File pFile
-	 // , Charset pCharset)._______________________________________________
+	} // Fin de genererNomenclatureCsvFile(...).___________________________
+
 
 	
+	/**
+	 * <b>Crée sur disque le File pFile <i>vide</i></b> 
+	 * si il n'existe pas déjà.<br/>
+	 * <ul>
+	 * <li>retourne le fichier vide créé.</li>
+	 * <li>crée sur disque l'<b>arborescence au dessus de pFile</b> 
+	 * si elle n'existe pas.</li>
+	 * <li>crée sur disque le fichier vide pFile 
+	 * si il n'existe pas.</li>
+	 * </ul>
+	 * - retourne null si pFile == null.<br/>
+	 * - retourne null si pFile existe.<br/>
+	 * <br/>
+	 *
+	 * @param pFile : File : fichier inexistant sur disque à créer.
+	 * 
+	 * @return File : le fichier VIDE créé sur disque.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	private File creerFichierVideEtArborescenceSurDisque(
+							final File pFile) throws IOException {
 		
+		/* retourne null si pFile == null. */
+		if (pFile == null) {
+			return null;
+		}
+		
+		/* retourne null si pFile existe. */
+		if (pFile.exists()) {
+			return null;
+		}
+		
+		final Path pFilePath = pFile.toPath();
+		final Path pFileParentPath = pFilePath.getParent();
+		
+		/* crée l'arborescence au dessus de pFile si elle n'existe pas. */
+		if (!pFileParentPath.toFile().exists()) {
+			Files.createDirectories(pFileParentPath);
+		}
+		
+		/* crée le fichier VIDE pFile si il n'existe pas. */
+		Files.createFile(pFilePath);
+		
+		return pFile;
+		
+	} // Fin de creerFichierVideEtArborescenceSurDisque(...).______________
+	
+	
+	
 	/**
 	 * method genererAutomatiquementFile(
 	 * Charset pCharset) :<br/>
