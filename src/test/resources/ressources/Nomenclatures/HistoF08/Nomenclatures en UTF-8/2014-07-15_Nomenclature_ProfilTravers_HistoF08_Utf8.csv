@@ -1,0 +1,13 @@
+﻿Clé;Libellé;Clé ISIDOR;
+A;chaussée unique 1 voie;1V;
+1;chaussée unique 2 voies < 7m;2V<7;
+2;chaussée unique 2 voies >= 7m;2V>=7;
+B;chaussée unique 3 voies < 10,5m;3V<10.50;
+3;chaussée unique 3 voies >= 10,5m;3V>=10.50;
+4;chaussée unique 4 voies;4V;
+C;chaussée unique de plus de 4 voies;>4V;
+5;chaussées séparées 2 x 1 voie;=2*1V;
+6;chaussées séparées 2 x 2 voies;=2*2V;
+7;chaussées séparées 2 x 3 voies;=2*3V;
+8;chaussées séparées 2 x 4 voies;=2*4V;
+D;chaussées séparées de plus de 2 x 4 voies;>2*4V;

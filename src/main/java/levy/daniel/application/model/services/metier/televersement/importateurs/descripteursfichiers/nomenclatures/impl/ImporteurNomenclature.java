@@ -30,11 +30,10 @@ public class ImporteurNomenclature extends AbstractImporteurNomenclature {
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * CLASSE_IMPORTATEUR_NOMENCLATURE_SENS_HIT : String :<br/>
-	 * "Classe ImporteurNomenclature - ".<br/>
+	 * "Classe ImporteurNomenclature".<br/>
 	 */
-	public static final String CLASSE_IMPORTATEUR_NOMENCLATURE_SENS_HIT 
-		= "Classe ImporteurNomenclature - ";
+	public static final String CLASSE_IMPORTEUR_NOMENCLATURE 
+		= "Classe ImporteurNomenclature";
 	
 	
 	
@@ -63,51 +62,51 @@ public class ImporteurNomenclature extends AbstractImporteurNomenclature {
 	 */
 	@Override
 	public final String recupererNomClasse() {
-		return CLASSE_IMPORTATEUR_NOMENCLATURE_SENS_HIT;
+		return CLASSE_IMPORTEUR_NOMENCLATURE;
 	} // Fin de recupererNomClasse().______________________________________
 	
 	
 	
 	/**
 	 * {@inheritDoc}
-	 * "importeurnomenclaturesenshit.importer.filenull".<br/>
+	 * "importeurnomenclature.importer.filenull"
 	 */
 	@Override
 	public final String recupererCleImporterFileNull() {
-		return "importeurnomenclaturesenshit.importer.filenull";
+		return "importeurnomenclature.importer.filenull";
 	} // Fin de upererCleImporterFileNull()._______________________________
 
 
 
 	/**
 	 * {@inheritDoc}
-	 * "importeurnomenclaturesenshit.importer.filevide".<br/>
+	 * "importeurnomenclature.importer.filevide".<br/>
 	 */
 	@Override
 	public final String recupererCleImporterFileVide() {
-		return "importeurnomenclaturesenshit.importer.filevide";
+		return "importeurnomenclature.importer.filevide";
 	} // Fin de recupererCleImporterFileVide().____________________________
 
 
 
 	/**
 	 * {@inheritDoc}
-	 * "importeurnomenclaturesenshit.importer.fileinexistant".<br/>
+	 * "importeurnomenclature.importer.fileinexistant".<br/>
 	 */
 	@Override
 	public final String recupererCleImporterFileInexistant() {
-		return "importeurnomenclaturesenshit.importer.fileinexistant";
+		return "importeurnomenclature.importer.fileinexistant";
 	} // Fin de recupererCleImporterFileInexistant().______________________
 
 
 	
 	/**
 	 * {@inheritDoc}
-	 * "importeurnomenclaturesenshit.importer.filepasnormal".<br/>
+	 * "importeurnomenclature.importer.filepasnormal".<br/>
 	 */
 	@Override
 	public final String recupererCleImporterFilePasNormal() {
-		return "importeurnomenclaturesenshit.importer.filepasnormal";
+		return "importeurnomenclature.importer.filepasnormal";
 	} // Fin de recupererCleImporterFilePasNormal()._______________________ 
 	
 	

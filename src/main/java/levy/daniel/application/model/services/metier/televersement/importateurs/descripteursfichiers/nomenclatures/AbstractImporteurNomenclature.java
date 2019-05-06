@@ -11,6 +11,8 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
@@ -26,6 +28,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierPasNormalException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.NomenclatureMauvaiseRunTimeException;
 
 /**
  * class AbstractImporteurNomenclature :<br/>
@@ -157,9 +160,7 @@ public abstract class AbstractImporteurNomenclature implements
 	
 	
 	 /**
-	 * method CONSTRUCTEUR AbstractImporteurNomenclature() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
 	 */
 	public AbstractImporteurNomenclature() {
 		super();
@@ -224,6 +225,31 @@ public abstract class AbstractImporteurNomenclature implements
 		/* File directory. */
 		this.traiterFichierPasNormal(pNomenclature
 					, pMethode);
+		
+		/* vérifie que la nomenclature est au bon format CSV [Integer;String;]. */
+		final boolean bonneNomenclature 
+			= this.verifierNomenclatureIntegerString(
+					pNomenclature, pMethode, pCharset);
+		
+		if (!bonneNomenclature) {
+			
+			final String message 
+				= this.recupererNomClasse()
+					+ SEPARATEUR_MOINS_AERE
+					+ pMethode 
+					+ SEPARATEUR_MOINS_AERE 
+					+ "La nomenclature que vous essayez d'importer "
+					+ "n'est pas de la forme [Integer;String;] "
+					+ "(un entier pour la clé, un point-virgule, "
+					+ "une chaîne de caractères pour le libellé) : " 
+					+ pNomenclature.getAbsolutePath();
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			throw new NomenclatureMauvaiseRunTimeException(message);
+		}
 
 		// ************ PARAMETRES VALIDES *******************************/
 		
@@ -252,13 +278,16 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		String ligneLue = null;
 		
+		/* Instancie un Pattern chargé de retrouver le 
+		 * séparateur ';' dans la ligne. */
+		final Pattern PatternPV = Pattern.compile(SEP_PV);
+		
 		// LECTURE DES LIGNES.**********************************
 		while ((ligneLue = bfr.readLine()) != null) {
 			
-			/* Instancie un Pattern chargé de retrouver le 
-			 * séparateur ';' dans la ligne. */
+			/* décompose la ligne. */
 			final String[] tokens 
-				= Pattern.compile(SEP_PV).split(ligneLue);
+				= PatternPV.split(ligneLue);
 			
 			/* saute la ligne d'en-tête le cas échéant en se basant 
 			 * sur le fait qu'on aura 'clé' pour l'en-tête  
@@ -295,6 +324,118 @@ public abstract class AbstractImporteurNomenclature implements
 	} // Fin de importerNomenclature(...)._________________________________
 	
 
+	
+	/**
+	 * vérifie que la nomenclature correspond au format attendu 
+	 * (fichier csv avec une clé Integer et un libellé String).<br/>
+	 * <ul>
+	 * <li>retourne false si la REGEX n'a pas pu trouver 
+	 * au moins deux tokens (pas CSV).</li>
+	 * <li>retourne false si une clé n'est pas homogène à un entier.</li>
+	 * </ul>
+	 *
+	 * @param pNomenclature : File : fichier csv contenant la nomenclature.
+	 * @param pMethode : String : 
+	 * nom de la méthode appelant la présente.
+	 * @param pCharset : Charset : 
+	 * charset d'encodage de la nomenclature pNomenclature
+	 * 
+	 * @return boolean : true si la nomenclature est au bon format.
+	 * 
+	 * @throws Exception
+	 */
+	private boolean verifierNomenclatureIntegerString(
+			final File pNomenclature
+				, final String pMethode
+					, final Charset pCharset) 
+							throws Exception {
+		
+		// ************PARAMETRES INVALIDES. *****************************/
+		/* Fichier null. */
+		this.traiterFichierNull(pNomenclature, pMethode);
+
+		/* Fichier inexistant. */
+		this.traiterFichierInexistant(pNomenclature, pMethode);
+
+		/* Fichier vide. */
+		this.traiterFichierVide(pNomenclature, pMethode);
+				
+		/* File directory. */
+		this.traiterFichierPasNormal(pNomenclature
+					, pMethode);
+
+		// ************ PARAMETRES VALIDES *******************************/
+		
+		/* choisit automatiquement le Charset UTF-8 si pCharset == null. */
+		Charset charset = null;
+		
+		if (pCharset == null) {
+			charset = Charset.forName("UTF-8");
+		} else {
+			charset = pCharset;
+		}
+		
+		boolean resultat = true;
+		
+		/* Ouverture des flux. */
+		final FileInputStream fis =  new FileInputStream(pNomenclature);
+		final InputStreamReader isr = new InputStreamReader(fis, charset);
+		final BufferedReader bfr = new BufferedReader(isr);
+		
+		String ligneLue = null;
+		
+		int compteur = 0;
+		
+		/* Instancie un Pattern chargé de retrouver le 
+		 * séparateur ';' dans la ligne. */
+		final Pattern PatternPV = Pattern.compile(SEP_PV);
+		
+		// LECTURE DES LIGNES.**********************************
+		while ((ligneLue = bfr.readLine()) != null) {
+			
+			compteur++;
+			
+			if (compteur > 1) {
+				
+				/* décompose la ligne. */
+				final String[] tokens 
+					= PatternPV.split(ligneLue);
+				
+				/* retourne false si la REGEX n'a pas pu trouver
+				 *  au moins deux tokens (pas CSV). */
+				if (tokens.length < 2) {
+					resultat = false;
+					break;
+				}
+								
+				final String cle = tokens[0];
+				
+				if (!StringUtils.isBlank(cle)) {
+					try {
+						Integer.parseInt(cle);
+						
+					/* retourne false si une clé n'est pas 
+					 * homogène à un entier. */	
+					} catch (NumberFormatException e) {
+						resultat = false;
+						break;
+					}
+				}
+								
+			}
+									
+		} // FIN LECTURE DES LIGNES.******************************
+		
+		/* FERMETURE DES FLUX. */
+		fis.close();
+		isr.close();
+		bfr.close();
+		
+		return resultat;
+		
+	} // Fin de verifierNomenclatureIntegerString(...).____________________
+	
+	
 	
 	/**
 	 * {@inheritDoc}
@@ -947,8 +1088,82 @@ public abstract class AbstractImporteurNomenclature implements
 	} // Fin de genererAutomatiquementFile(
 	// Charset pCharset).__________________________________________________
 	
+
+		
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String afficherNomenclatureMap() {
+		
+		if (this.nomenclatureMap != null) {
+			return this.afficherMapIntegerString(this.nomenclatureMap);
+		}
+			
+		return null;
+				
+	} // Fin de afficherNomenclatureMap()._________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String afficherMapIntegerString(
+			final Map<Integer, String> pMap) {
+		
+		/* retourne null si pMap == null. */
+		if (pMap == null) {
+			return null;
+		}
+		
+		final Set<Entry<Integer, String>> set = pMap.entrySet();
+		
+		if (set == null) {
+			return null;
+		}
+		
+		final Iterator<Entry<Integer, String>> ite = set.iterator();
+		
+		if (ite == null) {
+			return null;
+		}
+		
+		final StringBuilder stb = new StringBuilder();
+		
+		/* Parcours de l'iterator. */
+		while (ite.hasNext()) {
+			
+			final Entry<Integer, String> entry = ite.next();
+			
+			if (entry == null) {
+				return null;
+			}
+			
+			final int numerolLigneLue = entry.getKey();
+			final String ligneLue = entry.getValue();
+							
+			/* Ajout de la ligne au StringBuilder. */
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Ligne : %-5d", numerolLigneLue));
+			
+			stb.append(
+					String.format(Locale.FRANCE
+							, "%-50s", ligneLue));
+										
+			stb.append(NEWLINE);
+														
+		} // Fin de Parcours de l'iterator.______________________
+		
+		/* Retour de la ligne. */
+		return stb.toString();
+		
+	} // Fin de afficherMapIntegerString(...)._____________________________	
 	
 
+	
 	/**
 	 * method traiterFichierNull(
 	 * File pFile
@@ -969,8 +1184,10 @@ public abstract class AbstractImporteurNomenclature implements
 		if (pFile == null) {
 			
 			final String message 
-			= this.recupererNomClasse() 
+			= this.recupererNomClasse()
+			+ SEPARATEUR_MOINS_AERE
 			+ pMethode 
+			+ SEPARATEUR_MOINS_AERE
 			+ ConfigurationApplicationManager.getBundleMessagesTechnique()
 			.getString(this.recupererCleImporterFileNull());
 			
@@ -984,9 +1201,7 @@ public abstract class AbstractImporteurNomenclature implements
 			
 		} // Fin de pFile null._____________________________
 		
-	} // Fin de traiterFichierNull(
-	 // File pFile
-	// , String pMethode)._________________________________________________
+	} // Fin de traiterFichierNull(...).___________________________________
 	
 	
 	
@@ -1011,7 +1226,9 @@ public abstract class AbstractImporteurNomenclature implements
 			
 			final String message 
 			= this.recupererNomClasse() 
-			+ pMethode 
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
 			+ ConfigurationApplicationManager.getBundleMessagesTechnique()
 			.getString(this.recupererCleImporterFileVide()) 
 			+ pFile.getAbsolutePath();
@@ -1026,9 +1243,7 @@ public abstract class AbstractImporteurNomenclature implements
 			
 		} // Fin de pFile vide.______________________________
 
-	} // Fin de traiterFichierVide(
-	 // File pFile
-	// , String pMethode)._________________________________________________
+	} // Fin de traiterFichierVide(...).___________________________________
 	
 	
 	
@@ -1053,8 +1268,10 @@ public abstract class AbstractImporteurNomenclature implements
 		if (!pFile.exists()) {
 			
 			final String message 
-			= this.recupererNomClasse() 
+			= this.recupererNomClasse()
+			+ SEPARATEUR_MOINS_AERE
 			+ pMethode 
+			+ SEPARATEUR_MOINS_AERE
 			+ ConfigurationApplicationManager.getBundleMessagesTechnique()
 			.getString(this.recupererCleImporterFileInexistant()) 
 			+ pFile.getAbsolutePath();
@@ -1069,9 +1286,7 @@ public abstract class AbstractImporteurNomenclature implements
 			
 		} // Fin de fichier inexistant._______________________
 
-	} // Fin de traiterFichierInexistant(
-	 // File pFile
-	// , String pMethode)._________________________________________________
+	} // Fin de traiterFichierInexistant(...)._____________________________
 	
 	
 
@@ -1096,8 +1311,10 @@ public abstract class AbstractImporteurNomenclature implements
 		if (!pFile.isFile()) {
 			
 			final String message 
-			= this.recupererNomClasse() 
-			+ pMethode 
+			= this.recupererNomClasse()
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
 			+ ConfigurationApplicationManager.getBundleMessagesTechnique()
 			.getString(this.recupererCleImporterFilePasNormal()) 
 			+ pFile.getAbsolutePath();
@@ -1112,9 +1329,7 @@ public abstract class AbstractImporteurNomenclature implements
 
 		} // Fin de File directory.____________________________
 
-	} // Fin de traiterFichierPasNormal(
-	 // File pFile
-	// , String pMethode)._________________________________________________
+	} // Fin de traiterFichierPasNormal(...).______________________________
 	
 	
 

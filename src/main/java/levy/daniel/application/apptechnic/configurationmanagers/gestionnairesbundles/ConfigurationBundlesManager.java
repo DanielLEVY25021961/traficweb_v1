@@ -269,7 +269,6 @@ public final class ConfigurationBundlesManager {
 	//**************************** BUNDLES ****************************/
 	//*****************************************************************/
 	/**
-	 * bundleApplication : ResourceBundle : <br/>
 	 * <ul>
 	 * <li><b>SINGLETON</b>.</li>
 	 * <li>Contient les <b>paramétrages généraux</b> 
@@ -282,7 +281,7 @@ public final class ConfigurationBundlesManager {
 	 * <li>Uniquement accessible pour le centre serveur.</li>
 	 * </ul>
 	 */
-	private static ResourceBundle bundleApplication;
+	private static transient ResourceBundle bundleApplication;
 
 
 	/**
@@ -310,7 +309,7 @@ public final class ConfigurationBundlesManager {
 	 * Contient les paramétrages des contrôles 
 	 * de l'application.<br/>
 	 */
-	private static ResourceBundle bundleMessagesControle;
+	private static transient ResourceBundle bundleMessagesControle;
 
 	
 	/**
@@ -320,7 +319,7 @@ public final class ConfigurationBundlesManager {
 	 * Contient les paramétrages des messages techniques 
 	 * de l'application.<br/>
 	 */
-	private static ResourceBundle bundleMessagesTechnique;
+	private static transient ResourceBundle bundleMessagesTechnique;
 
 	
 	/**
@@ -331,7 +330,7 @@ public final class ConfigurationBundlesManager {
 	 * pour les différences entre objets métier 
 	 * de l'application.<br/>
 	 */
-	private static ResourceBundle bundleMessagesDiff;
+	private static transient ResourceBundle bundleMessagesDiff;
 	
 
 	/**
@@ -1543,7 +1542,7 @@ public final class ConfigurationBundlesManager {
 			/* Tente de trouver le chemin dans 
 			 * src/configuration_ressources_externes.properties. */
 			path 
-				= bundleApplication.getString(fournirClePathRepExt());
+				= getBundleRessourcesExternes().getString(fournirClePathRepExt());
 		}
 		catch (Exception e) {
 			
@@ -1590,12 +1589,18 @@ public final class ConfigurationBundlesManager {
 	 * </ul>
 	 *
 	 * @return : String : 
-	 * "D:/Donnees/eclipse/eclipseworkspace_neon/
-	 * tuto_maven_sonatype/ressources_externes".<br/>
+	 * "{$projet}/ressources_externes".<br/>
 	 */
 	private static String fournirPathRepExtEnDur() {
-		return "D:/Donnees/eclipse/eclipseworkspace_neon"
-				+ "/tuto_maven_sonatype/ressources_externes";
+		
+		final Path pathProjetCourant 
+			= Paths.get(".").toAbsolutePath().normalize();
+		
+		final Path pathRessourcesExternesEnDur 
+			= pathProjetCourant.resolve("ressources_externes");
+		
+		return pathRessourcesExternesEnDur.toString();
+		
 	} // Fin de fournirPathRepExtEnDur().__________________________________
 	
 	

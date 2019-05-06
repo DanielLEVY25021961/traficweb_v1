@@ -3,6 +3,7 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 
@@ -10,6 +11,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierPasNormalException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.NomenclatureMauvaiseRunTimeException;
 
 /**
  * class IImporteurNomenclature :<br/>
@@ -58,18 +60,18 @@ public interface IImporteurNomenclature
 	
 	
 	/**
-	 * "Méthode importerNomenclature(File pNomenclature) - ".<br/>
+	 * "Méthode importerNomenclature(File pNomenclature)".<br/>
 	 */
 	String METHODE_IMPORTER_NOMENCLATURE_EN_LATIN9 
-		= "Méthode importerNomenclature(File pNomenclature) - ";
+		= "Méthode importerNomenclature(File pNomenclature)";
 	
 
 	
 	/**
-	 * "Méthode importerNomenclatureEnUtf8(File pNomenclature) - ".<br/>
+	 * "Méthode importerNomenclatureEnUtf8(File pNomenclature)".<br/>
 	 */
 	String METHODE_IMPORTER_NOMENCLATURE_EN_UTF8 
-		= "Méthode importerNomenclatureEnUtf8(File pNomenclature) - ";
+		= "Méthode importerNomenclatureEnUtf8(File pNomenclature)";
 	
 	
 	
@@ -80,8 +82,16 @@ public interface IImporteurNomenclature
 	 * SortedMap&lt;Integer, String&gt; nomenclatureMap avec : <br/>
 	 * - Integer : la clé dans la nomenclature.<br/>
 	 * - String : le libellé dans la nomenclature.<br/>
-	 * <br/>
-	 * Alimente également le set des clés possibles clesPossiblesSet.<br/>
+	 * <ul>
+	 * <li>vérifie que la nomenclature est au bon format CSV 
+	 * [Integer;String;].</li>
+	 * <li>Alimente automatiquement le File 
+	 * <code>this.nomenclature</code>.</li>
+	 * <li>Alimente automatiquement le set des clés possibles 
+	 * <code>this.clesPossiblesSet</code>.<br/></li>
+	 * </ul>
+	 * - LOG.FATAL et jette une exception si pNomenclature est incorrect 
+	 * (null, vide, inexistant, répertoire, mauvaise nomenclature).<br/>
 	 * <br/>
 	 *
 	 * @param pNomenclature : File : le fichier csv encapsulant 
@@ -95,6 +105,9 @@ public interface IImporteurNomenclature
 	 * @throws FichierInexistantException  : si pNomenclature n'existe pas.<br/>
 	 * @throws FichierPasNormalException : si pNomenclature est un répertoire.<br/>
 	 * @throws IOException : si problème d'entrée/sortie.<br/>
+	 * @throws NomenclatureMauvaiseRunTimeException : 
+	 * si la nomenclature n'est pas au format CSV ou 
+	 * pas de le forme [Integer;String;].<br/>
 	 * @throws Exception 
 	 */
 	SortedMap<Integer, String> importerNomenclatureEnLatin9(
@@ -115,8 +128,16 @@ public interface IImporteurNomenclature
 	 * SortedMap&lt;Integer, String&gt; nomenclatureMap avec : <br/>
 	 * - Integer : la clé dans la nomenclature.<br/>
 	 * - String : le libellé dans la nomenclature.<br/>
-	 * <br/>
-	 * Alimente également le set des clés possibles clesPossiblesSet.<br/>
+	 * <ul>
+	 * <li>vérifie que la nomenclature est au bon format CSV 
+	 * [Integer;String;].</li>
+	 * <li>Alimente automatiquement le File 
+	 * <code>this.nomenclature</code>.</li>
+	 * <li>Alimente automatiquement le set des clés possibles 
+	 * <code>this.clesPossiblesSet</code>.<br/></li>
+	 * </ul>
+	 * - LOG.FATAL et jette une exception si pNomenclature est incorrect 
+	 * (null, vide, inexistant, répertoire, mauvaise nomenclature).<br/>
 	 * <br/>
 	 *
 	 * @param pNomenclature : File : le fichier csv encapsulant 
@@ -130,6 +151,9 @@ public interface IImporteurNomenclature
 	 * @throws FichierInexistantException  : si pNomenclature n'existe pas.<br/>
 	 * @throws FichierPasNormalException : si pNomenclature est un répertoire.<br/>
 	 * @throws IOException : si problème d'entrée/sortie.<br/>
+	 * @throws NomenclatureMauvaiseRunTimeException : 
+	 * si la nomenclature n'est pas au format CSV ou 
+	 * pas de le forme [Integer;String;].<br/>
 	 * @throws Exception 
 	 */
 	SortedMap<Integer, String> importerNomenclatureEnUtf8(
@@ -150,7 +174,12 @@ public interface IImporteurNomenclature
 	 * - Integer : la clé dans la nomenclature.<br/>
 	 * - String : le libellé dans la nomenclature.<br/>
 	 * <ul>
-	 * <li>Alimente également le set des clés possibles clesPossiblesSet.<br/></li>
+	 * <li>vérifie que la nomenclature est au bon format CSV 
+	 * [Integer;String;].</li>
+	 * <li>Alimente automatiquement le File 
+	 * <code>this.nomenclature</code>.</li>
+	 * <li>Alimente automatiquement le set des clés possibles 
+	 * <code>this.clesPossiblesSet</code>.<br/></li>
 	 * <li>choisit automatiquement le Charset UTF-8 si pCharset == null.</li>
 	 * <li>utilise <code>InputStreamReader isr 
 	 * = new InputStreamReader(fis, charset);</code> pour lire le fichier.</li>
@@ -159,7 +188,7 @@ public interface IImporteurNomenclature
 	 * pour casser les lignes de nomenclature</li>
 	 * </ul>
 	 * - LOG.FATAL et jette une exception si pNomenclature est incorrect 
-	 * (null, vide, inexistant, répertoire).<br/>
+	 * (null, vide, inexistant, répertoire, mauvaise nomenclature).<br/>
 	 * <br/>
 	 *
 	 * @param pNomenclature : File : fichier csv contenant la nomenclature.
@@ -176,6 +205,9 @@ public interface IImporteurNomenclature
 	 * @throws FichierInexistantException  : si pNomenclature n'existe pas.<br/>
 	 * @throws FichierPasNormalException : si pNomenclature est un répertoire.<br/>
 	 * @throws IOException : si problème d'entrée/sortie.<br/>
+	 * @throws NomenclatureMauvaiseRunTimeException : 
+	 * si la nomenclature n'est pas au format CSV ou 
+	 * pas de le forme [Integer;String;].<br/>
 	 * @throws Exception 
 	 */
 	SortedMap<Integer, String> importerNomenclature(
@@ -312,6 +344,35 @@ public interface IImporteurNomenclature
 	 */
 	void setClesPossiblesSet(
 			Set<Integer> pClesPossiblesSet);
+	
+	
+	
+	/**
+	 * retourne une String pour l'affichage de 
+	 * <code>this.nomenclatureMap</code> à la console.<br/>
+	 * <br/>
+	 * - retourne null si this.nomenclatureMap == null.<br/>
+	 * <br/>
+	 *
+	 * @return : String : String pour affichage.<br/>
+	 */
+	String afficherNomenclatureMap();	
+	
+	
+	
+	/**
+	 * retourne une String pour l'affichage 
+	 * à la console d'une Map&lt;Integer, String&gt;.<br/>
+	 * <br/>
+	 * - retourne null si pMap == null.<br/>
+	 * <br/>
+	 * 
+	 *
+	 * @param pMap : Map&lt;Integer, String&gt;
+	 * 
+	 * @return : String : String pour affichage.<br/>
+	 */
+	String afficherMapIntegerString(Map<Integer, String> pMap);
 	
 	
 	
