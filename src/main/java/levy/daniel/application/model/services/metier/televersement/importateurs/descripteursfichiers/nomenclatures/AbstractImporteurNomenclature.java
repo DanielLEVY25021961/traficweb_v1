@@ -280,14 +280,14 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		/* Instancie un Pattern chargé de retrouver le 
 		 * séparateur ';' dans la ligne. */
-		final Pattern PatternPV = Pattern.compile(SEP_PV);
+		final Pattern patternPv = Pattern.compile(SEP_PV);
 		
 		// LECTURE DES LIGNES.**********************************
 		while ((ligneLue = bfr.readLine()) != null) {
 			
 			/* décompose la ligne. */
 			final String[] tokens 
-				= PatternPV.split(ligneLue);
+				= patternPv.split(ligneLue);
 			
 			/* saute la ligne d'en-tête le cas échéant en se basant 
 			 * sur le fait qu'on aura 'clé' pour l'en-tête  
@@ -388,7 +388,7 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		/* Instancie un Pattern chargé de retrouver le 
 		 * séparateur ';' dans la ligne. */
-		final Pattern PatternPV = Pattern.compile(SEP_PV);
+		final Pattern patternPv = Pattern.compile(SEP_PV);
 		
 		// LECTURE DES LIGNES.**********************************
 		while ((ligneLue = bfr.readLine()) != null) {
@@ -399,7 +399,7 @@ public abstract class AbstractImporteurNomenclature implements
 				
 				/* décompose la ligne. */
 				final String[] tokens 
-					= PatternPV.split(ligneLue);
+					= patternPv.split(ligneLue);
 				
 				/* retourne false si la REGEX n'a pas pu trouver
 				 *  au moins deux tokens (pas CSV). */
