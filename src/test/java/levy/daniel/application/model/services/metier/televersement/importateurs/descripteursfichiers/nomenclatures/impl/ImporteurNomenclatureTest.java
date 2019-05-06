@@ -536,7 +536,107 @@ public class ImporteurNomenclatureTest {
 				"importerNomenclatureEnUtf8(nomenclature) doit creer clesPossibles avec 5 éléments : "
 				, clesPossibles.size() == 5);
 		
+		final String entete0 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(0);
+		final String entete1 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(1);
+		final String entete2 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(2);
+		
 	} // Fin de testImporterNomenclatureEnUtf8().________________
+
+
+	
+	/**
+	 * Teste la méthode fournirEnteteParColonne().<br/>
+	 * <ul>
+	 * <li>garantit que fournirEnteteParColonne(hors indice) retourne null.</li>
+	 * <li>garantit que fournirEnteteParColonne(1) retourne 'Clé'.</li>
+	 * <li>garantit que fournirEnteteParColonne(2) retourne 'Libellé'.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 * @throws IOException 
+	 * @throws FichierPasNormalException 
+	 * @throws FichierInexistantException 
+	 * @throws FichierVideException 
+	 * @throws FichierNullException 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testFournirEnteteParColonne() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = true;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImporteurNomenclatureTest - méthode testFournirEnteteParColonne() ********** ");
+		}
+		
+		final Path nomenclaturePath 
+		= PATH_ABSOLU_TEST_NOMENCLATURES.resolve(
+				"HistoF08/Nomenclatures en UTF-8/2014-07-15_Nomenclature_SousReseauIndice_HistoF08_Utf8.csv");
+	
+		final File nomenclature 
+			= nomenclaturePath.toFile();
+		
+		// IMPORT ******************
+		final Map<Integer, String> resultat 
+		= IMPORTEUR_NOMENCLATURE
+			.importerNomenclatureEnUtf8(nomenclature);
+		
+		
+		final File nomenclatureImportee 
+			= IMPORTEUR_NOMENCLATURE.getNomenclature();
+		
+		final Set<Integer> clesPossibles 
+			= IMPORTEUR_NOMENCLATURE.getClesPossiblesSet();
+		
+		final String entete0 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(0);
+		final String entete1 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(1);
+		final String entete2 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(2);
+		final String entete3 = IMPORTEUR_NOMENCLATURE.fournirEnteteParColonne(3);
+			
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println("Nomenclature importée : " + nomenclatureImportee.getAbsolutePath());
+			System.out.println();
+			System.out.println("AFFICHAGE DE this.nomenclatureMap : ");
+			System.out.println(IMPORTEUR_NOMENCLATURE.afficherNomenclatureMap());
+			System.out.println();
+			System.out.println("NOMENCLATURE GENEREE : ");
+			System.out.println(IMPORTEUR_NOMENCLATURE.genererNomenclatureCsvString());
+			System.out.println();
+			System.out.println("Clés possibles : " + clesPossibles.toString());
+			System.out.println();
+			System.out.println("entete0 : " + entete0);
+			System.out.println("entete1 : " + entete1);
+			System.out.println("entete2 : " + entete2);
+			System.out.println("entete3 : " + entete3);
+		}
+
+		/* garantit que fournirEnteteParColonne(hors indice) retourne null. */
+		assertNull(
+				"fournirEnteteParColonne(hors indice) doit retourner null : "
+				, entete0);
+		assertNull(
+				"fournirEnteteParColonne(hors indice) doit retourner null : "
+				, entete3);
+		
+		/* garantit que fournirEnteteParColonne(1) retourne Clé. */
+		assertEquals(
+				"fournirEnteteParColonne(1) doit retourner 'clé' : "
+					, "Clé"
+						, entete1);
+		
+		/* garantit que fournirEnteteParColonne(2) retourne Libellé. */
+		assertEquals(
+				"fournirEnteteParColonne(2) doit retourner 'Libellé' : "
+					, "Libellé"
+						, entete2);
+
+	} // Fin de testFournirEnteteParColonne()._____________________________
 	
 	
 		
