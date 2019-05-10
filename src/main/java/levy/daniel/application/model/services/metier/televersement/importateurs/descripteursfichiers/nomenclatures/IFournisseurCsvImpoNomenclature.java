@@ -40,9 +40,9 @@ public interface IFournisseurCsvImpoNomenclature {
 	 */
 	String METHODE_GENERERNOMENCLATURE 
 		= "Méthode genererNomenclatureCsvFile(....) - ";
+
+
 	
-	
-		
 	/**
 	 * retourne "Clé;Libellé;".<br/>
 	 * <br/>

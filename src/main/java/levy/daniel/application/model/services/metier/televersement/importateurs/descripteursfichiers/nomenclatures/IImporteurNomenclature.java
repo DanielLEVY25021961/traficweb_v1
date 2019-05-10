@@ -14,13 +14,13 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideE
 import levy.daniel.application.apptechnic.exceptions.technical.impl.NomenclatureMauvaiseRunTimeException;
 
 /**
- * class IImporteurNomenclature :<br/>
+ * INTERFACE IImporteurNomenclature :<br/>
  * RESPONSABILITE : IMPORTER LES NOMENCLATURES.<br/>
  * Interface factorisant les méthodes des ImporteurNomenclature.<br/>
  * <br/>
  * Une nomenclature doit être un fichier csv avec séparateur ';' 
  * sous forme [Integer, String] signifiant [Clé, Libellé] comme par exemple 
- * pour le sens dans un HIT :<br/>
+ * pour le SENS dans un HIT :<br/>
  * 1; sens des PR croissants pour route à 2 sens;<br/>
  * 2; sens des PR décroissants pour route à 2 sens;<br/>
  * 3; sens confondus pour une route à 2 sens;<br/>
@@ -229,9 +229,9 @@ public interface IImporteurNomenclature
 	
 	
 	/**
-	 * Fournit la clé du message en cas d'import d'un fichier null
-	 * stocké dans messages_techniques.properties.<br/>
-	 * <br/>
+	 * Fournit la clé du message en cas d'import d'un fichier null.<br/>
+	 * stocké dans ressources_externes/messages_techniques.properties.<br/>
+	 * <code>"importeurnomenclature.importer.filenull"</code><br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -240,9 +240,9 @@ public interface IImporteurNomenclature
 	
 		
 	/**
-	 * Fournit la clé du message en cas d'import d'un fichier vide
-	 * stocké dans messages_techniques.properties.<br/>
-	 * <br/>
+	 * Fournit la clé du message en cas d'import d'un fichier vide.<br/>
+	 * stocké dans ressources_externes/messages_techniques.properties.<br/>
+	 * <code>"importeurnomenclature.importer.filevide"</code><br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -251,9 +251,9 @@ public interface IImporteurNomenclature
 	
 		
 	/**
-	 * Fournit la clé du message en cas d'import d'un fichier inexistant
-	 * stocké dans messages_techniques.properties.<br/>
-	 * <br/>
+	 * Fournit la clé du message en cas d'import d'un fichier inexistant.<br/>
+	 * stocké dans ressources_externes/messages_techniques.properties.<br/>
+	 * <code>"importeurnomenclature.importer.fileinexistant"</code><br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -262,9 +262,9 @@ public interface IImporteurNomenclature
 
 
 	/**
-	 * Fournit la clé du message en cas d'import d'un répertoire
-	 * stocké dans messages_techniques.properties.<br/>
-	 * <br/>
+	 * Fournit la clé du message en cas d'import d'un répertoire.<br/>
+	 * stocké dans ressources_externes/messages_techniques.properties.<br/>
+	 * <code>"importeurnomenclature.importer.filepasnormal"</code><br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -285,8 +285,6 @@ public interface IImporteurNomenclature
 	
 		
 	/**
-	 * method setNomenclatureMap(
-	 * SortedMap&lt;Integer, String&gt; pNomenclatureMap) :<br/>
 	 * Setter de la SortedMap&lt;Integer, String&gt; triée avec : <br/>
 	 * - Integer : la clé dans la nomenclature.<br/>
 	 * - String : le libellé dans la nomenclature.<br/>

@@ -6,9 +6,9 @@ import org.apache.commons.logging.LogFactory;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.AbstractImporteurNomenclature;
 
 /**
- * CLASSE ImporteurNomenclature :<br/>
- * Importe les nomenclatures au format CSV avec séparateur ';' 
- * de la forme [Integer;String;].<br/>
+ * class ImporteurNomenclature :<br/>
+ * Importe les nomenclatures LEXIQUE au format CSV avec séparateur ';' 
+ * de la forme [String;String;].<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -26,15 +26,15 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * @since 16 juil. 2014
  *
  */
-public class ImporteurNomenclature extends AbstractImporteurNomenclature {
+public class ImporteurLexique extends AbstractImporteurNomenclature {
 
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * "Classe ImporteurNomenclature".<br/>
+	 * "Classe ImporteurLexique".<br/>
 	 */
-	public static final String CLASSE_IMPORTEUR_NOMENCLATURE 
-		= "Classe ImporteurNomenclature";
+	public static final String CLASSE_IMPORTEUR_LEXIQUE 
+		= "Classe ImporteurLexique";
 	
 	
 	
@@ -44,7 +44,7 @@ public class ImporteurNomenclature extends AbstractImporteurNomenclature {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory
-			.getLog(ImporteurNomenclature.class);
+			.getLog(ImporteurLexique.class);
 
 	// *************************METHODES************************************/
 	
@@ -52,7 +52,7 @@ public class ImporteurNomenclature extends AbstractImporteurNomenclature {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ImporteurNomenclature() {		
+	public ImporteurLexique() {		
 		super();		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -63,7 +63,7 @@ public class ImporteurNomenclature extends AbstractImporteurNomenclature {
 	 */
 	@Override
 	public final String recupererNomClasse() {
-		return CLASSE_IMPORTEUR_NOMENCLATURE;
+		return CLASSE_IMPORTEUR_LEXIQUE;
 	} // Fin de recupererNomClasse().______________________________________
 	
 	
@@ -74,7 +74,7 @@ public class ImporteurNomenclature extends AbstractImporteurNomenclature {
 	@Override
 	public final String recupererCleImporterFileNull() {
 		return "importeurnomenclature.importer.filenull";
-	} // Fin de recupererCleImporterFileNull()().__________________________
+	} // Fin de recupererCleImporterFileNull().____________________________
 
 
 

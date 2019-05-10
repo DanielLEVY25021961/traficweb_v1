@@ -33,28 +33,28 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideE
 import levy.daniel.application.apptechnic.exceptions.technical.impl.NomenclatureMauvaiseRunTimeException;
 
 /**
- * CLASSE AbstractImporteurNomenclature :<br/>
+ * CLASSE AbstractImporteurLexique :<br/>
  * Classe abstraite factorisant les attributs et les 
- * méthodes des ImporteurNomenclature.<br/>
+ * méthodes des ImporteurLexique.<br/>
  * <br/>
- *  Une nomenclature doit être un fichier csv avec séparateur ';' 
- * sous forme [Integer, String] signifiant [Clé, Libellé] comme par exemple 
- * pour le SENS dans un HIT :<br/>
- * 1; sens des PR croissants pour route à 2 sens;<br/>
- * 2; sens des PR décroissants pour route à 2 sens;<br/>
- * 3; sens confondus pour une route à 2 sens;<br/>
+ * Un lexique doit être un fichier csv avec séparateur ';' 
+ * sous forme [String, String] signifiant [Clé, Libellé] comme par exemple 
+ * pour le PROFIL EN TRAVERS dans un HISTO_F07 :<br/>
+ * 1V;chaussée unique 1 voie;<br/>
+ * 2V<7;chaussée unique 2 voies < 7m;<br/>
+ * 2V>=7;chaussée unique 2 voies >= 7m;<br/>
  * ...........................................<br/>
  * <br/>
- * Tous les ImporteurNomenclature possèdent une 
- * méthode importerNomenclature(File pNomenclature) 
- * où pNomenclature encapsule la nomenclature en csv de la donnée 
+ * Tous les ImporteurLexique possèdent une 
+ * méthode importerLexique(File pLexique) 
+ * où pLexique encapsule le lexique en csv de la donnée 
  * (sens, nature, catégorie administrative, ...) à servir.<br/>
- * La nomenclature est servie sous forme de 
- * SortedMap&lt;Integer, String&gt; nomenclatureMap 
- * retournée par importerNomenclature(File pNomenclature).<br/>
- * La méthode importerNomenclature(File pNomenclature) permet également 
- * d'alimenter un Set&lt;Integer&gt; clesPossiblesSet 
- * qui contient toutes les valeurs possibles pour la clé dans la nomenclature.<br/>
+ * Le lexique est servi sous forme de 
+ * SortedMap&lt;String, String&gt; lexiqueMap 
+ * retournée par importerLexique(File pLexique).<br/>
+ * La méthode importerLexique(File pLexique) permet également 
+ * d'alimenter un Set&lt;String&gt; clesPossiblesSet 
+ * qui contient toutes les valeurs possibles pour la clé dans le lexique.<br/>
  * <br/>
  * <br/>
  *
@@ -76,8 +76,8 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.Nomenclature
  * @since 16 juil. 2014
  *
  */
-public abstract class AbstractImporteurNomenclature implements
-		IImporteurNomenclature {
+public abstract class AbstractImporteurLexique implements
+		IImporteurLexique {
 
 	// ************************ATTRIBUTS************************************/
 	
@@ -142,23 +142,23 @@ public abstract class AbstractImporteurNomenclature implements
 	
 	/**
 	 * SortedMap&lt;Integer, String&gt; triée avec : <br/>
-	 * - Integer : la clé dans la nomenclature.<br/>
-	 * - String : le libellé dans la nomenclature.<br/>
+	 * - String : la clé dans le lexique.<br/>
+	 * - String : le libellé dans le lexique.<br/>
 	 */
-	protected SortedMap<Integer, String> nomenclatureMap;
+	protected SortedMap<String, String> lexiqueMap;
 	
 	
 	/**
-	 * File en csv avec séparateur ';' qui encapsule la nomenclature.<br/>
+	 * File en csv avec séparateur ';' qui encapsule le lexique.<br/>
 	 */
-	protected File nomenclature;
+	protected File lexique;
 	
 	
 	/**
-	 * Ensemble des valeurs (Set&lt;Integer&gt;) de clés  
-	 * possibles pour la nomenclature.<br/>
+	 * Ensemble des valeurs (Set&lt;String&gt;) de clés  
+	 * possibles pour le lexique.<br/>
 	 */
-	protected Set<Integer> clesPossiblesSet;
+	protected Set<String> clesPossiblesSet;
 	
 	
 	/**
@@ -166,7 +166,7 @@ public abstract class AbstractImporteurNomenclature implements
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG = LogFactory
-			.getLog(AbstractImporteurNomenclature.class);
+			.getLog(AbstractImporteurLexique.class);
 
 	
 	// *************************METHODES************************************/
@@ -176,7 +176,7 @@ public abstract class AbstractImporteurNomenclature implements
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public AbstractImporteurNomenclature() {
+	public AbstractImporteurLexique() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -186,16 +186,16 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final SortedMap<Integer, String> importerNomenclatureEnLatin9(
-			final File pNomenclature) 
+	public final SortedMap<String, String> importerLexiqueEnLatin9(
+			final File pLexique) 
 						throws Exception {
 		
-		return this.importerNomenclature(
-				pNomenclature
-					, METHODE_IMPORTER_NOMENCLATURE_EN_LATIN9
+		return this.importerLexique(
+				pLexique
+					, METHODE_IMPORTER_LEXIQUE_EN_LATIN9
 						, Charset.forName("ISO-8859-15"));
 		
-	} // Fin de importerNomenclatureEnLatin9(...)._________________________
+	} // Fin de importerLexiqueEnLatin9(...)._________________________
 
 
 	
@@ -203,16 +203,16 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final SortedMap<Integer, String> importerNomenclatureEnUtf8(
-			final File pNomenclature) 
+	public final SortedMap<String, String> importerLexiqueEnUtf8(
+			final File pLexique) 
 						throws Exception {
 		
-		return this.importerNomenclature(
-				pNomenclature
-					, METHODE_IMPORTER_NOMENCLATURE_EN_UTF8
+		return this.importerLexique(
+				pLexique
+					, METHODE_IMPORTER_LEXIQUE_EN_UTF8
 						, Charset.forName("UTF-8"));
 		
-	} // Fin de importerNomenclatureEnUtf8(...).___________________________
+	} // Fin de importerLexiqueEnUtf8(...).___________________________
 	
 	
 	
@@ -220,43 +220,43 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final SortedMap<Integer, String> importerNomenclature(
-			final File pNomenclature
+	public final SortedMap<String, String> importerLexique(
+			final File pLexique
 				, final String pMethode
 					, final Charset pCharset) 
 							throws Exception {
 		
 		// ************PARAMETRES INVALIDES. *****************************/
 		/* Fichier null. */
-		this.traiterFichierNull(pNomenclature, pMethode);
+		this.traiterFichierNull(pLexique, pMethode);
 
 		/* Fichier inexistant. */
-		this.traiterFichierInexistant(pNomenclature, pMethode);
+		this.traiterFichierInexistant(pLexique, pMethode);
 
 		/* Fichier vide. */
-		this.traiterFichierVide(pNomenclature, pMethode);
+		this.traiterFichierVide(pLexique, pMethode);
 				
 		/* File directory. */
-		this.traiterFichierPasNormal(pNomenclature
+		this.traiterFichierPasNormal(pLexique
 					, pMethode);
 		
-		/* vérifie que la nomenclature est au bon format CSV [Integer;String;]. */
-		final boolean bonneNomenclature 
-			= this.verifierNomenclatureIntegerString(
-					pNomenclature, pMethode, pCharset);
+		/* vérifie que le lexique est au bon format CSV [String;String;]. */
+		final boolean bonneLexique 
+			= this.verifierLexiqueStringString(
+					pLexique, pMethode, pCharset);
 		
-		if (!bonneNomenclature) {
+		if (!bonneLexique) {
 			
 			final String message 
 				= this.recupererNomClasse()
 					+ SEPARATEUR_MOINS_AERE
 					+ pMethode 
 					+ SEPARATEUR_MOINS_AERE 
-					+ "La nomenclature que vous essayez d'importer "
-					+ "n'est pas de la forme [Integer;String;] "
-					+ "(un entier pour la clé, un point-virgule, "
+					+ "Le lexique que vous essayez d'importer "
+					+ "n'est pas de la forme [String;String;] "
+					+ "(une chaîne de caractères pour la clé, un point-virgule, "
 					+ "une chaîne de caractères pour le libellé) : " 
-					+ pNomenclature.getAbsolutePath();
+					+ pLexique.getAbsolutePath();
 			
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(message);
@@ -277,16 +277,16 @@ public abstract class AbstractImporteurNomenclature implements
 		}
 		
 		/* Passage des paramètres aux attributs. */
-		this.nomenclature = pNomenclature;
+		this.lexique = pLexique;
 		
 		/* Map résultat. */
-		this.nomenclatureMap = new TreeMap<Integer, String>();
+		this.lexiqueMap = new TreeMap<String, String>();
 		
 		/* Set à remplir. */
-		this.clesPossiblesSet = new HashSet<Integer>();
+		this.clesPossiblesSet = new HashSet<String>();
 		
 		/* Ouverture des flux. */
-		final FileInputStream fis =  new FileInputStream(this.nomenclature);
+		final FileInputStream fis =  new FileInputStream(this.lexique);
 		final InputStreamReader isr = new InputStreamReader(fis, charset);
 		final BufferedReader bfr = new BufferedReader(isr);
 		
@@ -296,32 +296,42 @@ public abstract class AbstractImporteurNomenclature implements
 		 * séparateur ';' dans la ligne. */
 		final Pattern patternPv = Pattern.compile(SEP_PV);
 		
+		int compteur = 0;
+		
 		// LECTURE DES LIGNES.**********************************
 		while ((ligneLue = bfr.readLine()) != null) {
+			
+			compteur++;
 			
 			/* décompose la ligne. */
 			final String[] tokens 
 				= patternPv.split(ligneLue);
 			
 			/* saute la ligne d'en-tête le cas échéant en se basant 
-			 * sur le fait qu'on aura 'clé' pour l'en-tête  
-			 * et une valeur entière pour toutes les lignes significatives. */
-			final String cle = tokens[0];
-			
-			if (!StringUtils.isBlank(cle)) {
-				try {
-					Integer.parseInt(cle);
-				} catch (NumberFormatException e) {
+			 * sur le fait qu'on aura 'clé', 'key' ou 'code' pour l'en-tête 
+			 * SUR LA PREMIERE LIGNE. */
+			if (compteur == 1) {
+				
+				final String cle = tokens[0];
+				
+				if (StringUtils.containsIgnoreCase(cle, "clé") 
+						|| StringUtils.containsIgnoreCase(cle, "cle") 
+						|| StringUtils.containsIgnoreCase(cle, "key") 
+						|| StringUtils.containsIgnoreCase(cle, "code")) {
+					
 					continue;
+					
 				}
+								
 			}
 			
+			
 			/* DECOMPOSITION DE CHAQUE LIGNE. */
-			final Integer cleLue = Integer.parseInt(tokens[0]);
+			final String cleLue = tokens[0];
 			final String libelleLu = tokens[1];
 			
 			// AJOUT DANS LA MAP RESULTAT._____
-			this.nomenclatureMap.put(cleLue, libelleLu);
+			this.lexiqueMap.put(cleLue, libelleLu);
 			
 			// AJOUT DANS LE SET DES CLES POSSIBLES.____
 			this.clesPossiblesSet.add(cleLue);
@@ -333,49 +343,48 @@ public abstract class AbstractImporteurNomenclature implements
 		isr.close();
 		bfr.close();			
 				
-		return this.nomenclatureMap;
+		return this.lexiqueMap;
 		
-	} // Fin de importerNomenclature(...)._________________________________
+	} // Fin de importerLexique(...).______________________________________
 	
 
 	
 	/**
-	 * vérifie que la nomenclature correspond au format attendu 
-	 * (fichier csv avec une clé Integer et un libellé String).<br/>
+	 * vérifie que le lexique correspond au format attendu 
+	 * (fichier csv avec une clé String et un libellé String).<br/>
 	 * <ul>
 	 * <li>retourne false si la REGEX n'a pas pu trouver 
 	 * au moins deux tokens (pas CSV).</li>
-	 * <li>retourne false si une clé n'est pas homogène à un entier.</li>
 	 * </ul>
 	 *
-	 * @param pNomenclature : File : fichier csv contenant la nomenclature.
+	 * @param pLexique : File : fichier csv contenant le lexique.
 	 * @param pMethode : String : 
 	 * nom de la méthode appelant la présente.
 	 * @param pCharset : Charset : 
-	 * charset d'encodage de la nomenclature pNomenclature
+	 * charset d'encodage de le lexique pLexique
 	 * 
-	 * @return boolean : true si la nomenclature est au bon format.
+	 * @return boolean : true si le lexique est au bon format.
 	 * 
 	 * @throws Exception
 	 */
-	private boolean verifierNomenclatureIntegerString(
-			final File pNomenclature
+	private boolean verifierLexiqueStringString(
+			final File pLexique
 				, final String pMethode
 					, final Charset pCharset) 
 							throws Exception {
 		
 		// ************PARAMETRES INVALIDES. *****************************/
 		/* Fichier null. */
-		this.traiterFichierNull(pNomenclature, pMethode);
+		this.traiterFichierNull(pLexique, pMethode);
 
 		/* Fichier inexistant. */
-		this.traiterFichierInexistant(pNomenclature, pMethode);
+		this.traiterFichierInexistant(pLexique, pMethode);
 
 		/* Fichier vide. */
-		this.traiterFichierVide(pNomenclature, pMethode);
+		this.traiterFichierVide(pLexique, pMethode);
 				
 		/* File directory. */
-		this.traiterFichierPasNormal(pNomenclature
+		this.traiterFichierPasNormal(pLexique
 					, pMethode);
 
 		// ************ PARAMETRES VALIDES *******************************/
@@ -392,7 +401,7 @@ public abstract class AbstractImporteurNomenclature implements
 		boolean resultat = true;
 		
 		/* Ouverture des flux. */
-		final FileInputStream fis =  new FileInputStream(pNomenclature);
+		final FileInputStream fis =  new FileInputStream(pLexique);
 		final InputStreamReader isr = new InputStreamReader(fis, charset);
 		final BufferedReader bfr = new BufferedReader(isr);
 		
@@ -421,21 +430,7 @@ public abstract class AbstractImporteurNomenclature implements
 					resultat = false;
 					break;
 				}
-								
-				final String cle = tokens[0];
-				
-				if (!StringUtils.isBlank(cle)) {
-					try {
-						Integer.parseInt(cle);
-						
-					/* retourne false si une clé n'est pas 
-					 * homogène à un entier. */	
-					} catch (NumberFormatException e) {
-						resultat = false;
-						break;
-					}
-				}
-								
+																
 			}
 									
 		} // FIN LECTURE DES LIGNES.******************************
@@ -447,7 +442,7 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		return resultat;
 		
-	} // Fin de verifierNomenclatureIntegerString(...).____________________
+	} // Fin de verifierLexiqueStringString(...).__________________________
 	
 	
 	
@@ -488,30 +483,30 @@ public abstract class AbstractImporteurNomenclature implements
 			final int pL
 				, final int pC) {
 		
-		/* retourne null si this.nomenclatureMap est null. */
-		if (this.nomenclatureMap == null) {
+		/* retourne null si this.lexiqueMap est null. */
+		if (this.lexiqueMap == null) {
 			return null;
 		}
 		
 		int compteur = 0;
 		
-		final Set<Entry<Integer, String>> set = this.nomenclatureMap.entrySet();
+		final Set<Entry<String, String>> set = this.lexiqueMap.entrySet();
 		
-		final Iterator<Entry<Integer, String>> ite = set.iterator();
+		final Iterator<Entry<String, String>> ite = set.iterator();
 		
 		while (ite.hasNext()) {
 			
 			compteur++;
 			
-			final Entry<Integer, String> entry = ite.next();
+			final Entry<String, String> entry = ite.next();
 			
-			final Integer cle = entry.getKey();
+			final String cle = entry.getKey();
 			final String libelle = entry.getValue();
 			
 			if (compteur == pL) {
 				
 				if (pC == 1) {
-					return String.valueOf(cle);
+					return cle;
 				}
 				else if (pC == 2) {
 					return libelle;
@@ -544,8 +539,8 @@ public abstract class AbstractImporteurNomenclature implements
 	public final String fournirLigneValeursCsv(
 			final int pL) {
 		
-		/* retourne null si this.nomenclatureMap est null. */
-		if (this.nomenclatureMap == null) {
+		/* retourne null si this.lexiqueMap est null. */
+		if (this.lexiqueMap == null) {
 			return null;
 		}
 		
@@ -553,17 +548,17 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		final StringBuffer stb = new StringBuffer();
 		
-		final Set<Entry<Integer, String>> set = this.nomenclatureMap.entrySet();
+		final Set<Entry<String, String>> set = this.lexiqueMap.entrySet();
 		
-		final Iterator<Entry<Integer, String>> ite = set.iterator();
+		final Iterator<Entry<String, String>> ite = set.iterator();
 		
 		while (ite.hasNext()) {
 			
 			compteur++;
 			
-			final Entry<Integer, String> entry = ite.next();
+			final Entry<String, String> entry = ite.next();
 			
-			final Integer cle = entry.getKey();
+			final String cle = entry.getKey();
 			final String libelle = entry.getValue();
 			
 			if (compteur == pL) {
@@ -601,8 +596,8 @@ public abstract class AbstractImporteurNomenclature implements
 	public final String genererNomenclatureCsvString(
 			final boolean pAvecLigneEntetes) {
 		
-		/* retourne null si this.nomenclatureMap est null. */
-		if (this.nomenclatureMap == null) {
+		/* retourne null si this.lexiqueMap est null. */
+		if (this.lexiqueMap == null) {
 			return null;
 		}
 		
@@ -616,20 +611,20 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		
 		int compteurLigne = 0;
-		final int nombreLignes = this.nomenclatureMap.size();
+		final int nombreLignes = this.lexiqueMap.size();
 		
 		// PARCOURS DES LIGNES.___________	
-		final Set<Entry<Integer, String>> set = this.nomenclatureMap.entrySet();
+		final Set<Entry<String, String>> set = this.lexiqueMap.entrySet();
 		
-		final Iterator<Entry<Integer, String>> ite = set.iterator();
+		final Iterator<Entry<String, String>> ite = set.iterator();
 		
 		while (ite.hasNext()) {
 			
 			compteurLigne++;
 			
-			final Entry<Integer, String> entry = ite.next();
+			final Entry<String, String> entry = ite.next();
 			
-			final Integer cle = entry.getKey();
+			final String cle = entry.getKey();
 			final String libelle = entry.getValue();
 							
 			stb.append(cle);
@@ -648,7 +643,7 @@ public abstract class AbstractImporteurNomenclature implements
 	} // Fin de String genererNomenclatureCsvString(...).__________________
 
 	
-		
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -781,8 +776,8 @@ public abstract class AbstractImporteurNomenclature implements
 								, FichierNullException
 									, FichierInexistantException  {
 
-		/* retourne null si this.nomenclatureMap est null. */
-		if (this.nomenclatureMap == null) {
+		/* retourne null si this.lexiqueMap est null. */
+		if (this.lexiqueMap == null) {
 			return null;
 		}
 
@@ -800,7 +795,7 @@ public abstract class AbstractImporteurNomenclature implements
 		File fileGenere = null;
 		
 		/* Génère automatiquement le fichier de sortie dans le 
-		 * même répertoire que this.nomenclature 
+		 * même répertoire que this.lexique 
 		 * avec l'extension _genere_charset.csv si pFile est null. */
 		if (pFile == null) {			
 			fileGenere = this.genererAutomatiquementFile(charset);			
@@ -842,12 +837,12 @@ public abstract class AbstractImporteurNomenclature implements
 		
 		
 		int compteurLigne = 0;
-		final int nombreLignes = this.nomenclatureMap.size();
+		final int nombreLignes = this.lexiqueMap.size();
 		
 		// PARCOURS DES LIGNES.___________	
-		final Set<Entry<Integer, String>> set = this.nomenclatureMap.entrySet();
+		final Set<Entry<String, String>> set = this.lexiqueMap.entrySet();
 		
-		final Iterator<Entry<Integer, String>> ite = set.iterator();
+		final Iterator<Entry<String, String>> ite = set.iterator();
 		
 		while (ite.hasNext()) {
 			
@@ -855,9 +850,9 @@ public abstract class AbstractImporteurNomenclature implements
 			
 			final StringBuffer stb = new StringBuffer();
 			
-			final Entry<Integer, String> entry = ite.next();
+			final Entry<String, String> entry = ite.next();
 			
-			final Integer cle = entry.getKey();
+			final String cle = entry.getKey();
 			final String libelle = entry.getValue();
 							
 			stb.append(cle);
@@ -942,7 +937,7 @@ public abstract class AbstractImporteurNomenclature implements
 	 * method genererAutomatiquementFile(
 	 * Charset pCharset) :<br/>
 	 * Génère automatiquement le fichier de sortie 
-	 * dans le même répertoire que this.nomenclature 
+	 * dans le même répertoire que this.lexique 
 	 * avec l'extension _genere_charset.csv si pFile est null.<br/>
 	 * <br/>
 	 * 
@@ -951,20 +946,20 @@ public abstract class AbstractImporteurNomenclature implements
 	 * @return fileGenere : File : le File généré automatiquement.<br/>
 	 * 
 	 * @throws FichierNullException : 
-	 * si this.nomenclature est null.<br/>
+	 * si this.lexique est null.<br/>
 	 * @throws FichierInexistantException : 
-	 * si this.nomenclature est inexistant.<br/>
+	 * si this.lexique est inexistant.<br/>
 	 */
 	private File genererAutomatiquementFile(
 			final Charset pCharset) 
 			throws FichierNullException, FichierInexistantException {
 		
-		if (this.nomenclature == null) {
+		if (this.lexique == null) {
 			
 			final String message 
 			= this.recupererNomClasse() 
 			+ METHODE_GENERERNOMENCLATURE 
-			+  "Le fichier de nomenclature à lire est null";
+			+  "Le fichier de lexique à lire est null";
 			
 			/* Logge. */
 			if (LOG.isFatalEnabled()) {
@@ -977,13 +972,13 @@ public abstract class AbstractImporteurNomenclature implements
 		} // Fin de this.descriptionDuFichierFile == null.______________
 		
 		
-		if (!this.nomenclature.exists()) {
+		if (!this.lexique.exists()) {
 			
 			final String message 
 			= this.recupererNomClasse() 
 			+ METHODE_GENERERNOMENCLATURE 
-			+  "Le fichier de nomenclature à lire n'existe pas : " 
-			+ this.nomenclature.getAbsolutePath();
+			+  "Le fichier de lexique à lire n'existe pas : " 
+			+ this.lexique.getAbsolutePath();
 			
 			/* Logge. */
 			if (LOG.isFatalEnabled()) {
@@ -996,13 +991,13 @@ public abstract class AbstractImporteurNomenclature implements
 		} // Fin de this.descriptionDuFichierFile inexistant.____________
 		
 				
-		/* Récupération du chemin complet de la nomenclature. */
-		final String path = this.nomenclature.getAbsolutePath();
+		/* Récupération du chemin complet de le lexique. */
+		final String path = this.lexique.getAbsolutePath();
 		
-		/* Récupération du nom de la nomenclature. */
-		final String nomDescription = this.nomenclature.getName();
+		/* Récupération du nom de le lexique. */
+		final String nomDescription = this.lexique.getName();
 		
-		/* Récupération du chemin de la nomenclature sans le nom. */
+		/* Récupération du chemin de le lexique sans le nom. */
 		final String pathSansNom 
 			= StringUtils.substringBeforeLast(path, nomDescription);
 		
@@ -1010,7 +1005,7 @@ public abstract class AbstractImporteurNomenclature implements
 		final String nomDescriptionSansExtension 
 			= StringUtils.substringBeforeLast(nomDescription, ".csv");
 			
-		/* Création du nom complet du fichier nomenclature généré. */
+		/* Création du nom complet du fichier lexique généré. */
 		final String cheminGenere 
 			= pathSansNom 
 			+ nomDescriptionSansExtension
@@ -1030,15 +1025,15 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String afficherNomenclatureMap() {
+	public final String afficherLexiqueMap() {
 		
-		if (this.nomenclatureMap != null) {
-			return this.afficherMapIntegerString(this.nomenclatureMap);
+		if (this.lexiqueMap != null) {
+			return this.afficherMapStringString(this.lexiqueMap);
 		}
 			
 		return null;
 				
-	} // Fin de afficherNomenclatureMap()._________________________________
+	} // Fin de afficherLexiqueMap()._________________________________
 	
 	
 	
@@ -1046,21 +1041,21 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String afficherMapIntegerString(
-			final Map<Integer, String> pMap) {
+	public final String afficherMapStringString(
+			final Map<String, String> pMap) {
 		
 		/* retourne null si pMap == null. */
 		if (pMap == null) {
 			return null;
 		}
 		
-		final Set<Entry<Integer, String>> set = pMap.entrySet();
+		final Set<Entry<String, String>> set = pMap.entrySet();
 		
 		if (set == null) {
 			return null;
 		}
 		
-		final Iterator<Entry<Integer, String>> ite = set.iterator();
+		final Iterator<Entry<String, String>> ite = set.iterator();
 		
 		if (ite == null) {
 			return null;
@@ -1075,13 +1070,13 @@ public abstract class AbstractImporteurNomenclature implements
 			
 			compteur++;
 			
-			final Entry<Integer, String> entry = ite.next();
+			final Entry<String, String> entry = ite.next();
 			
 			if (entry == null) {
 				return null;
 			}
 			
-			final int cle = entry.getKey();
+			final String cle = entry.getKey();
 			final String libelle = entry.getValue();
 							
 			/* Ajout de la ligne au StringBuilder. */
@@ -1091,7 +1086,7 @@ public abstract class AbstractImporteurNomenclature implements
 			
 			stb.append(
 					String.format(Locale.FRANCE
-							, "Clé : %-10d", cle));
+							, "Clé : %-10s", cle));
 			
 			stb.append(
 					String.format(Locale.FRANCE
@@ -1281,9 +1276,9 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final SortedMap<Integer, String> getNomenclatureMap() {
-		return this.nomenclatureMap;
-	} // Fin de getNomenclatureMap().______________________________________
+	public final SortedMap<String, String> getLexiqueMap() {
+		return this.lexiqueMap;
+	} // Fin de getLexiqueMap().______________________________________
 	
 	
 
@@ -1291,11 +1286,11 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNomenclatureMap(
-			final SortedMap<Integer, String> pNomenclatureMap) {
-		this.nomenclatureMap = pNomenclatureMap;
-	} // Fin de setNomenclatureMap(
-	 // SortedMap<Integer,String> pNomenclatureMap)._______________________
+	public final void setLexiqueMap(
+			final SortedMap<String, String> pLexiqueMap) {
+		this.lexiqueMap = pLexiqueMap;
+	} // Fin de setLexiqueMap(
+	 // SortedMap<Integer,String> pLexiqueMap)._______________________
 
 	
 	
@@ -1303,9 +1298,9 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final File getNomenclature() {
-		return this.nomenclature;
-	} // Fin de getNomenclature()._________________________________________
+	public final File getLexique() {
+		return this.lexique;
+	} // Fin de getLexique()._________________________________________
 
 	
 	
@@ -1313,11 +1308,11 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNomenclature(
-			final File pNomenclature) {
-		this.nomenclature = pNomenclature;
-	} // Fin de setNomenclature(
-	 // File pNomenclature)._______________________________________________
+	public final void setLexique(
+			final File pLexique) {
+		this.lexique = pLexique;
+	} // Fin de setLexique(
+	 // File pLexique)._______________________________________________
 
 
 
@@ -1325,7 +1320,7 @@ public abstract class AbstractImporteurNomenclature implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Set<Integer> getClesPossiblesSet() {
+	public final Set<String> getClesPossiblesSet() {
 		return this.clesPossiblesSet;
 	} // Fin de getClesPossiblesSet()._____________________________________
 
@@ -1336,11 +1331,11 @@ public abstract class AbstractImporteurNomenclature implements
 	 */
 	@Override
 	public final void setClesPossiblesSet(
-			final Set<Integer> pClesPossiblesSet) {
+			final Set<String> pClesPossiblesSet) {
 		this.clesPossiblesSet = pClesPossiblesSet;
 	} // Fin de setClesPossiblesSet(
-	 // Set<Integer> pClesPossiblesSet).___________________________________
+	 // Set<String> pClesPossiblesSet).___________________________________
 
 		
 	
-} // FIN DE LA CLASSE AbstractImporteurNomenclature.-------------------------
+} // FIN DE LA CLASSE AbstractImporteurLexique.------------------------------
