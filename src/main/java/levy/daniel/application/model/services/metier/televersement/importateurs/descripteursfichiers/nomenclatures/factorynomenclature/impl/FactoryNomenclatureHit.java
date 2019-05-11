@@ -1,21 +1,23 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.impl;
 
-import java.io.File;
 import java.util.Set;
 import java.util.SortedMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IFactoryNomenclature;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesnomenclatures.ConfigurationNomenclaturesHitManager;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IImporteurNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.IFactoryNomenclature;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.impl.ImporteurNomenclature;
 
 /**
- * class FactoryNomenclatureHit :<br/>
+ * CLASSE FactoryNomenclatureHit :<br/>
+ * <p>
  * Factory chargée de fournir les nomenclatures 
- * pour les fichiers HIT.<br/>
+ * pour les fichiers HIT.
+ * </p>
+ * 
  * <p>
  * RESPONSABILITE : 
  * IMPORTER TOUTES LES NOMENCLATURES HIT 
@@ -54,21 +56,18 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * CLASSE_FACTORYNOMENCLATUREHIT : String :<br/>
 	 * "Classe FactoryNomenclatureHit".<br/>
 	 */
 	public static final String CLASSE_FACTORYNOMENCLATUREHIT 
 		= "Classe FactoryNomenclatureHit";
 	
 	/**
-	 * METHODE_GETCLESPOSSIBLESSET : String :<br/>
 	 * "Méthode getClesPossiblesSet(int pNumeroChamp)".<br/>
 	 */
 	public static final String METHODE_GETCLESPOSSIBLESSET 
 		= "Méthode getClesPossiblesSet(int pNumeroChamp)";
 	
 	/**
-	 * METHODE_GETNOMENCLATUREMAP : String :<br/>
 	 * "Méthode getNomenclatureMap(int pNumeroChamp)".<br/>
 	 */
 	public static final String METHODE_GETNOMENCLATUREMAP 
@@ -86,238 +85,233 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	public static final String SEPARATEUR_MOINS_AERE = " - ";
 	
 
-	// SENS.************** 
-	/**
-	 * importeur de la Nomenclature HIT pour le SENS.<br/>
-	 */
-	private static transient IImporteurNomenclature impoNomenclatureSensHit;
-		
+	// SENS.************** 		
 	/**
 	 * Set&lt;Integer&gt; contenant les valeurs possibles 
-	 * des clés du sens pour les fichiers HIT.<br/>
+	 * des clés de la nomenclature du SENS pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient Set<Integer> setSens;
+	private static transient Set<Integer> setClesPossiblesSens;
 		
 	/**
 	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
-	 * pour le sens HIT avec :
+	 * pour le SENS dans un fichier HIT avec :
 	 * <ul>
 	 * <li>Integer : la clé</li>
 	 * <li>String : le libellé</li>
 	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapSens;
 	
-
 	// NATURE DU COMPTAGE (1 pour tous véhicules).*********	
 	/**
-	 * importeur de la Nomenclature HIT pour la nature du comptage 
-	 * (1 pour tous véhicules).<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de NATURE DU COMPTAGE pour 
+	 * les fichiers HIT (1 pour tous véhicules).<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureNatureHit;
+	private static transient Set<Integer> setClesPossiblesNature;
 		
 	/**
-	 * Set&lt;Integer&gt; contenant les valeurs possibles 
-	 * des clés de nature du comptage (1 pour tous véhicules).<br/>
-	 */
-	private static transient Set<Integer> setNature;
-	
-	
-	/**
-	 * nomenclatureMapNature : SortedMap&lt;Integer,String&gt; :<br/>
 	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
-	 * pour la nature HIT du comptage avec :
+	 * pour la NATURE DU COMPTAGE dans un fichier HIT avec :
 	 * <ul>
 	 * <li>Integer : la clé</li>
 	 * <li>String : le libellé</li>
 	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapNature;
-
 	
 	// CATEGORIE ADMINISTRATIVE DE LA ROUTE HIT.********	
 	/**
-	 * impoNomenclatureCatAdminRouteHit : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HIT 
-	 * pour la catégorie Administrative de la route HIT.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CATEGORIE ADMINISTRATIVE 
+	 * DE LA ROUTE pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureCatAdminRouteHit;
-		
-		
-		
+	private static transient Set<Integer> setClesPossiblesCatAdminRoute;
+				
 	/**
-	 * setCatAdminRoute : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles de catégorie administrative 
-	 * de la route HIT.<br/>
-	 */
-	private static transient Set<Integer> setCatAdminRoute;
-		
-		
-	/**
-	 * nomenclatureMapCatAdminRoute : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour la catégorie administrative 
-	 * de la route HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CATEGORIE ADMINISTRATIVE DE LA ROUTE
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapCatAdminRoute;
-	
-	
+		
 	// TYPE DE COMPTAGE HIT.********	
 	/**
-	 * impoNomenclatureTypeComptageHit : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HIT 
-	 * pour le type de comptage HIT.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureTypeComptageHit;
-		
-		
+	private static transient Set<Integer> setClesPossiblesTypeComptage;
+				
 	/**
-	 * setTypeComptage : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles du type de comptage 
-	 * HIT.<br/>
-	 */
-	private static transient Set<Integer> setTypeComptage;
-		
-		
-	/**
-	 * nomenclatureMapTypeComptage : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour le type de comptage 
-	 * HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapTypeComptage;
 	
-
 	// CLASSEMENT DE LA ROUTE HIT.********	
 	/**
-	 * impoNomenclatureClassementRouteHit : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HIT 
-	 * pour le classement de la route HIT.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSEMENT DE LA ROUTE 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureClassementRouteHit;
-		
-		
+	private static transient Set<Integer> setClesPossiblesClassementRoute;
+				
 	/**
-	 * setClassementRoute : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles du type de comptage 
-	 * HIT.<br/>
-	 */
-	private static transient Set<Integer> setClassementRoute;
-		
-		
-	/**
-	 * nomenclatureMapClassementRoute : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour le type de comptage 
-	 * HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le CLASSEMENT DE LA ROUTE 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapClassementRoute;
-
 	
 	// CLASSE DE LARGEUR DE CHAUSSEE UNIQUE HIT.********	
 	/**
-	 * impoNomenclatureClasseLargeurChausseeUHit : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HIT 
-	 * pour la classe de largeur de chaussée unique HIT.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureClasseLargeurChausseeUHit;
-		
-		
+	private static transient Set<Integer> setClesPossiblesClasseLargeurChausseeU;
+				
 	/**
-	 * setClasseLargeurChausseeU : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles 
-	 * de la classe de largeur de chaussée unique 
-	 * HIT.<br/>
-	 */
-	private static transient Set<Integer> setClasseLargeurChausseeU;
-		
-		
-	/**
-	 * nomenclatureMapClasseLargeurChausseeU : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour 
-	 * la classe de largeur de chaussée unique 
-	 * HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapClasseLargeurChausseeU;
-
-
 	
 	// CLASSE DE LARGEUR DE CHAUSSEES SEPAREES HIT.********	
 	/**
-	 * impoNomenclatureClasseLargeurChausseesSHit : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HIT 
-	 * pour la classe de largeur de chaussées séparées HIT.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSE DE LARGEUR DE CHAUSSEES SEPAREES 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureClasseLargeurChausseesSHit;
-		
-		
+	private static transient Set<Integer> setClesPossiblesClasseLargeurChausseesS;
+				
 	/**
-	 * setClasseLargeurChausseesS : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles 
-	 * de la classe de largeur de chaussées séparées 
-	 * HIT.<br/>
-	 */
-	private static transient Set<Integer> setClasseLargeurChausseesS;
-		
-		
-	/**
-	 * nomenclatureMapClasseLargeurChausseesS : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour 
-	 * la classe de largeur de chaussées séparées 
-	 * HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapClasseLargeurChausseesS;
-
-
-
 	
 	// TYPE DE RESEAU HIT.********	
 	/**
-	 * impoNomenclatureTypeReseauHit : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HIT 
-	 * pour le type de réseau HIT.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE RESEAU 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureTypeReseauHit;
-		
-		
+	private static transient Set<Integer> setClesPossiblesTypeReseau;
+				
 	/**
-	 * setTypeReseau : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles 
-	 * du type de réseau HIT.<br/>
-	 */
-	private static transient Set<Integer> setTypeReseau;
-		
-		
-	/**
-	 * nomenclatureMapTypeReseau : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour 
-	 * le type de réseau HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE RESEAU 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapTypeReseau;
-
-
 	
 	// TYPE PR/PK HIT.********	
 	/**
-	 * impoNomenclaturePrPkHit : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HIT 
-	 * pour le type PR/PK HIT.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de PR/PK 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclaturePrPkHit;
-		
-		
+	private static transient Set<Integer> setClesPossiblesPrPk;
+				
 	/**
-	 * setPrPk : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles 
-	 * du type PR/PK HIT.<br/>
-	 */
-	private static transient Set<Integer> setPrPk;
-		
-		
-	/**
-	 * nomenclatureMapPrPk : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour 
-	 * le type PR/PK HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le type PR/PK 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapPrPk;
 
+	// SENS SECTION RATTACHEMENT.************** 		
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature du SENS DE LA SECTION DE RATTACHEMENT
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesSensRattachement;
+		
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SENS DE LA SECTION DE RATTACHEMENT
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapSensRattachement;
+
+	// SENS SECTION LIMITROPHE.************** 		
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature du SENS DE LA SECTION LIMITROPHE
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesSensLimitrophe;
+		
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SENS DE LA SECTION LIMITROPHE
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapSensLimitrophe;
 
 	
 	/**
@@ -332,9 +326,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR FactoryNomenclatureHit() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
 	 */
 	public FactoryNomenclatureHit() {
 		
@@ -365,370 +357,67 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			/* SENS. */
 			case 3:
 			
-				if (impoNomenclatureSensHit == null) {					
-					impoNomenclatureSensHit 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (setSens == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureSensHitUtf8 
-						= ConfigurationApplicationManager
-							.getFichierNomenclatureHitSensUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureSensHitUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du SENS dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureSensHit
-					.importerNomenclatureEnUtf8(
-							fichierNomenclatureSensHitUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setSens 
-						= impoNomenclatureSensHit
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setSens;
-
+				resultat = getSetClesPossiblesSens();
 				break;
 			
 			/* NATURE. */	
 			case 4:
 				
-				if (impoNomenclatureNatureHit == null) {					
-					impoNomenclatureNatureHit = new ImporteurNomenclature();					
-				}
-				
-				if (setNature == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureNatureHitUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHitNatureUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureNatureHitUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la NATURE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureNatureHit
-					.importerNomenclatureEnUtf8(
-							fichierNomenclatureNatureHitUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setNature = impoNomenclatureNatureHit.getClesPossiblesSet();
-				}
-				
-				resultat = setNature;
-				
+				resultat = getSetClesPossiblesNature();				
 				break;
 				
 			/* CATEGORIE ADMINISTRATIVE DE LA ROUTE. */
 			case 11:
-				
-				if (impoNomenclatureCatAdminRouteHit == null) {					
-					impoNomenclatureCatAdminRouteHit = new ImporteurNomenclature();					
-				}
-				
-				if (setCatAdminRoute == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitCatAdminRouteUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHitCatAdminRouteUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitCatAdminRouteUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CATEGORIE ADMINISTRATIVE DE LA ROUTE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureCatAdminRouteHit
-					.importerNomenclatureEnUtf8(
-							fichierNomenclatureHitCatAdminRouteUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setCatAdminRoute 
-						= impoNomenclatureCatAdminRouteHit
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setCatAdminRoute;
-				
+								
+				resultat = getSetClesPossiblesCatAdminRoute();				
 				break;
 				
 			/* TYPE DE COMPTAGE. */
 			case 12:
 				
-				if (impoNomenclatureTypeComptageHit == null) {					
-					impoNomenclatureTypeComptageHit = new ImporteurNomenclature();					
-				}
-				
-				if (setTypeComptage == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitTypeComptageUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHitTypeComptageUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitTypeComptageUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE DE COMPTAGE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureTypeComptageHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitTypeComptageUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setTypeComptage 
-						= impoNomenclatureTypeComptageHit
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setTypeComptage;
-				
+				resultat = getSetClesPossiblesTypeComptage();				
 				break;
 				
 			/* CLASSEMENT DE LA ROUTE. */
 			case 13:
 				
-				if (impoNomenclatureClassementRouteHit == null) {					
-					impoNomenclatureClassementRouteHit = new ImporteurNomenclature();					
-				}
-				
-				if (setClassementRoute == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitClassementRouteUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHitClassementRouteUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitClassementRouteUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du CLASSEMENT DE LA ROUTE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureClassementRouteHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitClassementRouteUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setClassementRoute 
-						= impoNomenclatureClassementRouteHit
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setClassementRoute;
-				
+				resultat = getSetClesPossiblesClassementRoute();				
 				break;
 				
 			/* CLASSE DE LARGEUR DE CHAUSSEE UNIQUE. */
 			case 14:
 				
-				if (impoNomenclatureClasseLargeurChausseeUHit == null) {					
-					impoNomenclatureClasseLargeurChausseeUHit = new ImporteurNomenclature();					
-				}
-				
-				if (setClasseLargeurChausseeU == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitClasseLargeurChausseeUUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHitClasseLargeurChausseeUUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitClasseLargeurChausseeUUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */					
-					impoNomenclatureClasseLargeurChausseeUHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitClasseLargeurChausseeUUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setClasseLargeurChausseeU 
-						= impoNomenclatureClasseLargeurChausseeUHit
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setClasseLargeurChausseeU;
-				
+				resultat = getSetClesPossiblesClasseLargeurChausseeU();				
 				break;
 				
 			/* CLASSE DE LARGEUR DE CHAUSSEES SEPAREES. */
 			case 15:
 				
-				if (impoNomenclatureClasseLargeurChausseesSHit == null) {					
-					impoNomenclatureClasseLargeurChausseesSHit = new ImporteurNomenclature();					
-				}
-				
-				if (setClasseLargeurChausseesS == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitClasseLargeurChausseesSUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHitClasseLargeurChausseesSUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitClasseLargeurChausseesSUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */					
-					impoNomenclatureClasseLargeurChausseesSHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitClasseLargeurChausseesSUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setClasseLargeurChausseesS 
-						= impoNomenclatureClasseLargeurChausseesSHit
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setClasseLargeurChausseesS;
-				
+				resultat = getSetClesPossiblesClasseLargeurChausseesS();				
 				break;
 				
 			/* TYPE DE RESEAU. */
 			case 16:
 				
-				if (impoNomenclatureTypeReseauHit == null) {					
-					impoNomenclatureTypeReseauHit = new ImporteurNomenclature();					
-				}
-				
-				if (setTypeReseau == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitTypeReseauUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHitTypeReseauUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitTypeReseauUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE DE RESEAU dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */										
-					impoNomenclatureTypeReseauHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitTypeReseauUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setTypeReseau 
-						= impoNomenclatureTypeReseauHit
-							.getClesPossiblesSet();
-					
-				}
-				
-				resultat = setTypeReseau;
-				
+				resultat = getSetClesPossiblesTypeReseau();				
 				break;
 				
 			/* TYPE PR/PK. */
 			case 17:
 				
-				if (impoNomenclaturePrPkHit == null) {					
-					impoNomenclaturePrPkHit = new ImporteurNomenclature();					
-				}
+				resultat = getSetClesPossiblesPrPk();				
+				break;
 				
-				if (setPrPk == null) {
+			/* SENS DE LA SECTION DE RATTACHEMENT. */
+			case 31:
+				
+				resultat = getSetClesPossiblesSensRattachement();				
+				break;
+				
+			/* SENS DE LA SECTION LIMITROPHE. */
+			case 34:
 					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitPrPkUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHitPrPkUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitPrPkUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE PR/PK dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */															
-					impoNomenclaturePrPkHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitPrPkUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setPrPk 
-						= impoNomenclaturePrPkHit
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setPrPk;
-				
+				resultat = getSetClesPossiblesSensLimitrophe();				
 				break;
 				
 			default:
@@ -739,8 +428,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			
 		} // Fin de synchronized._________________________
 		
-	} // Fin de getClesPossiblesSet(
-	// int pNumeroChamp).__________________________________________________
+	} // Fin de getClesPossiblesSet(...).__________________________________
 	
 	
 
@@ -765,377 +453,68 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			/* SENS. */
 			case 3:
 
-				if (impoNomenclatureSensHit == null) {					
-					impoNomenclatureSensHit 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapSens == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureSensHitUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHitSensUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureSensHitUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du SENS dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureSensHit
-					.importerNomenclatureEnUtf8(
-							fichierNomenclatureSensHitUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapSens = impoNomenclatureSensHit
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapSens;
-
+				resultat = getNomenclatureMapSens();
 				break;
 				
 			/* NATURE*/	
 			case 4:
 				
-				if (impoNomenclatureNatureHit == null) {					
-					impoNomenclatureNatureHit 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapNature == null) {
-
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitNatureUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHitNatureUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitNatureUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la NATURE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureNatureHit
-					.importerNomenclatureEnUtf8(
-							fichierNomenclatureHitNatureUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapNature 
-						= impoNomenclatureNatureHit
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapNature;
-
+				resultat = getNomenclatureMapNature();
 				break;
 
 			/* CATEGORIE ADMINISTRATIVE DE LA ROUTE. */
 			case 11:
 				
-				if (impoNomenclatureCatAdminRouteHit == null) {					
-					impoNomenclatureCatAdminRouteHit = new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapCatAdminRoute == null) {
-
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitCatAdminRouteUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHitCatAdminRouteUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitCatAdminRouteUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CATEGORIE ADMINISTRATIVE DE LA ROUTE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureCatAdminRouteHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitCatAdminRouteUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapCatAdminRoute 
-						= impoNomenclatureCatAdminRouteHit
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapCatAdminRoute;
-			
+				resultat = getNomenclatureMapCatAdminRoute();			
 				break;
 			
 			/* TYPE DE COMPTAGE. */
 			case 12:
 				
-				if (impoNomenclatureTypeComptageHit == null) {					
-					impoNomenclatureTypeComptageHit 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapTypeComptage == null) {
-
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitTypeComptageUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHitTypeComptageUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitTypeComptageUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE DE COMPTAGE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureTypeComptageHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitTypeComptageUtf8);
-					
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapTypeComptage 
-						= impoNomenclatureTypeComptageHit
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapTypeComptage;
-			
+				resultat = getNomenclatureMapTypeComptage();			
 				break;
 				
 			/* CLASSEMENT DE LA ROUTE. */
 			case 13:
-				
-				if (impoNomenclatureClassementRouteHit == null) {					
-					impoNomenclatureClassementRouteHit 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapClassementRoute == null) {
 
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitClassementRouteUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHitClassementRouteUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitClassementRouteUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du CLASSEMENT DE LA ROUTE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureClassementRouteHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitClassementRouteUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapClassementRoute 
-						= impoNomenclatureClassementRouteHit
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapClassementRoute;
-			
+				resultat = getNomenclatureMapClassementRoute();			
 				break;
 				
 			/* CLASSE DE LA LARGEUR DE CHAUSSEE UNIQUE. */
 			case 14:
 				
-				if (impoNomenclatureClasseLargeurChausseeUHit == null) {					
-					impoNomenclatureClasseLargeurChausseeUHit 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapClasseLargeurChausseeU == null) {
-
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitClasseLargeurChausseeUUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHitClasseLargeurChausseeUUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitClasseLargeurChausseeUUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureClasseLargeurChausseeUHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitClasseLargeurChausseeUUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapClasseLargeurChausseeU 
-						= impoNomenclatureClasseLargeurChausseeUHit
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapClasseLargeurChausseeU;
-			
+				resultat = getNomenclatureMapClasseLargeurChausseeU();			
 				break;
 				
 			/* CLASSE DE LA LARGEUR DE CHAUSSEES SEPAREES. */
 			case 15:
 				
-				if (impoNomenclatureClasseLargeurChausseesSHit == null) {					
-					impoNomenclatureClasseLargeurChausseesSHit 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapClasseLargeurChausseesS == null) {
-
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitClasseLargeurChausseesSUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHitClasseLargeurChausseesSUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitClasseLargeurChausseesSUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureClasseLargeurChausseesSHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitClasseLargeurChausseesSUtf8);
-					
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapClasseLargeurChausseesS 
-						= impoNomenclatureClasseLargeurChausseesSHit
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapClasseLargeurChausseesS;
-			
+				resultat = getNomenclatureMapClasseLargeurChausseesS();			
 				break;
 				
 			/* TYPE DE RESEAU. */
 			case 16:
-				
-				if (impoNomenclatureTypeReseauHit == null) {					
-					impoNomenclatureTypeReseauHit = new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapTypeReseau == null) {
 
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitTypeReseauUtf8 
-						= ConfigurationApplicationManager
-							.getFichierNomenclatureHitTypeReseauUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitTypeReseauUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE DE RESEAU dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureTypeReseauHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitTypeReseauUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapTypeReseau 
-						= impoNomenclatureTypeReseauHit
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapTypeReseau;
-			
+				resultat = getNomenclatureMapTypeReseau();			
 				break;
 				
 			/* TYPE PR/PK. */
 			case 17:
-				
-				if (impoNomenclaturePrPkHit == null) {					
-					impoNomenclaturePrPkHit = new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapPrPk == null) {
 
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHitPrPkUtf8 
-						= ConfigurationApplicationManager
-							.getFichierNomenclatureHitPrPkUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHitPrPkUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE PR/PK dans un HIT manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclaturePrPkHit
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHitPrPkUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapPrPk 
-						= impoNomenclaturePrPkHit
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapPrPk;
-			
+				resultat = getNomenclatureMapPrPk();			
 				break;
-
+				
+			/* SENS DE LA SECTION DE RATTACHEMENT. */
+			case 31:
+				
+				resultat = getNomenclatureMapSensRattachement();				
+				break;
+				
+			/* SENS DE LA SECTION LIMITROPHE. */
+			case 34:
+				
+				resultat = getNomenclatureMapSensLimitrophe();				
+				break;
 				
 			default:
 				break;
@@ -1145,15 +524,949 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 
 		} // Fin de synchronized._________________________
 
-	} // Fin de getNomenclatureMap(
-	// int pNumeroChamp).__________________________________________________
+	} // Fin de getNomenclatureMap(...).___________________________________
+
+
+		
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature du SENS pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesSens : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesSens() 
+													throws Exception {
+		
+		if (setClesPossiblesSens == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitSensUtf8());
+			
+			setClesPossiblesSens = importeur.getClesPossiblesSet();
+			nomenclatureMapSens = importeur.getNomenclatureMap();
+		}
+		
+		return setClesPossiblesSens;
+		
+	} // Fin de getSetClesPossiblesSens()._________________________________
+
+	
+		
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SENS dans un HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapSens : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapSens() 
+														throws Exception {
+		
+		if (nomenclatureMapSens == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitSensUtf8());
+			
+			setClesPossiblesSens = importeur.getClesPossiblesSet();
+			nomenclatureMapSens = importeur.getNomenclatureMap();
+		}
+		
+		return nomenclatureMapSens;
+		
+	} // Fin de getNomenclatureMapSens().__________________________________
 
 
 	
 	/**
-	 * method loggerFatal(
-	 * String pMethode
-	 * , String pMessage) :<br/>
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de NATURE DU COMPTAGE pour 
+	 * les fichiers HIT (1 pour tous véhicules).<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesNature : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesNature() 
+													throws Exception {
+				
+		if (setClesPossiblesNature == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitNatureUtf8());
+			
+			setClesPossiblesNature = importeur.getClesPossiblesSet();
+			nomenclatureMapNature = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesNature;
+		
+	} // Fin de getSetClesPossiblesNature()._______________________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la NATURE DU COMPTAGE dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapNature : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapNature() 
+															throws Exception {
+		
+		if (nomenclatureMapNature == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitNatureUtf8());
+			
+			setClesPossiblesNature = importeur.getClesPossiblesSet();
+			nomenclatureMapNature = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapNature;
+		
+	} // Fin de getNomenclatureMapNature().________________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CATEGORIE ADMINISTRATIVE 
+	 * DE LA ROUTE pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesCatAdminRoute : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesCatAdminRoute() 
+													throws Exception {
+				
+		if (setClesPossiblesCatAdminRoute == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitCatAdminRouteUtf8());
+			
+			setClesPossiblesCatAdminRoute = importeur.getClesPossiblesSet();
+			nomenclatureMapCatAdminRoute = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesCatAdminRoute;
+		
+	} // Fin de getSetClesPossiblesCatAdminRoute().________________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CATEGORIE ADMINISTRATIVE DE LA ROUTE
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapCatAdminRoute : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapCatAdminRoute() 
+															throws Exception {
+		
+		if (nomenclatureMapCatAdminRoute == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitCatAdminRouteUtf8());
+			
+			setClesPossiblesCatAdminRoute = importeur.getClesPossiblesSet();
+			nomenclatureMapCatAdminRoute = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapCatAdminRoute;
+		
+	} // Fin de getNomenclatureMapCatAdminRoute()._________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeComptage : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeComptage() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeComptage == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitTypeComptageUtf8());
+			
+			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesTypeComptage;
+		
+	} // Fin de getSetClesPossiblesTypeComptage().________________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeComptage : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeComptage() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeComptage == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitTypeComptageUtf8());
+			
+			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapTypeComptage;
+		
+	} // Fin de getNomenclatureMapTypeComptage().__________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSEMENT DE LA ROUTE 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesClassementRoute : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesClassementRoute() 
+													throws Exception {
+				
+		if (setClesPossiblesClassementRoute == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitClassementRouteUtf8());
+			
+			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesClassementRoute;
+		
+	} // Fin de getSetClesPossiblesClassementRoute().______________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le CLASSEMENT DE LA ROUTE 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapClassementRoute : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapClassementRoute() 
+															throws Exception {
+		
+		if (nomenclatureMapClassementRoute == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitClassementRouteUtf8());
+			
+			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapClassementRoute;
+		
+	} // Fin de getNomenclatureMapClassementRoute()._______________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesClasseLargeurChausseeU : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesClasseLargeurChausseeU() 
+													throws Exception {
+				
+		if (setClesPossiblesClasseLargeurChausseeU == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitClasseLargeurChausseeUUtf8());
+			
+			setClesPossiblesClasseLargeurChausseeU = importeur.getClesPossiblesSet();
+			nomenclatureMapClasseLargeurChausseeU = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesClasseLargeurChausseeU;
+		
+	} // Fin de getSetClesPossiblesClasseLargeurChausseeU()._______________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapClasseLargeurChausseeU : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapClasseLargeurChausseeU() 
+															throws Exception {
+		
+		if (nomenclatureMapClasseLargeurChausseeU == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitClasseLargeurChausseeUUtf8());
+			
+			setClesPossiblesClasseLargeurChausseeU = importeur.getClesPossiblesSet();
+			nomenclatureMapClasseLargeurChausseeU = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapClasseLargeurChausseeU;
+		
+	} // Fin de getNomenclatureMapClasseLargeurChausseeU().________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSE DE LARGEUR DE CHAUSSEES SEPAREES 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesClasseLargeurChausseesS : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesClasseLargeurChausseesS() 
+													throws Exception {
+				
+		if (setClesPossiblesClasseLargeurChausseesS == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitClasseLargeurChausseesSUtf8());
+			
+			setClesPossiblesClasseLargeurChausseesS = importeur.getClesPossiblesSet();
+			nomenclatureMapClasseLargeurChausseesS = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesClasseLargeurChausseesS;
+		
+	} // Fin de getSetClesPossiblesClasseLargeurChausseesS().______________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapClasseLargeurChausseesS : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapClasseLargeurChausseesS() 
+															throws Exception {
+		
+		if (nomenclatureMapClasseLargeurChausseesS == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitClasseLargeurChausseesSUtf8());
+			
+			setClesPossiblesClasseLargeurChausseesS = importeur.getClesPossiblesSet();
+			nomenclatureMapClasseLargeurChausseesS = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapClasseLargeurChausseesS;
+		
+	} // Fin de getNomenclatureMapClasseLargeurChausseesS()._______________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE RESEAU 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeReseau : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeReseau() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeReseau == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitTypeReseauUtf8());
+			
+			setClesPossiblesTypeReseau = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeReseau = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesTypeReseau;
+		
+	} // Fin de getSetClesPossiblesTypeReseau().___________________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE RESEAU 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeReseau : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeReseau() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeReseau == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitTypeReseauUtf8());
+			
+			setClesPossiblesTypeReseau = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeReseau = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapTypeReseau;
+		
+	} // Fin de getNomenclatureMapTypeReseau().____________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de PR/PK 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesPrPk : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesPrPk() 
+													throws Exception {
+				
+		if (setClesPossiblesPrPk == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitPrPkUtf8());
+			
+			setClesPossiblesPrPk = importeur.getClesPossiblesSet();
+			nomenclatureMapPrPk = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesPrPk;
+		
+	} // Fin de getSetClesPossiblesPrPk()._________________________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le type PR/PK 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapPrPk : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapPrPk() 
+															throws Exception {
+		
+		if (nomenclatureMapPrPk == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitPrPkUtf8());
+			
+			setClesPossiblesPrPk = importeur.getClesPossiblesSet();
+			nomenclatureMapPrPk = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapPrPk;
+		
+	} // Fin de getNomenclatureMapPrPk().__________________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature du SENS DE LA SECTION DE RATTACHEMENT
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesSensRattachement : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesSensRattachement() 
+													throws Exception {
+		
+		if (setClesPossiblesSensRattachement == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitSensUtf8());
+			
+			setClesPossiblesSensRattachement = importeur.getClesPossiblesSet();
+			nomenclatureMapSensRattachement = importeur.getNomenclatureMap();
+		}
+		
+		return setClesPossiblesSensRattachement;
+		
+	} // Fin de getSetClesPossiblesSensRattachement()._____________________
+
+	
+		
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SENS DE LA SECTION DE RATTACHEMENT dans un HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapSensRattachement : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapSensRattachement() 
+														throws Exception {
+		
+		if (nomenclatureMapSensRattachement == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitSensUtf8());
+			
+			setClesPossiblesSensRattachement = importeur.getClesPossiblesSet();
+			nomenclatureMapSensRattachement = importeur.getNomenclatureMap();
+		}
+		
+		return nomenclatureMapSensRattachement;
+		
+	} // Fin de getNomenclatureMapSensRattachement().______________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature du SENS DE LA SECTION LIMITROPHE
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesSensLimitrophe : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesSensLimitrophe() 
+													throws Exception {
+		
+		if (setClesPossiblesSensLimitrophe == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitSensUtf8());
+			
+			setClesPossiblesSensLimitrophe = importeur.getClesPossiblesSet();
+			nomenclatureMapSensLimitrophe = importeur.getNomenclatureMap();
+		}
+		
+		return setClesPossiblesSensLimitrophe;
+		
+	} // Fin de getSetClesPossiblesSensLimitrophe()._______________________
+
+	
+		
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SENS DE LA SECTION LIMITROPHE dans un HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapSensLimitrophe : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapSensLimitrophe() 
+														throws Exception {
+		
+		if (nomenclatureMapSensLimitrophe == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHitManager
+							.getFichierNomenclatureHitSensUtf8());
+			
+			setClesPossiblesSensLimitrophe = importeur.getClesPossiblesSet();
+			nomenclatureMapSensLimitrophe = importeur.getNomenclatureMap();
+		}
+		
+		return nomenclatureMapSensLimitrophe;
+		
+	} // Fin de getNomenclatureMapSensLimitrophe().________________________
+
+
+
+	/**
 	 * LOG.Fatal.<br/>
 	 * <br/>
 	 *

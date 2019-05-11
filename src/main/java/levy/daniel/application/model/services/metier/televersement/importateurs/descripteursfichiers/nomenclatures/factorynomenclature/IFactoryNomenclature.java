@@ -1,4 +1,4 @@
-package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature;
 
 import java.io.IOException;
 import java.util.Set;
@@ -10,12 +10,35 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierPasNo
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideException;
 
 /**
- * class IFactoryNomenclature :<br/>
+ * INTERFACE IFactoryNomenclature :<br/>
+ * <p>
  * RESPONSABILITE : UTILISER LA BONNE INSTANCE DE IMPORTEURNOMENCLATURE 
  * ET FOURNIR LA NOMENCLATURE SOUS FORME DE MAP 
  * ET L'ENSEMBLE DES VALEURS POSSIBLES.<br/>
  * Interface factorisant les comportements communs 
  * à toutes les Factory de nomenclatures.<br/>
+ * </p>
+ * 
+ * <div>
+ * <ul>
+ * <li>
+ * fournit pour chaque champ à valeurs contraintes (nomenclature ou lexique) 
+ * d'un fichier un <b>SINGLETON</b> de la nomenclature sous forme de Map 
+ * ainsi que l'ensemble de ses valeurs possibles.
+ * </li>
+ * <li>
+ * La méthode <b><code>getClesPossiblesSet(int pNumeroOrdre)</code></b> fournit
+ * l'ensemble des clés possibles en localisant le champ en fonction de son 
+ * numéro d'ordre pNumeroOrdre dans la description du fichier.
+ * </li>
+ * <li>
+ * La méthode <b><code>getNomenclatureMap(int pNumeroOrdre)</code></b> fournit
+ * la nomenclature sous forme de Map en localisant le champ en fonction de son 
+ * numéro d'ordre pNumeroOrdre dans la description du fichier.
+ * </li>
+ * </ul>
+ * </div>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -35,20 +58,27 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideE
  */
 public interface IFactoryNomenclature {
 
+
 	
 	/**
-	 * Fournit les valeurs possibles d'un champ 
-	 * pNumeroChamp à nomenclature.<br/>
+	 * Fournit les <b>valeurs possibles</b> 
+	 * d'un champ à <i>valeurs contraintes</i> 
+	 * (nomenclature) d'<b>ordre pNumeroChamp</b> (1-based).<br/>
 	 * <br/>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * - retourne null si le champ d'ordre pNumeroChamp 
+	 * n'est pas un champ à valeurs contraintes (nomenclature).<br/>
 	 * - LOG.FATAL et jette une RunTimeException 
-	 * si la nomenclature est absente 
-	 * pour le champ pNumeroChamp.<br/>
+	 * si la nomenclature est déficiente (null, vide, inexistante, répertoire) 
+	 * pour le champ d'ordre pNumeroChamp.<br/>
 	 * <br/>
 	 *
 	 * @param pNumeroChamp : int : 
-	 * numéro du champ dans une description de fichier.<br/>
+	 * numéro du champ dans une description de fichier (1-based).<br/>
 	 * 
-	 * @return : Set&lt;Integer&gt; : ensemble des valeurs possibles.<br/>
+	 * @return : Set&lt;Integer&gt; : 
+	 * ensemble des valeurs possibles pour la clé dans la nomenclature.<br/>
 	 * 
 	 * @throws FichierNullException : si pNomenclature est null.<br/>
 	 * @throws FichierVideException  : si pNomenclature est vide.<br/>
@@ -67,15 +97,19 @@ public interface IFactoryNomenclature {
 	
 	
 	/**
-	 * Fournit la nomenclature d'un champ 
-	 * pNumeroChamp à nomenclature sous forme de 
+	 * Fournit la nomenclature d'un champ à valeurs contraintes 
+	 * d'ordre pNumeroChamp sous forme de 
 	 * SortedMap&lt;Integer, String&gt; triée avec : <br/>
 	 * - Integer : la clé dans la nomenclature.<br/>
-	 * - String : le libellé dans la nomenclature.<br/>.<br/>
+	 * - String : le libellé dans la nomenclature.<br/>
 	 * <br/>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * - retourne null si le champ d'ordre pNumeroChamp 
+	 * n'est pas un champ à valeurs contraintes (nomenclature).<br/>
 	 * - LOG.FATAL et jette une RunTimeException 
-	 * si la nomenclature est absente 
-	 * pour le champ pNumeroChamp.<br/>
+	 * si la nomenclature est déficiente (null, vide, inexistante, répertoire) 
+	 * pour le champ d'ordre pNumeroChamp.<br/>
 	 * <br/>
 	 *
 	 * @param pNumeroChamp : int : 
