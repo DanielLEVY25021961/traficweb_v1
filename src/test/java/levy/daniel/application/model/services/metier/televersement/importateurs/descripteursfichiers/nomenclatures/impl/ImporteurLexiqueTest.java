@@ -445,8 +445,7 @@ public class ImporteurLexiqueTest {
 		// APPEL DE LA METHODE A TESTER **************
 		// IMPORT ******************
 		final Map<String, String> resultat 
-		= IMPORTEUR_LEXIQUE
-			.importerLexiqueEnUtf8(nomenclature);
+			= IMPORTEUR_LEXIQUE.importerLexiqueEnUtf8(nomenclature);
 		
 		final File nomenclatureImportee 
 			= IMPORTEUR_LEXIQUE.getLexique();

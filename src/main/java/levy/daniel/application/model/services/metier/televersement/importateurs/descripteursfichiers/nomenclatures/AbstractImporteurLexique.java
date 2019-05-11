@@ -34,31 +34,71 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.Nomenclature
 
 /**
  * CLASSE AbstractImporteurLexique :<br/>
+ * <p>
  * Classe abstraite factorisant les attributs et les 
- * méthodes des ImporteurLexique.<br/>
- * <br/>
- * Un lexique doit être un fichier csv avec séparateur ';' 
+ * méthodes des ImporteurLexique.
+ * </p>
+ *  
+ * <p>
+ * Un <b>lexique</b> doit être un fichier csv avec séparateur ';' 
  * sous forme [String, String] signifiant [Clé, Libellé] comme par exemple 
  * pour le PROFIL EN TRAVERS dans un HISTO_F07 :<br/>
  * 1V;chaussée unique 1 voie;<br/>
  * 2V<7;chaussée unique 2 voies < 7m;<br/>
  * 2V>=7;chaussée unique 2 voies >= 7m;<br/>
  * ...........................................<br/>
- * <br/>
+ * </p>
+ * 
+ * <p>
+ * La <b>clé est donc toujours String dans un lexique</b>.
+ * </p>
+ * 
+ * <div>
+ * <ul>
+ * <li>
  * Tous les ImporteurLexique possèdent une 
- * méthode importerLexique(File pLexique) 
+ * méthode <b><code>importerLexique(File pLexique)</code></b> 
  * où pLexique encapsule le lexique en csv de la donnée 
- * (sens, nature, catégorie administrative, ...) à servir.<br/>
+ * (profil en travers, code concession, ...) à servir.
+ * </li>
+ * <li>
  * Le lexique est servi sous forme de 
- * SortedMap&lt;String, String&gt; lexiqueMap 
- * retournée par importerLexique(File pLexique).<br/>
+ * <b>SortedMap&lt;String, String&gt; <code>lexiqueMap</code></b> 
+ * retournée par importerLexique(File pLexique).
+ * </li>
+ * <li>
  * La méthode importerLexique(File pLexique) permet également 
- * d'alimenter un Set&lt;String&gt; clesPossiblesSet 
- * qui contient toutes les valeurs possibles pour la clé dans le lexique.<br/>
- * <br/>
+ * d'alimenter un <b>Set&lt;String&gt; <code>clesPossiblesSet</code></b> 
+ * qui contient toutes les valeurs possibles pour la clé dans le lexique.
+ * </li>
+ * </ul>
+ * </div>
+ *  
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ImportateurLexique : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/nomenclatures/diagramme_de_classes_ImporteurLexique.png" 
+ * alt="Diagramme de classe du ImportateurLexique" />
+ * </p>
+ * 
  * <br/>
  *
- * - Exemple d'utilisation :<br/>
+ * <p>
+ * - Exemple d'utilisation :
+ * </p>
+ * <p>
+ * <code> // Instanciation d'un ImporteurLexique</code><br/>
+ * <code><b>IImporteurLexique IMPORTEUR_LEXIQUE = new ImporteurLexique();</b></code><br/>
+ * <code> // Import du fichier de lexique lexiqueFile</code><br/>
+ * <code><b>Map&lt;String, String&gt; resultat = IMPORTEUR_LEXIQUE.importerLexiqueEnUtf8(lexiqueFile);</b></code><br/>
+ * <code> // Récupération du Set de clés possibles</code><br/>
+ * <code><b>Set&lt;String&gt; clesPossiblesSet = IMPORTEUR_LEXIQUE.getClesPossiblesSet();</b></code><br/>
+ * <code> // Génère le lexique importé dans le fichier nomenclatureGenereeFile avec en-tête et encodée en UTF-8.</code><br/>
+ * <code><b>IMPORTEUR_LEXIQUE.genererNomenclatureCsvFile(true, nomenclatureGenereeFile, charsetUtf8);</b></code><br/>
+ * </p>
  *<br/>
  * 
  * - Mots-clé :<br/>
