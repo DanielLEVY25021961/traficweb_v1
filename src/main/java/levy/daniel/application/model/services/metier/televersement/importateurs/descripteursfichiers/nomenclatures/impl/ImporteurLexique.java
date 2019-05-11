@@ -3,7 +3,11 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.AbstractImporteurNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.AbstractImporteurLexique;
+
+
+
+
 
 /**
  * class ImporteurNomenclature :<br/>
@@ -26,7 +30,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * @since 16 juil. 2014
  *
  */
-public class ImporteurLexique extends AbstractImporteurNomenclature {
+public class ImporteurLexique extends AbstractImporteurLexique {
 
 	// ************************ATTRIBUTS************************************/
 
