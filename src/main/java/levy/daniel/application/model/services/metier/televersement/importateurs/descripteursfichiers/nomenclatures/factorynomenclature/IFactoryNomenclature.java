@@ -1,6 +1,7 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 
@@ -144,6 +145,22 @@ public interface IFactoryNomenclature {
 					, FichierInexistantException
 					, FichierPasNormalException
 					, IOException, Exception;
+	
+	
+	
+	/**
+	 * retourne une String pour l'affichage 
+	 * à la console d'une Map&lt;Integer, String&gt;.<br/>
+	 * <br/>
+	 * - retourne null si pMap == null.<br/>
+	 * <br/>
+	 * 
+	 *
+	 * @param pMap : Map&lt;Integer, String&gt;
+	 * 
+	 * @return : String : String pour affichage.<br/>
+	 */
+	String afficherMapIntegerString(Map<Integer, String> pMap);
 	
 	
 	

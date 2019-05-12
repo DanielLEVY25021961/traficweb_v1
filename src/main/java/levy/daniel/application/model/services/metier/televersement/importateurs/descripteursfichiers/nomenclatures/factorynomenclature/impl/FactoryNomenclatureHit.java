@@ -1,5 +1,9 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.impl;
 
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 
@@ -136,6 +140,18 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * " - ".<br/>
 	 */
 	public static final String SEPARATEUR_MOINS_AERE = " - ";
+	
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+	
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
+
 	
 
 	// SENS.************** 		
@@ -743,6 +759,72 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 		} // Fin de synchronized._________________________
 
 	} // Fin de getNomenclatureMap(...).___________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String afficherMapIntegerString(
+			final Map<Integer, String> pMap) {
+		
+		/* retourne null si pMap == null. */
+		if (pMap == null) {
+			return null;
+		}
+		
+		final Set<Entry<Integer, String>> set = pMap.entrySet();
+		
+		if (set == null) {
+			return null;
+		}
+		
+		final Iterator<Entry<Integer, String>> ite = set.iterator();
+		
+		if (ite == null) {
+			return null;
+		}
+		
+		final StringBuilder stb = new StringBuilder();
+		
+		int compteur = 0;
+		
+		/* Parcours de l'iterator. */
+		while (ite.hasNext()) {
+			
+			compteur++;
+			
+			final Entry<Integer, String> entry = ite.next();
+			
+			if (entry == null) {
+				return null;
+			}
+			
+			final int cle = entry.getKey();
+			final String libelle = entry.getValue();
+							
+			/* Ajout de la ligne au StringBuilder. */
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Ligne %-5d =      ", compteur));
+			
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Clé : %-10d", cle));
+			
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Libellé : %-50s", libelle));
+										
+			stb.append(NEWLINE);
+														
+		} // Fin de Parcours de l'iterator.______________________
+		
+		/* Retour de la ligne. */
+		return stb.toString();
+		
+	} // Fin de afficherMapIntegerString(...)._____________________________	
 
 
 		
