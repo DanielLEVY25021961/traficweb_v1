@@ -20,7 +20,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * 
  * <p>
  * RESPONSABILITE : 
- * IMPORTER TOUTES LES NOMENCLATURES HIT 
+ * IMPORTER TOUTES LES NOMENCLATURES D'UN FICHIER HIT 
  * ET LES METTRE A DISPOSITION DE L'APPLICATION sous forme de 
  * <b>SINGLETONS</b>.
  * </p>
@@ -35,6 +35,71 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * <li>5 - Sens P.R. décroissants route à sens unique.</li>
  * </ul>
  * </p>
+ * 
+ * <div>
+ * <p>
+ * les champs à valeurs contraintes (nomenclature) dans un fichier HIT 
+ * sont les champs d'ordre : 
+ * </p>
+ * <p>
+ * <table border="1">
+ * <tr>
+ * <th>ordre</th><th>champ</th>
+ * </tr>
+ * <tr>
+ * <td>3</td><td>sens</td>
+ * </tr>
+ * <tr>
+ * <td>4</td><td>nature (1 pour tous véhicules)</td>
+ * </tr>
+ * <tr>
+ * <td>11</td><td>catégorie administrative de la route</td>
+ * </tr>
+ * <tr>
+ * <td>12</td><td>type de comptage</td>
+ * </tr>
+ * <tr>
+ * <td>13</td><td>classement de la route</td>
+ * </tr>
+ * <tr>
+ * <td>14</td><td>classe de largeur de chaussée unique</td>
+ * </tr>
+ * <tr>
+ * <td>15</td><td>classe de largeur de chaussées séparées</td>
+ * </tr>
+ * <tr>
+ * <td>16</td><td>type de réseau</td>
+ * </tr>
+ * <tr>
+ * <td>17</td><td>pr/pk</td>
+ * </tr>
+ * <tr>
+ * <td>31</td><td>sens de la section de rattachement</td>
+ * </tr>
+ * <tr>
+ * <td>34</td><td>sens de la section limitrophe</td>
+ * </tr>
+ * <tr>
+ * <td>71</td><td>type de comptage de l'année N-1</td>
+ * </tr>
+ * <tr>
+ * <td>79</td><td>type de comptage de l'année N-2</td>
+ * </tr>
+ * <tr>
+ * <td>87</td><td>type de comptage de l'année N-3</td>
+ * </tr>
+ * <tr>
+ * <td>95</td><td>type de comptage de l'année N-4</td>
+ * </tr>
+ * <tr>
+ * <td>103</td><td>type de comptage de l'année N-5</td>
+ * </tr>
+ * </table>
+ * </p>
+ * 
+ * </div>
+ * 
+ * <br/>
  *
  * - Exemple d'utilisation :<br/>
  *<br/>
@@ -61,19 +126,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	public static final String CLASSE_FACTORYNOMENCLATUREHIT 
 		= "Classe FactoryNomenclatureHit";
 	
-	/**
-	 * "Méthode getClesPossiblesSet(int pNumeroChamp)".<br/>
-	 */
-	public static final String METHODE_GETCLESPOSSIBLESSET 
-		= "Méthode getClesPossiblesSet(int pNumeroChamp)";
-	
-	/**
-	 * "Méthode getNomenclatureMap(int pNumeroChamp)".<br/>
-	 */
-	public static final String METHODE_GETNOMENCLATUREMAP 
-		= "Méthode getNomenclatureMap(int pNumeroChamp)";
-	
-	
+		
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
@@ -312,6 +365,111 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapSensLimitrophe;
+	
+	// TYPE DE COMPTAGE N-1 HIT.********	
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-1 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesTypeComptageNmoins1;
+				
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-1
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapTypeComptageNmoins1;
+	
+	// TYPE DE COMPTAGE N-2 HIT.********	
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-2 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesTypeComptageNmoins2;
+				
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-2
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapTypeComptageNmoins2;
+	
+	// TYPE DE COMPTAGE N-3 HIT.********	
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-3 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesTypeComptageNmoins3;
+				
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-3
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapTypeComptageNmoins3;
+	
+	// TYPE DE COMPTAGE N-4 HIT.********	
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-4 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesTypeComptageNmoins4;
+				
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-4
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapTypeComptageNmoins4;
+	
+	// TYPE DE COMPTAGE N-5 HIT.********	
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-5 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesTypeComptageNmoins5;
+				
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-5
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapTypeComptageNmoins5;
 
 	
 	/**
@@ -419,7 +577,37 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 					
 				resultat = getSetClesPossiblesSensLimitrophe();				
 				break;
-				
+
+			/* TYPE COMPTAGE N-1. */
+			case 71:
+					
+				resultat = getSetClesPossiblesTypeComptageNmoins1();				
+				break;
+
+			/* TYPE COMPTAGE N-2. */
+			case 79:
+					
+				resultat = getSetClesPossiblesTypeComptageNmoins2();				
+				break;
+
+			/* TYPE COMPTAGE N-3. */
+			case 87:
+					
+				resultat = getSetClesPossiblesTypeComptageNmoins3();				
+				break;
+
+			/* TYPE COMPTAGE N-4. */
+			case 95:
+					
+				resultat = getSetClesPossiblesTypeComptageNmoins4();				
+				break;
+
+			/* TYPE COMPTAGE N-5. */
+			case 103:
+					
+				resultat = getSetClesPossiblesTypeComptageNmoins5();				
+				break;
+
 			default:
 				break;
 			}
@@ -514,6 +702,36 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			case 34:
 				
 				resultat = getNomenclatureMapSensLimitrophe();				
+				break;
+
+			/* TYPE COMPTAGE N-1. */
+			case 71:
+					
+				resultat = getNomenclatureMapTypeComptageNmoins1();				
+				break;
+
+			/* TYPE COMPTAGE N-2. */
+			case 79:
+					
+				resultat = getNomenclatureMapTypeComptageNmoins2();				
+				break;
+
+			/* TYPE COMPTAGE N-3. */
+			case 87:
+					
+				resultat = getNomenclatureMapTypeComptageNmoins3();				
+				break;
+
+			/* TYPE COMPTAGE N-4. */
+			case 95:
+					
+				resultat = getNomenclatureMapTypeComptageNmoins4();				
+				break;
+
+			/* TYPE COMPTAGE N-5. */
+			case 103:
+					
+				resultat = getNomenclatureMapTypeComptageNmoins5();				
 				break;
 				
 			default:
@@ -1319,17 +1537,10 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 													throws Exception {
 		
 		if (setClesPossiblesSensRattachement == null) {
+						
+			setClesPossiblesSensRattachement = getSetClesPossiblesSens();
+			nomenclatureMapSensRattachement = getNomenclatureMapSens();
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHitManager
-							.getFichierNomenclatureHitSensUtf8());
-			
-			setClesPossiblesSensRattachement = importeur.getClesPossiblesSet();
-			nomenclatureMapSensRattachement = importeur.getNomenclatureMap();
 		}
 		
 		return setClesPossiblesSensRattachement;
@@ -1364,16 +1575,9 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 		
 		if (nomenclatureMapSensRattachement == null) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
+			setClesPossiblesSensRattachement = getSetClesPossiblesSens();
+			nomenclatureMapSensRattachement = getNomenclatureMapSens();
 			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHitManager
-							.getFichierNomenclatureHitSensUtf8());
-			
-			setClesPossiblesSensRattachement = importeur.getClesPossiblesSet();
-			nomenclatureMapSensRattachement = importeur.getNomenclatureMap();
 		}
 		
 		return nomenclatureMapSensRattachement;
@@ -1404,16 +1608,9 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 		
 		if (setClesPossiblesSensLimitrophe == null) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
+			setClesPossiblesSensLimitrophe = getSetClesPossiblesSens();
+			nomenclatureMapSensLimitrophe = getNomenclatureMapSens();
 			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHitManager
-							.getFichierNomenclatureHitSensUtf8());
-			
-			setClesPossiblesSensLimitrophe = importeur.getClesPossiblesSet();
-			nomenclatureMapSensLimitrophe = importeur.getNomenclatureMap();
 		}
 		
 		return setClesPossiblesSensLimitrophe;
@@ -1448,21 +1645,374 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 		
 		if (nomenclatureMapSensLimitrophe == null) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
+			setClesPossiblesSensLimitrophe = getSetClesPossiblesSens();
+			nomenclatureMapSensLimitrophe = getNomenclatureMapSens();
 			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHitManager
-							.getFichierNomenclatureHitSensUtf8());
-			
-			setClesPossiblesSensLimitrophe = importeur.getClesPossiblesSet();
-			nomenclatureMapSensLimitrophe = importeur.getNomenclatureMap();
 		}
 		
 		return nomenclatureMapSensLimitrophe;
 		
 	} // Fin de getNomenclatureMapSensLimitrophe().________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-1 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeComptageNmoins1 : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeComptageNmoins1() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeComptageNmoins1 == null) {
+			
+			setClesPossiblesTypeComptageNmoins1 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins1 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return setClesPossiblesTypeComptageNmoins1;
+		
+	} // Fin de getSetClesPossiblesTypeComptageNmoins1().__________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-1 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeComptageNmoins1 : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeComptageNmoins1() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeComptageNmoins1 == null) {
+			
+			setClesPossiblesTypeComptageNmoins1 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins1 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return nomenclatureMapTypeComptageNmoins1;
+		
+	} // Fin de getNomenclatureMapTypeComptageNmoins1().___________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-2 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeComptageNmoins2 : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeComptageNmoins2() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeComptageNmoins2 == null) {
+			
+			setClesPossiblesTypeComptageNmoins2 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins2 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return setClesPossiblesTypeComptageNmoins2;
+		
+	} // Fin de getSetClesPossiblesTypeComptageNmoins2().__________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-2 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeComptageNmoins2 : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeComptageNmoins2() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeComptageNmoins2 == null) {
+			
+			setClesPossiblesTypeComptageNmoins2 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins2 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return nomenclatureMapTypeComptageNmoins2;
+		
+	} // Fin de getNomenclatureMapTypeComptageNmoins2().___________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-3 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeComptageNmoins3 : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeComptageNmoins3() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeComptageNmoins3 == null) {
+			
+			setClesPossiblesTypeComptageNmoins3 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins3 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return setClesPossiblesTypeComptageNmoins3;
+		
+	} // Fin de getSetClesPossiblesTypeComptageNmoins3().__________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-3 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeComptageNmoins3 : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeComptageNmoins3() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeComptageNmoins3 == null) {
+			
+			setClesPossiblesTypeComptageNmoins3 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins3 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return nomenclatureMapTypeComptageNmoins3;
+		
+	} // Fin de getNomenclatureMapTypeComptageNmoins3().___________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-4 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeComptageNmoins4 : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeComptageNmoins4() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeComptageNmoins4 == null) {
+			
+			setClesPossiblesTypeComptageNmoins4 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins4 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return setClesPossiblesTypeComptageNmoins4;
+		
+	} // Fin de getSetClesPossiblesTypeComptageNmoins4().__________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-4 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeComptageNmoins4 : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeComptageNmoins4() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeComptageNmoins4 == null) {
+			
+			setClesPossiblesTypeComptageNmoins4 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins4 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return nomenclatureMapTypeComptageNmoins4;
+		
+	} // Fin de getNomenclatureMapTypeComptageNmoins4().___________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE DE L'ANNEE N-5 
+	 * pour les fichiers HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeComptageNmoins5 : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeComptageNmoins5() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeComptageNmoins5 == null) {
+			
+			setClesPossiblesTypeComptageNmoins5 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins5 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return setClesPossiblesTypeComptageNmoins5;
+		
+	} // Fin de getSetClesPossiblesTypeComptageNmoins5().__________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE DE L'ANNEE N-5 
+	 * dans un fichier HIT avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHitManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeComptageNmoins5 : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeComptageNmoins5() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeComptageNmoins5 == null) {
+			
+			setClesPossiblesTypeComptageNmoins5 = getSetClesPossiblesTypeComptage();
+			nomenclatureMapTypeComptageNmoins5 = getNomenclatureMapTypeComptage();
+			
+		}
+
+		return nomenclatureMapTypeComptageNmoins5;
+		
+	} // Fin de getNomenclatureMapTypeComptageNmoins5().___________________
 
 
 

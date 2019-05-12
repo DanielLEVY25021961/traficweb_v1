@@ -12,9 +12,10 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideE
 /**
  * INTERFACE IFactoryNomenclature :<br/>
  * <p>
- * RESPONSABILITE : UTILISER LA BONNE INSTANCE DE IMPORTEURNOMENCLATURE 
- * ET FOURNIR LA NOMENCLATURE SOUS FORME DE MAP 
- * ET L'ENSEMBLE DES VALEURS POSSIBLES.<br/>
+ * RESPONSABILITE : FOURNIR LA BONNE NOMENCLATURE (MAP 
+ * ET ENSEMBLE DES VALEURS POSSIBLES) EN FONCTION 
+ * DU TYPE DE FICHIER ET DU NUMERO D'ORDRE DU CHAMP 
+ * DANS LA DESCRIPTION DE FICHIER.<br/>
  * Interface factorisant les comportements communs 
  * à toutes les Factory de nomenclatures.<br/>
  * </p>
@@ -58,6 +59,19 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideE
  */
 public interface IFactoryNomenclature {
 
+	
+	
+	/**
+	 * "Méthode getClesPossiblesSet(int pNumeroChamp)".<br/>
+	 */
+	String METHODE_GETCLESPOSSIBLESSET 
+		= "Méthode getClesPossiblesSet(int pNumeroChamp)";
+	
+	/**
+	 * "Méthode getNomenclatureMap(int pNumeroChamp)".<br/>
+	 */
+	String METHODE_GETNOMENCLATUREMAP 
+		= "Méthode getNomenclatureMap(int pNumeroChamp)";
 
 	
 	/**
