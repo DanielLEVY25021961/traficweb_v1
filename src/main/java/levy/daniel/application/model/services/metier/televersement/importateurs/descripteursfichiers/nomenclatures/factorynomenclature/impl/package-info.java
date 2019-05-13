@@ -11,6 +11,18 @@
  * à l'aide du numéro d'ordre du champ</b> à valeurs contraintes dans 
  * la description du fichier.<br/>
  * </p>
+ *  
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe des factorynomenclature : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/nomenclatures/factorynomenclature/diagramme_des_classes_factorynomenclature.png" 
+ * alt="Diagramme de classe des factorynomenclature" />
+ * </p>
+ * 
+ * <br/>
  *
  * <p>
  * - Exemple d'utilisation :
