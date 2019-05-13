@@ -75,6 +75,7 @@ public interface IFactoryNomenclature {
 		= "Méthode getNomenclatureMap(int pNumeroChamp)";
 
 	
+	
 	/**
 	 * Fournit les <b>valeurs possibles</b> 
 	 * d'un champ à <i>valeurs contraintes</i> 
@@ -108,12 +109,48 @@ public interface IFactoryNomenclature {
 					, FichierInexistantException
 					, FichierPasNormalException
 					, IOException, Exception;
+
+	
+	
+	/**
+	 * Fournit les <b>valeurs possibles</b> 
+	 * d'un champ à <i>valeurs contraintes</i> 
+	 * (lexique) d'<b>ordre pNumeroChamp</b> (1-based).<br/>
+	 * <br/>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * - retourne null si le champ d'ordre pNumeroChamp 
+	 * n'est pas un champ à valeurs contraintes (lexique).<br/>
+	 * - LOG.FATAL et jette une RunTimeException 
+	 * si le lexique est déficient (null, vide, inexistante, répertoire) 
+	 * pour le champ d'ordre pNumeroChamp.<br/>
+	 * <br/>
+	 *
+	 * @param pNumeroChamp : int : 
+	 * numéro du champ dans une description de fichier (1-based).<br/>
+	 * 
+	 * @return : Set&lt;String&gt; : 
+	 * ensemble des valeurs possibles pour la clé dans le lexique.<br/>
+	 * 
+	 * @throws FichierNullException : si pNomenclature est null.<br/>
+	 * @throws FichierVideException  : si pNomenclature est vide.<br/>
+	 * @throws FichierInexistantException  : si pNomenclature n'existe pas.<br/>
+	 * @throws FichierPasNormalException : si pNomenclature est un répertoire.<br/>
+	 * @throws IOException : si problème d'entrée/sortie.<br/>
+	 * @throws Exception 
+	 */
+	Set<String> getClesPossiblesSetLexique(int pNumeroChamp) 
+					throws FichierNullException
+					, FichierVideException
+					, FichierInexistantException
+					, FichierPasNormalException
+					, IOException, Exception;
 	
 	
 	
 	/**
 	 * Fournit la nomenclature d'un champ à valeurs contraintes 
-	 * d'ordre pNumeroChamp sous forme de 
+	 * d'ordre (1-based) pNumeroChamp sous forme de 
 	 * SortedMap&lt;Integer, String&gt; triée avec : <br/>
 	 * - Integer : la clé dans la nomenclature.<br/>
 	 * - String : le libellé dans la nomenclature.<br/>
@@ -128,7 +165,7 @@ public interface IFactoryNomenclature {
 	 * <br/>
 	 *
 	 * @param pNumeroChamp : int : 
-	 * numéro du champ dans une description de fichier.<br/>
+	 * numéro du champ dans une description de fichier (1-based).<br/>
 	 * 
 	 * @return : SortedMap&lt;Integer, String&gt;.<br/>
 	 * 
@@ -140,6 +177,43 @@ public interface IFactoryNomenclature {
 	 * @throws Exception 
 	 */
 	SortedMap<Integer, String> getNomenclatureMap(int pNumeroChamp) 
+					throws FichierNullException
+					, FichierVideException
+					, FichierInexistantException
+					, FichierPasNormalException
+					, IOException, Exception;
+	
+	
+	
+	/**
+	 * Fournit le lexique d'un champ à valeurs contraintes 
+	 * d'ordre (1-based) pNumeroChamp sous forme de 
+	 * SortedMap&lt;String, String&gt; triée avec : <br/>
+	 * - String : la clé dans le lexique.<br/>
+	 * - String : le libellé dans le lexique.<br/>
+	 * <br/>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * - retourne null si le champ d'ordre pNumeroChamp 
+	 * n'est pas un champ à valeurs contraintes (lexique).<br/>
+	 * - LOG.FATAL et jette une RunTimeException 
+	 * si le lexique est déficient (null, vide, inexistante, répertoire) 
+	 * pour le champ d'ordre pNumeroChamp.<br/>
+	 * <br/>
+	 *
+	 * @param pNumeroChamp : int : 
+	 * numéro du champ dans une description de fichier (1-based).<br/>
+	 * 
+	 * @return : SortedMap&lt;String, String&gt;.<br/>
+	 * 
+	 * @throws FichierNullException : si lexique est null.<br/>
+	 * @throws FichierVideException  : si lexique est vide.<br/>
+	 * @throws FichierInexistantException  : si lexique n'existe pas.<br/>
+	 * @throws FichierPasNormalException : si lexique est un répertoire.<br/>
+	 * @throws IOException : si problème d'entrée/sortie.<br/>
+	 * @throws Exception 
+	 */
+	SortedMap<String, String> getLexiqueMap(int pNumeroChamp) 
 					throws FichierNullException
 					, FichierVideException
 					, FichierInexistantException
@@ -161,6 +235,22 @@ public interface IFactoryNomenclature {
 	 * @return : String : String pour affichage.<br/>
 	 */
 	String afficherMapIntegerString(Map<Integer, String> pMap);
+	
+	
+	
+	/**
+	 * retourne une String pour l'affichage 
+	 * à la console d'une Map&lt;String, String&gt;.<br/>
+	 * <br/>
+	 * - retourne null si pMap == null.<br/>
+	 * <br/>
+	 * 
+	 *
+	 * @param pMap : Map&lt;String, String&gt;
+	 * 
+	 * @return : String : String pour affichage.<br/>
+	 */
+	String afficherMapStringString(Map<String, String> pMap);
 	
 	
 	

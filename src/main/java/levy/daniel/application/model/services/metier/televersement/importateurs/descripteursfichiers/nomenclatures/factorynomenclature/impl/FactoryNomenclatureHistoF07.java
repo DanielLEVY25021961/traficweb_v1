@@ -1,6 +1,5 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.impl;
 
-import java.io.File;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
@@ -11,14 +10,82 @@ import java.util.SortedMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesnomenclatures.ConfigurationNomenclaturesHistoF07Manager;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IImporteurLexique;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IImporteurNomenclature;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.IFactoryNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.impl.ImporteurLexique;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.impl.ImporteurNomenclature;
 
 /**
- * class FactoryNomenclatureHistoF07 :<br/>
- * Factory chargée de fournir les nomenclatures pour les HISTONATF07.<br/>
+ * CLASSE FactoryNomenclatureHistoF07 :<br/>
+ * <p>
+ * Factory chargée de fournir les nomenclatures 
+ * pour les fichiers HISTO_F07.
+ * </p>
+ * 
+ * <p>
+ * RESPONSABILITE : 
+ * IMPORTER TOUTES LES NOMENCLATURES D'UN FICHIER HISTO_F07 
+ * ET LES METTRE A DISPOSITION DE L'APPLICATION sous forme de 
+ * <b>SINGLETONS</b>.
+ * </p>
+ * <p>
+ * Une nomenclature est un ensemble de [clé - libellé] pouvant être prises 
+ * par une variable comme par exemple pour le SENS 
+ * dans un Fichier HISTO_F07 :<br/>
+ * <ul>
+ * <li>3 - Cumul des deux sens route à 2 sens.</li>
+ * <li>4 - Sens P.R. croissants route à sens unique.</li>
+ * <li>5 - Sens P.R. décroissants route à sens unique.</li>
+ * </ul>
+ * </p>
+ * 
+ * <div>
+ * <p>
+ * les champs à valeurs contraintes (nomenclature) dans un fichier HISTO_F07 
+ * sont les champs d'ordre : 
+ * </p>
+ * <p>
+ * <table border="1">
+ * <tr>
+ * <th>ordre</th><th>champ</th>
+ * </tr>
+ * <tr>
+ * <td>3</td><td>sens</td>
+ * </tr>
+ * <tr>
+ * <td>4</td><td>nature (1 pour tous véhicules)</td>
+ * </tr>
+ * <tr>
+ * <td>9</td><td>type de comptage</td>
+ * </tr>
+ * <tr>
+ * <td>10</td><td>classement de la route</td>
+ * </tr>
+ * <tr>
+ * <td>11</td><td>classe de largeur de chaussée unique</td>
+ * </tr>
+ * <tr>
+ * <td>12</td><td>classe de largeur de chaussées séparées</td>
+ * </tr>
+ * <tr>
+ * <td>13</td><td>type de réseau</td>
+ * </tr>
+ * <tr>
+ * <td>93</td><td>code concession SICRE (lexique)</td>
+ * </tr>
+ * <tr>
+ * <td>96</td><td>profil en travers SICRE (lexique)</td>
+ * </tr>
+ * <tr>
+ * <td>97</td><td>sous-reseau indice</td>
+ * </tr>
+ * </table>
+ * </p>
+ * 
+ * </div>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -42,25 +109,10 @@ public final class FactoryNomenclatureHistoF07
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * CLASSE_FACTORYNOMENCLATUREHISTOF07 : String :<br/>
 	 * "Classe FactoryNomenclatureHistoF07".<br/>
 	 */
 	public static final String CLASSE_FACTORYNOMENCLATUREHISTOF07 
 		= "Classe FactoryNomenclatureHistoF07";
-	
-	/**
-	 * METHODE_GETCLESPOSSIBLESSET : String :<br/>
-	 * "Méthode getClesPossiblesSet(int pNumeroChamp)".<br/>
-	 */
-	public static final String METHODE_GETCLESPOSSIBLESSET 
-		= "Méthode getClesPossiblesSet(int pNumeroChamp)";
-	
-	/**
-	 * METHODE_GETNOMENCLATUREMAP : String :<br/>
-	 * "Méthode getNomenclatureMap(int pNumeroChamp)".<br/>
-	 */
-	public static final String METHODE_GETNOMENCLATUREMAP 
-		= "Méthode getNomenclatureMap(int pNumeroChamp)";
 	
 	
 	//*****************************************************************/
@@ -83,183 +135,217 @@ public final class FactoryNomenclatureHistoF07
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
-	
-
-	// SENS.
-	/**
-	 * impoNomenclatureSensHistoF07 : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HISTONATF07 pour le sens.<br/>
-	 */
-	private static transient IImporteurNomenclature impoNomenclatureSensHistoF07;
 
 	
+
+	// SENS.************** 		
 	/**
-	 * setSens : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles de sens 
-	 * dans un HISTO_F07.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature du SENS pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient Set<Integer> setSens;
-	
-	
+	private static transient Set<Integer> setClesPossiblesSens;
+		
 	/**
-	 * nomenclatureMapSens : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour le sens HISTO_F07.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SENS dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapSens;
 	
-
-	// NATURE.	
+	// NATURE DU COMPTAGE (1 pour tous véhicules).*********	
 	/**
-	 * impoNomenclatureNatureHistoF07 : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HISTONATF07 pour la nature.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de NATURE DU COMPTAGE pour 
+	 * les fichiers HISTO_F07 (1 pour tous véhicules).<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureNatureHistoF07;
+	private static transient Set<Integer> setClesPossiblesNature;
 		
-	
 	/**
-	 * setNature : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles de nature 
-	 * dans un HISTO_F07..<br/>
-	 */
-	private static transient Set<Integer> setNature;
-	
-	
-	/**
-	 * nomenclatureMapNature : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour la nature HISTO_F07.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la NATURE DU COMPTAGE dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapNature;
-
-	
+			
 	// TYPE DE COMPTAGE HISTO_F07.********	
 	/**
-	 * impoNomenclatureTypeComptageHistoF07 : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HISTO_F07 
-	 * pour le type de comptage HISTO_F07.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureTypeComptageHistoF07;
-		
-		
+	private static transient Set<Integer> setClesPossiblesTypeComptage;
+				
 	/**
-	 * setTypeComptage : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles du type de comptage 
-	 * HISTO_F07.<br/>
-	 */
-	private static transient Set<Integer> setTypeComptage;
-		
-		
-	/**
-	 * nomenclatureMapTypeComptage : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour le type de comptage 
-	 * HISTO_F07.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE 
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapTypeComptage;
 	
-
 	// CLASSEMENT DE LA ROUTE HISTO_F07.********	
 	/**
-	 * impoNomenclatureClassementRouteHistoF07 : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HISTO_F07 
-	 * pour le classement de la route HISTO_F07.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSEMENT DE LA ROUTE 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureClassementRouteHistoF07;
-		
-		
+	private static transient Set<Integer> setClesPossiblesClassementRoute;
+				
 	/**
-	 * setClassementRoute : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles du type de comptage 
-	 * HISTO_F07.<br/>
-	 */
-	private static transient Set<Integer> setClassementRoute;
-		
-		
-	/**
-	 * nomenclatureMapClassementRoute : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour le type de comptage 
-	 * HISTO_F07.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le CLASSEMENT DE LA ROUTE 
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapClassementRoute;
-
 	
 	// CLASSE DE LARGEUR DE CHAUSSEE UNIQUE HISTO_F07.********	
 	/**
-	 * impoNomenclatureClasseLargeurChausseeUHistoF07 : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HISTO_F07 
-	 * pour la classe de largeur de chaussée unique HISTO_F07.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureClasseLargeurChausseeUHistoF07;
-		
-		
+	private static transient Set<Integer> setClesPossiblesClasseLargeurChausseeU;
+				
 	/**
-	 * setClasseLargeurChausseeU : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles 
-	 * de la classe de largeur de chaussée unique 
-	 * HISTO_F07.<br/>
-	 */
-	private static transient Set<Integer> setClasseLargeurChausseeU;
-		
-		
-	/**
-	 * nomenclatureMapClasseLargeurChausseeU : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour 
-	 * la classe de largeur de chaussée unique 
-	 * HISTO_F07.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapClasseLargeurChausseeU;
-
-
 	
-
-	// CLASSE DE LARGEUR DE CHAUSSEES SEPAREES.
+	// CLASSE DE LARGEUR DE CHAUSSEES SEPAREES HISTO_F07.********	
 	/**
-	 * impoNomenclatureClasseLargeurChausseesSHistoF07 : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HISTONATF07 
-	 * pour la classe de largeur de chaussées séparées.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSE DE LARGEUR DE CHAUSSEES SEPAREES 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureClasseLargeurChausseesSHistoF07;
-
-		
+	private static transient Set<Integer> setClesPossiblesClasseLargeurChausseesS;
+				
 	/**
-	 * setClasseLargeurChausseesS : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles de 
-	 * classe de largeur de chaussées séparées 
-	 * dans un HISTO_F07.<br/>
-	 */
-	private static transient Set<Integer> setClasseLargeurChausseesS;
-
-	/**
-	 * nomenclatureMapClasseLargeurChausseesS : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour la nature 
-	 * dans un HISTO_F07.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapClasseLargeurChausseesS;
 	
-	
 	// TYPE DE RESEAU HISTO_F07.********	
 	/**
-	 * impoNomenclatureTypeReseauHistoF07 : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature HISTO_F07 
-	 * pour le type de réseau HISTO_F07.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE RESEAU 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient IImporteurNomenclature impoNomenclatureTypeReseauHistoF07;
-		
-		
+	private static transient Set<Integer> setClesPossiblesTypeReseau;
+				
 	/**
-	 * setTypeReseau : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles 
-	 * du type de réseau HISTO_F07.<br/>
-	 */
-	private static transient Set<Integer> setTypeReseau;
-		
-		
-	/**
-	 * nomenclatureMapTypeReseau : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour 
-	 * le type de réseau HISTO_F07.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE RESEAU 
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapTypeReseau;
 
+	// CODE CONCESSION SICRE.************** 		
+	/**
+	 * Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du CODE CONCESSION SICRE
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<String> setClesPossiblesCodeConcessionSicre;
+		
+	/**
+	 * Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le CODE CONCESSION SICRE
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<String, String> lexiqueMapCodeConcessionSicre;
 
+	// PROFIL EN TRAVERS SICRE.************** 		
+	/**
+	 * Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du PROFIL EN TRAVERS SICRE
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<String> setClesPossiblesProfilTraversSicre;
+		
+	/**
+	 * Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le PROFIL EN TRAVERS SICRE
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<String, String> lexiqueMapProfilTraversSicre;
+	
+	// SOUS-RESEAU INDICE HISTO_F07.********	
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de SOUS-RESEAU INDICE 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesSousReseauIndice;
+				
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SOUS-RESEAU INDICE
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapSousReseauIndice;
+
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -272,9 +358,7 @@ public final class FactoryNomenclatureHistoF07
 	
 	
 	 /**
-	 * method CONSTRUCTEUR FactoryNomenclatureHistoF07() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
 	 */
 	public FactoryNomenclatureHistoF07() {
 		
@@ -292,310 +376,62 @@ public final class FactoryNomenclatureHistoF07
 			final int pNumeroChamp) 
 					throws Exception {
 		
-		Set<Integer> resultat = null;
-		
-		if (pNumeroChamp == 0) {
-			return null;
-		}
-		
 		synchronized (FactoryNomenclatureHistoF07.this) {
+			
+			Set<Integer> resultat = null;
+			
+			if (pNumeroChamp == 0) {
+				return null;
+			}
 			
 			switch (pNumeroChamp) {
 
 			/* SENS. */
 			case 3:
 			
-				if (impoNomenclatureSensHistoF07 == null) {
-					impoNomenclatureSensHistoF07 
-						= new ImporteurNomenclature();	
-				}
-				
-				if (setSens == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07SensUtf8 
-						= ConfigurationApplicationManager
-							.getFichierNomenclatureHistoF07SensUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07SensUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du SENS dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureSensHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07SensUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setSens 
-						= impoNomenclatureSensHistoF07
-									.getClesPossiblesSet();
-				}
-
-				resultat = setSens;
-
+				resultat = getSetClesPossiblesSens();
 				break;
 			
 			/* NATURE. */	
 			case 4:
 				
-				if (impoNomenclatureNatureHistoF07 == null) {					
-					impoNomenclatureNatureHistoF07 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (setNature == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07NatureUtf8 
-						= ConfigurationApplicationManager
-							.getFichierNomenclatureHistoF07NatureUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07NatureUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la NATURE dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */					
-					impoNomenclatureNatureHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07NatureUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setNature 
-						= impoNomenclatureNatureHistoF07
-									.getClesPossiblesSet();
-				}
-				
-				resultat = setNature;
-				
+				resultat = getSetClesPossiblesNature();				
 				break;
-			
+								
 			/* TYPE DE COMPTAGE. */
 			case 9:
 				
-				if (impoNomenclatureTypeComptageHistoF07 == null) {					
-					impoNomenclatureTypeComptageHistoF07 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (setTypeComptage == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07TypeComptageUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07TypeComptageUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07TypeComptageUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE DE COMPTAGE dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureTypeComptageHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07TypeComptageUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setTypeComptage 
-						= impoNomenclatureTypeComptageHistoF07
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setTypeComptage;
-				
+				resultat = getSetClesPossiblesTypeComptage();				
 				break;
-			
+				
 			/* CLASSEMENT DE LA ROUTE. */
 			case 10:
-								
-				if (impoNomenclatureClassementRouteHistoF07 == null) {					
-					impoNomenclatureClassementRouteHistoF07 
-						= new ImporteurNomenclature();					
-				}
 				
-				if (setClassementRoute == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07ClassementRouteUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07ClassementRouteUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07ClassementRouteUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du CLASSEMENT DE LA ROUTE dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureClassementRouteHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07ClassementRouteUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setClassementRoute 
-						= impoNomenclatureClassementRouteHistoF07
-							.getClesPossiblesSet();
-					
-				}
-				
-				resultat = setClassementRoute;
-				
+				resultat = getSetClesPossiblesClassementRoute();				
 				break;
-			
+				
 			/* CLASSE DE LARGEUR DE CHAUSSEE UNIQUE. */
 			case 11:
 				
-				if (impoNomenclatureClasseLargeurChausseeUHistoF07 == null) {					
-					impoNomenclatureClasseLargeurChausseeUHistoF07 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (setClasseLargeurChausseeU == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */					
-					impoNomenclatureClasseLargeurChausseeUHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setClasseLargeurChausseeU 
-						= impoNomenclatureClasseLargeurChausseeUHistoF07
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setClasseLargeurChausseeU;
-				
+				resultat = getSetClesPossiblesClasseLargeurChausseeU();				
 				break;
 				
-			/* CLASSE DE LARGEUR DE CHAUSSEES SEPAREES. */	
+			/* CLASSE DE LARGEUR DE CHAUSSEES SEPAREES. */
 			case 12:
 				
-				if (impoNomenclatureClasseLargeurChausseesSHistoF07 == null) {					
-					impoNomenclatureClasseLargeurChausseesSHistoF07 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (setClasseLargeurChausseesS == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */					
-					impoNomenclatureClasseLargeurChausseesSHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setClasseLargeurChausseesS 
-						= impoNomenclatureClasseLargeurChausseesSHistoF07
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setClasseLargeurChausseesS;
-				
+				resultat = getSetClesPossiblesClasseLargeurChausseesS();				
 				break;
-
+				
 			/* TYPE DE RESEAU. */
 			case 13:
 				
-				if (impoNomenclatureTypeReseauHistoF07 == null) {					
-					impoNomenclatureTypeReseauHistoF07 
-						= new ImporteurNomenclature();					
-				}
+				resultat = getSetClesPossiblesTypeReseau();				
+				break;
 				
-				if (setTypeReseau == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07TypeReseauUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07TypeReseauUtf8();
+			/* SOUS-RESEAU INDICE. */
+			case 97:
 				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07TypeReseauUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE DE RESEAU dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */										
-					impoNomenclatureTypeReseauHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07TypeReseauUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setTypeReseau 
-						= impoNomenclatureTypeReseauHistoF07
-							.getClesPossiblesSet();
-					
-				}
-				
-				resultat = setTypeReseau;
-				
+				resultat = getSetClesPossiblesSousReseauIndice();				
 				break;
 				
 			default:
@@ -607,11 +443,53 @@ public final class FactoryNomenclatureHistoF07
 			
 		} // Fin de synchronized._________________________
 		
-	} // Fin de getClesPossiblesSet(
-	// int pNumeroChamp).__________________________________________________
-	
+	} // Fin de getClesPossiblesSet(...).__________________________________
 	
 
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Set<String> getClesPossiblesSetLexique(
+			final int pNumeroChamp) 
+							throws Exception {
+
+		synchronized (FactoryNomenclatureHistoF07.this) {
+
+			Set<String> resultat = null;
+
+			if (pNumeroChamp == 0) {
+				return null;
+			}
+
+			switch (pNumeroChamp) {
+
+			/* CODE CONCESSION SICRE. */
+			case 93:
+
+				resultat = getSetClesPossiblesCodeConcessionSicre();
+				break;
+
+			/* PROFIL EN TRAVERS SICRE. */
+			case 96:
+
+				resultat = getSetClesPossiblesProfilTraversSicre();
+				break;
+
+			default:
+				break;
+
+			}
+
+			return resultat;
+
+		} // Fin de synchronized._________________________
+
+	} // Fin de getClesPossiblesSetLexique(...).___________________________
+	
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -619,318 +497,118 @@ public final class FactoryNomenclatureHistoF07
 	public SortedMap<Integer, String> getNomenclatureMap(
 										final int pNumeroChamp) 
 												throws Exception {
-
-		SortedMap<Integer, String> resultat = null;
-
-		if (pNumeroChamp == 0) {
-			return null;
-		}
-
+		
 		synchronized (FactoryNomenclatureHistoF07.this) {
+
+			SortedMap<Integer, String> resultat = null;
+
+			if (pNumeroChamp == 0) {
+				return null;
+			}
 
 			switch (pNumeroChamp) {
 			
 			/* SENS. */
 			case 3:
 
-				if (impoNomenclatureSensHistoF07 == null) {					
-					impoNomenclatureSensHistoF07 = new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapSens == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureSensHistoF07Utf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07SensUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureSensHistoF07Utf8 == null) {
-						
-						final String message 
-							= "Nomenclature du SENS dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureSensHistoF07
-					.importerNomenclatureEnUtf8(
-							fichierNomenclatureSensHistoF07Utf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapSens = impoNomenclatureSensHistoF07
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapSens;
-
+				resultat = getNomenclatureMapSens();
 				break;
 				
-			/* NATURE. */	
+			/* NATURE*/	
 			case 4:
-								
-				if (impoNomenclatureNatureHistoF07 == null) {					
-					impoNomenclatureNatureHistoF07 
-						= new ImporteurNomenclature();					
-				}
 				
-				if (nomenclatureMapNature == null) {
-
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07NatureUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07NatureUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07NatureUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la NATURE dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureNatureHistoF07
-					.importerNomenclatureEnUtf8(
-							fichierNomenclatureHistoF07NatureUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapNature 
-						= impoNomenclatureNatureHistoF07
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapNature;
-				
+				resultat = getNomenclatureMapNature();
 				break;
-				
+			
 			/* TYPE DE COMPTAGE. */
 			case 9:
 				
-				if (impoNomenclatureTypeComptageHistoF07 == null) {					
-					impoNomenclatureTypeComptageHistoF07 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapTypeComptage == null) {
-
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07TypeComptageUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07TypeComptageUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07TypeComptageUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE DE COMPTAGE dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureTypeComptageHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07TypeComptageUtf8);
-					
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapTypeComptage 
-						= impoNomenclatureTypeComptageHistoF07
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapTypeComptage;
-			
+				resultat = getNomenclatureMapTypeComptage();			
 				break;
-			
+				
 			/* CLASSEMENT DE LA ROUTE. */
 			case 10:
-				
-				if (impoNomenclatureClassementRouteHistoF07 == null) {					
-					impoNomenclatureClassementRouteHistoF07 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapClassementRoute == null) {
 
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07ClassementRouteUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07ClassementRouteUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07ClassementRouteUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du CLASSEMENT DE LA ROUTE dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureClassementRouteHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07ClassementRouteUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapClassementRoute 
-						= impoNomenclatureClassementRouteHistoF07
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapClassementRoute;
-			
+				resultat = getNomenclatureMapClassementRoute();			
 				break;
-
-			/* CLASSE DE LARGEUR DE CHAUSSEE UNIQUE. */
+				
+			/* CLASSE DE LA LARGEUR DE CHAUSSEE UNIQUE. */
 			case 11:
 				
-				if (impoNomenclatureClasseLargeurChausseeUHistoF07 == null) {					
-					impoNomenclatureClasseLargeurChausseeUHistoF07 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapClasseLargeurChausseeU == null) {
-
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureClasseLargeurChausseeUHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapClasseLargeurChausseeU 
-						= impoNomenclatureClasseLargeurChausseeUHistoF07
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapClasseLargeurChausseeU;
-			
+				resultat = getNomenclatureMapClasseLargeurChausseeU();			
 				break;
-			
-			/* CLASSE DE LARGEUR DE CHAUSSEES SEPAREES. */	
+				
+			/* CLASSE DE LA LARGEUR DE CHAUSSEES SEPAREES. */
 			case 12:
 				
-				if (impoNomenclatureClasseLargeurChausseesSHistoF07 == null) {					
-					impoNomenclatureClasseLargeurChausseesSHistoF07 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapClasseLargeurChausseesS == null) {
-
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8 
-						= ConfigurationApplicationManager
-						.getFichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature de la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureClasseLargeurChausseesSHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8);
-					
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapClasseLargeurChausseesS 
-						= impoNomenclatureClasseLargeurChausseesSHistoF07
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapClasseLargeurChausseesS;
-			
+				resultat = getNomenclatureMapClasseLargeurChausseesS();			
 				break;
-			
+				
 			/* TYPE DE RESEAU. */
 			case 13:
-				
-				if (impoNomenclatureTypeReseauHistoF07 == null) {					
-					impoNomenclatureTypeReseauHistoF07 = new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapTypeReseau == null) {
 
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureHistoF07TypeReseauUtf8 
-						= ConfigurationApplicationManager
-							.getFichierNomenclatureHistoF07TypeReseauUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureHistoF07TypeReseauUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du TYPE DE RESEAU dans un HISTO_F07 manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureTypeReseauHistoF07
-						.importerNomenclatureEnUtf8(
-								fichierNomenclatureHistoF07TypeReseauUtf8);
-
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapTypeReseau 
-						= impoNomenclatureTypeReseauHistoF07
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapTypeReseau;
-			
+				resultat = getNomenclatureMapTypeReseau();			
 				break;
-					
+				
+			/* SOUS-RESEAU INDICE. */
+			case 97:
+
+				resultat = getNomenclatureMapSousReseauIndice();			
+				break;
+								
 			default:
 				break;
+				
 			}
 
 			return resultat;
 
 		} // Fin de synchronized._________________________
 
-	} // Fin de getNomenclatureMap(
-	// int pNumeroChamp).__________________________________________________
+	} // Fin de getNomenclatureMap(...).___________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SortedMap<String, String> getLexiqueMap(
+										final int pNumeroChamp) 
+												throws Exception {
+		
+		synchronized (FactoryNomenclatureHistoF07.this) {
+			
+			SortedMap<String, String> resultat = null;
+
+			if (pNumeroChamp == 0) {
+				return null;
+			}
+
+			switch (pNumeroChamp) {
+
+			/* CODE CONCESSION SICRE. */
+			case 93:
+
+				resultat = getLexiqueMapCodeConcessionSicre();
+				break;
+
+			/* PROFIL EN TRAVERS SICRE. */
+			case 96:
+
+				resultat = getLexiqueMapProfilTraversSicre();
+				break;
+
+			default:
+				break;
+			
+			}
+			
+			return resultat;
+			
+		} // Fin de synchronized._________________________
+		
+	} // Fin de getLexiqueMap(...).________________________________________
 	
 	
 	
@@ -997,13 +675,940 @@ public final class FactoryNomenclatureHistoF07
 		return stb.toString();
 		
 	} // Fin de afficherMapIntegerString(...)._____________________________	
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String afficherMapStringString(
+			final Map<String, String> pMap) {
+		
+		/* retourne null si pMap == null. */
+		if (pMap == null) {
+			return null;
+		}
+		
+		final Set<Entry<String, String>> set = pMap.entrySet();
+		
+		if (set == null) {
+			return null;
+		}
+		
+		final Iterator<Entry<String, String>> ite = set.iterator();
+		
+		if (ite == null) {
+			return null;
+		}
+		
+		final StringBuilder stb = new StringBuilder();
+		
+		int compteur = 0;
+		
+		/* Parcours de l'iterator. */
+		while (ite.hasNext()) {
+			
+			compteur++;
+			
+			final Entry<String, String> entry = ite.next();
+			
+			if (entry == null) {
+				return null;
+			}
+			
+			final String cle = entry.getKey();
+			final String libelle = entry.getValue();
+							
+			/* Ajout de la ligne au StringBuilder. */
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Ligne %-5d =      ", compteur));
+			
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Clé : %-10s", cle));
+			
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Libellé : %-50s", libelle));
+										
+			stb.append(NEWLINE);
+														
+		} // Fin de Parcours de l'iterator.______________________
+		
+		/* Retour de la ligne. */
+		return stb.toString();
+		
+	} // Fin de afficherMapIntegerString(...)._____________________________	
+
+
+		
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature du SENS pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesSens : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesSens() 
+													throws Exception {
+		
+		if (setClesPossiblesSens == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07SensUtf8());
+			
+			setClesPossiblesSens = importeur.getClesPossiblesSet();
+			nomenclatureMapSens = importeur.getNomenclatureMap();
+		}
+		
+		return setClesPossiblesSens;
+		
+	} // Fin de getSetClesPossiblesSens()._________________________________
+
+	
+		
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SENS dans un HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapSens : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapSens() 
+														throws Exception {
+		
+		if (nomenclatureMapSens == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07SensUtf8());
+			
+			setClesPossiblesSens = importeur.getClesPossiblesSet();
+			nomenclatureMapSens = importeur.getNomenclatureMap();
+		}
+		
+		return nomenclatureMapSens;
+		
+	} // Fin de getNomenclatureMapSens().__________________________________
 
 
 	
 	/**
-	 * method loggerFatal(
-	 * String pMethode
-	 * , String pMessage) :<br/>
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de NATURE DU COMPTAGE pour 
+	 * les fichiers HISTO_F07 (1 pour tous véhicules).<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesNature : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesNature() 
+													throws Exception {
+				
+		if (setClesPossiblesNature == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07NatureUtf8());
+			
+			setClesPossiblesNature = importeur.getClesPossiblesSet();
+			nomenclatureMapNature = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesNature;
+		
+	} // Fin de getSetClesPossiblesNature()._______________________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la NATURE DU COMPTAGE dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapNature : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapNature() 
+															throws Exception {
+		
+		if (nomenclatureMapNature == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07NatureUtf8());
+			
+			setClesPossiblesNature = importeur.getClesPossiblesSet();
+			nomenclatureMapNature = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapNature;
+		
+	} // Fin de getNomenclatureMapNature().________________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeComptage : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeComptage() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeComptage == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07TypeComptageUtf8());
+			
+			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesTypeComptage;
+		
+	} // Fin de getSetClesPossiblesTypeComptage().________________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE 
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeComptage : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeComptage() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeComptage == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07TypeComptageUtf8());
+			
+			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapTypeComptage;
+		
+	} // Fin de getNomenclatureMapTypeComptage().__________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSEMENT DE LA ROUTE 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesClassementRoute : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesClassementRoute() 
+													throws Exception {
+				
+		if (setClesPossiblesClassementRoute == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07ClassementRouteUtf8());
+			
+			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesClassementRoute;
+		
+	} // Fin de getSetClesPossiblesClassementRoute().______________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le CLASSEMENT DE LA ROUTE 
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapClassementRoute : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapClassementRoute() 
+															throws Exception {
+		
+		if (nomenclatureMapClassementRoute == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07ClassementRouteUtf8());
+			
+			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapClassementRoute;
+		
+	} // Fin de getNomenclatureMapClassementRoute()._______________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSE DE LARGEUR DE CHAUSSEE UNIQUE 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesClasseLargeurChausseeU : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesClasseLargeurChausseeU() 
+													throws Exception {
+				
+		if (setClesPossiblesClasseLargeurChausseeU == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8());
+			
+			setClesPossiblesClasseLargeurChausseeU = importeur.getClesPossiblesSet();
+			nomenclatureMapClasseLargeurChausseeU = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesClasseLargeurChausseeU;
+		
+	} // Fin de getSetClesPossiblesClasseLargeurChausseeU()._______________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CLASSE DE LARGEUR DE CHAUSSEE UNIQUE
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapClasseLargeurChausseeU : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapClasseLargeurChausseeU() 
+															throws Exception {
+		
+		if (nomenclatureMapClasseLargeurChausseeU == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8());
+			
+			setClesPossiblesClasseLargeurChausseeU = importeur.getClesPossiblesSet();
+			nomenclatureMapClasseLargeurChausseeU = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapClasseLargeurChausseeU;
+		
+	} // Fin de getNomenclatureMapClasseLargeurChausseeU().________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSE DE LARGEUR DE CHAUSSEES SEPAREES 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesClasseLargeurChausseesS : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesClasseLargeurChausseesS() 
+													throws Exception {
+				
+		if (setClesPossiblesClasseLargeurChausseesS == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8());
+			
+			setClesPossiblesClasseLargeurChausseesS = importeur.getClesPossiblesSet();
+			nomenclatureMapClasseLargeurChausseesS = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesClasseLargeurChausseesS;
+		
+	} // Fin de getSetClesPossiblesClasseLargeurChausseesS().______________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour la CLASSE DE LARGEUR DE CHAUSSEES SEPAREES
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapClasseLargeurChausseesS : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapClasseLargeurChausseesS() 
+															throws Exception {
+		
+		if (nomenclatureMapClasseLargeurChausseesS == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8());
+			
+			setClesPossiblesClasseLargeurChausseesS = importeur.getClesPossiblesSet();
+			nomenclatureMapClasseLargeurChausseesS = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapClasseLargeurChausseesS;
+		
+	} // Fin de getNomenclatureMapClasseLargeurChausseesS()._______________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE RESEAU 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeReseau : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeReseau() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeReseau == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07TypeReseauUtf8());
+			
+			setClesPossiblesTypeReseau = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeReseau = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesTypeReseau;
+		
+	} // Fin de getSetClesPossiblesTypeReseau().___________________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE RESEAU 
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeReseau : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeReseau() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeReseau == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07TypeReseauUtf8());
+			
+			setClesPossiblesTypeReseau = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeReseau = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapTypeReseau;
+		
+	} // Fin de getNomenclatureMapTypeReseau().____________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du CODE CONCESSION SICRE
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesCodeConcessionSicre : Set&lt;String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<String> getSetClesPossiblesCodeConcessionSicre() 
+													throws Exception {
+		
+		if (setClesPossiblesCodeConcessionSicre == null) {
+			
+			final IImporteurLexique importeur 
+				= new ImporteurLexique();
+			
+			importeur
+				.importerLexiqueEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+						.getFichierNomenclatureHistoF07CodeConcessionUtf8());
+						
+			setClesPossiblesCodeConcessionSicre 
+				= importeur.getClesPossiblesSet();
+			lexiqueMapCodeConcessionSicre = importeur.getLexiqueMap();
+			
+		}
+		
+		return setClesPossiblesCodeConcessionSicre;
+		
+	} // Fin de getSetClesPossiblesCodeConcessionSicre().__________________
+
+	
+		
+	/**
+	 * Getter du Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le CODE CONCESSION SICRE
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return lexiqueMapCodeConcessionSicre : 
+	 * SortedMap&lt;String,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<String, String> getLexiqueMapCodeConcessionSicre() 
+														throws Exception {
+		
+		if (lexiqueMapCodeConcessionSicre == null) {
+			
+			final IImporteurLexique importeur 
+				= new ImporteurLexique();
+			
+			importeur
+				.importerLexiqueEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+						.getFichierNomenclatureHistoF07CodeConcessionUtf8());
+						
+			setClesPossiblesCodeConcessionSicre 
+				= importeur.getClesPossiblesSet();
+			lexiqueMapCodeConcessionSicre = importeur.getLexiqueMap();
+			
+		}
+		
+		return lexiqueMapCodeConcessionSicre;
+		
+	} // Fin de getLexiqueMapCodeConcessionSicre().________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du PROFIL EN TRAVERS SICRE
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesProfilTraversSicre : Set&lt;String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<String> getSetClesPossiblesProfilTraversSicre() 
+													throws Exception {
+		
+		if (setClesPossiblesProfilTraversSicre == null) {
+			
+			final IImporteurLexique importeur 
+				= new ImporteurLexique();
+			
+			importeur
+				.importerLexiqueEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+						.getFichierNomenclatureHistoF07ProfilTraversUtf8());
+						
+			setClesPossiblesProfilTraversSicre 
+				= importeur.getClesPossiblesSet();
+			lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+			
+		}
+		
+		return setClesPossiblesProfilTraversSicre;
+		
+	} // Fin de getSetClesPossiblesProfilTraversSicre().___________________
+
+	
+		
+	/**
+	 * Getter du Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le CODE CONCESSION SICRE
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return lexiqueMapProfilTraversSicre : 
+	 * SortedMap&lt;String,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<String, String> getLexiqueMapProfilTraversSicre() 
+														throws Exception {
+		
+		if (lexiqueMapProfilTraversSicre == null) {
+			
+			final IImporteurLexique importeur 
+				= new ImporteurLexique();
+			
+			importeur
+				.importerLexiqueEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+						.getFichierNomenclatureHistoF07ProfilTraversUtf8());
+						
+			setClesPossiblesProfilTraversSicre 
+				= importeur.getClesPossiblesSet();
+			lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+			
+		}
+		
+		return lexiqueMapProfilTraversSicre;
+		
+	} // Fin de getLexiqueMapProfilTraversSicre()._________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de SOUS-RESEAU INDICE 
+	 * pour les fichiers HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesSousReseauIndice : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesSousReseauIndice() 
+													throws Exception {
+				
+		if (setClesPossiblesSousReseauIndice == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+						.getFichierNomenclatureHistoF07SousReseauIndiceUtf8());
+			
+			setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
+			nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
+			
+		}
+
+		return setClesPossiblesSousReseauIndice;
+		
+	} // Fin de getSetClesPossiblesSousReseauIndice()._____________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SOUS-RESEAU INDICE
+	 * dans un fichier HISTO_F07 avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesHistoF07Manager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapSousReseauIndice : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapSousReseauIndice() 
+															throws Exception {
+		
+		if (nomenclatureMapSousReseauIndice == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesHistoF07Manager
+						.getFichierNomenclatureHistoF07SousReseauIndiceUtf8());
+			
+			setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
+			nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
+			
+		}
+
+		return nomenclatureMapSousReseauIndice;
+		
+	} // Fin de getNomenclatureMapSousReseauIndice().______________________
+
+
+
+	/**
 	 * LOG.Fatal.<br/>
 	 * <br/>
 	 *

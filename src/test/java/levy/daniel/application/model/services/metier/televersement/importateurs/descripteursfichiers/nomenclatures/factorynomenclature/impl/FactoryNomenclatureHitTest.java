@@ -534,37 +534,37 @@ public class FactoryNomenclatureHitTest {
 	 * <li>garantit que getNomenclatureMap(int pNumOrdre) 
 	 * retourne toujours des SINGLETONS.</li>
 	 * <li>garantit que getNomenclatureMap(3) retourne 
-	 * les clés possibles du SENS.</li>
+	 * la nomenclature du SENS.</li>
 	 * <li>garantit que getNomenclatureMap(4) retourne 
-	 * les clés possibles du NATURE.</li>
+	 * la nomenclature du NATURE.</li>
 	 * <li>garantit que getNomenclatureMap(11) retourne 
-	 * les clés possibles du CATEGORIE ADMINISTRATIVE DE LA ROUTE.</li>
+	 * la nomenclature du CATEGORIE ADMINISTRATIVE DE LA ROUTE.</li>
 	 * <li>garantit que getNomenclatureMap(12) retourne 
-	 * les clés possibles du TYPE DE COMPTAGE.</li>
+	 * la nomenclature du TYPE DE COMPTAGE.</li>
 	 * <li>garantit que getNomenclatureMap(13) retourne 
-	 * les clés possibles du CLASSEMENT DE LA ROUTE.</li>
+	 * la nomenclature du CLASSEMENT DE LA ROUTE.</li>
 	 * <li>garantit que getNomenclatureMap(14) retourne 
-	 * les clés possibles du CLASSE DE LARGEUR DE CHAUSSEE UNIQUE.</li>
+	 * la nomenclature du CLASSE DE LARGEUR DE CHAUSSEE UNIQUE.</li>
 	 * <li>garantit que getNomenclatureMap(15) retourne 
-	 * les clés possibles du CLASSE DE LARGEUR DE CHAUSSEES SEPAREES.</li>
+	 * la nomenclature du CLASSE DE LARGEUR DE CHAUSSEES SEPAREES.</li>
 	 * <li>garantit que getNomenclatureMap(16) retourne 
-	 * les clés possibles du TYPE DE RESEAU.</li>
+	 * la nomenclature du TYPE DE RESEAU.</li>
 	 * <li>garantit que getNomenclatureMap(17) retourne 
-	 * les clés possibles du PR/PK.</li>
+	 * la nomenclature du PR/PK.</li>
 	 * <li>garantit que getNomenclatureMap(31) retourne 
-	 * les clés possibles du SENS DE LA SECTION DE RATTACHEMENT.</li>
+	 * la nomenclature du SENS DE LA SECTION DE RATTACHEMENT.</li>
 	 * <li>garantit que getNomenclatureMap(34) retourne 
-	 * les clés possibles du SENS DE LA SECTION LIMITROPHE.</li>
+	 * la nomenclature du SENS DE LA SECTION LIMITROPHE.</li>
 	 * <li>garantit que getNomenclatureMap(71) retourne 
-	 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-1.</li>
+	 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-1.</li>
 	 * <li>garantit que getNomenclatureMap(79) retourne 
-	 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-2.</li>
+	 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-2.</li>
 	 * <li>garantit que getNomenclatureMap(87) retourne 
-	 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-3.</li>
+	 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-3.</li>
 	 * <li>garantit que getNomenclatureMap(95) retourne 
-	 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-4.</li>
+	 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-4.</li>
 	 * <li>garantit que getNomenclatureMap(103) retourne 
-	 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-5.</li>
+	 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-5.</li>
 	 * </ul>
 	 * 
 	 * @throws Exception 
@@ -595,7 +595,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(3) retourne 
-		 * les clés possibles du SENS. */
+		 * la nomenclature du SENS. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatSens);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapSens()
@@ -613,7 +613,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(4) retourne 
-		 * les clés possibles du NATURE. */
+		 * la nomenclature du NATURE. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatNature);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapNature()
@@ -631,7 +631,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(11) retourne 
-		 * les clés possibles du CATEGORIE ADMINISTRATIVE DE LA ROUTE. */
+		 * la nomenclature du CATEGORIE ADMINISTRATIVE DE LA ROUTE. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatCatAdminRoute);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapCatAdminRoute()
@@ -649,7 +649,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(12) retourne 
-		 * les clés possibles du TYPE DE COMPTAGE. */
+		 * la nomenclature du TYPE DE COMPTAGE. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatTypeComptage);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapTypeComptage()
@@ -667,7 +667,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(13) retourne 
-		 * les clés possibles du CLASSEMENT DE LA ROUTE. */
+		 * la nomenclature du CLASSEMENT DE LA ROUTE. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatClassementRoute);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapClassementRoute()
@@ -685,7 +685,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(14) retourne 
-		 * les clés possibles du CLASSE DE LARGEUR DE CHAUSSEE UNIQUE. */
+		 * la nomenclature du CLASSE DE LARGEUR DE CHAUSSEE UNIQUE. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatClasseLargeurChausseeU);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapClasseLargeurChausseeU()
@@ -703,7 +703,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(15) retourne 
-		 * les clés possibles du CLASSE DE LARGEUR DE CHAUSSEES SEPAREES. */
+		 * la nomenclature du CLASSE DE LARGEUR DE CHAUSSEES SEPAREES. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatClasseLargeurChausseesS);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapClasseLargeurChausseesS()
@@ -721,7 +721,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(16) retourne 
-		 * les clés possibles du TYPE DE RESEAU. */
+		 * la nomenclature du TYPE DE RESEAU. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatTypeReseau);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapTypeReseau()
@@ -739,7 +739,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(17) retourne 
-		 * les clés possibles du PR/PK. */
+		 * la nomenclature du PR/PK. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatPrPk);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapPrPk()
@@ -757,7 +757,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(31) retourne 
-		 * les clés possibles du SENS DE LA SECTION DE RATTACHEMENT. */
+		 * la nomenclature du SENS DE LA SECTION DE RATTACHEMENT. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatSensRattachement);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapSensRattachement()
@@ -775,7 +775,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(34) retourne 
-		 * les clés possibles du SENS DE LA SECTION LIMITROPHE. */
+		 * la nomenclature du SENS DE LA SECTION LIMITROPHE. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatSensLimitrophe);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapSensLimitrophe()
@@ -793,7 +793,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(71) retourne 
-		 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-1. */
+		 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-1. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatTypeComptageNmoins1);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapTypeComptageNmoins1()
@@ -814,7 +814,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(79) retourne 
-		 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-2. */
+		 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-2. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatTypeComptageNmoins2);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapTypeComptageNmoins2()
@@ -835,7 +835,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(87) retourne 
-		 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-3. */
+		 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-3. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatTypeComptageNmoins3);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapTypeComptageNmoins3()
@@ -856,7 +856,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(95) retourne 
-		 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-4. */
+		 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-4. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatTypeComptageNmoins4);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapTypeComptageNmoins4()
@@ -877,7 +877,7 @@ public class FactoryNomenclatureHitTest {
 		}
 		
 		/* garantit que getNomenclatureMap(103) retourne 
-		 * les clés possibles du TYPE DE COMPTAGE DE L'ANNEE N-5. */
+		 * la nomenclature du TYPE DE COMPTAGE DE L'ANNEE N-5. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatTypeComptageNmoins5);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
 				, FactoryNomenclatureHit.getNomenclatureMapTypeComptageNmoins5()

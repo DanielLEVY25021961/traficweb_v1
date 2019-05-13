@@ -30,7 +30,8 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * </p>
  * <p>
  * Une nomenclature est un ensemble de [clé - libellé] pouvant être prises 
- * par une variable comme par exemple pour le sens HIT :<br/>
+ * par une variable comme par exemple pour le SENS 
+ * dans un fichier HIT :<br/>
  * <ul>
  * <li>1 - sens P.R. croissants route à 2 sens.</li>
  * <li>2 - sens P.R. décroissants route à 2 sens.</li>
@@ -518,13 +519,13 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			final int pNumeroChamp) 
 					throws Exception {
 		
-		Set<Integer> resultat = null;
-		
-		if (pNumeroChamp == 0) {
-			return null;
-		}
-		
 		synchronized (FactoryNomenclatureHit.this) {
+			
+			Set<Integer> resultat = null;
+			
+			if (pNumeroChamp == 0) {
+				return null;
+			}
 			
 			switch (pNumeroChamp) {
 
@@ -634,6 +635,24 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 		
 	} // Fin de getClesPossiblesSet(...).__________________________________
 	
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Set<String> getClesPossiblesSetLexique(
+			final int pNumeroChamp) 
+							throws Exception {
+
+		synchronized (FactoryNomenclatureHit.this) {
+			
+			return null;
+			
+		} // Fin de synchronized._________________________
+			
+	} // Fin de getClesPossiblesSetLexique(...).___________________________
+	
 	
 
 	/**
@@ -644,13 +663,13 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 										final int pNumeroChamp) 
 												throws Exception {
 
-		SortedMap<Integer, String> resultat = null;
-
-		if (pNumeroChamp == 0) {
-			return null;
-		}
-
 		synchronized (FactoryNomenclatureHit.this) {
+
+			SortedMap<Integer, String> resultat = null;
+
+			if (pNumeroChamp == 0) {
+				return null;
+			}
 
 			switch (pNumeroChamp) {
 			
@@ -766,6 +785,24 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public SortedMap<String, String> getLexiqueMap(
+										final int pNumeroChamp) 
+												throws Exception {
+		
+		synchronized (FactoryNomenclatureHit.this) {
+						
+			return null;
+			
+		} // Fin de synchronized._________________________
+		
+	} // Fin de getLexiqueMap(...).________________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public String afficherMapIntegerString(
 			final Map<Integer, String> pMap) {
 		
@@ -812,6 +849,72 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			stb.append(
 					String.format(Locale.FRANCE
 							, "Clé : %-10d", cle));
+			
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Libellé : %-50s", libelle));
+										
+			stb.append(NEWLINE);
+														
+		} // Fin de Parcours de l'iterator.______________________
+		
+		/* Retour de la ligne. */
+		return stb.toString();
+		
+	} // Fin de afficherMapIntegerString(...)._____________________________	
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String afficherMapStringString(
+			final Map<String, String> pMap) {
+		
+		/* retourne null si pMap == null. */
+		if (pMap == null) {
+			return null;
+		}
+		
+		final Set<Entry<String, String>> set = pMap.entrySet();
+		
+		if (set == null) {
+			return null;
+		}
+		
+		final Iterator<Entry<String, String>> ite = set.iterator();
+		
+		if (ite == null) {
+			return null;
+		}
+		
+		final StringBuilder stb = new StringBuilder();
+		
+		int compteur = 0;
+		
+		/* Parcours de l'iterator. */
+		while (ite.hasNext()) {
+			
+			compteur++;
+			
+			final Entry<String, String> entry = ite.next();
+			
+			if (entry == null) {
+				return null;
+			}
+			
+			final String cle = entry.getKey();
+			final String libelle = entry.getValue();
+							
+			/* Ajout de la ligne au StringBuilder. */
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Ligne %-5d =      ", compteur));
+			
+			stb.append(
+					String.format(Locale.FRANCE
+							, "Clé : %-10s", cle));
 			
 			stb.append(
 					String.format(Locale.FRANCE
