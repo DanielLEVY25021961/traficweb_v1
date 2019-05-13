@@ -1,7 +1,7 @@
 /**
  * class package-info :<br/>
  * <p>
- * Ce package contient toutes les <b>Factory</b> CONCRETES
+ * Ce package contient toutes les <b>Factory</b> 
  * chargées de fournir les <b>nomenclatures</b> et <b>lexiques</b> 
  * des champs à valeurs contraintes des divers fichiers 
  * (HIT, HISTO_F07, HISTO_F08, DARWIN_CSV, ...) 
@@ -24,8 +24,6 @@
  * </p>
  * <br/>
  *
- * - Exemple d'utilisation :<br/>
- *<br/>
  * 
  * - Mots-clé :<br/>
  * <br/>
@@ -39,4 +37,4 @@
  * @since 2 août 2014
  *
  */
-package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature;

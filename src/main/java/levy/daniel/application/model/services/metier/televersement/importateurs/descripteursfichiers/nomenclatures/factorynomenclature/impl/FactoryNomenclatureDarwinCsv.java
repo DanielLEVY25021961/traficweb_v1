@@ -1,6 +1,5 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.impl;
 
-import java.io.File;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
@@ -11,14 +10,67 @@ import java.util.SortedMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesnomenclatures.ConfigurationNomenclaturesDarwinCsvManager;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IImporteurLexique;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.IImporteurNomenclature;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.factorynomenclature.IFactoryNomenclature;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.impl.ImporteurLexique;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.nomenclatures.impl.ImporteurNomenclature;
 
 /**
- * class FactoryNomenclatureDarwinCsv :<br/>
- * Factory chargée de fournir les nomenclatures pour les Darwin csv.<br/>
+ * CLASSE FactoryNomenclatureDarwinCsv :<br/>
+ * <p>
+ * Factory chargée de fournir les nomenclatures 
+ * pour les fichiers DARWIN_CSV.
+ * </p>
+ * 
+ * <p>
+ * RESPONSABILITE : 
+ * IMPORTER TOUTES LES NOMENCLATURES D'UN FICHIER DARWIN_CSV 
+ * ET LES METTRE A DISPOSITION DE L'APPLICATION sous forme de 
+ * <b>SINGLETONS</b>.
+ * </p>
+ * <p>
+ * Une nomenclature est un ensemble de [clé - libellé] pouvant être prises 
+ * par une variable comme par exemple pour le SENS 
+ * dans un Fichier DARWIN_CSV :<br/>
+ * <ul>
+ * <li>3 - Cumul des deux sens route à 2 sens.</li>
+ * <li>4 - Sens P.R. croissants route à sens unique.</li>
+ * <li>5 - Sens P.R. décroissants route à sens unique.</li>
+ * </ul>
+ * </p>
+ * 
+ * <div>
+ * <p>
+ * les champs à valeurs contraintes (nomenclature) dans un fichier DARWIN_CSV 
+ * sont les champs d'ordre : 
+ * </p>
+ * <p>
+ * <table border="1">
+ * <tr>
+ * <th>ordre</th><th>champ</th>
+ * </tr>
+ * <tr>
+ * <td>13</td><td>sens</td>
+ * </tr>
+ * <tr>
+ * <td>14</td><td>type de comptage</td>
+ * </tr>
+ * <tr>
+ * <td>57</td><td>classement de la route</td>
+ * </tr>
+ * <tr>
+ * <td>58</td><td>profil en travers SICRE (lexique)</td>
+ * </tr>
+ * <tr>
+ * <td>65</td><td>sous-reseau indice</td>
+ * </tr>
+ * </table>
+ * </p>
+ * 
+ * </div>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -46,23 +98,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	 */
 	public static final String CLASSE_FACTORYNOMENCLATUREDARWIN 
 		= "CLASSE FactoryNomenclatureDarwinCsv";
-	
-	
-	/**
-	 * METHODE_GETCLESPOSSIBLESSET : String :<br/>
-	 * "Méthode getClesPossiblesSet(int pNumeroChamp)".<br/>
-	 */
-	public static final String METHODE_GETCLESPOSSIBLESSET 
-		= "Méthode getClesPossiblesSet(int pNumeroChamp)";
-	
-	/**
-	 * METHODE_GETNOMENCLATUREMAP : String :<br/>
-	 * "Méthode getNomenclatureMap(int pNumeroChamp)".<br/>
-	 */
-	public static final String METHODE_GETNOMENCLATUREMAP 
-		= "Méthode getNomenclatureMap(int pNumeroChamp)";
-	
-	
+		
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
@@ -72,7 +108,8 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	 * " - ".<br/>
 	 */
 	public static final String SEPARATEUR_MOINS_AERE = " - ";
-		
+	
+	
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/
@@ -82,29 +119,112 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
-	
 
-	/**
-	 * impoNomenclatureSensDarwin : IImporteurNomenclature :<br/>
-	 * importeur de la Nomenclature du sens pour les Darwin csv.<br/>
-	 */
-	private static transient IImporteurNomenclature impoNomenclatureSensDarwin;
 
 	
+
+	// SENS.************** 		
 	/**
-	 * setSens : Set&lt;Integer&gt; :<br/>
-	 * Set contenant les valeurs possibles de sens.<br/>
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature du SENS pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient Set<Integer> setSens;
-	
-	
+	private static transient Set<Integer> setClesPossiblesSens;
+		
 	/**
-	 * nomenclatureMapSens : SortedMap&lt;Integer,String&gt; :<br/>
-	 * Nomenclature sous forme de Map pour le sens HIT.<br/>
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SENS dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
 	 */
 	private static transient SortedMap<Integer, String> nomenclatureMapSens;
+			
+	// TYPE DE COMPTAGE DARWIN_CSV.********	
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE 
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesTypeComptage;
+				
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE 
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapTypeComptage;
 	
-
+	// CLASSEMENT DE LA ROUTE DARWIN_CSV.********	
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSEMENT DE LA ROUTE 
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesClassementRoute;
+				
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le CLASSEMENT DE LA ROUTE 
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapClassementRoute;
+	
+	// PROFIL EN TRAVERS SICRE.************** 		
+	/**
+	 * Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du PROFIL EN TRAVERS SICRE
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<String> setClesPossiblesProfilTraversSicre;
+		
+	/**
+	 * Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le PROFIL EN TRAVERS SICRE
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<String, String> lexiqueMapProfilTraversSicre;
+	
+	// SOUS-RESEAU INDICE DARWIN_CSV.********	
+	/**
+	 * Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de SOUS-RESEAU INDICE 
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<Integer> setClesPossiblesSousReseauIndice;
+				
+	/**
+	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SOUS-RESEAU INDICE
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<Integer, String> nomenclatureMapSousReseauIndice;
 	
 	/**
 	 * LOG : Log : 
@@ -118,9 +238,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	
 	
 	 /**
-	 * method CONSTRUCTEUR FactoryNomenclatureDarwinCsv() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
 	 */
 	public FactoryNomenclatureDarwinCsv() {
 		
@@ -138,72 +256,50 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 			final int pNumeroChamp) 
 					throws Exception {
 		
-		Set<Integer> resultat = null;
-		
-		if (pNumeroChamp == 0) {
-			return null;
-		}
-		
 		synchronized (FactoryNomenclatureDarwinCsv.this) {
+			
+			Set<Integer> resultat = null;
+			
+			if (pNumeroChamp == 0) {
+				return null;
+			}
 			
 			switch (pNumeroChamp) {
 
 			/* SENS. */
 			case 13:
-				
-				if (impoNomenclatureSensDarwin == null) {					
-					impoNomenclatureSensDarwin 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (setSens == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureSensDarwinUtf8 
-						= ConfigurationApplicationManager
-							.getFichierNomenclatureDarwinSensUtf8();
-					
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureSensDarwinUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du SENS dans un DARWIN manquante";
-						
-						this.loggerFatal(METHODE_GETCLESPOSSIBLESSET, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureSensDarwin
-					.importerNomenclatureEnUtf8(
-							fichierNomenclatureSensDarwinUtf8);
-					
-					/* Obtention du Set des valeurs possibles. */
-					setSens 
-						= impoNomenclatureSensDarwin
-							.getClesPossiblesSet();
-				}
-				
-				resultat = setSens;
-
-				break;
 			
-			/* TYPE DE COMPTAGE. */	
-			case 14:
+				resultat = getSetClesPossiblesSens();
 				break;
-
+								
+			/* TYPE DE COMPTAGE. */
+			case 14:
+				
+				resultat = getSetClesPossiblesTypeComptage();				
+				break;
+				
+			/* CLASSEMENT DE LA ROUTE. */
+			case 57:
+				
+				resultat = getSetClesPossiblesClassementRoute();				
+				break;
+				
+			/* SOUS-RESEAU INDICE. */
+			case 65:
+				
+				resultat = getSetClesPossiblesSousReseauIndice();				
+				break;
+				
 			default:
 				break;
+				
 			}
 			
 			return resultat;
 			
 		} // Fin de synchronized._________________________
 		
-	} // Fin de getClesPossiblesSet(
-	// int pNumeroChamp).__________________________________________________
+	} // Fin de getClesPossiblesSet(...).__________________________________
 	
 
 	
@@ -216,12 +312,86 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 							throws Exception {
 
 		synchronized (FactoryNomenclatureDarwinCsv.this) {
-			
-			return null;
-			
+
+			Set<String> resultat = null;
+
+			if (pNumeroChamp == 0) {
+				return null;
+			}
+
+			switch (pNumeroChamp) {
+
+			/* PROFIL EN TRAVERS SICRE. */
+			case 58:
+
+				resultat = getSetClesPossiblesProfilTraversSicre();
+				break;
+
+			default:
+				break;
+
+			}
+
+			return resultat;
+
 		} // Fin de synchronized._________________________
-			
+
 	} // Fin de getClesPossiblesSetLexique(...).___________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SortedMap<Integer, String> getNomenclatureMap(
+										final int pNumeroChamp) 
+												throws Exception {
+		
+		synchronized (FactoryNomenclatureDarwinCsv.this) {
+
+			SortedMap<Integer, String> resultat = null;
+
+			if (pNumeroChamp == 0) {
+				return null;
+			}
+
+			switch (pNumeroChamp) {
+			
+			/* SENS. */
+			case 13:
+
+				resultat = getNomenclatureMapSens();
+				break;
+			
+			/* TYPE DE COMPTAGE. */
+			case 14:
+				
+				resultat = getNomenclatureMapTypeComptage();			
+				break;
+				
+			/* CLASSEMENT DE LA ROUTE. */
+			case 57:
+
+				resultat = getNomenclatureMapClassementRoute();			
+				break;
+				
+			/* SOUS-RESEAU INDICE. */
+			case 65:
+
+				resultat = getNomenclatureMapSousReseauIndice();			
+				break;
+								
+			default:
+				break;
+				
+			}
+
+			return resultat;
+
+		} // Fin de synchronized._________________________
+
+	} // Fin de getNomenclatureMap(...).___________________________________
 	
 	
 	
@@ -234,88 +404,31 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 												throws Exception {
 		
 		synchronized (FactoryNomenclatureDarwinCsv.this) {
-						
-			return null;
 			
-		} // Fin de synchronized._________________________
-		
-	} // Fin de getLexiqueMap(...).________________________________________
-	
-	
+			SortedMap<String, String> resultat = null;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public SortedMap<Integer, String> getNomenclatureMap(
-										final int pNumeroChamp) 
-												throws Exception {
-
-		SortedMap<Integer, String> resultat = null;
-
-		if (pNumeroChamp == 0) {
-			return null;
-		}
-
-		synchronized (FactoryNomenclatureDarwinCsv.this) {
+			if (pNumeroChamp == 0) {
+				return null;
+			}
 
 			switch (pNumeroChamp) {
-			
-			/* SENS. */
-			case 13:
 
-				if (impoNomenclatureSensDarwin == null) {					
-					impoNomenclatureSensDarwin 
-						= new ImporteurNomenclature();					
-				}
-				
-				if (nomenclatureMapSens == null) {
-					
-					/* Récupération du fichier de nomenclature. */
-					final File fichierNomenclatureSensDarwinUtf8 
-					= ConfigurationApplicationManager
-						.getFichierNomenclatureDarwinSensUtf8();
-				
-					/* LOG.FATAL et jette une RunTimeException 
-					 * si la nomenclature est absente. */
-					if (fichierNomenclatureSensDarwinUtf8 == null) {
-						
-						final String message 
-							= "Nomenclature du SENS dans un DARWIN manquante";
-						
-						this.loggerFatal(METHODE_GETNOMENCLATUREMAP, message);
-						
-						throw new RuntimeException(message);
-					}
-					
-					/* Import de la nomenclature. */
-					impoNomenclatureSensDarwin
-					.importerNomenclatureEnUtf8(
-							fichierNomenclatureSensDarwinUtf8);
+			/* PROFIL EN TRAVERS SICRE. */
+			case 58:
 
-					/* Obtention de la Map des valeurs possibles. */
-					nomenclatureMapSens = impoNomenclatureSensDarwin
-							.getNomenclatureMap();
-				}
-
-				resultat = nomenclatureMapSens;
-
-				break;
-				
-			/* TYPE DE COMPTAGE. */	
-			case 14:
+				resultat = getLexiqueMapProfilTraversSicre();
 				break;
 
 			default:
 				break;
+			
 			}
-
+			
 			return resultat;
-
+			
 		} // Fin de synchronized._________________________
-
-	} // Fin de getNomenclatureMap(
-	// int pNumeroChamp).__________________________________________________
+		
+	} // Fin de getLexiqueMap(...).________________________________________
 	
 	
 	
@@ -450,11 +563,440 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	} // Fin de afficherMapIntegerString(...)._____________________________	
 
 
+		
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature du SENS pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesSens : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesSens() 
+													throws Exception {
+		
+		if (setClesPossiblesSens == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvSensUtf8());
+			
+			setClesPossiblesSens = importeur.getClesPossiblesSet();
+			nomenclatureMapSens = importeur.getNomenclatureMap();
+		}
+		
+		return setClesPossiblesSens;
+		
+	} // Fin de getSetClesPossiblesSens()._________________________________
+
+	
+		
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SENS dans un DARWIN_CSV avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapSens : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapSens() 
+														throws Exception {
+		
+		if (nomenclatureMapSens == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvSensUtf8());
+			
+			setClesPossiblesSens = importeur.getClesPossiblesSet();
+			nomenclatureMapSens = importeur.getNomenclatureMap();
+		}
+		
+		return nomenclatureMapSens;
+		
+	} // Fin de getNomenclatureMapSens().__________________________________
+
+
 	
 	/**
-	 * method loggerFatal(
-	 * String pMethode
-	 * , String pMessage) :<br/>
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de TYPE DE COMPTAGE 
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesTypeComptage : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesTypeComptage() 
+													throws Exception {
+				
+		if (setClesPossiblesTypeComptage == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvTypeComptageUtf8());
+			
+			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesTypeComptage;
+		
+	} // Fin de getSetClesPossiblesTypeComptage().________________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le TYPE DE COMPTAGE 
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapTypeComptage : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapTypeComptage() 
+															throws Exception {
+		
+		if (nomenclatureMapTypeComptage == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvTypeComptageUtf8());
+			
+			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapTypeComptage;
+		
+	} // Fin de getNomenclatureMapTypeComptage().__________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de CLASSEMENT DE LA ROUTE 
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesClassementRoute : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesClassementRoute() 
+													throws Exception {
+				
+		if (setClesPossiblesClassementRoute == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvClassementRouteUtf8());
+			
+			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+		}
+
+		return setClesPossiblesClassementRoute;
+		
+	} // Fin de getSetClesPossiblesClassementRoute().______________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le CLASSEMENT DE LA ROUTE 
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapClassementRoute : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapClassementRoute() 
+															throws Exception {
+		
+		if (nomenclatureMapClassementRoute == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvClassementRouteUtf8());
+			
+			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+		}
+
+		return nomenclatureMapClassementRoute;
+		
+	} // Fin de getNomenclatureMapClassementRoute()._______________________
+
+
+	
+	/**
+	 * Getter du Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du PROFIL EN TRAVERS SICRE
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesProfilTraversSicre : Set&lt;String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<String> getSetClesPossiblesProfilTraversSicre() 
+													throws Exception {
+		
+		if (setClesPossiblesProfilTraversSicre == null) {
+			
+			final IImporteurLexique importeur 
+				= new ImporteurLexique();
+			
+			importeur
+				.importerLexiqueEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+						.getFichierNomenclatureDarwinCsvProfilTraversUtf8());
+						
+			setClesPossiblesProfilTraversSicre 
+				= importeur.getClesPossiblesSet();
+			lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+			
+		}
+		
+		return setClesPossiblesProfilTraversSicre;
+		
+	} // Fin de getSetClesPossiblesProfilTraversSicre().___________________
+
+	
+		
+	/**
+	 * Getter du Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le CODE CONCESSION SICRE
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return lexiqueMapProfilTraversSicre : 
+	 * SortedMap&lt;String,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<String, String> getLexiqueMapProfilTraversSicre() 
+														throws Exception {
+		
+		if (lexiqueMapProfilTraversSicre == null) {
+			
+			final IImporteurLexique importeur 
+				= new ImporteurLexique();
+			
+			importeur
+				.importerLexiqueEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+						.getFichierNomenclatureDarwinCsvProfilTraversUtf8());
+						
+			setClesPossiblesProfilTraversSicre 
+				= importeur.getClesPossiblesSet();
+			lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+			
+		}
+		
+		return lexiqueMapProfilTraversSicre;
+		
+	} // Fin de getLexiqueMapProfilTraversSicre()._________________________
+
+
+	
+	/**
+	 * Getter du Set&lt;Integer&gt; contenant les valeurs possibles 
+	 * des clés de la nomenclature de SOUS-RESEAU INDICE 
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesSousReseauIndice : Set&lt;Integer&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<Integer> getSetClesPossiblesSousReseauIndice() 
+													throws Exception {
+				
+		if (setClesPossiblesSousReseauIndice == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+						.getFichierNomenclatureDarwinCsvSousReseauIndiceUtf8());
+			
+			setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
+			nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
+			
+		}
+
+		return setClesPossiblesSousReseauIndice;
+		
+	} // Fin de getSetClesPossiblesSousReseauIndice()._____________________
+
+
+	
+	/**
+	 * Getter de la Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
+	 * pour le SOUS-RESEAU INDICE
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>Integer : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.
+	 * <br/><br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurNomenclature</code> pour importer 
+	 * le fichier de nomenclature.</li>
+	 * <li>délègue l'obtention du bon fichier de nomenclature à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return nomenclatureMapSousReseauIndice : 
+	 * SortedMap&lt;Integer,String&gt;.<br/>
+	 * 
+	 * @throws Exception
+	 */
+	public static SortedMap<Integer, String> getNomenclatureMapSousReseauIndice() 
+															throws Exception {
+		
+		if (nomenclatureMapSousReseauIndice == null) {
+			
+			final IImporteurNomenclature importeur 
+				= new ImporteurNomenclature();
+			
+			importeur
+				.importerNomenclatureEnUtf8(
+						ConfigurationNomenclaturesDarwinCsvManager
+						.getFichierNomenclatureDarwinCsvSousReseauIndiceUtf8());
+			
+			setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
+			nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
+			
+		}
+
+		return nomenclatureMapSousReseauIndice;
+		
+	} // Fin de getNomenclatureMapSousReseauIndice().______________________
+
+
+
+	/**
 	 * LOG.Fatal.<br/>
 	 * <br/>
 	 *
