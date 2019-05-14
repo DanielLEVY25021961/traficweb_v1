@@ -319,7 +319,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 				return null;
 			}
 
-			switch (pNumeroChamp) { // NOPMD by daniel.levy on 14/05/19 11:54
+			switch (pNumeroChamp) { 
 
 			/* PROFIL EN TRAVERS SICRE. */
 			case 58:
@@ -411,7 +411,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 				return null;
 			}
 
-			switch (pNumeroChamp) { // NOPMD by daniel.levy on 14/05/19 11:54
+			switch (pNumeroChamp) { 
 
 			/* PROFIL EN TRAVERS SICRE. */
 			case 58:
