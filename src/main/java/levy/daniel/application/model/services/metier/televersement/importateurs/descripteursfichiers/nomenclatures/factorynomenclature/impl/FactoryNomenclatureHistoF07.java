@@ -762,22 +762,26 @@ public final class FactoryNomenclatureHistoF07
 	 */
 	public static Set<Integer> getSetClesPossiblesSens() 
 													throws Exception {
-		
-		if (setClesPossiblesSens == null) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07SensUtf8());
+			if (setClesPossiblesSens == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07SensUtf8());
+				
+				setClesPossiblesSens = importeur.getClesPossiblesSet();
+				nomenclatureMapSens = importeur.getNomenclatureMap();
+			}
 			
-			setClesPossiblesSens = importeur.getClesPossiblesSet();
-			nomenclatureMapSens = importeur.getNomenclatureMap();
-		}
-		
-		return setClesPossiblesSens;
+			return setClesPossiblesSens;
+
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesSens()._________________________________
 
@@ -807,21 +811,25 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<Integer, String> getNomenclatureMapSens() 
 														throws Exception {
 		
-		if (nomenclatureMapSens == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
+			if (nomenclatureMapSens == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07SensUtf8());
+				
+				setClesPossiblesSens = importeur.getClesPossiblesSet();
+				nomenclatureMapSens = importeur.getNomenclatureMap();
+			}
 			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07SensUtf8());
-			
-			setClesPossiblesSens = importeur.getClesPossiblesSet();
-			nomenclatureMapSens = importeur.getNomenclatureMap();
-		}
-		
-		return nomenclatureMapSens;
+			return nomenclatureMapSens;
+
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getNomenclatureMapSens().__________________________________
 
@@ -846,22 +854,26 @@ public final class FactoryNomenclatureHistoF07
 	 */
 	public static Set<Integer> getSetClesPossiblesNature() 
 													throws Exception {
+		
+		synchronized (FactoryNomenclatureHistoF07.class) {
+					
+			if (setClesPossiblesNature == null) {
 				
-		if (setClesPossiblesNature == null) {
-			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07NatureUtf8());
-			
-			setClesPossiblesNature = importeur.getClesPossiblesSet();
-			nomenclatureMapNature = importeur.getNomenclatureMap();
-		}
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07NatureUtf8());
+				
+				setClesPossiblesNature = importeur.getClesPossiblesSet();
+				nomenclatureMapNature = importeur.getNomenclatureMap();
+			}
+		
+			return setClesPossiblesNature;
 
-		return setClesPossiblesNature;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesNature()._______________________________
 
@@ -892,21 +904,25 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<Integer, String> getNomenclatureMapNature() 
 															throws Exception {
 		
-		if (nomenclatureMapNature == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07NatureUtf8());
-			
-			setClesPossiblesNature = importeur.getClesPossiblesSet();
-			nomenclatureMapNature = importeur.getNomenclatureMap();
-		}
+			if (nomenclatureMapNature == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07NatureUtf8());
+				
+				setClesPossiblesNature = importeur.getClesPossiblesSet();
+				nomenclatureMapNature = importeur.getNomenclatureMap();
+			}
 
-		return nomenclatureMapNature;
+			return nomenclatureMapNature;
+
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getNomenclatureMapNature().________________________________
 
@@ -931,22 +947,26 @@ public final class FactoryNomenclatureHistoF07
 	 */
 	public static Set<Integer> getSetClesPossiblesTypeComptage() 
 													throws Exception {
+		
+		synchronized (FactoryNomenclatureHistoF07.class) {
+					
+			if (setClesPossiblesTypeComptage == null) {
 				
-		if (setClesPossiblesTypeComptage == null) {
-			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07TypeComptageUtf8());
-			
-			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
-			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
-		}
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07TypeComptageUtf8());
+				
+				setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+				nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+			}
+		
+			return setClesPossiblesTypeComptage;
 
-		return setClesPossiblesTypeComptage;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesTypeComptage().________________________
 
@@ -978,21 +998,25 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<Integer, String> getNomenclatureMapTypeComptage() 
 															throws Exception {
 		
-		if (nomenclatureMapTypeComptage == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07TypeComptageUtf8());
-			
-			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
-			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
-		}
+			if (nomenclatureMapTypeComptage == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07TypeComptageUtf8());
+				
+				setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+				nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+			}
 
-		return nomenclatureMapTypeComptage;
+			return nomenclatureMapTypeComptage;
+			
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getNomenclatureMapTypeComptage().__________________________
 
@@ -1017,22 +1041,26 @@ public final class FactoryNomenclatureHistoF07
 	 */
 	public static Set<Integer> getSetClesPossiblesClassementRoute() 
 													throws Exception {
+		
+		synchronized (FactoryNomenclatureHistoF07.class) {
+					
+			if (setClesPossiblesClassementRoute == null) {
 				
-		if (setClesPossiblesClassementRoute == null) {
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07ClassementRouteUtf8());
+				
+				setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+				nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+			}
+		
+			return setClesPossiblesClassementRoute;
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07ClassementRouteUtf8());
-			
-			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
-			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
-		}
-
-		return setClesPossiblesClassementRoute;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesClassementRoute().______________________
 
@@ -1064,21 +1092,25 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<Integer, String> getNomenclatureMapClassementRoute() 
 															throws Exception {
 		
-		if (nomenclatureMapClassementRoute == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07ClassementRouteUtf8());
-			
-			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
-			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
-		}
+			if (nomenclatureMapClassementRoute == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07ClassementRouteUtf8());
+				
+				setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+				nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+			}
 
-		return nomenclatureMapClassementRoute;
+			return nomenclatureMapClassementRoute;
+			
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getNomenclatureMapClassementRoute()._______________________
 
@@ -1103,22 +1135,26 @@ public final class FactoryNomenclatureHistoF07
 	 */
 	public static Set<Integer> getSetClesPossiblesClasseLargeurChausseeU() 
 													throws Exception {
+		
+		synchronized (FactoryNomenclatureHistoF07.class) {
+					
+			if (setClesPossiblesClasseLargeurChausseeU == null) {
 				
-		if (setClesPossiblesClasseLargeurChausseeU == null) {
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8());
+				
+				setClesPossiblesClasseLargeurChausseeU = importeur.getClesPossiblesSet();
+				nomenclatureMapClasseLargeurChausseeU = importeur.getNomenclatureMap();
+			}
+		
+			return setClesPossiblesClasseLargeurChausseeU;
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8());
-			
-			setClesPossiblesClasseLargeurChausseeU = importeur.getClesPossiblesSet();
-			nomenclatureMapClasseLargeurChausseeU = importeur.getNomenclatureMap();
-		}
-
-		return setClesPossiblesClasseLargeurChausseeU;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesClasseLargeurChausseeU()._______________
 
@@ -1150,21 +1186,25 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<Integer, String> getNomenclatureMapClasseLargeurChausseeU() 
 															throws Exception {
 		
-		if (nomenclatureMapClasseLargeurChausseeU == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8());
-			
-			setClesPossiblesClasseLargeurChausseeU = importeur.getClesPossiblesSet();
-			nomenclatureMapClasseLargeurChausseeU = importeur.getNomenclatureMap();
-		}
+			if (nomenclatureMapClasseLargeurChausseeU == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07ClasseLargeurChausseeUUtf8());
+				
+				setClesPossiblesClasseLargeurChausseeU = importeur.getClesPossiblesSet();
+				nomenclatureMapClasseLargeurChausseeU = importeur.getNomenclatureMap();
+			}
 
-		return nomenclatureMapClasseLargeurChausseeU;
+			return nomenclatureMapClasseLargeurChausseeU;
+			
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getNomenclatureMapClasseLargeurChausseeU().________________
 
@@ -1189,22 +1229,26 @@ public final class FactoryNomenclatureHistoF07
 	 */
 	public static Set<Integer> getSetClesPossiblesClasseLargeurChausseesS() 
 													throws Exception {
+		
+		synchronized (FactoryNomenclatureHistoF07.class) {
+					
+			if (setClesPossiblesClasseLargeurChausseesS == null) {
 				
-		if (setClesPossiblesClasseLargeurChausseesS == null) {
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8());
+				
+				setClesPossiblesClasseLargeurChausseesS = importeur.getClesPossiblesSet();
+				nomenclatureMapClasseLargeurChausseesS = importeur.getNomenclatureMap();
+			}
+		
+			return setClesPossiblesClasseLargeurChausseesS;
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8());
-			
-			setClesPossiblesClasseLargeurChausseesS = importeur.getClesPossiblesSet();
-			nomenclatureMapClasseLargeurChausseesS = importeur.getNomenclatureMap();
-		}
-
-		return setClesPossiblesClasseLargeurChausseesS;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesClasseLargeurChausseesS().______________
 
@@ -1236,21 +1280,25 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<Integer, String> getNomenclatureMapClasseLargeurChausseesS() 
 															throws Exception {
 		
-		if (nomenclatureMapClasseLargeurChausseesS == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8());
-			
-			setClesPossiblesClasseLargeurChausseesS = importeur.getClesPossiblesSet();
-			nomenclatureMapClasseLargeurChausseesS = importeur.getNomenclatureMap();
-		}
+			if (nomenclatureMapClasseLargeurChausseesS == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07ClasseLargeurChausseesSUtf8());
+				
+				setClesPossiblesClasseLargeurChausseesS = importeur.getClesPossiblesSet();
+				nomenclatureMapClasseLargeurChausseesS = importeur.getNomenclatureMap();
+			}
 
-		return nomenclatureMapClasseLargeurChausseesS;
+			return nomenclatureMapClasseLargeurChausseesS;
+			
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getNomenclatureMapClasseLargeurChausseesS()._______________
 
@@ -1275,22 +1323,26 @@ public final class FactoryNomenclatureHistoF07
 	 */
 	public static Set<Integer> getSetClesPossiblesTypeReseau() 
 													throws Exception {
+		
+		synchronized (FactoryNomenclatureHistoF07.class) {
+					
+			if (setClesPossiblesTypeReseau == null) {
 				
-		if (setClesPossiblesTypeReseau == null) {
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07TypeReseauUtf8());
+				
+				setClesPossiblesTypeReseau = importeur.getClesPossiblesSet();
+				nomenclatureMapTypeReseau = importeur.getNomenclatureMap();
+			}
+		
+			return setClesPossiblesTypeReseau;
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07TypeReseauUtf8());
-			
-			setClesPossiblesTypeReseau = importeur.getClesPossiblesSet();
-			nomenclatureMapTypeReseau = importeur.getNomenclatureMap();
-		}
-
-		return setClesPossiblesTypeReseau;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesTypeReseau().___________________________
 
@@ -1322,21 +1374,25 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<Integer, String> getNomenclatureMapTypeReseau() 
 															throws Exception {
 		
-		if (nomenclatureMapTypeReseau == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-							.getFichierNomenclatureHistoF07TypeReseauUtf8());
-			
-			setClesPossiblesTypeReseau = importeur.getClesPossiblesSet();
-			nomenclatureMapTypeReseau = importeur.getNomenclatureMap();
-		}
+			if (nomenclatureMapTypeReseau == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+								.getFichierNomenclatureHistoF07TypeReseauUtf8());
+				
+				setClesPossiblesTypeReseau = importeur.getClesPossiblesSet();
+				nomenclatureMapTypeReseau = importeur.getNomenclatureMap();
+			}
 
-		return nomenclatureMapTypeReseau;
+			return nomenclatureMapTypeReseau;
+			
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getNomenclatureMapTypeReseau().____________________________
 
@@ -1362,23 +1418,27 @@ public final class FactoryNomenclatureHistoF07
 	public static Set<String> getSetClesPossiblesCodeConcessionSicre() 
 													throws Exception {
 		
-		if (setClesPossiblesCodeConcessionSicre == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurLexique importeur 
-				= new ImporteurLexique();
+			if (setClesPossiblesCodeConcessionSicre == null) {
+				
+				final IImporteurLexique importeur 
+					= new ImporteurLexique();
+				
+				importeur
+					.importerLexiqueEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07CodeConcessionUtf8());
+							
+				setClesPossiblesCodeConcessionSicre 
+					= importeur.getClesPossiblesSet();
+				lexiqueMapCodeConcessionSicre = importeur.getLexiqueMap();
+				
+			}
 			
-			importeur
-				.importerLexiqueEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-						.getFichierNomenclatureHistoF07CodeConcessionUtf8());
-						
-			setClesPossiblesCodeConcessionSicre 
-				= importeur.getClesPossiblesSet();
-			lexiqueMapCodeConcessionSicre = importeur.getLexiqueMap();
+			return setClesPossiblesCodeConcessionSicre;
 			
-		}
-		
-		return setClesPossiblesCodeConcessionSicre;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesCodeConcessionSicre().__________________
 
@@ -1409,23 +1469,27 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<String, String> getLexiqueMapCodeConcessionSicre() 
 														throws Exception {
 		
-		if (lexiqueMapCodeConcessionSicre == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurLexique importeur 
-				= new ImporteurLexique();
+			if (lexiqueMapCodeConcessionSicre == null) {
+				
+				final IImporteurLexique importeur 
+					= new ImporteurLexique();
+				
+				importeur
+					.importerLexiqueEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07CodeConcessionUtf8());
+							
+				setClesPossiblesCodeConcessionSicre 
+					= importeur.getClesPossiblesSet();
+				lexiqueMapCodeConcessionSicre = importeur.getLexiqueMap();
+				
+			}
 			
-			importeur
-				.importerLexiqueEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-						.getFichierNomenclatureHistoF07CodeConcessionUtf8());
-						
-			setClesPossiblesCodeConcessionSicre 
-				= importeur.getClesPossiblesSet();
-			lexiqueMapCodeConcessionSicre = importeur.getLexiqueMap();
+			return lexiqueMapCodeConcessionSicre;
 			
-		}
-		
-		return lexiqueMapCodeConcessionSicre;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getLexiqueMapCodeConcessionSicre().________________________
 
@@ -1451,23 +1515,27 @@ public final class FactoryNomenclatureHistoF07
 	public static Set<String> getSetClesPossiblesProfilTraversSicre() 
 													throws Exception {
 		
-		if (setClesPossiblesProfilTraversSicre == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurLexique importeur 
-				= new ImporteurLexique();
+			if (setClesPossiblesProfilTraversSicre == null) {
+				
+				final IImporteurLexique importeur 
+					= new ImporteurLexique();
+				
+				importeur
+					.importerLexiqueEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07ProfilTraversUtf8());
+							
+				setClesPossiblesProfilTraversSicre 
+					= importeur.getClesPossiblesSet();
+				lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+				
+			}
 			
-			importeur
-				.importerLexiqueEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-						.getFichierNomenclatureHistoF07ProfilTraversUtf8());
-						
-			setClesPossiblesProfilTraversSicre 
-				= importeur.getClesPossiblesSet();
-			lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+			return setClesPossiblesProfilTraversSicre;
 			
-		}
-		
-		return setClesPossiblesProfilTraversSicre;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesProfilTraversSicre().___________________
 
@@ -1498,23 +1566,27 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<String, String> getLexiqueMapProfilTraversSicre() 
 														throws Exception {
 		
-		if (lexiqueMapProfilTraversSicre == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurLexique importeur 
-				= new ImporteurLexique();
+			if (lexiqueMapProfilTraversSicre == null) {
+				
+				final IImporteurLexique importeur 
+					= new ImporteurLexique();
+				
+				importeur
+					.importerLexiqueEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07ProfilTraversUtf8());
+							
+				setClesPossiblesProfilTraversSicre 
+					= importeur.getClesPossiblesSet();
+				lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+				
+			}
 			
-			importeur
-				.importerLexiqueEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-						.getFichierNomenclatureHistoF07ProfilTraversUtf8());
-						
-			setClesPossiblesProfilTraversSicre 
-				= importeur.getClesPossiblesSet();
-			lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+			return lexiqueMapProfilTraversSicre;
 			
-		}
-		
-		return lexiqueMapProfilTraversSicre;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getLexiqueMapProfilTraversSicre()._________________________
 
@@ -1539,23 +1611,27 @@ public final class FactoryNomenclatureHistoF07
 	 */
 	public static Set<Integer> getSetClesPossiblesSousReseauIndice() 
 													throws Exception {
+		
+		synchronized (FactoryNomenclatureHistoF07.class) {
+					
+			if (setClesPossiblesSousReseauIndice == null) {
 				
-		if (setClesPossiblesSousReseauIndice == null) {
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07SousReseauIndiceUtf8());
+				
+				setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
+				nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
+				
+			}
+		
+			return setClesPossiblesSousReseauIndice;
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-						.getFichierNomenclatureHistoF07SousReseauIndiceUtf8());
-			
-			setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
-			nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
-			
-		}
-
-		return setClesPossiblesSousReseauIndice;
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getSetClesPossiblesSousReseauIndice()._____________________
 
@@ -1587,22 +1663,26 @@ public final class FactoryNomenclatureHistoF07
 	public static SortedMap<Integer, String> getNomenclatureMapSousReseauIndice() 
 															throws Exception {
 		
-		if (nomenclatureMapSousReseauIndice == null) {
+		synchronized (FactoryNomenclatureHistoF07.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesHistoF07Manager
-						.getFichierNomenclatureHistoF07SousReseauIndiceUtf8());
-			
-			setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
-			nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
-			
-		}
+			if (nomenclatureMapSousReseauIndice == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesHistoF07Manager
+							.getFichierNomenclatureHistoF07SousReseauIndiceUtf8());
+				
+				setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
+				nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
+				
+			}
 
-		return nomenclatureMapSousReseauIndice;
+			return nomenclatureMapSousReseauIndice;
+			
+		} // Fin du bloc synchronized.___________________________
 		
 	} // Fin de getNomenclatureMapSousReseauIndice().______________________
 

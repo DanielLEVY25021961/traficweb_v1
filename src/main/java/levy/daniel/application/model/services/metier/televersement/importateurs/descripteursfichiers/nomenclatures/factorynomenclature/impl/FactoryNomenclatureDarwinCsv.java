@@ -319,7 +319,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 				return null;
 			}
 
-			switch (pNumeroChamp) {
+			switch (pNumeroChamp) { // NOPMD by daniel.levy on 14/05/19 11:54
 
 			/* PROFIL EN TRAVERS SICRE. */
 			case 58:
@@ -411,7 +411,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 				return null;
 			}
 
-			switch (pNumeroChamp) {
+			switch (pNumeroChamp) { // NOPMD by daniel.levy on 14/05/19 11:54
 
 			/* PROFIL EN TRAVERS SICRE. */
 			case 58:
@@ -583,22 +583,26 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	public static Set<Integer> getSetClesPossiblesSens() 
 													throws Exception {
 		
-		if (setClesPossiblesSens == null) {
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
+			if (setClesPossiblesSens == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+								.getFichierNomenclatureDarwinCsvSensUtf8());
+				
+				setClesPossiblesSens = importeur.getClesPossiblesSet();
+				nomenclatureMapSens = importeur.getNomenclatureMap();
+			}
 			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-							.getFichierNomenclatureDarwinCsvSensUtf8());
+			return setClesPossiblesSens;
 			
-			setClesPossiblesSens = importeur.getClesPossiblesSet();
-			nomenclatureMapSens = importeur.getNomenclatureMap();
-		}
-		
-		return setClesPossiblesSens;
-		
+		} // Fin du bloc synchronized.______________________________
+				
 	} // Fin de getSetClesPossiblesSens()._________________________________
 
 	
@@ -627,22 +631,26 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	public static SortedMap<Integer, String> getNomenclatureMapSens() 
 														throws Exception {
 		
-		if (nomenclatureMapSens == null) {
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
+			if (nomenclatureMapSens == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+								.getFichierNomenclatureDarwinCsvSensUtf8());
+				
+				setClesPossiblesSens = importeur.getClesPossiblesSet();
+				nomenclatureMapSens = importeur.getNomenclatureMap();
+			}
 			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-							.getFichierNomenclatureDarwinCsvSensUtf8());
-			
-			setClesPossiblesSens = importeur.getClesPossiblesSet();
-			nomenclatureMapSens = importeur.getNomenclatureMap();
-		}
-		
-		return nomenclatureMapSens;
-		
+			return nomenclatureMapSens;
+
+		} // Fin du bloc synchronized.______________________________
+				
 	} // Fin de getNomenclatureMapSens().__________________________________
 
 
@@ -666,23 +674,27 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	 */
 	public static Set<Integer> getSetClesPossiblesTypeComptage() 
 													throws Exception {
-				
-		if (setClesPossiblesTypeComptage == null) {
-			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-							.getFichierNomenclatureDarwinCsvTypeComptageUtf8());
-			
-			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
-			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
-		}
-
-		return setClesPossiblesTypeComptage;
 		
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
+			
+			if (setClesPossiblesTypeComptage == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+								.getFichierNomenclatureDarwinCsvTypeComptageUtf8());
+				
+				setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+				nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+			}
+
+			return setClesPossiblesTypeComptage;
+
+		} // Fin du bloc synchronized.______________________________
+						
 	} // Fin de getSetClesPossiblesTypeComptage().________________________
 
 
@@ -713,22 +725,26 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	public static SortedMap<Integer, String> getNomenclatureMapTypeComptage() 
 															throws Exception {
 		
-		if (nomenclatureMapTypeComptage == null) {
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-							.getFichierNomenclatureDarwinCsvTypeComptageUtf8());
-			
-			setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
-			nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
-		}
+			if (nomenclatureMapTypeComptage == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+								.getFichierNomenclatureDarwinCsvTypeComptageUtf8());
+				
+				setClesPossiblesTypeComptage = importeur.getClesPossiblesSet();
+				nomenclatureMapTypeComptage = importeur.getNomenclatureMap();
+			}
 
-		return nomenclatureMapTypeComptage;
-		
+			return nomenclatureMapTypeComptage;
+
+		} // Fin du bloc synchronized.______________________________
+				
 	} // Fin de getNomenclatureMapTypeComptage().__________________________
 
 
@@ -752,22 +768,26 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	 */
 	public static Set<Integer> getSetClesPossiblesClassementRoute() 
 													throws Exception {
+		
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
+			
+			if (setClesPossiblesClassementRoute == null) {
 				
-		if (setClesPossiblesClassementRoute == null) {
-			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-							.getFichierNomenclatureDarwinCsvClassementRouteUtf8());
-			
-			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
-			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
-		}
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+								.getFichierNomenclatureDarwinCsvClassementRouteUtf8());
+				
+				setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+				nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+			}
+		
+			return setClesPossiblesClassementRoute;
 
-		return setClesPossiblesClassementRoute;
+		} // Fin du bloc synchronized.______________________________
 		
 	} // Fin de getSetClesPossiblesClassementRoute().______________________
 
@@ -799,21 +819,25 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	public static SortedMap<Integer, String> getNomenclatureMapClassementRoute() 
 															throws Exception {
 		
-		if (nomenclatureMapClassementRoute == null) {
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-							.getFichierNomenclatureDarwinCsvClassementRouteUtf8());
-			
-			setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
-			nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
-		}
+			if (nomenclatureMapClassementRoute == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+								.getFichierNomenclatureDarwinCsvClassementRouteUtf8());
+				
+				setClesPossiblesClassementRoute = importeur.getClesPossiblesSet();
+				nomenclatureMapClassementRoute = importeur.getNomenclatureMap();
+			}
 
-		return nomenclatureMapClassementRoute;
+			return nomenclatureMapClassementRoute;
+
+		} // Fin du bloc synchronized.______________________________
 		
 	} // Fin de getNomenclatureMapClassementRoute()._______________________
 
@@ -839,23 +863,27 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	public static Set<String> getSetClesPossiblesProfilTraversSicre() 
 													throws Exception {
 		
-		if (setClesPossiblesProfilTraversSicre == null) {
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
 			
-			final IImporteurLexique importeur 
-				= new ImporteurLexique();
+			if (setClesPossiblesProfilTraversSicre == null) {
+				
+				final IImporteurLexique importeur 
+					= new ImporteurLexique();
+				
+				importeur
+					.importerLexiqueEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvProfilTraversUtf8());
+							
+				setClesPossiblesProfilTraversSicre 
+					= importeur.getClesPossiblesSet();
+				lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+				
+			}
 			
-			importeur
-				.importerLexiqueEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-						.getFichierNomenclatureDarwinCsvProfilTraversUtf8());
-						
-			setClesPossiblesProfilTraversSicre 
-				= importeur.getClesPossiblesSet();
-			lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
-			
-		}
-		
-		return setClesPossiblesProfilTraversSicre;
+			return setClesPossiblesProfilTraversSicre;
+
+		} // Fin du bloc synchronized.______________________________
 		
 	} // Fin de getSetClesPossiblesProfilTraversSicre().___________________
 
@@ -886,23 +914,27 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	public static SortedMap<String, String> getLexiqueMapProfilTraversSicre() 
 														throws Exception {
 		
-		if (lexiqueMapProfilTraversSicre == null) {
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
 			
-			final IImporteurLexique importeur 
-				= new ImporteurLexique();
+			if (lexiqueMapProfilTraversSicre == null) {
+				
+				final IImporteurLexique importeur 
+					= new ImporteurLexique();
+				
+				importeur
+					.importerLexiqueEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvProfilTraversUtf8());
+							
+				setClesPossiblesProfilTraversSicre 
+					= importeur.getClesPossiblesSet();
+				lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
+				
+			}
 			
-			importeur
-				.importerLexiqueEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-						.getFichierNomenclatureDarwinCsvProfilTraversUtf8());
-						
-			setClesPossiblesProfilTraversSicre 
-				= importeur.getClesPossiblesSet();
-			lexiqueMapProfilTraversSicre = importeur.getLexiqueMap();
-			
-		}
-		
-		return lexiqueMapProfilTraversSicre;
+			return lexiqueMapProfilTraversSicre;
+
+		} // Fin du bloc synchronized.______________________________
 		
 	} // Fin de getLexiqueMapProfilTraversSicre()._________________________
 
@@ -927,23 +959,27 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	 */
 	public static Set<Integer> getSetClesPossiblesSousReseauIndice() 
 													throws Exception {
+		
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
+					
+			if (setClesPossiblesSousReseauIndice == null) {
 				
-		if (setClesPossiblesSousReseauIndice == null) {
-			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-						.getFichierNomenclatureDarwinCsvSousReseauIndiceUtf8());
-			
-			setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
-			nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
-			
-		}
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvSousReseauIndiceUtf8());
+				
+				setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
+				nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
+				
+			}
+		
+			return setClesPossiblesSousReseauIndice;
 
-		return setClesPossiblesSousReseauIndice;
+		} // Fin du bloc synchronized.______________________________
 		
 	} // Fin de getSetClesPossiblesSousReseauIndice()._____________________
 
@@ -975,22 +1011,26 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	public static SortedMap<Integer, String> getNomenclatureMapSousReseauIndice() 
 															throws Exception {
 		
-		if (nomenclatureMapSousReseauIndice == null) {
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
 			
-			final IImporteurNomenclature importeur 
-				= new ImporteurNomenclature();
-			
-			importeur
-				.importerNomenclatureEnUtf8(
-						ConfigurationNomenclaturesDarwinCsvManager
-						.getFichierNomenclatureDarwinCsvSousReseauIndiceUtf8());
-			
-			setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
-			nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
-			
-		}
+			if (nomenclatureMapSousReseauIndice == null) {
+				
+				final IImporteurNomenclature importeur 
+					= new ImporteurNomenclature();
+				
+				importeur
+					.importerNomenclatureEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvSousReseauIndiceUtf8());
+				
+				setClesPossiblesSousReseauIndice = importeur.getClesPossiblesSet();
+				nomenclatureMapSousReseauIndice = importeur.getNomenclatureMap();
+				
+			}
 
-		return nomenclatureMapSousReseauIndice;
+			return nomenclatureMapSousReseauIndice;
+
+		} // Fin du bloc synchronized.______________________________
 		
 	} // Fin de getNomenclatureMapSousReseauIndice().______________________
 
