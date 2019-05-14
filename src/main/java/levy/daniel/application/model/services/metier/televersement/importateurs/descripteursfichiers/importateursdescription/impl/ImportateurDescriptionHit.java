@@ -61,16 +61,13 @@ public class ImportateurDescriptionHit extends
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * CLASSE_IMPORTATEURDESCRIPTIONHIT : String :<br/>
 	 * "Classe ImportateurDescriptionHit - ".<br/>
 	 */
 	public static final String CLASSE_IMPORTATEURDESCRIPTIONHIT 
 	= "Classe ImportateurDescriptionHit - ";
 	
 	
-	
 	/**
-	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG = LogFactory
@@ -80,30 +77,19 @@ public class ImportateurDescriptionHit extends
 	// *************************METHODES************************************/
 	
 	/**
-	 * method CONSTRUCTEUR ImportateurDescriptionHit() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
+	 * 
 	 * @throws Exception 
 	 */
 	public ImportateurDescriptionHit() throws Exception {
 		
-		super();
-		
-		/* Passe le bon DescriptionChamp. */
-		this.descriptionChamp = new DescriptionChampHit();
-		
-		/* Détermination de la valeur du boolean qui
-		 * stipule si il faut logger l'import de la description
-		 * ou pas. */
-		this.determinerSiLogErreurs();
+		this(null);
 		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 	
 		
 	 /**
-	 * method CONSTRUCTEUR ImportateurDescriptionHit(
-	 * File pDescriptionDuFichierFile) :<br/>
 	 * CONSTRUCTEUR ARCHICOMPLET.<br/>
 	 * <br/>
 	 *
