@@ -13,7 +13,7 @@
  * <li><b>src/test/resources</b> qui doit contenir toutes les <b>ressources des tests JUnit</b> (jeux d'essai).</li>
  * </ol>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/repertoires_source_MAVEN.png" 
+ * <img src="../../../../../../javadoc/images/repertoires_source_MAVEN.png" 
  * alt="repertoires_source_maven" border="1" align="center" />
  * </div>
  * 
@@ -25,7 +25,7 @@
  * (srcTestJavaPath + groupIdPathRelatif).<br/>
  * <br/>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/groupId_sous_src_main_java.png" 
+ * <img src="../../../../../../javadoc/images/groupId_sous_src_main_java.png" 
  * alt="racine des sources et des tests" border="1" align="center" />
  * </div>
  * 
@@ -43,7 +43,7 @@
  * indépendant de la logique métier (Exceptions, managers, ...).</li>
  * </ul>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/couches_applicatives.png" 
+ * <img src="../../../../../../javadoc/images/couches_applicatives.png" 
  * alt="couches applicatives" border="1" align="center" />
  * </div>
  * 
@@ -87,7 +87,7 @@
  * par toute l'application.</li>
  * </ul>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/couche_model.png" 
+ * <img src="../../../../../../javadoc/images/couche_model.png" 
  * alt="couche MODEL" border="1" align="center" />
  * </div>
  * 
@@ -98,7 +98,7 @@
  * </span>
  * </p>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/sous-couche_DTO.png" 
+ * <img src="../../../../../../javadoc/images/sous-couche_DTO.png" 
  * alt="sous-couche DTO" border="1" align="center" />
  * </div>
  * 
@@ -109,7 +109,7 @@
  * </span>
  * </p>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/sous-couche_metier.png" 
+ * <img src="../../../../../../javadoc/images/sous-couche_metier.png" 
  * alt="sous-couche METIER" border="1" align="center" />
  * </div>
  * 
@@ -120,7 +120,7 @@
  * </span>
  * </p>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/sous-couche_persistence.png" 
+ * <img src="../../../../../../javadoc/images/sous-couche_persistence.png" 
  * alt="sous-couche PERSISTENCE" border="1" align="center" />
  * </div>
  * 
@@ -131,7 +131,7 @@
  * </span>
  * </p>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/sous-couche_services.png" 
+ * <img src="../../../../../../javadoc/images/sous-couche_services.png" 
  * alt="sous-couche SERVICES" border="1" align="center" />
  * </div>
  * 
@@ -142,7 +142,7 @@
  * </span>
  * </p>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/sous-couche_utilitaires.png" 
+ * <img src="../../../../../../javadoc/images/sous-couche_utilitaires.png" 
  * alt="sous-couche UTILITAIRES" border="1" align="center" />
  * </div>
  * 
@@ -168,7 +168,7 @@
  * </div>
  * 
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/couche_vues.png" 
+ * <img src="../../../../../../javadoc/images/couche_vues.png" 
  * alt="couche VUES" border="1" align="center" />
  * </div>
 
@@ -194,7 +194,7 @@
  * </div>
  * 
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/couche_controllers.png" 
+ * <img src="../../../../../../javadoc/images/couche_controllers.png" 
  * alt="couche CONTROLLERS" border="1" align="center" />
  * </div>
  * 
@@ -205,7 +205,7 @@
  * </span></b>
  * </p>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/couche_apptechnic.png" 
+ * <img src="../../../../../../javadoc/images/couche_apptechnic.png" 
  * alt="couche APPTECHNIC" border="1" align="center" />
  * </div>
  * 
@@ -216,7 +216,7 @@
  * </span></b>
  * </p>
  * <div>
- * <img src="../../../../../../javadoc/images/arboresceurprojet/repertoires_externes.png" 
+ * <img src="../../../../../../javadoc/images/repertoires_externes.png" 
  * alt="REPERTOIRES EXTERNES" border="1" align="center" />
  * </div>
  * 
