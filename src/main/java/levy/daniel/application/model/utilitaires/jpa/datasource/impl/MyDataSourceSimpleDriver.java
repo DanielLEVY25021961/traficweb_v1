@@ -295,7 +295,13 @@ public class MyDataSourceSimpleDriver implements IMyDataSource {
 		if (this.dataSource != null) {
 			
 			this.url = this.dataSource.getUrl();
-			this.driver = this.dataSource.getDriver().getClass().getName();
+			
+			final Driver driverLocal = this.dataSource.getDriver();
+			
+			if (driverLocal != null) {
+				this.driver = driverLocal.getClass().getName();
+			}
+			
 			this.userName = this.dataSource.getUsername();
 			this.password = this.dataSource.getPassword();
 			
@@ -367,7 +373,14 @@ public class MyDataSourceSimpleDriver implements IMyDataSource {
 		final StringBuilder builder = new StringBuilder();
 
 		final String urlLocal = pDataSource.getUrl();
-		final String driverLocal = pDataSource.getDriver().toString();
+		
+		String driverLocalString = null;
+		final Driver driverLocal = pDataSource.getDriver();
+		
+		if (driverLocal != null) {
+			driverLocalString = driverLocal.toString();
+		}
+		
 		final String loginLocal = pDataSource.getUsername();
 		final String passwordLocal = pDataSource.getPassword();
 
@@ -383,8 +396,8 @@ public class MyDataSourceSimpleDriver implements IMyDataSource {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("DRIVER = ");
-		if (driverLocal != null) {
-			builder.append(driverLocal);
+		if (driverLocalString != null) {
+			builder.append(driverLocalString);
 		} else {
 			builder.append(NULL);
 		}

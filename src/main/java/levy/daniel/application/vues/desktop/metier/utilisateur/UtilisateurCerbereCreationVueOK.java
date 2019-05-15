@@ -335,7 +335,7 @@ public class UtilisateurCerbereCreationVueOK extends AnchorPane {
 								this.afficherVueCreationKO(
 										reponse, stageAffichageLocal);
 															
-							} else { // NOPMD by daniel.levy on 15/05/19 12:15
+							} else { 
 								/**/
 							}
 							

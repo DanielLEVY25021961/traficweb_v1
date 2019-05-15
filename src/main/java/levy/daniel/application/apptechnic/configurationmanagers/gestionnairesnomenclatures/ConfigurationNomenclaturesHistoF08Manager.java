@@ -3973,8 +3973,12 @@ public final class ConfigurationNomenclaturesHistoF08Manager {
 			
 			final Path pathClasses = pathRessources.getParent();
 			
-			final String pathClassesString = pathClasses.toString();
+			String pathClassesString = null;
 			
+			if (pathClasses != null) {
+				pathClassesString = pathClasses.toString();
+			}
+						
 			return pathClassesString;
 			
 		} // Fin de synchronized.________________________________________

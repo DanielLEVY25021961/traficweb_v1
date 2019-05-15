@@ -368,7 +368,7 @@ public class UtilisateurCerbereCreationVueKO extends AnchorPane {
 										reponse, this.stageAffichageLocal);
 
 							/* Si OK : */	
-							} else { // NOPMD by daniel.levy on 15/05/19 12:15
+							} else { 
 								/**/
 							}
 

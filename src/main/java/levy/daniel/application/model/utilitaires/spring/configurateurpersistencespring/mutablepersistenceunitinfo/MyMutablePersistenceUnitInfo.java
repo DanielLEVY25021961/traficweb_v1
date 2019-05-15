@@ -2,6 +2,7 @@ package levy.daniel.application.model.utilitaires.spring.configurateurpersistenc
 
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.sql.Driver;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -938,7 +939,14 @@ public class MyMutablePersistenceUnitInfo
 		final StringBuilder builder = new StringBuilder();
 
 		final String url = pDataSource.getUrl();
-		final String driver = pDataSource.getDriver().toString();
+		
+		String driver = null;
+		final Driver driverLocal = pDataSource.getDriver();
+		
+		if (driverLocal != null) {
+			driver = driverLocal.toString();
+		}
+		
 		final String login = pDataSource.getUsername();
 		final String password = pDataSource.getPassword();
 

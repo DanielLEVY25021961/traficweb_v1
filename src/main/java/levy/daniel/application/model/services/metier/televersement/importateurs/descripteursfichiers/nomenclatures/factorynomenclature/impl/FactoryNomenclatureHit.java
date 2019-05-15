@@ -644,12 +644,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	public Set<String> getClesPossiblesSetLexique(
 			final int pNumeroChamp) 
 							throws Exception {
-
-		synchronized (FactoryNomenclatureHit.this) {
-			
 			return null;
-			
-		} // Fin de synchronized._________________________
 			
 	} // Fin de getClesPossiblesSetLexique(...).___________________________
 	
@@ -788,12 +783,8 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	public SortedMap<String, String> getLexiqueMap(
 										final int pNumeroChamp) 
 												throws Exception {
-		
-		synchronized (FactoryNomenclatureHit.this) {
 						
-			return null;
-			
-		} // Fin de synchronized._________________________
+		return null;
 		
 	} // Fin de getLexiqueMap(...).________________________________________
 	

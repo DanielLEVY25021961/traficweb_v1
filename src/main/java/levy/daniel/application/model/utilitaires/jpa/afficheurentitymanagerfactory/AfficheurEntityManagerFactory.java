@@ -1,6 +1,7 @@
 package levy.daniel.application.model.utilitaires.jpa.afficheurentitymanagerfactory;
 
 import java.lang.reflect.InvocationTargetException;
+import java.sql.Driver;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
@@ -342,7 +343,14 @@ public final class AfficheurEntityManagerFactory {
 			
 			final StringBuilder stb = new StringBuilder();
 			
-			final String driverLocal = pDataSource.getDriver().toString();
+			String driverLocal = null;
+			
+			final Driver driver = pDataSource.getDriver();
+			
+			if (driver != null) {
+				driverLocal = driver.toString();
+			}
+			
 			final String urlLocal = pDataSource.getUrl();
 			final String userNameLocal = pDataSource.getUsername();
 			final String passwordLocal = pDataSource.getPassword();		

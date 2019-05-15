@@ -1,6 +1,7 @@
 package levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring;
 
 import java.net.URL;
+import java.sql.Driver;
 import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
@@ -607,7 +608,13 @@ public class PersistenceUnitInfoJPASansXML implements PersistenceUnitInfo {
 		final StringBuilder builder = new StringBuilder();
 
 		final String url = pDataSource.getUrl();
-		final String driver = pDataSource.getDriver().toString();
+		String driverString = null;
+		final Driver driverLocal = pDataSource.getDriver();
+		
+		if (driverLocal != null) {
+			driverString = driverLocal.toString();
+		}
+		
 		final String login = pDataSource.getUsername();
 		final String password = pDataSource.getPassword();
 
@@ -623,8 +630,8 @@ public class PersistenceUnitInfoJPASansXML implements PersistenceUnitInfo {
 		builder.append(VIRGULE_ESPACE);
 		
 		builder.append("DRIVER = ");
-		if (driver != null) {
-			builder.append(driver);
+		if (driverString != null) {
+			builder.append(driverString);
 		} else {
 			builder.append(NULL);
 		}

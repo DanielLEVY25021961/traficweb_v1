@@ -907,17 +907,24 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 			
 			final String nomFichierOld = nomFichier + ".old";
 			
-			final Path propOldPath = propOldPathParent.resolve(nomFichierOld);
+			Path propOldPath = null;
 			
-			// COPIE AVEC REMPLACEMENT ************************
-			Files.copy(
-					propPath
-						, propOldPath
-							, StandardCopyOption.REPLACE_EXISTING);
+			if (propOldPathParent != null) {
+				propOldPath = propOldPathParent.resolve(nomFichierOld);
+			}
+						
+			// COPIE AVEC REMPLACEMENT ************************			
+			if (propOldPath != null) {
+				
+				Files.copy(
+						propPath
+							, propOldPath
+								, StandardCopyOption.REPLACE_EXISTING);
+				assertTrue(
+						"le properties old doit avoir été créé : "
+							, propOldPath.toFile().exists());
+			}
 			
-			assertTrue(
-					"le properties old doit avoir été créé : "
-						, propOldPath.toFile().exists());
 		}
 
 	} // Fin de copierFichierPropertiesOld().______________________________
@@ -944,23 +951,32 @@ public class UtilisateurCerbereGestionnairePreferencesControlesTest {
 		
 		/* Path du fichier properties old. */
 		final Path propOldPathParent = propPath.getParent();		
-		final String nomFichierOld = nomFichier + ".old";		
-		final Path propOldPath = propOldPathParent.resolve(nomFichierOld);
-			
-		final File old = propOldPath.toFile();
+		final String nomFichierOld = nomFichier + ".old";
+		Path propOldPath = null;
 		
-		if (old.exists()) {
-					
-			// COPIE AVEC REMPLACEMENT ************************
-			Files.copy(
-					propOldPath
-						, propPath
-							, StandardCopyOption.REPLACE_EXISTING);
+		if (propOldPathParent != null) {
 			
-			assertTrue("le properties original doit avoir été recréé : ", propPath.toFile().exists());
+			propOldPath = propOldPathParent.resolve(nomFichierOld);
 			
-			/* détruit la copie de sécurité si elle existait. */
-			Files.deleteIfExists(propOldPath);
+			
+			
+			final File old = propOldPath.toFile();
+			
+			if (old.exists()) {
+						
+				// COPIE AVEC REMPLACEMENT ************************
+				Files.copy(
+						propOldPath
+							, propPath
+								, StandardCopyOption.REPLACE_EXISTING);
+				
+				assertTrue("le properties original doit avoir été recréé : "
+							, propPath.toFile().exists());
+				
+				/* détruit la copie de sécurité si elle existait. */
+				Files.deleteIfExists(propOldPath);
+			}
+
 		}
 		
 	} // Fin de recreerFichierPropertiesInitial()._________________________

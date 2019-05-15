@@ -1728,9 +1728,11 @@ public class LecteurPropertiesSpring {
 						DIALECT_KEY);
 			
 			/* ajout de la valeur dans le Property. */
-			this.persistenceUnitInfoJPASansXML
+			if (this.persistenceUnitInfoJPASansXML != null) {
+				this.persistenceUnitInfoJPASansXML
 				.addProperty("hibernate.dialect", this.dialect);
-			
+			}
+						
 		} else {
 			
 			final String message 
@@ -1774,9 +1776,11 @@ public class LecteurPropertiesSpring {
 						SHOWSQL_KEY);
 			
 			/* ajout de la valeur dans le Property. */
-			this.persistenceUnitInfoJPASansXML
+			if (this.persistenceUnitInfoJPASansXML != null) {
+				this.persistenceUnitInfoJPASansXML
 				.addProperty("hibernate.show_sql", this.showSql);
-			
+			}
+						
 		} else {
 			
 			final String message 
@@ -1820,9 +1824,11 @@ public class LecteurPropertiesSpring {
 						FORMATSQL_KEY);
 			
 			/* ajout de la valeur dans le Property. */
-			this.persistenceUnitInfoJPASansXML
+			if (this.persistenceUnitInfoJPASansXML != null) {
+				this.persistenceUnitInfoJPASansXML
 				.addProperty("hibernate.format_sql", this.formatSql);
-			
+			}
+						
 		} else {
 			
 			final String message 
@@ -1866,10 +1872,12 @@ public class LecteurPropertiesSpring {
 						USESQLCOMMENTS_KEY);
 			
 			/* ajout de la valeur dans le Property. */
-			this.persistenceUnitInfoJPASansXML
+			if (this.persistenceUnitInfoJPASansXML != null) {
+				this.persistenceUnitInfoJPASansXML
 				.addProperty("hibernate.use_sql_comments"
 							, this.useSqlComments);
-			
+			}
+						
 		} else {
 			
 			final String message 
@@ -1913,10 +1921,12 @@ public class LecteurPropertiesSpring {
 						GENERATESTATISTICS_KEY);
 			
 			/* ajout de la valeur dans le Property. */
-			this.persistenceUnitInfoJPASansXML
+			if (this.persistenceUnitInfoJPASansXML != null) {
+				this.persistenceUnitInfoJPASansXML
 				.addProperty("hibernate.generate_statistics"
 							, this.generateSatistics);
-			
+			}
+						
 		} else {
 			
 			final String message 
@@ -2960,13 +2970,19 @@ public class LecteurPropertiesSpring {
 		
 		final StringBuilder stb = new StringBuilder();
 		
-		final String driverLocal = pDataSource.getDriver().toString();
+		String driverLocalString = null;
+		final Driver driverLocal = pDataSource.getDriver();
+		
+		if (driverLocal != null) {
+			driverLocalString = driverLocal.toString();
+		}
+		
 		final String urlLocal = pDataSource.getUrl();
 		final String userNameLocal = pDataSource.getUsername();
 		final String passwordLocal = pDataSource.getPassword();
 		
 		stb.append("- DRIVER : ");
-		stb.append(driverLocal);
+		stb.append(driverLocalString);
 		
 		stb.append(SAUT_LIGNE_PLATEFORME);
 		
@@ -3263,29 +3279,48 @@ public class LecteurPropertiesSpring {
 		
 		if (this.getTransactionType() == null) {
 			
+			String resultat = null;
+			
 			nonJtaDataSourceLocal 
 				= (SimpleDriverDataSource) 
 				this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
+			
+			if (nonJtaDataSourceLocal != null) {
+				resultat = nonJtaDataSourceLocal.getUrl();
+			}
 						
-			return nonJtaDataSourceLocal.getUrl();
+			return resultat;
 			
 		} else if (this.getTransactionType()
 				.equals(PersistenceUnitTransactionType.JTA)) {
 			
+			String resultat = null;
+			
 			jtaDataSourceLocal 
 				= (SimpleDriverDataSource) 
 				this.persistenceUnitInfoJPASansXML.getJtaDataSource();
-						
-			return jtaDataSourceLocal.getUrl();
+			
+			if (jtaDataSourceLocal != null) {
+				resultat = jtaDataSourceLocal.getUrl();
+			}
+			
+			return resultat;
 			
 		} else if (this.getTransactionType()
 				.equals(PersistenceUnitTransactionType.RESOURCE_LOCAL)) {
 			
+			String resultat = null;
+			
 			nonJtaDataSourceLocal 
-			= (SimpleDriverDataSource) 
-			this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
-					
-			return nonJtaDataSourceLocal.getUrl();
+				= (SimpleDriverDataSource) 
+					this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
+			
+			if (nonJtaDataSourceLocal != null) {
+				resultat = nonJtaDataSourceLocal.getUrl();
+			}
+			
+			return resultat;
+
 		}
 		
 		return null;
@@ -3321,29 +3356,52 @@ public class LecteurPropertiesSpring {
 		
 		if (this.getTransactionType() == null) {
 			
+			Driver resultat = null;
+			
 			nonJtaDataSourceLocal 
 				= (SimpleDriverDataSource) 
 				this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
+			
+			if (nonJtaDataSourceLocal != null) {
+				resultat = nonJtaDataSourceLocal.getDriver();
+			}
 						
-			return nonJtaDataSourceLocal.getDriver();
+			return resultat;
 			
 		} else if (this.getTransactionType()
 				.equals(PersistenceUnitTransactionType.JTA)) {
 			
+			Driver resultat = null;
+			
 			jtaDataSourceLocal 
 				= (SimpleDriverDataSource) 
 				this.persistenceUnitInfoJPASansXML.getJtaDataSource();
+			
+			if (jtaDataSourceLocal != null) {
+				resultat = jtaDataSourceLocal.getDriver();
+			}
 						
-			return jtaDataSourceLocal.getDriver();
+			return resultat;			
 			
 		} else if (this.getTransactionType()
 				.equals(PersistenceUnitTransactionType.RESOURCE_LOCAL)) {
 			
+			Driver resultat = null;
+			
 			nonJtaDataSourceLocal 
 			= (SimpleDriverDataSource) 
 			this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
+			
+			jtaDataSourceLocal 
+				= (SimpleDriverDataSource) 
+				this.persistenceUnitInfoJPASansXML.getJtaDataSource();
+			
+			if (nonJtaDataSourceLocal != null) {
+				resultat = nonJtaDataSourceLocal.getDriver();
+			}
+						
+			return resultat;			
 					
-			return nonJtaDataSourceLocal.getDriver();
 		}
 		
 		return null;
@@ -3379,29 +3437,48 @@ public class LecteurPropertiesSpring {
 		
 		if (this.getTransactionType() == null) {
 			
+			String resultat = null;
+			
 			nonJtaDataSourceLocal 
 				= (SimpleDriverDataSource) 
 				this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
-						
-			return nonJtaDataSourceLocal.getUsername();
+			
+			if (nonJtaDataSourceLocal != null) {
+				resultat = nonJtaDataSourceLocal.getUsername();
+			}
+			
+			return resultat;
 			
 		} else if (this.getTransactionType()
 				.equals(PersistenceUnitTransactionType.JTA)) {
 			
+			String resultat = null;
+						
 			jtaDataSourceLocal 
 				= (SimpleDriverDataSource) 
 				this.persistenceUnitInfoJPASansXML.getJtaDataSource();
-					
-			return jtaDataSourceLocal.getUsername();
+			
+			if (jtaDataSourceLocal != null) {
+				resultat = jtaDataSourceLocal.getUsername();
+			}
+			
+			return resultat;
 			
 		} else if (this.getTransactionType()
 				.equals(PersistenceUnitTransactionType.RESOURCE_LOCAL)) {
 			
+			String resultat = null;
+			
 			nonJtaDataSourceLocal 
-			= (SimpleDriverDataSource) 
-			this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
-					
-			return nonJtaDataSourceLocal.getUsername();
+				= (SimpleDriverDataSource) 
+					this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
+			
+			if (nonJtaDataSourceLocal != null) {
+				resultat = nonJtaDataSourceLocal.getUsername();
+			}
+			
+			return resultat;
+			
 		}
 		
 		return null;
@@ -3437,29 +3514,48 @@ public class LecteurPropertiesSpring {
 		
 		if (this.getTransactionType() == null) {
 			
+			String resultat = null;
+			
 			nonJtaDataSourceLocal 
 				= (SimpleDriverDataSource) 
-				this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
-						
-			return nonJtaDataSourceLocal.getPassword();
+					this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
+			
+			if (nonJtaDataSourceLocal != null) {
+				resultat = nonJtaDataSourceLocal.getPassword();
+			}
+			
+			return resultat;
 			
 		} else if (this.getTransactionType()
 				.equals(PersistenceUnitTransactionType.JTA)) {
 			
+			String resultat = null;
+			
 			jtaDataSourceLocal 
 				= (SimpleDriverDataSource) 
-				this.persistenceUnitInfoJPASansXML.getJtaDataSource();
-					
-			return jtaDataSourceLocal.getPassword();
+					this.persistenceUnitInfoJPASansXML.getJtaDataSource();
+			
+			if (jtaDataSourceLocal != null) {
+				resultat = jtaDataSourceLocal.getPassword();
+			}
+			
+			return resultat;
 			
 		} else if (this.getTransactionType()
 				.equals(PersistenceUnitTransactionType.RESOURCE_LOCAL)) {
 			
+			String resultat = null;
+			
 			nonJtaDataSourceLocal 
-			= (SimpleDriverDataSource) 
-			this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
-					
-			return nonJtaDataSourceLocal.getPassword();
+				= (SimpleDriverDataSource) 
+					this.persistenceUnitInfoJPASansXML.getNonJtaDataSource();
+			
+			if (nonJtaDataSourceLocal != null) {
+				resultat = nonJtaDataSourceLocal.getPassword();
+			}
+			
+			return resultat;
+			
 		}
 		
 		return null;

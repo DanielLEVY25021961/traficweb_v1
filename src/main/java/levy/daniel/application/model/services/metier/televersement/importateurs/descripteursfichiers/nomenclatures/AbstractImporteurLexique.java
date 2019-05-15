@@ -959,13 +959,17 @@ public abstract class AbstractImporteurLexique implements
 		final Path pFilePath = pFile.toPath();
 		final Path pFileParentPath = pFilePath.getParent();
 		
-		/* crée l'arborescence au dessus de pFile si elle n'existe pas. */
-		if (!pFileParentPath.toFile().exists()) {
-			Files.createDirectories(pFileParentPath);
+		if (pFileParentPath != null) {
+			
+			/* crée l'arborescence au dessus de pFile si elle n'existe pas. */
+			if (!pFileParentPath.toFile().exists()) {
+				Files.createDirectories(pFileParentPath);
+			}
+			
+			/* crée le fichier VIDE pFile si il n'existe pas. */
+			Files.createFile(pFilePath);
+
 		}
-		
-		/* crée le fichier VIDE pFile si il n'existe pas. */
-		Files.createFile(pFilePath);
 		
 		return pFile;
 		
