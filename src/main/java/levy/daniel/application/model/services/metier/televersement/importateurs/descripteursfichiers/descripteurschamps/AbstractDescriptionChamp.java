@@ -12,9 +12,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * class AbstractDescriptionChamp :<br/>
+ * CLASSE AbstractDescriptionChamp :<br/>
+ * <p>
  * Classe abstraite factorisant les attributs et méthodes 
  * des DescriptionChamp.<br/>
+ * </p>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

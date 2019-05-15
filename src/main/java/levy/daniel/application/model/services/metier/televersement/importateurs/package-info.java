@@ -1,8 +1,11 @@
 /**
  * class package-info :<br/>
+ * <p>
  * Ce package comporte toutes les classes chargées 
- * de lire les fichiers (HIT, Darwin, FeorXML, ...) 
+ * de lire les fichiers (HIT, HISTO_F07, HISTO_F08, DARWIN_CSV, FeorXML, ...) 
  * et de fournir des sections de trafic à l'application.<br/>
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

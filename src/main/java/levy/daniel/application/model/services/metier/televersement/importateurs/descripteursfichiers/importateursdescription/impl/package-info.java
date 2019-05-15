@@ -1,6 +1,19 @@
 /**
  * class package-info :<br/>
- * .<br/>
+ * <p>
+ * Package contenant l'ensemble des classes CONCRETES relatives à l'<b>import 
+ * des descriptions de fichier</b> (ImportateurDescription).<br/>
+ * Les ImportateurDescription sont chargés 
+ * de mettre à disposition de l'application les description 
+ * des fichiers (HIT, HISTO_F07, HISTO_F08, DARWIN_CSV, Feor XML, ...).<br/>
+ * </p>
+ * 
+ * <p>
+ * <b>Ces descriptions de fichier sont fournies par les ImportateursDescription 
+ * sous forme de 
+ * SortedMap&lt;Integer,IDescriptionChamp&gt;</b>.<br/>
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

@@ -1,10 +1,13 @@
 /**
  * CLASSE package-info :<br/>
+ * <p>
  * ce package contient toutes les classes de 
  * <b>SERVICES dédiés aux Objets metier</b> de TELEVERSEMENT chargées 
  * de faire l'interface entre les CONTROLLERS et le METIER.<br/>
  * les SERVICES (design pattern facade) sont le 
  * <i>point d'entrée</i> dans l'application.<br/>
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
