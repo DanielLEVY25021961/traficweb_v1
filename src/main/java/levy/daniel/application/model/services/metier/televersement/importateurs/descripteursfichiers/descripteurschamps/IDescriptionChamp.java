@@ -37,15 +37,23 @@ public interface IDescriptionChamp
 	
 	/**
 	 * Methode à implémenter dans chaque DescriptionChamp.<br/>
-	 * - Chargée d'alimenter les attributs de la classe.<br/>
-	 * - Chargée d'alimenter la SortedMap&lt;Integer, String&gt;
-	 *  'valeursDescriptionMap'.<br/>
-	 *  - Chargée d'alimenter la SortedMap&lt;Integer, Integer&gt;
-	 *  'longueursDescriptionMap'.<br/>
-	 * - Garantit que tous les DescriptionChamp concrets sauront lire un
-	 * tableau de tokens et alimenter la Map 'valeursDescriptionMap'.<br/>
-	 * - Le tableau de tokens correspond aux valeurs lues dans la
-	 * description du fichier pour un champ (ligne) donné.<br/>
+	 * <ul>
+	 * Cette méthode est :
+	 * <li>Chargée d'alimenter les attributs de la classe.</li>
+	 * <li>Chargée d'alimenter la SortedMap&lt;Integer, String&gt;
+	 *  <code><b>this.valeursDescriptionMap</b></code>.</li>
+	 * <li>Chargée d'alimenter la SortedMap&lt;Integer, Integer&gt;
+	 *  <code><b>this.longueursDescriptionMap</b></code>.</li>
+	 * <li>Garantit que tous les DescriptionChamp concrets sauront lire un
+	 * tableau de tokens et alimenter la SortedMap&lt;Integer, String&gt; 
+	 * <code><b>this.valeursDescriptionMap</b></code>.</li>
+	 * <li>Le tableau de tokens correspond aux valeurs lues dans la
+	 * description du fichier pour un champ (ligne) donné.</li>
+	 * </ul>
+	 * <br/>
+	 * - LOG FATAL, et jette une Exception si pTokens est null, vide
+	 * , trop court, ou si des champs indispensables 
+	 * (ordreChamps, colonnes, intitulé, ...) ne sont pas renseignés.<br/>
 	 * <br/>
 	 * 
 	 * @param pTokens : String[].<br/>
@@ -546,8 +554,7 @@ public interface IDescriptionChamp
 	 * @param pALexique : boolean : 
 	 * valeur à passer à aLexique.<br/>
 	 */
-	void setALexique(
-			final boolean pALexique);
+	void setALexique(boolean pALexique);
 
 
 	

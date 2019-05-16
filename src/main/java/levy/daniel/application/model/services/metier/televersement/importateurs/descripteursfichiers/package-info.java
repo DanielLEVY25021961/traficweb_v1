@@ -120,7 +120,7 @@
  * <p>
  * La description d'un champ de fichier ASCII (comme HIT ou HISTO_F07) diffère 
  * de la description d'un champ de fichier csv (comme DARWIN_CSV) 
- * car on besoin :<br/>
+ * car on a besoin :<br/>
  * - des colonnes de début et de fin localisant le champ dans un fichier ASCII 
  * (par exemple, le département est localisé entre 
  * les colonnes 1 et 3 dans un HIT ASCII),<br/>
