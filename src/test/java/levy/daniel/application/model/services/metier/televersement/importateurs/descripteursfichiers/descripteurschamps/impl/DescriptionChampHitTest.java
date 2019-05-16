@@ -1,6 +1,11 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -260,10 +265,29 @@ public class DescriptionChampHitTest {
 	/**
 	 * teste la méthode lireChamp(tokens[]).<br/>
 	 * <ul>
-	 * <li></li>
-	 * <li></li>
-	 * <li></li>
-	 * <li></li>
+	 * <li>garantit le bon fonctionnement de lireChamp(tokens[]).</li>
+	 * <li>garantit le calcul des champs calculés par lireChamp(tokens[]).</li>
+	 * <li>garantit le bon fonctionnement de tokensToString(tokens).</li>
+	 * <li>garantit le bon fonctionnement de entetesDescriptionToString()</li>
+	 * <li>garantit le bon fonctionnement de valeursDescriptionToString().</li>
+	 * <li>garantit le bon fonctionnement de fournirLigneEnTetesCsv().</li>
+	 * <li>garantit le bon fonctionnement de fournirLigneValeursCsv().</li>
+	 * <li>garantit le bon fonctionnement de getEntetesDescriptionMap().</li>
+	 * <li>garantit le bon fonctionnement de getValeursDescriptionMap().</li>
+	 * <li>garantit le bon fonctionnement de getOrdreChamps(.</li>
+	 * <li>garantit le bon fonctionnement de getColonnes().</li>
+	 * <li>garantit le bon fonctionnement de getLongueur().</li>
+	 * <li>garantit le bon fonctionnement de getIntitule().</li>
+	 * <li>garantit le bon fonctionnement de getNomenclature().</li>
+	 * <li>garantit le bon fonctionnement de getChampJava().</li>
+	 * <li>garantit le bon fonctionnement de getTypeJava().</li>
+	 * <li>garantit le bon fonctionnement de isANomenclature().</li>
+	 * <li>garantit le bon fonctionnement de isALexique().</li>
+	 * <li>garantit le bon fonctionnement de getColonneDebut().</li>
+	 * <li>garantit le bon fonctionnement de getColonneFin().</li>
+	 * <li>garantit le bon fonctionnement de getLongueurCalculee().</li>
+	 * <li>garantit le bon fonctionnement de fournirEnteteparColonne(int pI).</li>
+	 * <li>garantit le bon fonctionnement de fournirValeurparColonne(int pI).</li>
 	 * </ul>
 	 * 
 	 * @throws Exception 
@@ -274,7 +298,7 @@ public class DescriptionChampHitTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -284,14 +308,233 @@ public class DescriptionChampHitTest {
 		
 		final String[] tokens = {"1", "1-3", "3", "Numéro de Département", "cadré à gauche", "numDepartment", "Integer", "false", "false"};
 		
+		/* TEST. */
 		descriptionChamp.lireChamp(tokens);
+		
+		final Map<Integer, String> entetesDescriptionMap 
+			= descriptionChamp.getEntetesDescriptionMap();
+		
+		final Map<Integer, String> valeursDescriptionMap 
+			= descriptionChamp.getValeursDescriptionMap();
+		
+		final String entetesString = descriptionChamp.entetesDescriptionToString();
+		final String valeursString = descriptionChamp.valeursDescriptionToString();
+		final String entetesCsv = descriptionChamp.fournirLigneEnTetesCsv();
+		final String valeursCsv = descriptionChamp.fournirLigneValeursCsv();
+		
+		/* attributs. */
+		final Integer ordreChamps = descriptionChamp.getOrdreChamps();
+		final String colonnes = ((DescriptionChampHit) descriptionChamp).getColonnes();
+		final Integer longueur = ((DescriptionChampHit) descriptionChamp).getLongueur();
+		final String intitule = descriptionChamp.getIntitule();
+		final String nomenclature = descriptionChamp.getNomenclature();
+		final String champJava = descriptionChamp.getChampJava();
+		final String typeJava = descriptionChamp.getTypeJava();
+		final boolean aNomenclature = descriptionChamp.isANomenclature();
+		final boolean aLexique = descriptionChamp.isALexique();
+		final Integer colonneDebut = ((DescriptionChampHit) descriptionChamp).getColonneDebut();
+		final Integer colonneFin = ((DescriptionChampHit) descriptionChamp).getColonneFin();
+		final Integer longueurCalculee = ((DescriptionChampHit) descriptionChamp).getLongueurCalculee();
+		
+		
+		final String fournirEnteteparColonne0 = descriptionChamp.fournirEnteteparColonne(0);
+		final String fournirEnteteparColonne1 = descriptionChamp.fournirEnteteparColonne(1);
+		final String fournirEnteteparColonne2 = descriptionChamp.fournirEnteteparColonne(2);
+		final String fournirEnteteparColonne3 = descriptionChamp.fournirEnteteparColonne(3);
+		
+		final String fournirValeurparColonne0 = descriptionChamp.fournirValeurparColonne(0);
+		final String fournirValeurparColonne1 = descriptionChamp.fournirValeurparColonne(1);
+		final String fournirValeurparColonne2 = descriptionChamp.fournirValeurparColonne(2);
+		final String fournirValeurparColonne3 = descriptionChamp.fournirValeurparColonne(3);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println(descriptionChamp.descriptionChampToString());
+			
+			System.out.println();
+			System.out.println("tokensToString(tokens) : " + descriptionChamp.tokensToString(tokens));
+			System.out.println("descriptionChampToString : " + descriptionChamp.descriptionChampToString());
+			
+			System.out.println();
+			System.out.println("entetesString : " + entetesString);
+			System.out.println("valeursString : " + valeursString);
+			System.out.println("entetesCsv : " + entetesCsv);
+			System.out.println("valeursCsv : " + valeursCsv);
+			
+			System.out.println();
+			System.out.println("entetesDescriptionMap : " + entetesDescriptionMap);
+			System.out.println("valeursDescriptionMap : " + valeursDescriptionMap);
+			
+			System.out.println();
+			System.out.println("ordreChamps : " + ordreChamps);
+			System.out.println("colonnes : " + colonnes);
+			System.out.println("longueur : " + longueur);
+			System.out.println("intitule : " + intitule);
+			System.out.println("nomenclature : " + nomenclature);
+			System.out.println("champJava : " + champJava);
+			System.out.println("typeJava : " + typeJava);
+			System.out.println("aNomenclature : " + aNomenclature);
+			System.out.println("aLexique : " + aLexique);
+			System.out.println("colonneDebut : " + colonneDebut);
+			System.out.println("colonneFin : " + colonneFin);
+			System.out.println("longueurCalculee : " + longueurCalculee);
+			
+			System.out.println();
+			System.out.println("fournirEnteteparColonne0 : " + fournirEnteteparColonne0);
+			System.out.println("fournirEnteteparColonne1 : " + fournirEnteteparColonne1);
+			System.out.println("fournirEnteteparColonne2 : " + fournirEnteteparColonne2);
+			System.out.println("fournirEnteteparColonne3 : " + fournirEnteteparColonne3);
+			
+			System.out.println();
+			System.out.println("fournirValeurparColonne0 : " + fournirValeurparColonne0);
+			System.out.println("fournirValeurparColonne1 : " + fournirValeurparColonne1);
+			System.out.println("fournirValeurparColonne2 : " + fournirValeurparColonne2);
+			System.out.println("fournirValeurparColonne3 : " + fournirValeurparColonne3);
 		}
 		
-		final Integer ordreChamps = descriptionChamp.getOrdreChamps();
+		/* garantit le bon fonctionnement de lireChamp(tokens[]). */
+		/* garantit le calcul des champs calculés par lireChamp(tokens[]). */
+		
+		/* garantit le bon fonctionnement de tokensToString(tokens).*/
+		assertEquals(
+				"bon fonctionnement de tokensToString(tokens) : "
+				, "1;1-3;3;Numéro de Département;cadré à gauche;numDepartment;Integer;false;false;"
+				, descriptionChamp.tokensToString(tokens));
+		
+		/* garantit le bon fonctionnement de entetesDescriptionToString()). */
+		assertEquals(
+				"bon fonctionnement de entetesDescriptionToString() : "
+				, "[ordreChamps, colonnes, longueur, intitule, nomenclature, champJava, typeJava, aNomenclature, aLexique, colonneDebut, colonneFin, longueurCalculee]"
+				, entetesString);
+		
+		/* garantit le bon fonctionnement de valeursDescriptionToString()). */
+		assertEquals(
+				"bon fonctionnement de valeursDescriptionToString() : "
+				, "[ordreChamps = 1, colonnes = 1-3, longueur = 3, intitule = Numéro de Département, nomenclature = cadré à gauche, champJava = numDepartment, typeJava = Integer, aNomenclature = false, aLexique = false, colonneDebut = 1, colonneFin = 3, longueurCalculee = 3]"
+				, valeursString);
+		
+		/* garantit le bon fonctionnement de fournirLigneEnTetesCsv()). */
+		assertEquals(
+				"bon fonctionnement de fournirLigneEnTetesCsv() : "
+				, "ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;"
+				, entetesCsv);
+		
+		/* garantit le bon fonctionnement de fournirLigneValeursCsv()). */
+		assertEquals(
+				"bon fonctionnement de fournirLigneValeursCsv() : "
+				, "1;1-3;3;Numéro de Département;cadré à gauche;numDepartment;Integer;false;false;1;3;3;"
+				, valeursCsv);
+		
+		/* garantit le bon fonctionnement de getEntetesDescriptionMap() : */
+		assertNotNull("bon fonctionnement de getEntetesDescriptionMap() : "
+				, entetesDescriptionMap);
+		
+		/* garantit le bon fonctionnement de getValeursDescriptionMap() : */
+		assertNotNull("bon fonctionnement de getValeursDescriptionMap() : "
+				, valeursDescriptionMap);
+		
+		/* garantit le bon fonctionnement de getOrdreChamps(). */
+		assertEquals(
+			"bon fonctionnement de getOrdreChamps() : "
+			, (Integer) 1
+			, ordreChamps);
+		
+		/* garantit le bon fonctionnement de getColonnes(). */
+		assertEquals(
+			"bon fonctionnement de getColonnes() : "
+			, "1-3"
+			, colonnes);
+		
+		/* garantit le bon fonctionnement de getLongueur(). */
+		assertEquals(
+			"bon fonctionnement de getLongueur() : "
+			, (Integer) 3
+			, longueur);
+		
+		/* garantit le bon fonctionnement de getIntitule(). */
+		assertEquals(
+			"bon fonctionnement de getIntitule() : "
+			, "Numéro de Département"
+			, intitule);
+		
+		/* garantit le bon fonctionnement de getNomenclature(). */
+		assertEquals(
+			"bon fonctionnement de getNomenclature() : "
+			, "cadré à gauche"
+			, nomenclature);
+		
+		/* garantit le bon fonctionnement de getChampJava(). */
+		assertEquals(
+			"bon fonctionnement de getChampJava() : "
+			, "numDepartment"
+			, champJava);
+		
+		/* garantit le bon fonctionnement de getTypeJava(). */
+		assertEquals(
+			"bon fonctionnement de getTypeJava() : "
+			, "Integer"
+			, typeJava);
+		
+		/* garantit le bon fonctionnement de isANomenclature(). */
+		assertEquals(
+			"bon fonctionnement de isANomenclature() : "
+			, false
+			, aNomenclature);
+		
+		/* garantit le bon fonctionnement de isALexique(). */
+		assertEquals(
+			"bon fonctionnement de isALexique() : "
+			, false
+			, aLexique);
+		
+		/* garantit le bon fonctionnement de getColonneDebut(). */
+		assertEquals(
+			"bon fonctionnement de getColonneDebut() : "
+			, (Integer) 1
+			, colonneDebut);
+		
+		/* garantit le bon fonctionnement de getColonneFin(). */
+		assertEquals(
+			"bon fonctionnement de getColonneFin() : "
+			, (Integer) 3
+			, colonneFin);
+		
+		/* garantit le bon fonctionnement de getLongueurCalculee(). */
+		assertEquals(
+			"bon fonctionnement de getLongueurCalculee() : "
+			, (Integer) 3
+			, longueurCalculee);
+		
+		/* garantit le bon fonctionnement de fournirEnteteparColonne(int pI). */
+		assertNull(DOIT_RETOURNER_NULL
+				, fournirEnteteparColonne0);
+		assertEquals(
+				"bon fonctionnement de fournirEnteteparColonne(1) : "
+				, "ordreChamps"
+				, fournirEnteteparColonne1);
+		assertEquals(
+				"bon fonctionnement de fournirEnteteparColonne(2) : "
+				, "colonnes"
+				, fournirEnteteparColonne2);
+		assertEquals(
+				"bon fonctionnement de fournirEnteteparColonne(3) : "
+				, "longueur"
+				, fournirEnteteparColonne3);
+		
+		/* garantit le bon fonctionnement de fournirValeurparColonne(int pI). */
+		assertNull(DOIT_RETOURNER_NULL
+				, fournirValeurparColonne0);
+		assertEquals(
+				"bon fonctionnement de fournirValeurparColonne(1) : "
+				, "1"
+				, fournirValeurparColonne1);
+		assertEquals(
+				"bon fonctionnement de fournirValeurparColonne(2) : "
+				, "1-3"
+				, fournirValeurparColonne2);
+		assertEquals(
+				"bon fonctionnement de fournirValeurparColonne(3) : "
+				, "3"
+				, fournirValeurparColonne3);
 
 	} // Fin de testLireChamp().___________________________________________
 

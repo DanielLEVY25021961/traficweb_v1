@@ -36,7 +36,13 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * Methode à implémenter dans chaque DescriptionChamp.<br/>
+	 * Lit le tableau String[] pTokens correspondant à la 
+	 * définition d'un champ donné dans une description de fichier 
+	 * (ligne d'une description de fichier) 
+	 * et alimente les attributs d'une encapsulation IDescriptionChamp.<br/>
+	 * Calcule automatiquement les champs <i>non obligatoirement fournis</i> 
+	 * (colonne début, colonne fin, longueur calculée).<br/>
+	 * Methode à implémenter dans chaque DescriptionChamp concret.<br/>
 	 * <ul>
 	 * Cette méthode est :
 	 * <li>Chargée d'alimenter les attributs de la classe.</li>
@@ -66,10 +72,7 @@ public interface IDescriptionChamp
 	 * , "numDepartment"
 	 * , "Integer"
 	 * , "false"
-	 * , "false"
-	 * , "1"
-	 * , "3"
-	 * , "3"}
+	 * , "false"}
 	 * pour DescriptionChampHistoF07 appliquée au champ numéro
 	 * de département (ligne 1) dans la description du fichier
 	 * HISTO_F07.<br/>
@@ -160,9 +163,10 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * Permet d'afficher une ligne de la description de fichier
-	 * - décomposée sous forme de tokens - sous forme de ligne 
-	 * csv avec séparateur ';'.<br/>
+	 * <b>Transforme String[] en csv</b>.<br/>
+	 * Affiche une ligne de la description de fichier
+	 * - décomposée sous forme de tableau String[] de tokens - 
+	 * sous forme de ligne CSV avec séparateur ';'.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
 	 * 1;1-3;3;Numéro de Département;calé à gauche;numDepartment;Integer;false;
@@ -235,12 +239,9 @@ public interface IDescriptionChamp
 	 * - String : le libellé (java) des colonnes de la description
 	 * de fichier.<br/>
 	 * Par exemple :<br/>
-	 * [1-ordreChamps;2-colonnes;3-longueur;4-intitule;5-nomenclature;
-	 * 6-champJava;7-typeJava;8-aNomenclature;
-	 * 9-colonneDebut;10-colonneFin;11-longueurCalculee;]
-	 * pour un DescriptionChampHistoF07.<br/>
-	 * [1-ordreChamps;2-intitule;3-nomenclature;
-	 * 4-champJava;5-typeJava;7-aNomenclature;] 
+	 * {1=ordreChamps, 2=colonnes, 3=longueur, 4=intitule, 5=nomenclature
+	 * , 6=champJava, 7=typeJava, 8=aNomenclature, 9=aLexique
+	 * , 10=colonneDebut, 11=colonneFin, 12=longueurCalculee}
 	 * pour un DescriptionChampDarwinCsv.<br/>
 	 * <br/>
 	 * 
@@ -293,8 +294,9 @@ public interface IDescriptionChamp
 	 * , (4 pour intitule, 'Sens'), etc...] pour le champ 'sens'
 	 *  (ligne 3) dans 
 	 * DescriptionChampHistoF07.<br/>
-	 * {1=1, 2=1-3, 3=3, 4=Numéro de Département, 5=calé à gauche
-	 * , 6=numDepartment, 7=Integer, 8=false, 9=1, 10=3, 11=3} 
+	 * {1=1, 2=1-3, 3=3, 4=Numéro de Département, 5=cadré à gauche
+	 * , 6=numDepartment, 7=Integer, 8=false, 9=false
+	 * , 10=1, 11=3, 12=3}
 	 * pour le champ 'Numéro de Département' 
 	 * (1ère ligne) dans la description du fichier HISTO_F07.<br/>
 	 * {1=2, 2=route, 3=Route au format Isidor 
