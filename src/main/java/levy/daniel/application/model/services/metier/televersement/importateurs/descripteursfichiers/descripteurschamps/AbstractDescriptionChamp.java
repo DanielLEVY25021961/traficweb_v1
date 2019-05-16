@@ -74,7 +74,6 @@ public abstract class AbstractDescriptionChamp
 	 * "\n" (Retour Ligne = LINE FEED (LF)).
 	 */
 	public static final String SAUTDELIGNE_UNIX = "\n";
-
 	
 	/**
 	 * Saut de ligne généré par les éditeurs Mac.<br/>
@@ -93,32 +92,36 @@ public abstract class AbstractDescriptionChamp
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
-
 	
+	/**
+	 * " = ".<br/>
+	 */
+	public static final String EGAL = " = ";
+	
+	/**
+	 * ", ".<br/>
+	 */
+	public static final String VIRGULE_AEREE = ", ";
 	
 	/* ATTRIBUTS. */
 	/**
-	 * entetesDescriptionMap : SortedMap&lt;Integer,String&gt; : <br/>
-	 * Map triée stockant :<br/>
+	 * SortedMap&lt;Integer,String&gt triée stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : le libellé (java) des colonnes de la description
 	 * de fichier.<br/>
 	 * Par exemple :<br/>
 	 * [1-ordreChamps;2-colonnes;3-longueur;4-intitule;5-nomenclature;
-	 * 6-champJava;7-typeJava;8-aNomenclature;
-	 * 9-colonneDebut;10-colonneFin;11-longueurCalculee;]
+	 * 6-champJava;7-typeJava;8-aNomenclature;9-aLexique;
+	 * 10-colonneDebut;11-colonneFin;12-longueurCalculee;]
 	 * pour un DescriptionChampHistoF07.<br/>
 	 * [1-ordreChamps;2-intitule;3-nomenclature;
-	 * 4-champJava;5-typeJava;7-aNomenclature;] 
+	 * 4-champJava;5-typeJava;7-aNomenclature;8-aLexique;] 
 	 * pour un DescriptionChampDarwinCsv.<br/>
 	 */
 	protected SortedMap<Integer, String> entetesDescriptionMap;
-	
-
-	
+		
 	/**
-	 * valeursDescriptionMap : SortedMap&lt;Integer,String&gt; : <br/>
-	 * Map triée stockant :<br/>
+	 * SortedMap&lt;Integer,String&gt; triée stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : les valeurs dans les colonnes de la description
 	 * de fichier pour un champ donné 
@@ -131,25 +134,19 @@ public abstract class AbstractDescriptionChamp
 	 * DescriptionChampHistoF07.<br/>
 	 */
 	protected SortedMap<Integer, String> valeursDescriptionMap;
-
-	
 	
 	/**
-	 * longueursDescriptionMap : SortedMap&lt;Integer,Integer&gt; : <br/>
-	 * Map triée stockant :<br/>
-	 * - l'ordre des colonnes d'une description de fichier.<br/>
-	 * - la longueur du contenu dans les colonnes de la description
+	 * SortedMap&lt;Integer,Integer&gt; triée stockant :<br/>
+	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
+	 * - Integer : la longueur du contenu dans les colonnes de la description
 	 * de fichier pour un champ donné (une ligne).<br/>
 	 * Map utile pour formater les sorties à la console 
 	 * (alignement des tableaux).<br/>
 	 * <br/>
 	 */
 	protected SortedMap<Integer, Integer> longueursDescriptionMap;
-	
-	
-	
+		
 	/**
-	 * nombreColonnesObligatoires : int : <br/>
 	 * nombre de colonnes que la description du fichier
 	 * passée en entrée doit obligatoirement comporter.<br/>
 	 * Intéressant si on doit générer des colonnes à partir
@@ -160,81 +157,66 @@ public abstract class AbstractDescriptionChamp
 	 * figureront dans entetesDescriptionMap.<br/>
 	 */
 	protected int nombreColonnesObligatoires;
-	
-	
-	
+		
 	/**
-	 * logDescription : boolean : 
 	 * boolean qui stipule si les DescriptionChamp
 	 * doivent rapporter ou pas 
 	 * (rapport d'erreur lors de la lecture des descriptions).<br/>
 	 */
 	protected boolean logDescription;
-	
-
-	
+		
 	/**
-	 * rapportDescriptionStb : StringBuffer : <br/>
 	 * StringBuffer chargé de contenir le rapport de
 	 * la lecture du champ.<br/>
 	 */
 	protected StringBuffer rapportDescriptionStb;
-
-
 		
 	/**
-	* ordreChamps : Integer :<br/>
 	* Ordre du champ (ligne) dans la description.<br/>
 	* Par exemple, 'Numéro de Section' est le 
 	* deuxième champ dans la description du HistonatF07.<br/>
 	*/
 	protected Integer ordreChamps;
-
-
 	
 	/**
-	 * intitule : String :<br/>
 	 * Intitulé du champ dans la description 
 	 * comme 'Numéro de Section'.<br/>
 	 */
 	protected String intitule;
-	
-	
+		
 	/**
-	 * nomenclature : String :<br/>
 	 * Nomenclature éventuelle du champ comme :<br/>
 	 * "3 - Cumul des deux sens. [sep]<br/>
 	 *  4 - Sens unique P.R. croissants.[sep]  <br/>
 	 *  5 - Sens unique P.R. Décroissants.".<br/>
 	 */
 	protected String nomenclature;
-	
-	
+		
 	/**
-	 * champJava : String :<br/>
 	 * Nom du champ dans l'application comme numDepartement 
 	 * pour 'Numéro de Département'.<br/>
 	 */
 	protected String champJava;
-	
-	
+		
 	/**
-	 * typeJava : String :<br/>
 	 * type Java du champ dans l'application 
 	 * comme Integer pour 'Numéro de Département'.<br/>
 	 */
 	protected String typeJava;
-	
-	
+		
 	/**
-	 * aNomenclature : boolean :<br/>
 	 * boolean qui stipule si le champ 
 	 * fait l'objet d'une nomenclature.<br/>
 	 */
 	protected boolean aNomenclature;
+		
+	/**
+	 * boolean qui stipule si le champ 
+	 * fait l'objet d'un lexique.<br/>
+	 */
+	protected boolean aLexique;
 	
-	
-	
+		
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -250,9 +232,7 @@ public abstract class AbstractDescriptionChamp
 	
 	
 	 /**
-	 * method CONSTRUCTEUR AbstractDescriptionChamp() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
 	 */
 	public AbstractDescriptionChamp() {
 		super();
@@ -302,7 +282,7 @@ public abstract class AbstractDescriptionChamp
 			stb.append(nomColonne);
 			
 			if (compteur < nombreColonnes) {
-				stb.append(", ");
+				stb.append(VIRGULE_AEREE);
 			}
 			
 		}
@@ -336,10 +316,10 @@ public abstract class AbstractDescriptionChamp
 		stb.append('[');
 		
 		final Set<Entry<Integer, String>> entrySet 
-		= this.valeursDescriptionMap.entrySet();
+			= this.valeursDescriptionMap.entrySet();
 	
 		final Iterator<Entry<Integer, String>> ite 
-		= entrySet.iterator();
+			= entrySet.iterator();
 	
 		int compteur = 0;
 		final int nombreColonnes = this.valeursDescriptionMap.size();
@@ -354,7 +334,7 @@ public abstract class AbstractDescriptionChamp
 			/* Nom de la colonne. */
 			stb.append(this.entetesDescriptionMap.get(compteur));
 			/* = */
-			stb.append(" = ");
+			stb.append(EGAL);
 			
 			final String valeurColonne 
 				= entry.getValue();
@@ -365,7 +345,7 @@ public abstract class AbstractDescriptionChamp
 			
 			if (compteur < nombreColonnes) {
 				/* ,  si pas le dernier. */
-				stb.append(", ");
+				stb.append(VIRGULE_AEREE);
 			}
 		
 		}
@@ -473,8 +453,7 @@ public abstract class AbstractDescriptionChamp
 		
 		return null;
 		
-	} // Fin de getEnteteparColonne(
-	 // int pI)._____________________________________________________
+	} // Fin de getEnteteparColonne(...).__________________________________
 	
 	
 	
@@ -493,8 +472,7 @@ public abstract class AbstractDescriptionChamp
 				
 		return null;
 		
-	} // Fin de getValeurparColonne(
-	 // int pI)._____________________________________________________
+	} // Fin de getValeurparColonne(...).__________________________________
 
 
 	
@@ -601,7 +579,7 @@ public abstract class AbstractDescriptionChamp
 			stb.append(longueur);
 			
 			if (i < taille - 1) {
-				stb.append(", ");
+				stb.append(VIRGULE_AEREE);
 			}
 		}
 		
@@ -648,7 +626,7 @@ public abstract class AbstractDescriptionChamp
 			stb.append(longueur);
 			
 			if (i < taille - 1) {
-				stb.append(", ");
+				stb.append(VIRGULE_AEREE);
 			}
 		}
 		
@@ -733,18 +711,7 @@ public abstract class AbstractDescriptionChamp
 
 
 	/**
-	 * method nettoyerString(
-	 * String pString) :<br/>
-	 * Sert à retirer des caractères incongrus dans la description
-	 * de fichier.<br/>
-	 * Par exemple, "Sens" devient 'sens' (guillemets nettoyés).<br/>
-	 * <br/>
-	 * - retourne null si pString est null.<br/>
-	 * <br/>
-	 * 
-	 * @param pString : la chaîne de caractères à nettoyer.<br/>
-	 * 
-	 * @return String : la chaîne nettoyée.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String nettoyerString(
@@ -867,7 +834,7 @@ public abstract class AbstractDescriptionChamp
 			
 			if (compteur < nombreColonnes) {
 				/* ,  si pas le dernier. */
-				stb.append(", ");
+				stb.append(VIRGULE_AEREE);
 			}
 		
 		}
@@ -1013,13 +980,7 @@ public abstract class AbstractDescriptionChamp
 
 	
 	/**
-	 * method getOrdreChamps() :<br/>
-	 * Getter de l'Ordre du champ (ligne) dans la description.<br/>
-	 * Par exemple, 'Numéro de Section' est le 
-	 * deuxième champ dans la description du HistonatF07.<br/>
-	 * <br/>
-	 *
-	 * @return ordreChamps : Integer.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final Integer getOrdreChamps() {
@@ -1029,31 +990,18 @@ public abstract class AbstractDescriptionChamp
 
 
 	/**
-	 * method setOrdreChamps(
-	 * Integer pOrdreChamps) :<br/>
-	 * Setter de l'Ordre du champ (ligne) dans la description.<br/>
-	 * Par exemple, 'Numéro de Section' est le 
-	 * deuxième champ dans la description du HistonatF07.<br/>
-	 * <br/>
-	 *
-	 * @param pOrdreChamps : Integer : valeur à passer à ordreChamps.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setOrdreChamps(
 			final Integer pOrdreChamps) {
 		this.ordreChamps = pOrdreChamps;
-	} // Fin de setOrdreChamps(
-	 // Integer pOrdreChamps)._____________________________________________
+	} // Fin de setOrdreChamps(...)._______________________________________
 
 
 
 	/**
-	 * method getIntitule() :<br/>
-	 * Getter de l'Intitulé du champ dans la description 
-	 * comme 'Numéro de Section'.<br/>
-	 * <br/>
-	 *
-	 * @return intitule : String.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getIntitule() {
@@ -1063,33 +1011,18 @@ public abstract class AbstractDescriptionChamp
 
 
 	/**
-	 * method setIntitule(
-	 * String pIntitule) :<br/>
-	 * Setter de l'Intitulé du champ dans la description 
-	 * comme 'Numéro de Section'.<br/>
-	 * <br/>
-	 *
-	 * @param pIntitule : String : 
-	 * valeur à passer à intitule.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void setIntitule(
 			final String pIntitule) {
 		this.intitule = pIntitule;
-	} // Fin de setIntitule(
-	 // String pIntitule)._________________________________________________
+	} // Fin de setIntitule(...).__________________________________________
 
 
 
 	/**
-	 * method getNomenclature() :<br/>
-	 * Getter de la Nomenclature éventuelle du champ comme :<br/>
-	 * "3 - Cumul des deux sens. [sep]<br/>
-	 *  4 - Sens unique P.R. croissants.[sep]  <br/>
-	 *  5 - Sens unique P.R. Décroissants.".<br/>
-	 * <br/>
-	 *
-	 * @return nomenclature : String.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getNomenclature() {
@@ -1099,34 +1032,18 @@ public abstract class AbstractDescriptionChamp
 
 
 	/**
-	 * method setNomenclature(
-	 * String pNomenclature) :<br/>
-	 * Setter de la Nomenclature éventuelle du champ comme :<br/>
-	 * "3 - Cumul des deux sens. [sep]<br/>
-	 *  4 - Sens unique P.R. croissants.[sep]  <br/>
-	 *  5 - Sens unique P.R. Décroissants.".<br/>
-	 * <br/>
-	 * <br/>
-	 *
-	 * @param pNomenclature : String : 
-	 * valeur à passer à nomenclature.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setNomenclature(
 			final String pNomenclature) {
 		this.nomenclature = pNomenclature;
-	} // Fin de setNomenclature(
-	 // String pNomenclature)._____________________________________________
+	} // Fin de setNomenclature(...).______________________________________
 
 
 
 	/**
-	 * method getChampJava() :<br/>
-	 * Getter du Nom du champ dans l'application comme numDepartement 
-	 * pour 'Numéro de Département'.<br/>
-	 * <br/>
-	 *
-	 * @return champJava : String.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getChampJava() {
@@ -1136,30 +1053,18 @@ public abstract class AbstractDescriptionChamp
 
 
 	/**
-	 * method setChampJava(
-	 * String pChampJava) :<br/>
-	 * Setter du Nom du champ dans l'application comme numDepartement 
-	 * pour 'Numéro de Département'.<br/>
-	 * <br/>
-	 *
-	 * @param pChampJava : String : valeur à passer à champJava.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setChampJava(
 			final String pChampJava) {
 		this.champJava = pChampJava;
-	} // Fin de setChampJava(
-	 // String pChampJava).________________________________________________
+	} // Fin de setChampJava(...)._________________________________________
 
 
 
 	/**
-	 * method getTypeJava() :<br/>
-	 * Getter du type Java du champ dans l'application 
-	 * comme Integer pour 'Numéro de Département'.<br/>
-	 * <br/>
-	 *
-	 * @return typeJava : String.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getTypeJava() {
@@ -1169,30 +1074,18 @@ public abstract class AbstractDescriptionChamp
 
 
 	/**
-	 * method setTypeJava(
-	 * String pTypeJava) :<br/>
-	 * Setter du type Java du champ dans l'application 
-	 * comme Integer pour 'Numéro de Département'.<br/>
-	 * <br/>
-	 *
-	 * @param pTypeJava : String : valeur à passer à typeJava.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setTypeJava(
 			final String pTypeJava) {
 		this.typeJava = pTypeJava;
-	} // Fin de setTypeJava(
-	 // String pTypeJava)._________________________________________________
+	} // Fin de setTypeJava(...).__________________________________________
 
 
 
 	/**
-	 * method isANomenclature() :<br/>
-	 * Getter du boolean qui stipule si le champ 
-	 * fait l'objet d'une nomenclature.<br/>
-	 * <br/>
-	 *
-	 * @return aNomenclature : boolean.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean isANomenclature() {
@@ -1202,21 +1095,34 @@ public abstract class AbstractDescriptionChamp
 
 
 	/**
-	 * method setANomenclature(
-	 * boolean pANomenclature) :<br/>
-	 * Setter du boolean qui stipule si le champ 
-	 * fait l'objet d'une nomenclature.<br/>
-	 * <br/>
-	 *
-	 * @param pANomenclature : boolean : 
-	 * valeur à passer à aNomenclature.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void setANomenclature(
 			final boolean pANomenclature) {
 		this.aNomenclature = pANomenclature;
-	} // Fin de setANomenclature(
-	 // boolean pANomenclature).___________________________________________
+	} // Fin de setANomenclature(...)._____________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean isALexique() {
+		return this.aLexique;
+	} // Fin de isALexique()._________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void setALexique(
+			final boolean pALexique) {
+		this.aLexique = pALexique;
+	} // Fin de setALexique(...)._____________________________________
 
 	
 	

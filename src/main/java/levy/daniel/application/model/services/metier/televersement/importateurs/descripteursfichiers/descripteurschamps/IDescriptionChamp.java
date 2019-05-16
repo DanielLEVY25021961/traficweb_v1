@@ -32,6 +32,8 @@ public interface IDescriptionChamp
 					, IFournisseurJTable
 						, IRapporteur
 							, IFormatteurLongueurs {
+
+	
 	
 	/**
 	 * Methode à implémenter dans chaque DescriptionChamp.<br/>
@@ -55,10 +57,14 @@ public interface IDescriptionChamp
 	 * , "cadré à gauche"
 	 * , "numDepartment"
 	 * , "Integer"
-	 * , "false"}
+	 * , "false"
+	 * , "false"
+	 * , "1"
+	 * , "3"
+	 * , "3"}
 	 * pour DescriptionChampHistoF07 appliquée au champ numéro
 	 * de département (ligne 1) dans la description du fichier
-	 * HistoNatF07.<br/>
+	 * HISTO_F07.<br/>
 	 * 
 	 * @throws TableauNullException lorsque : pTokens
 	 * passé en paramètre est null.<br/>
@@ -90,10 +96,11 @@ public interface IDescriptionChamp
 	 * <br/>
 	 * Par exemple : <br/>
 	 * [ordreChamps, colonnes, longueur, intitule, nomenclature
-	 * , champJava, typeJava, aNomenclature
+	 * , champJava, typeJava, aNomenclature, aLexique
 	 * , colonneDebut, colonneFin, longueurCalculee]
 	 * pour un DescriptionChampHistoF07.<br/>
-	 * [ordreChamps, intitule, nomenclature, champJava, typeJava, aNomenclature] 
+	 * [ordreChamps, intitule, nomenclature, champJava, typeJava
+	 * , aNomenclature, aLexique] 
 	 * pour un DescriptionChampDarwinCsv.<br/>
 	 * <br/>
 	 * - retourne "" si this.entetesDescriptionMap est null.<br/>
@@ -118,14 +125,16 @@ public interface IDescriptionChamp
 	 * [ordreChamps = 1, colonnes = 1-3, longueur = 3, 
 	 * intitule = Numéro de Département, nomenclature = calé à gauche
 	 * , champJava = numDepartment, typeJava = Integer
-	 * , aNomenclature = false, colonneDebut = 1, colonneFin = 3
+	 * , aNomenclature = false, aLexique = false, 
+	 * colonneDebut = 1, colonneFin = 3
 	 * , longueurCalculee = 3] pour le 'Numéro de Département' 
-	 * (1ère ligne) de la description d'un HistoNatF07.<br/>
+	 * (1ère ligne) de la description d'un HISTO_F07.<br/>
 	 * [ordreChamps = 2, intitule = route, 
 	 * nomenclature = Route au format Isidor (ex : A0034b1 ou A0006)
-	 * , champJava = route, typeJava = String, aNomenclature = false] 
+	 * , champJava = route, typeJava = String, aNomenclature = false
+	 * , aLexique = false] 
 	 * pour le champ 'route' 
-	 * (2ème ligne) dans la description du fichier Darwin csv.<br/>
+	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
 	 * - retourne "" si valeursDescriptionMap est null.<br/>
 	 * - retourne "" si valeursDescriptionMap est vide.<br/>
@@ -149,11 +158,11 @@ public interface IDescriptionChamp
 	 * <br/>
 	 * Par exemple :<br/>
 	 * 1;1-3;3;Numéro de Département;calé à gauche;numDepartment;Integer;false;
-	 *  pour le champ 'Numéro de Département' 
-	 * (1ère ligne) dans la description du fichier HistonatF07.<br/>
+	 *  false;1;3;3; pour le champ 'Numéro de Département' 
+	 * (1ère ligne) dans la description du fichier HISTO_F07.<br/>
 	 * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;
 	 * false; pour le champ 'route' 
-	 * (2ème ligne) dans la description du fichier Darwin csv.<br/>
+	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
 	 * - retourne "" si pTokens est null.<br/>
 	 * <br/>
@@ -173,13 +182,13 @@ public interface IDescriptionChamp
 	* et avec un saut de ligne \n à la fin.<br/>
 	* <br/>
 	* Par exemple : <br/>
-	* 1	1-3	3	Numéro de Département	calé à gauche	
-	* numDepartment	Integer	false	1	3	3	\n 
+	* [1	1-3	3	Numéro de Département	calé à gauche	
+	* numDepartment	Integer	false	false	1	3	3	\n] 
 	* pour le champ 'Numéro de Département' 
-	* (1ère ligne) dans la description du fichier HistonatF07.<br/>
-	* 2	route	Route au format Isidor (ex : A0034b1 ou A0006
-	* )	route	String	false	\n pour le champ 'route' 
-	* (2ème ligne) dans la description du fichier Darwin csv.<br/>
+	* (1ère ligne) dans la description du fichier HISTO_F07.<br/>
+	* [2	route	Route au format Isidor (ex : A0034b1 ou A0006
+	* )	route	String	false	false	\n] pour le champ 'route' 
+	* (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	* <br/>
 	* - retourne null si valeursDescriptionMap est null.<br/>
 	* <br/>
@@ -279,11 +288,11 @@ public interface IDescriptionChamp
 	 * {1=1, 2=1-3, 3=3, 4=Numéro de Département, 5=calé à gauche
 	 * , 6=numDepartment, 7=Integer, 8=false, 9=1, 10=3, 11=3} 
 	 * pour le champ 'Numéro de Département' 
-	 * (1ère ligne) dans la description du fichier HistonatF07.<br/>
+	 * (1ère ligne) dans la description du fichier HISTO_F07.<br/>
 	 * {1=2, 2=route, 3=Route au format Isidor 
 	 * (ex : A0034b1 ou A0006), 4=route, 5=String, 6=false} 
 	 * pour le champ 'route' (2ème ligne) 
-	 * dans la description du fichier Darwin csv.<br/>
+	 * dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
 	 * NECESSITE D'AVOIR FAIT desc.lireChamp(pTokens) 
 	 * APRES L'INSTANCIATION DU Descripteur 
@@ -316,11 +325,11 @@ public interface IDescriptionChamp
 	 * {1=1, 2=1-3, 3=3, 4=Numéro de Département, 5=calé à gauche
 	 * , 6=numDepartment, 7=Integer, 8=false, 9=1, 10=3, 11=3} 
 	 * pour le champ 'Numéro de Département' 
-	 * (1ère ligne) dans la description du fichier HistonatF07.<br/>
+	 * (1ère ligne) dans la description du fichier HISTO_F07.<br/>
 	 * {1=2, 2=route, 3=Route au format Isidor 
 	 * (ex : A0034b1 ou A0006), 4=route, 5=String, 6=false} 
 	 * pour le champ 'route' (2ème ligne) 
-	 * dans la description du fichier Darwin csv.<br/>
+	 * dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
 	 * 
 	 * @param pValeursDescriptionMap : SortedMap&lt;Integer, String&gt;.<br/>
@@ -378,7 +387,7 @@ public interface IDescriptionChamp
 	/**
 	 * Getter de l'Ordre du champ 1- based (ligne) dans la description.<br/>
 	 * Par exemple, 'Numéro de Section' est le 
-	 * deuxième champ dans la description du HistonatF07.<br/>
+	 * deuxième champ dans la description du HISTO_F07.<br/>
 	 * <br/>
 	 *
 	 * @return ordreChamps : Integer.<br/>
@@ -390,7 +399,7 @@ public interface IDescriptionChamp
 	/**
 	 * Setter de l'Ordre du champ 1 - based (ligne) dans la description.<br/>
 	 * Par exemple, 'Numéro de Section' est le 
-	 * deuxième champ dans la description du HistonatF07.<br/>
+	 * deuxième champ dans la description du HISTO_F07.<br/>
 	 * <br/>
 	 *
 	 * @param pOrdreChamps : Integer : valeur à passer à ordreChamps.<br/>
@@ -515,6 +524,30 @@ public interface IDescriptionChamp
 	 * valeur à passer à aNomenclature.<br/>
 	 */
 	void setANomenclature(boolean pANomenclature);
+
+
+
+	/**
+	 * Getter du boolean qui stipule si le champ 
+	 * fait l'objet d'une nomenclature.<br/>
+	 * <br/>
+	 *
+	 * @return aLexique : boolean.<br/>
+	 */
+	boolean isALexique();
+
+
+
+	/**
+	 * Setter du boolean qui stipule si le champ 
+	 * fait l'objet d'une nomenclature.<br/>
+	 * <br/>
+	 *
+	 * @param pALexique : boolean : 
+	 * valeur à passer à aLexique.<br/>
+	 */
+	void setALexique(
+			final boolean pALexique);
 
 
 	

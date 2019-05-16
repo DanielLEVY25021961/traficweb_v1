@@ -216,6 +216,17 @@ public class DescriptionChampHistoF07 extends AbstractDescriptionChampAscii {
 	
 	/**
 	 * {@inheritDoc}
+	 * "descriptionchamphistof07.lirechamp.alexiquetrue".<br/>
+	 */
+	@Override
+	public final String getCleALexiqueTrue() {
+		return "descriptionchamphistof07.lirechamp.alexiquetrue";
+	} // Fin de getCleALexiqueTrue().______________________________________
+	
+
+	
+	/**
+	 * {@inheritDoc}
 	 * "descriptionchamphistof07.lirechamp.tableaunull".<br/>
 	 */
 	@Override

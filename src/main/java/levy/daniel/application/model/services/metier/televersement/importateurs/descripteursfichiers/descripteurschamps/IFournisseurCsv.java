@@ -2,10 +2,13 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 
 /**
  * class IFournisseurCsv :<br/>
+ * <p>
  * RESPONSABILITE : AFFICHER UNE LIGNE DE DESCRIPTION AU FORMAT CSV.<br/>
  * Interface factorisant les méthodes garantissant 
  * qu'un objet qui l'implémente saura s'écrire sous forme de fichier csv 
  * avec séparateur ';'.<br/>
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -27,15 +30,15 @@ public interface IFournisseurCsv {
 	
 	
 	/**
-	 * method fournirLigneEnTetesCsv() :<br/>
 	 * Fournit une ligne csv avec un séparateur ';' pour les en-têtes
 	 * contenant les valeurs stockées dans entetesDescriptionMap.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
 	 * ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;
-	 * aNomenclature;colonneDebut;colonneFin;longueurCalculee; 
+	 * aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee; 
 	 * pour un DescripteurChampHistoF07.<br/>
-	 * ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature; 
+	 * ordreChamps;intitule;nomenclature;champJava;typeJava;
+	 * aNomenclature;aLexique; 
 	 * pour un DescripteurChampDarwinCsv.<br/>
 	 * <br/>
 	 * - retourne "" si this.entetesDescriptionMap est null.<br/>
@@ -49,19 +52,18 @@ public interface IFournisseurCsv {
 	
 	
 	/**
-	 * method fournirLigneValeursCsv() :<br/>
 	 * Fournit une ligne csv avec un séparateur ';'
 	 * contenant les valeurs de description d'un champ 
 	 * stockées dans valeursDescriptionMap.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
 	 * 1;1-3;3;Numéro de Département;calé à gauche;numDepartment;
-	 * Integer;false;1;3;3; pour le champ 'Numéro de Département' 
-	 * (1ère ligne) de la description d'un HistoNatF07.<br/>
+	 * Integer;false;false;1;3;3; pour le champ 'Numéro de Département' 
+	 * (1ère ligne) de la description d'un HISTO_F07.<br/>
 	 * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);
-	 * route;String;false; 
+	 * route;String;false;false; 
 	 * pour le champ 'route' 
-	 * (2ème ligne) dans la description du fichier Darwin csv.<br/>
+	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
 	 * - retourne "" si valeursDescriptionMap est null.<br/>
 	 * - retourne "" si valeursDescriptionMap est vide.<br/>

@@ -9,39 +9,70 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 
 /**
  * class DescriptionChampHit :<br/>
+ * <p>
  * IMPLEMENTATION de AbstractDescriptionChampAscii chargée
  * de stocker la définition d'un champ de fichier
- * HIT.<br/>
- * <br/>
+ * HIT.
+ * </p>
+ * 
+ * <p>
  * Un DescriptionChampHit "sait" qu'une description 
  * de fichier HIT doit être ordonnée comme suit :<br/>
  * [ordreChamps, colonnes, longueur, intitule, nomenclature
- * , champJava, typeJava, aNomenclature
+ * , champJava, typeJava, aNomenclature, aLexique
  * , colonneDebut, colonneFin, longueurCalculee].<br/>
  * Il stocke cette liste ordonnée de champs dans sa map triée 
- * 'entetesDescriptionMap' dès sa construction.<br/>
- * <br/>
+ * <code><b>this.entetesDescriptionMap</b></code> dès sa construction.<br/>
+ * </p>
+ * 
  * Un DescriptionChampHit ne "connait" les valeurs 
  * décrivant un champ donné
  * qu'après l'execution de sa méthode lireChamps(String[] pTokens) 
  * où pTokens représente toutes les valeurs de la description 
- * du champ sous forme de tableau de String.<br/>
- * <code>public static final String[] NUM_DEPT_DESC = {"1", "1-3", "3", "Numéro de Département", "calé à gauche", "numDepartment", "Integer", "false"};</code><br/>
- * <code>descripteur.lireChamps(NUM_DEPT_DESC);</code><br/>
+ * du champ donné sous forme de tableau de String.<br/>
+ * <p>
+ * <code> // Lecture d'une ligne du fichier de description.</code><br/>
+ * <code><b>public static final String[] NUM_DEPT_DESC = 
+ * {"1", "1-3", "3", "Numéro de Département", "calé à gauche", "numDepartment", "Integer", "false", "false", "1", "3", "3"};</b></code><br/>
+ * <code> // Import de la ligne de description dans un DescriptionChampHit.</code><br/>
+ * <code><b>descripteur.lireChamps(NUM_DEPT_DESC);</b></code><br/>
+ * </p>
  * <br/>
  * Un fichier de description d'un HIT formatée en csv (';') 
  * commence par :<br/>
  * <br/>
- * ordreChamps;colonnes;longueur;intitule;
- * nomenclature;champJava;typeJava;aNomenclature;
- * colonneDebut;colonneFin;longueurCalculee;<br/>
- * 1;1-3;3;Numéro de Département;cadré à gauche. Ex: dept 13 = 130;numDepartement;Integer;false;1;3;3;<br/>
- * 2;4-9;6;Numéro de Section;;numSection;String;false;4;9;6;<br/>
- * 3;10;1;Sens;3 - Cumul des deux sens. [sep] 4 - Sens unique P.R. croissants. [sep] 5 - Sens unique P.R. Décroissants.;sens;Integer;true;10;10;1;<br/>
- * 4;11;1;Nature;Codé 1 tous véhicules (uniquement);nature;Integer;false;11;11;1;<br/>
- * 5;12-13;2;Classe;Codé 00 tous véhicules (uniquement);classe;String;false;12;13;2;<br/>
- * 6;14-15;2;Année de traitement;Année sur deux caractères (ex 07 pour 2007);anneeTraitement;Date;false;14;15;2;<br/>
- * ..............................<br/>
+ * ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;<br/>
+ * 1;1-3;3;Numéro de Département;cadré à gauche. Ex: dept 13 = 130;numDepartement;Integer;false;false;1;3;3;<br/>
+ * 2;4-9;6;Numéro de Section;;numSection;String;false;false;4;9;6;<br/>
+ * 3;10;1;Sens;3 - Cumul des deux sens. [sep] 4 - Sens unique P.R. croissants. [sep] 5 - Sens unique P.R. Décroissants.;sens;Integer;true;false;10;10;1;<br/>
+ * ...................................................<br/>
+ * </p>
+ * 
+ * <p>
+ * <table border="1">
+ * <tr>
+ * <th>ordreChamps</th> <th>colonnes</th> <th>longueur</th> <th>intitule</th> 
+ * <th>nomenclature</th> <th>champJava</th> <th>typeJava</th> <th>aNomenclature</th>
+ * <th>aLexique</th> <th>colonneDebut</th> <th>colonneFin</th> <th>longueurCalculee</th>
+ * </tr>
+ * <tr>
+ * <td>1</td> <td>1-3</td> <td>3</td> <td>Numéro de Département</td> 
+ * <td>cadré à gauche. Ex: dept 13 = 130</td> <td>numDepartement</td> <td>Integer</td> <td>false</td> 
+ * <td>false</td> <td>1</td> <td>3</td> <td>3</td> 
+ * </tr>
+ * <tr>
+ * <td>2</td> <td>4-9</td> <td>6</td> <td>Numéro de Section</td> 
+ * <td> </td> <td>numSection</td> <td>String</td> <td>false</td> 
+ * <td>false</td> <td>4</td> <td>9</td> <td>6</td> 
+ * </tr>
+ * <tr>
+ * <td>3</td> <td>10</td> <td>1</td> <td>Sens</td> 
+ * <td>3 - Cumul des deux sens. [sep] 4 - Sens unique P.R. croissants. [sep] 5 - Sens unique P.R. Décroissants.</td> <td>sens</td> <td>Integer</td> <td>true</td> 
+ * <td>false</td> <td>10</td> <td>10</td> <td>1</td> 
+ * </tr>
+ * </table>
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -116,8 +147,6 @@ public class DescriptionChampHit extends AbstractDescriptionChampAscii {
 	
 	
 	/**
-	 * method CONSTRUCTEUR DescriptionChampHit(
-	 * SortedMap&lt;Integer, String&gt; pColonnesDescriptionMap) :
 	 * CONSTRUCTEUR D'ARITE 1.<br/>
 	 * <br/>
 	 * - Permet de construire un DescriptionChampHit
@@ -207,6 +236,17 @@ public class DescriptionChampHit extends AbstractDescriptionChampAscii {
 	public final String getCleANomenclatureTrue() {
 		return "descriptionchamphit.lirechamp.anomenclaturetrue";
 	} // Fin de getCleANomenclatureTrue()._________________________________
+	
+
+	
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchamphit.lirechamp.alexiquetrue".<br/>
+	 */
+	@Override
+	public final String getCleALexiqueTrue() {
+		return "descriptionchamphit.lirechamp.alexiquetrue";
+	} // Fin de getCleALexiqueTrue().______________________________________
 	
 
 	

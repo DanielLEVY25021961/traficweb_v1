@@ -2,9 +2,12 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 
 /**
  * class IFournisseurJTable :<br/>
+ * <p>
  * RESPONSABILITE : AFFICHER UNE LIGNE DE DESCRIPTION DANS UNE JTABLE.<br/>
  * Interface factorisant les méthodes garantissant 
  * qu'un objet qui l'implémente saura s'afficher dans une JTable.<br/>
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -26,7 +29,8 @@ public interface IFournisseurJTable {
 	
 		
 	/**
-	* retourne l'en-tête de la p-ième colonne (1-based).<br/>
+	* retourne l'en-tête de la p-ième colonne (1-based) 
+	* d'un fichier de description.<br/>
 	* Methode utile pour l'affichage dans une JTable par exemple.<br/>
 	* <br/>
 	* Par exemple :<br/>
@@ -52,15 +56,16 @@ public interface IFournisseurJTable {
 	
 	
 	/**
-	 * retourne le contenu (valeur) de la p-ième colonne (1-based).<br/>
+	 * retourne le contenu (valeur) de la p-ième colonne (1-based) 
+	 * d'une ligne dans un fichier de description.<br/>
 	 * Methode utile pour l'affichage dans une JTable par exemple.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
 	 * desc.getValeurparColonne(2) == '1-3' pour le champ 
 	 * 'Numéro de Département' (1ère ligne) de la description 
-	 * d'un HistoNatF07.<br/>
+	 * d'un HISTO_F07.<br/>
 	 * desc.getValeurparColonne(2) == 'route' pour le champ 'route' 
-	 * (2ème ligne) dans la description du fichier Darwin csv.<br/>
+	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
 	 * - retourne null si valeursDescriptionMap est null.<br/>
 	 * - retourne null si la p-ième colonne (1-based) n'existe pas.<br/>

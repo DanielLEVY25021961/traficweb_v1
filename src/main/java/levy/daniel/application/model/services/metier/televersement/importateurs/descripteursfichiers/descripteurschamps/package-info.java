@@ -11,7 +11,9 @@
  * <p>
  * La description d'un champ est une encapsulation 
  * permettant de mettre à disposition de l'application 
- * toutes les valeurs décrivant un champ d'un fichier.
+ * toutes les valeurs décrivant un champ d'un fichier.<br/>
+ * Une description d'un champ donné correspond 
+ * à une ligne d'une description de fichier.<br/>
  * </p>
  * 
  * <p>
@@ -95,7 +97,7 @@
  * <ul>
  * <li>dans la SortedMap&lt;Integer, String&gt; <b><i>entetesDescriptionMap</i></b> :<br/> 
  * [1-ordreChamps;2-colonnes;3-longueur;4-intitule;5-nomenclature;6-champJava;7-typeJava;8-aNomenclature;9-aLexique;10-colonneDebut;11-colonneFin;12-longueurCalculee;]<br/>
- * <li>dans la SortedMap&lt;Integer, String&gt; <i>valeursDescriptionMap</i> :</li>
+ * <li>dans la SortedMap&lt;Integer, String&gt; <b><i>valeursDescriptionMap</i></b> :</li>
  * [1-2;2-4-9;3-6;4-Numéro de Section;5-;6-numSection;7-String;8-false;9-false;10-4;11-9;12-6;]</li>
  * </ul>
  * </p>
@@ -103,7 +105,7 @@
  * <p>
  * La description d'un champ de fichier ASCII (comme HIT ou HISTO_F07) diffère 
  * de la description d'un champ de fichier csv (comme DARWIN_CSV) 
- * car on besoin :<br/>
+ * car on a besoin :<br/>
  * - des colonnes de début et de fin localisant le champ dans un fichier ASCII 
  * (par exemple, le département est localisé entre 
  * les colonnes 1 et 3 dans un HIT ASCII),<br/>

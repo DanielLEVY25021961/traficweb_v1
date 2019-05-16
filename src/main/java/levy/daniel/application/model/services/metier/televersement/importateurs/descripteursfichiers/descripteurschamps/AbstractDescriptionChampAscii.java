@@ -20,7 +20,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideE
  * class AbstractDescriptionChampAscii :<br/>
  * CLASSE ABSTRAITE décrivant un champ 
  * (correspondant à une ligne de la description) 
- * dans une description de fichier ASCII comme un HIT ou un HistoNatF07.<br/>
+ * dans une description de fichier ASCII comme un HIT ou un HISTO_F07.<br/>
  * <br/>
  * La description d'un champ de fichier ASCII diffère 
  * de la description d'un champ de fichier csv car on besoin :<br/>
@@ -30,7 +30,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideE
  * - de l'ordre du champ dans un fichier csv.<br/>
  * <br/>
  * Par exemple, le champ décrit à la 2ème ligne de la description
- * d'un fichier HistoNatF07 a pour intitulé 'Numéro de Section', est
+ * d'un fichier HISTO_F07 a pour intitulé 'Numéro de Section', est
  * situé dans les  colonnes 4 à 9, ...<br/>
  * <br/>
  * La description d'un HistonatF07 commence par :<br/>
@@ -107,59 +107,44 @@ public abstract class AbstractDescriptionChampAscii
 	// ************************ATTRIBUTS**********************************/
 	/* CONSTANTES. */
 	/**
-	 * CLASSE_ABSTRACTDESCRIPTIONCHAMP : String : <br/>
 	 * "CLASSE AbstractDescriptionChampAscii - ".<br/>
 	 */
 	public static final String CLASSE_ABSTRACTDESCRIPTIONCHAMP 
 		= "CLASSE AbstractDescriptionChampAscii - ";
-	
-	
+		
 	/**
-	 * CONSTRUCTEUR_ABSTRACTDESCRIPTIONCHAMPASCII : String : <br/>
 	 * "Constructeur AbstractDescriptionChampAscii() - ".<br/>
 	 */
 	public static final String CONSTRUCTEUR_ABSTRACTDESCRIPTIONCHAMPASCII 
 		= "Constructeur AbstractDescriptionChampAscii() - ";
-	
-	
+		
 	/**
-	 * METHODE_TROUVERCOLONNEDEBUTFIN : String :<br/>
 	 * "Méthode trouverColonneDebutFin(String pColonnes) - ".<br/>
 	 */
 	public static final String METHODE_TROUVERCOLONNEDEBUTFIN 
 		= "Méthode trouverColonneDebutFin(String pColonnes) - ";
-	
-	
+		
 	/**
-	 * MESSAGE_COLONNES_INTROUVABLES : String :<br/>
 	 * "Impossible de trouver des colonnes 
 	 * dans la chaine passée en paramètre : ".<br/>
 	 */
 	public static final String MESSAGE_COLONNES_INTROUVABLES 
 		= "Impossible de trouver des colonnes " 
 			+ "dans la chaine passée en paramètre : ";
-	
-	
-	
+		
 	/**
-	 * METHODE_LIRECHAMP : String : <br/>
 	 * "Méthode lireChamp(int[] pTokens) - ".<br/>
 	 */
 	public static final String METHODE_LIRECHAMP 
 	= "Méthode lireChamp(int[] pTokens) - ";
-	
-
-	
+		
 	/**
-	 * MESSAGE_COLONNES_NULL : String :<br/>
 	 * "La chaine pColonnes passée en paramètre est null.".<br/>
 	 */
 	public static final String MESSAGE_COLONNES_NULL 
 	= "La chaine pColonnes passée en paramètre est null.";
-
 	
 	/**
-	 * MESSAGE_COLONNES_INVERSEES : String :<br/>
 	 * "Vous avez probablement inversé l'ordre des colonnes : ".<br/>
 	 */
 	public static final String MESSAGE_COLONNES_INVERSEES 
@@ -215,57 +200,51 @@ public abstract class AbstractDescriptionChampAscii
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
-	
-	
+		
 	/**
-	 * colonnes : String :<br/>
 	 * Colonne unique ou fourchette de colonnes positionnant 
-	 * le champ à lire dans une ligne d'un HistoNatF07.<br/>
-	 * C'est la valeur fournie dans la description de fichier HistoNatF07 
+	 * le champ à lire dans une ligne d'une description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...).<br/>
+	 * C'est la valeur fournie dans la description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...) 
 	 * comme 4-9 par exemple.<br/>
 	 * Par exemple, 'Numéro de Section' est situé entre les colonnes 
-	 * 4 et 9 d'une ligne d'un HistoNatF07.<br/>
+	 * 4 et 9 d'une ligne d'un HISTO_F07.<br/>
 	 */
 	protected String colonnes;
-	
-	
+		
 	/**
-	 * longueur : Integer :<br/>
 	 * Longueur (nombre de colonnes) du champ 
 	 * fournie dans la description.<br/>
 	 */
 	protected Integer longueur;
-	
-
-	
+		
 	/**
-	 * colonneDebut : Integer :<br/>
-	 * Colonne de début du champ (1-based) fournie dans la description 
-	 * de fichier HistoNatF07 comme 4 pour 4-9 (dans colonnes) 
+	 * Colonne de début du champ (1-based) fournie 
+	 * dans une ligne de la d'une description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...) comme 4 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
 	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
 	 */
 	protected Integer colonneDebut;
-	
-	
+		
 	/**
-	 * colonneFin : Integer :<br/>
-	 * Colonne de fin du champ (1-based) fournie dans la description 
-	 * de fichier HistoNatF07 comme 9 pour 4-9 (dans colonnes) 
+	 * Colonne de fin du champ (1-based) fournie 
+	 * dans une ligne de la d'une description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...) comme 9 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
 	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
 	 */
 	protected Integer colonneFin;
-	
-		
+			
 	/**
-	 * longueurCalculee : Integer :<br/>
 	 * calcul : colonneFin - colonneDebut.<br/>
 	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * Sert à s'assurer que la longueurCalculee correspond 
+	 * avec la longueur indiquée dans la description de fichier.<br/>
 	 */
 	protected Integer longueurCalculee;
 	
-
 	
 	/**
 	 * LOG : Log : 
@@ -275,15 +254,13 @@ public abstract class AbstractDescriptionChampAscii
 			.getLog(AbstractDescriptionChampAscii.class);
 
 	
-	
-	
+		
 	// *************************METHODES**********************************/
 
 	/**
-	 * method CONSTRUCTEUR AbstractDescriptionChampAscii() :<br/>
 	 * CONSTRUCTEUR D'ARITE 0 permettant d'instancier
 	 * un AbstractDescriptionChampAscii 'tout nu'.<br/>
-	 * - lit dans messagestechniques.properties si il faut
+	 * - lit dans ressources_externes/messagestechniques.properties si il faut
 	 * rapporter ou pas.<br/>
 	 * <br/>
 	 * A utiliser avec les setters ou en instanciant
@@ -348,16 +325,17 @@ public abstract class AbstractDescriptionChampAscii
 		this.entetesDescriptionMap.put(6, "champJava");
 		this.entetesDescriptionMap.put(7, "typeJava");
 		this.entetesDescriptionMap.put(8, "aNomenclature");
+		this.entetesDescriptionMap.put(9, "aLexique");
 		
 		/* Alimentation du nombre de colonnes
 		 * à fournir obligatoirement dans la description
 		 * de fichier en entrée. */
-		this.nombreColonnesObligatoires = 8;
+		this.nombreColonnesObligatoires = 9;
 		
 		/* Champs à calculer */
-		this.entetesDescriptionMap.put(9, "colonneDebut");
-		this.entetesDescriptionMap.put(10, "colonneFin");
-		this.entetesDescriptionMap.put(11, "longueurCalculee");
+		this.entetesDescriptionMap.put(10, "colonneDebut");
+		this.entetesDescriptionMap.put(11, "colonneFin");
+		this.entetesDescriptionMap.put(12, "longueurCalculee");
 		
 	} // Fin de CONSTRUCTEUR AbstractDescriptionChampAscii().___________________
 	
@@ -483,7 +461,7 @@ public abstract class AbstractDescriptionChampAscii
 		/* Alimentation du nombre de colonnes
 		 * à fournir obligatoirement dans la description
 		 * de fichier en entrée. */
-		this.nombreColonnesObligatoires = 8;
+		this.nombreColonnesObligatoires = 9;
 				
 	} // Fin de CONSTRUCTEUR AbstractDescriptionChampAscii(
 	 // Map<Integer, String> pColonnesDescriptionMap)._____________________
@@ -550,6 +528,7 @@ public abstract class AbstractDescriptionChampAscii
 		String champJavaString = null;
 		String typeJavaString = null;
 		String aNomenclatureString = null;
+		String aLexiqueString = null;
 		
 		/* Champs calculés. */
 		String colonneDebutString = null;
@@ -619,6 +598,7 @@ public abstract class AbstractDescriptionChampAscii
 			
 			this.colonneDebut = colonnesDetectees[0];
 			this.colonneFin = colonnesDetectees[1];
+			
 			/* Calcul de la longueur. */
 			this.longueurCalculee = this.colonneFin - this.colonneDebut + 1;
 			
@@ -630,19 +610,19 @@ public abstract class AbstractDescriptionChampAscii
 			/* Insertion dans la Map des Valeurs. ******/
 			this.valeursDescriptionMap.put(2, colonnesnettoye);
 			
-			this.valeursDescriptionMap.put(9, colonneDebutString);
-			this.valeursDescriptionMap.put(10, colonneFinString);
-			this.valeursDescriptionMap.put(11, longueurCalculeeString);
+			this.valeursDescriptionMap.put(10, colonneDebutString);
+			this.valeursDescriptionMap.put(11, colonneFinString);
+			this.valeursDescriptionMap.put(12, longueurCalculeeString);
 			
 			/* Insertion dans la Map des longueurs. */
 			this.longueursDescriptionMap.put(2
 					, colonnesnettoye.length());
 			
-			this.longueursDescriptionMap.put(9
-					, colonneDebutString.length());
 			this.longueursDescriptionMap.put(10
-					, colonneFinString.length());
+					, colonneDebutString.length());
 			this.longueursDescriptionMap.put(11
+					, colonneFinString.length());
+			this.longueursDescriptionMap.put(12
 					, longueurCalculeeString.length());
 			
 		}
@@ -873,14 +853,102 @@ public abstract class AbstractDescriptionChampAscii
 			
 		}		
 		// FIN DE LECTURE DE 'A NOMENCLATURE'. ************/
+
+		//* 9 - LECTURE DE 'A LEXIQUE'. **************************/			
+		/* Lecture de aLexique. */
+		aLexiqueString = pTokens[8];
 		
-		/* 9 - CALCUL de COLONNE DE DEBUT. ***************************/
+		/* Si NON RENSEIGNE, false. */
+		if (StringUtils.isBlank(aLexiqueString)) {
+			aLexiqueString = "false";
+		}
+		
+		String aLexiqueNettoye 
+			= nettoyerString(aLexiqueString);
+		
+		/* Sinon, CHAMP RENSEIGNE à true
+		 * si la valeur est true avec n'importe quelle casse. */		
+		if (Boolean.parseBoolean(aLexiqueNettoye)) {
+			
+			/*Le champ nomenclature doit être
+			 * renseigné si aLexique est à true. */
+			if (StringUtils.isNotBlank(nomenclatureString)) {
+				
+				/* Transformation de 'True' ou 'tRue',...
+				 * en 'true'. */
+				aLexiqueNettoye = "true";
+				
+				/* Passage aux attributs. */
+				this.aLexique = true;
+				
+				/* Insertion dans la Map des Valeurs. */
+				this.valeursDescriptionMap.put(9, aLexiqueNettoye);
+				
+				/* Insertion dans la Map des longueurs. */
+				this.longueursDescriptionMap.put(9
+						, aLexiqueNettoye.length());
+			}
+			
+			/* Sinon, l'utilisateur doit fournir une 
+			 * nomenclature. */
+			else {
+				
+				final String cleALexiqueTrue
+					= this.getCleALexiqueTrue();
+
+				final String messageALexiqueVide
+				= ConfigurationApplicationManager
+					.getBundleMessagesTechnique()
+						.getString(cleALexiqueTrue);
+
+				final String message 
+				= this.getNomClasse() 
+				+ METHODE_LIRECHAMP 
+				+ messageALexiqueVide;
+
+				/* Logge. */
+				if (LOG.isFatalEnabled()) {
+					LOG.fatal(message);
+				}
+				
+				/* Rapport d'erreur. */
+				if (this.logDescription) {
+					this.rapportDescriptionStb.append(message);
+					this.rapportDescriptionStb.append(NEWLINE);
+				}
+
+				/* Jette une Exception circonstanciée. */
+				throw new ExceptionImport(message);
+				
+			} // Fin de pas de nomenclature
+						
+		} // Fin de aLexique renseigné avec qqchose ressemblant à true._
+		
+		/* Sinon, CHAMP RENSEIGNE à false. */
+		else {
+			
+			aLexiqueNettoye = "false";
+			
+			/* Passage aux attributs. */
+			this.aLexique = false;
+			
+			/* Insertion dans la Map des Valeurs. */
+			this.valeursDescriptionMap.put(9, aLexiqueNettoye);
+			
+			/* Insertion dans la Map des longueurs. */
+			this.longueursDescriptionMap.put(9
+					, aLexiqueNettoye.length());
+			
+		}		
+		// FIN DE LECTURE DE 'A LEXIQUE'. ************/
+
+		/* 10 - CALCUL de COLONNE DE DEBUT. ***************************/
 		/* Réalisé dans 2 - COLONNES. */
 		
-		/* 10 - CALCUL de COLONNE DE FIN. ****************************/
+		/* 11 - CALCUL de COLONNE DE FIN. ****************************/
 		/* Réalisé dans 2 - COLONNES. */
 		
-		/* 10 - CALCUL de LONGUEUR CALCULEE. **************************/
+		/* 12 - CALCUL de LONGUEUR CALCULEE. **************************/
 		/* Réalisé dans 2 - COLONNES. */
 		
 	} // Fin de lireChamp(
@@ -1680,11 +1748,11 @@ public abstract class AbstractDescriptionChampAscii
 	/**
 	 * method getColonnes() :<br/>
 	 * Getter de la Colonne unique ou fourchette de colonnes positionnant 
-	 * le champ à lire dans une ligne d'un HistoNatF07.<br/>
-	 * C'est la valeur fournie dans la description de fichier HistoNatF07 
+	 * le champ à lire dans une ligne d'un HISTO_F07.<br/>
+	 * C'est la valeur fournie dans la description de fichier HISTO_F07 
 	 * comme 4-9 par exemple.<br/>
 	 * Par exemple, 'Numéro de Section' est situé entre les colonnes 
-	 * 4 et 9 d'une ligne d'un HistoNatF07.<br/>
+	 * 4 et 9 d'une ligne d'un HISTO_F07.<br/>
 	 * <br/>
 	 *
 	 * @return colonnes : String.<br/>
@@ -1699,11 +1767,11 @@ public abstract class AbstractDescriptionChampAscii
 	 * method setColonnes(
 	 * String pColonnes) :<br/>
 	 * Setter de la Colonne unique ou fourchette de colonnes positionnant 
-	 * le champ à lire dans une ligne d'un HistoNatF07.<br/>
-	 * C'est la valeur fournie dans la description de fichier HistoNatF07 
+	 * le champ à lire dans une ligne d'un HISTO_F07.<br/>
+	 * C'est la valeur fournie dans la description de fichier HISTO_F07 
 	 * comme 4-9 par exemple.<br/>
 	 * Par exemple, 'Numéro de Section' est situé entre les colonnes 
-	 * 4 et 9 d'une ligne d'un HistoNatF07.<br/>
+	 * 4 et 9 d'une ligne d'un HISTO_F07.<br/>
 	 * <br/>
 	 *
 	 * @param pColonnes : String : valeur à passer à colonnes.<br/>
@@ -1752,7 +1820,7 @@ public abstract class AbstractDescriptionChampAscii
 	 * method getColonneDebut() :<br/>
 	 * Getter de la Colonne de début du champ (1-based) 
 	 * fournie dans la description 
-	 * de fichier HistoNatF07 comme 4 pour 4-9 (dans colonnes) 
+	 * de fichier HISTO_F07 comme 4 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
 	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
 	 * <br/>
@@ -1770,7 +1838,7 @@ public abstract class AbstractDescriptionChampAscii
 	 * Integer pColonneDebut) :<br/>
 	 * Getter de la Colonne de début du champ (1-based) 
 	 * fournie dans la description 
-	 * de fichier HistoNatF07 comme 4 pour 4-9 (dans colonnes) 
+	 * de fichier HISTO_F07 comme 4 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
 	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
 	 * <br/>
@@ -1789,7 +1857,7 @@ public abstract class AbstractDescriptionChampAscii
 	 * method getColonneFin() :<br/>
 	 * Getter de la Colonne de fin (1-based) du champ 
 	 * fournie dans la description 
-	 * de fichier HistoNatF07 comme 9 pour 4-9 (dans colonnes) 
+	 * de fichier HISTO_F07 comme 9 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
 	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
 	 * <br/>
@@ -1807,7 +1875,7 @@ public abstract class AbstractDescriptionChampAscii
 	 * Integer pColonneFin) :<br/>
 	 * Setter de la Colonne de fin du champ (1-based) 
 	 * fournie dans la description 
-	 * de fichier HistoNatF07 comme 9 pour 4-9 (dans colonnes) 
+	 * de fichier HISTO_F07 comme 9 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
 	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
 	 * <br/>
@@ -1867,7 +1935,6 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * method getNomClasse() :<br/>
 	 * Retourne le nom de la Classe.<br/>
 	 * <br/>
 	 *
@@ -1878,7 +1945,6 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * method getCleANomenclatureTrue() :<br/>
 	 * Retourne la clé contenue dans messagestechniques.properties 
 	 * en cas de ANomenclature à true et la nomenclature vide.<br/>
 	 * <br/>
@@ -1887,10 +1953,20 @@ public abstract class AbstractDescriptionChampAscii
 	 */
 	public abstract String getCleANomenclatureTrue();
 	
+
+	
+	/**
+	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * en cas de ANomenclature à true et la nomenclature vide.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	public abstract String getCleALexiqueTrue();
+	
 	
 	
 	/**
-	 * method getCleTableauNull() :<br/>
 	 * Retourne la clé contenue dans messagestechniques.properties 
 	 * en cas de ligne de description null.<br/>
 	 * <br/>
@@ -1902,7 +1978,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method getCleTableauVide() :<br/>
 	 * Retourne la clé contenue dans messagestechniques.properties 
 	 * en cas de ligne de description vide.<br/>
 	 * <br/>
@@ -1914,7 +1989,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method getCleTableauTropPetit() :<br/>
 	 * Retourne la clé contenue dans messagestechniques.properties 
 	 * en cas de ligne de description trop courte.<br/>
 	 * <br/>
@@ -1938,7 +2012,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method getCleColonneVide() :<br/>
 	 * Retourne la clé contenue dans messagestechniques.properties 
 	 * en cas de ligne de description avec colonnes non renseigné.<br/>
 	 * <br/>
@@ -1950,7 +2023,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method getCleIntituleVide() :<br/>
 	 * Retourne la clé contenue dans messagestechniques.properties 
 	 * en cas de ligne de description avec intitule non renseigné.<br/>
 	 * <br/>
@@ -1962,7 +2034,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method getCleChampJavaVide() :<br/>
 	 * Retourne la clé contenue dans messagestechniques.properties 
 	 * en cas de ligne de description avec champJava non renseigné.<br/>
 	 * <br/>
@@ -1974,7 +2045,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method getCleTypeJavaVide() :<br/>
 	 * Retourne la clé contenue dans messagestechniques.properties 
 	 * en cas de ligne de description avec typeJava non renseigné.<br/>
 	 * <br/>
@@ -1986,7 +2056,6 @@ public abstract class AbstractDescriptionChampAscii
 
 		
 	/**
-	 * method getCleANomenclatureVide() :<br/>
 	 * Retourne la clé contenue dans messagestechniques.properties 
 	 * en cas de ligne de description avec aNomenclature non renseigné.<br/>
 	 * <br/>
