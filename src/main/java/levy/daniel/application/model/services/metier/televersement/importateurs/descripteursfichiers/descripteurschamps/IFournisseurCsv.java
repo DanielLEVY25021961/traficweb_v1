@@ -41,8 +41,8 @@ public interface IFournisseurCsv {
 	 * aNomenclature;aLexique; 
 	 * pour un DescripteurChampDarwinCsv.<br/>
 	 * <br/>
-	 * - retourne "" si this.entetesDescriptionMap est null.<br/>
-	 * - retourne "" si this.entetesDescriptionMap est vide.<br/>
+	 * - retourne "" si <code>this.entetesDescriptionMap</code> est null.<br/>
+	 * - retourne "" si <code>this.entetesDescriptionMap</code> est vide.<br/>
 	 * <br/>
 	 *
 	 * @return String : ligne d'en-têtes csv avec séparateur ';'.<br/>
@@ -65,8 +65,12 @@ public interface IFournisseurCsv {
 	 * pour le champ 'route' 
 	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
-	 * - retourne "" si valeursDescriptionMap est null.<br/>
-	 * - retourne "" si valeursDescriptionMap est vide.<br/>
+	 * - retourne "" si <code>this.valeursDescriptionMap</code> est null.<br/>
+	 * - retourne "" si <code>this.valeursDescriptionMap</code> est vide.<br/>
+	 * <br/>
+	 * NECESSITE D'AVOIR FAIT desc.lireChamp(pTokens) 
+	 * APRES L'INSTANCIATION DU Descripteur 
+	 * pour que <code>this.valeursDescriptionMap</code> SOIT INSTANCIEE.<br/>
 	 * <br/>
 	 *
 	 * @return String : ligne csv contenant la description du champ 

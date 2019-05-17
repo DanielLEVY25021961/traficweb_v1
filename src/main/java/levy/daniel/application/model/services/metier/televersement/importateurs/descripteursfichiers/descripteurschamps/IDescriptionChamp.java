@@ -36,13 +36,13 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * Lit le tableau String[] pTokens correspondant à la 
+	 * <b>Lit le tableau String[] pTokens correspondant à la 
 	 * définition d'un champ donné dans une description de fichier 
 	 * (ligne d'une description de fichier) 
-	 * et alimente les attributs d'une encapsulation IDescriptionChamp.<br/>
+	 * et alimente les attributs d'une encapsulation IDescriptionChamp</b>.<br/>
 	 * Calcule automatiquement les champs <i>non obligatoirement fournis</i> 
 	 * (colonne début, colonne fin, longueur calculée).<br/>
-	 * Methode à implémenter dans chaque DescriptionChamp concret.<br/>
+	 * <i>Methode à implémenter dans chaque DescriptionChamp concret</i>.<br/>
 	 * <ul>
 	 * Cette méthode est :
 	 * <li>Chargée d'alimenter les attributs de la classe.</li>
@@ -114,8 +114,8 @@ public interface IDescriptionChamp
 	 * , aNomenclature, aLexique] 
 	 * pour un DescriptionChampDarwinCsv.<br/>
 	 * <br/>
-	 * - retourne "" si this.entetesDescriptionMap est null.<br/>
-	 * - retourne "" si this.entetesDescriptionMap est vide.<br/>
+	 * - retourne "" si <code>this.entetesDescriptionMap</code> est null.<br/>
+	 * - retourne "" si <code>this.entetesDescriptionMap</code> est vide.<br/>
 	 * <br/>
 	 *
 	 * @return String : une chaine de caractères décrivant 
@@ -147,12 +147,12 @@ public interface IDescriptionChamp
 	 * pour le champ 'route' 
 	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
-	 * - retourne "" si valeursDescriptionMap est null.<br/>
-	 * - retourne "" si valeursDescriptionMap est vide.<br/>
+	 * - retourne "" si <code>this.valeursDescriptionMap</code> est null.<br/>
+	 * - retourne "" si <code>this.valeursDescriptionMap</code> est vide.<br/>
 	 * <br/>
 	 * NECESSITE D'AVOIR FAIT desc.lireChamp(pTokens) 
 	 * APRES L'INSTANCIATION DU Descripteur 
-	 * pour que valeursDescriptionMap SOIT INSTANCIEE.<br/>
+	 * pour que <code>this.valeursDescriptionMap</code> SOIT INSTANCIEE.<br/>
 	 * <br/>
 	 *
 	 * @return une chaine de caractères décrivant 
@@ -234,7 +234,8 @@ public interface IDescriptionChamp
 		
 	
 	/**
-	 * Getter de la Map triée stockant :<br/>
+	 * Getter de la Map triée <code>this.entetesDescriptionMap</code> 
+	 * stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : le libellé (java) des colonnes de la description
 	 * de fichier.<br/>
@@ -242,10 +243,10 @@ public interface IDescriptionChamp
 	 * {1=ordreChamps, 2=colonnes, 3=longueur, 4=intitule, 5=nomenclature
 	 * , 6=champJava, 7=typeJava, 8=aNomenclature, 9=aLexique
 	 * , 10=colonneDebut, 11=colonneFin, 12=longueurCalculee}
-	 * pour un DescriptionChampDarwinCsv.<br/>
+	 * pour un DescriptionChampHit.<br/>
 	 * <br/>
 	 * 
-	 * @return entetesDescriptionMap : SortedMap&lt;Integer, String&gt;.<br/>
+	 * @return this.entetesDescriptionMap : SortedMap&lt;Integer, String&gt;.<br/>
 	 * Map triée stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : le libellé (java) des colonnes de la description
@@ -282,7 +283,8 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * Getter de la Map triée stockant :<br/>
+	 * Getter de la Map triée <code>this.valeursDescriptionMap</code> 
+	 * stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : les valeurs dans les colonnes de la description
 	 * de fichier pour un champ donné 
@@ -306,10 +308,10 @@ public interface IDescriptionChamp
 	 * <br/>
 	 * NECESSITE D'AVOIR FAIT desc.lireChamp(pTokens) 
 	 * APRES L'INSTANCIATION DU Descripteur 
-	 * pour que valeursDescriptionMap SOIT INSTANCIEE.<br/>
+	 * pour que <code>this.valeursDescriptionMap</code> SOIT INSTANCIEE.<br/>
 	 * <br/>
 	 * 
-	 * @return valeursDescriptionMap :  SortedMap&lt;Integer, String&gt;.<br/>
+	 * @return this.valeursDescriptionMap :  SortedMap&lt;Integer, String&gt;.<br/>
 	 * Map triée stockant :<br/>
 	 * - Integer : l'ordre des colonnes d'une description de fichier.<br/>
 	 * - String : les valeurs dans les colonnes de la description
@@ -400,7 +402,7 @@ public interface IDescriptionChamp
 	 * deuxième champ dans la description du HISTO_F07.<br/>
 	 * <br/>
 	 *
-	 * @return ordreChamps : Integer.<br/>
+	 * @return this.ordreChamps : Integer.<br/>
 	 */
 	Integer getOrdreChamps();
 
@@ -412,7 +414,8 @@ public interface IDescriptionChamp
 	 * deuxième champ dans la description du HISTO_F07.<br/>
 	 * <br/>
 	 *
-	 * @param pOrdreChamps : Integer : valeur à passer à ordreChamps.<br/>
+	 * @param pOrdreChamps : Integer : 
+	 * valeur à passer à this.ordreChamps.<br/>
 	 */
 	void setOrdreChamps(Integer pOrdreChamps);
 
@@ -424,7 +427,7 @@ public interface IDescriptionChamp
 	 * comme 'Numéro de Section'.<br/>
 	 * <br/>
 	 *
-	 * @return intitule : String.<br/>
+	 * @return this.intitule : String.<br/>
 	 */
 	String getIntitule();
 
@@ -436,20 +439,20 @@ public interface IDescriptionChamp
 	 * <br/>
 	 *
 	 * @param pIntitule : String : 
-	 * valeur à passer à intitule.<br/>
+	 * valeur à passer à this.intitule.<br/>
 	 */
 	void setIntitule(String pIntitule);
 
 
 
 	/**
-	 * Getter de la Nomenclature éventuelle du champ comme :<br/>
+	 * Getter de l'Explication/Nomenclature éventuelle du champ comme :<br/>
 	 * "3 - Cumul des deux sens. [sep]<br/>
 	 *  4 - Sens unique P.R. croissants.[sep]  <br/>
 	 *  5 - Sens unique P.R. Décroissants.".<br/>
 	 * <br/>
 	 *
-	 * @return nomenclature : String.<br/>
+	 * @return this.nomenclature : String.<br/>
 	 */
 	String getNomenclature();
 
@@ -464,7 +467,7 @@ public interface IDescriptionChamp
 	 * <br/>
 	 *
 	 * @param pNomenclature : String : 
-	 * valeur à passer à nomenclature.<br/>
+	 * valeur à passer à this.nomenclature.<br/>
 	 */
 	void setNomenclature(String pNomenclature);
 
@@ -475,7 +478,7 @@ public interface IDescriptionChamp
 	 * pour 'Numéro de Département'.<br/>
 	 * <br/>
 	 *
-	 * @return champJava : String.<br/>
+	 * @return this.champJava : String.<br/>
 	 */
 	String getChampJava();
 
@@ -486,7 +489,8 @@ public interface IDescriptionChamp
 	 * pour 'Numéro de Département'.<br/>
 	 * <br/>
 	 *
-	 * @param pChampJava : String : valeur à passer à champJava.<br/>
+	 * @param pChampJava : String : 
+	 * valeur à passer à this.champJava.<br/>
 	 */
 	void setChampJava(String pChampJava);
 
@@ -497,7 +501,7 @@ public interface IDescriptionChamp
 	 * comme Integer pour 'Numéro de Département'.<br/>
 	 * <br/>
 	 *
-	 * @return typeJava : String.<br/>
+	 * @return this.typeJava : String.<br/>
 	 */
 	String getTypeJava();
 
@@ -508,7 +512,8 @@ public interface IDescriptionChamp
 	 * comme Integer pour 'Numéro de Département'.<br/>
 	 * <br/>
 	 *
-	 * @param pTypeJava : String : valeur à passer à typeJava.<br/>
+	 * @param pTypeJava : String : 
+	 * valeur à passer à this.typeJava.<br/>
 	 */
 	void setTypeJava(String pTypeJava);
 
@@ -519,7 +524,7 @@ public interface IDescriptionChamp
 	 * fait l'objet d'une nomenclature.<br/>
 	 * <br/>
 	 *
-	 * @return aNomenclature : boolean.<br/>
+	 * @return this.aNomenclature : boolean.<br/>
 	 */
 	boolean isANomenclature();
 
@@ -531,7 +536,7 @@ public interface IDescriptionChamp
 	 * <br/>
 	 *
 	 * @param pANomenclature : boolean : 
-	 * valeur à passer à aNomenclature.<br/>
+	 * valeur à passer à this.aNomenclature.<br/>
 	 */
 	void setANomenclature(boolean pANomenclature);
 
@@ -539,10 +544,10 @@ public interface IDescriptionChamp
 
 	/**
 	 * Getter du boolean qui stipule si le champ 
-	 * fait l'objet d'une nomenclature.<br/>
+	 * fait l'objet d'un lexique.<br/>
 	 * <br/>
 	 *
-	 * @return aLexique : boolean.<br/>
+	 * @return this.aLexique : boolean.<br/>
 	 */
 	boolean isALexique();
 
@@ -554,7 +559,7 @@ public interface IDescriptionChamp
 	 * <br/>
 	 *
 	 * @param pALexique : boolean : 
-	 * valeur à passer à aLexique.<br/>
+	 * valeur à passer à this.aLexique.<br/>
 	 */
 	void setALexique(boolean pALexique);
 

@@ -215,7 +215,7 @@ public abstract class AbstractDescriptionChampAscii
 		
 	/**
 	 * Longueur (nombre de colonnes) du champ 
-	 * fournie dans la description.<br/>
+	 * fournie dans la description du fichier.<br/>
 	 */
 	protected Integer longueur;
 		
@@ -224,7 +224,7 @@ public abstract class AbstractDescriptionChampAscii
 	 * dans une ligne de la d'une description de fichier ASCII 
 	 * (HIT, HISTO_F07, HISTO_F08, ...) comme 4 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
-	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * La présente méthode <i>lireChamp(...) calcule cette valeur</i>.<br/>
 	 */
 	protected Integer colonneDebut;
 		
@@ -233,13 +233,13 @@ public abstract class AbstractDescriptionChampAscii
 	 * dans une ligne de la d'une description de fichier ASCII 
 	 * (HIT, HISTO_F07, HISTO_F08, ...) comme 9 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
-	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * La présente méthode <i>lireChamp(...) calcule cette valeur</i>.<br/>
 	 */
 	protected Integer colonneFin;
 			
 	/**
 	 * calcul : colonneFin - colonneDebut.<br/>
-	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
+	 * La présente méthode <i>lireChamp(...) calcule cette valeur</i>.<br/>
 	 * Sert à s'assurer que la longueurCalculee correspond 
 	 * avec la longueur indiquée dans la description de fichier.<br/>
 	 */
@@ -259,25 +259,24 @@ public abstract class AbstractDescriptionChampAscii
 
 	/**
 	 * CONSTRUCTEUR D'ARITE 0 permettant d'instancier
-	 * un AbstractDescriptionChampAscii 'tout nu'.<br/>
-	 * - lit dans ressources_externes/messagestechniques.properties si il faut
-	 * rapporter ou pas.<br/>
-	 * <br/>
-	 * A utiliser avec les setters ou en instanciant
-	 * la Map&lt;Integer, String&gt; 'entetesDescriptionMap'
-	 * en son sein.<br/>
-	 * <br/>
-	 * - Il FAUT ALIMENTER 'nombreColonnesObligatoires' dans
-	 * l'appel de ce constructeur par les classes concrètes.<br/>
-	 * <br/>
-	 * - Alimente le 'nombreColonnesObligatoires', c'est à dire
-	 * les colonnes qui doivent obligatoirement être fournies
-	 * dans la description de fichier (d'autres colonnes comme 
+	 * un AbstractDescriptionChampAscii avec une description 
+	 * des en-têtes et un nombre de colonnes obligatoires 
+	 * défini en dur.<br/>
+	 * <ul>
+	 * <li>lit dans ressources_externes/messagestechniques.properties si il faut
+	 * rapporter ou pas.</li>
+	 * <li>instancie <code>this.entetesDescriptionMap</code> 
+	 * avec des valeurs en dur dans la méthode.</li>
+	 * <li>Alimente en dur dans la méthode 
+	 * <code>this.nombreColonnesObligatoires</code>, c'est à dire
+	 * le nombre de colonnes qui doivent obligatoirement être fournies
+	 * dans la description de fichier <br/>(d'autres colonnes comme 
 	 * 'colonne de début', 'colonne de fin', 'longueur', ... 
 	 * peuvent être calculées après l'import sans avoir été 
 	 * directement fournies dans la description de fichier.
 	 * Il suffit d'avoir fourni un champ 'colonnes' sous 
-	 * la forme '14-24').<br/>
+	 * la forme '14-24').</li>
+	 * </ul>
 	 * 
 	 * @throws Exception 
 	 */
@@ -342,22 +341,31 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method CONSTRUCTEUR AbstractDescriptionChampAscii(
-	 * SortedMap<Integer, String> pColonnesDescriptionMap) :<br/>
-	 * CONSTRUCTEUR D'ARITE 1.<br/>
-	 * <br/>
-	 *  - lit dans messagestechniques.properties si il faut
-	 * rapporter ou pas.<br/>
-	 * - Permet de construire un AbstractDescriptionChampAscii
+	 * CONSTRUCTEUR D'ARITE 1 permettant d'instancier 
+	 * un AbstractDescriptionChampAscii
 	 * en lui passant la Map des colonnes de la description
-	 * du fichier 'entetesDescriptionMap'.<br/>
-	 * <br/>
-	 * - Il FAUT ALIMENTER 'nombreColonnesObligatoires' dans
-	 * l'appel de ce constructeur par les classes concrètes.<br/>
-	 * <br/>
+	 * du fichier <code>this.entetesDescriptionMap</code>.<br/>
+	 * <ul>
+	 * <li>lit dans ressources_externes/messagestechniques.properties si il faut
+	 * rapporter ou pas.</li>
+	 * <li>Permet de construire un AbstractDescriptionChampAscii
+	 * en lui passant la Map des colonnes de la description
+	 * du fichier <code>this.entetesDescriptionMap</code>.</li>
+	 * <li>instancie <code>this.entetesDescriptionMap</code> 
+	 * avec pColonnesDescriptionMap.</li>
+	 * <li>Alimente en dur dans la méthode 
+	 * <code>this.nombreColonnesObligatoires</code>, c'est à dire
+	 * le nombre de colonnes qui doivent obligatoirement être fournies
+	 * dans la description de fichier <br/>(d'autres colonnes comme 
+	 * 'colonne de début', 'colonne de fin', 'longueur', ... 
+	 * peuvent être calculées après l'import sans avoir été 
+	 * directement fournies dans la description de fichier.
+	 * Il suffit d'avoir fourni un champ 'colonnes' sous 
+	 * la forme '14-24').</li>
+	 * </ul>
 	 *
-	 * @param pColonnesDescriptionMap : la Map des colonnes de la 
-	 * description du fichier.<br/>
+	 * @param pColonnesDescriptionMap : SortedMap&lt;Integer, String&gt; : 
+	 * la Map des colonnes de la description du fichier.<br/>
 	 * 
 	 * @throws Exception 
 	 */
@@ -957,8 +965,6 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method traiterTokensNull(
-	 * String[] pTokens) :<br/>
 	 * - LOG.fatal si pTokens est null.<br/>
 	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
 	 * - Jette une TableauNullException commentée si pTokens est null.<br/>
@@ -1009,8 +1015,6 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * method traiterTokensVide(
-	 * String[] pTokens) :<br/>
 	 * - LOG.fatal si pTokens est vide.<br/>
 	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
 	 * - Jette une TableauVideException commentée si pTokens est vide.<br/>
@@ -1061,8 +1065,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method traiterTokensLongueur(
-	 * String[] pTokens) :<br/>
 	 * - LOG.fatal si pTokens n'a pas la longueur minimale requise.<br/>
 	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
 	 * - Jette une ExceptionImport commentée si pTokens est trop court.<br/>
@@ -1119,8 +1121,6 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * method traiterTokensOrdreChampsNonRenseigne(
-	 * String[] pTokens) :<br/>
 	 * - LOG.fatal si pTokens[0] (ordreChamps) n'est pas renseigné.<br/>
 	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
 	 * - Jette une ExceptionImport commentée si pTokens[0] (ordreChamps) 
@@ -1173,8 +1173,6 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * method traiterTokensColonnesNonRenseigne(
-	 * String[] pTokens) :<br/>
 	 * - LOG.fatal si pTokens[1] (colonnes) n'est pas renseigné.<br/>
 	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
 	 * - Jette une ExceptionImport commentée si pTokens[1] (colonnes) 
@@ -1227,8 +1225,6 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * method traiterTokensIntituleNonRenseigne(
-	 * String[] pTokens) :<br/>
 	 * - LOG.fatal si pTokens[3] (intitule) n'est pas renseigné.<br/>
 	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
 	 * - Jette une ExceptionImport commentée si pTokens[3] (intitule) 
@@ -1281,8 +1277,6 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * method traiterTokensChampJavaNonRenseigne(
-	 * String[] pTokens) :<br/>
 	 * - LOG.fatal si pTokens[5] (champJava) n'est pas renseigné.<br/>
 	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
 	 * - Jette une ExceptionImport commentée si pTokens[5] (champJava) 
@@ -1335,8 +1329,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method traiterTokensTypeJavaNonRenseigne(
-	 * String[] pTokens) :<br/>
 	 * - LOG.fatal si pTokens[6] (typeJava) n'est pas renseigné.<br/>
 	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
 	 * - Jette une ExceptionImport commentée si pTokens[6] (typeJava) 
@@ -1389,8 +1381,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method traiterTokensANomenclatureNonRenseigne(
-	 * String[] pTokens) :<br/>
 	 * - LOG.fatal si pTokens[7] (aNomenclature) n'est pas renseigné.<br/>
 	 * - Ajoute une ligne d'erreur dans this.rapportDescriptionStb.<br/>
 	 * - Jette une ExceptionImport commentée si pTokens[7] (aNomenclature) 
@@ -1443,8 +1433,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method recupererOrdreChamps(
-	 * String[] pTokens) :<br/>
 	 * - Récupère et retourne ordreChamps (pTokens[0]) dans le tableau de Tokens 
 	 * de la description.<br/>
 	 * - Alimente directement l'attribut ordreChamps.<br/>
@@ -1562,7 +1550,6 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method trouverColonneDebutFin(String pColonnes) :<br/>
 	 * Recoit dans pColonnes "7" ou "18" ou "14-123".<br/>
 	 * Retourne un tableau de 2 entiers correspondant
 	 * aux colonnes de début et de fin 
@@ -1746,14 +1733,14 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * method getColonnes() :<br/>
 	 * Getter de la Colonne unique ou fourchette de colonnes positionnant 
-	 * le champ à lire dans une ligne d'un HISTO_F07.<br/>
-	 * C'est la valeur fournie dans la description de fichier HISTO_F07 
+	 * le champ à lire dans une ligne d'une description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...).<br/>
+	 * C'est la valeur fournie dans la description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...) 
 	 * comme 4-9 par exemple.<br/>
 	 * Par exemple, 'Numéro de Section' est situé entre les colonnes 
 	 * 4 et 9 d'une ligne d'un HISTO_F07.<br/>
-	 * <br/>
 	 *
 	 * @return colonnes : String.<br/>
 	 */
@@ -1764,15 +1751,14 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method setColonnes(
-	 * String pColonnes) :<br/>
 	 * Setter de la Colonne unique ou fourchette de colonnes positionnant 
-	 * le champ à lire dans une ligne d'un HISTO_F07.<br/>
-	 * C'est la valeur fournie dans la description de fichier HISTO_F07 
+	 * le champ à lire dans une ligne d'une description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...).<br/>
+	 * C'est la valeur fournie dans la description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...) 
 	 * comme 4-9 par exemple.<br/>
 	 * Par exemple, 'Numéro de Section' est situé entre les colonnes 
 	 * 4 et 9 d'une ligne d'un HISTO_F07.<br/>
-	 * <br/>
 	 *
 	 * @param pColonnes : String : valeur à passer à colonnes.<br/>
 	 */
@@ -1785,10 +1771,8 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method getLongueur() :<br/>
 	 * Getter de la Longueur (nombre de colonnes) du champ 
-	 * fournie dans la description.<br/>
-	 * <br/>
+	 * fournie dans la description du fichier.<br/>
 	 *
 	 * @return longueur : Integer.<br/>
 	 */
@@ -1799,11 +1783,8 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method setLongueur(
-	 * Integer pLongueur) :<br/>
 	 * Setter de la Longueur (nombre de colonnes) du champ 
-	 * fournie dans la description.<br/>
-	 * <br/>
+	 * fournie dans la description du fichier.<br/>
 	 *
 	 * @param pLongueur : Integer : 
 	 * valeur à passer à longueur.<br/>
@@ -1817,13 +1798,11 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method getColonneDebut() :<br/>
-	 * Getter de la Colonne de début du champ (1-based) 
-	 * fournie dans la description 
-	 * de fichier HISTO_F07 comme 4 pour 4-9 (dans colonnes) 
+	 * Getter de la Colonne de début du champ (1-based) fournie 
+	 * dans une ligne de la d'une description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...) comme 4 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
-	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
-	 * <br/>
+	 * La présente méthode <i>lireChamp(...) calcule cette valeur</i>.<br/>
 	 *
 	 * @return colonneDebut : Integer.<br/>
 	 */
@@ -1834,14 +1813,11 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method setColonneDebut(
-	 * Integer pColonneDebut) :<br/>
-	 * Getter de la Colonne de début du champ (1-based) 
-	 * fournie dans la description 
-	 * de fichier HISTO_F07 comme 4 pour 4-9 (dans colonnes) 
+	 * Setter de la Colonne de début du champ (1-based) fournie 
+	 * dans une ligne de la d'une description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...) comme 4 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
-	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
-	 * <br/>
+	 * La présente méthode <i>lireChamp(...) calcule cette valeur</i>.<br/>
 	 *
 	 * @param pColonneDebut : Integer : valeur à passer à colonneDebut.<br/>
 	 */
@@ -1854,13 +1830,11 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method getColonneFin() :<br/>
-	 * Getter de la Colonne de fin (1-based) du champ 
-	 * fournie dans la description 
-	 * de fichier HISTO_F07 comme 9 pour 4-9 (dans colonnes) 
+	 * Getter de la Colonne de fin du champ (1-based) fournie 
+	 * dans une ligne de la d'une description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...) comme 9 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
-	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
-	 * <br/>
+	 * La présente méthode <i>lireChamp(...) calcule cette valeur</i>.<br/>
 	 *
 	 * @return colonneFin : Integer.<br/>
 	 */
@@ -1871,14 +1845,11 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method setColonneFin(
-	 * Integer pColonneFin) :<br/>
-	 * Setter de la Colonne de fin du champ (1-based) 
-	 * fournie dans la description 
-	 * de fichier HISTO_F07 comme 9 pour 4-9 (dans colonnes) 
+	 * Setter de la Colonne de fin du champ (1-based) fournie 
+	 * dans une ligne de la d'une description de fichier ASCII 
+	 * (HIT, HISTO_F07, HISTO_F08, ...) comme 9 pour 4-9 (dans colonnes) 
 	 * par exemple.<br/>
-	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
-	 * <br/>
+	 * La présente méthode <i>lireChamp(...) calcule cette valeur</i>.<br/>
 	 *
 	 * @param pColonneFin : Integer : 
 	 * valeur à passer à colonneFin.<br/>
@@ -1892,10 +1863,10 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method getLongueurCalculee() :<br/>
 	 * Getter du calcul : colonneFin - colonneDebut.<br/>
-	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
-	 * <br/>
+	 * La présente méthode <i>lireChamp(...) calcule cette valeur</i>.<br/>
+	 * Sert à s'assurer que la longueurCalculee correspond 
+	 * avec la longueur indiquée dans la description de fichier.<br/>
 	 *
 	 * @return longueurCalculee : Integer.<br/>
 	 */
@@ -1906,11 +1877,10 @@ public abstract class AbstractDescriptionChampAscii
 
 
 	/**
-	 * method setLongueurCalculee(
-	 * Integer pLongueurCalculee) :<br/>
 	 * Setter du calcul : colonneFin - colonneDebut.<br/>
-	 * La présente méthode lireChamp(...) calcule cette valeur.<br/>
-	 * <br/>
+	 * La présente méthode <i>lireChamp(...) calcule cette valeur</i>.<br/>
+	 * Sert à s'assurer que la longueurCalculee correspond 
+	 * avec la longueur indiquée dans la description de fichier.<br/>
 	 *
 	 * @param pLongueurCalculee : Integer : 
 	 * valeur à passer à longueurCalculee.<br/>
@@ -1945,7 +1915,8 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ANomenclature à true et la nomenclature vide.<br/>
 	 * <br/>
 	 *
@@ -1956,8 +1927,9 @@ public abstract class AbstractDescriptionChampAscii
 
 	
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
-	 * en cas de ANomenclature à true et la nomenclature vide.<br/>
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
+	 * en cas de ALexique à true et le lexique vide.<br/>
 	 * <br/>
 	 *
 	 * @return : String.<br/>
@@ -1967,7 +1939,8 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties
 	 * en cas de ligne de description null.<br/>
 	 * <br/>
 	 *
@@ -1978,7 +1951,8 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description vide.<br/>
 	 * <br/>
 	 *
@@ -1989,7 +1963,8 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description trop courte.<br/>
 	 * <br/>
 	 *
@@ -2000,8 +1975,8 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * method getCleOrdreChampVide() :<br/>
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec ordreChamps non renseigné.<br/>
 	 * <br/>
 	 *
@@ -2012,7 +1987,8 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec colonnes non renseigné.<br/>
 	 * <br/>
 	 *
@@ -2023,7 +1999,8 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec intitule non renseigné.<br/>
 	 * <br/>
 	 *
@@ -2034,7 +2011,8 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec champJava non renseigné.<br/>
 	 * <br/>
 	 *
@@ -2045,7 +2023,8 @@ public abstract class AbstractDescriptionChampAscii
 	
 	
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec typeJava non renseigné.<br/>
 	 * <br/>
 	 *
@@ -2056,7 +2035,8 @@ public abstract class AbstractDescriptionChampAscii
 
 		
 	/**
-	 * Retourne la clé contenue dans messagestechniques.properties 
+	 * Retourne la clé contenue dans 
+	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec aNomenclature non renseigné.<br/>
 	 * <br/>
 	 *

@@ -298,7 +298,7 @@ public class DescriptionChampHitTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -346,6 +346,15 @@ public class DescriptionChampHitTest {
 		final String fournirValeurparColonne1 = descriptionChamp.fournirValeurparColonne(1);
 		final String fournirValeurparColonne2 = descriptionChamp.fournirValeurparColonne(2);
 		final String fournirValeurparColonne3 = descriptionChamp.fournirValeurparColonne(3);
+		final String fournirValeurparColonne4 = descriptionChamp.fournirValeurparColonne(4);
+		final String fournirValeurparColonne5 = descriptionChamp.fournirValeurparColonne(5);
+		final String fournirValeurparColonne6 = descriptionChamp.fournirValeurparColonne(6);
+		final String fournirValeurparColonne7 = descriptionChamp.fournirValeurparColonne(7);
+		final String fournirValeurparColonne8 = descriptionChamp.fournirValeurparColonne(8);
+		final String fournirValeurparColonne9 = descriptionChamp.fournirValeurparColonne(9);
+		final String fournirValeurparColonne10 = descriptionChamp.fournirValeurparColonne(10);
+		final String fournirValeurparColonne11 = descriptionChamp.fournirValeurparColonne(11);
+		final String fournirValeurparColonne12 = descriptionChamp.fournirValeurparColonne(12);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -389,6 +398,15 @@ public class DescriptionChampHitTest {
 			System.out.println("fournirValeurparColonne1 : " + fournirValeurparColonne1);
 			System.out.println("fournirValeurparColonne2 : " + fournirValeurparColonne2);
 			System.out.println("fournirValeurparColonne3 : " + fournirValeurparColonne3);
+			System.out.println("fournirValeurparColonne4 : " + fournirValeurparColonne4);
+			System.out.println("fournirValeurparColonne5 : " + fournirValeurparColonne5);
+			System.out.println("fournirValeurparColonne6 : " + fournirValeurparColonne6);
+			System.out.println("fournirValeurparColonne7 : " + fournirValeurparColonne7);
+			System.out.println("fournirValeurparColonne8 : " + fournirValeurparColonne8);
+			System.out.println("fournirValeurparColonne9 : " + fournirValeurparColonne9);
+			System.out.println("fournirValeurparColonne10 : " + fournirValeurparColonne10);
+			System.out.println("fournirValeurparColonne11 : " + fournirValeurparColonne11);
+			System.out.println("fournirValeurparColonne12 : " + fournirValeurparColonne12);
 		}
 		
 		/* garantit le bon fonctionnement de lireChamp(tokens[]). */

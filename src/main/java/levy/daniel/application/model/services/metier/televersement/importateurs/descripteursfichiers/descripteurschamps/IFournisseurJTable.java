@@ -31,15 +31,15 @@ public interface IFournisseurJTable {
 	/**
 	* retourne l'en-tête de la p-ième colonne (1-based) 
 	* d'un fichier de description.<br/>
-	* Methode utile pour l'affichage dans une JTable par exemple.<br/>
+	* Methode utile pour l'affichage dans une JTable (Swing) par exemple.<br/>
 	* <br/>
 	* Par exemple :<br/>
-	* desc.getEnteteparColonne(2) == 'colonnes' 
+	* desc.fournirEnteteparColonne(2) == 'colonnes' 
 	* pour un DescripteurChampHistoF07.<br/>
-	* desc.getEnteteparColonne(2 )== 'intitule' 
+	* desc.fournirEnteteparColonne(2 )== 'intitule' 
 	* pour un DescripteurChampDarwinCsv.<br/>
 	* <br/>
-	* - retourne null si entetesDescriptionMap est null.<br/>
+	* - retourne null si <code>this.entetesDescriptionMap</code> est null.<br/>
 	* - retourne null si la p-ième colonne (1-based) n'existe pas.<br/>
 	* <br/>
 	* 
@@ -61,10 +61,10 @@ public interface IFournisseurJTable {
 	 * Methode utile pour l'affichage dans une JTable par exemple.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
-	 * desc.getValeurparColonne(2) == '1-3' pour le champ 
+	 * desc.fournirValeurparColonne(2) == '1-3' pour le champ 
 	 * 'Numéro de Département' (1ère ligne) de la description 
 	 * d'un HISTO_F07.<br/>
-	 * desc.getValeurparColonne(2) == 'route' pour le champ 'route' 
+	 * desc.fournirValeurparColonne(2) == 'route' pour le champ 'route' 
 	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
 	 * - retourne null si valeursDescriptionMap est null.<br/>

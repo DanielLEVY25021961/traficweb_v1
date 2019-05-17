@@ -185,7 +185,7 @@ public abstract class AbstractDescriptionChamp
 	protected String intitule;
 		
 	/**
-	 * Nomenclature éventuelle du champ comme :<br/>
+	 * Explication/Nomenclature éventuelle du champ dans la description de fichier comme :<br/>
 	 * "3 - Cumul des deux sens. [sep]<br/>
 	 *  4 - Sens unique P.R. croissants.[sep]  <br/>
 	 *  5 - Sens unique P.R. Décroissants.".<br/>
