@@ -5,7 +5,7 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
   
-  <!-- All bugs in test classes for JUnit-specific bugs -->
+  <!-- Exclut toutes les vérifications FINDBUGS dans les classes de TEST pour JUnit-specific bug = DLS (alimentation à perte d'une variable...) -->
   <Match>
 	  <Class name="~.*\.*Test" />
 	  <Bug code="DLS" />
