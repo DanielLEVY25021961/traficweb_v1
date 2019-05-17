@@ -11,8 +11,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * class DescriptionChampHit :<br/>
  * <p>
  * IMPLEMENTATION de AbstractDescriptionChampAscii chargée
- * de stocker la définition d'un champ de fichier
- * HIT.
+ * de stocker la définition d'un champ de fichier HIT.
  * </p>
  * 
  * <p>
@@ -25,19 +24,23 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * <code><b>this.entetesDescriptionMap</b></code> dès sa construction.<br/>
  * </p>
  * 
+ * <p>
  * Un DescriptionChampHit ne "connait" les valeurs 
  * décrivant un champ donné
  * qu'après l'execution de sa méthode lireChamps(String[] pTokens) 
  * où pTokens représente toutes les valeurs de la description 
  * du champ donné sous forme de tableau de String.<br/>
+ * </p>
+ * 
  * <p>
  * <code> // Lecture d'une ligne du fichier de description.</code><br/>
  * <code><b>public static final String[] NUM_DEPT_DESC = 
- * {"1", "1-3", "3", "Numéro de Département", "calé à gauche", "numDepartment", "Integer", "false", "false", "1", "3", "3"};</b></code><br/>
+ * {"1", "1-3", "3", "Numéro de Département", "cadré à gauche", "numDepartment", "Integer", "false", "false"};</b></code><br/>
  * <code> // Import de la ligne de description dans un DescriptionChampHit.</code><br/>
  * <code><b>descripteur.lireChamps(NUM_DEPT_DESC);</b></code><br/>
  * </p>
- * <br/>
+ * 
+ * <p>
  * Un fichier de description d'un HIT formatée en csv (';') 
  * commence par :<br/>
  * <br/>
@@ -75,16 +78,24 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * 
  * <br/>
  *
- * - Exemple d'utilisation :<br/>
- * <code>IDescriptionChamp desc 
- * = new DescriptionChampHit();</code><br/>
- * <code>desc.getColonnesDescriptionMap();</code><br/>
- * <code>public static final String[] NUM_DEPT_DESC 
- * = {"1", "1-3", "3", "Numéro de Département"
- * , "Cadré à droite", "numDepartment"
- * , "Integer", "false"};</code><br/>
- * <code>desc.lireChamp(NUM_DEPT_DESC);   //Injecte toutes les valeurs du tableau de tokens NUM_DEPT_DESC dans la présente encapsulation</code><br/>
- * <code>desc.getValeursDescriptionMap();</code><br/>
+ * <p>
+ * - Exemple d'utilisation :
+ * </p>
+ * <p>
+ * <code> // Instanciation d'un IDescriptionChamp.</code><br/>
+ * <code><b>IDescriptionChamp desc 
+ * = new DescriptionChampHit();</b></code><br/>
+ * <code> // récupération de la Map des en-têtes de la description de fichier (créée en dur lors de l'instanciation du IDescriptionChamp).</code><br/>
+ * <code><b>Map&lt;Integer, String&gt; entetesDescriptionMap = desc.getColonnesDescriptionMap();</b></code><br/>
+ * <code> // tableau de tokens correspondant à la description d'un champ (ligne d'une description de fichier).</code><br/>
+ * <code><b>public static final String[] NUM_DEPT_DESC 
+ * = {"1", "1-3", "3", "Numéro de Département", "cadré à gauche", "numDepartment", "Integer", "false", "false"};</b></code><br/>
+ * <code> // LECTURE - Injecte toutes les valeurs du tableau de tokens NUM_DEPT_DESC dans la présente encapsulation</code><br/>
+ * <code><b>desc.lireChamp(NUM_DEPT_DESC);</b></code><br/> 
+ * <code>// récupération des valeurs encapsulées.</code><br/>  
+ * <code><b>SortedMap&lt;Integer, String&gt; valeursDescriptionMap = desc.getValeursDescriptionMap();</b></code><br/>
+ * </p>
+ * 
  * <br/>
  *
  * - Mots-clé :<br/>

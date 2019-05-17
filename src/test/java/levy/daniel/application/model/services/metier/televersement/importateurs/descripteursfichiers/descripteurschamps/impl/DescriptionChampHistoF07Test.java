@@ -18,8 +18,8 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideE
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
 /**
- * CLASSE DescriptionChampHitTest :<br/>
- * Test JUnit de la classe {@link DescriptionChampHit}.<br/>
+ * CLASSE DescriptionChampHistoF07Test :<br/>
+ * Test JUnit de la classe {@link DescriptionChampHistoF07}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -37,7 +37,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * @since 16 mai 2019
  *
  */
-public class DescriptionChampHitTest {
+public class DescriptionChampHistoF07Test {
 
 	// ************************ATTRIBUTS************************************/
 	
@@ -65,7 +65,7 @@ public class DescriptionChampHitTest {
 		= "ne doit pas retourner null : ";
 
 	/**
-	 * new DescriptionChampHit().
+	 * new DescriptionChampHistoF07().
 	 */
 	public static IDescriptionChamp descriptionChamp; 
 		
@@ -76,7 +76,7 @@ public class DescriptionChampHitTest {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(DescriptionChampHitTest.class);
+		= LogFactory.getLog(DescriptionChampHistoF07Test.class);
 
 	// *************************METHODES************************************/
 
@@ -84,7 +84,7 @@ public class DescriptionChampHitTest {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public DescriptionChampHitTest() {
+	public DescriptionChampHistoF07Test() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -109,7 +109,7 @@ public class DescriptionChampHitTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHitTest - méthode testLireChampNull() ********** ");
+			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChampNull() ********** ");
 		}
 		
 		try {
@@ -146,7 +146,7 @@ public class DescriptionChampHitTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHitTest - méthode testLireChampVide() ********** ");
+			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChampVide() ********** ");
 		}
 		
 		try {
@@ -191,7 +191,7 @@ public class DescriptionChampHitTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHitTest - méthode testLireChampTropCourt() ********** ");
+			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChampTropCourt() ********** ");
 		}
 		
 		try {
@@ -236,7 +236,7 @@ public class DescriptionChampHitTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHitTest - méthode testLireChampMalRenseigne() ********** ");
+			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChampMalRenseigne() ********** ");
 		}
 		
 		try {
@@ -303,7 +303,7 @@ public class DescriptionChampHitTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHitTest - méthode testLireChamp() ********** ");
+			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChamp() ********** ");
 		}
 		
 		final String[] tokens = {"1", "1-3", "3", "Numéro de Département", "cadré à gauche", "numDepartment", "Integer", "false", "false"};
@@ -324,17 +324,17 @@ public class DescriptionChampHitTest {
 		
 		/* attributs. */
 		final Integer ordreChamps = descriptionChamp.getOrdreChamps();
-		final String colonnes = ((DescriptionChampHit) descriptionChamp).getColonnes();
-		final Integer longueur = ((DescriptionChampHit) descriptionChamp).getLongueur();
+		final String colonnes = ((DescriptionChampHistoF07) descriptionChamp).getColonnes();
+		final Integer longueur = ((DescriptionChampHistoF07) descriptionChamp).getLongueur();
 		final String intitule = descriptionChamp.getIntitule();
 		final String nomenclature = descriptionChamp.getNomenclature();
 		final String champJava = descriptionChamp.getChampJava();
 		final String typeJava = descriptionChamp.getTypeJava();
 		final boolean aNomenclature = descriptionChamp.isANomenclature();
 		final boolean aLexique = descriptionChamp.isALexique();
-		final Integer colonneDebut = ((DescriptionChampHit) descriptionChamp).getColonneDebut();
-		final Integer colonneFin = ((DescriptionChampHit) descriptionChamp).getColonneFin();
-		final Integer longueurCalculee = ((DescriptionChampHit) descriptionChamp).getLongueurCalculee();
+		final Integer colonneDebut = ((DescriptionChampHistoF07) descriptionChamp).getColonneDebut();
+		final Integer colonneFin = ((DescriptionChampHistoF07) descriptionChamp).getColonneFin();
+		final Integer longueurCalculee = ((DescriptionChampHistoF07) descriptionChamp).getLongueurCalculee();
 		
 		
 		final String fournirEnteteparColonne0 = descriptionChamp.fournirEnteteparColonne(0);
@@ -566,10 +566,10 @@ public class DescriptionChampHitTest {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		
-		descriptionChamp = new DescriptionChampHit();
+		descriptionChamp = new DescriptionChampHistoF07();
 		
 	} // Fin de beforeClass()._____________________________________________
 
 	
 	
-} // FIN DE LA CLASSE DescriptionChampHitTest.-------------------------------
+} // FIN DE LA CLASSE DescriptionChampHistoF07Test.--------------------------
