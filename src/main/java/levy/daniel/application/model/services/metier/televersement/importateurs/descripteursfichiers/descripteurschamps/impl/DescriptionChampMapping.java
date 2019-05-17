@@ -17,16 +17,21 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 
 /**
  * class DescriptionChampMapping :<br/>
+ * <p>
  * IMPLEMENTATION de AbstractDescriptionChampCsv chargée
  * de stocker la définition d'un champ de fichier de
  * Mapping Histonat-HIT-Darwin-ISIDOR (écrit en csv avc séparateur ';').<br/>
- * <br/>
+ * </p>
+ * 
+ * <p>
  * Un DescriptionChampMapping "sait" qu'une description 
  * d'un Mapping Histonat-HIT-Darwin-ISIDOR formatée en csv (';') 
  * doit être ordonnée comme suit :<br/>
  * [ordreChampsHistonat, intituleHistonat, champJavaHistonat, colonneDebut, colonneFin, longueurCalculee, ordreChampsHit, intituleHit, champJavaHit, ordreChampsDarwin, intituleDarwin, champJavaDarwin, baliseIsidor, isLocalisant].<br/>
  * Il stocke cette liste ordonnée de champs dans sa map triée 
- * 'entetesDescriptionMap' dès sa construction.<br/>
+ * 'entetesDescriptionMap' dès sa construction.
+ * </p>
+ * 
  * <br/>
  * Un DescriptionChampMapping ne "connait" les valeurs 
  * décrivant un champ donné
@@ -2891,6 +2896,137 @@ public class DescriptionChampMapping extends AbstractDescriptionChampCsv {
 	public final String getNomDescriptionChamp() {
 		return "Description des champs d'un fichier de Mapping HIT-HISTO_F07-DARWIN";
 	} // Fin de getNomDescriptionChamp().__________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getNomClasse() {
+		return "";
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleANomenclatureTrue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleALexiqueTrue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleTableauNull() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleTableauVide() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleTableauTropPetit() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleOrdreChampVide() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleColonneVide() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleIntituleVide() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleChampJavaVide() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleTypeJavaVide() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCleANomenclatureVide() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 	

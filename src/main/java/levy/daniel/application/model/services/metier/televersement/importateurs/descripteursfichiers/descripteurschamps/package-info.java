@@ -56,7 +56,7 @@
  * 1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;false;<br/>
  * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;false;<br/>
  * 3;Département du PR Origine;Département du PR Origine ('début');depPrd;String;false;false;<br/>
- * 4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;false;<br/>
+ * 4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;true;<br/>
  * 5;PR Origine;PR Origine ('début');prd;Integer;false;false;<br/>
  * .......................................................<br/>
  * </p>
@@ -81,7 +81,7 @@
  * </tr>
  * <tr>
  * <td>4</td> <td>Code Concession du PR Origine</td> <td>Code Concession du PR Origine ('début')</td> <td>concessionPrd</td> 
- * <td>String</td> <td>false</td> <td>false</td> 
+ * <td>String</td> <td>false</td> <td>true</td> 
  * </tr>
  * <tr>
  * <td>5</td> <td>PR Origine</td> <td>PR Origine ('début')</td> <td>prd</td> 

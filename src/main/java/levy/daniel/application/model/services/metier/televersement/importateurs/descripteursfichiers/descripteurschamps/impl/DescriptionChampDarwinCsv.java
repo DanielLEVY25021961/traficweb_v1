@@ -1,7 +1,6 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl;
 
 import java.util.SortedMap;
-import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -47,28 +46,53 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * </p>
  * 
  * 
- * Un fichier de description d'un DARWIN_CSV formatée en csv (';') 
- * commence par :<br/>
- * <br/>
+ * <p>
+ * La description d'un DARWIN_CSV commence par :<br/>
  * ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;<br/>
  * 1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;false;<br/>
  * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;false;<br/>
- * 3;Département du PR Origine;Département du PR Origine  ('début');depPrd;String;false;false;<br/>
- * 4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;<br/>
- * 5;PR Origine;PR Origine  ('début');prd;Integer;false;<br/>
- * ..............................<br/>
+ * 3;Département du PR Origine;Département du PR Origine ('début');depPrd;String;false;false;<br/>
+ * 4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;true;<br/>
+ * 5;PR Origine;PR Origine ('début');prd;Integer;false;false;<br/>
+ * .......................................................<br/>
+ * </p>
+ * 
+ * <p>
+ * <table border="1">
+ * <tr>
+ * <th>ordreChamps</th> <th>intitule</th> <th>nomenclature</th> <th>champJava</th> 
+ * <th>typeJava</th> <th>aNomenclature</th> <th>aLexique</th> 
+ * </tr>
+ * <tr>
+ * <td>1</td> <td>Identifiant de la section</td> <td>Identifiant de la section</td> <td>objetId</td> 
+ * <td>Integer</td> <td>false</td> <td>false</td> 
+ * </tr>
+ * <tr>
+ * <td>2</td> <td>route</td> <td>Route au format Isidor (ex : A0034b1 ou A0006)</td> <td>route</td> 
+ * <td>String</td> <td>false</td> <td>false</td> 
+ * </tr>
+ * <tr>
+ * <td>3</td> <td>Département du PR Origine</td> <td>Département du PR Origine ('début')</td> <td>depPrd</td> 
+ * <td>String</td> <td>false</td> <td>false</td> 
+ * </tr>
+ * <tr>
+ * <td>4</td> <td>Code Concession du PR Origine</td> <td>Code Concession du PR Origine ('début')</td> <td>concessionPrd</td> 
+ * <td>String</td> <td>false</td> <td>true</td> 
+ * </tr>
+ * <tr>
+ * <td>5</td> <td>PR Origine</td> <td>PR Origine ('début')</td> <td>prd</td> 
+ * <td>Integer</td> <td>false</td> <td>false</td> 
+ * </tr>
+ * </table>
+ * </p>
+ * 
  * <br/>
  * <br/>
+ * 
  *
- * - Exemple d'utilisation :<br/>
- * <code>IDescriptionChamp desc 
- * = new DescriptionChampDarwinCsv();</code><br/>
- * <code>desc.getColonnesDescriptionMap();</code><br/>
- * <code>public static final String[] ROUTE 
- * = {"2", "route", "Route au format Isidor (ex : A0034b1 ou A0006)"
- * , "route", "String", "false"};</code><br/>
- * <code>desc.lireChamp(ROUTE);   //Injecte toutes les valeurs du tableau de tokens ROUTE dans la présente encapsulation</code><br/>
- * <code>desc.getValeursDescriptionMap();</code><br/>
+ * <p>
+ * - Exemple d'utilisation :
+ * </p>
  * <br/>
  *
  * - Mots-clé :<br/>
@@ -180,24 +204,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	public DescriptionChampDarwinCsv() throws Exception {
 		
 		super();
-		
-		/* Instanciation de la Map décrivant les champs
-		 * dans la définition des fichiers Darwin. */
-		this.entetesDescriptionMap = new TreeMap<Integer, String>();
-		
-		/* Remplissage de la Map. ***********/
-		this.entetesDescriptionMap.put(1, "ordreChamps");
-		this.entetesDescriptionMap.put(2, "intitule");
-		this.entetesDescriptionMap.put(3, "nomenclature");
-		this.entetesDescriptionMap.put(4, "champJava");
-		this.entetesDescriptionMap.put(5, "typeJava");
-		this.entetesDescriptionMap.put(6, "aNomenclature");
-		
-		/* Alimentation du nombre de colonnes
-		 * à fournir obligatoirement dans la description
-		 * de fichier en entrée. */
-		this.nombreColonnesObligatoires = 6;
-		
+				
 	} // Fin de CONSTRUCTEUR DescriptionChampDarwinCsv().__________________
 	
 	
@@ -227,249 +234,8 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 		
 		super(pColonnesDescriptionMap);
 		
-		/* Alimentation du nombre de colonnes
-		 * à fournir obligatoirement dans la description
-		 * de fichier en entrée. */
-		this.nombreColonnesObligatoires = 6;
-		
 	} // Fin de CONSTRUCTEUR DescriptionChampDarwinCsv(
 	 // Map<Integer, String> pColonnesDescriptionMap)._____________________
-
-
-		
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void lireChamp(
-			final String[] pTokens) 
-				throws 
-					Exception {
-		
-		
-		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
-		/* pTokens null. */
-		/* LOG, rapport d'erreur et Exception. */
-		this.traiterTokensNull(pTokens);
-		
-		/* pTokens vide. */
-		/* LOG, rapport d'erreur et Exception. */
-		this.traiterTokensVide(pTokens);
-		
-		/* Tableau de longueur trop petite*/
-		/* LOG, rapport d'erreur et Exception. */
-		this.traiterTokensLongueur(pTokens);
-		
-		// **************PARAMETRES VALIDES****************************/
-
-		/* INSTANCIATION DE LA MAP valeursDescriptionMap. */
-		this.valeursDescriptionMap = new TreeMap<Integer, String>();
-		
-		/* Instanciation de la Map des longueurs. */
-		this.longueursDescriptionMap = new TreeMap<Integer, Integer>();
-		
-		/* Lecture des Tokens : */
-		String ordreChampsString =null;
-		String intituleString = null;
-		String nomenclatureString = null;
-		String champJavaString = null;
-		String typeJavaString = null;
-		String aNomenclatureString = null;
-
-		
-		//* 1 - LECTURE DE L'ORDRE DES CHAMPS. ************/
-		/* Si NON RENSEIGNE, exception, */
-		ordreChampsString = this.recupererOrdreChamps(pTokens);
-		
-		/* Insertion dans la Map des Valeurs. */
-		this.valeursDescriptionMap.put(1, ordreChampsString);
-		
-		/* Insertion dans la Map des longueurs. */
-		this.longueursDescriptionMap.put(1, ordreChampsString.length());
-		
-		// FIN DE LECTURE DE L'ORDRE DES CHAMPS. ************/
-		
-		
-		
-		//* 2 - LECTURE DE 'INTITULE'. **************************/
-		/* Si NON RENSEIGNE, exception. */
-		this.traiterTokensIntituleNonRenseigne(pTokens);
-		
-		/* Sinon, CHAMP RENSEIGNE. */
-		/* Insertion dans la Map des Valeurs. */
-		intituleString = pTokens[1];
-		
-		/* Ne nettoie pas. 
-		 * Enlève juste d'éventuels guillemets.*/
-		final String intituleNettoye 
-			= StringUtils.remove(intituleString, "\"");
-		
-		/* Passage aux attributs */
-		this.intitule = intituleNettoye;
-		
-		/* Insertion dans la Map des valeurs. */
-		this.valeursDescriptionMap.put(2, intituleNettoye);
-		
-		/* Insertion dans la Map des longueurs. */
-		this.longueursDescriptionMap.put(2, intituleNettoye.length());
-		// FIN DE LECTURE DE 'INTITULE'. ************/
-		
-		
-		//* 3 - LECTURE DE 'NOMENCLATURE'. **************************/
-		/* Nomenclature peut ne pas être renseigné si le champ
-		 * n'avait pas de nomenclature.
-		 *  On admet donc qu'elle ne soit
-		 * pas renseignée */
-		/* Insertion dans la Map des Valeurs. */
-		nomenclatureString = pTokens[2];
-		
-		/* Ne nettoie pas.
-		 * Enlève juste d'éventuels guillemets. */
-		final String nomenclatureNettoye 
-			= StringUtils.remove(nomenclatureString, "\"");
-		
-		/* Passage aux attributs */
-		this.nomenclature = nomenclatureNettoye;
-		
-		/* Insertion dans la Map des valeurs. */
-		this.valeursDescriptionMap.put(3, nomenclatureNettoye);
-		
-		/* Insertion dans la Map des longueurs. */
-		if (nomenclatureNettoye != null) {
-			this.longueursDescriptionMap
-				.put(3, nomenclatureNettoye.length());
-		}
-		else {
-			this.longueursDescriptionMap
-			.put(3, 0);
-		}		
-		// FIN DE LECTURE DE 'NOMENCLATURE'. ************/
-		
-		
-		//* 4 - LECTURE DE 'CHAMP JAVA'. **************************/
-		/* Si NON RENSEIGNE, exception. */
-		this.traiterTokensChampJavaNonRenseigne(pTokens);
-		
-		/* Sinon, CHAMP RENSEIGNE. */
-		/* Insertion dans la Map des Valeurs. */
-		champJavaString = pTokens[3];
-		
-		final String champJavaNettoye = nettoyerString(champJavaString);
-		
-		/* Passage aux attributs */
-		this.champJava = champJavaNettoye;
-		
-		/* Insertion dans la Map des valeurs. */
-		this.valeursDescriptionMap.put(4, champJavaNettoye);
-		
-		/* Insertion dans la Map des longueurs. */
-		this.longueursDescriptionMap.put(4, champJavaNettoye.length());
-		// FIN DE LECTURE DE 'CHAMP JAVA'. ************/
-
-		
-		//* 5 - LECTURE DE 'TYPE JAVA'. **************************/
-		/* Si NON RENSEIGNE, exception. */
-		this.traiterTokensTypeJavaNonRenseigne(pTokens);
-		
-		/* Sinon, CHAMP RENSEIGNE. */
-		typeJavaString = pTokens[4];
-		
-		final String typeJavaNettoye = nettoyerString(typeJavaString);
-		
-		/* Passage aux attributs */
-		this.typeJava = typeJavaNettoye;
-		
-		/* Insertion dans la Map des valeurs. */
-		this.valeursDescriptionMap.put(5, typeJavaNettoye);
-		
-		/* Insertion dans la Map des longueurs. */
-		this.longueursDescriptionMap.put(5, typeJavaNettoye.length());
-		// FIN DE LECTURE DE 'TYPE JAVA'. ************/
-		
-		
-		//* 6 - LECTURE DE 'A NOMENCLATURE'. **************************/
-		/* Si NON RENSEIGNE, exception. */
-		this.traiterTokensANomenclatureNonRenseigne(pTokens);
-		
-		
-		aNomenclatureString = pTokens[5];
-		
-		String aNomenclatureNettoye 
-			= nettoyerString(aNomenclatureString);
-		
-		/* Sinon, CHAMP RENSEIGNE à true
-		 * si la valeur est true avec n'importe quelle casse. */		
-		if (Boolean.parseBoolean(aNomenclatureNettoye)) {
-			
-			/*Le champ nomenclature doit être
-			 * renseigné si aNomenclature est à true. */
-			if (StringUtils.isNotBlank(nomenclatureString)) {
-				
-				/* Transformation de 'True' ou 'tRue',...
-				 * en 'true'. */
-				aNomenclatureNettoye = "true";
-				
-				/* Passage aux attributs */
-				
-				/* Insertion dans la Map des Valeurs. */
-				this.valeursDescriptionMap.put(6, aNomenclatureNettoye);
-				
-				/* Insertion dans la Map des longueurs. */
-				this.longueursDescriptionMap.put(6
-						, aNomenclatureNettoye.length());
-			}
-			/* Sinon, l'utilisateur doit fournir une 
-			 * nomenclature. */
-			else {
-				
-				final String cleANomenclatureVide
-				= "descriptionchampdarwincsv.lirechamp.anomenclaturetrue";
-
-				final String messageANomenclatureVide
-				= ConfigurationApplicationManager.getBundleMessagesTechnique()
-						.getString(cleANomenclatureVide);
-
-				final String message 
-				= CLASSE_DESCRIPTIONCHAMPDARWINCSV 
-				+ METHODE_LIRECHAMP 
-				+ messageANomenclatureVide;
-
-				/* Logge. */
-				if (LOG.isFatalEnabled()) {
-					LOG.fatal(message);
-				}
-				
-				/* Rapport d'erreur. */
-				if (this.logDescription) {
-					this.rapportDescriptionStb.append(message);
-					this.rapportDescriptionStb.append(NEWLINE);
-				}
-
-				/* Jette une Exception circonstanciée. */
-				throw new ExceptionImport(message);
-				
-			}
-						
-		}
-		/* Sinon, CHAMP RENSEIGNE à false. */
-		else {
-			
-			aNomenclatureNettoye = "false";
-			
-			/* Passage aux attributs */
-			
-			/* Insertion dans la Map des Valeurs. */
-			this.valeursDescriptionMap.put(6, aNomenclatureNettoye);
-			
-			/* Insertion dans la Map des longueurs. */
-			this.longueursDescriptionMap.put(6
-					, aNomenclatureNettoye.length());
-			
-		}		
-		// FIN DE LECTURE DE 'A NOMENCLATURE'. ************/
-		
-	} // Fin de lireChamp(
-	// int[] pTokens)._____________________________________________________
 
 
 
@@ -1052,6 +818,137 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	public final String getNomChampJava() {
 		return this.getChampJava();
 	} // Fin de getNomChampJava().___________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getNomClasse() {
+		return CLASSE_DESCRIPTIONCHAMPDARWINCSV;
+	} // Fin de getNomClasse().____________________________________________
+	
+
+	
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchampdarwincsv.lirechamp.anomenclaturetrue".<br/>
+	 */
+	@Override
+	public final String getCleANomenclatureTrue() {
+		return "descriptionchampdarwincsv.lirechamp.anomenclaturetrue";
+	} // Fin de getCleANomenclatureTrue()._________________________________
+	
+
+	
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchampdarwincsv.lirechamp.alexiquetrue".<br/>
+	 */
+	@Override
+	public final String getCleALexiqueTrue() {
+		return "descriptionchampdarwincsv.lirechamp.alexiquetrue";
+	} // Fin de getCleALexiqueTrue().______________________________________
+	
+
+	
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchampdarwincsv.lirechamp.tableaunull".<br/>
+	 */
+	@Override
+	public final String getCleTableauNull() {
+		return "descriptionchampdarwincsv.lirechamp.tableaunull";
+	} // Fin de getCleTableauNull()._______________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchampdarwincsv.lirechamp.tableauvide".<br/>
+	 */
+	@Override
+	public final String getCleTableauVide() {
+		return "descriptionchampdarwincsv.lirechamp.tableauvide";
+	} // Fin de getCleTableauVide()._______________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchampdarwincsv.lirechamp.tableautroppetit".<br/>
+	 */
+	@Override
+	public final String getCleTableauTropPetit() {
+		return "descriptionchampdarwincsv.lirechamp.tableautroppetit";
+	} // Fin de getCleTableauTropPetit().__________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchampdarwincsv.lirechamp.ordrechampvide".<br/>
+	 */
+	@Override
+	public final String getCleOrdreChampVide() {
+		return "descriptionchampdarwincsv.lirechamp.ordrechampvide";
+	} // Fin de getCleOrdreChampVide().____________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchampdarwincsv.lirechamp.colonnevide".<br/>
+	 */
+	@Override
+	public final String getCleColonneVide() {
+		return "descriptionchampdarwincsv.lirechamp.colonnevide";
+	} // Fin de getCleColonneVide()._______________________________________
+	
+	
+		
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchampdarwincsv.lirechamp.intitulevide".<br/>
+	 */
+	@Override
+	public final String getCleIntituleVide() {
+		return "descriptionchampdarwincsv.lirechamp.intitulevide";
+	} // Fin de getCleIntituleVide().______________________________________
+
+	
+			
+	/**
+	 * {@inheritDoc}
+	 * "descriptionchampdarwincsv.lirechamp.champjavavide".<br/>
+	 */
+	@Override
+	public final String getCleChampJavaVide() {
+		return "descriptionchampdarwincsv.lirechamp.champjavavide";
+	} // Fin de getCleChampJavaVide().______________________________________
+
+
+		
+	/**
+	* {@inheritDoc}
+	* "descriptionchampdarwincsv.lirechamp.typejavavide".<br/>
+	*/
+	@Override
+	public final String getCleTypeJavaVide() {
+	return "descriptionchampdarwincsv.lirechamp.typejavavide";
+	} // Fin de getCleTypeJavaVide().______________________________________
+
+
+	
+	/**
+	* {@inheritDoc}
+	* "descriptionchampdarwincsv.lirechamp.anomenclaturevide".<br/>
+	*/
+	@Override
+	public final String getCleANomenclatureVide() {
+	return "descriptionchampdarwincsv.lirechamp.anomenclaturevide";
+	} // Fin de getCleANomenclatureVide()._________________________________
 
 
 	

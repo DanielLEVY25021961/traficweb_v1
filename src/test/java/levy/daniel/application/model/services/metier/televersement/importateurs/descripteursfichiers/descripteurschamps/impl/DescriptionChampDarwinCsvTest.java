@@ -14,12 +14,11 @@ import org.junit.Test;
 
 import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
 /**
- * CLASSE DescriptionChampHistoF07Test :<br/>
- * Test JUnit de la classe {@link DescriptionChampHistoF07}.<br/>
+ * CLASSE DescriptionChampDarwinCsvTest :<br/>
+ * Test JUnit de la classe {@link DescriptionChampDarwinCsv}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -37,7 +36,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * @since 16 mai 2019
  *
  */
-public class DescriptionChampHistoF07Test {
+public class DescriptionChampDarwinCsvTest {
 
 	// ************************ATTRIBUTS************************************/
 	
@@ -65,7 +64,7 @@ public class DescriptionChampHistoF07Test {
 		= "ne doit pas retourner null : ";
 
 	/**
-	 * new DescriptionChampHistoF07().
+	 * new DescriptionChampDarwinCsv().
 	 */
 	public static IDescriptionChamp descriptionChamp; 
 		
@@ -76,7 +75,7 @@ public class DescriptionChampHistoF07Test {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(DescriptionChampHistoF07Test.class);
+		= LogFactory.getLog(DescriptionChampDarwinCsvTest.class);
 
 	// *************************METHODES************************************/
 
@@ -84,7 +83,7 @@ public class DescriptionChampHistoF07Test {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public DescriptionChampHistoF07Test() {
+	public DescriptionChampDarwinCsvTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -109,7 +108,7 @@ public class DescriptionChampHistoF07Test {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChampNull() ********** ");
+			System.out.println("********** CLASSE DescriptionChampDarwinCsvTest - méthode testLireChampNull() ********** ");
 		}
 		
 		try {
@@ -124,51 +123,6 @@ public class DescriptionChampHistoF07Test {
 		}
 		
 	} // Fin de testLireChampNull()._______________________________________
-
-	
-	
-	/**
-	 * teste la méthode lireChamp(tokens[]).<br/>
-	 * <ul>
-	 * <li>garantit que lireChamp(vide) jette une TableauVideException.</li> 
-	 * </ul>
-	 * 
-	 * @throws Exception 
-	 */
-	@SuppressWarnings(UNUSED)
-	@Test
-	public void testLireChampVide() throws  Exception {
-		
-		// **********************************
-		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
-		// **********************************
-		
-		/* AFFICHAGE A LA CONSOLE. */
-		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChampVide() ********** ");
-		}
-		
-		try {
-			
-			final String[] tableauVide = new String[9];
-			tableauVide[0] = "3";
-			tableauVide[1] = "47";
-			tableauVide[3] = "bidon";
-			tableauVide[5] = "champJavaBidon";
-			tableauVide[6] = "StringBidon";
-			tableauVide[7] = "falseBidon";
-			
-			descriptionChamp.lireChamp(tableauVide);
-			
-		} catch (Exception e) {
-			
-			/* garantit que lireChamp(vide) jette une TableauVideException. */
-			assertTrue("doit être instance de TableauVideException : "
-					, e instanceof TableauVideException);
-		}
-		
-	} // Fin de testLireChampVide()._______________________________________
 
 	
 	
@@ -191,18 +145,18 @@ public class DescriptionChampHistoF07Test {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChampTropCourt() ********** ");
+			System.out.println("********** CLASSE DescriptionChampDarwinCsvTest - méthode testLireChampTropCourt() ********** ");
 		}
 		
 		try {
 			
-			final String[] tableauTropCourt = new String[8];
+			final String[] tableauTropCourt = new String[6];
 			tableauTropCourt[0] = "3";
-			tableauTropCourt[1] = "47";
-			tableauTropCourt[3] = "bidon";
-			tableauTropCourt[5] = "champJavaBidon";
-			tableauTropCourt[6] = "StringBidon";
-			tableauTropCourt[7] = "falseBidon";
+			tableauTropCourt[1] = "intitule bidon";
+			tableauTropCourt[2] = "nomenclature bidon";
+			tableauTropCourt[3] = "champJavaBidon";
+			tableauTropCourt[4] = "typeJavaBidon";
+			tableauTropCourt[5] = "falseBidon";
 			
 			descriptionChamp.lireChamp(tableauTropCourt);
 			
@@ -236,7 +190,7 @@ public class DescriptionChampHistoF07Test {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChampMalRenseigne() ********** ");
+			System.out.println("********** CLASSE DescriptionChampDarwinCsvTest - méthode testLireChampMalRenseigne() ********** ");
 		}
 		
 		try {
@@ -275,17 +229,12 @@ public class DescriptionChampHistoF07Test {
 	 * <li>garantit le bon fonctionnement de getEntetesDescriptionMap().</li>
 	 * <li>garantit le bon fonctionnement de getValeursDescriptionMap().</li>
 	 * <li>garantit le bon fonctionnement de getOrdreChamps(.</li>
-	 * <li>garantit le bon fonctionnement de getColonnes().</li>
-	 * <li>garantit le bon fonctionnement de getLongueur().</li>
 	 * <li>garantit le bon fonctionnement de getIntitule().</li>
 	 * <li>garantit le bon fonctionnement de getNomenclature().</li>
 	 * <li>garantit le bon fonctionnement de getChampJava().</li>
 	 * <li>garantit le bon fonctionnement de getTypeJava().</li>
 	 * <li>garantit le bon fonctionnement de isANomenclature().</li>
 	 * <li>garantit le bon fonctionnement de isALexique().</li>
-	 * <li>garantit le bon fonctionnement de getColonneDebut().</li>
-	 * <li>garantit le bon fonctionnement de getColonneFin().</li>
-	 * <li>garantit le bon fonctionnement de getLongueurCalculee().</li>
 	 * <li>garantit le bon fonctionnement de fournirEnteteparColonne(int pI).</li>
 	 * <li>garantit le bon fonctionnement de fournirValeurparColonne(int pI).</li>
 	 * </ul>
@@ -298,15 +247,15 @@ public class DescriptionChampHistoF07Test {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE DescriptionChampHistoF07Test - méthode testLireChamp() ********** ");
+			System.out.println("********** CLASSE DescriptionChampDarwinCsvTest - méthode testLireChamp() ********** ");
 		}
 		
-		final String[] tokens = {"1", "1-3", "3", "Numéro de Département", "cadré à gauche", "numDepartment", "Integer", "false", "false"};
+		final String[] tokens = {"4", "Code Concession du PR Origine", "Code Concession du PR Origine ('début')", "concessionPrd", "String", "false", "true"};
 		
 		/* TEST. */
 		descriptionChamp.lireChamp(tokens);
@@ -324,18 +273,12 @@ public class DescriptionChampHistoF07Test {
 		
 		/* attributs. */
 		final Integer ordreChamps = descriptionChamp.getOrdreChamps();
-		final String colonnes = ((DescriptionChampHistoF07) descriptionChamp).getColonnes();
-		final Integer longueur = ((DescriptionChampHistoF07) descriptionChamp).getLongueur();
 		final String intitule = descriptionChamp.getIntitule();
 		final String nomenclature = descriptionChamp.getNomenclature();
 		final String champJava = descriptionChamp.getChampJava();
 		final String typeJava = descriptionChamp.getTypeJava();
 		final boolean aNomenclature = descriptionChamp.isANomenclature();
-		final boolean aLexique = descriptionChamp.isALexique();
-		final Integer colonneDebut = ((DescriptionChampHistoF07) descriptionChamp).getColonneDebut();
-		final Integer colonneFin = ((DescriptionChampHistoF07) descriptionChamp).getColonneFin();
-		final Integer longueurCalculee = ((DescriptionChampHistoF07) descriptionChamp).getLongueurCalculee();
-		
+		final boolean aLexique = descriptionChamp.isALexique();		
 		
 		final String fournirEnteteparColonne0 = descriptionChamp.fournirEnteteparColonne(0);
 		final String fournirEnteteparColonne1 = descriptionChamp.fournirEnteteparColonne(1);
@@ -349,12 +292,6 @@ public class DescriptionChampHistoF07Test {
 		final String fournirValeurparColonne4 = descriptionChamp.fournirValeurparColonne(4);
 		final String fournirValeurparColonne5 = descriptionChamp.fournirValeurparColonne(5);
 		final String fournirValeurparColonne6 = descriptionChamp.fournirValeurparColonne(6);
-		final String fournirValeurparColonne7 = descriptionChamp.fournirValeurparColonne(7);
-		final String fournirValeurparColonne8 = descriptionChamp.fournirValeurparColonne(8);
-		final String fournirValeurparColonne9 = descriptionChamp.fournirValeurparColonne(9);
-		final String fournirValeurparColonne10 = descriptionChamp.fournirValeurparColonne(10);
-		final String fournirValeurparColonne11 = descriptionChamp.fournirValeurparColonne(11);
-		final String fournirValeurparColonne12 = descriptionChamp.fournirValeurparColonne(12);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -375,17 +312,12 @@ public class DescriptionChampHistoF07Test {
 			
 			System.out.println();
 			System.out.println("ordreChamps : " + ordreChamps);
-			System.out.println("colonnes : " + colonnes);
-			System.out.println("longueur : " + longueur);
 			System.out.println("intitule : " + intitule);
 			System.out.println("nomenclature : " + nomenclature);
 			System.out.println("champJava : " + champJava);
 			System.out.println("typeJava : " + typeJava);
 			System.out.println("aNomenclature : " + aNomenclature);
 			System.out.println("aLexique : " + aLexique);
-			System.out.println("colonneDebut : " + colonneDebut);
-			System.out.println("colonneFin : " + colonneFin);
-			System.out.println("longueurCalculee : " + longueurCalculee);
 			
 			System.out.println();
 			System.out.println("fournirEnteteparColonne0 : " + fournirEnteteparColonne0);
@@ -401,12 +333,7 @@ public class DescriptionChampHistoF07Test {
 			System.out.println("fournirValeurparColonne4 : " + fournirValeurparColonne4);
 			System.out.println("fournirValeurparColonne5 : " + fournirValeurparColonne5);
 			System.out.println("fournirValeurparColonne6 : " + fournirValeurparColonne6);
-			System.out.println("fournirValeurparColonne7 : " + fournirValeurparColonne7);
-			System.out.println("fournirValeurparColonne8 : " + fournirValeurparColonne8);
-			System.out.println("fournirValeurparColonne9 : " + fournirValeurparColonne9);
-			System.out.println("fournirValeurparColonne10 : " + fournirValeurparColonne10);
-			System.out.println("fournirValeurparColonne11 : " + fournirValeurparColonne11);
-			System.out.println("fournirValeurparColonne12 : " + fournirValeurparColonne12);
+			
 		}
 		
 		/* garantit le bon fonctionnement de lireChamp(tokens[]). */
@@ -415,31 +342,31 @@ public class DescriptionChampHistoF07Test {
 		/* garantit le bon fonctionnement de tokensToString(tokens).*/
 		assertEquals(
 				"bon fonctionnement de tokensToString(tokens) : "
-				, "1;1-3;3;Numéro de Département;cadré à gauche;numDepartment;Integer;false;false;"
+				, "4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;true;"
 				, descriptionChamp.tokensToString(tokens));
 		
 		/* garantit le bon fonctionnement de entetesDescriptionToString()). */
 		assertEquals(
 				"bon fonctionnement de entetesDescriptionToString() : "
-				, "[ordreChamps, colonnes, longueur, intitule, nomenclature, champJava, typeJava, aNomenclature, aLexique, colonneDebut, colonneFin, longueurCalculee]"
+				, "[ordreChamps, intitulé, nomenclature, champJava, typeJava, aNomenclature, aLexique]"
 				, entetesString);
 		
 		/* garantit le bon fonctionnement de valeursDescriptionToString()). */
 		assertEquals(
 				"bon fonctionnement de valeursDescriptionToString() : "
-				, "[ordreChamps = 1, colonnes = 1-3, longueur = 3, intitule = Numéro de Département, nomenclature = cadré à gauche, champJava = numDepartment, typeJava = Integer, aNomenclature = false, aLexique = false, colonneDebut = 1, colonneFin = 3, longueurCalculee = 3]"
+				, "[ordreChamps = 4, intitulé = Code Concession du PR Origine, nomenclature = Code Concession du PR Origine ('début'), champJava = concessionPrd, typeJava = String, aNomenclature = false, aLexique = true]"
 				, valeursString);
 		
 		/* garantit le bon fonctionnement de fournirLigneEnTetesCsv()). */
 		assertEquals(
 				"bon fonctionnement de fournirLigneEnTetesCsv() : "
-				, "ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;"
+				, "ordreChamps;intitulé;nomenclature;champJava;typeJava;aNomenclature;aLexique;"
 				, entetesCsv);
 		
 		/* garantit le bon fonctionnement de fournirLigneValeursCsv()). */
 		assertEquals(
 				"bon fonctionnement de fournirLigneValeursCsv() : "
-				, "1;1-3;3;Numéro de Département;cadré à gauche;numDepartment;Integer;false;false;1;3;3;"
+				, "4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;true;"
 				, valeursCsv);
 		
 		/* garantit le bon fonctionnement de getEntetesDescriptionMap() : */
@@ -453,43 +380,31 @@ public class DescriptionChampHistoF07Test {
 		/* garantit le bon fonctionnement de getOrdreChamps(). */
 		assertEquals(
 			"bon fonctionnement de getOrdreChamps() : "
-			, (Integer) 1
+			, (Integer) 4
 			, ordreChamps);
-		
-		/* garantit le bon fonctionnement de getColonnes(). */
-		assertEquals(
-			"bon fonctionnement de getColonnes() : "
-			, "1-3"
-			, colonnes);
-		
-		/* garantit le bon fonctionnement de getLongueur(). */
-		assertEquals(
-			"bon fonctionnement de getLongueur() : "
-			, (Integer) 3
-			, longueur);
 		
 		/* garantit le bon fonctionnement de getIntitule(). */
 		assertEquals(
 			"bon fonctionnement de getIntitule() : "
-			, "Numéro de Département"
+			, "Code Concession du PR Origine"
 			, intitule);
 		
 		/* garantit le bon fonctionnement de getNomenclature(). */
 		assertEquals(
 			"bon fonctionnement de getNomenclature() : "
-			, "cadré à gauche"
+			, "Code Concession du PR Origine ('début')"
 			, nomenclature);
 		
 		/* garantit le bon fonctionnement de getChampJava(). */
 		assertEquals(
 			"bon fonctionnement de getChampJava() : "
-			, "numDepartment"
+			, "concessionPrd"
 			, champJava);
 		
 		/* garantit le bon fonctionnement de getTypeJava(). */
 		assertEquals(
 			"bon fonctionnement de getTypeJava() : "
-			, "Integer"
+			, "String"
 			, typeJava);
 		
 		/* garantit le bon fonctionnement de isANomenclature(). */
@@ -501,26 +416,8 @@ public class DescriptionChampHistoF07Test {
 		/* garantit le bon fonctionnement de isALexique(). */
 		assertEquals(
 			"bon fonctionnement de isALexique() : "
-			, false
+			, true
 			, aLexique);
-		
-		/* garantit le bon fonctionnement de getColonneDebut(). */
-		assertEquals(
-			"bon fonctionnement de getColonneDebut() : "
-			, (Integer) 1
-			, colonneDebut);
-		
-		/* garantit le bon fonctionnement de getColonneFin(). */
-		assertEquals(
-			"bon fonctionnement de getColonneFin() : "
-			, (Integer) 3
-			, colonneFin);
-		
-		/* garantit le bon fonctionnement de getLongueurCalculee(). */
-		assertEquals(
-			"bon fonctionnement de getLongueurCalculee() : "
-			, (Integer) 3
-			, longueurCalculee);
 		
 		/* garantit le bon fonctionnement de fournirEnteteparColonne(int pI). */
 		assertNull(DOIT_RETOURNER_NULL
@@ -531,11 +428,11 @@ public class DescriptionChampHistoF07Test {
 				, fournirEnteteparColonne1);
 		assertEquals(
 				"bon fonctionnement de fournirEnteteparColonne(2) : "
-				, "colonnes"
+				, "intitulé"
 				, fournirEnteteparColonne2);
 		assertEquals(
 				"bon fonctionnement de fournirEnteteparColonne(3) : "
-				, "longueur"
+				, "nomenclature"
 				, fournirEnteteparColonne3);
 		
 		/* garantit le bon fonctionnement de fournirValeurparColonne(int pI). */
@@ -543,15 +440,15 @@ public class DescriptionChampHistoF07Test {
 				, fournirValeurparColonne0);
 		assertEquals(
 				"bon fonctionnement de fournirValeurparColonne(1) : "
-				, "1"
+				, "4"
 				, fournirValeurparColonne1);
 		assertEquals(
 				"bon fonctionnement de fournirValeurparColonne(2) : "
-				, "1-3"
+				, "Code Concession du PR Origine"
 				, fournirValeurparColonne2);
 		assertEquals(
 				"bon fonctionnement de fournirValeurparColonne(3) : "
-				, "3"
+				, "Code Concession du PR Origine ('début')"
 				, fournirValeurparColonne3);
 
 	} // Fin de testLireChamp().___________________________________________
@@ -566,10 +463,10 @@ public class DescriptionChampHistoF07Test {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		
-		descriptionChamp = new DescriptionChampHistoF07();
+		descriptionChamp = new DescriptionChampDarwinCsv();
 		
 	} // Fin de beforeClass()._____________________________________________
 
 	
 	
-} // FIN DE LA CLASSE DescriptionChampHistoF07Test.--------------------------
+} // FIN DE LA CLASSE DescriptionChampDarwinCsvTest.------------------------_

@@ -17,73 +17,113 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullE
 import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
 
 /**
- * class AbstractDescriptionChampAscii :<br/>
+ * CLASSE AbstractDescriptionChampAscii :<br/>
+ * <p>
  * CLASSE ABSTRAITE décrivant un champ 
  * (correspondant à une ligne de la description) 
  * dans une description de fichier ASCII comme un HIT ou un HISTO_F07.<br/>
- * <br/>
+ * Hérite de {@link AbstractDescriptionChamp}.
+ * </p>
+ * 
+ * <p>
  * La description d'un champ de fichier ASCII diffère 
- * de la description d'un champ de fichier csv car on besoin :<br/>
+ * de la description d'un champ de fichier CSV car on besoin :<br/>
  * - des colonnes de début et de fin localisant le champ dans un fichier ASCII 
  * (par exemple, le département est localisé entre 
  * les colonnes 1 et 3 dans un HIT ASCII),<br/>
  * - de l'ordre du champ dans un fichier csv.<br/>
- * <br/>
+ * </p>
+ * 
+ * <p>
  * Par exemple, le champ décrit à la 2ème ligne de la description
  * d'un fichier HISTO_F07 a pour intitulé 'Numéro de Section', est
  * situé dans les  colonnes 4 à 9, ...<br/>
+ * </p>
+ * 
+ * <p>
+ * La description d'un HISTO_F07 commence par :<br/>
+ * ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;<br/>
+ * 1;1-3;3;Numéro de Département;cadré à gauche. Ex: dept 13 = 130;numDepartement;Integer;false;false;1;3;3;<br/>
+ * 2;4-9;6;Numéro de Section;;numSection;String;false;false;4;9;6;<br/>
+ * .......................................................<br/>
+ * </p>
+ * 
+ * <p>
+ * <table border="1">
+ * <tr>
+ * <th>ordreChamps</th> <th>colonnes</th> <th>longueur</th> <th>intitule</th> 
+ * <th>nomenclature</th> <th>champJava</th> <th>typeJava</th> <th>aNomenclature</th>
+ * <th>aLexique</th> <th>colonneDebut</th> <th>colonneFin</th> <th>longueurCalculee</th>
+ * </tr>
+ * <tr>
+ * <td>1</td> <td>1-3</td> <td>3</td> <td>Numéro de Département</td> 
+ * <td>cadré à gauche. Ex: dept 13 = 130</td> <td>numDepartement</td> <td>Integer</td> <td>false</td> 
+ * <td>false</td> <td>1</td> <td>3</td> <td>3</td> 
+ * </tr>
+ * <tr>
+ * <td>2</td> <td>4-9</td> <td>6</td> <td>Numéro de Section</td> 
+ * <td> </td> <td>numSection</td> <td>String</td> <td>false</td> 
+ * <td>false</td> <td>4</td> <td>9</td> <td>6</td> 
+ * </tr>
+ * </table>
+ * </p>
+ * 
  * <br/>
- * La description d'un HistonatF07 commence par :<br/>
- * ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;colonneDebut;colonneFin;longueurCalculee;<br/>
- * 1;1-3;3;Numéro de Département;cadré à gauche. Ex: dept 13 = 130;numDepartement;Integer;false;1;3;3;<br/>
- * 2;4-9;6;Numéro de Section;;numSection;String;false;4;9;6;<br/>
- * <br/>
+ * <p>
  * CLASSE chargée via ses constructeurs et sa méthode 
- * lireChamp(String[] pTokens) de : <br/> 
- * <br/>
- * - 1 - stocker dans une Map&lt;Integer, String&gt;
- * 'entetesDescriptionMap' :<br/>
- * 1a - l'ordre des colonnes d'une description de fichier.<br/>
- * 1b - le libellé (java) des colonnes de la description
- * de fichier.<br/>
+ * <code><b>lireChamp(String[] pTokens)</b></code> de : <br/> 
+ * <ol>
+ * <li>stocker dans une Map&lt;Integer, String&gt;
+ * <code><b>this.entetesDescriptionMap</b></code> :
+ * <ul>
+ * <li>l'ordre des colonnes d'une description de fichier.</li>
+ * <li>le libellé (java) des colonnes de la description
+ * de fichier.</li>
+ * </ul>
  * Par exemple :<br/>
- * (1, 'Ordre des champs'), (2, 'colonnes'), (3, 'longueur')
- * , (4, 'intitule'), ...
- * dans le cas d'un HistonatF07.<br/>
+ * {1=ordreChamps, 2=colonnes, 3=longueur, 4=intitule, 5=nomenclature, 6=champJava, 7=typeJava, 8=aNomenclature, 9=aLexique, 10=colonneDebut, 11=colonneFin, 12=longueurCalculee}
+ * dans le cas d'un HISTO_F07.<br/>
  * <br/>
- * - 2 - stocker dans une Map&lt;Integer, String&gt;
- * 'valeursDescriptionMap' :<br/>
- * 2a - l'ordre des colonnes d'une description de fichier.<br/>
- * 2b - la valeur (String) pour un champ (ligne) donné dans la description
- * de fichier.<br/>
+ * </li>
+ * <li>stocker dans une Map&lt;Integer, String&gt;
+ * <code><b>this.valeursDescriptionMap</b></code> :
+ * <ul>
+ * <li>l'ordre des colonnes d'une description de fichier.</li>
+ * <li>la valeur (String) pour un champ (ligne) donné dans la description
+ * de fichier.</li>
+ * </ul>
  * Par exemple :<br/>
- * (1, '1'), (2, '1-3'), (3, '3'), (4, 'Numéro de Département'), ...
+ * {1=1, 2=1-3, 3=3, 4=Numéro de Département, 5=cadré à gauche, 6=numDepartment, 7=Integer, 8=false, 9=false, 10=1, 11=3, 12=3}
  * dans le cas du champ 'numéro de département' (ligne 1) de la
- * description d'un HistonatF07.<br/>
- * <br/>
+ * description d'un HISTO_F07.
+ * </li>
+ * </ol>
  * - Hérite de AbstractRapporteur ce qui
  * garantit que tous les DescriptionChamp rapporteront.<br/>
+ * </p>
+ * 
  * <br/>
  * <br/>
  *
- * - Exemple d'utilisation :<br/>
- * <br/>
- * <blockquote>//Création d'un tableau de valeurs (tokens)
- * représentant la description du champ 'Numéro de Département' : </blockquote>
- * <code>public static final String[] NUM_DEPT_DESC 
- * = {"1", "1-3", "3", "Numéro de Département"
- * , "Cadré à droite", "numDepartment"
- * , "Integer", "false"};</code><br/>
- * <br/>
- * <blockquote>// instanciation d'un DescriptionChampHistoF07.</blockquote>
- * <code>AbstractDescriptionChampAscii desc 
- * = new DescriptionChampHistoF07();</code><br/>
- * <br/>
- * <blockquote>// Lecture du tableau de valeurs.</blockquote>
- * <code>desc.lireChamp(NUM_DEPT_DESC);</code><br/>
- * <blockquote>// Impression de la Map de valeurs obtenues.</blockquote>
- * <code>System.out.println(desc.valeursMapToString());</code><br/>
- * <br/>
+ * 
+ * <p>
+ * - Exemple d'utilisation :
+ * </p>
+ * <p>
+ * <code> // Instanciation d'un IDescriptionChamp.</code><br/>
+ * <code><b>IDescriptionChamp desc 
+ * = new DescriptionChampHistoF07();</b></code><br/>
+ * <code> // récupération de la Map des en-têtes de la description de fichier (créée en dur lors de l'instanciation du IDescriptionChamp).</code><br/>
+ * <code><b>Map&lt;Integer, String&gt; entetesDescriptionMap = desc.getColonnesDescriptionMap();</b></code><br/>
+ * <code> // tableau de tokens correspondant à la description d'un champ (ligne d'une description de fichier).</code><br/>
+ * <code><b>public static final String[] NUM_DEPT_DESC 
+ * = {"1", "1-3", "3", "Numéro de Département", "cadré à gauche", "numDepartment", "Integer", "false", "false"};</b></code><br/>
+ * <code> // LECTURE - Injecte toutes les valeurs du tableau de tokens NUM_DEPT_DESC dans la présente encapsulation</code><br/>
+ * <code><b>desc.lireChamp(NUM_DEPT_DESC);</b></code><br/> 
+ * <code>// récupération des valeurs encapsulées.</code><br/>  
+ * <code><b>SortedMap&lt;Integer, String&gt; valeursDescriptionMap = desc.getValeursDescriptionMap();</b></code><br/>
+ * </p>
+
  *
  * - Mots-clé :<br/>
  * Regex, Pattern, compile, Matcher, StringUtils, <br/>
@@ -309,13 +349,12 @@ public abstract class AbstractDescriptionChampAscii
 		}
 		
 		/* Instanciation de la Map décrivant les champs
-		 * dans la définition des fichiers HistoNat_F07. */
+		 * dans la définition des fichiers ASCII (HIT, HISTO_F07, ...). */
 		this.entetesDescriptionMap = new TreeMap<Integer, String>();
 		
 		/* Remplissage de la Map. ***********/
 		/* ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;
-		 * typeJava;aNomenclature;
-		 * colonneDebut;colonneFin;longueurCalculee; */
+		 * typeJava;aNomenclature;aLexique; */
 		this.entetesDescriptionMap.put(1, "ordreChamps");
 		this.entetesDescriptionMap.put(2, "colonnes");
 		this.entetesDescriptionMap.put(3, "longueur");
@@ -331,7 +370,8 @@ public abstract class AbstractDescriptionChampAscii
 		 * de fichier en entrée. */
 		this.nombreColonnesObligatoires = 9;
 		
-		/* Champs à calculer */
+		/* Champs à calculer 
+		 * colonneDebut;colonneFin;longueurCalculee;*/
 		this.entetesDescriptionMap.put(10, "colonneDebut");
 		this.entetesDescriptionMap.put(11, "colonneFin");
 		this.entetesDescriptionMap.put(12, "longueurCalculee");
@@ -524,9 +564,9 @@ public abstract class AbstractDescriptionChampAscii
 		/* Instanciation de la Map des longueurs. */
 		this.longueursDescriptionMap = new TreeMap<Integer, Integer>();
 		
-		/* Lecture des Tokens pour un HistoF07 : */
+		/* Lecture des Tokens pour un fichier ASCII (HIT, HISTO_F07, ...) : */
 		/* ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;
-		 * typeJava;aNomenclature;
+		 * typeJava;aNomenclature;aLexique;
 		 * colonneDebut;colonneFin;longueurCalculee; */
 		String ordreChampsString =null;
 		String colonnesString = null;
@@ -1902,11 +1942,9 @@ public abstract class AbstractDescriptionChampAscii
 	} // Fin de getNomChampJava().___________________________________________
 
 	
-
 	
 	/**
 	 * Retourne le nom de la Classe.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -1918,7 +1956,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ANomenclature à true et la nomenclature vide.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -1930,7 +1967,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ALexique à true et le lexique vide.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -1942,7 +1978,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties
 	 * en cas de ligne de description null.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -1954,7 +1989,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description vide.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -1966,7 +2000,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description trop courte.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -1978,7 +2011,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec ordreChamps non renseigné.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -1990,7 +2022,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec colonnes non renseigné.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -2002,7 +2033,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec intitule non renseigné.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -2014,7 +2044,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec champJava non renseigné.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -2026,7 +2055,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec typeJava non renseigné.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */
@@ -2038,7 +2066,6 @@ public abstract class AbstractDescriptionChampAscii
 	 * Retourne la clé contenue dans 
 	 * ressources_externes/messagestechniques.properties 
 	 * en cas de ligne de description avec aNomenclature non renseigné.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */

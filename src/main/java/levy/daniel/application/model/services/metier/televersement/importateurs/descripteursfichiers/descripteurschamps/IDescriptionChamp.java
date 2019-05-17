@@ -394,8 +394,7 @@ public interface IDescriptionChamp
 	String getNomChampJava();
 	
 
-	
-	
+		
 	/**
 	 * Getter de l'Ordre du champ 1- based (ligne) dans la description.<br/>
 	 * Par exemple, 'Numéro de Section' est le 
@@ -421,7 +420,6 @@ public interface IDescriptionChamp
 
 
 	
-
 	/**
 	 * Getter de l'Intitulé du champ dans la description 
 	 * comme 'Numéro de Section'.<br/>
