@@ -1077,7 +1077,7 @@ public abstract class AbstractDescriptionChampCsv
 			final String[] pTokens) 
 				throws Exception {
 		
-		if (StringUtils.isBlank(pTokens[6])) {
+		if (StringUtils.isBlank(pTokens[4])) {
 			
 			final String cleTypeJavaVide
 				= this.getCleTypeJavaVide();
