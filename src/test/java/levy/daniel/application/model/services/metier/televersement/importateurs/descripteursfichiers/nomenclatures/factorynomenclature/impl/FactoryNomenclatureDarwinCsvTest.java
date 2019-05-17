@@ -278,6 +278,10 @@ public class FactoryNomenclatureDarwinCsvTest {
 	 * <ul>
 	 * <li>garantit que getClesPossiblesSetLexique(int pNumOrdre) 
 	 * retourne toujours des SINGLETONS.</li>
+	 * <li>garantit que getClesPossiblesSet(4) retourne 
+	 * les clés possibles du CODE CONCESSION DEBUT SICRE.</li>
+	 * <li>garantit que getClesPossiblesSet(8) retourne 
+	 * les clés possibles du CODE CONCESSION FIN SICRE.</li>
 	 * <li>garantit que getClesPossiblesSet(58) retourne 
 	 * les clés possibles du PROFIL EN TRAVERS SICRE.</li>
 	 * </ul>
@@ -297,7 +301,15 @@ public class FactoryNomenclatureDarwinCsvTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println("********** CLASSE FactoryNomenclatureDarwinCsvTest - méthode testGetClesPossiblesSetLexique() ********** ");
 		}
-				
+		
+		/* CODE CONCESSION DEBUT SICRE. */
+		final Set<String> resultatCodeConcessionDebutSicre 
+			= FACTORY_NOMENCLATURE_DARWIN_CSV.getClesPossiblesSetLexique(4);
+		
+		/* CODE CONCESSION FIN SICRE. */
+		final Set<String> resultatCodeConcessionFinSicre 
+			= FACTORY_NOMENCLATURE_DARWIN_CSV.getClesPossiblesSetLexique(8);
+		
 		/* PROFIL EN TRAVERS SICRE. */
 		final Set<String> resultatProfilTraversSicre 
 			= FACTORY_NOMENCLATURE_DARWIN_CSV.getClesPossiblesSetLexique(58);
@@ -305,9 +317,27 @@ public class FactoryNomenclatureDarwinCsvTest {
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
+			System.out.print(CLES_POSSIBLES_POUR + "CODE CONCESSION DEBUT SICRE : ");
+			System.out.println(resultatCodeConcessionDebutSicre);
+			System.out.print(CLES_POSSIBLES_POUR + "CODE CONCESSION FIN SICRE : ");
+			System.out.println(resultatCodeConcessionFinSicre);
 			System.out.print(CLES_POSSIBLES_POUR + "PROFIL EN TRAVERS SICRE : ");
-			System.out.print(resultatProfilTraversSicre);
+			System.out.println(resultatProfilTraversSicre);
 		}
+		
+		/* garantit que getClesPossiblesSet(4) retourne 
+		 * les clés possibles du CODE CONCESSION DEBUT SICRE. */
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatCodeConcessionDebutSicre);
+		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
+				, FactoryNomenclatureDarwinCsv.getSetClesPossiblesCodeConcessionDebutSicre()
+					, resultatCodeConcessionDebutSicre);
+		
+		/* garantit que getClesPossiblesSet(8) retourne 
+		 * les clés possibles du CODE CONCESSION FIN SICRE. */
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatCodeConcessionFinSicre);
+		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
+				, FactoryNomenclatureDarwinCsv.getSetClesPossiblesCodeConcessionFinSicre()
+					, resultatCodeConcessionFinSicre);
 		
 		/* garantit que getClesPossiblesSet(58) retourne 
 		 * les clés possibles du PROFIL EN TRAVERS SICRE. */
@@ -496,6 +526,10 @@ public class FactoryNomenclatureDarwinCsvTest {
 	 * <ul>
 	 * <li>garantit que getLexiqueMap(int pNumOrdre) 
 	 * retourne toujours des SINGLETONS.</li>
+	 * <li>garantit que getLexiqueMap(4) retourne 
+	 * le lexique du CODE CONCESSION DEBUT SICRE.</li>
+	 * <li>garantit que getLexiqueMap(8) retourne 
+	 * le lexique du CODE CONCESSION FIN SICRE.</li>
 	 * <li>garantit que getLexiqueMap(58) retourne 
 	 * le lexique du PROFIL EN TRAVERS SICRE.</li>
 	 * </ul>
@@ -516,6 +550,14 @@ public class FactoryNomenclatureDarwinCsvTest {
 			System.out.println("********** CLASSE FactoryNomenclatureDarwinCsvTest - méthode testGetLexiqueMap() ********** ");
 		}
 		
+		/* CODE CONCESSION DEBUT SICRE. */
+		final Map<String, String> resultatCodeConcessionDebutSicre 
+			= FACTORY_NOMENCLATURE_DARWIN_CSV.getLexiqueMap(4);
+		
+		/* CODE CONCESSION FIN SICRE. */
+		final Map<String, String> resultatCodeConcessionFinSicre 
+			= FACTORY_NOMENCLATURE_DARWIN_CSV.getLexiqueMap(8);
+		
 		/* PROFIL EN TRAVERS SICRE. */
 		final Map<String, String> resultatProfilTraversSicre 
 			= FACTORY_NOMENCLATURE_DARWIN_CSV.getLexiqueMap(58);
@@ -523,11 +565,31 @@ public class FactoryNomenclatureDarwinCsvTest {
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
+			System.out.println(NOMENCLATURE_POUR + "CODE CONCESSION DEBUT SICRE : ");
+			System.out.print(FACTORY_NOMENCLATURE_DARWIN_CSV.afficherMapStringString(resultatCodeConcessionDebutSicre));
+			System.out.println();
+			System.out.println(NOMENCLATURE_POUR + "CODE CONCESSION FIN SICRE : ");
+			System.out.print(FACTORY_NOMENCLATURE_DARWIN_CSV.afficherMapStringString(resultatCodeConcessionFinSicre));
+			System.out.println();
 			System.out.println(NOMENCLATURE_POUR + "PROFIL EN TRAVERS SICRE : ");
 			System.out.print(FACTORY_NOMENCLATURE_DARWIN_CSV.afficherMapStringString(resultatProfilTraversSicre));
 		}
 		
-		/* garantit que getNomenclatureMap(58) retourne 
+		/* garantit que getLexiqueMap(4) retourne 
+		 * le lexique du CODE CONCESSION DEBUT SICRE.*/
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatCodeConcessionDebutSicre);
+		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
+				, FactoryNomenclatureDarwinCsv.getLexiqueMapCodeConcessionDebutSicre()
+					, resultatCodeConcessionDebutSicre);
+		
+		/* garantit que getLexiqueMap(8) retourne 
+		 * le lexique du CODE CONCESSION FIN SICRE.*/
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatCodeConcessionFinSicre);
+		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
+				, FactoryNomenclatureDarwinCsv.getLexiqueMapCodeConcessionFinSicre()
+					, resultatCodeConcessionFinSicre);
+		
+		/* garantit que getLexiqueMap(58) retourne 
 		 * le lexique du PROFIL EN TRAVERS SICRE. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatProfilTraversSicre);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE

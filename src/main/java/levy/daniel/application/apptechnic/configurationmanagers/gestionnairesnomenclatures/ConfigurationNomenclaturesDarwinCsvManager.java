@@ -122,6 +122,12 @@ public final class ConfigurationNomenclaturesDarwinCsvManager {
 		= "Méthode getCheminNomenclaturesDarwinCsvUtf8";
 	
 	/**
+	 * "Méthode getNomNomenclatureDarwinCsvCodeConcession()".
+	 */
+	public static final String METHODE_GET_NOMNOMENCLATURE_DARWIN_CSV_CODECONCESSION 
+		= "Méthode getNomNomenclatureDarwinCsvCodeConcession()";
+	
+	/**
 	 * "Méthode getNomNomenclatureDarwinCsvSens()".<br/>
 	 */
 	public static final String METHODE_GET_NOMNOMENCLATURE_DARWIN_CSV_SENS 
@@ -200,6 +206,25 @@ public final class ConfigurationNomenclaturesDarwinCsvManager {
 	 * Clé = "application.repertoire.ressources.nomenclatures.chemin.darwincsv.utf8".<br/>
 	 */
 	private static transient Path pathNomenclaturesDarwinCsvUtf8;
+	
+	/**
+	 * Nom du fichier de nomenclature du CODE CONCESSION pour les DARWIN_CSV en UTF-8
+	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.codeconcession.darwincsv".<br/>
+	 */
+	private static transient String nomNomenclatureDarwinCsvCodeConcession;
+	
+	/**
+	 * Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la 
+	 * Nomenclature pour le CODE CONCESSION dans un DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/DarwinCsv/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv".<br/>
+	 */
+	private static transient File fichierNomenclatureDarwinCsvCodeConcessionUtf8;
 	
 	/**
 	 * Nom du fichier de nomenclature du SENS pour les DARWIN_CSV en UTF-8
@@ -548,6 +573,259 @@ public final class ConfigurationNomenclaturesDarwinCsvManager {
 	private static String fournirCheminNomenclaturesDarwinCsvUtf8EnDur() {
 		return "ressources/Nomenclatures/DarwinCsv/Nomenclatures en UTF-8";
 	} // Fin de fournirCheminNomenclaturesDarwinCsvUtf8EnDur()._____________
+	
+
+
+	/**
+	 * Getter du Nom du fichier de nomenclature du CODE CONCESSION
+	 * pour les DARWIN_CSV en UTF-8
+	 * stocké dans application.properties.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv".<br/>
+	 * <ul>
+	 * <li>Essaie de fournir la valeur stockée dans 
+	 * application_fr_FR.properties.</li>
+	 * <li>Sinon, retourne la valeur stockée en dur 
+	 * fournie par fournirNomNomenclatureDarwinCsvCodeConcessionEnDur().</li>
+	 * <li>Nettoie la valeur lue dans le .properties avec trim().</li>
+	 * <li>fabrique un <code>messageIndividuelRapport</code> 
+	 * si la clé ou la valeur sont manquantes dans 
+	 * <code>application.properties</code>. <br/>
+	 * <code>messageIndividuelRapport</code> est null sinon.</li>
+	 * <li>ajoute le messageIndividuelRapport à 
+	 * <code>rapportConfigurationCsv</code> le cas échéant.<br/> 
+	 * <code>rapportConfigurationCsv</code> contient les éventuels 
+	 * messages d'erreur de configuration de toutes 
+	 * les méthodes de la présente classe.
+	 * <br/><code>rapportConfigurationCsv</code> est null 
+	 * si il n'y a aucune erreur de configuration.</li>
+	 * </ul>
+	 * Clé : "application.repertoire.ressources.nomenclatures.codeconcession.darwincsv".<br/>
+	 * <br/>
+	 * - retourne la valeur en dur fournie par 
+	 * fournirNomNomenclatureDarwinCsvCodeConcessionEnDur()
+	 * , LOG.ERROR et rapporte 
+	 * si la clé n'existe pas dans le properties.<br/>
+	 * - retourne la valeur en dur fournie par 
+	 * fournirNomNomenclatureDarwinCsvCodeConcessionEnDur()
+	 * , LOG.ERROR et rapporte 
+	 * si la valeur associée à la clé n'existe pas dans le properties.<br/>
+	 * <br/>
+	 *
+	 * @return nomNomenclatureDarwinCsvCodeConcession : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getNomNomenclatureDarwinCsvCodeConcession() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationNomenclaturesDarwinCsvManager.class) {
+
+			/* Reset du messageIndividuelRapport. */
+			messageIndividuelRapport = null;
+
+			if (nomNomenclatureDarwinCsvCodeConcession == null) {
+
+				if (ConfigurationApplicationManager
+						.getBundleApplication() != null) {
+
+					try {
+
+						/*
+						 * Essaie de récupérer la valeur dans le properties.
+						 */
+						final String valeur 
+							= ConfigurationApplicationManager
+								.getBundleApplication()
+									.getString(
+										fournirCleNomNomenclatureDarwinCsvCodeConcession());
+
+						/* Si la valeur est blank. */
+						if (StringUtils.isBlank(valeur)) {
+
+							/* Création du message. */
+							messageIndividuelRapport 
+							= creerMessageManqueValeur(
+								METHODE_GET_NOMNOMENCLATURE_DARWIN_CSV_CODECONCESSION,
+								fournirCleNomNomenclatureDarwinCsvCodeConcession(),
+								ConfigurationApplicationManager
+										.getBundleApplication());
+
+							/* LOG.ERROR. */
+							if (LOG.isErrorEnabled()) {
+								LOG.error(messageIndividuelRapport);
+							}
+
+							/* Rapport. */
+							ajouterMessageAuRapportConfigurationCsv(
+									messageIndividuelRapport);
+
+							/* utilise la valeur fournie en dur. */
+							nomNomenclatureDarwinCsvCodeConcession 
+								= fournirNomNomenclatureDarwinCsvCodeConcessionEnDur();
+
+						} // Fin de Si la valeur est blank._________
+
+						/* Valeur remplie dans le properties. */
+						else {
+
+							/*
+							 * Nettoie la valeur lue dans le .properties avec
+							 * trim().
+							 */
+							final String valeurNettoyee 
+								= StringUtils
+									.trim(valeur);
+
+							nomNomenclatureDarwinCsvCodeConcession 
+								= valeurNettoyee;
+
+						} // Fin de Valeur remplie dans le properties.____
+
+					} catch (MissingResourceException mre) {
+
+						/* Création du message. */
+						messageIndividuelRapport 
+							= creerMessageManqueCle(
+								METHODE_GET_NOMNOMENCLATURE_DARWIN_CSV_CODECONCESSION,
+								fournirCleNomNomenclatureDarwinCsvCodeConcession(),
+								ConfigurationApplicationManager
+										.getBundleApplication());
+
+						/* LOG.ERROR. */
+						if (LOG.isErrorEnabled()) {
+							LOG.error(messageIndividuelRapport, mre);
+						}
+
+						/* Rapport. */
+						ajouterMessageAuRapportConfigurationCsv(
+								messageIndividuelRapport);
+
+						/* utilise la valeur fournie en dur. */
+						nomNomenclatureDarwinCsvCodeConcession 
+							= fournirNomNomenclatureDarwinCsvCodeConcessionEnDur();
+
+					} // Fin de catch (MissingResourceException mre)._____
+
+				} // Fin de if (getBundleApplication() != null)._____
+
+				/* if (getBundleApplication() == null). */
+				else {
+
+					/* utilise la valeur fournie en dur. */
+					nomNomenclatureDarwinCsvCodeConcession 
+						= fournirNomNomenclatureDarwinCsvCodeConcessionEnDur();
+
+				} // Fin de if (getBundleApplication() == null).___
+
+			} // Fin de if (nomNomenclatureDarwinCsvCodeConcession == null)._________
+
+			return nomNomenclatureDarwinCsvCodeConcession;
+
+		} // Fin de synchronized.________________________________________
+
+	} // Fin de getNomNomenclatureDarwinCsvCodeConcession().__________________________
+
+
+	
+	/**
+	 * retourne la clé du 
+	 * nom de la nomenclature en UTF-8 du CODE CONCESSION
+	 * dans le DARWIN_CSV 
+	 * stockée dans application_fr_FR.properties.<br/>
+	 * "2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv".<br/>
+	 * Clé = "application.repertoire.ressources.nomenclatures.codeconcession.darwincsv".<br/>
+	 * <br/>
+	 *
+	 * @return : String : 
+	 * "application.repertoire.ressources.nomenclatures.codeconcession.darwincsv".<br/>
+	 */
+	private static String fournirCleNomNomenclatureDarwinCsvCodeConcession() {
+		return "application.repertoire.ressources.nomenclatures.codeconcession.darwincsv";
+	} // Fin de fournirCleNomNomenclatureDarwinCsvCodeConcession().__________________
+	
+
+	
+	/**
+	 * Fournit une valeur stockée en dur dans la classe 
+	 * pour <code>nomNomenclatureDarwinCsvCodeConcession</code>.<br/>
+	 *
+	 * @return : String : 
+	 * "2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv".<br/>
+	 */
+	private static String fournirNomNomenclatureDarwinCsvCodeConcessionEnDur() {
+		return "2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv";
+	} // Fin de fournirNomNomenclatureDarwinCsvCodeConcessionEnDur().________________
+
+
+	
+	/**
+	 * Getter du Fichier dans les ressources de l'application 
+	 * au format csv encodé en UTF-8 contenant la  
+	 * Nomenclature pour le CODE CONCESSION 
+	 * dans un DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * "ressources/Nomenclatures/DarwinCsv/Nomenclatures en UTF-8/
+	 * 2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv".<br/>
+	 * <br/>
+	 * - LOG.FATAL, rapporte 
+	 * et jette une RunTimeException 
+	 * si pFile est null, inexistant, répertoire ou vide.<br/>
+	 * <br/>
+	 *
+	 * @return : File : fichierNomenclatureDarwinCsvCodeConcessionUtf8.<br/>
+	 * 
+	 * @throws Exception 
+	 * 
+	 * @throws FichierNullRunTimeException si pFile est null.<br/>
+	 * @throws FichierInexistantRunTimeException si pFile est inexistant.<br/>
+	 * @throws FichierRepertoireRunTimeException si pFile est un répertoire.<br/>
+	 * @throws FichierVideRunTimeException si pFile est vide.<br/>
+	 */
+	public static File getFichierNomenclatureDarwinCsvCodeConcessionUtf8() throws Exception {
+				
+		synchronized (ConfigurationNomenclaturesDarwinCsvManager.class) {
+			
+			/* Instanciation du Singleton. */
+			if (fichierNomenclatureDarwinCsvCodeConcessionUtf8 == null) {
+
+				final Path pathRelatifNomenclatureCodeConcessionDarwinCsv 
+				= Paths.get(getNomNomenclatureDarwinCsvCodeConcession());
+		
+				final Path pathRelatifContextNomenclatureCodeConcessionDarwinCsv 
+					= getPathNomenclaturesDarwinCsvUtf8()
+						.resolve(pathRelatifNomenclatureCodeConcessionDarwinCsv);
+								
+				final ClassLoader classloader 
+					= Thread.currentThread().getContextClassLoader();
+				
+				final URL urlRessources 
+					= classloader
+						.getResource(
+								pathRelatifContextNomenclatureCodeConcessionDarwinCsv.toString());
+				
+				/* traite le cas de la ressource manquante. */
+				traiterRessourceManquante(
+						urlRessources
+							, pathRelatifContextNomenclatureCodeConcessionDarwinCsv);
+				
+				final URI uriRessources = urlRessources.toURI();
+				
+				fichierNomenclatureDarwinCsvCodeConcessionUtf8 
+					= new File(uriRessources.getPath());
+								
+				/* LOG.FATAL, rapporte 
+				 * et jette une RunTimeException 
+				 * si pFile est null, inexistant, répertoire ou vide.*/
+				traiterFichier(fichierNomenclatureDarwinCsvCodeConcessionUtf8
+						, "Méthode getFichierNomenclatureDarwinCsvCodeConcessionUtf8()");
+			}
+			
+			return fichierNomenclatureDarwinCsvCodeConcessionUtf8;
+			
+		} // Fin de synchronized.________________________________________
+				
+	} // Fin de getFichierNomenclatureDarwinCsvCodeConcessionUtf8().________
 	
 
 

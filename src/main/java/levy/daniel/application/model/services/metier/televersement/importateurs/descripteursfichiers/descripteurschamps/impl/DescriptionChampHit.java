@@ -8,9 +8,9 @@ import org.apache.commons.logging.LogFactory;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
 
 /**
- * class DescriptionChampHit :<br/>
+ * CLASSE DescriptionChampHit :<br/>
  * <p>
- * IMPLEMENTATION de AbstractDescriptionChampAscii chargée
+ * IMPLEMENTATION de {@link AbstractDescriptionChampAscii} chargée
  * de stocker la définition d'un champ de fichier HIT.
  * </p>
  * 

@@ -16,32 +16,44 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideE
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampCsv;
 
 /**
- * class DescriptionChampDarwinCsv :<br/>
- * IMPLEMENTATION de AbstractDescriptionChampCsv chargée
+ * CLASSE DescriptionChampDarwinCsv :<br/>
+ * <p>
+ * IMPLEMENTATION de {@link AbstractDescriptionChampCsv} chargée
  * de stocker la définition d'un champ de fichier
- * Darwin csv.<br/>
- * <br/>
+ * DARWIN_CSV.<br/>
+ * </p>
+ * 
+ * <p>
  * Un DescriptionChampDarwinCsv "sait" qu'une description 
- * de fichier Darwin csv doit être ordonnée comme suit :<br/>
- * [ordreChamps, intitule, nomenclature, champJava, typeJava, aNomenclature].<br/>
+ * de fichier DARWIN_CSV doit être ordonnée comme suit :<br/>
+ * [ordreChamps, intitule, nomenclature, champJava, typeJava, aNomenclature, aLexique].<br/>
  * Il stocke cette liste ordonnée de champs dans sa map triée 
- * 'entetesDescriptionMap' dès sa construction.<br/>
- * <br/>
+ * <code><b>this.entetesDescriptionMap</b></code> dès sa construction.<br/>
+ * </p>
+ * 
+ * <p>
  * Un DescriptionChampDarwinCsv ne "connait" les valeurs 
  * décrivant un champ donné
  * qu'après l'execution de sa méthode lireChamps(String[] pTokens) 
  * où pTokens représente toutes les valeurs de la description 
  * du champ sous forme de tableau de String.<br/>
- * <code>public static final String[] ROUTE = {"2", "route", "Route au format Isidor (ex : A0034b1 ou A0006)", "route", "String", "false"};</code><br/>
- * <code>descripteur.lireChamps(ROUTE);</code><br/>
- * <br/>
- * Un fichier de description d'un Darwin_csv formatée en csv (';') 
+ * </p>
+ * 
+ * <p>
+ * <code> // Lecture d'une ligne du fichier de description.</code><br/>
+ * <code><b>public static final String[] ROUTE_DESC = {"2", "route", "Route au format Isidor (ex : A0034b1 ou A0006)", "route", "String", "false", "false"};</b></code><br/>
+ * <code> // Import de la ligne de description dans un DescriptionChampDarwinCsv.</code><br/>
+ * <code><b>descripteur.lireChamps(ROUTE_DESC);</b></code><br/>
+ * </p>
+ * 
+ * 
+ * Un fichier de description d'un DARWIN_CSV formatée en csv (';') 
  * commence par :<br/>
  * <br/>
- * ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature;<br/>
- * 1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;<br/>
- * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;<br/>
- * 3;Département du PR Origine;Département du PR Origine  ('début');depPrd;String;false;<br/>
+ * ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;<br/>
+ * 1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;false;<br/>
+ * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;false;<br/>
+ * 3;Département du PR Origine;Département du PR Origine  ('début');depPrd;String;false;false;<br/>
  * 4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;<br/>
  * 5;PR Origine;PR Origine  ('début');prd;Integer;false;<br/>
  * ..............................<br/>
@@ -1018,7 +1030,7 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 	/**
 	 * method recupererCleLogErreur() :<br/>
 	 * Fournit la clé du log des erreurs
-	 * stocké dans messages_techniques.properties.<br/>
+	 * stocké dans ressources_externes/messages_techniques.properties.<br/>
 	 * <br/>
 	 * Sert à passer le boolean this.logDescription à true ou false.<br/>
 	 * <br/>
@@ -1044,13 +1056,13 @@ public class DescriptionChampDarwinCsv extends AbstractDescriptionChampCsv {
 
 	
 	/**
-	 * "Description des champs d'un fichier Darwin csv".<br/>
+	 * "Description des champs d'un fichier DARWIN_CSV".<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getNomDescriptionChamp() {
-		return "Description des champs d'un fichier Darwin csv";
+		return "Description des champs d'un fichier DARWIN_CSV";
 	} // Fin de getNomDescriptionChamp().__________________________________
 	
 	

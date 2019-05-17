@@ -144,6 +144,159 @@ public class ConfigurationNomenclaturesDarwinCsvManagerTest {
 	
 	
 	/**
+	 * teste la méthode getNomNomenclatureDarwinCsvCodeConcession().<br/>
+	 * <ul>
+	 * <li>garantit que getNomNomenclatureDarwinCsvCodeConcession() ne retourne pas null.</li>
+	 * <li>garantit que getNomNomenclatureDarwinCsvCodeConcession() retourne "2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * <p>
+	 * commenter la ligne 
+	 * "application.repertoire.ressources.nomenclatures.sens.darwincsv = 2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv"
+	 * dans le fichier <code>application_fr_FR.properties</code> 
+	 * sous les resources 
+	 * pour faire apparaitre les message et rapport d'erreur.
+	 * </p>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetNomNomenclatureDarwinCsvCodeConcession() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesDarwinCsvManagerTest - méthode testGetNomNomenclatureDarwinCsvCodeConcession() ********** ");
+		}
+
+		final String cheminNomenclatureDarwinCsvCodeConcession 
+			= ConfigurationNomenclaturesDarwinCsvManager.getNomNomenclatureDarwinCsvCodeConcession();
+		
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesDarwinCsvManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesDarwinCsvManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("cheminNomenclatureDarwinCsvCodeConcession : " 
+					+ cheminNomenclatureDarwinCsvCodeConcession);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+		
+		/* garantit que getNomNomenclatureDarwinCsvCodeConcession() ne retourne pas null. */
+		assertNotNull(
+				"Le chemin de la nomenclature (String) ne doit pas être null"
+					, cheminNomenclatureDarwinCsvCodeConcession);
+		
+		/* garantit que getNomNomenclatureDarwinCsvCodeConcession() retourne "2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv". */
+		assertEquals("le nom de la nomenclature doit valoir '2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv' : "
+				, "2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv"
+					, cheminNomenclatureDarwinCsvCodeConcession);
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetNomNomenclatureDarwinCsvCodeConcession().___________
+
+
+	
+	/**
+	 * teste la méthode getFichierNomenclatureDarwinCsvCodeConcessionUtf8().<br/>
+	 * <ul>
+	 * <li>garantit que getFichierNomenclatureDarwinCsvCodeConcessionUtf8() ne retourne pas null.</li>
+	 * <li>garantit que getFichierNomenclatureDarwinCsvCodeConcessionUtf8() retourne un fichier existant.</li>
+	 * <li>garantit que getFichierNomenclatureDarwinCsvCodeConcessionUtf8() retourne un singleton.</li>
+	 * <li>garantit que getFichierNomenclatureDarwinCsvCodeConcessionUtf8() retourne le fichier sous le contexte à
+	 * "ressources/Nomenclatures/DarwinCsv/Nomenclatures en UTF-8/2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv".</li>
+	 * <li>garantit que le message d'erreur de configuration de la méthode est null.</li>
+	 * <li>garantit que le rapport d'erreur de configuration de la classe est null.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetFichierNomenclatureDarwinCsvCodeConcessionUtf8() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationNomenclaturesDarwinCsvManagerTest - méthode testGetFichierNomenclatureDarwinCsvCodeConcessionUtf8() ********** ");
+		}
+
+		final File fichierNomenclatureDarwinCsvCodeConcession 
+			= ConfigurationNomenclaturesDarwinCsvManager.getFichierNomenclatureDarwinCsvCodeConcessionUtf8();
+
+		final File fichierNomenclatureDarwinCsvCodeConcession1 
+			= ConfigurationNomenclaturesDarwinCsvManager.getFichierNomenclatureDarwinCsvCodeConcessionUtf8();
+
+		final String messageIndividuelRapport 
+			= ConfigurationNomenclaturesDarwinCsvManager.getMessageIndividuelRapport();
+		
+		final String rapportConfigurationCsv 
+			= ConfigurationNomenclaturesDarwinCsvManager.getRapportConfigurationCsv();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("fichierNomenclatureDarwinCsvCodeConcession : " 
+					+ fichierNomenclatureDarwinCsvCodeConcession);
+			System.out.println("message émis par la méthode : " 
+					+ messageIndividuelRapport);
+			System.out.println("rapport d'erreurs de configuration : " 
+					+ rapportConfigurationCsv);
+		}
+			
+		/* garantit que getFichierNomenclatureDarwinCsvCodeConcessionUtf8() ne retourne pas null. */
+		assertNotNull(
+				"Le fichier de nomenclature DARWIN_CSV CODE CONCESSION ne doit pas être null : "
+					, fichierNomenclatureDarwinCsvCodeConcession);
+		
+		/* garantit que getFichierNomenclatureDarwinCsvCodeConcessionUtf8() retourne un fichier existant. */
+		assertTrue("fichierNomenclatureDarwinCsvCodeConcession doit exister : "
+				, fichierNomenclatureDarwinCsvCodeConcession.exists());
+		
+		/* garantit que getFichierNomenclatureDarwinCsvCodeConcessionUtf8() retourne un singleton. */
+		assertSame("doit retourner un singleton : "
+				, fichierNomenclatureDarwinCsvCodeConcession, fichierNomenclatureDarwinCsvCodeConcession1);
+		
+		/* garantit que getFichierNomenclatureDarwinCsvCodeConcessionUtf8() retourne "ressources/Nomenclatures/DarwinCsv/Nomenclatures en UTF-8/2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv". */
+		assertEquals("le fichier de nomenclature DARWIN_CSV CODE CONCESSION doit être situé sous le contexte sous 'ressources/Nomenclatures/DarwinCsv/Nomenclatures en UTF-8/2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv' : "
+				, Paths.get("ressources/Nomenclatures/DarwinCsv/Nomenclatures en UTF-8/2014-07-15_Nomenclature_CodeConcession_DarwinCsv_Utf8.csv")
+					, fournirPathRelatifSousTargetClasses(fichierNomenclatureDarwinCsvCodeConcession));
+		
+		/* garantit que le message d'erreur de configuration de la méthode est null. */
+		assertNull("le message d'erreur de la configuration doit être null : "
+				, messageIndividuelRapport);
+		
+		/* garantit que le rapport d'erreur de configuration de la classe est null. */
+		assertNull("le rapport d'erreur de la configuration de la classe doit être null : "
+				, rapportConfigurationCsv);
+
+	} // Fin de testGetFichierNomenclatureDarwinCsvCodeConcessionUtf8().___
+
+	
+	
+	/**
 	 * teste la méthode getNomNomenclatureDarwinCsvSens().<br/>
 	 * <ul>
 	 * <li>garantit que getNomNomenclatureDarwinCsvSens() ne retourne pas null.</li>

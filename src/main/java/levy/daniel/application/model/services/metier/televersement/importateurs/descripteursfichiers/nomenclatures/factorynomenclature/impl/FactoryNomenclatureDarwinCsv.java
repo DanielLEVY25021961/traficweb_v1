@@ -20,18 +20,19 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 /**
  * CLASSE FactoryNomenclatureDarwinCsv :<br/>
  * <p>
- * Factory chargée de fournir les nomenclatures 
+ * Factory chargée de fournir les nomenclatures (ou lexiques) 
  * pour les fichiers DARWIN_CSV.
  * </p>
  * 
  * <p>
  * RESPONSABILITE : 
- * IMPORTER TOUTES LES NOMENCLATURES D'UN FICHIER DARWIN_CSV 
+ * IMPORTER TOUTES LES NOMENCLATURES (OU LEXIQUES) D'UN FICHIER DARWIN_CSV 
  * ET LES METTRE A DISPOSITION DE L'APPLICATION sous forme de 
  * <b>SINGLETONS</b>.
  * </p>
  * <p>
- * Une nomenclature est un ensemble de [clé - libellé] pouvant être prises 
+ * Une nomenclature (ou lexique) est un ensemble de [clé - libellé] 
+ * pouvant être prises 
  * par une variable comme par exemple pour le SENS 
  * dans un Fichier DARWIN_CSV :<br/>
  * <ul>
@@ -44,13 +45,20 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * <div>
  * 
  * <p>
- * les champs à valeurs contraintes (nomenclature) dans un fichier DARWIN_CSV 
+ * les champs à valeurs contraintes (nomenclature ou lexique) 
+ * dans un fichier DARWIN_CSV 
  * sont les champs d'ordre : 
  * </p>
  * <p>
  * <table border="1">
  * <tr>
  * <th>ordre</th><th>champ</th>
+ * </tr>
+ * <tr>
+ * <td>4</td><td>code concession du PR Origine (lexique)</td>
+ * </tr>
+ * <tr>
+ * <td>8</td><td>code concession du PR Extremité (lexique)</td>
  * </tr>
  * <tr>
  * <td>13</td><td>sens</td>
@@ -122,8 +130,48 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 	public static final String NEWLINE = System.getProperty("line.separator");
 
 
-	
+	// CODE CONCESSION DEBUT SICRE.************** 		
+	/**
+	 * Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du CODE CONCESSION DEBUT SICRE
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<String> setClesPossiblesCodeConcessionDebutSicre;
+		
+	/**
+	 * Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le CODE CONCESSION DEBUT SICRE
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<String, String> lexiqueMapCodeConcessionDebutSicre;
 
+	// CODE CONCESSION FIN SICRE.************** 		
+	/**
+	 * Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du CODE CONCESSION FIN SICRE
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient Set<String> setClesPossiblesCodeConcessionFinSicre;
+		
+	/**
+	 * Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le CODE CONCESSION FIN SICRE
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 */
+	private static transient SortedMap<String, String> lexiqueMapCodeConcessionFinSicre;
+	
 	// SENS.************** 		
 	/**
 	 * Set&lt;Integer&gt; contenant les valeurs possibles 
@@ -266,7 +314,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 			}
 			
 			switch (pNumeroChamp) {
-
+			
 			/* SENS. */
 			case 13:
 			
@@ -320,7 +368,19 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 				return null;
 			}
 
-			switch (pNumeroChamp) { 
+			switch (pNumeroChamp) {
+			
+			/* CODE CONCESSION DEBUT SICRE. */
+			case 4:
+				
+				resultat = getSetClesPossiblesCodeConcessionDebutSicre();
+				break;
+			
+			/* CODE CONCESSION FIN SICRE. */
+			case 8:
+				
+				resultat = getSetClesPossiblesCodeConcessionFinSicre();
+				break;
 
 			/* PROFIL EN TRAVERS SICRE. */
 			case 58:
@@ -413,6 +473,18 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 			}
 
 			switch (pNumeroChamp) { 
+			
+			/* CODE CONCESSION DEBUT SICRE. */
+			case 4:
+				
+				resultat = getLexiqueMapCodeConcessionDebutSicre();
+				break;
+			
+			/* CODE CONCESSION FIN SICRE. */
+			case 8:
+				
+				resultat = getLexiqueMapCodeConcessionFinSicre();
+				break;
 
 			/* PROFIL EN TRAVERS SICRE. */
 			case 58:
@@ -562,6 +634,186 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 		return stb.toString();
 		
 	} // Fin de afficherMapIntegerString(...)._____________________________	
+
+
+	
+	/**
+	 * Getter du Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du CODE CONCESSION DEBUT SICRE
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesCodeConcessionDebutSicre : Set&lt;String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<String> getSetClesPossiblesCodeConcessionDebutSicre() 
+													throws Exception {
+		
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
+			
+			if (setClesPossiblesCodeConcessionDebutSicre == null) {
+				
+				final IImporteurLexique importeur 
+					= new ImporteurLexique();
+				
+				importeur
+					.importerLexiqueEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvCodeConcessionUtf8());
+							
+				setClesPossiblesCodeConcessionDebutSicre 
+					= importeur.getClesPossiblesSet();
+				lexiqueMapCodeConcessionDebutSicre = importeur.getLexiqueMap();
+				
+			}
+			
+			return setClesPossiblesCodeConcessionDebutSicre;
+			
+		} // Fin du bloc synchronized._____________________________
+		
+	} // Fin de getSetClesPossiblesCodeConcessionDebutSicre()._____________
+
+	
+		
+	/**
+	 * Getter du Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le CODE CONCESSION DEBUT SICRE
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return lexiqueMapCodeConcessionDebutSicre : 
+	 * SortedMap&lt;String,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<String, String> getLexiqueMapCodeConcessionDebutSicre() 
+														throws Exception {
+		
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
+			
+			if (lexiqueMapCodeConcessionDebutSicre == null) {
+				
+				final IImporteurLexique importeur 
+					= new ImporteurLexique();
+				
+				importeur
+					.importerLexiqueEnUtf8(
+							ConfigurationNomenclaturesDarwinCsvManager
+							.getFichierNomenclatureDarwinCsvCodeConcessionUtf8());
+							
+				setClesPossiblesCodeConcessionDebutSicre 
+					= importeur.getClesPossiblesSet();
+				lexiqueMapCodeConcessionDebutSicre = importeur.getLexiqueMap();
+				
+			}
+			
+			return lexiqueMapCodeConcessionDebutSicre;
+			
+		} // Fin du bloc synchronized._____________________________
+		
+	} // Fin de getLexiqueMapCodeConcessionDebutSicre().___________________
+
+
+	
+	/**
+	 * Getter du Set&lt;String&gt; contenant les valeurs possibles 
+	 * des clés du lexique du CODE CONCESSION FIN SICRE
+	 * pour les fichiers DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return setClesPossiblesCodeConcessionFinSicre : Set&lt;String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Set<String> getSetClesPossiblesCodeConcessionFinSicre() 
+													throws Exception {
+		
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
+			
+			if (setClesPossiblesCodeConcessionFinSicre == null) {
+											
+				setClesPossiblesCodeConcessionFinSicre 
+					= getSetClesPossiblesCodeConcessionDebutSicre();
+				lexiqueMapCodeConcessionFinSicre 
+					= getLexiqueMapCodeConcessionDebutSicre();
+				
+			}
+			
+			return setClesPossiblesCodeConcessionFinSicre;
+			
+		} // Fin du bloc synchronized._____________________________
+		
+	} // Fin de getSetClesPossiblesCodeConcessionFinSicre().__________________
+
+	
+		
+	/**
+	 * Getter du Lexique sous forme de SortedMap&lt;String,String&gt;
+	 * pour le CODE CONCESSION FIN SICRE
+	 * dans un fichier DARWIN_CSV avec :
+	 * <ul>
+	 * <li>String : la clé</li>
+	 * <li>String : le libellé</li>
+	 * </ul>
+	 * <b>SINGLETON</b>.<br/>
+	 * <ul>
+	 * <li>utilise un <code>IImporteurLexique</code> pour importer 
+	 * le fichier de lexique.</li>
+	 * <li>délègue l'obtention du bon fichier de lexique à un 
+	 * <code>ConfigurationNomenclaturesDarwinCsvManager</code>.</li>
+	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
+	 * </ul>
+	 *
+	 * @return lexiqueMapCodeConcessionFinSicre : 
+	 * SortedMap&lt;String,String&gt;.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static SortedMap<String, String> getLexiqueMapCodeConcessionFinSicre() 
+														throws Exception {
+		
+		synchronized (FactoryNomenclatureDarwinCsv.class) {
+			
+			if (lexiqueMapCodeConcessionFinSicre == null) {
+								
+				setClesPossiblesCodeConcessionFinSicre 
+				= getSetClesPossiblesCodeConcessionDebutSicre();
+				lexiqueMapCodeConcessionFinSicre 
+				= getLexiqueMapCodeConcessionDebutSicre();
+
+			}
+			
+			return lexiqueMapCodeConcessionFinSicre;
+			
+		} // Fin du bloc synchronized._____________________________
+		
+	} // Fin de getLexiqueMapCodeConcessionFinSicre().________________________
 
 
 		
@@ -892,7 +1144,7 @@ public final class FactoryNomenclatureDarwinCsv implements IFactoryNomenclature 
 		
 	/**
 	 * Getter du Lexique sous forme de SortedMap&lt;String,String&gt;
-	 * pour le CODE CONCESSION SICRE
+	 * pour le CODE CONCESSION DEBUT SICRE
 	 * dans un fichier DARWIN_CSV avec :
 	 * <ul>
 	 * <li>String : la clé</li>
