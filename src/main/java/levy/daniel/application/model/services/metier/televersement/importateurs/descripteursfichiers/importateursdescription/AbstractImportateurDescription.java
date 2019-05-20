@@ -804,17 +804,22 @@ public abstract class AbstractImportateurDescription implements
 			return null;
 		}
 		
+		/* retourne null si this.descriptionChamp est null. */
+		if (this.descriptionChamp == null) {
+			return null;
+		}
+		
+		/* retourne la ligne d'en-têtes csv si pL == 0. */
+		if (pL == 0) {
+			return this.descriptionChamp.fournirLigneEnTetesCsv();
+		}
+		
 		final IDescriptionChamp desc = this.specificationChampsMap.get(pL);
 		
 		/* retourne null si la l-ième ligne (1-based) 
 		 * n'existe pas dans la description. */
 		if (desc == null) {
 			return null;
-		}
-		
-		/* retourne la ligne d'en-têtes csv si pL == 0. */
-		if (pL == 0) {
-			return desc.fournirLigneEnTetesCsv();
 		}
 		
 		return desc.fournirLigneValeursCsv();

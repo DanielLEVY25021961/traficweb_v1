@@ -85,7 +85,10 @@ public interface IFournisseurCsvImpoDesc {
 	 * pour le champ 'route' 
 	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
-	 * - retourne null si this.specificationChampsMap est null.<br/>
+	 * - retourne null si 
+	 * <code><b>this.specificationChampsMap</b></code> est null.<br/>
+	 * - retourne null si
+	 * <code><b>this.descriptionChamp</b></code> est null.<br/>
 	 * - retourne null si la l-ième ligne (1-based) n'existe pas 
 	 * dans la description.<br/>
 	 * <br/>

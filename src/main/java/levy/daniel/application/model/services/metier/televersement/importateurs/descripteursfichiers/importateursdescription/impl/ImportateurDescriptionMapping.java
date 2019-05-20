@@ -3,6 +3,7 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.SortedMap;
 
 import org.apache.commons.lang3.StringUtils;
@@ -212,6 +213,20 @@ public class ImportateurDescriptionMapping extends
 		}
 		
 	} // Fin de determinerSiLogErreurs().__________________________________
+	
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final SortedMap<Integer, IDescriptionChamp> importerDescriptionUtf8() 
+					throws Exception {
+		
+		return this.importerDescription(
+				null, StandardCharsets.UTF_8);
+		
+	} // Fin de importerDescriptionUtf8(...).______________________________
 
 	
 	

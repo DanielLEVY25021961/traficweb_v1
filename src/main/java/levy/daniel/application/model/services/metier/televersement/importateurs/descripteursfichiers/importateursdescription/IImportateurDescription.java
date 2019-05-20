@@ -73,6 +73,76 @@ public interface IImportateurDescription
 	
 	
 	/**
+	 * <b>lit une description de fichier 
+	 * <code><b>this.descriptionDuFichierFile</b></code> 
+	 * au format CSV avec séparateur ';' 
+	 * encodée en UTF-8 et l'importe sous forme de 
+	 * SortedMap&lt;Integer, IDescriptionChamp&gt; 
+	 * <code><b>this.specificationChampsMap</b></code></b>
+	 * <ul>
+	 * <li>utilise automatiquement la description 
+	 * <code><b>this.descriptionDuFichierFile</b></code>.</li>
+	 * <li>retire un éventuel caractère BOM_UTF_8 à la première ligne.</li>
+	 * <li>saute une éventuelle ligne d'en-tête dans la description de fichier.</li>
+	 * <li>Saute les lignes null ou vides dans la description de fichier.</li>
+	 * <li>Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
+	 * <code><b>this.specificationChampsMap</b></code>.</li>
+	 * <li>Gère le tableau des longueurs maxi 
+	 * pour affichage formaté de la description à la console.</li>
+	 * </ul>
+	 * 
+	 * - Contrôle :<br/>
+	 * <ul>
+	 * <li>la validité du fichier de description csv par rapport 
+	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).</li>
+	 * <li>l'unicité des noms java des champs dans la description 
+	 * (LOG, rapport et ExceptionImport).</li>
+	 * <li>Autres contrôles.</li>
+	 * </ul>
+	 * - <i>saute la ligne d'en-tête le cas échéant</i>.<br/>
+	 * - <i>retire un éventuel BOM-UTF-8 au début 
+	 * de la description de fichier</i>.<br/>
+	 * <br/>
+	 * - LOG.fatal, rapporte et jette une FichierNullException 
+	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
+	 * le fichier csv de description pFileDescription n'est pas le bon 
+	 * (description darwin csv au lieu de Histonat csv par exemple).<br/>
+	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
+	 * un nom de champ java 
+	 * existe en doublon dans la description.<br/>
+	 * <br/>
+	 *
+	 * @param pCharset : Charset : 
+	 * charset à utiliser pour lire la description de fichier
+	 * 
+	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
+	 * 
+	 * @throws FichierNullException : 
+	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
+	 * @throws ExceptionImport lorsque :<br/>
+	 * le fichier de description passé en paramètre pFileDescription 
+	 * n'est pas le bon 
+	 * (description de DARWIN_CSV au lieu de HISTO_F07 par exemple).<br/>
+	 * un nom de champ java existe en doublon dans la description.<br/>
+	 * @throws TableauVideException : 
+	 * si une ligne de la description est null.<br/>
+	 * @throws TableauNullException : 
+	 * si une ligne de la description est vide.<br/> 
+	 * 
+	 * @throws Exception 
+	 */
+	SortedMap<Integer, IDescriptionChamp> importerDescriptionUtf8() 
+					throws FichierNullException
+						, TableauNullException
+							, TableauVideException
+								, ExceptionImport
+									, IOException, Exception;
+
+	
+	
+	/**
 	 * <b>lit une description de fichier pFileDescription 
 	 * au format CSV avec séparateur ';' 
 	 * encodée en UTF-8 et l'importe sous forme de 

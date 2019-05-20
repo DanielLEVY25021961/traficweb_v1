@@ -21,7 +21,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
 /**
- * class AbstractImportateurDescriptionAscii :<br/>
+ * CLASSE AbstractImportateurDescriptionAscii :<br/>
  * .<br/>
  * <br/>
  *
@@ -145,6 +145,20 @@ public abstract class AbstractImportateurDescriptionAscii extends
 		this.descriptionDuFichierFile = pDescriptionDuFichierFile;
 		
 	} // Fin de CONSTRUCTEUR ARCHICOMPLET._________________________________
+	
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final SortedMap<Integer, IDescriptionChamp> importerDescriptionUtf8() 
+					throws Exception {
+		
+		return this.importerDescription(
+				null, StandardCharsets.UTF_8);
+		
+	} // Fin de importerDescriptionUtf8(...).______________________________
 	
 
 
@@ -292,7 +306,9 @@ public abstract class AbstractImportateurDescriptionAscii extends
 			IDescriptionChamp desc = null;
 			
 			try {
+				
 				desc = this.descriptionChamp.getClass().newInstance();
+				
 			} catch (InstantiationException e1) {
 				
 				/* Fermeture des flux. */
@@ -311,7 +327,6 @@ public abstract class AbstractImportateurDescriptionAscii extends
 				
 				throw new RuntimeException(e1);
 			}
-
 			
 			if (desc == null) {
 				
@@ -322,8 +337,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 				
 				return null;
 			}
-			
-			
+						
 			/* Lecture de chaque ligne de la description. */
 			try {
 				
@@ -337,22 +351,23 @@ public abstract class AbstractImportateurDescriptionAscii extends
 				final String[] tokens 
 					= patternCsv.split(ligneLue);
 				
+				/* importe les tokens lus dans la DescriptionChamp. */
 				desc.lireChamp(tokens);
 				
-				/* Rapport d'erreur (provenant du Descripteur). */
+				/* Rapport d'erreur (provenant du DescriptionChamp). */
 				final String messageDescripteur 
 					= desc.getRapportDescriptionStb().toString();
-				
-				final String message 
-				= desc.toString() 
-				+ SEPARATEUR_MOINS_AERE
-				+ this.getNomClasse()
-				+ METHODE_IMPORTERDESCRIPTION 
-				+ messageDescripteur;
 								
 				/* Rapport d'erreur. */
 				if (!StringUtils.isBlank(messageDescripteur)) {
-										
+					
+					final String message 
+					= desc.toString() 
+					+ SEPARATEUR_MOINS_AERE
+					+ this.getNomClasse()
+					+ METHODE_IMPORTERDESCRIPTION 
+					+ messageDescripteur;
+					
 					if (this.logImportDescription) {
 						this.rapportImportDescriptionStb.append(message);
 						this.rapportImportDescriptionStb.append(NEWLINE);
@@ -366,36 +381,37 @@ public abstract class AbstractImportateurDescriptionAscii extends
 				final String messageDescripteur 
 					= desc.getRapportDescriptionStb().toString();
 				
-				final String message 
-				= "MAUVAIS FICHIER DE DESCRIPTION ???" 
-				+ SEPARATEUR_MOINS_AERE
-				+ this.getNomClasse()
-				+ METHODE_IMPORTERDESCRIPTION 
-				+ messageDescripteur;
-				
-				/* Logge */
-				if (LOG.isFatalEnabled()) {
-					LOG.fatal(message, e);
-				}
-				
 				/* Rapport d'erreur. */
 				if (!StringUtils.isBlank(messageDescripteur)) {
-										
+					
+					final String message 
+					= "MAUVAIS FICHIER DE DESCRIPTION ???" 
+					+ SEPARATEUR_MOINS_AERE
+					+ this.getNomClasse()
+					+ METHODE_IMPORTERDESCRIPTION 
+					+ messageDescripteur;
+					
+					/* Logge */
+					if (LOG.isFatalEnabled()) {
+						LOG.fatal(message, e);
+					}
+					
 					if (this.logImportDescription) {
 						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(NEWLINE);
-						
+						this.rapportImportDescriptionStb.append(NEWLINE);						
 					}
+					
+					
+					/* Fermeture des flux. */
+					bfr.close();
+					isr.close();
+					fis.close();
+					
+					/* Jette une Exception circonstanciée. */
+					throw new ExceptionImport(message, e);
 					
 				}
 				
-				/* Fermeture des flux. */
-				bfr.close();
-				isr.close();
-				fis.close();
-				
-				/* Jette une Exception circonstanciée. */
-				throw new ExceptionImport(message, e);
 			}
 						
 			/* Gestion des longueurs maxi. */			
@@ -409,14 +425,14 @@ public abstract class AbstractImportateurDescriptionAscii extends
 			this.controlerLongueur(desc);
 			
 			/* controle que l'ordre des champs est jointif */
-			this.controlerJointif(compteurDeLigne, desc);
+			this.controlerJointif(compteurDeLigne - 1, desc);
 			
 			/* contrôle que les colonnes sont jointives. */
-			this.controlerColonnesJointives(compteurDeLigne, desc);
+			this.controlerColonnesJointives(compteurDeLigne - 1, desc);
 			
 			/* AJOUT DE LA DESCRIPTION A LA MAP triée 
 			 * this.specificationChampsMap. */
-			this.specificationChampsMap.put(compteurDeLigne, desc);
+			this.specificationChampsMap.put(compteurDeLigne - 1, desc);
 		}
 		
 		/* FERMETURE DES FLUX. */

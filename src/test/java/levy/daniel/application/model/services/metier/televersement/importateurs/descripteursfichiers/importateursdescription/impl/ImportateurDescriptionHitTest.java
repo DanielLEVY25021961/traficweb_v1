@@ -1,5 +1,6 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Map;
@@ -86,8 +87,9 @@ public class ImportateurDescriptionHitTest {
 	
 	
 	/**
-	 * .<br/>
-	 * <br/>
+	 * Teste la méthode importerDescriptionUtf8().<br/>
+	 * <ul>
+	 * </ul>
 	 * 
 	 * @throws Exception 
 	 */
@@ -105,8 +107,9 @@ public class ImportateurDescriptionHitTest {
 			System.out.println("********** CLASSE ImportateurDescriptionHitTest - méthode testImporterDescriptionUtf8() ********** ");
 		}
 		
+		// TEST DE LA METHODE
 		final Map<Integer, IDescriptionChamp> resultat = 
-				importateur.importerDescriptionUtf8(null);
+				importateur.importerDescriptionUtf8();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -114,7 +117,36 @@ public class ImportateurDescriptionHitTest {
 		}
 		
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultat);
+		
+		final String ligneEnTetesToString = importateur.fournirLigneEnTetestoString();
+		final String ligneEnTetesCsv = importateur.fournirLigneEnTetesCsv();
+		final String ligneEnTetesCsvDesc = importateur.getDescriptionChamp().fournirLigneEnTetesCsv();
+		final String ligneValeursCsv0 = importateur.fournirLigneValeursCsv(0);
+		final String ligneValeursCsv1 = importateur.fournirLigneValeursCsv(1);
+		final String ligneValeursCsv2 = importateur.fournirLigneValeursCsv(2);
+		final String ligneValeursCsv133 = importateur.fournirLigneValeursCsv(133);
+		final String ligneValeursCsv134 = importateur.fournirLigneValeursCsv(134);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("ligneEnTetesToString : " + ligneEnTetesToString);
+			System.out.println("ligneEnTetesCsv : " + ligneEnTetesCsv);
+			System.out.println("ligneEnTetesCsvDesc : " + ligneEnTetesCsvDesc);
+			System.out.println("ligneValeursCsv0 : " + ligneValeursCsv0);
+			System.out.println("ligneValeursCsv1 : " + ligneValeursCsv1);
+			System.out.println("ligneValeursCsv2 : " + ligneValeursCsv2);
+			System.out.println("ligneValeursCsv133 : " + ligneValeursCsv133);
+			System.out.println("ligneValeursCsv134 : " + ligneValeursCsv134);
+		}
 
+		assertEquals("lignesEnTetesCsv doit valoir importateur.getDescriptionChamp().fournirLigneEnTetesCsv() : "
+				, "ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;"
+				, ligneEnTetesCsv);
+		
+		assertEquals("lignesEnTetesCsv doit valoir importateur.getDescriptionChamp().fournirLigneEnTetesCsv() : "
+				, ligneEnTetesCsvDesc
+				, ligneEnTetesCsv);
+		
 	} // Fin de testImporterDescriptionUtf8()._______________________________
 
 

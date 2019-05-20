@@ -14,6 +14,10 @@
  * SortedMap&lt;Integer,IDescriptionChamp&gt;</b>.<br/>
  * </p>
  * 
+ * <p>
+ * {@link IDescriptionChamp} modélise la <b>description d'un champ</b> d'un fichier donné, c'est à dire une <i>ligne</i> d'une <b>description de fichier</b>.
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
