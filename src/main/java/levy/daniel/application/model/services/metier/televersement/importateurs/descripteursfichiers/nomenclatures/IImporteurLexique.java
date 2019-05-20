@@ -260,7 +260,6 @@ public interface IImporteurLexique
 	
 	/**
 	 * Récupère le nom de la classe.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */

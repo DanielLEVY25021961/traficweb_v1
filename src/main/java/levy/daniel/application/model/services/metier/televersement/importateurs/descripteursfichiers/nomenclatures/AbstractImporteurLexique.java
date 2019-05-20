@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
@@ -823,11 +824,12 @@ public abstract class AbstractImporteurLexique implements
 
 		// ************ PARAMETRES VALIDES *******************************/
 
-		/* choisit automatiquement le Charset UTF-8 si pCharset == null. */
+		/* choisit automatiquement le Charset UTF-8 si pCharset == null 
+		 * ou pCharset ne peut pas encoder. */
 		Charset charset = null;
 		
-		if (pCharset == null) {
-			charset = Charset.forName("UTF-8");
+		if (pCharset == null || !pCharset.canEncode()) {
+			charset = StandardCharsets.UTF_8;
 		} else {
 			charset = pCharset;
 		}
@@ -856,13 +858,14 @@ public abstract class AbstractImporteurLexique implements
 		}
 						
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
-		/* ECRITURE AVEC PCHARSET. */
+		/* ECRITURE AVEC charset. */
 		final FileOutputStream fos = new FileOutputStream(fileGenere);
 		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset);
 		final BufferedWriter bfw = new BufferedWriter(osw);
 		
-		/* Ajoute le BOM-UTF8 au début du fichier généré si charset vaut Charset-UTF8. */
-		if (charset.equals(Charset.forName("UTF-8"))) {
+		/* Ajoute le BOM-UTF8 au début du fichier généré 
+		 * si charset vaut Charset-UTF8. */
+		if (charset.equals(StandardCharsets.UTF_8)) {
 			bfw.write(BOM_UTF_8);
 		}
 		
@@ -1148,11 +1151,7 @@ public abstract class AbstractImporteurLexique implements
 
 	
 	/**
-	 * method traiterFichierNull(
-	 * File pFile
-	 * , String pMethode) :<br/>
-	 * LOG.fatal, et jette une Exception si pFile est null.<br/>
-	 * <br/>
+	 * LOG.fatal, et jette une FichierNullException si pFile est null.<br/>
 	 *
 	 * @param pFile : File.<br/>
 	 * @param pMethode : String : nom de la méthode appelante.<br/>
@@ -1189,11 +1188,7 @@ public abstract class AbstractImporteurLexique implements
 	
 	
 	/**
-	 * method traiterFichierVide(
-	 * File pFile
-	 * , String pMethode) :<br/>
-	 * LOG.fatal et jette une Exception si pFile est vide.<br/>
-	 * <br/>
+	 * LOG.fatal et jette une FichierVideException si pFile est vide.<br/>
 	 *
 	 * @param pFile : File.<br/>
 	 * @param pMethode : String : nom de la méthode appelante.<br/>
@@ -1231,12 +1226,8 @@ public abstract class AbstractImporteurLexique implements
 	
 	
 	/**
-	 * method traiterFichierInexistant(
-	 * File pFile
-	 * , String pMethode) :<br/>
-	 * LOG.fatal et jette une Exception 
+	 * LOG.fatal et jette une FichierInexistantException 
 	 * si pFile est inexistant.<br/>
-	 * <br/>
 	 *
 	 * @param pFile : File.<br/>
 	 * @param pMethode : String : nom de la méthode appelante.<br/>
@@ -1274,10 +1265,7 @@ public abstract class AbstractImporteurLexique implements
 	
 
 	/**
-	 * method traiterFichierPasNormal(
-	 * File pFile
-	 * , String pMethode) :<br/>
-	 * LOG.fatal et jette une Exception 
+	 * LOG.fatal et jette une FichierPasNormalException 
 	 * si pFile est un répertoire.<br/>
 	 * <br/>
 	 *

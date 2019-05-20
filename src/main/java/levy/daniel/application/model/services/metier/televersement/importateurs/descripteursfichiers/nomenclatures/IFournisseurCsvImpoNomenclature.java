@@ -9,11 +9,17 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullE
 
 
 /**
- * class IFournisseurCsvImpoNomenclature :<br/>
- * RESPONSABILITE : AFFICHER ET CREER UN FICHIER DE NOMENCLATURE AU FORMAT CSV.<br/>
+ * INTERFACE IFournisseurCsvImpoNomenclature :<br/>
+ * <p>
+ * RESPONSABILITE : AFFICHER ET CREER UN FICHIER DE NOMENCLATURE AU FORMAT CSV.
+ * </p>
+ * 
+ * <p>
  * Interface factorisant les méthodes garantissant 
  * qu'un objet qui l'implémente saura s'écrire sous forme de fichier csv 
- * avec séparateur ';'.<br/>
+ * avec séparateur ';'.
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -45,7 +51,6 @@ public interface IFournisseurCsvImpoNomenclature {
 	
 	/**
 	 * retourne "Clé;Libellé;".<br/>
-	 * <br/>
 	 *
 	 * @return : String : "Clé;Libellé;".<br/>
 	 */
@@ -75,7 +80,7 @@ public interface IFournisseurCsvImpoNomenclature {
 	/**
 	 * génère une nomenclature au format csv 
 	 * avec séparateur ';' sous forme de String.<br/>
-	 * Rajoute la ligne d'en-tête.<br/>
+	 * Rajoute automatiquement la ligne d'en-têtes.<br/>
 	 * - retourne null si this.nomenclatureMap est null.<br/>
 	 * ATTENTION : faire importerNomenclature(...) 
 	 * AVANT d'utiliser cette méthode.<br/>
@@ -358,7 +363,8 @@ public interface IFournisseurCsvImpoNomenclature {
 	 * pFile même si il existait déjà 
 	 * (pour prendre en compte une éventuelle modification 
 	 * de la nomenclature).</li>
-	 * <li>choisit automatiquement le Charset UTF-8 si pCharset == null.</li>
+	 * <li>choisit automatiquement le Charset UTF-8 si pCharset == null 
+	 * ou si pCharset ne peut encoder.</li>
 	 * <li>Ajoute le BOM-UTF8 au début du fichier généré si charset 
 	 * vaut Charset-UTF8.</li>
 	 * <li>rajoute la ligne d'en-tête si pAvecLigneEntetes vaut true.</li>

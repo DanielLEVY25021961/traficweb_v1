@@ -3,9 +3,12 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -18,9 +21,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexistantException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierPasNormalException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.MapNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.MapVideException;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
@@ -28,16 +32,26 @@ import levy.daniel.application.model.utilitaires.utilitairesstrings.FormateurCha
 
 
 /**
- * class AbstractImportateurDescription :<br/>
+ * CLASSE AbstractImportateurDescription :<br/>
+ * <p>
  * Classe abstraite factorisant les attributs et méthodes 
  * des ImportateurDescription.<br/>
+ * IMPLEMENTE {@link IImportateurDescription}.
+ * </p>
+ * 
+ * <p>
  * Tous les ImportateurDescription possèdent une 
- * méthode importerDescription(File pFileDescription) 
+ * méthode <code><b>importerDescription(File pFileDescription)</b></code> 
  * où pFileDescription encapsule la description en csv du fichier 
- * (HIT, Histonat, Darwin.csv, FEOR XML, ...) à servir.<br/>
+ * (HIT, HISTO_F08, HISTO_F07, DARWIN_CSV, FEOR XML, Histonat, ...) 
+ * à servir.<br/>
  * La description est servie sous forme de 
- * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap 
- * retournée par importerDescription(File pFileDescription).<br/>
+ * <code>SortedMap&lt;Integer, IDescriptionChamp&gt; 
+ * <b>this.specificationChampsMap</b></code> 
+ * retournée par la méthode 
+ * <code><b>importerDescription(File pFileDescription)</b></code>.
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -53,7 +67,6 @@ import levy.daniel.application.model.utilitaires.utilitairesstrings.FormateurCha
  * @author dan Lévy
  * @version 1.0
  * @since 29 juin 2014
- *
  */
 public abstract class AbstractImportateurDescription implements
 		IImportateurDescription {
@@ -61,47 +74,43 @@ public abstract class AbstractImportateurDescription implements
 	// ************************ATTRIBUTS************************************/
 	/* CONSTANTES. */
 	/**
-	 * CLASSE_ABSTRACTIMPORTATEURDESCRIPTION : String : <br/>
-	 * "Classe AbstractImportateurDescription - ".<br/>
+	 * "Classe AbstractImportateurDescription".<br/>
 	 */
 	public static final String CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-		= "Classe AbstractImportateurDescription - ";
-	
-	
+		= "Classe AbstractImportateurDescription";
+		
 	/**
-	 * CONSTRUCTEUR_ABSTRACTIMPORTATEURDESCRIPTION : String :<br/>
 	 * "CONSTRUCTEUR AbstractImportateurDescription(
 	 * File pDescriptionDuFichier)".<br/>
 	 */
 	public static final String CONSTRUCTEUR_ABSTRACTIMPORTATEURDESCRIPTION 
 		= "CONSTRUCTEUR AbstractImportateurDescription("
-			+ "File pDescriptionDuFichier) - ";
-
+			+ "File pDescriptionDuFichier)";
 	
 	/**
-	 * METHODE_GETDESCRIPTIONCHAMP : String : <br/>
-	 * "Méthode getDescriptionChamp(...) - ".<br/>
+	 * "Méthode getDescriptionChamp(...)".<br/>
 	 */
 	public static final String METHODE_GETDESCRIPTIONCHAMP 
-		= "Méthode getDescriptionChamp(...) - ";
-	
-	
-	
+		= "Méthode getDescriptionChamp(...)";
+		
 	/**
-	 * METHODE_SPECCHAMPSTOSTRING : String : <br/>
-	 * "Méthode specificationChampsMapToString() - ".<br/>
+	 * "Méthode specificationChampsMapToString()".<br/>
 	 */
 	public static final String METHODE_SPECCHAMPSTOSTRING 
-		= "Méthode specificationChampsMapToString() - ";
-	
-	
+		= "Méthode specificationChampsMapToString()";
+		
 	/**
-	 * METHODE_GENERERDESCRIPTION : String :<br/>
-	 * "Méthode genererDescriptionCsvFile(boolean, File) - ".<br/>
+	 * "Méthode genererDescriptionCsvFile(boolean, File)".<br/>
 	 */
 	public static final String METHODE_GENERERDESCRIPTION 
-		= "Méthode genererDescriptionCsvFile(boolean, File) - ";
+		= "Méthode genererDescriptionCsvFile(boolean, File)";
 
+	/**
+	 * "Méthode genererAutomatiquementFile(Charset pCharset)".
+	 */
+	public static final String METHODE_GENERER_AUTOMATIQUEMENT_FILE 
+		= "Méthode genererAutomatiquementFile(Charset pCharset)";
+	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
@@ -155,35 +164,43 @@ public abstract class AbstractImportateurDescription implements
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
+	
+	
+	//*****************************************************************/
+	//**************************** BOM_UTF-8 **************************/
+	//*****************************************************************/
+	/**
+	 * '\uFEFF'<br/>
+	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
+	 */
+	public static final char BOM_UTF_8 = '\uFEFF';
 
 
 	/* ATTRIBUTS. */
 	/**
-	 * nomsChampsJavaSet : Set<String> :<br/>
-	 * Instanciation d'un Set chargé de contenir les
-	 * noms de champs java pour vérifier qu'ils sont uniques.<br/>
+	 * Set&lt;String&gt; chargé de contenir les
+	 * noms de champs java d'une description de fichier 
+	 * pour vérifier qu'ils sont uniques.<br/>
 	 */
 	protected final transient Set<String> nomsChampsJavaSet 
 			= new HashSet<String>();
 	
 	
 	/**
-	 * descriptionChamp : IDescriptionChamp :<br/>
 	 * Encapsulation permettant de stocker toutes les valeurs 
 	 * décrivant un champ dans une description de fichier.<br/>
 	 * Par exemple :<br/>
 	 * [ordreChamps, colonnes, longueur, intitule, nomenclature
-	 * , champJava, typeJava, aNomenclature
+	 * , champJava, typeJava, aNomenclature, aLexique
 	 * , colonneDebut, colonneFin, longueurCalculee] 
-	 * pour une description de HistonatF07.<br/>
+	 * pour une description de HISTO_F07.<br/>
 	 * [ordreChamps, intitule, nomenclature, champJava, typeJava, aNomenclature] 
-	 * pour une description de Darwin csv.<br/>
+	 * pour une description de DARWIN_CSV.<br/>
 	 */
 	protected IDescriptionChamp descriptionChamp;
 
 	
 	/**
-	 * descriptionDuFichierFile : File :<br/>
 	 * File encapsulant un fichier comprenant la
 	 * description du fichier à lire (spécification).<br/>
 	 * Précise par exemple que les colonnes 1 à 3 comprennent le
@@ -195,11 +212,11 @@ public abstract class AbstractImportateurDescription implements
 	
 	
 	/**
-	 * specificationChampsMap : SortedMap&lt;Integer,IDescriptionChamp&gt; :<br/>
 	 * Description du fichier importée par le présent ImportateurDescription
-	 * et fournie sous forme de Map triée contenant :<br/>
+	 * et fournie sous forme de SortedMap&lt;Integer,IDescriptionChamp&gt; 
+	 * triée contenant :<br/>
 	 * - Integer : le numéro du champ (rang de la ligne dans la description
-	 * du fichier comme '3' pour 'sens' dans la description de l'HistonatF07),<br/>
+	 * du fichier comme '3' pour 'sens' dans la description de l'HISTO_F07),<br/>
 	 * - IDescriptionChamp : les valeurs dans la description du champ 
 	 * (N° champ, colonne début, colonne fin...).<br/>
 	 * specificationChampsMap ne contient pas les en-têtes 
@@ -253,9 +270,7 @@ public abstract class AbstractImportateurDescription implements
 	
 	
 	 /**
-	 * method CONSTRUCTEUR AbstractImportateurDescription() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
 	 */
 	public AbstractImportateurDescription() {
 		super();
@@ -264,9 +279,14 @@ public abstract class AbstractImportateurDescription implements
 	
 	
 	 /**
-	 * method CONSTRUCTEUR AbstractImportateurDescription() :<br/>
 	 * CONSTRUCTEUR ARCHICOMPLET.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>passe à la classe une IDescriptionChamp 
+	 * pour récupérer l'en-tête du fichier de description 
+	 * que l'on veut importer.</li>
+	 * <li>passe à la classe le fichier de description à importer 
+	 * <code><b>this.descriptionDuFichierFile</b></code></li>
+	 * </ul>
 	 *
 	 * @param pDescriptionChamp : IDescriptionChamp.<br/>
 	 * @param pDescriptionDuFichierFile : File : 
@@ -297,11 +317,11 @@ public abstract class AbstractImportateurDescription implements
 		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
 		/* Map null. */
 		/* Logge, rapporte et jette une Exception. */
-		this.traiterMapNull();
+		this.traiterMapNull(METHODE_GETDESCRIPTIONCHAMP);
 		
 		/* Map vide. */
 		/* Logge, rapporte et jette une Exception. */
-		this.traiterMapVide();
+		this.traiterMapVide(METHODE_GETDESCRIPTIONCHAMP);
 		
 		// **************PARAMETRES VALIDES****************************/
 		
@@ -312,20 +332,20 @@ public abstract class AbstractImportateurDescription implements
 		
 		return desc;
 		
-	} // Fin de getDescriptionChamp(
-	// Integer pOrdre).____________________________________________________
+	} // Fin de getDescriptionChamp(...).__________________________________
 
 
 	
 	/**
-	 * method traiterMapNull() :<br/>
 	 * LOG.fatal, rapporte et jette une MapNullException 
-	 * si this.specificationChampsMap est null.<br/>
-	 * <br/>
+	 * si <code><b>this.specificationChampsMap</b></code> est null.<br/>
+	 * 
+	 * @param pMethode : String : nom de la méthode appelante.
 	 * 
 	 * @throws Exception 
 	 */
-	private void traiterMapNull() throws Exception {
+	private void traiterMapNull(
+			final String pMethode) throws Exception {
 		
 		if (this.specificationChampsMap == null) {
 			
@@ -338,8 +358,10 @@ public abstract class AbstractImportateurDescription implements
 					.getString(cleMapNull);
 
 			final String message 
-			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-			+ METHODE_GETDESCRIPTIONCHAMP 
+			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode 
+			+ SEPARATEUR_MOINS_AERE
 			+ messageMapNull;
 
 			/* Logge. */
@@ -363,14 +385,15 @@ public abstract class AbstractImportateurDescription implements
 	
 	
 	/**
-	 * method traiterMapVide() :<br/>
 	 * LOG.fatal, rapporte et jette une MapVideException 
-	 * si this.specificationChampsMap est vide.<br/>
-	 * <br/>
+	 * si <code><b>this.specificationChampsMap</b></code> est vide.<br/>
+	 * 
+	 * @param pMethode : String : nom de la méthode appelante.
 	 * 
 	 * @throws Exception 
 	 */
-	private void traiterMapVide() throws Exception {
+	private void traiterMapVide(
+			final String pMethode) throws Exception {
 		
 		if (this.specificationChampsMap.isEmpty()) {
 			
@@ -384,7 +407,9 @@ public abstract class AbstractImportateurDescription implements
 
 			final String message 
 			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-			+ METHODE_GETDESCRIPTIONCHAMP 
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
 			+ messageMapVide;
 
 			/* Logge. */
@@ -460,9 +485,7 @@ public abstract class AbstractImportateurDescription implements
 	
 	
 	/**
-	 * method instancierTableauLongueursMaxi() :<br/>
 	 * Intancie le tableau des longueurs maxi et gère la ligne d'en-têtes.<br/>
-	 * <br/>
 	 */
 	protected void instancierTableauLongueursMaxi() {
 		
@@ -490,8 +513,6 @@ public abstract class AbstractImportateurDescription implements
 	
 
 	/**
-	 * method gererLongueursMaxi(
-	 * IDescriptionChamp pDesc) :<br/>
 	 * Tient à jour le tableau des longueurs maxi 
 	 * à chaque lecture de ligne de la description.<br/>
 	 * <br/>
@@ -511,30 +532,22 @@ public abstract class AbstractImportateurDescription implements
 	 // IDescriptionChamp pDesc).__________________________________________
 	
 	
-
+	
 	/**
-	 * method toStringFormatte() :<br/>
-	 * Affiche la description formatée à la console.<br/>
-	 * <br/>
-	 *
-	 * @return : String : Chaîne de caractères 
-	 * formattée pour affichage à la console.<br/>
-	 * 
-	 * @throws Exception 
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final String toStringFormatte() throws Exception {
+	public final String toStringFormate() throws Exception {
 		return this.specificationChampsMapToString(this.longueursMax);
 	} // Fin de toStringFormatte().________________________________________
 	
 	
 	
 	/**
-	 * method specificationChampsMapToString() :<br/>
-	 * Construit un String décrivant chaque champ de la
+	 * AFFICHAGE A LA CONSOLE NON FORMATE.<br/>
+	 * Construit et retourne une String décrivant chaque champ de la
 	 * spécification du fichier contenu dans la Map
-	 * specificationChampsMap.<br/>
-	 * <br/>
+	 * <code><b>this.specificationChampsMap</b></code>.<br/>
 	 *
 	 * @return un String décrivant chaque champ de la spécification
 	 * du fichier : String.<br/>
@@ -546,66 +559,10 @@ public abstract class AbstractImportateurDescription implements
 		
 		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
 		/* Map null. */
-		if (this.specificationChampsMap == null) {
-			
-			final String cleMapNull
-			= "abstractimportateurdescription" 
-				+ ".specificationChampsMapToString.mapnull";
-
-			final String messageMapNull 
-			= ConfigurationApplicationManager
-				.getBundleMessagesTechnique()
-					.getString(cleMapNull);
-
-			final String message 
-			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-			+ METHODE_SPECCHAMPSTOSTRING
-			+ messageMapNull;
-
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message);
-			}
-			
-			/* Rapport Eventuel. */
-			if (this.logImportDescription) {
-				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(NEWLINE);
-			}
-
-			throw new ExceptionImport(message);
-			
-		} // Fin de Map null.________________________________________
+		this.traiterMapNull(METHODE_SPECCHAMPSTOSTRING);
 		
 		/* Map Vide. */
-		if (this.specificationChampsMap.size() == 0) {
-			
-			final String cleMapVide
-			= "abstractimportateurdescription" 
-				+ ".specificationChampsMapToString.mapvide";
-
-			final String messageMapVide 
-			= ConfigurationApplicationManager
-				.getBundleMessagesTechnique()
-					.getString(cleMapVide);
-
-			final String message 
-			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-			+ METHODE_SPECCHAMPSTOSTRING
-			+ messageMapVide;
-
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message);
-			}
-			
-			/* Rapport Eventuel. */
-			if (this.logImportDescription) {
-				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(NEWLINE);
-			}
-
-			throw new ExceptionImport(message);
-			
-		} // Fin de Map vide.________________________________________
+		this.traiterMapVide(METHODE_SPECCHAMPSTOSTRING);
 
 		
 		// **************PARAMETRES VALIDES****************************/
@@ -640,12 +597,11 @@ public abstract class AbstractImportateurDescription implements
 
 	
 	/**
-	 * method specificationChampsMapToString(
-	 * int[] pLongueursMax) :<br/>
-	 * Construit un String décrivant chaque champ de la
+	 * AFFICHAGE A LA CONSOLE FORMATE.<br/>
+	 * Construit et retourne un String décrivant chaque champ de la
 	 * spécification du fichier contenu dans la Map
-	 * specificationChampsMap en le formattant 
-	 * à la longueur contenue dans pLongueursMax.<br/>
+	 * <code><b>this.specificationChampsMap</b></code> en le formatant 
+	 * à la longueur contenue dans le tableau pLongueursMax.<br/>
 	 * <br/>
 	 *
 	 * @param pLongueursMax : int[] : 
@@ -661,66 +617,10 @@ public abstract class AbstractImportateurDescription implements
 		
 		// ***********TRAITEMENT DES PARAMETRES INVALIDES**************/
 		/* Map null. */
-		if (this.specificationChampsMap == null) {
-			
-			final String cleMapNull
-			= "abstractimportateurdescription" 
-				+ ".specificationChampsMapToString.mapnull";
-
-			final String messageMapNull 
-			= ConfigurationApplicationManager
-				.getBundleMessagesTechnique()
-					.getString(cleMapNull);
-
-			final String message 
-			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-			+ METHODE_SPECCHAMPSTOSTRING
-			+ messageMapNull;
-
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message);
-			}
-			
-			/* Rapport Eventuel. */
-			if (this.logImportDescription) {
-				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(NEWLINE);
-			}
-
-			throw new ExceptionImport(message);
-			
-		} // Fin de Map null.________________________________________
+		this.traiterMapNull(METHODE_SPECCHAMPSTOSTRING);
 		
 		/* Map Vide. */
-		if (this.specificationChampsMap.size() == 0) {
-			
-			final String cleMapVide
-			= "abstractimportateurdescription" 
-				+ ".specificationChampsMapToString.mapvide";
-
-			final String messageMapVide 
-			= ConfigurationApplicationManager
-				.getBundleMessagesTechnique()
-					.getString(cleMapVide);
-
-			final String message 
-			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-			+ METHODE_SPECCHAMPSTOSTRING
-			+ messageMapVide;
-
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message);
-			}
-			
-			/* Rapport Eventuel. */
-			if (this.logImportDescription) {
-				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(NEWLINE);
-			}
-
-			throw new ExceptionImport(message);
-			
-		} // Fin de Map vide.________________________________________
+		this.traiterMapVide(METHODE_SPECCHAMPSTOSTRING);
 
 		
 		// **************PARAMETRES VALIDES****************************/
@@ -735,6 +635,7 @@ public abstract class AbstractImportateurDescription implements
 		
 		/* EN-TETES DES COLONNES. *******/
 		if (this.descriptionChamp != null) {
+			
 			/* Récupération des en-têtes de colonnes. */
 			final Map<Integer, String> entetesMap 
 			= this.descriptionChamp.getEntetesDescriptionMap();
@@ -809,16 +710,7 @@ public abstract class AbstractImportateurDescription implements
 	
 	
 	/**
-	 * method tableauIntToString(
-	 * int[] pTableauLongueurs) :<br/>
-	 * Affichage d'un tableau d'entiers.<br/>
-	 * - Retourne une chaîne vide si le tableau
-	 * passé en paramètre est null.<br/>
-	 * <br/>
-	 * 
-	 * @param pTableauLongueurs : int[].<br/>
-	 * 
-	 * @return String.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String tableauIntToString(
@@ -849,24 +741,12 @@ public abstract class AbstractImportateurDescription implements
 		
 		return stb.toString();
 		
-	} // Fin de tableauIntToString(
-	 // int[] pTableauLongueurs).__________________________________________
+	} // Fin de tableauIntToString(...).___________________________________
 	
 
-
+	
 	/**
-	 * method fournirLigneEnTetestoString() :<br/>
-	 * Fabrique une chaine de caractères comportant tous
-	 * les éléments de description de l'en-tête de la description 
-	 * séparés par des tabulations 
-	 * et avec un saut de ligne \n à la fin.<br/>
-	 * <br/>
-	 * - retourne null si this.descriptionChamp est null.<br/>
-	 * <br/>
-	 *
-	* @return String : une chaine de caractères décrivant la ligne d'en-têtes 
-	* en exposant toutes ses valeurs séparées par des tabulations 
-	* et avec un saut de ligne \n à la fin.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String fournirLigneEnTetestoString() {
@@ -894,23 +774,9 @@ public abstract class AbstractImportateurDescription implements
 	} // Fin de fournirLigneEnTetestoString()._____________________________
 	
 	
-	
+		
 	/**
-	 * method fournirLigneEnTetesCsv() :<br/>
-	 * Fournit une ligne csv avec un séparateur ';' pour les en-têtes
-	 * de la description de fichier.<br/>
-	 * <br/>
-	 * Par exemple :<br/>
-	 * ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;
-	 * aNomenclature;colonneDebut;colonneFin;longueurCalculee; 
-	 * pour un DescripteurChampHistoF07.<br/>
-	 * ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature; 
-	 * pour un DescripteurChampDarwinCsv.<br/>
-	 * <br/>
-	 * - retourne null si this.descriptionChamp est null.<br/>
-	 * <br/>
-	 *
-	 * @return String : ligne d'en-têtes csv avec séparateur ';'.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String fournirLigneEnTetesCsv() {
@@ -925,33 +791,9 @@ public abstract class AbstractImportateurDescription implements
 	} // Fin de fournirLigneEnTetesCsv().__________________________________
 	
 	
-	
+		
 	/**
-	 * method fournirLigneValeursCsv(
-	 * int pL) :<br/>
-	 * Fournit une ligne csv avec un séparateur ';'
-	 * contenant les valeurs de description d'un champ 
-	 * à la pL-ième ligne (1-based) de la description du fichier.<br/>
-	 * retourne la ligne d'en-têtes csv si pL == 0.<br/>
-	 * <br/>
-	 * Par exemple :<br/>
-	 * 1;1-3;3;Numéro de Département;calé à gauche;numDepartment;
-	 * Integer;false;1;3;3; pour le champ 'Numéro de Département' 
-	 * (1ère ligne) de la description d'un HistoNatF07.<br/>
-	 * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);
-	 * route;String;false; 
-	 * pour le champ 'route' 
-	 * (2ème ligne) dans la description du fichier Darwin csv.<br/>
-	 * <br/>
-	 * - retourne null si this.specificationChampsMap est null.<br/>
-	 * - retourne null si la l-ième ligne (1-based) n'existe pas 
-	 * dans la description.<br/>
-	 * <br/>
-	 * 
-	 * @param pL : int : numéro d'ordre (1-based) de la ligne dans le fichier de description.<br/>
-	 *
-	 * @return String : ligne csv contenant la description du champ 
-	 * avec séparateur ';'.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String fournirLigneValeursCsv(
@@ -977,8 +819,7 @@ public abstract class AbstractImportateurDescription implements
 		
 		return desc.fournirLigneValeursCsv();
 		
-	} // Fin de fournirLigneValeursCsv(
-	 // int pL).___________________________________________________________
+	} // Fin de fournirLigneValeursCsv(...)._______________________________
 	
 
 	
@@ -1042,135 +883,20 @@ public abstract class AbstractImportateurDescription implements
 	 // boolean pAvecLigneEntetes).________________________________________
 	
 
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final File genererDescriptionCsvFile() 
-					throws Exception {
+	public final File genererDescriptionCsvFileUtf8() 
+			throws Exception {
 		
-		return this.genererDescriptionCsvFile(true, null);
+		return this.genererDescriptionCsvFile(
+				true
+					, null
+						, StandardCharsets.UTF_8);
 		
-	} // Fin de genererDescriptionCsvFile()._______________________________
-
-		
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final File genererDescriptionCsvFile(
-			final File pFile) 
-					throws Exception {
-		
-		return this.genererDescriptionCsvFile(true, pFile);
-		
-	} // Fin de genererDescriptionCsvFile(
-	 // File pFile)._______________________________________________________
-	
-	
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final File genererDescriptionCsvFile(
-			final boolean pAvecLigneEntetes
-				, final File pFile) 
-					throws Exception {
-		
-		// ************* PARAMETRES INVALIDES ***************************/
-			
-		/* specificationChampsMap null. */
-		/* Logge, rapporte et jette une Exception circonstanciée. */
-		this.traiterMapNull();
-		
-		/* Map vide. */
-		/* Logge, rapporte et jette une Exception circonstanciée. */
-		this.traiterMapVide();
-		
-		/* descriptionDuFichierFile null. */
-		/* Logge, rapporte et jette une Exception circonstanciée. */
-		this.traiterDescriptionFileNull();
-		
-		// *************** PARAMETRES VALIDES ***************************/
-		
-		File fileGenere = null;
-		
-		/* Génère automatiquement le fichier de sortie dans le 
-		 * même répertoire que this.descriptionDuFichierFile 
-		 * avec l'extension _UTF-8.csv si pFile est null. */
-		if (pFile == null) {
-			
-			fileGenere = this.genererAutomatiquementFile(null);
-
-		}
-		else {
-			
-			fileGenere = pFile;
-		}
-		
-		String ligneLue = "";
-		int compteurLigne = 0;
-		final int nombreChampsInterne = this.specificationChampsMap.size();
-		
-		/* OUVERTURE DES FLUX. */
-		final FileWriter fileWriterOut = new FileWriter(fileGenere);
-		final BufferedWriter bfw = new BufferedWriter(fileWriterOut);
-		
-		/* AJOUT DES TITRES. */
-		if (pAvecLigneEntetes) {
-			
-			bfw.write(this.fournirLigneEnTetesCsv());
-			
-			/* Insertion d'un saut de ligne. */
-			bfw.newLine();
-		}
-		
-		/* LECTURE DE LA MAP - ECRITURE FICHIER. */
-		final Set<Entry<Integer, IDescriptionChamp>> set 
-			= this.specificationChampsMap.entrySet();
-		
-		final Iterator<Entry<Integer, IDescriptionChamp>> ite 
-			= set.iterator();
-		
-		while (ite.hasNext()) {
-			
-			compteurLigne++;
-			
-			final Entry<Integer, IDescriptionChamp> entry 
-				= ite.next();
-			
-			final IDescriptionChamp desc = entry.getValue();
-			
-			ligneLue = desc.fournirLigneValeursCsv();
-			
-			/* Ecriture dans le BufferedWriter. */
-			bfw.write(ligneLue);
-			
-			/* Passage à la ligne si ce n'est pas le
-			 * dernier champ. */
-			if (compteurLigne < nombreChampsInterne) {
-				
-				/* Insertion d'un saut de ligne. */
-				bfw.newLine();
-			}
-			
-		} // Fin de la lecture de specificationChampsMap.__________________
-		
-		/* ECRITURE SUR DISQUE. */
-		bfw.flush();
-		
-		/* FERMETURE DES FLUX. */
-		bfw.close();
-		fileWriterOut.close();
-				
-		return fileGenere;
-
-	} // Fin de genererDescriptionCsvFile(
-	 // boolean pAvecLigneEntetes
-	 // , File pFile)._____________________________________________________
+	} // Fin de genererDescriptionCsvFileUtf8().___________________________
 	
 	
 	
@@ -1182,31 +908,86 @@ public abstract class AbstractImportateurDescription implements
 			throws Exception {
 		
 		return this.genererDescriptionCsvFile(
-				true, null
-				, Charset.forName("ISO-8859-15"));
+				true
+					, null
+						, Charset.forName("ISO-8859-15"));
 		
 	} // Fin de genererDescriptionCsvFileLatin9()._________________________
+
+		
 	
-
-
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final File genererDescriptionCsvFileUtf8() 
-			throws Exception {
+	public final File genererDescriptionCsvFileUtf8(
+			final File pFile) 
+					throws Exception {
 		
 		return this.genererDescriptionCsvFile(
-				true, null
-				, Charset.forName("UTF-8"));
+				true
+					, pFile
+						, StandardCharsets.UTF_8);
 		
-	} // Fin de genererDescriptionCsvFileUtf8().___________________________
+	} // Fin de genererDescriptionCsvFileUtf8(...).________________________
+
+		
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final File genererDescriptionCsvFileLatin9(
+			final File pFile) 
+					throws Exception {
+		
+		return this.genererDescriptionCsvFile(
+				true
+					, pFile
+						, Charset.forName("ISO-8859-15"));
+		
+	} // Fin de genererDescriptionCsvFileLatin9(...).______________________
 	
 	
 	
 	/**
 	 * {@inheritDoc}
-	 * @throws Exception 
+	 */
+	@Override
+	public final File genererDescriptionCsvFileUtf8(
+			final boolean pAvecLigneEntetes
+				, final File pFile) 
+					throws Exception {
+		
+		return this.genererDescriptionCsvFile(
+				pAvecLigneEntetes
+					, pFile
+						, StandardCharsets.UTF_8);
+		
+	} // Fin de genererDescriptionCsvFileUtf8(...).________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final File genererDescriptionCsvFileLatin9(
+			final boolean pAvecLigneEntetes
+				, final File pFile) 
+					throws Exception {
+		
+		return this.genererDescriptionCsvFile(
+				pAvecLigneEntetes
+					, pFile
+						, Charset.forName("ISO-8859-15"));
+		
+	} // Fin de genererDescriptionCsvFileLatin9(...).______________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final File genererDescriptionCsvFile(
@@ -1219,42 +1000,80 @@ public abstract class AbstractImportateurDescription implements
 			
 		/* specificationChampsMap null. */
 		/* Logge, rapporte et jette une Exception circonstanciée. */
-		this.traiterMapNull();
+		this.traiterMapNull(METHODE_GENERERDESCRIPTION);
 		
-		/* Map vide. */
+		/* specificationChampsMap vide. */
 		/* Logge, rapporte et jette une Exception circonstanciée. */
-		this.traiterMapVide();
+		this.traiterMapVide(METHODE_GENERERDESCRIPTION);
 		
 		/* descriptionDuFichierFile null. */
 		/* Logge, rapporte et jette une Exception circonstanciée. */
-		this.traiterDescriptionFileNull();
+		this.traiterDescriptionFileNull(METHODE_GENERERDESCRIPTION);
+		
+		/* descriptionDuFichierFile vide. */
+		/* Logge, rapporte et jette une Exception circonstanciée. */
+		this.traiterDescriptionFileVide(METHODE_GENERERDESCRIPTION);
+				
+		/* descriptionDuFichierFile inexistant. */
+		/* Logge, rapporte et jette une Exception circonstanciée. */
+		this.traiterDescriptionFileInexistant(METHODE_GENERERDESCRIPTION);
+				
+		/* descriptionDuFichierFile répertoire. */
+		/* Logge, rapporte et jette une Exception circonstanciée. */
+		this.traiterDescriptionFilePasNormal(METHODE_GENERERDESCRIPTION);
+
 		
 		// *************** PARAMETRES VALIDES ***************************/
+
+		/* choisit automatiquement le Charset UTF-8 si pCharset == null 
+		 * ou pCharset ne peut pas encoder. */
+		Charset charset = null;
+		
+		if (pCharset == null || !pCharset.canEncode()) {
+			charset = StandardCharsets.UTF_8;
+		} else {
+			charset = pCharset;
+		}
 		
 		File fileGenere = null;
 		
 		/* Génère automatiquement le fichier de sortie dans le 
 		 * même répertoire que this.descriptionDuFichierFile 
 		 * avec l'extension _charset.csv si pFile est null. */
-		if (pFile == null) {
-			
-			fileGenere = this.genererAutomatiquementFile(pCharset);
-
+		if (pFile == null) {			
+			fileGenere = this.genererAutomatiquementFile(charset);
 		}
-		else {
-			
+		else {			
 			fileGenere = pFile;
 		}
+		
+		/* retourne null si fileGenere est null. */
+		if (fileGenere == null) {
+			return null;
+		}
+		
+		/* crée un fichier vide sur disque et son arborescence 
+		 * si il n'existe pas. */
+		if (!fileGenere.exists()) {
+			this.creerFichierVideEtArborescenceSurDisque(fileGenere);
+		}
+
 		
 		String ligneLue = "";
 		int compteurLigne = 0;
 		final int nombreChampsInterne = this.specificationChampsMap.size();
 		
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
-		/* ECRITURE AVEC PCHARSET. */
+		/* ECRITURE AVEC charset. */
 		final FileOutputStream fos = new FileOutputStream(fileGenere);
-		final OutputStreamWriter osw = new OutputStreamWriter(fos, pCharset);
+		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset);
 		final BufferedWriter bfw = new BufferedWriter(osw);
+		
+		/* Ajoute le BOM-UTF8 au début du fichier généré 
+		 * si charset vaut Charset-UTF8. */
+		if (charset.equals(StandardCharsets.UTF_8)) {
+			bfw.write(BOM_UTF_8);
+		}
 		
 		/* AJOUT DES TITRES. */
 		if (pAvecLigneEntetes) {
@@ -1314,28 +1133,30 @@ public abstract class AbstractImportateurDescription implements
 
 	
 	/**
-	 * method traiterDescriptionFileNull() :<br/>
-	 * LOG.fatal, rapporte et jette une MapNullException 
-	 * si this.descriptionDuFichierFile est null.<br/>
-	 * <br/>
+	 * LOG.fatal, rapporte et jette une FichierNullException 
+	 * si <code><b>this.descriptionDuFichierFile</b></code> est null.<br/>
+	 * 
+	 * @param pMethode : String : nom de la méthode appelante.
 	 * 
 	 * @throws Exception 
 	 */
-	private void traiterDescriptionFileNull() throws Exception {
+	private void traiterDescriptionFileNull(
+			final String pMethode) throws Exception {
 		
 		if (this.descriptionDuFichierFile == null) {
 			
-			final String cleFileNull 
-			= "abstractimportateurdescription" 
-				+ ".genererdescription.filenull";
-
+			final String cle 
+				= "abstractimportateurdescription.genererdescription.filenull";
+			
 			final String messageFileNull 
 			= ConfigurationApplicationManager.getBundleMessagesTechnique()
-					.getString(cleFileNull);
+					.getString(cle);
 
 			final String message 
 			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-			+ METHODE_GENERERDESCRIPTION
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
 			+ messageFileNull;
 
 			/* Logge. */
@@ -1356,39 +1177,37 @@ public abstract class AbstractImportateurDescription implements
 		
 	} // Fin de traiterDescriptionFileNull().______________________________
 	
-	
+
 	
 	/**
-	 * method genererAutomatiquementFile(
-	 * Charset pCharset) :<br/>
-	 * Génère automatiquement le fichier de sortie 
-	 * dans le même répertoire que this.descriptionDuFichierFile 
-	 * avec l'extension _charset.csv si pFile est null.<br/>
-	 * <br/>
-	 * Par exemple : .\descriptionHistoF07_genere.csv 
-	 * pour un fichier de description .\descriptionHistoF07.<br/>
-	 * <br/>
+	 * LOG.fatal, rapporte et jette une FichierNullException 
+	 * si pFile est null.<br/>
 	 * 
-	 * @param pCharset : Charset.<br/>
-	 *
-	 * @return fileGenere : File : le File généré automatiquement.<br/>
+	 *  @param pFile : File.<br/>
+	 * @param pMethode : String : nom de la méthode appelante.<br/>
 	 * 
-	 * @throws FichierNullException : 
-	 * si this.descriptionDuFichierFile est null.<br/>
-	 * @throws FichierInexistantException : 
-	 * si this.descriptionDuFichierFile est inexistant.<br/>
+	 * @throws Exception 
 	 */
-	private File genererAutomatiquementFile(
-			final Charset pCharset) 
-			throws FichierNullException, FichierInexistantException {
+	private void traiterFichierNull(
+			final File pFile
+				, final String pMethode) throws Exception {
 		
-		if (this.descriptionDuFichierFile == null) {
+		if (pFile == null) {
 			
+			final String cle 
+				= "abstractimportateurdescription.constructeur.filenull";
+			
+			final String messageFileNull 
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
+					.getString(cle);
+
 			final String message 
 			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-			+ METHODE_GENERERDESCRIPTION 
-			+  "Le fichier de description à lire est null";
-			
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
+			+ messageFileNull;
+
 			/* Logge. */
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(message);
@@ -1403,17 +1222,41 @@ public abstract class AbstractImportateurDescription implements
 			/* Jette une Exception circonstanciée. */
 			throw new FichierNullException(message);
 			
-		} // Fin de this.descriptionDuFichierFile == null.______________
+		} // Fin de pFile == null.___________________
 		
+	} // Fin de traiterFichierNull().______________________________________
+	
+	
+	
+	/**
+	 * LOG.fatal et jette une FichierVideException 
+	 * si <code><b>this.descriptionDuFichierFile</b></code> est vide.<br/>
+	 *
+	 * @param pMethode : String : nom de la méthode appelante.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private void traiterDescriptionFileVide(
+				final String pMethode) 
+								throws Exception {
 		
-		if (!this.descriptionDuFichierFile.exists()) {
+		if (this.descriptionDuFichierFile.length() == 0) {
 			
+			final String cle 
+				= "abstractimportateurdescription.genererdescription.filevide";
+			
+			final String messageFileVide 
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
+					.getString(cle);
+
 			final String message 
 			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
-			+ METHODE_GENERERDESCRIPTION 
-			+  "Le fichier de description à lire n'existe pas : " 
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
+			+ messageFileVide 
 			+ this.descriptionDuFichierFile.getAbsolutePath();
-			
+
 			/* Logge. */
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(message);
@@ -1424,12 +1267,369 @@ public abstract class AbstractImportateurDescription implements
 				this.rapportImportDescriptionStb.append(message);
 				this.rapportImportDescriptionStb.append(NEWLINE);
 			}
+						
+			/* Exception circonstanciée. */
+			throw new FichierVideException(message);
 			
-			/* Jette une Exception circonstanciée. */
+		} // Fin de this.descriptionDuFichierFile vide.______________
+
+	} // Fin de traiterDescriptionFileVide(...)._____________________________
+	
+	
+	
+	/**
+	 * LOG.fatal et jette une FichierVideException si pFile est vide.<br/>
+	 *
+	 * @param pFile : File.<br/>
+	 * @param pMethode : String : nom de la méthode appelante.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private void traiterFichierVide(
+				final File pFile
+					, final String pMethode) 
+								throws Exception {
+		
+		if (pFile.length() == 0) {
+			
+			final String cle 
+				= "abstractimportateurdescription.constructeur.filevide";
+			
+			final String messageFileVide 
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
+					.getString(cle);
+
+			final String message 
+			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
+			+ messageFileVide 
+			+ pFile.getAbsolutePath();
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+
+			/* Rapport d'erreur. */
+			if (this.logImportDescription) {
+				this.rapportImportDescriptionStb.append(message);
+				this.rapportImportDescriptionStb.append(NEWLINE);
+			}
+						
+			/* Exception circonstanciée. */
+			throw new FichierVideException(message);
+			
+		} // Fin de pFile vide.______________________________
+
+	} // Fin de traiterFichierVide(...).___________________________________
+	
+	
+	
+	/**
+	 * LOG.fatal et jette une FichierInexistantException 
+	 * si <code><b>this.descriptionDuFichierFile</b></code> 
+	 * est inexistant.<br/>
+	 *
+	 * @param pMethode : String : nom de la méthode appelante.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private void traiterDescriptionFileInexistant(
+				final String pMethode) 
+								throws Exception {
+		
+		if (!this.descriptionDuFichierFile.exists()) {
+			
+			final String cle 
+				= "abstractimportateurdescription.genererdescription.fileinexistant";
+			
+			final String messageFileInexistant 
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
+					.getString(cle);
+
+			final String message 
+			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
+			+ messageFileInexistant 
+			+ this.descriptionDuFichierFile.getAbsolutePath();
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+
+			/* Rapport d'erreur. */
+			if (this.logImportDescription) {
+				this.rapportImportDescriptionStb.append(message);
+				this.rapportImportDescriptionStb.append(NEWLINE);
+			}
+						
+			/* Exception circonstanciée. */
 			throw new FichierInexistantException(message);
 			
-		} // Fin de this.descriptionDuFichierFile inexistant.____________
+		} // Fin de this.descriptionDuFichierFile inexistant._______
+
+	} // Fin de traiterDescriptionFileInexistant(...)._____________________
+	
+	
+	
+	/**
+	 * LOG.fatal et jette une FichierInexistantException si pFile est inexistant.<br/>
+	 *
+	 * @param pFile : File.<br/>
+	 * @param pMethode : String : nom de la méthode appelante.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private void traiterFichierInexistant(
+				final File pFile
+					, final String pMethode) 
+								throws Exception {
 		
+		if (pFile.length() == 0) {
+			
+			final String cle 
+				= "abstractimportateurdescription.constructeur.fileinexistant";
+			
+			final String messageFileInexistant 
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
+					.getString(cle);
+
+			final String message 
+			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
+			+ messageFileInexistant 
+			+ pFile.getAbsolutePath();
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+
+			/* Rapport d'erreur. */
+			if (this.logImportDescription) {
+				this.rapportImportDescriptionStb.append(message);
+				this.rapportImportDescriptionStb.append(NEWLINE);
+			}
+						
+			/* Exception circonstanciée. */
+			throw new FichierInexistantException(message);
+			
+		} // Fin de pFile inexistant.______________________________
+
+	} // Fin de traiterFichierInexistant(...)._____________________________
+	
+	
+	
+	/**
+	 * LOG.fatal et jette une FichierPasNormalException 
+	 * si <code><b>this.descriptionDuFichierFile</b></code> 
+	 * est un répertoire.<br/>
+	 *
+	 * @param pMethode : String : nom de la méthode appelante.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private void traiterDescriptionFilePasNormal(
+				final String pMethode) 
+								throws Exception {
+		
+		if (!this.descriptionDuFichierFile.isFile()) {
+			
+			final String cle 
+				= "abstractimportateurdescription.genererdescription.filepasnormal";
+			
+			final String messageFilePasNormal 
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
+					.getString(cle);
+
+			final String message 
+			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
+			+ messageFilePasNormal 
+			+ this.descriptionDuFichierFile.getAbsolutePath();
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+
+			/* Rapport d'erreur. */
+			if (this.logImportDescription) {
+				this.rapportImportDescriptionStb.append(message);
+				this.rapportImportDescriptionStb.append(NEWLINE);
+			}
+						
+			/* Exception circonstanciée. */
+			throw new FichierPasNormalException(message);
+			
+		} // Fin de this.descriptionDuFichierFile pasnormal._______
+
+	} // Fin de traiterDescriptionFilePasNormal(...).______________________
+	
+	
+	
+	/**
+	 * LOG.fatal et jette une FichierPasNormalException si pFile 
+	 * est un répertoire.<br/>
+	 *
+	 * @param pFile : File.<br/>
+	 * @param pMethode : String : nom de la méthode appelante.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private void traiterFichierPasNormal(
+				final File pFile
+					, final String pMethode) 
+								throws Exception {
+		
+		if (!pFile.isFile()) {
+			
+			final String cle 
+				= "abstractimportateurdescription.constructeur.filepasnormal";
+			
+			final String messageFilePasNormal 
+			= ConfigurationApplicationManager.getBundleMessagesTechnique()
+					.getString(cle);
+
+			final String message 
+			= CLASSE_ABSTRACTIMPORTATEURDESCRIPTION 
+			+ SEPARATEUR_MOINS_AERE
+			+ pMethode
+			+ SEPARATEUR_MOINS_AERE
+			+ messageFilePasNormal 
+			+ pFile.getAbsolutePath();
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+
+			/* Rapport d'erreur. */
+			if (this.logImportDescription) {
+				this.rapportImportDescriptionStb.append(message);
+				this.rapportImportDescriptionStb.append(NEWLINE);
+			}
+						
+			/* Exception circonstanciée. */
+			throw new FichierPasNormalException(message);
+			
+		} // Fin de pFile pasnormal.______________________________
+
+	} // Fin de traiterFichierPasNormal(...).______________________________
+
+
+	
+	/**
+	 * <b>Crée sur disque le File pFile <i>vide</i></b> 
+	 * si il n'existe pas déjà.<br/>
+	 * <ul>
+	 * <li>retourne le fichier vide créé.</li>
+	 * <li>crée sur disque l'<b>arborescence au dessus de pFile</b> 
+	 * si elle n'existe pas.</li>
+	 * <li>crée sur disque le fichier vide pFile 
+	 * si il n'existe pas.</li>
+	 * </ul>
+	 * - retourne null si pFile == null.<br/>
+	 * - retourne null si pFile existe.<br/>
+	 * <br/>
+	 *
+	 * @param pFile : File : fichier inexistant sur disque à créer.
+	 * 
+	 * @return File : le fichier VIDE créé sur disque.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	private File creerFichierVideEtArborescenceSurDisque(
+							final File pFile) throws IOException {
+		
+		/* retourne null si pFile == null. */
+		if (pFile == null) {
+			return null;
+		}
+		
+		/* retourne null si pFile existe. */
+		if (pFile.exists()) {
+			return null;
+		}
+		
+		final Path pFilePath = pFile.toPath();
+		final Path pFileParentPath = pFilePath.getParent();
+		
+		/* crée l'arborescence au dessus de pFile si elle n'existe pas. */
+		if (pFileParentPath != null) {
+			
+			if (!pFileParentPath.toFile().exists()) {
+				Files.createDirectories(pFileParentPath);
+			}
+			
+			/* crée le fichier VIDE pFile si il n'existe pas. */
+			Files.createFile(pFilePath);
+
+		}
+		
+		return pFile;
+		
+	} // Fin de creerFichierVideEtArborescenceSurDisque(...).______________
+	
+	
+	
+	/**
+	 * Génère automatiquement le fichier de sortie 
+	 * dans le même répertoire que 
+	 * <code><b>this.descriptionDuFichierFile</b></code> 
+	 * avec l'extension _charset.csv.<br/>
+	 * <ul>
+	 * <li>rajoute automatiquement l'extension _pCharset.displayName().csv 
+	 * si pCharset != null.</li>
+	 * <li>rajoute automatiquement l'extension _UTF-8.csv 
+	 * si pCharset == null.</li>
+	 * <li>retourne un File <i>abstrait</i>, c'est à dire 
+	 * non créé sur disque.</li>
+	 * </ul>
+	 * Par exemple : génère ./descriptionHistoF07_genere_UTF-8.csv 
+	 * pour un fichier de description ./descriptionHistoF07.csv 
+	 * et pCharset = UTF-8.<br/>
+	 * <br/>
+	 * 
+	 * @param pCharset : Charset.<br/>
+	 *
+	 * @return fileGenere : File : le File généré automatiquement.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private File genererAutomatiquementFile(
+			final Charset pCharset) 
+			throws Exception {
+		
+		// ************* PARAMETRES INVALIDES ***************************/
+		
+		/* descriptionDuFichierFile null. */
+		/* Logge, rapporte et jette une Exception circonstanciée. */
+		this.traiterDescriptionFileNull(METHODE_GENERER_AUTOMATIQUEMENT_FILE);
+		
+		/* descriptionDuFichierFile vide. */
+		/* Logge, rapporte et jette une Exception circonstanciée. */
+		this.traiterDescriptionFileVide(METHODE_GENERER_AUTOMATIQUEMENT_FILE);
+				
+		/* descriptionDuFichierFile inexistant. */
+		/* Logge, rapporte et jette une Exception circonstanciée. */
+		this.traiterDescriptionFileInexistant(METHODE_GENERER_AUTOMATIQUEMENT_FILE);
+				
+		/* descriptionDuFichierFile répertoire. */
+		/* Logge, rapporte et jette une Exception circonstanciée. */
+		this.traiterDescriptionFilePasNormal(METHODE_GENERER_AUTOMATIQUEMENT_FILE);
+		
+		
+		// ************* PARAMETRES VALIDES   ***************************/
 				
 		/* Récupération du chemin complet de la description. */
 		final String path = this.descriptionDuFichierFile.getAbsolutePath();
@@ -1445,6 +1645,7 @@ public abstract class AbstractImportateurDescription implements
 		final String nomDescriptionSansExtension 
 			= StringUtils.substringBeforeLast(nomDescription, ".csv");
 		
+		/* rajoute automatiquement l'extension _UTF-8.csv si pCharset == null. */
 		String extension = null;
 		
 		if (pCharset == null) {
@@ -1465,8 +1666,7 @@ public abstract class AbstractImportateurDescription implements
 		
 		return fileGenere;
 		
-	} // Fin de genererAutomatiquementFile(
-	 // Charset pCharset)._________________________________________________
+	} // Fin de genererAutomatiquementFile().______________________________
 	
 	
 	
@@ -1634,16 +1834,9 @@ public abstract class AbstractImportateurDescription implements
 	 // StringBuffer pRapportImportDescriptionStb).________________________
 
 
-
+	
 	/**
-	 * method getLongueursMax() :<br/>
-	 * Getter du tableau des longueurs
-	 * maximales des contenus des champs dans une description.<br/>
-	 * Utile pour l'affichage avec des colonnes de taille fixe
-	 * à la console.<br/>
-	 *
-	 * @return int[] : le tableau des longueurs
-	 * maximales des contenus des champs dans une description.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int[] getLongueursMax() {

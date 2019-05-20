@@ -1,13 +1,9 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -24,8 +20,10 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 
 /**
  * class ImportateurDescriptionMapping :<br/>
+ * <p>
  * Importateur concret pour les DESCRIPTIONS EN CSV 
- * des Mapping Histonat-HIT-Darwin-ISIDOR (écrit en csv avc séparateur ';').<br/>
+ * des MAPPING Histonat-HIT-Darwin-ISIDOR (écrit en csv avc séparateur ';').
+ * </p>
  * Chargé de lire une description de fichier de 
  * Mapping Histonat-HIT-Darwin-ISIDOR 
  * au format csv avec séparateur ';'
@@ -214,223 +212,9 @@ public class ImportateurDescriptionMapping extends
 		}
 		
 	} // Fin de determinerSiLogErreurs().__________________________________
-	
-	
-
-	/**
-	 * method importerDescription(
-	 * File pFileDescription) :<br/>
-	 * - Lit un File encapsulant la description du fichier 
-	 * et stocke le résultat dans la 
-	 * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap.<br/>
-	 * - Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
-	 * specificationChampsMap.<br/>
-	 * - Gère le tableau des longueurs maxi 
-	 * pour affichage formatté de la description à la console.<br/>
-	 * <br/>
-	 * - Contrôle :<br/>
-	 * <li>la validité du fichier de description csv par rapport 
-	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).<br/>
-	 * <li>l'unicité des noms java des champs dans la description 
-	 * (LOG, rapport et ExceptionImport).<br/>
-	 * <li>l'ordre jointif des champs (LOG, rapport est ExceptionImport).<br/>
-	 * <li>le fait que les colonnes sont jointives dans la description 
-	 * (LOG, rapport est ExceptionImport).<br/>
-	 * <br/>
-	 * - saute la ligne d'en-tête le cas échéant en se basant 
-	 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête du Mapping 
-	 * et une valeur entière pour toutes les lignes significatives.<br/>
-	 * <br/>
-	 * - LOG.fatal, rapporte et jette une FichierNullException 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * le fichier csv de description pFileDescription n'est pas le bon 
-	 * (description darwin csv au lieu de Histonat csv par exemple).<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * un nom de champ java 
-	 * existe en doublon dans la description.<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * l'ordre des champs n'est pas jointif<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * les colonnes ne sont pas jointives.<br/>
-	 * <br/>
-	 *
-	 * @param pFileDescription : File : Le File encapsulant la description.<br/>
-	 * 
-	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	@Override
-	public SortedMap<Integer, IDescriptionChamp> importerDescription(
-			final File pFileDescription) 
-					throws Exception {
-		
-		File fileDescription = null;
-		
-		/* DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ************/
-		if (pFileDescription == null 
-				|| !pFileDescription.exists()) {
-			
-			/* Si this.descriptionDuFichierFile est aussi absent. */
-			/* LOG.fatal, rapporte et jette une FichierNullException. */
-			this.traiterDescriptionNull();
-			
-			/* sinon : */
-			fileDescription = this.descriptionDuFichierFile;
-		}
-		else {
-			
-			fileDescription = pFileDescription;
-			
-			/* Passage du paramètre aux attributs. */
-			this.descriptionDuFichierFile = fileDescription;
-			
-		} /* FIN DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ********/
-		
-		
-		// **************PARAMETRES VALIDES****************************/		
-			
-		/* Instanciation du tableau des longueurs maxi. */
-		this.instancierTableauLongueursMaxi();
-		
-		/* INSTANCIATION de la SortedMap specificationChampsMap. */
-		this.specificationChampsMap = new TreeMap<Integer, IDescriptionChamp>();
-		
-		int compteurDeLigne = 0;
-		
-		/* LECTURE DE fileDescription et 
-		 * injection dans la SortedMap this.specificationChampsMap. */
-		
-		/* Ouverture des flux. */
-		final FileReader fr = new FileReader(fileDescription);
-		final BufferedReader bfr = new BufferedReader(fr);
-		
-		String ligneLue = null;
-		
-		/* LECTURE DE CHAQUE LIGNE DE LA DESCRIPTION. */
-		while ((ligneLue = bfr.readLine()) != null) {
-						
-			/* Instancie un Pattern chargé de retrouver le 
-			 * séparateur ';' dans la ligne. */
-			final String[] tokens 
-				= Pattern.compile(";").split(ligneLue);
-			
-			/* saute la ligne d'en-tête le cas échéant en se basant 
-			 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête du Mapping 
-			 * et une valeur entière pour toutes les lignes significatives. */
-			final String ordreChamps = tokens[0];
-			
-			if (!StringUtils.isBlank(ordreChamps)) {
-				try {
-					Integer.parseInt(ordreChamps);
-				} catch (NumberFormatException e) {
-					continue;
-				}
-			}
-			
-			
-			/* Incrémentation du compteur. */
-			compteurDeLigne++;
-			
-			/* Injection des valeurs de chaque champ 
-			 * de la description de fichier dans un DescriptionChamp. */
-			final IDescriptionChamp desc = new DescriptionChampMapping();
-			
-			/* Lecture de chaque ligne de la description. */
-			try {
-				
-				desc.lireChamp(tokens);
-				
-				/* Rapport d'erreur (provenant du Descripteur). */
-				final String messageDescripteur 
-					= desc.getRapportDescriptionStb().toString();
-				
-				final String message 
-				= desc.toString() 
-				+ SEPARATEUR_MOINS_AERE
-				+ CLASSE_IMPORTATEURDESCRIPTIONMAPPING
-				+ METHODE_IMPORTERDESCRIPTION 
-				+ messageDescripteur;
-								
-				/* Rapport d'erreur. */
-				if (!StringUtils.isBlank(messageDescripteur)) {
-										
-					if (this.logImportDescription) {
-						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(NEWLINE);
-						
-					}
-					
-				}
-			} catch (Exception e) {
-				
-				/* Rapport d'erreur (provenant du Descripteur). */
-				final String messageDescripteur 
-					= desc.getRapportDescriptionStb().toString();
-				
-				final String message 
-				= "MAUVAIS FICHIER DE DESCRIPTION ???" 
-				+ SEPARATEUR_MOINS_AERE
-				+ CLASSE_IMPORTATEURDESCRIPTIONMAPPING 
-				+ METHODE_IMPORTERDESCRIPTION 
-				+ messageDescripteur;
-				
-				/* Logge */
-				if (LOG.isFatalEnabled()) {
-					LOG.fatal(message, e);
-				}
-				
-				/* Rapport d'erreur. */
-				if (!StringUtils.isBlank(messageDescripteur)) {
-										
-					if (this.logImportDescription) {
-						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(NEWLINE);
-						
-					}
-					
-				}
-				
-				/* Fermeture des flux; */
-				fr.close();
-				bfr.close();
-				
-				/* Jette une Exception circonstanciée. */
-				throw new ExceptionImport(message, e);
-			}
-						
-			/* Gestion des longueurs maxi. */			
-			this.gererLongueursMaxi(desc);
-			
-			/* CONTROLES. */
-			/* Contrôle de l'unicité des noms Java. */
-			this.controlerUniciteNomJava(desc);
-			
-			/* controle que l'ordre des champs est jointif */
-			this.controlerJointif(compteurDeLigne, desc);
-			
-			/* contrôle que les colonnes sont jointives. */
-			this.controlerColonnesJointives(compteurDeLigne, desc);
-			
-			/* AJOUT DE LA DESCRIPTION A LA MAP triée 
-			 * this.specificationChampsMap. */
-			this.specificationChampsMap.put(compteurDeLigne, desc);
-		}
-		
-		/* FERMETURE DES FLUX. */
-		fr.close();
-		bfr.close();
-		
-		return this.specificationChampsMap;
-				
-	} // Fin de importerDescription(
-	// File pFileDescription)._____________________________________________
 
 	
 	
-
-
 	/**
 	 * {@inheritDoc}
 	 */

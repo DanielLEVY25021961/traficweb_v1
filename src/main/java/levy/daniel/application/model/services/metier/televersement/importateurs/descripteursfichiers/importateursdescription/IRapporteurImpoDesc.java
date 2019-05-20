@@ -1,13 +1,18 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription;
 
 /**
- * class IRapporteurImpoDesc :<br/>
- * RESPONSABILITE : RAPPORTER LES ERREURS LORS DE L'IMPORT D'UNE DESCRIPTION.<br/>
+ * INTERFACE IRapporteurImpoDesc :<br/>
+ * <p>
+ * RESPONSABILITE : RAPPORTER LES ERREURS LORS DE 
+ * L'IMPORT D'UNE DESCRIPTION.
+ * </p>
+ * <p>
  * Tout ImportateurDescription doit générer 
  * et mettre à disposition de l'application un rapport 
  * en cas d'erreur lors de l'import d'une Description de fichier.<br/>
  * Factorisation des méthodes de rapport d'import 
  * des ImportateurDescription.<br/>
+ * </p>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -101,5 +106,4 @@ public interface IRapporteurImpoDesc {
 	
 
 
-
-} // Fin de IRapporteurImpoDesc.---------------------------------------------
+} // Fin de L'INTERFACE IRapporteurImpoDesc.---------------------------------

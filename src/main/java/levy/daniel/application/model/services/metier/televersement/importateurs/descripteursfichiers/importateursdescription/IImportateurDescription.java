@@ -14,20 +14,34 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideE
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
 /**
- * class IImportateurDescription :<br/>
- * RESPONSABILITE : IMPORT D'UN FICHIER DE DESCRIPTION.<br/>
- * Interface factorisant les méthodes des ImportateurDescription.<br/>
- * <br/>
+ * INTERFACE IImportateurDescription :<br/>
+ * <p>
+ * RESPONSABILITE : IMPORT D'UN FICHIER DE DESCRIPTION.
+ * </p>
+ * 
+ * <p>
+ * Interface factorisant les méthodes des ImportateurDescription.
+ * </p>
+ * 
+ * <p>
  * Tous les ImportateurDescription possèdent une 
- * méthode importerDescription(File pFileDescription) 
+ * méthode <code><b>importerDescription(File pFileDescription)</b></code> 
  * où pFileDescription encapsule la description en csv du fichier 
- * (HIT, Histonat, Darwin.csv, FEOR XML, ...) à servir.<br/>
+ * (HIT, HISTO_F08, HISTO_F07, DARWIN_CSV, FEOR XML, Histonat, ...) 
+ * à servir.<br/>
  * La description est servie sous forme de 
- * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap 
- * retournée par importerDescription(File pFileDescription).<br/>
+ * <code>SortedMap&lt;Integer, IDescriptionChamp&gt; 
+ * <b>this.specificationChampsMap</b></code> 
+ * retournée par la méthode 
+ * <code><b>importerDescription(File pFileDescription)</b></code>.
+ * </p>
+ * 
  * <br/>
  *
- * - Exemple d'utilisation :<br/>
+ * <p>
+ * - Exemple d'utilisation :
+ * </p>
+ * 
  *<br/>
  * 
  * - Mots-clé :<br/>
@@ -51,31 +65,43 @@ public interface IImportateurDescription
 	
 	
 	/**
-	 * "Méthode ImporterDescription(File) - ".<br/>
+	 * "Méthode ImporterDescription(File)".<br/>
 	 */
 	String METHODE_IMPORTERDESCRIPTION 
-		= "Méthode ImporterDescription(File) - ";
+		= "Méthode ImporterDescription(File)";
 
-
-		
+	
+	
 	/**
-	 * - Lit un File encodé en UTF-8 encapsulant la description du fichier 
-	 * au format CSV et stocke le résultat dans la 
-	 * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap.<br/>
-	 * - Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
-	 * specificationChampsMap.<br/>
-	 * - Saute les lignes null ou vides.<br/>
-	 * - Gère le tableau des longueurs maxi 
-	 * pour affichage formatté de la description à la console.<br/>
-	 * <br/>
+	 * <b>lit une description de fichier pFileDescription 
+	 * au format CSV avec séparateur ';' 
+	 * encodée en UTF-8 et l'importe sous forme de 
+	 * SortedMap&lt;Integer, IDescriptionChamp&gt; 
+	 * <code><b>this.specificationChampsMap</b></code></b>
+	 * <ul>
+	 * <li>utilise automatiquement la description 
+	 * <code><b>this.descriptionDuFichierFile</b></code> 
+	 * si pFileDescription est null ou ne convient pas.</li>
+	 * <li>retire un éventuel caractère BOM_UTF_8 à la première ligne.</li>
+	 * <li>saute une éventuelle ligne d'en-tête dans la description de fichier.</li>
+	 * <li>Saute les lignes null ou vides dans la description de fichier.</li>
+	 * <li>Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
+	 * <code><b>this.specificationChampsMap</b></code>.</li>
+	 * <li>Gère le tableau des longueurs maxi 
+	 * pour affichage formaté de la description à la console.</li>
+	 * </ul>
+	 * 
 	 * - Contrôle :<br/>
+	 * <ul>
 	 * <li>la validité du fichier de description csv par rapport 
-	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).<br/>
+	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).</li>
 	 * <li>l'unicité des noms java des champs dans la description 
-	 * (LOG, rapport et ExceptionImport).<br/>
-	 * <li>Autres contrôles.<br/>
-	 * <br/>
-	 * - saute la ligne d'en-tête le cas échéant.<br/>
+	 * (LOG, rapport et ExceptionImport).</li>
+	 * <li>Autres contrôles.</li>
+	 * </ul>
+	 * - <i>saute la ligne d'en-tête le cas échéant</i>.<br/>
+	 * - <i>retire un éventuel BOM-UTF-8 au début 
+	 * de la description de fichier</i>.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte et jette une FichierNullException 
 	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
@@ -87,7 +113,10 @@ public interface IImportateurDescription
 	 * existe en doublon dans la description.<br/>
 	 * <br/>
 	 *
-	 * @param pFileDescription : File : Le File encapsulant la description.<br/>
+	 * @param pFileDescription : File : 
+	 * Le File encapsulant la description de fichier.<br/>
+	 * @param pCharset : Charset : 
+	 * charset à utiliser pour lire la description de fichier
 	 * 
 	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 * 
@@ -97,78 +126,8 @@ public interface IImportateurDescription
 	 * @throws ExceptionImport lorsque :<br/>
 	 * le fichier de description passé en paramètre pFileDescription 
 	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
+	 * (description de DARWIN_CSV au lieu de HISTO_F07 par exemple).<br/>
 	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * @throws TableauVideException : 
-	 * si une ligne de la description est null.<br/>
-	 * @throws TableauNullException : 
-	 * si une ligne de la description est vide.<br/> 
-	 * 
-	 * @throws Exception 
-	 */
-	SortedMap<Integer, IDescriptionChamp> importerDescription(
-			File pFileDescription) 
-					throws FichierNullException
-						, TableauNullException
-							, TableauVideException
-								, ExceptionImport
-									, IOException, Exception;
-
-	
-	
-	/**
-	 * - Lit un File encodé en UTF-8 encapsulant la description du fichier 
-	 * au format CSV et stocke le résultat dans la 
-	 * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap.<br/>
-	 * - Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
-	 * specificationChampsMap.<br/>
-	 * - Gère le tableau des longueurs maxi 
-	 * pour affichage formatté de la description à la console.<br/>
-	 * <br/>
-	 * - Contrôle :<br/>
-	 * <li>la validité du fichier de description csv par rapport 
-	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).<br/>
-	 * <li>l'unicité des noms java des champs dans la description 
-	 * (LOG, rapport et ExceptionImport).<br/>
-	 * <li>la validité des longueurs fournies (LOG, rapport).<br/>
-	 * <li>l'ordre jointif des champs (LOG, rapport est ExceptionImport).<br/>
-	 * <li>le fait que les colonnes sont jointives dans la description 
-	 * (LOG, rapport est ExceptionImport).<br/>
-	 * <br/>
-	 * - saute la ligne d'en-tête le cas échéant en se basant 
-	 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête HistonatF07 
-	 * et une valeur entière pour toutes les lignes significatives.<br/>
-	 * <br/>
-	 * - LOG.fatal, rapporte et jette une FichierNullException 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * le fichier csv de description pFileDescription n'est pas le bon 
-	 * (description darwin csv au lieu de Histonat csv par exemple).<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * un nom de champ java 
-	 * existe en doublon dans la description.<br/>
-	 * - LOG.fatal, rapporte lorsqu'une longueur founie 
-	 * diffère de la Longueur calculée dans la description.<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * l'ordre des champs n'est pas jointif<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * les colonnes ne sont pas jointives.<br/>
-	 * <br/>
-	 *
-	 * @param pFileDescription : File : Le File encapsulant la description.<br/>
-	 * 
-	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
-	 * 
-	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
-	 * @throws ExceptionImport lorsque :<br/>
-	 * le fichier de description passé en paramètre pFileDescription 
-	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
-	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * les colonnes ne sont pas jointives.<br/>
 	 * @throws TableauVideException : 
 	 * si une ligne de la description est null.<br/>
 	 * @throws TableauNullException : 
@@ -187,27 +146,32 @@ public interface IImportateurDescription
 
 	
 	/**
-	 * - Lit un File encodé en LATIN9 encapsulant la description du fichier 
-	 * au format CSV et stocke le résultat dans la 
-	 * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap.<br/>
-	 * - Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
-	 * specificationChampsMap.<br/>
-	 * - Gère le tableau des longueurs maxi 
-	 * pour affichage formatté de la description à la console.<br/>
-	 * <br/>
+	 * <b>lit une description de fichier pFileDescription 
+	 * au format CSV avec séparateur ';' 
+	 * encodée en ISO-8859-15 et l'importe sous forme de 
+	 * SortedMap&lt;Integer, IDescriptionChamp&gt; 
+	 * <code><b>this.specificationChampsMap</b></code></b>
+	 * <ul>
+	 * <li>utilise automatiquement la description 
+	 * <code><b>this.descriptionDuFichierFile</b></code> 
+	 * si pFileDescription est null ou ne convient pas.</li>
+	 * <li>saute une éventuelle ligne d'en-tête dans la description de fichier.</li>
+	 * <li>Saute les lignes null ou vides dans la description de fichier.</li>
+	 * <li>Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
+	 * <code><b>this.specificationChampsMap</b></code>.</li>
+	 * <li>Gère le tableau des longueurs maxi 
+	 * pour affichage formaté de la description à la console.</li>
+	 * </ul>
+	 * 
 	 * - Contrôle :<br/>
+	 * <ul>
 	 * <li>la validité du fichier de description csv par rapport 
-	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).<br/>
+	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).</li>
 	 * <li>l'unicité des noms java des champs dans la description 
-	 * (LOG, rapport et ExceptionImport).<br/>
-	 * <li>la validité des longueurs fournies (LOG, rapport).<br/>
-	 * <li>l'ordre jointif des champs (LOG, rapport est ExceptionImport).<br/>
-	 * <li>le fait que les colonnes sont jointives dans la description 
-	 * (LOG, rapport est ExceptionImport).<br/>
-	 * <br/>
-	 * - saute la ligne d'en-tête le cas échéant en se basant 
-	 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête HistonatF07 
-	 * et une valeur entière pour toutes les lignes significatives.<br/>
+	 * (LOG, rapport et ExceptionImport).</li>
+	 * <li>Autres contrôles.</li>
+	 * </ul>
+	 * - <i>saute la ligne d'en-tête le cas échéant</i>.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte et jette une FichierNullException 
 	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
@@ -217,15 +181,12 @@ public interface IImportateurDescription
 	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
 	 * un nom de champ java 
 	 * existe en doublon dans la description.<br/>
-	 * - LOG.fatal, rapporte lorsqu'une longueur founie 
-	 * diffère de la Longueur calculée dans la description.<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * l'ordre des champs n'est pas jointif<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * les colonnes ne sont pas jointives.<br/>
 	 * <br/>
 	 *
-	 * @param pFileDescription : File : Le File encapsulant la description.<br/>
+	 * @param pFileDescription : File : 
+	 * Le File encapsulant la description de fichier.<br/>
+	 * @param pCharset : Charset : 
+	 * charset à utiliser pour lire la description de fichier
 	 * 
 	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 * 
@@ -235,10 +196,8 @@ public interface IImportateurDescription
 	 * @throws ExceptionImport lorsque :<br/>
 	 * le fichier de description passé en paramètre pFileDescription 
 	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
+	 * (description de DARWIN_CSV au lieu de HISTO_F07 par exemple).<br/>
 	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * les colonnes ne sont pas jointives.<br/>
 	 * @throws TableauVideException : 
 	 * si une ligne de la description est null.<br/>
 	 * @throws TableauNullException : 
@@ -257,27 +216,38 @@ public interface IImportateurDescription
 	
 	
 	/**
-	 * - Lit un File encodé en pCharset encapsulant la description du fichier 
-	 * au format CSV et stocke le résultat dans la 
-	 * SortedMap&lt;Integer, IDescriptionChamp&gt; specificationChampsMap.<br/>
-	 * - Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
-	 * specificationChampsMap.<br/>
-	 * - Gère le tableau des longueurs maxi 
-	 * pour affichage formatté de la description à la console.<br/>
-	 * <br/>
+	 * <b>lit une description de fichier pFileDescription 
+	 * au format CSV avec séparateur ';' 
+	 * encodée en pCharset et l'importe sous forme de 
+	 * SortedMap&lt;Integer, IDescriptionChamp&gt; 
+	 * <code><b>this.specificationChampsMap</b></code></b>
+	 * <ul>
+	 * <li>utilise automatiquement la description 
+	 * <code><b>this.descriptionDuFichierFile</b></code> 
+	 * si pFileDescription est null ou ne convient pas.</li>
+	 * <li>choisit automatiquement le Charset UTF-8 si pCharset == null 
+	 * ou pCharset ne peut pas encoder.</li>
+	 * <li>retire un éventuel caractère BOM_UTF_8 à la première ligne 
+	 * si charset == UTF-8.</li>
+	 * <li>saute une éventuelle ligne d'en-tête dans la description de fichier.</li>
+	 * <li>Saute les lignes null ou vides dans la description de fichier.</li>
+	 * <li>Retourne la SortedMap&lt;Integer, IDescriptionChamp&gt; 
+	 * <code><b>this.specificationChampsMap</b></code>.</li>
+	 * <li>Gère le tableau des longueurs maxi 
+	 * pour affichage formaté de la description à la console.</li>
+	 * </ul>
+	 * 
 	 * - Contrôle :<br/>
+	 * <ul>
 	 * <li>la validité du fichier de description csv par rapport 
-	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).<br/>
+	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).</li>
 	 * <li>l'unicité des noms java des champs dans la description 
-	 * (LOG, rapport et ExceptionImport).<br/>
-	 * <li>la validité des longueurs fournies (LOG, rapport).<br/>
-	 * <li>l'ordre jointif des champs (LOG, rapport est ExceptionImport).<br/>
-	 * <li>le fait que les colonnes sont jointives dans la description 
-	 * (LOG, rapport est ExceptionImport).<br/>
-	 * <br/>
-	 * - saute la ligne d'en-tête le cas échéant en se basant 
-	 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête HistonatF07 
-	 * et une valeur entière pour toutes les lignes significatives.<br/>
+	 * (LOG, rapport et ExceptionImport).</li>
+	 * <li>Autres contrôles.</li>
+	 * </ul>
+	 * - <i>saute la ligne d'en-tête le cas échéant</i>.<br/>
+	 * - <i>retire un éventuel BOM-UTF-8 au début 
+	 * de la description de fichier</i>.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte et jette une FichierNullException 
 	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
@@ -287,17 +257,12 @@ public interface IImportateurDescription
 	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
 	 * un nom de champ java 
 	 * existe en doublon dans la description.<br/>
-	 * - LOG.fatal, rapporte lorsqu'une longueur founie 
-	 * diffère de la Longueur calculée dans la description.<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * l'ordre des champs n'est pas jointif<br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * les colonnes ne sont pas jointives.<br/>
 	 * <br/>
 	 *
-	 * @param pFileDescription : File : Le File encapsulant la description.<br/>
-	 * @param pCharset : Charset : Charset dans lequel 
-	 * la description est encodée.<br/>
+	 * @param pFileDescription : File : 
+	 * Le File encapsulant la description de fichier.<br/>
+	 * @param pCharset : Charset : 
+	 * charset à utiliser pour lire la description de fichier
 	 * 
 	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 * 
@@ -307,10 +272,8 @@ public interface IImportateurDescription
 	 * @throws ExceptionImport lorsque :<br/>
 	 * le fichier de description passé en paramètre pFileDescription 
 	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
+	 * (description de DARWIN_CSV au lieu de HISTO_F07 par exemple).<br/>
 	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * les colonnes ne sont pas jointives.<br/>
 	 * @throws TableauVideException : 
 	 * si une ligne de la description est null.<br/>
 	 * @throws TableauNullException : 
@@ -331,11 +294,16 @@ public interface IImportateurDescription
 
 	/**
 	 * Fabrique une chaine de caractères comportant tous
-	 * les éléments de description de l'en-tête de la description 
+	 * les éléments de description de l'en-tête de la description de fichier 
 	 * séparés par des tabulations 
 	 * et avec un saut de ligne \n à la fin.<br/>
-	 * <br/>
-	 * - retourne null si this.descriptionChamp est null.<br/>
+	 * <ul>
+	 * <li>utilise le IDescriptionChamp 
+	 * <code><b>this.this.descriptionChamp</b></code> pour connaitre 
+	 * l'en-tête de la description de fichier.</li>
+	 * </ul>
+	 * - retourne null si <code><b>this.descriptionChamp</b></code> 
+	 * est null.<br/>
 	 * <br/>
 	 *
 	* @return String : une chaine de caractères décrivant la ligne d'en-têtes 
@@ -389,9 +357,9 @@ public interface IImportateurDescription
 	 * [ordreChamps, colonnes, longueur, intitule, nomenclature
 	 * , champJava, typeJava, aNomenclature
 	 * , colonneDebut, colonneFin, longueurCalculee] 
-	 * pour une description de HistonatF07.<br/>
+	 * pour une description de HISTO_F07.<br/>
 	 * [ordreChamps, intitule, nomenclature, champJava, typeJava, aNomenclature] 
-	 * pour une description de Darwin csv.<br/>
+	 * pour une description de DARWIN_CSV.<br/>
 	 * <br/>
 	 *
 	 * @return descriptionChamp : IDescriptionChamp.<br/>
@@ -407,9 +375,9 @@ public interface IImportateurDescription
 	 * [ordreChamps, colonnes, longueur, intitule, nomenclature
 	 * , champJava, typeJava, aNomenclature
 	 * , colonneDebut, colonneFin, longueurCalculee] 
-	 * pour une description de HistonatF07.<br/>
+	 * pour une description de HISTO_F07.<br/>
 	 * [ordreChamps, intitule, nomenclature, champJava, typeJava, aNomenclature] 
-	 * pour une description de Darwin csv.<br/>
+	 * pour une description de DARWIN_CSV.<br/>
 	 * <br/>
 	 *
 	 * @param pDescriptionChamp : IDescriptionChamp : 
@@ -452,7 +420,7 @@ public interface IImportateurDescription
 	 * par le présent ImportateurDescription
 	 * et fournie sous forme de Map triée contenant :<br/>
 	 * - Integer : le numéro du champ (rang de la ligne dans la description
-	 * du fichier comme '3' pour 'sens' dans la description de l'HistonatF07),<br/>
+	 * du fichier comme '3' pour 'sens' dans la description de l'HISTO_F07),<br/>
 	 * - IDescriptionChamp : les valeurs dans la description du champ 
 	 * (N° champ, colonne début, colonne fin...).<br/>
 	 * <br/>
@@ -472,7 +440,7 @@ public interface IImportateurDescription
 	 * par le présent ImportateurDescription
 	 * et fournie sous forme de Map triée contenant :<br/>
 	 * - Integer : le numéro du champ (rang de la ligne dans la description
-	 * du fichier comme '3' pour 'sens' dans la description de l'HistonatF07),<br/>
+	 * du fichier comme '3' pour 'sens' dans la description de l'HISTO_F07),<br/>
 	 * - IDescriptionChamp : les valeurs dans la description du champ 
 	 * (N° champ, colonne début, colonne fin...).<br/>
 	 * <br/>

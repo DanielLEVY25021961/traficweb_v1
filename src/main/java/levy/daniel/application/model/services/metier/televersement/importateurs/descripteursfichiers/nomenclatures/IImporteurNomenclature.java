@@ -261,7 +261,6 @@ public interface IImporteurNomenclature
 	
 	/**
 	 * Récupère le nom de la classe.<br/>
-	 * <br/>
 	 *
 	 * @return : String.<br/>
 	 */

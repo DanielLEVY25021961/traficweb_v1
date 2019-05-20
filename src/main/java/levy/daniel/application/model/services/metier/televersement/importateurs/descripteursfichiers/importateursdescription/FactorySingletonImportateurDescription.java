@@ -109,7 +109,7 @@ public final class FactorySingletonImportateurDescription {
 				/* Instanciation éventuelle du fichier 
 				 * contenant la description et Import. */
 				impoDescHit
-					.importerDescription(
+					.importerDescriptionUtf8(
 							ConfigurationApplicationManager
 								.getFichierDescriptionHit());			
 				
@@ -146,7 +146,7 @@ public final class FactorySingletonImportateurDescription {
 				/* Instanciation éventuelle du fichier 
 				 * contenant la description et Import. */
 				impoDescHistoF07
-					.importerDescription(
+					.importerDescriptionUtf8(
 							ConfigurationApplicationManager
 								.getFichierDescriptionHistoF07());			
 				
@@ -183,7 +183,7 @@ public final class FactorySingletonImportateurDescription {
 				/* Instanciation éventuelle du fichier 
 				 * contenant la description et Import. */
 				impoDarwinCsv
-					.importerDescription(
+					.importerDescriptionUtf8(
 							ConfigurationApplicationManager
 								.getFichierDescriptionDarwinCsv());
 
@@ -221,7 +221,7 @@ public final class FactorySingletonImportateurDescription {
 				/* Instanciation éventuelle du fichier 
 				 * contenant la description et Import. */
 				impoMapping
-					.importerDescription(
+					.importerDescriptionUtf8(
 							ConfigurationApplicationManager
 								.getFichierDescriptionMapping());
 

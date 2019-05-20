@@ -17,6 +17,19 @@ import org.apache.commons.logging.LogFactory;
  * Classe abstraite factorisant les attributs et méthodes 
  * des DescriptionChamp.<br/>
  * </p>
+ * 
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe des DescripteursChamp : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_1.png" 
+ * alt="Diagramme de classe des DescripteursChamp" /><br/>
+ * <img src="../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_2.png" 
+ * alt="Diagramme de classe des DescripteursChamp" />
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

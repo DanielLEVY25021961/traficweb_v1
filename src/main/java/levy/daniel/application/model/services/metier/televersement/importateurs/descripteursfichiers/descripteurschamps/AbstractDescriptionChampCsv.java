@@ -107,8 +107,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideE
  * de fichier.</li>
  * </ul>
  * Par exemple :<br/>
- * (1, 'Ordre des champs'), (2, 'intitulé'), (3, 'nomenclature')
- * , (4, 'nom java'), ...
+ * {1=ordreChamps, 2=intitulé, 3=nomenclature, 4=champJava, 5=typeJava, 6=aNomenclature, 7=aLexique}
  * dans le cas d'un DARWIN_CSV.<br/>
  * <br/>
  * </li>
@@ -120,14 +119,25 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideE
  * de fichier.</li>
  * </ul>
  * Par exemple :<br/>
- * (1, '1'), (2, 'Identifiant de la section')
- * , (3, 'Numéro applicatif de la section'), (4, 'objetId'), ...
- * dans le cas du champ 'objetId' (ligne 1) de la
+ * {1=4, 2=Code Concession du PR Origine, 3=Code Concession du PR Origine ('début'), 4=concessionPrd, 5=String, 6=false, 7=true}
+ * dans le cas du champ 'codeConcessionDebut' (ligne 4) de la
  * description d'un DARWIN_CSV.
  * </li>
  * </ol>
  * - Hérite de AbstractRapporteur ce qui
  * garantit que tous les DescriptionChampCsv rapporteront.<br/>
+ * </p>
+ * 
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe des DescripteursChamp : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_1.png" 
+ * alt="Diagramme de classe des DescripteursChamp" /><br/>
+ * <img src="../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_2.png" 
+ * alt="Diagramme de classe des DescripteursChamp" />
  * </p>
  * 
  * <br/>
@@ -136,6 +146,20 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideE
  *
  * <p>
  * - Exemple d'utilisation :
+ * </p>
+ * <p>
+ * <code> // Instanciation d'un IDescriptionChamp.</code><br/>
+ * <code><b>IDescriptionChamp desc 
+ * = new DescriptionChampDarwinCsv();</b></code><br/>
+ * <code> // récupération de la Map des en-têtes de la description de fichier (créée en dur lors de l'instanciation du IDescriptionChamp).</code><br/>
+ * <code><b>Map&lt;Integer, String&gt; entetesDescriptionMap = desc.getColonnesDescriptionMap();</b></code><br/>
+ * <code> // tableau de tokens correspondant à la description d'un champ (ligne d'une description de fichier).</code><br/>
+ * <code><b>public static final String[] CODE_CONCESSION_ORIGINE_DESC 
+ * = {"4", "Code Concession du PR Origine", "Code Concession du PR Origine ('début')", "concessionPrd", "String", "false", "true"};</b></code><br/>
+ * <code> // LECTURE - Injecte toutes les valeurs du tableau de tokens CODE_CONCESSION_ORIGINE_DESC dans la présente encapsulation</code><br/>
+ * <code><b>desc.lireChamp(CODE_CONCESSION_ORIGINE_DESC);</b></code><br/> 
+ * <code>// récupération des valeurs encapsulées.</code><br/>  
+ * <code><b>SortedMap&lt;Integer, String&gt; valeursDescriptionMap = desc.getValeursDescriptionMap();</b></code><br/>
  * </p>
  * <br/>
  *

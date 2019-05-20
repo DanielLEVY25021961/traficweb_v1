@@ -9,7 +9,6 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesdescriptions.ConfigurationDescriptionsFichiersManager;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.IImportateurDescription;
 
@@ -61,7 +60,8 @@ public class ImportateurDescriptionHitTest {
 		= "ne doit pas retourner null : ";
 
 	/**
-	 * IImportateurDescription à tester.
+	 * IImportateurDescription à tester.<br/>
+	 * instancié dans instancierImportateur (beforeClass).
 	 */
 	public static transient IImportateurDescription importateur;
 	
@@ -97,7 +97,7 @@ public class ImportateurDescriptionHitTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -110,7 +110,7 @@ public class ImportateurDescriptionHitTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println(importateur.toStringFormatte());
+			System.out.println(importateur.toStringFormate());
 		}
 		
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultat);
@@ -129,8 +129,8 @@ public class ImportateurDescriptionHitTest {
 	public static void instancierImportateur() throws Exception {
 		
 		importateur 
-			= new ImportateurDescriptionHit(
-					ConfigurationDescriptionsFichiersManager.getFichierDescriptionHit());
+			= new ImportateurDescriptionHit();
+		
 	} // Fin de instancierImportateur().___________________________________
 	
 	

@@ -8,8 +8,25 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideE
 
 /**
  * class IDescriptionChamp :<br/>
+ * 
+ * <p>
  * RESPONSABILITE : ENCAPSULATION D'UNE LIGNE D'UNE DESCRIPTION (CHAMP).<br/>
  * Interface factorisant les méthodes des DescriptionChamp.<br/>
+ * </p>
+ * 
+ * 
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe des DescripteursChamp : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_1.png" 
+ * alt="Diagramme de classe des DescripteursChamp" /><br/>
+ * <img src="../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_2.png" 
+ * alt="Diagramme de classe des DescripteursChamp" />
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

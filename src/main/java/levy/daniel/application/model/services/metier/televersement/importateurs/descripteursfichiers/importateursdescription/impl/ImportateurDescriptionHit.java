@@ -7,23 +7,61 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesdescriptions.ConfigurationDescriptionsFichiersManager;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescriptionAscii;
 
 /**
  * class ImportateurDescriptionHit :<br/>
+ * <p>
  * Importateur concret pour les DESCRIPTIONS EN CSV des HIT.<br/>
+ * </p>
+ * 
+ * <p>
  * Chargé de lire une description de fichier HIT 
  * au format csv avec séparateur ';'
  * et de la rendre disponible pour toute l'application 
  * via une SortedMap&lt;Integer,IDescriptionChamp&gt; 
- * specificationChampsMap.<br/>
+ * <code><b>this.specificationChampsMap</b></code>.<br/>
+ * </p>
+ * 
+ * 
+ * <p>
+ * Un fichier de description d'un HIT formatée en csv (';') 
+ * commence par :<br/>
  * <br/>
- * La description d'un HIT commence par :<br/>
- * ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;colonneDebut;colonneFin;longueurCalculee;<br/>
- * 1;1-3;3;Numéro de Département;cadré à gauche. Ex: dept 13 = 130;numDepartement;Integer;false;1;3;3;<br/>
- * 2;4-9;6;Numéro de Section;;numSection;String;false;4;9;6;<br/>
- * .......................................................<br/>
+ * ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;<br/>
+ * 1;1-3;3;Numéro de Département;cadré à gauche. Ex: dept 13 = 130;numDepartement;Integer;false;false;1;3;3;<br/>
+ * 2;4-9;6;Numéro de Section;;numSection;String;false;false;4;9;6;<br/>
+ * 3;10;1;Sens;3 - Cumul des deux sens. [sep] 4 - Sens unique P.R. croissants. [sep] 5 - Sens unique P.R. Décroissants.;sens;Integer;true;false;10;10;1;<br/>
+ * ...................................................<br/>
+ * </p>
+ * 
+ * <p>
+ * <table border="1">
+ * <tr>
+ * <th>ordreChamps</th> <th>colonnes</th> <th>longueur</th> <th>intitule</th> 
+ * <th>nomenclature</th> <th>champJava</th> <th>typeJava</th> <th>aNomenclature</th>
+ * <th>aLexique</th> <th>colonneDebut</th> <th>colonneFin</th> <th>longueurCalculee</th>
+ * </tr>
+ * <tr>
+ * <td>1</td> <td>1-3</td> <td>3</td> <td>Numéro de Département</td> 
+ * <td>cadré à gauche. Ex: dept 13 = 130</td> <td>numDepartement</td> <td>Integer</td> <td>false</td> 
+ * <td>false</td> <td>1</td> <td>3</td> <td>3</td> 
+ * </tr>
+ * <tr>
+ * <td>2</td> <td>4-9</td> <td>6</td> <td>Numéro de Section</td> 
+ * <td> </td> <td>numSection</td> <td>String</td> <td>false</td> 
+ * <td>false</td> <td>4</td> <td>9</td> <td>6</td> 
+ * </tr>
+ * <tr>
+ * <td>3</td> <td>10</td> <td>1</td> <td>Sens</td> 
+ * <td>3 - Cumul des deux sens. [sep] 4 - Sens unique P.R. croissants. [sep] 5 - Sens unique P.R. Décroissants.</td> <td>sens</td> <td>Integer</td> <td>true</td> 
+ * <td>false</td> <td>10</td> <td>10</td> <td>1</td> 
+ * </tr>
+ * </table>
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -61,10 +99,10 @@ public class ImportateurDescriptionHit extends
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * "Classe ImportateurDescriptionHit - ".<br/>
+	 * "Classe ImportateurDescriptionHit".<br/>
 	 */
 	public static final String CLASSE_IMPORTATEURDESCRIPTIONHIT 
-	= "Classe ImportateurDescriptionHit - ";
+	= "Classe ImportateurDescriptionHit";
 	
 	
 	/**
@@ -78,12 +116,27 @@ public class ImportateurDescriptionHit extends
 	
 	/**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
+	 * <ul>
+	 * <li>passe automatiquement la <b>description de fichier du HIT</b>
+	 * <code><b>ConfigurationDescriptionsFichiersManager.getFichierDescriptionHit()</b></code> 
+	 * à <code><b>this.descriptionDuFichierFile</b></code> de la classe.</li>
+	 * <li>délègue à un 
+	 * <code><b>ConfigurationDescriptionsFichiersManager</b></code> 
+	 * le soin de fournir la bonne description de fichier.</li>
+	 * <li>passe automatiquement une <b>description de champ HIT</b>
+	 * <code><b>DescriptionChampHit</b></code> à 
+	 * <code><b>this.descriptionChamp</b></code>.</li>
+	 * <li>alimente <code><b>this.logImportDescription</b></code> 
+	 * avec la valeur contenue dans 
+	 * <code>ressources_externes/messages_techniques.properties</code> 
+	 * pour savoir si il faut logger les rapports d'import.</li>
+	 * </ul>
 	 * 
 	 * @throws Exception 
 	 */
 	public ImportateurDescriptionHit() throws Exception {
 		
-		this(null);
+		this(ConfigurationDescriptionsFichiersManager.getFichierDescriptionHit());
 		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -91,7 +144,17 @@ public class ImportateurDescriptionHit extends
 		
 	 /**
 	 * CONSTRUCTEUR ARCHICOMPLET.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>passe pDescriptionDuFichierFile 
+	 * à <code><b>this.descriptionDuFichierFile</b></code> de la classe.</li>
+	 * <li>passe automatiquement une <b>description de champ HIT</b>
+	 * <code><b>DescriptionChampHit</b></code> à 
+	 * <code><b>this.descriptionChamp</b></code>.</li>
+	 * <li>alimente <code><b>this.logImportDescription</b></code> 
+	 * avec la valeur contenue dans 
+	 * <code>ressources_externes/messages_techniques.properties</code> 
+	 * pour savoir si il faut logger les rapports d'import.</li>
+	 * </ul>
 	 *
 	 * @param pDescriptionDuFichierFile : File : 
 	 * la description de fichier à mettre 

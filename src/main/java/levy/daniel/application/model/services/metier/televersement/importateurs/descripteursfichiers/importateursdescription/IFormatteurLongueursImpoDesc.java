@@ -3,10 +3,16 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 
 /**
- * class IFormatteurLongueursImpoDesc :<br/>
- * RESPONSABILITE : FORMATTER LES DESCRIPTIONS A LA CONSOLE.<br/>
+ * INTERFACE IFormatteurLongueursImpoDesc :<br/>
+ * <p>
+ * RESPONSABILITE : FORMATER LES DESCRIPTIONS DE FICHIER A LA CONSOLE.
+ * </p>
+ * 
+ * <p>
  * Interface factorisant les méthodes garantissant 
- * qu'un objet qui l'implémente saura formatter les tableaux à la console.<br/>
+ * qu'un objet qui l'implémente saura formater les tableaux à la console.
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -25,12 +31,14 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImp
  *
  */
 public interface IFormatteurLongueursImpoDesc {
+
+	
 	
 	/**
 	 * Tient à jour le tableau contenant les longueurs maxi
 	 * des contenus dans la description de fichier
-	 * (utile pour l'affichage formatté à la console des descriptions).<br/>
-	 * <br/>
+	 * (utile pour l'affichage formaté à la console 
+	 * des descriptions de fichier).<br/>
 	 * 
 	 * @param pLongueurs : int[] : tableau des longueurs
 	 * des contenus pour un champ (ligne) du fichier de
@@ -44,7 +52,6 @@ public interface IFormatteurLongueursImpoDesc {
 	 * Retourne le Max entre :<br/>
 	 * - la nouvelle longueur 'pNouvelleLongueur',<br/>
 	 * - une longueur int 'pAncienneLongueur' déjà existante.<br/>
-	 * <br/>
 	 *
 	 * @param pNouvelleLongueur : int : la nouvelle longueur.<br/>
 	 * @param pAncienneLongueur : int : La longueur par rapport
@@ -73,7 +80,7 @@ public interface IFormatteurLongueursImpoDesc {
 	
 	
 	/**
-	 * Affiche la description formattée à la console.<br/>
+	 * Affiche la description formatée à la console.<br/>
 	 *
 	 * @return : String : Chaîne de caractères 
 	 * formattée pour affichage à la console.<br/>
@@ -81,7 +88,7 @@ public interface IFormatteurLongueursImpoDesc {
 	 * @throws ExceptionImport<br/> 
 	 * @throws Exception 
 	 */
-	String toStringFormatte() throws ExceptionImport, Exception;
+	String toStringFormate() throws ExceptionImport, Exception;
 	
 	
 	
@@ -89,7 +96,6 @@ public interface IFormatteurLongueursImpoDesc {
 	 * Affiche un tableau d'entiers.<br/>
 	 * - Retourne une chaîne vide si le tableau
 	 * passé en paramètre est null.<br/>
-	 * <br/>
 	 * 
 	 * @param pTableauLongueurs : int[].<br/>
 	 * 
@@ -97,4 +103,6 @@ public interface IFormatteurLongueursImpoDesc {
 	 */
 	String tableauIntToString(int[] pTableauLongueurs);
 
+	
+	
 } // FIN DE L'INTERFACE IFormatteurLongueursImpoDesc.------------------------

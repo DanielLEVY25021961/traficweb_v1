@@ -1,13 +1,9 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -23,15 +19,16 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescription;
 
 /**
- * class ImportateurDescriptionDarwinCsv :<br/>
- * Importateur concret pour les DESCRIPTIONS EN CSV des Darwin.csv.<br/>
- * Chargé de lire une description de fichier Darwin.csv 
+ * CLASSE ImportateurDescriptionDarwinCsv :
+ * <p>
+ * Importateur concret pour les DESCRIPTIONS EN CSV des DARWIN_CSV.<br/>
+ * Chargé de lire une description de fichier DARWIN_CSV 
  * au format csv avec séparateur ';'
  * et de la rendre disponible pour toute l'application 
  * via une SortedMap&lt;Integer,IDescriptionChamp&gt; 
  * specificationChampsMap.<br/>
  * <br/>
- * La description d'un Darwin.csv commence par :<br/>
+ * La description d'un DARWIN_CSV commence par :<br/>
  * ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature;<br/>
  * 1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;<br/>
  * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;<br/>
@@ -53,7 +50,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * \\<i>Fournit la description sous forme de 
  * SortedMap&lt;Integer,IDescriptionChamp&gt; specificationChampsMap.</i><br/>
  * final SortedMap&lt;Integer,IDescriptionChamp&gt; specificationChampsMap 
- * = impoDesc.importerDescription(DESCRIPTION Darwin.csv en csv);<br/>
+ * = impoDesc.importerDescription(DESCRIPTION DARWIN_CSV en csv);<br/>
  * <br/>
  * } catch (Exception e) {<br/>
  * 			System.out.println("RAPPORT : \n" <br/>
@@ -228,180 +225,6 @@ public class ImportateurDescriptionDarwinCsv extends
 		}
 		
 	} // Fin de determinerSiLogErreurs().__________________________________
-	
-
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final SortedMap<Integer, IDescriptionChamp> importerDescription(
-			final File pFileDescription) 
-					throws Exception {
-		
-		File fileDescription = null;
-		
-		/* DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ************/
-		if (pFileDescription == null 
-				|| !pFileDescription.exists()) {
-			
-			/* Si this.descriptionDuFichierFile est aussi absent. */
-			/* LOG.fatal, rapporte et jette une FichierNullException. */
-			this.traiterDescriptionNull();
-			
-			/* sinon : */
-			fileDescription = this.descriptionDuFichierFile;
-		}
-		else {
-			
-			fileDescription = pFileDescription;
-			
-			/* Passage du paramètre aux attributs. */
-			this.descriptionDuFichierFile = fileDescription;
-			
-		} /* FIN DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ********/
-
-		
-		/* Logge, rapporte et jette une ExceptionImport 
-		 * si this.descriptionDuFichierFile n'a pas l'extension csv. */
-		this.traiterFichierNonCsv();
-		
-		
-		
-		// **************PARAMETRES VALIDES****************************/		
-			
-		/* Instanciation du tableau des longueurs maxi. */
-		this.instancierTableauLongueursMaxi();
-		
-		/* INSTANCIATION de la SortedMap specificationChampsMap. */
-		this.specificationChampsMap = new TreeMap<Integer, IDescriptionChamp>();
-		
-		int compteurDeLigne = 0;
-		
-		/* LECTURE DE fileDescription et 
-		 * injection dans la SortedMap this.specificationChampsMap. */
-		
-		/* Ouverture des flux. */
-		final FileReader fr = new FileReader(fileDescription);
-		final BufferedReader bfr = new BufferedReader(fr);
-		
-		String ligneLue = null;
-		
-		/* LECTURE DE CHAQUE LIGNE DE LA DESCRIPTION. */
-		while ((ligneLue = bfr.readLine()) != null) {
-			
-			/* Instancie un Pattern chargé de retrouver le 
-			 * séparateur ';' dans la ligne. */
-			final String[] tokens 
-				= Pattern.compile(SEP_PV).split(ligneLue);
-			
-			/* saute la ligne d'en-tête le cas échéant en se basant 
-			 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête DarwinCsv 
-			 * et une valeur entière pour toutes les lignes significatives. */
-			final String ordreChamps = tokens[0];
-			
-			if (!StringUtils.isBlank(ordreChamps)) {
-				try {
-					Integer.parseInt(ordreChamps);
-				} catch (NumberFormatException e) {
-					continue;
-				}
-			}
-			
-			
-			/* Incrémentation du compteur. */
-			compteurDeLigne++;
-			
-			/* Injection des valeurs de chaque champ 
-			 * de la description de fichier dans un DescriptionChamp. */
-			final IDescriptionChamp desc = new DescriptionChampDarwinCsv();
-			
-			/* Lecture de chaque ligne de la description. */
-			try {
-				
-				desc.lireChamp(tokens);
-								
-				/* Rapport d'erreur (provenant du Descripteur). */
-				final String messageDescripteur 
-					= desc.getRapportDescriptionStb().toString();
-				
-				final String message 
-				= desc.toString() 
-				+ SEPARATEUR_MOINS_AERE
-				+ CLASSE_IMPORTATEURDESCRIPTIONDARWINCSV 
-				+ METHODE_IMPORTERDESCRIPTION 
-				+ messageDescripteur;
-												
-				/* Rapport d'erreur. */
-				if (!StringUtils.isBlank(messageDescripteur)) {
-										
-					if (this.logImportDescription) {
-						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(NEWLINE);
-						
-					}
-					
-				}
-			} catch (Exception e) {
-				
-				/* Rapport d'erreur (provenant du Descripteur). */
-				final String messageDescripteur 
-					= desc.getRapportDescriptionStb().toString();
-				
-				final String message 
-				= "MAUVAIS FICHIER DE DESCRIPTION ???" 
-				+ SEPARATEUR_MOINS_AERE
-				+ CLASSE_IMPORTATEURDESCRIPTIONDARWINCSV 
-				+ METHODE_IMPORTERDESCRIPTION 
-				+ messageDescripteur;
-								
-				/* Logge */
-				if (LOG.isFatalEnabled()) {
-					LOG.fatal(message, e);
-				}
-				
-				/* Rapport d'erreur. */
-				if (!StringUtils.isBlank(messageDescripteur)) {
-										
-					if (this.logImportDescription) {
-						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(NEWLINE);
-						
-					}
-					
-				}
-				
-				/* Fermeture des flux; */
-				fr.close();
-				bfr.close();
-				
-				/* Jette une Exception circonstanciée. */
-				throw new ExceptionImport(message, e);
-			}
-						
-			/* Gestion des longueurs maxi. */			
-			this.gererLongueursMaxi(desc);
-			
-			/* CONTROLES. */
-			/* Contrôle de l'unicité des noms Java. */
-			this.controlerUniciteNomJava(desc);
-			
-			/* controle que l'ordre des champs est jointif */
-			this.controlerJointif(compteurDeLigne, desc);
-			
-			/* AJOUT DE LA DESCRIPTION A LA MAP triée 
-			 * this.specificationChampsMap. */
-			this.specificationChampsMap.put(compteurDeLigne, desc);
-		}
-		
-		/* FERMETURE DES FLUX. */
-		fr.close();
-		bfr.close();
-		
-		return this.specificationChampsMap;
-		
-	} // Fin de importerDescription(
-	// File pFileDescription)._____________________________________________
 
 	
 	

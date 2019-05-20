@@ -3,9 +3,9 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
@@ -92,6 +92,16 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	 * System.getProperty("line.separator").<br/>
 	 */
 	public static final String NEWLINE = System.getProperty("line.separator");
+	
+	
+	//*****************************************************************/
+	//**************************** BOM_UTF-8 **************************/
+	//*****************************************************************/
+	/**
+	 * '\uFEFF'<br/>
+	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
+	 */
+	public static final char BOM_UTF_8 = '\uFEFF';
 
 	/**
 	 * LOG : Log : 
@@ -137,209 +147,6 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	} // Fin de CONSTRUCTEUR ARCHICOMPLET._________________________________
 	
 
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final SortedMap<Integer, IDescriptionChamp> importerDescription(
-			final File pFileDescription) 
-					throws Exception {
-		
-		File fileDescription = null;
-		
-		/* DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ************/
-		if (pFileDescription == null 
-				|| !pFileDescription.exists()) {
-			
-			/* Si this.descriptionDuFichierFile est aussi absent. */
-			/* LOG.fatal, rapporte et jette une FichierNullException. */
-			this.traiterDescriptionNull();
-			
-			/* sinon : */
-			fileDescription = this.descriptionDuFichierFile;
-		}
-		else {
-			
-			fileDescription = pFileDescription;
-			
-			/* Passage du paramètre aux attributs. */
-			this.descriptionDuFichierFile = fileDescription;
-			
-		} /* FIN DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ********/
-		
-		
-		// **************PARAMETRES VALIDES****************************/		
-			
-		/* Instanciation du tableau des longueurs maxi. */
-		this.instancierTableauLongueursMaxi();
-		
-		/* INSTANCIATION de la SortedMap specificationChampsMap. */
-		this.specificationChampsMap = new TreeMap<Integer, IDescriptionChamp>();
-		
-		int compteurDeLigne = 0;
-		
-		/* LECTURE DE fileDescription et 
-		 * injection dans la SortedMap this.specificationChampsMap. */
-		
-		/* Ouverture des flux. */
-		final FileReader fr = new FileReader(fileDescription);
-		final BufferedReader bfr = new BufferedReader(fr);
-		
-		String ligneLue = null;
-		
-		/* LECTURE DE CHAQUE LIGNE DE LA DESCRIPTION. */
-		while ((ligneLue = bfr.readLine()) != null) {
-						
-			/* Instancie un Pattern chargé de retrouver le 
-			 * séparateur ';' dans la ligne. */
-			final String[] tokens 
-				= Pattern.compile(SEP_PV).split(ligneLue);
-			
-			/* saute la ligne d'en-tête le cas échéant en se basant 
-			 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête HistonatF07 
-			 * et une valeur entière pour toutes les lignes significatives. */
-			final String ordreChamps = tokens[0];
-			
-			if (!StringUtils.isBlank(ordreChamps)) {
-				try {
-					Integer.parseInt(ordreChamps);
-				} catch (NumberFormatException e) {
-					continue;
-				}
-			}
-			
-			
-			/* Incrémentation du compteur. */
-			compteurDeLigne++;
-			
-			/* Injection des valeurs de chaque champ 
-			 * de la description de fichier dans un DescriptionChamp. */
-			IDescriptionChamp desc = null;
-			try {
-				desc = this.descriptionChamp.getClass().newInstance();
-			} catch (InstantiationException e1) {
-				
-				/* Fermeture des flux; */
-				fr.close();
-				bfr.close();
-				
-				throw new RuntimeException(e1);
-				
-			} catch (IllegalAccessException e1) {
-				
-				/* Fermeture des flux; */
-				fr.close();
-				bfr.close();
-				
-				throw new RuntimeException(e1);
-			}
-
-			
-			if (desc == null) {
-				
-				/* Fermeture des flux; */
-				fr.close();
-				bfr.close();
-				
-				return null;
-			}
-			
-			
-			/* Lecture de chaque ligne de la description. */
-			try {
-				
-				desc.lireChamp(tokens);
-				
-				/* Rapport d'erreur (provenant du Descripteur). */
-				final String messageDescripteur 
-					= desc.getRapportDescriptionStb().toString();
-				
-				final String message 
-				= desc.toString() 
-				+ SEPARATEUR_MOINS_AERE
-				+ this.getNomClasse()
-				+ METHODE_IMPORTERDESCRIPTION 
-				+ messageDescripteur;
-								
-				/* Rapport d'erreur. */
-				if (!StringUtils.isBlank(messageDescripteur)) {
-										
-					if (this.logImportDescription) {
-						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(NEWLINE);
-						
-					}
-					
-				}
-			} catch (Exception e) {
-				
-				/* Rapport d'erreur (provenant du Descripteur). */
-				final String messageDescripteur 
-					= desc.getRapportDescriptionStb().toString();
-				
-				final String message 
-				= "MAUVAIS FICHIER DE DESCRIPTION ???" 
-				+ SEPARATEUR_MOINS_AERE
-				+ this.getNomClasse()
-				+ METHODE_IMPORTERDESCRIPTION 
-				+ messageDescripteur;
-				
-				/* Logge */
-				if (LOG.isFatalEnabled()) {
-					LOG.fatal(message, e);
-				}
-				
-				/* Rapport d'erreur. */
-				if (!StringUtils.isBlank(messageDescripteur)) {
-										
-					if (this.logImportDescription) {
-						this.rapportImportDescriptionStb.append(message);
-						this.rapportImportDescriptionStb.append(NEWLINE);
-						
-					}
-					
-				}
-				
-				/* Fermeture des flux; */
-				fr.close();
-				bfr.close();
-				
-				/* Jette une Exception circonstanciée. */
-				throw new ExceptionImport(message, e);
-			}
-						
-			/* Gestion des longueurs maxi. */			
-			this.gererLongueursMaxi(desc);
-			
-			/* CONTROLES. */
-			/* Contrôle de l'unicité des noms Java. */
-			this.controlerUniciteNomJava(desc);
-			
-			/* Contrôle de la longueur fournie. */
-			this.controlerLongueur(desc);
-			
-			/* controle que l'ordre des champs est jointif */
-			this.controlerJointif(compteurDeLigne, desc);
-			
-			/* contrôle que les colonnes sont jointives. */
-			this.controlerColonnesJointives(compteurDeLigne, desc);
-			
-			/* AJOUT DE LA DESCRIPTION A LA MAP triée 
-			 * this.specificationChampsMap. */
-			this.specificationChampsMap.put(compteurDeLigne, desc);
-		}
-		
-		/* FERMETURE DES FLUX. */
-		fr.close();
-		bfr.close();
-		
-		return this.specificationChampsMap;
-		
-	} // Fin de importerDescription(
-	// File pFileDescription)._____________________________________________
-	
-
 
 	/**
 	 * {@inheritDoc}
@@ -350,7 +157,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 					throws Exception {
 		
 		return this.importerDescription(
-				pFileDescription, Charset.forName("UTF-8"));
+				pFileDescription, StandardCharsets.UTF_8);
 		
 	} // Fin de importerDescriptionUtf8(
 	 // File pFileDescription).____________________________________________
@@ -385,8 +192,12 @@ public abstract class AbstractImportateurDescriptionAscii extends
 		File fileDescription = null;
 		
 		/* DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ************/
+		/* utilise automatiquement la description this.descriptionDuFichierFile 
+		 * si pFileDescription est null ou ne convient pas. */
 		if (pFileDescription == null 
-				|| !pFileDescription.exists()) {
+				|| pFileDescription.length() == 0 
+					|| !pFileDescription.exists() 
+						|| !pFileDescription.isFile()) {
 			
 			/* Si this.descriptionDuFichierFile est aussi absent. */
 			/* LOG.fatal, rapporte et jette une FichierNullException. */
@@ -406,13 +217,14 @@ public abstract class AbstractImportateurDescriptionAscii extends
 		
 		
 		// **************PARAMETRES VALIDES****************************/		
-		
+
+		/* choisit automatiquement le Charset UTF-8 si pCharset == null 
+		 * ou pCharset ne peut pas encoder. */
 		Charset charset = null;
 		
-		if (pCharset == null) {
-			charset = Charset.forName("UTF-8");
-		}
-		else {
+		if (pCharset == null || !pCharset.canEncode()) {
+			charset = StandardCharsets.UTF_8;
+		} else {
 			charset = pCharset;
 		}
 		
@@ -427,6 +239,10 @@ public abstract class AbstractImportateurDescriptionAscii extends
 		/* LECTURE DE fileDescription et 
 		 * injection dans la SortedMap this.specificationChampsMap. */
 		
+		/* Instancie un Pattern chargé de retrouver le 
+		 * séparateur ';' dans la ligne. */
+		final Pattern patternCsv = Pattern.compile(SEP_PV);
+		
 		/* OUVERTURE DES FLUX. */
 		final FileInputStream fis = new FileInputStream(fileDescription);
 		final InputStreamReader isr = new InputStreamReader(fis, charset);
@@ -436,32 +252,45 @@ public abstract class AbstractImportateurDescriptionAscii extends
 		
 		/* LECTURE DE CHAQUE LIGNE DE LA DESCRIPTION. */
 		while ((ligneLue = bfr.readLine()) != null) {
-						
-			/* Instancie un Pattern chargé de retrouver le 
-			 * séparateur ';' dans la ligne. */
-			final String[] tokens 
-				= Pattern.compile(SEP_PV).split(ligneLue);
-			
-			/* saute la ligne d'en-tête le cas échéant en se basant 
-			 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête HistonatF07 
-			 * et une valeur entière pour toutes les lignes significatives. */
-			final String ordreChamps = tokens[0];
-			
-			if (!StringUtils.isBlank(ordreChamps)) {
-				try {
-					Integer.parseInt(ordreChamps);
-				} catch (NumberFormatException e) {
-					continue;
-				}
-			}
-			
 			
 			/* Incrémentation du compteur. */
 			compteurDeLigne++;
 			
+			if (compteurDeLigne == 1) {
+				
+				/* retire un éventuel caractère BOM_UTF_8 à la 
+				 * première ligne si charset == UTF-8. */
+				final String bomUtf8 = "\uFEFF";
+				
+				if (charset.equals(StandardCharsets.UTF_8)) {
+					if (StringUtils.contains(ligneLue, bomUtf8)) {
+						ligneLue = StringUtils.remove(ligneLue, BOM_UTF_8);
+					}
+				}
+				
+				/* décompose la première ligne. */
+				final String[] tokens 
+					= patternCsv.split(ligneLue);
+				
+				/* saute la ligne d'en-tête le cas échéant en se basant 
+				 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête HistonatF07 
+				 * et une valeur entière pour toutes les lignes significatives. */
+				final String ordreChamps = tokens[0];
+				
+				if (!StringUtils.isBlank(ordreChamps)) {
+					try {
+						Integer.parseInt(ordreChamps);
+					} catch (NumberFormatException e) {
+						continue;
+					}
+				}
+			}
+			
+							
 			/* Injection des valeurs de chaque champ 
 			 * de la description de fichier dans un DescriptionChamp. */
 			IDescriptionChamp desc = null;
+			
 			try {
 				desc = this.descriptionChamp.getClass().newInstance();
 			} catch (InstantiationException e1) {
@@ -497,6 +326,16 @@ public abstract class AbstractImportateurDescriptionAscii extends
 			
 			/* Lecture de chaque ligne de la description. */
 			try {
+				
+				/* Saute les lignes null ou vides 
+				 * dans la description de fichier. */
+				if (StringUtils.isBlank(ligneLue)) {
+					continue;
+				}
+				
+				/* décompose la ligne lue. */
+				final String[] tokens 
+					= patternCsv.split(ligneLue);
 				
 				desc.lireChamp(tokens);
 				
@@ -594,10 +433,9 @@ public abstract class AbstractImportateurDescriptionAscii extends
 
 	
 	/**
-	 * method traiterDescriptionNull() :<br/>
 	 * LOG.fatal, rapporte et jette une FichierNullException 
-	 * si pFile et this.descriptionDuFichierFile 
-	 * sont null ou inexistants.<br/>
+	 * <code><b>this.descriptionDuFichierFile</b></code> 
+	 * est null ou inexistant.<br/>
 	 * <br/>
 	 * 
 	 * @throws FichierNullException  : 
@@ -627,7 +465,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 			/* Jette une Exception circonstanciée. */
 			throw new FichierNullException(message);
 			
-		} // Fin de pFile et descriptionDuFichierFile absents.______
+		} // Fin de descriptionDuFichierFile absent.______
 		
 	} // Fin de traiterDescriptionNull().__________________________________
 	

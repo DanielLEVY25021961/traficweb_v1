@@ -54,6 +54,20 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * 7;Zone libre;sans objet;16;16;1;7;Zone libre;sans objet;null;null;null;sans objet;sans objet;<br/>
  * 8;Route;route;17;23;7;8;Route;route;2;route;route;route;metier;<br/>
  * ......................................................................<br/>
+ * 
+ * 
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe des DescripteursChamp : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_1.png" 
+ * alt="Diagramme de classe des DescripteursChamp" /><br/>
+ * <img src="../../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_2.png" 
+ * alt="Diagramme de classe des DescripteursChamp" />
+ * </p>
+ * 
  * <br/>
  * <br/>
  *

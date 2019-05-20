@@ -79,12 +79,38 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * </table>
  * </p>
  * 
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe des DescripteursChamp : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_1.png" 
+ * alt="Diagramme de classe des DescripteursChamp" /><br/>
+ * <img src="../../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/descripteurschamps/diagramme_de_classes_DescripteurChamp_2.png" 
+ * alt="Diagramme de classe des DescripteursChamp" />
+ * </p>
+ * 
  * <br/>
  * <br/>
  * 
  *
  * <p>
  * - Exemple d'utilisation :
+ * </p>
+ * <p>
+ * <code> // Instanciation d'un IDescriptionChamp.</code><br/>
+ * <code><b>IDescriptionChamp desc 
+ * = new DescriptionChampDarwinCsv();</b></code><br/>
+ * <code> // récupération de la Map des en-têtes de la description de fichier (créée en dur lors de l'instanciation du IDescriptionChamp).</code><br/>
+ * <code><b>Map&lt;Integer, String&gt; entetesDescriptionMap = desc.getColonnesDescriptionMap();</b></code><br/>
+ * <code> // tableau de tokens correspondant à la description d'un champ (ligne d'une description de fichier).</code><br/>
+ * <code><b>public static final String[] CODE_CONCESSION_ORIGINE_DESC 
+ * = {"4", "Code Concession du PR Origine", "Code Concession du PR Origine ('début')", "concessionPrd", "String", "false", "true"};</b></code><br/>
+ * <code> // LECTURE - Injecte toutes les valeurs du tableau de tokens CODE_CONCESSION_ORIGINE_DESC dans la présente encapsulation</code><br/>
+ * <code><b>desc.lireChamp(CODE_CONCESSION_ORIGINE_DESC);</b></code><br/> 
+ * <code>// récupération des valeurs encapsulées.</code><br/>  
+ * <code><b>SortedMap&lt;Integer, String&gt; valeursDescriptionMap = desc.getValeursDescriptionMap();</b></code><br/>
  * </p>
  * <br/>
  *

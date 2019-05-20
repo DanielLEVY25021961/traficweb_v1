@@ -1,10 +1,16 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription;
 
 /**
- * class IFournisseurJTableImpoDesc :<br/>
- * RESPONSABILITE : AFFICHER UNE DESCRIPTION DE FICHIER DANS UNE JTABLE.<br/>
+ * INTERFACE IFournisseurJTableImpoDesc :<br/>
+ * <p>
+ * RESPONSABILITE : AFFICHER UNE DESCRIPTION DE FICHIER DANS UNE JTABLE.
+ * </p>
+ * 
+ * <p>
  * Interface factorisant les méthodes garantissant 
- * qu'un objet qui l'implémente saura s'afficher dans une JTable.<br/>
+ * qu'un objet qui l'implémente saura s'afficher dans une JTable (Swing).<br/>
+ * </p>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -87,4 +93,4 @@ public interface IFournisseurJTableImpoDesc {
 	
 	
 
-} // Fin de IFournisseurJTableImpoDesc.--------------------------------------
+} // Fin de L' INTERFACE IFournisseurJTableImpoDesc.-------------------------
