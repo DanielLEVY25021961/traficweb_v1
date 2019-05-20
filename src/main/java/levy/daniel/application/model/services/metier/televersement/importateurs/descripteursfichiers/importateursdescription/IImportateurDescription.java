@@ -363,10 +363,12 @@ public interface IImportateurDescription
 	
 
 	/**
-	 * Fabrique une chaine de caractères comportant tous
+	 * <b>Fabrique une chaine de caractères comportant tous
 	 * les éléments de description de l'en-tête de la description de fichier 
 	 * séparés par des tabulations 
-	 * et avec un saut de ligne \n à la fin.<br/>
+	 * et avec un saut de ligne \n à la fin</b>.<br/>
+	 * Par exemple :<br/>
+	 * <pre>ordreChamps	colonnes	longueur	intitule	nomenclature	champJava	typeJava	aNomenclature	aLexique	colonneDebut	colonneFin	longueurCalculee	</pre>
 	 * <ul>
 	 * <li>utilise le IDescriptionChamp 
 	 * <code><b>this.this.descriptionChamp</b></code> pour connaitre 
@@ -421,8 +423,10 @@ public interface IImportateurDescription
 
 	
 	/**
-	 * Getter de l'Encapsulation permettant de stocker toutes les valeurs 
-	 * décrivant un champ dans une description de fichier.<br/>
+	 * Getter de l'Encapsulation <code><b>this.descriptionChamp</b></code> 
+	 * permettant de stocker toutes les valeurs 
+	 * décrivant un champ dans une description de fichier et 
+	 * utilisé pour obtenir l'en-tête du fichier de description.<br/>
 	 * Par exemple :<br/>
 	 * [ordreChamps, colonnes, longueur, intitule, nomenclature
 	 * , champJava, typeJava, aNomenclature
@@ -432,7 +436,7 @@ public interface IImportateurDescription
 	 * pour une description de DARWIN_CSV.<br/>
 	 * <br/>
 	 *
-	 * @return descriptionChamp : IDescriptionChamp.<br/>
+	 * @return this.descriptionChamp : IDescriptionChamp.<br/>
 	 */
 	IDescriptionChamp getDescriptionChamp();
 
@@ -451,7 +455,7 @@ public interface IImportateurDescription
 	 * <br/>
 	 *
 	 * @param pDescriptionChamp : IDescriptionChamp : 
-	 * valeur à passer à descriptionChamp.<br/>
+	 * valeur à passer à this.descriptionChamp.<br/>
 	 */
 	void setDescriptionChamp(IDescriptionChamp pDescriptionChamp);
 
@@ -486,9 +490,10 @@ public interface IImportateurDescription
 
 
 	/**
-	 * Getter de la Description du fichier importée 
+	 * <b>Getter de la Description du fichier</b> importée 
 	 * par le présent ImportateurDescription
-	 * et fournie sous forme de Map triée contenant :<br/>
+	 * et fournie sous forme de SortedMap&lt;Integer,IDescriptionChamp&gt; 
+	 * triée <code><b>this.specificationChampsMap</b></code> contenant :<br/>
 	 * - Integer : le numéro du champ (rang de la ligne dans la description
 	 * du fichier comme '3' pour 'sens' dans la description de l'HISTO_F07),<br/>
 	 * - IDescriptionChamp : les valeurs dans la description du champ 
@@ -498,7 +503,7 @@ public interface IImportateurDescription
 	 * du fichier de description.<br/>
 	 * <br/>
 	 *
-	 * @return the specificationChampsMap : 
+	 * @return this.specificationChampsMap : 
 	 * SortedMap&lt;Integer,IDescriptionChamp&gt;.<br/>
 	 */
 	SortedMap<Integer, IDescriptionChamp> getSpecificationChampsMap();

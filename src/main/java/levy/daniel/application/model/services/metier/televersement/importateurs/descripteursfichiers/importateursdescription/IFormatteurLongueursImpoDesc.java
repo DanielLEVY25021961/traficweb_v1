@@ -80,10 +80,15 @@ public interface IFormatteurLongueursImpoDesc {
 	
 	
 	/**
-	 * Affiche la description formatée à la console.<br/>
+	 * <b>Affiche la description de fichier formatée à la console</b>.
+	 * <ul>
+	 * <li>utilise <code><b>this.specificationChampsMap</b></code></li>
+	 * <li>ATTENTION : faire importerDescription(...) 
+	 * AVANT d'utiliser cette méthode.<br/></li>
+	 * </ul>
 	 *
 	 * @return : String : Chaîne de caractères 
-	 * formattée pour affichage à la console.<br/>
+	 * formatée pour affichage à la console.<br/>
 	 * 
 	 * @throws ExceptionImport<br/> 
 	 * @throws Exception 
