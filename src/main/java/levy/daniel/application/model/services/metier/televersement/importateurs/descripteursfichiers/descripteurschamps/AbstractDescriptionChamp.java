@@ -680,8 +680,33 @@ public abstract class AbstractDescriptionChamp
 	} // Fin de tokensToString(
 	// String[] pTokens).__________________________________________________
 	
+
 	
-			
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String[] stringCsvToTokens(
+			final String pStringCsv) {
+		
+		/* retourne null si pStringCsv est blank. */
+		if (StringUtils.isBlank(pStringCsv)) {
+			return null;
+		}
+		
+		/* Instancie un Pattern chargé de retrouver le 
+		 * séparateur ';' dans la ligne. */
+		final Pattern patternCsv = Pattern.compile(SEP_PV);
+		
+		final String[] tokens 
+			= patternCsv.split(pStringCsv);
+		
+		return tokens;
+		
+	} // Fin de stringCsvToTokens(...).____________________________________
+	
+	
+	
 	/**
 	* {@inheritDoc}
 	*/

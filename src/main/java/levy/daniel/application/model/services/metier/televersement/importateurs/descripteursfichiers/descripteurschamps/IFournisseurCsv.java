@@ -34,11 +34,11 @@ public interface IFournisseurCsv {
 	 * contenant les valeurs stockées dans entetesDescriptionMap.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
-	 * ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;
-	 * aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee; 
+	 * <code>ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;
+	 * aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;</code> 
 	 * pour un DescripteurChampHistoF07.<br/>
-	 * ordreChamps;intitule;nomenclature;champJava;typeJava;
-	 * aNomenclature;aLexique; 
+	 * <code>ordreChamps;intitule;nomenclature;champJava;typeJava;
+	 * aNomenclature;aLexique;</code> 
 	 * pour un DescripteurChampDarwinCsv.<br/>
 	 * <br/>
 	 * - retourne "" si <code>this.entetesDescriptionMap</code> est null.<br/>
@@ -57,11 +57,11 @@ public interface IFournisseurCsv {
 	 * stockées dans valeursDescriptionMap.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
-	 * 1;1-3;3;Numéro de Département;calé à gauche;numDepartment;
-	 * Integer;false;false;1;3;3; pour le champ 'Numéro de Département' 
+	 * <code>1;1-3;3;Numéro de Département;calé à gauche;numDepartment;
+	 * Integer;false;false;1;3;3;</code> pour le champ 'Numéro de Département' 
 	 * (1ère ligne) de la description d'un HISTO_F07.<br/>
-	 * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);
-	 * route;String;false;false; 
+	 * <code>2;route;Route au format Isidor (ex : A0034b1 ou A0006);
+	 * route;String;false;false;</code> 
 	 * pour le champ 'route' 
 	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>

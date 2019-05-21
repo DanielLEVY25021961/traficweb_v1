@@ -771,6 +771,28 @@ public abstract class AbstractDescriptionChampCsv
 		
 	} // Fin de lireChamp(
 	// int[] pTokens)._____________________________________________________
+	
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void lireChampCsv(
+			final String pStringCsv) 
+				throws 
+					Exception {
+		
+		/* ne fait rien si pStringCsv est blank. */
+		if (StringUtils.isBlank(pStringCsv)) {
+			return;
+		}
+		
+		final String[] tokens = this.stringCsvToTokens(pStringCsv);
+		
+		this.lireChamp(tokens);
+		
+	} // Fin de lireChampCsv(...)._________________________________________
 
 
 

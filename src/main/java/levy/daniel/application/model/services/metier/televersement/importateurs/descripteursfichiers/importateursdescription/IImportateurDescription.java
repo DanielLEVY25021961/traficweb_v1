@@ -387,33 +387,39 @@ public interface IImportateurDescription
 	
 	
 	/**
-	 * - Retourne IDescriptionChamp d'ordre pOrdre,
-	 * c'est à dire le pOrdre-ième champ de la description
-	 * de fichier (pOrdre-ième ligne de la description).<br/>
-	 * <br/>
-	 * pOrdre est 1-based.<br/> 
-	 * 1 correspond à la première ligne de données de la description, etc...<br/>
-	 * Ne retourne pas l'en-tête si pOrdre == 0.<br/>
+	 * <b>Retourne IDescriptionChamp d'ordre pOrdre,
+	 * c'est à dire le pOrdre-ième champ (1-based) de la description
+	 * de fichier</b> (pOrdre-ième ligne de la description).<br/>
+	 * <ul>
+	 * <li>utilise <code><b>this.specificationChampsMap</b></code>.</li>
+	 * <li>pOrdre est 1-based.</li> 
+	 * <li>1 correspond à la première <i>ligne de données</i> (sans l'en-tête) 
+	 * de la description de fichier, etc...</li>
+	 * <li>Ne retourne pas de IDescriptionChamp si pOrdre == 0 
+	 * (retourne null).</li>
+	 * </ul>
+	 * ATTENTION : faire importerDescription(...) 
+	 * AVANT d'utiliser cette méthode.<br/>
 	 * <br/>
 	 * - LOG.fatal et jette une MapNullException si 
-	 * this.specificationChampsMap est null.<br/>
+	 * <code><b>this.specificationChampsMap</b></code> est null.<br/>
 	 * - LOG.fatal et jette une MapVideException 
-	 * si this.specificationChampsMap est vide.<br/> 
-	 * <br/>
+	 * si <code><b>this.specificationChampsMap</b></code> est vide.<br/> 
 	 * - Retourne null si la description de champ n'est pas trouvée
-	 * (pOrdre inexistant dans la Map).<br/>
+	 * (pOrdre inexistant dans la Map 
+	 * <code><b>this.specificationChampsMap</b></code>).<br/>
 	 * <br/>
 	 * 
 	 * @param pOrdre : Integer : 
-	 * l'ordre du champ dans la description de fichier.<br/>
+	 * l'ordre (1-based) du champ dans la description de fichier.<br/>
 	 * 
 	 * @return IDescriptionChamp : la description d'ordre
 	 * pOrdre (pOrdre-ième ligne de la description de fichier).<br/>
 	 * 
 	 * @throws MapNullException lorsque : la Map 
-	 * 'specificationChampsMap' est null.<br/>
+	 * <code><b>this.specificationChampsMap</b></code> est null.<br/>
 	 * @throws MapVideException lorsque : la Map 
-	 * 'specificationChampsMap' est vide.<br/>
+	 * <code><b>this.specificationChampsMap</b></code> est vide.<br/>
 	 * @throws Exception 
 	 */
 	IDescriptionChamp getDescriptionChamp(Integer pOrdre) 
@@ -533,7 +539,7 @@ public interface IImportateurDescription
 
 	
 	/**
-	 * Fournit le nom de la description des champs.<br/>
+	 * Fournit le nom de la description de fichier.<br/>
 	 * <br/>
 	 * Par exemple : <br/>
 	 * "Description des champs d'un fichier HIT".<br/>

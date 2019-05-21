@@ -113,6 +113,71 @@ public interface IDescriptionChamp
 			TableauNullException
 				, TableauVideException
 					, ExceptionImport, Exception;
+
+	
+	
+	/**
+	 * <b>Lit la ligne CSV pStringCsv avec séparateur ';' correspondant à la 
+	 * définition d'un champ donné dans une description de fichier 
+	 * (ligne d'une description de fichier) 
+	 * et alimente les attributs d'une encapsulation IDescriptionChamp</b>.<br/>
+	 * Calcule automatiquement les champs <i>non obligatoirement fournis</i> 
+	 * (colonne début, colonne fin, longueur calculée).<br/>
+	 * <i>Methode à implémenter dans chaque DescriptionChamp concret</i>.<br/>
+	 * <ul>
+	 * Cette méthode est :
+	 * <li>Chargée d'alimenter les attributs de la classe.</li>
+	 * <li>Chargée d'alimenter la SortedMap&lt;Integer, String&gt;
+	 *  <code><b>this.valeursDescriptionMap</b></code>.</li>
+	 * <li>Chargée d'alimenter la SortedMap&lt;Integer, Integer&gt;
+	 *  <code><b>this.longueursDescriptionMap</b></code>.</li>
+	 * <li>Garantit que tous les DescriptionChamp concrets sauront lire une
+	 * ligne CSV et alimenter la SortedMap&lt;Integer, String&gt; 
+	 * <code><b>this.valeursDescriptionMap</b></code>.</li>
+	 * <li>la ligne CSV correspond aux valeurs lues dans la
+	 * description du fichier pour un champ (ligne) donné.</li>
+	 * </ul>
+	 * <br/>
+	 * - ne fait rien si pStringCsv est blank.<br/>
+	 * - LOG FATAL, et jette une Exception si pStringCsv est
+	 * trop court, ou si des champs indispensables 
+	 * (ordreChamps, colonnes, intitulé, ...) ne sont pas renseignés.<br/>
+	 * <br/>
+	 * 
+	 * @param pStringCsv : String.<br/>
+	 * La ligne de la description de fichier sous forme CSV.<br/>
+	 * Par exemple {"1"
+	 * ; "1-3"
+	 * ; "3"
+	 * ; "Numéro de Département"
+	 * ; "cadré à gauche"
+	 * ; "numDepartment"
+	 * ; "Integer"
+	 * ; "false"
+	 * ; "false"}
+	 * pour DescriptionChampHistoF07 appliquée au champ numéro
+	 * de département (ligne 1) dans la description du fichier
+	 * HISTO_F07.<br/>
+	 * 
+	 * @throws TableauNullException lorsque : pStringCsv
+	 * passé en paramètre est null.<br/>
+	 * @throws TableauVideException lorsque : pStringCsv
+	 * passé en paramètre est vide.<br/>
+	 * @throws ExceptionImport lorsque : <br/>
+	 * - pStringCsv passé en paramètre est trop court.
+	 * (Il doit au moins posséder autant de tokens qu'il n'y a
+	 * de colonnes décrites dans 'entetesDescriptionMap').<br/>
+	 * - Une valeur dans pStringCsv décrivant le champ
+	 * dans la description de fichier est manquante
+	 * ou inadmissible. <br/>
+	 * 
+	 * @throws Exception 
+	 */
+	void lireChampCsv(String pStringCsv)
+		throws 
+			TableauNullException
+				, TableauVideException
+					, ExceptionImport, Exception;
 	
 
 	
@@ -180,7 +245,7 @@ public interface IDescriptionChamp
 	
 	
 	/**
-	 * <b>Transforme String[] en csv</b>.<br/>
+	 * <b>Transforme String[] en ligne CSV</b>.<br/>
 	 * Affiche une ligne de la description de fichier
 	 * - décomposée sous forme de tableau String[] de tokens - 
 	 * sous forme de ligne CSV avec séparateur ';'.<br/>
@@ -202,6 +267,30 @@ public interface IDescriptionChamp
 	 * @return String : ligne csv avec séparateur ';'.<br/>
 	 */
 	String tokensToString(String[] pTokens);
+	
+
+	
+	/**
+	 * <b>Transforme ligne CSV en String[]</b>.<br/>
+	 * décompose une ligne CSV à séparateur ';' 
+	 * et retourne un tableau de tokens.<br/>
+	 * <br/>
+	 * Par exemple :<br/>
+	 * <code>1;1-3;3;Numéro de Département;calé à gauche;numDepartment;Integer;false;
+	 *  false;1;3;3;</code> pour le champ 'Numéro de Département' 
+	 * (1ère ligne) dans la description du fichier HISTO_F07.<br/>
+	 * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;
+	 * false; pour le champ 'route' 
+	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
+	 * <br/>
+	 * - retourne null si pStringCsv est blank.<br/>
+	 * <br/>
+	 *
+	 * @param pStringCsv : String : ligne CSV
+	 * 
+	 * @return : String[] : tableau de tokens.<br/>
+	 */
+	String[] stringCsvToTokens(String pStringCsv);
 	
 	
 	

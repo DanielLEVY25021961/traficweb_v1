@@ -326,10 +326,10 @@ public abstract class AbstractImportateurDescription implements
 		// **************PARAMETRES VALIDES****************************/
 		
 		IDescriptionChamp desc = null;
-		
+					
 		/* Retourne la valeur dans la Map. */
 		desc = this.specificationChampsMap.get(pOrdre);
-		
+							
 		return desc;
 		
 	} // Fin de getDescriptionChamp(...).__________________________________
