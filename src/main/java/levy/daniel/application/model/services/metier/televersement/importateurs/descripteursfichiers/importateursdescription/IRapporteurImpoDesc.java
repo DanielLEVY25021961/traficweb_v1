@@ -80,7 +80,8 @@ public interface IRapporteurImpoDesc {
 			
 	/**
 	 * Fournit la clé du niveau d'anomalie 
-	 * stocké dans messages_techniques.properties.<br/>
+	 * stocké dans 
+	 * <code>ressources_externes/messages_techniques.properties</code>.<br/>
 	 * <br/>
 	 * Si le niveau est 1 (anomalie bloquante), 
 	 * une erreur dans la lecture d'une 
@@ -95,7 +96,8 @@ public interface IRapporteurImpoDesc {
 	
 	/**
 	 * Fournit la clé du log des erreurs
-	 * stocké dans messages_techniques.properties.<br/>
+	 * stocké dans 
+	 * <code>ressources_externes/messages_techniques.properties</code>.<br/>
 	 * <br/>
 	 * Sert à passer le boolean this.logDescription à true ou false.<br/>
 	 * <br/>

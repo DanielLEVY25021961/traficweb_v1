@@ -178,7 +178,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<!--                Version maven-compiler-plugin               -->
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<!--                Version maven-surefire-plugin               -->
-		<maven-surefire-plugin.version>3.0.0-M1</maven-surefire-plugin.version>
+		<maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
 		<!--                 Version maven-install-plugin               -->
 		<maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
 		<!--                 Version maven-deploy-plugin                -->
@@ -219,6 +219,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	<!-- Gestion des dépendances utilisées par le projet -->
 	<!-- =============================================== -->	
 	<dependencies>
+	
+		<!-- Pour MAVEN SITE -->
+		<dependency>
+	        <groupId>org.apache.maven.doxia</groupId>
+	        <artifactId>doxia-site-renderer</artifactId>
+	        <version>1.8.1</version>
+	    </dependency>
 
 
 		<!-- CERBERE BOUCHON -->
@@ -702,6 +709,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <version>3.0.5</version>
 		</dependency>
 
+		<!-- ====================================================== -->
+		<!--        DEPENDANCES POUR MAVEN SITE          			-->
+		<!-- ====================================================== -->		
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.maven.plugins</groupId> -->
+<!-- 		    <artifactId>maven-site-plugin</artifactId> -->
+<!-- 		    <version>${maven-site-plugin.version}</version> -->
+<!-- 		</dependency> -->
+		
+
 	</dependencies>
 
 
@@ -710,6 +728,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				<!-- ======================================  -->	
 			<!-- Précise la localisation des dépôts Maven -->
 	<repositories>
+	    
+	    <!-- dépôt Maven pour les jar UNIQUEMENT DISPONIBLES EN LOCAL. -->
+		<repository>
+		    <id>jars_locaux</id>
+		    <name>Local Repository</name>
+		    <url>file:${project.basedir}/repo</url>
+	  	</repository>
 	
 		<!-- Dépôt Central MAVEN pour les dépendances -->
 		<repository>
@@ -814,9 +839,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   				<!-- ================================== -->
 				<!--       	Management des plugins		-->
 				<!-- ================================== -->
-
+				
 		<plugins>
-
+		      
 			<!-- Scripts particuliers ANT -->
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-antrun-plugin -->
 			<plugin>
@@ -1036,7 +1061,29 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 					</execution>
 				</executions>
 			</plugin>
-
+			
+			<!-- ====================================================== -->
+			<!--           PLUGIN POUR MAVEN SITE          				-->
+			<!-- ====================================================== -->		
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-site-plugin</artifactId>
+			  <version>${maven-site-plugin.version}</version>
+			</plugin>
+			
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				<configuration>
+				<!-- Permet d'éviter les erreurs de création de Javadoc avec les <br/> -->
+	                <additionalparam>-Xdoclint:none</additionalparam>
+	            </configuration>
+			</plugin>
+			
+			
 		</plugins>
 
 	</build>
@@ -1046,8 +1093,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	<!-- REPORTING -->
 	<!-- ========= -->	
 	<reporting>
+	
 		<outputDirectory>${project.build.directory}/site</outputDirectory>
+		
 		<plugins>
+												
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+			
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -1060,23 +1116,18 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				<reportSets>
 					<reportSet>
 						<reports>
-							<report>dependencies</report>
+							<report>index</report>
+                        	<report>licenses</report>
+                        	<report>dependency-info</report>
+<!-- 							<report>dependencies</report> -->
 							<report>scm</report>
 						</reports>
 					</reportSet>
 				</reportSets>
 			</plugin>
-			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${maven-javadoc-plugin.version}</version>
-				<configuration>
-				<!-- Permet d'éviter les erreurs de création de Javadoc avec les <br/> -->
-	                <additionalparam>-Xdoclint:none</additionalparam>
-	            </configuration>
-			</plugin>
+									
 		</plugins>
+		
 	</reporting>
 
 		

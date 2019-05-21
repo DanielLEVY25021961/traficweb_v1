@@ -1,9 +1,9 @@
 ﻿ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee
-1;01-mars;3;Numéro de Département;Exactement 3 Chiffres. Complété par un 0 à droite si dep < 3 chiffres et complété par un 0 à gauche si dep < 2 chiffres. Exemples : (Ain) 1 = 010, (Allier) 3 = 030, (Bouches-du-Rhône) 13 = 130, (Dordogne) 24 = 240, (Guadeloupe) 971 = 971;numDepartement;Integer;false;false;1;3;3
-2;04-sept;6;Numéro de Section;Numéro de section sur 4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche et indice sur 2 chiffres significatifs maxi complété éventuellement avec des 0 à gauche. Exemples : section 26 indice 4 = 002604, section 1 indice 0 = 000100, section 162 indice 65 = 016265;numSection;String;false;false;4;9;6
+1;1-3;3;Numéro de Département;Exactement 3 Chiffres. Complété par un 0 à droite si dep < 3 chiffres et complété par un 0 à gauche si dep < 2 chiffres. Exemples : (Ain) 1 = 010, (Allier) 3 = 030, (Bouches-du-Rhône) 13 = 130, (Dordogne) 24 = 240, (Guadeloupe) 971 = 971;numDepartement;Integer;false;false;1;3;3
+2;4-9;6;Numéro de Section;Numéro de section sur 4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche et indice sur 2 chiffres significatifs maxi complété éventuellement avec des 0 à gauche. Exemples : section 26 indice 4 = 002604, section 1 indice 0 = 000100, section 162 indice 65 = 016265;numSection;String;false;false;4;9;6
 3;10;1;Sens;1 - sens P.R. croissants route à 2 sens. [sep] 2 - sens P.R. décroissants route à 2 sens. [sep] 3 - Cumul des deux sens route à 2 sens. [sep] 4 - Sens P.R. croissants route à sens unique. [sep] 5 - Sens P.R. décroissants route à sens unique. [sep];sens;Integer;true;false;10;10;1
 4;11;1;Nature;1 - Tous Véhicules. [sep] 2 - Vitesse. [sep] 3 - Type de véhicule. [sep] 4 - Longueur de Tôle. [sep] 5 - SATL. [sep] 6 - SATL. [sep] 7 - SATL. [sep] 8 - SATL. [sep] 9 - SATL. [sep];nature;Integer;true;false;11;11;1
-5;déc-13;2;Classe;2 chiffres. Codé 00 pour 'Tous Véhicules' ;classe;String;false;false;12;13;2
+5;12-13;2;Classe;2 chiffres. Codé 00 pour 'Tous Véhicules' ;classe;String;false;false;12;13;2
 6;14-15;2;Année de traitement;Année de Traitement sur deux caractères (ex 07 pour 2007);anneeTraitement;Date;false;false;14;15;2
 7;16;1;Zone libre;1 espace;sans objet;sans objet;false;false;16;16;1
 8;17-20;4;Numéro de Route;4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 0020 pour N20);numRoute;String;false;false;17;20;4

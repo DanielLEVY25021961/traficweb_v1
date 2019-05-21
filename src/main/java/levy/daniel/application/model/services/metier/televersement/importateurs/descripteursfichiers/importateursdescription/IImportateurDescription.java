@@ -104,7 +104,7 @@ public interface IImportateurDescription
 	 * de la description de fichier</i>.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte et jette une FichierNullException 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * si this.descriptionDuFichierFile est null ou inexistant.<br/>
 	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
 	 * le fichier csv de description pFileDescription n'est pas le bon 
 	 * (description darwin csv au lieu de Histonat csv par exemple).<br/>
@@ -119,7 +119,7 @@ public interface IImportateurDescription
 	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 * 
 	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * this.descriptionDuFichierFile est null ou inexistant.<br/>
 	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
 	 * @throws ExceptionImport lorsque :<br/>
 	 * le fichier de description passé en paramètre pFileDescription 
@@ -174,7 +174,8 @@ public interface IImportateurDescription
 	 * de la description de fichier</i>.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte et jette une FichierNullException 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * si pFile <i>et</i> this.descriptionDuFichierFile 
+	 * sont null ou inexistants.<br/>
 	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
 	 * le fichier csv de description pFileDescription n'est pas le bon 
 	 * (description darwin csv au lieu de Histonat csv par exemple).<br/>
@@ -191,7 +192,8 @@ public interface IImportateurDescription
 	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 * 
 	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * si pFile <i>et</i> this.descriptionDuFichierFile 
+	 * sont null ou inexistants.<br/>
 	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
 	 * @throws ExceptionImport lorsque :<br/>
 	 * le fichier de description passé en paramètre pFileDescription 
@@ -244,7 +246,7 @@ public interface IImportateurDescription
 	 * - <i>saute la ligne d'en-tête le cas échéant</i>.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte et jette une FichierNullException 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * si pFile <i>et</i> this.descriptionDuFichierFile sont null ou inexistants.<br/>
 	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
 	 * le fichier csv de description pFileDescription n'est pas le bon 
 	 * (description darwin csv au lieu de Histonat csv par exemple).<br/>
@@ -261,7 +263,8 @@ public interface IImportateurDescription
 	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 * 
 	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * si pFile <i>et</i> this.descriptionDuFichierFile 
+	 * sont null ou inexistants.<br/>
 	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
 	 * @throws ExceptionImport lorsque :<br/>
 	 * le fichier de description passé en paramètre pFileDescription 
@@ -320,7 +323,7 @@ public interface IImportateurDescription
 	 * de la description de fichier</i>.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte et jette une FichierNullException 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * si pFile <i>et</i> this.descriptionDuFichierFile sont null ou inexistants.<br/>
 	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
 	 * le fichier csv de description pFileDescription n'est pas le bon 
 	 * (description darwin csv au lieu de Histonat csv par exemple).<br/>
@@ -337,7 +340,7 @@ public interface IImportateurDescription
 	 * @return SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 * 
 	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 * si pFile <i>et</i> this.descriptionDuFichierFile sont null ou inexistants.<br/>
 	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
 	 * @throws ExceptionImport lorsque :<br/>
 	 * le fichier de description passé en paramètre pFileDescription 
