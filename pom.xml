@@ -221,11 +221,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	<dependencies>
 	
 		<!-- Pour MAVEN SITE -->
-		<dependency>
-	        <groupId>org.apache.maven.doxia</groupId>
-	        <artifactId>doxia-site-renderer</artifactId>
-	        <version>1.8.1</version>
-	    </dependency>
+<!-- 		<dependency> -->
+<!-- 	        <groupId>org.apache.maven.doxia</groupId> -->
+<!-- 	        <artifactId>doxia-site-renderer</artifactId> -->
+<!-- 	        <version>1.8.1</version> -->
+<!-- 	    </dependency> -->
 
 
 		<!-- CERBERE BOUCHON -->
@@ -408,6 +408,16 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 <!-- 		    <scope>provided</scope> -->
 <!-- 		</dependency> -->
 		
+		
+		<!-- ================================= -->
+		<!--    dépendances pour ???       	   -->
+		<!-- ================================= -->		
+		<!-- https://mvnrepository.com/artifact/javax.interceptor/javax.interceptor-api -->
+		<dependency>
+		    <groupId>javax.interceptor</groupId>
+		    <artifactId>javax.interceptor-api</artifactId>
+		    <version>1.2</version>
+		</dependency>
 
 
 		<!-- ================================= -->
@@ -1070,19 +1080,15 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			  <groupId>org.apache.maven.plugins</groupId>
 			  <artifactId>maven-site-plugin</artifactId>
 			  <version>${maven-site-plugin.version}</version>
-			</plugin>
-			
-			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${maven-javadoc-plugin.version}</version>
-				<configuration>
-				<!-- Permet d'éviter les erreurs de création de Javadoc avec les <br/> -->
-	                <additionalparam>-Xdoclint:none</additionalparam>
-	            </configuration>
-			</plugin>
-			
+			  <configuration>
+	            	<!-- Permet d'éviter les erreurs de création de Javadoc avec les <br/> -->	
+        			<doclint>none</doclint>
+        			<!-- Permet d'éviter les erreurs de création de Javadoc avec les <br/> -->	
+        			<additionalOptions>
+                    	<additionalOption>-Xdoclint:none</additionalOption>
+                	</additionalOptions>
+      			</configuration>
+			</plugin>			
 			
 		</plugins>
 
@@ -1097,14 +1103,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<outputDirectory>${project.build.directory}/site</outputDirectory>
 		
 		<plugins>
-												
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.0.0</version>
-            </plugin>
 			
-			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
+			<!-- ====================================================== -->
+			<!--           PLUGIN POUR EDITION DU SITE          		-->
+			<!-- ====================================================== -->														
+ 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
@@ -1115,15 +1118,56 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				</configuration>
 				<reportSets>
 					<reportSet>
+						<!-- INDIQUE LES RAPPORTS A EDITER -->
 						<reports>
 							<report>index</report>
-                        	<report>licenses</report>
+<!--                         	<report>licenses</report> -->
                         	<report>dependency-info</report>
 <!-- 							<report>dependencies</report> -->
-							<report>scm</report>
+<!-- 							<report>scm</report> -->
 						</reports>
 					</reportSet>
 				</reportSets>
+			</plugin>
+
+			<!-- ====================================================== -->
+			<!--           PLUGIN POUR JAVADOC          				-->
+			<!-- ====================================================== -->					
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				
+		        <reportSets>
+		        
+		          <reportSet><!-- by default, id = "default" -->
+		          	<id>default</id>
+		            <reports><!-- select non-aggregate reports -->
+		              <report>javadoc</report>
+<!-- 		              <report>test-javadoc</report> -->
+		            </reports>
+		          </reportSet>
+		          
+<!-- 		          <reportSet>aggregate reportSet, to define in poms having modules -->
+<!-- 		            <id>aggregate</id> -->
+<!-- 		            <inherited>false</inherited>don't run aggregate in child modules -->
+<!-- 		            <reports> -->
+<!-- 		              <report>aggregate</report> -->
+<!-- 		            </reports> -->
+<!-- 		          </reportSet> -->
+		          
+		        </reportSets>
+				
+	            <configuration>
+	            	<!-- Permet d'éviter les erreurs de création de Javadoc avec les <br/> -->	
+        			<doclint>none</doclint>
+        			<!-- Permet d'éviter les erreurs de création de Javadoc avec les <br/> -->	
+        			<additionalOptions>
+                    	<additionalOption>-Xdoclint:none</additionalOption>
+                	</additionalOptions>
+      			</configuration>
+      			
 			</plugin>
 									
 		</plugins>
