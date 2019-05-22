@@ -390,6 +390,56 @@ public interface IImportateurDescription
 	
 	
 	/**
+	 * <b>Transforme String[] en ligne CSV</b>.<br/>
+	 * Affiche une ligne de la description de fichier
+	 * - décomposée sous forme de tableau String[] de tokens - 
+	 * sous forme de ligne CSV avec séparateur ';'.<br/>
+	 * <br/>
+	 * Par exemple :<br/>
+	 * 1;1-3;3;Numéro de Département;calé à gauche;numDepartment;Integer;false;
+	 *  false;1;3;3; pour le champ 'Numéro de Département' 
+	 * (1ère ligne) dans la description du fichier HISTO_F07.<br/>
+	 * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;
+	 * false; pour le champ 'route' 
+	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
+	 * <br/>
+	 * - retourne "" si pTokens est null.<br/>
+	 * <br/>
+	 * 
+	 * @param pTokens : String[] : une ligne de la description
+	 * de fichier décomposée en tokens.<br/>
+	 * 
+	 * @return String : ligne csv avec séparateur ';'.<br/>
+	 */
+	String tokensToString(String[] pTokens);
+	
+
+	
+	/**
+	 * <b>Transforme ligne CSV en String[]</b>.<br/>
+	 * décompose une ligne CSV à séparateur ';' 
+	 * et retourne un tableau de tokens.<br/>
+	 * <br/>
+	 * Par exemple :<br/>
+	 * <code>1;1-3;3;Numéro de Département;calé à gauche;numDepartment;Integer;false;
+	 *  false;1;3;3;</code> pour le champ 'Numéro de Département' 
+	 * (1ère ligne) dans la description du fichier HISTO_F07.<br/>
+	 * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;
+	 * false; pour le champ 'route' 
+	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
+	 * <br/>
+	 * - retourne null si pStringCsv est blank.<br/>
+	 * <br/>
+	 *
+	 * @param pStringCsv : String : ligne CSV
+	 * 
+	 * @return : String[] : tableau de tokens.<br/>
+	 */
+	String[] stringCsvToTokens(String pStringCsv);
+	
+	
+	
+	/**
 	 * <b>Retourne IDescriptionChamp d'ordre pOrdre,
 	 * c'est à dire le pOrdre-ième champ (1-based) de la description
 	 * de fichier</b> (pOrdre-ième ligne de la description).<br/>

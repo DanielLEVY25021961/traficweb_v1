@@ -59,19 +59,27 @@ public interface IFournisseurJTableImpoDesc {
 	
 	
 	/**
-	 * retourne le contenu (valeur) de la p-ième colonne (1-based) 
-	 * à la l-ième ligne.<br/>
-	 * si pL=0, retourne un en-tête.<br/>
-	 * Methode utile pour l'affichage dans une JTable par exemple.<br/>
+	 * <b>retourne le contenu (valeur) de la p-ième colonne (1-based) 
+	 * à la pL-ième ligne</b>.
+	 * <ul>
+	 * <li>utilise <code><b>this.specificationChampsMap</b></code></li>
+	 * <li>retourne une valeur de l'en-tête si pL == 0.</li>
+	 * <li>Methode utile pour l'affichage dans une JTable par exemple.</li>
+	 * </ul>
+	 * ATTENTION : faire importerDescription(...) 
+	 * AVANT d'utiliser cette méthode.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
-	 * desc.getValeurparColonne(2) == '1-3' pour le champ 
+	 * desc.fournirValeurparLigneColonne(1, 2) retourne '1-3' 
+	 * pour la 2ème colonne ('colonnes') du 1er champ 
 	 * 'Numéro de Département' (1ère ligne) de la description 
-	 * d'un HistoNatF07.<br/>
-	 * desc.getValeurparColonne(2) == 'route' pour le champ 'route' 
-	 * (2ème ligne) dans la description du fichier Darwin csv.<br/>
+	 * d'un HISTO_F07.<br/>
+	 * desc.fournirValeurparLigneColonne(2, 2) retourne 'route' 
+	 * pour la 2ème colonne ('intitule') du 2ème champ 'route' 
+	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
-	 * - retourne null si valeursDescriptionMap est null.<br/>
+	 * - retourne null si <code><b>this.specificationChampsMap</b></code> 
+	 * est null.<br/>
 	 * - retourne null si la l-ième ligne (1-based) n'existe pas 
 	 * dans la description.<br/>
 	 * - retourne null si la p-ième colonne (1-based) n'existe pas 
@@ -79,10 +87,10 @@ public interface IFournisseurJTableImpoDesc {
 	 * <br/>
 	 * 
 	 * @param pL : int : le numéro (1-based) 
-	 * de la ligne dans le fichier de 
+	 * de la <b>ligne</b> dans le fichier de 
 	 * description dont on veut connaitre le contenu.<br/>
 	 * @param pI : int : le numéro (1-based) 
-	 * de la colonne dans le fichier de 
+	 * de la <b>colonne</b> dans le fichier de 
 	 * description dont on veut connaitre le contenu.<br/>
 	 * 
 	 * @return String : contenu pour ce champ 

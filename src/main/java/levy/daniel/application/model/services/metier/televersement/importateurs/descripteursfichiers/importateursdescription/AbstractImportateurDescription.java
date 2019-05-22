@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.regex.Pattern;
 import java.util.Set;
 import java.util.SortedMap;
 
@@ -742,6 +743,62 @@ public abstract class AbstractImportateurDescription implements
 		return stb.toString();
 		
 	} // Fin de tableauIntToString(...).___________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String tokensToString(
+			final String[] pTokens) {
+		
+		/* retourne "" si pTokens est null. */		
+		if (pTokens == null) {
+			return "";
+		}
+		
+		/* retourne "" si pTokens est vide. */
+		if (pTokens.length == 0) {
+			return "";
+		}
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		for (int i = 0; i < pTokens.length; i++) {
+			stb.append(pTokens[i]);
+			stb.append(SEP_PV);
+		}
+		
+		return stb.toString();
+		
+	} // Fin de tokensToString(
+	// String[] pTokens).__________________________________________________
+	
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String[] stringCsvToTokens(
+			final String pStringCsv) {
+		
+		/* retourne null si pStringCsv est blank. */
+		if (StringUtils.isBlank(pStringCsv)) {
+			return null;
+		}
+		
+		/* Instancie un Pattern chargé de retrouver le 
+		 * séparateur ';' dans la ligne. */
+		final Pattern patternCsv = Pattern.compile(SEP_PV);
+		
+		final String[] tokens 
+			= patternCsv.split(pStringCsv);
+		
+		return tokens;
+		
+	} // Fin de stringCsvToTokens(...).____________________________________
 	
 
 	
@@ -1708,17 +1765,17 @@ public abstract class AbstractImportateurDescription implements
 		
 		final IDescriptionChamp desc = this.specificationChampsMap.get(pL);
 		
+		/* si pL=0, retourne un en-tête. */
+		if (pL == 0) {
+			return this.fournirEnteteparColonne(pI);
+		}
+		
 		/* retourne null si la l-ième ligne (1-based) 
 		 * n'existe pas dans la description. */
 		if (desc == null) {
 			return null;
 		}
-		
-		/* si pL=0, retourne un en-tête. */
-		if (pL == 0) {
-			return desc.fournirEnteteparColonne(pI);
-		}
-		
+				
 		return desc.fournirValeurparColonne(pI);
 		
 	} // Fin de getValeurparLigneColonne(

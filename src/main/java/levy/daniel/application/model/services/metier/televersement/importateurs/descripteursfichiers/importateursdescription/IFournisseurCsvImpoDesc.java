@@ -71,10 +71,10 @@ public interface IFournisseurCsvImpoDesc {
 	
 	
 	/**
-	 * Fournit une ligne csv avec un séparateur ';'
+	 * <b>Fournit une ligne csv avec un séparateur ';'
 	 * contenant les valeurs de description d'un champ 
-	 * à la pL-ième ligne (1-based) de la description du fichier.<br/>
-	 * retourne la ligne d'en-têtes csv si pL == 0.<br/>
+	 * à la pL-ième ligne (1-based) de la description du fichier</b>.<br/>
+	 * - retourne la ligne d'en-têtes csv si pL == 0.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
 	 * <code>1;1-3;3;Numéro de Département;calé à gauche;numDepartment;
@@ -85,6 +85,7 @@ public interface IFournisseurCsvImpoDesc {
 	 * pour le champ 'route' 
 	 * (2ème ligne) dans la description du fichier DARWIN_CSV.<br/>
 	 * <br/>
+	 * - retourne la ligne d'en-têtes csv si pL == 0.<br/>
 	 * - retourne null si 
 	 * <code><b>this.specificationChampsMap</b></code> est null.<br/>
 	 * - retourne null si
