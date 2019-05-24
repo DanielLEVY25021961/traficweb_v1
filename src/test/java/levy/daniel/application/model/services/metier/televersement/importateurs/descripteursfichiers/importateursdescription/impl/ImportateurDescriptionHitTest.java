@@ -3,7 +3,13 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
@@ -66,6 +72,42 @@ public class ImportateurDescriptionHitTest {
 	 */
 	public static final String DOIT_RETOURNER_BONNE_VALEUR 
 		= "doit retourner la bonne valeur : ";
+
+	/**
+	 * Paths.get(".").toAbsolutePath().normalize().<br/>
+	 */
+	public static final Path PATH_ABSOLU_PRESENT_PROJET 
+		= Paths.get(".").toAbsolutePath().normalize();
+	
+	/**
+	 * path <b>relatif</b> (par rapport au présent projet ECLIPSE) 
+	 * des ressources des tests JUnit dans le présent projet ECLIPSE.<br/>
+	 * Paths.get("src/test/resources")
+	 */
+	public static final Path SRC_TEST_RESOURCES_PATH_RELATIF 
+		= Paths.get("src/test/resources");
+
+	/**
+	 * Path absolu vers les ressources de test.<br/>
+	 */
+	public static final Path PATH_ABSOLU_TEST_RESOURCES 
+		= PATH_ABSOLU_PRESENT_PROJET
+			.resolve(SRC_TEST_RESOURCES_PATH_RELATIF)
+				.toAbsolutePath().normalize();
+	
+	 /**
+	 * Path absolu vers les nomenclatures de test.<br/>
+	 */
+	public static final Path PATH_ABSOLU_TEST_NOMENCLATURES 
+		= PATH_ABSOLU_TEST_RESOURCES
+			.resolve("ressources/Nomenclatures")
+				.toAbsolutePath().normalize();
+	
+	/**
+	 * Path absolu vers le répertoire 'temp' sous le présent projet.
+	 */
+	public static final Path PATH_ABSOLU_REPERTOIRE_TEMP 
+		= PATH_ABSOLU_PRESENT_PROJET.resolve("temp");
 	
 	/**
 	 * IImportateurDescription à tester.<br/>
@@ -157,73 +199,6 @@ public class ImportateurDescriptionHitTest {
 				, ligneEnTetesCsv);
 		
 	} // Fin de testImporterDescriptionUtf8()._______________________________
-	
-	
-	
-	/**
-	 * Teste la méthode getDescriptionChamp(int pI).<br/>
-	 * <i>après import.</i>
-	 * <ul>
-	 * <li>garantit que getDescriptionChamp(0) null.</li>
-	 * <li>garantit que getDescriptionChamp(i) retourne la bonne valeur.</li>
-	 * <li>garantit que getDescriptionChamp(hors index) retourne null.</li>
-	 * </ul>
-	 *
-	 * @throws Exception
-	 */
-	@SuppressWarnings(UNUSED)
-	@Test
-	public void testGetDescriptionChamp() throws Exception {
-		
-		// **********************************
-		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
-		// **********************************
-		
-		/* AFFICHAGE A LA CONSOLE. */
-		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ImportateurDescriptionHitTest - méthode testGetDescriptionChamp() ********** ");
-		}
-		
-		// METHODE A TESTER.
-		final IDescriptionChamp descriptionChamp0 = importateur.getDescriptionChamp(0);
-		final IDescriptionChamp descriptionChamp1 = importateur.getDescriptionChamp(1);
-		final IDescriptionChamp descriptionChamp2 = importateur.getDescriptionChamp(2);
-		final IDescriptionChamp descriptionChamp133 = importateur.getDescriptionChamp(133);
-		final IDescriptionChamp descriptionChamp134 = importateur.getDescriptionChamp(134);
-		
-		/* AFFICHAGE A LA CONSOLE. */
-		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println();
-			System.out.println("descriptionChamp0 : " + descriptionChamp0);
-			System.out.println("descriptionChamp1 : " + descriptionChamp1.fournirLigneValeursCsv());
-			System.out.println("descriptionChamp2 : " + descriptionChamp2.fournirLigneValeursCsv());
-			System.out.println("descriptionChamp133 : " + descriptionChamp133.fournirLigneValeursCsv());
-			System.out.println("descriptionChamp134 : " + descriptionChamp134);
-		}
-		
-		/* garantit que getDescriptionChamp(0) retourne null. */
-		assertNull(
-				DOIT_RETOURNER_NULL
-				, descriptionChamp0);
-		
-		/* garantit que getDescriptionChamp(i) retourne la bonne valeur. */
-		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "1;1-3;3;Numéro de Département;Exactement 3 Chiffres. Complété par un 0 à droite si dep < 3 chiffres et complété par un 0 à gauche si dep < 2 chiffres. Exemples : (Ain) 1 = 010, (Allier) 3 = 030, (Bouches-du-Rhône) 13 = 130, (Dordogne) 24 = 240, (Guadeloupe) 971 = 971;numDepartement;Integer;false;false;1;3;3;"
-				, descriptionChamp1.fournirLigneValeursCsv());
-		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "2;4-9;6;Numéro de Section;Numéro de section sur 4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche et indice sur 2 chiffres significatifs maxi complété éventuellement avec des 0 à gauche. Exemples : section 26 indice 4 = 002604, section 1 indice 0 = 000100, section 162 indice 65 = 016265;numSection;String;false;false;4;9;6;"
-				, descriptionChamp2.fournirLigneValeursCsv());
-		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "133;486-520;35;Zone libre;35 espaces;sans objet;sans objet;false;false;486;520;35;"
-				, descriptionChamp133.fournirLigneValeursCsv());
-		
-		/* garantit que getDescriptionChamp(hors index) retourne null. */
-		assertNull(
-				DOIT_RETOURNER_NULL
-				, descriptionChamp134);
-		
-	} // Fin de testGetDescriptionChamp()._________________________________
 	
 	
 	
@@ -604,7 +579,257 @@ public class ImportateurDescriptionHitTest {
 	
 	
 	
+	/**
+	 * Teste la méthode genererDescriptionCsvFile(...).<br/>
+	 * <i>après import.</i>
+	 * <ul>
+	 * <li>garantit que genererDescriptionCsvFile(...) 
+	 * génère la description sur disque.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGenererDescriptionCsvFile() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImportateurDescriptionHitTest - méthode testGenererDescriptionCsvFile() ********** ");
+		}
+		
+		final Path decriptionGenereePath 
+			= PATH_ABSOLU_REPERTOIRE_TEMP
+				.resolve("description_HIT_generee_UTF-8.csv");
+		
+		final File descriptionGeneree = decriptionGenereePath.toFile();
+		
+		final Charset charsetUtf8 = Charset.forName("UTF-8");
+		final boolean avecLigneEnTete = true;
+		
+		// APPEL DE LA METHODE A TESTER **************
+		importateur
+			.genererDescriptionCsvFile(
+					avecLigneEnTete
+						, descriptionGeneree
+							, charsetUtf8);
+		
+		/* garantit que genererDescriptionCsvFile(...) 
+		 * génère la description sur disque. */
+		assertTrue(
+				"le fichier généré doit exister sur disque : "
+					, descriptionGeneree.exists());
+		
+		/* détruit le fichier généré à la fin du test. */
+		if (decriptionGenereePath.toFile().exists()) {
+			Files.delete(decriptionGenereePath);
+		}
+		
+		if (PATH_ABSOLU_REPERTOIRE_TEMP.toFile().exists()) {
+			Files.delete(PATH_ABSOLU_REPERTOIRE_TEMP);
+		}
+
+
+	} // Fin de testGenererDescriptionCsvFile().___________________________
+
+
 	
+	/**
+	 * Teste la méthode genererDescriptionCsvString().<br/>
+	 * <i>après import.</i>
+	 * <ul>
+	 * <li>garantit que genererDescriptionCsvString() 
+	 * génère une String contenant la description.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGenererDescriptionCsvString() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImportateurDescriptionHitTest - méthode testGenererDescriptionCsvString() ********** ");
+		}
+
+		// APPEL DE LA METHODE A TESTER **************
+		final boolean avecLigneEntetes = true;
+		final String resultat 
+			= importateur.genererDescriptionCsvString(avecLigneEntetes);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(resultat);
+		}
+		
+		/* garantit que genererDescriptionCsvString() 
+		 * génère une String contenant la description.*/
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultat);
+		
+	} // Fin de testGenererDescriptionCsvString()._________________________
+	
+	
+	
+	/**
+	 * Teste la méthode getDescriptionChamp(int pI).<br/>
+	 * <i>après import.</i>
+	 * <ul>
+	 * <li>garantit que getDescriptionChamp(0) null.</li>
+	 * <li>garantit que getDescriptionChamp(i) retourne la bonne valeur.</li>
+	 * <li>garantit que getDescriptionChamp(hors index) retourne null.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetDescriptionChamp() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImportateurDescriptionHitTest - méthode testGetDescriptionChamp() ********** ");
+		}
+		
+		// METHODE A TESTER.
+		final IDescriptionChamp descriptionChamp0 = importateur.getDescriptionChamp(0);
+		final IDescriptionChamp descriptionChamp1 = importateur.getDescriptionChamp(1);
+		final IDescriptionChamp descriptionChamp2 = importateur.getDescriptionChamp(2);
+		final IDescriptionChamp descriptionChamp133 = importateur.getDescriptionChamp(133);
+		final IDescriptionChamp descriptionChamp134 = importateur.getDescriptionChamp(134);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println("descriptionChamp0 : " + descriptionChamp0);
+			System.out.println("descriptionChamp1 : " + descriptionChamp1.fournirLigneValeursCsv());
+			System.out.println("descriptionChamp2 : " + descriptionChamp2.fournirLigneValeursCsv());
+			System.out.println("descriptionChamp133 : " + descriptionChamp133.fournirLigneValeursCsv());
+			System.out.println("descriptionChamp134 : " + descriptionChamp134);
+		}
+		
+		/* garantit que getDescriptionChamp(0) retourne null. */
+		assertNull(
+				DOIT_RETOURNER_NULL
+				, descriptionChamp0);
+		
+		/* garantit que getDescriptionChamp(i) retourne la bonne valeur. */
+		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+				, "1;1-3;3;Numéro de Département;Exactement 3 Chiffres. Complété par un 0 à droite si dep < 3 chiffres et complété par un 0 à gauche si dep < 2 chiffres. Exemples : (Ain) 1 = 010, (Allier) 3 = 030, (Bouches-du-Rhône) 13 = 130, (Dordogne) 24 = 240, (Guadeloupe) 971 = 971;numDepartement;Integer;false;false;1;3;3;"
+				, descriptionChamp1.fournirLigneValeursCsv());
+		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+				, "2;4-9;6;Numéro de Section;Numéro de section sur 4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche et indice sur 2 chiffres significatifs maxi complété éventuellement avec des 0 à gauche. Exemples : section 26 indice 4 = 002604, section 1 indice 0 = 000100, section 162 indice 65 = 016265;numSection;String;false;false;4;9;6;"
+				, descriptionChamp2.fournirLigneValeursCsv());
+		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+				, "133;486-520;35;Zone libre;35 espaces;sans objet;sans objet;false;false;486;520;35;"
+				, descriptionChamp133.fournirLigneValeursCsv());
+		
+		/* garantit que getDescriptionChamp(hors index) retourne null. */
+		assertNull(
+				DOIT_RETOURNER_NULL
+				, descriptionChamp134);
+		
+	} // Fin de testGetDescriptionChamp()._________________________________
+
+	
+		
+	/**
+	 * Teste la méthode getDescriptionDuFichierFile().<br/>
+	 * <i>après import.</i>
+	 * <ul>
+	 * <li>garantit que getDescriptionDuFichierFile() 
+	 * retourne la bonne valeur.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetDescriptionDuFichierFile() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImportateurDescriptionHitTest - méthode testGetDescriptionDuFichierFile() ********** ");
+		}
+		
+		// METHODE A TESTER.
+		final File resultat = importateur.getDescriptionDuFichierFile();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println("DescriptionDuFichierFile : " + resultat.getAbsolutePath());
+		}
+		
+		/* garantit que getDescriptionDuFichierFile() retourne la bonne valeur. */
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultat);
+		assertTrue("Doit exister : ", resultat.exists());
+		
+	} // Fin de testGetDescriptionDuFichierFile()._________________________
+
+	
+	
+	/**
+	 * Teste la méthode getLabelDescriptionFichier().<br/>
+	 * <i>après import.</i>
+	 * <ul>
+	 * <li>garantit que getLabelDescriptionFichier() 
+	 * retourne la bonne valeur.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetLabelDescriptionFichier() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImportateurDescriptionHitTest - méthode testGetLabelDescriptionFichier() ********** ");
+		}
+		
+		// METHODE A TESTER.
+		final String resultat = importateur.getLabelDescriptionFichier();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println("LabelDescriptionFichier : " + resultat);
+		}
+		
+		/* garantit que getLabelDescriptionFichier() retourne la bonne valeur. */
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultat);
+		
+	} // Fin de testGetLabelDescriptionFichier().__________________________
+	
+	
+
 	/**
 	 * Instancie un IImportateurDescription 
 	 * avant tout test de la classe.<br/>
@@ -614,10 +839,11 @@ public class ImportateurDescriptionHitTest {
 	@BeforeClass
 	public static void instancierImportateur() throws Exception {
 		
-		importateur 
-			= new ImportateurDescriptionHit();
+		// instanciation d'un ImportateurDescription.
+		importateur = new ImportateurDescriptionHit();
 		
-		// IMPORT
+		// IMPORT de la bonne description de fichier encodée en UTF-8 
+		// (contenue sous classpath/resources).
 		importateur.importerDescriptionUtf8();
 		
 	} // Fin de instancierImportateur().___________________________________

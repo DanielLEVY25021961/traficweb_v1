@@ -583,7 +583,7 @@ public class ImportateurDescriptionDarwinCsv extends
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getNomDescriptionChamp() {
+	public final String getLabelDescriptionFichier() {
 		return "Description des champs d'un fichier Darwin csv";
 	} // Fin de getNomDescriptionChamp().__________________________________
 	

@@ -603,7 +603,7 @@ public interface IFournisseurCsvImpoDesc {
 	 * dans le fichier destination 
 	 * pFile même si il existait déjà 
 	 * (pour prendre en compte une éventuelle modification 
-	 * de la description de fichier).</li>
+	 * de la description de fichier) - ECRASE ET REMPLACE.</li>
 	 * <li>choisit automatiquement le Charset UTF-8 si pCharset == null 
 	 * ou si pCharset ne peut encoder.</li>
 	 * <li>Ajoute le BOM-UTF8 au début du fichier généré si charset 

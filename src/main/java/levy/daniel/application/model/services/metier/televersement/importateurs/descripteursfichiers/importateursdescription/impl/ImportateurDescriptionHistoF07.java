@@ -245,7 +245,7 @@ public class ImportateurDescriptionHistoF07 extends
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getNomDescriptionChamp() {
+	public final String getLabelDescriptionFichier() {
 		return "Description des champs d'un fichier HISTO_F07";
 	} // Fin de getNomDescriptionChamp().__________________________________
 	

@@ -625,7 +625,7 @@ public class ImportateurDescriptionMapping extends
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getNomDescriptionChamp() {
+	public final String getLabelDescriptionFichier() {
 		return "Description des champs d'un fichier de Mapping HIT-HISTO_F07-DARWIN";
 	} // Fin de getNomDescriptionChamp().__________________________________
 	

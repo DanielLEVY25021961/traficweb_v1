@@ -41,7 +41,26 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * <p>
  * - Exemple d'utilisation :
  * </p>
- * 
+ * <code> // instanciation d'un ImportateurDescription.</code><br/>
+ * <code><b>IImportateurDescription importateur = new ImportateurDescriptionHit();</b></code><br/>
+ * <code>// IMPORT de la bonne description de fichier encodée en UTF-8 (contenue sous classpath/resources).</code><br/>
+ * <code><b>importateur.importerDescriptionUtf8();</b></code><br/>
+ * <code> // Retourne l'en-tête de la 2ème colonne d'un HIT ("colonnes")</code><br/>
+ * <code><b>String fournirEnteteparColonne2 = importateur.fournirEnteteparColonne(2);</b></code><br/>
+ * <code> // Retourne la ligne d'en-tête CSV du HIT ("ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;")</code><br/>
+ * <code><b>String ligneEnTetesCsv = importateur.fournirLigneEnTetesCsv();</b></code><br/>
+ * <code> // retourne la description du 1er champ de la description du HIT ("1;1-3;3;Numéro de Département;Exactement 3 Chiffres. Complété par un 0 à droite si dep < 3 chiffres et complété par un 0 à gauche si dep < 2 chiffres. Exemples : (Ain) 1 = 010, (Allier) 3 = 030, (Bouches-du-Rhône) 13 = 130, (Dordogne) 24 = 240, (Guadeloupe) 971 = 971;numDepartement;Integer;false;false;1;3;3;")</code><br/>
+ * <code><b>String ligneValeursCsv1 = importateur.fournirLigneValeursCsv(1);</b></code><br/>
+ * <code> // retourne la valeur de la 28ème ligne et de la 6ème colonne de la description du fichier HIT ("longueurRaseCampagne")</code><br/>
+ * <code><b>String valeurl28c6 = importateur.fournirValeurparLigneColonne(28, 6);</b></code><br/>
+ * <code> // génère en UTF-8 la description de fichier précédemment importée dans le fichier descriptionGeneree</code><br/>
+ * <code><b>Path decriptionGenereePath = PATH_ABSOLU_REPERTOIRE_TEMP.resolve("description_HIT_generee_UTF-8.csv");</b></code></br>
+ * <code><b>File descriptionGeneree = decriptionGenereePath.toFile();</b></code></br>
+ * <code><b>importateur.genererDescriptionCsvFileUtf8(descriptionGeneree);</b></code></br>
+ * <code> // Retourne la description précédemment importée et regénérée sous forme de String.</code><br/>
+ * <code><b>String resultat = importateur.genererDescriptionCsvString(true);</b></code></br>
+ * <code> // Retourne la IDescriptionChamp correspondant au 2ème champ de la description du HIT (numéro de section)</code><br/>
+ * <code><b>IDescriptionChamp descriptionChamp2 = importateur.getDescriptionChamp(2);</b></code></br>
  *<br/>
  * 
  * - Mots-clé :<br/>
@@ -487,11 +506,12 @@ public interface IImportateurDescription
 	 * décrivant un champ dans une description de fichier et 
 	 * utilisé pour obtenir l'en-tête du fichier de description.<br/>
 	 * Par exemple :<br/>
-	 * [ordreChamps, colonnes, longueur, intitule, nomenclature
+	 * <code>[ordreChamps, colonnes, longueur, intitule, nomenclature
 	 * , champJava, typeJava, aNomenclature
-	 * , colonneDebut, colonneFin, longueurCalculee] 
+	 * , colonneDebut, colonneFin, longueurCalculee]</code> 
 	 * pour une description de HISTO_F07.<br/>
-	 * [ordreChamps, intitule, nomenclature, champJava, typeJava, aNomenclature] 
+	 * <code>[ordreChamps, intitule, nomenclature, champJava, typeJava
+	 * , aNomenclature]</code> 
 	 * pour une description de DARWIN_CSV.<br/>
 	 * <br/>
 	 *
@@ -599,7 +619,7 @@ public interface IImportateurDescription
 	 *
 	 * @return : String.<br/>
 	 */
-	String getNomDescriptionChamp();
+	String getLabelDescriptionFichier();
 
 
 
