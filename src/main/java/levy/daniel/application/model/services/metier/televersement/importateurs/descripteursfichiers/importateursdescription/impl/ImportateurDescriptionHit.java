@@ -2,11 +2,9 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 
 import java.io.File;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.ConfigurationApplicationManager;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesdescriptions.ConfigurationDescriptionsFichiersManager;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescriptionAscii;
@@ -71,9 +69,9 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * <code><b>IImportateurDescription importateur = new ImportateurDescriptionHit();</b></code><br/>
  * <code>// IMPORT de la bonne description de fichier encodée en UTF-8 (contenue sous classpath/resources).</code><br/>
  * <code><b>importateur.importerDescriptionUtf8();</b></code><br/>
- * <code> // Retourne l'en-tête de la 2ème colonne d'un HIT ("colonnes")</code><br/>
+ * <code> // Retourne l'en-tête de la 2ème colonne d'un fichier de description du HIT ("colonnes")</code><br/>
  * <code><b>String fournirEnteteparColonne2 = importateur.fournirEnteteparColonne(2);</b></code><br/>
- * <code> // Retourne la ligne d'en-tête CSV du HIT ("ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;")</code><br/>
+ * <code> // Retourne la ligne d'en-tête CSV du fichier de description du HIT ("ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;")</code><br/>
  * <code><b>String ligneEnTetesCsv = importateur.fournirLigneEnTetesCsv();</b></code><br/>
  * <code> // retourne la description du 1er champ de la description du HIT ("1;1-3;3;Numéro de Département;Exactement 3 Chiffres. Complété par un 0 à droite si dep < 3 chiffres et complété par un 0 à gauche si dep < 2 chiffres. Exemples : (Ain) 1 = 010, (Allier) 3 = 030, (Bouches-du-Rhône) 13 = 130, (Dordogne) 24 = 240, (Guadeloupe) 971 = 971;numDepartement;Integer;false;false;1;3;3;")</code><br/>
  * <code><b>String ligneValeursCsv1 = importateur.fournirLigneValeursCsv(1);</b></code><br/>
@@ -181,40 +179,6 @@ public class ImportateurDescriptionHit extends
 		this.determinerSiLogErreurs();
 		
 	} // Fin de CONSTRUCTEUR ARCHICOMPLET._________________________________
-	
-
-	
-	/**
-	 * method determinerSiLogErreurs() :<br/>
-	 * - Va chercher dans messages_techniques.properties 
-	 * si il faut créer des rapports d'erreur d'import des descriptions.<br/>
-	 * - Instancie le cas échéant le rapport d'erreur.<br/>
-	 * <br/>
-	 * @throws Exception 
-	 */
-	private void determinerSiLogErreurs() throws Exception {
-		
-		final String cleLogImport = this.recupererCleLogErreur();
-
-		final String logImportString 
-		= ConfigurationApplicationManager
-			.getBundleMessagesTechnique()
-				.getString(cleLogImport);
-		
-		if (StringUtils.containsIgnoreCase(logImportString, "true")) {
-			this.logImportDescription = true;
-		}
-		else {
-			this.logImportDescription = false;
-		}
-		
-		/* Instanciation du rapportImportDescription
-		 * si logImportDescription == true. */
-		if (this.logImportDescription) {
-			this.rapportImportDescriptionStb = new StringBuffer();
-		}
-		
-	} // Fin de determinerSiLogErreurs().__________________________________
 	
 	
 	

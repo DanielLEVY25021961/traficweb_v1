@@ -181,40 +181,6 @@ public class ImportateurDescriptionMapping extends
 	} // Fin de CONSTRUCTEUR ARCHICOMPLET._________________________________
 	
 
-	
-	/**
-	 * method determinerSiLogErreurs() :<br/>
-	 * - Va chercher dans messages_techniques.properties 
-	 * si il faut créer des rapports d'erreur d'import des descriptions.<br/>
-	 * - Instancie le cas échéant le rapport d'erreur.<br/>
-	 * <br/>
-	 * @throws Exception 
-	 */
-	private void determinerSiLogErreurs() throws Exception {
-		
-		final String cleLogImport = this.recupererCleLogErreur();
-
-		final String logImportString 
-		= ConfigurationApplicationManager
-			.getBundleMessagesTechnique()
-				.getString(cleLogImport);
-		
-		if (StringUtils.containsIgnoreCase(logImportString, "true")) {
-			this.logImportDescription = true;
-		}
-		else {
-			this.logImportDescription = false;
-		}
-		
-		/* Instanciation du rapportImportDescription
-		 * si logImportDescription == true. */
-		if (this.logImportDescription) {
-			this.rapportImportDescriptionStb = new StringBuffer();
-		}
-		
-	} // Fin de determinerSiLogErreurs().__________________________________
-	
-
 
 	/**
 	 * {@inheritDoc}

@@ -13,9 +13,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.regex.Pattern;
 import java.util.Set;
 import java.util.SortedMap;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -303,6 +303,39 @@ public abstract class AbstractImportateurDescription implements
 		this.descriptionDuFichierFile = pDescriptionDuFichierFile;
 		
 	} // Fin de CONSTRUCTEUR ARCHICOMPLET._________________________________
+	
+
+	
+	/**
+	 * - Va chercher dans ressources_externes/messages_techniques.properties 
+	 * si il faut créer des rapports d'erreur d'import des descriptions.<br/>
+	 * - Instancie le cas échéant le rapport d'erreur.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	protected void determinerSiLogErreurs() throws Exception {
+		
+		final String cleLogImport = this.recupererCleLogErreur();
+
+		final String logImportString 
+		= ConfigurationApplicationManager
+			.getBundleMessagesTechnique()
+				.getString(cleLogImport);
+		
+		if (StringUtils.containsIgnoreCase(logImportString, "true")) {
+			this.logImportDescription = true;
+		}
+		else {
+			this.logImportDescription = false;
+		}
+		
+		/* Instanciation du rapportImportDescription
+		 * si logImportDescription == true. */
+		if (this.logImportDescription) {
+			this.rapportImportDescriptionStb = new StringBuffer();
+		}
+		
+	} // Fin de determinerSiLogErreurs().__________________________________
 	
 
 
