@@ -23,40 +23,85 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * CLASSE ImportateurDescriptionDarwinCsv :
  * <p>
  * Importateur concret pour les DESCRIPTIONS EN CSV des DARWIN_CSV.<br/>
+ * </p>
+ * 
+ * <p>
  * Chargé de lire une description de fichier DARWIN_CSV 
  * au format csv avec séparateur ';'
  * et de la rendre disponible pour toute l'application 
  * via une SortedMap&lt;Integer,IDescriptionChamp&gt; 
- * specificationChampsMap.<br/>
- * <br/>
- * La description d'un DARWIN_CSV commence par :<br/>
- * ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature;<br/>
- * 1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;<br/>
- * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;<br/>
- * 3;Département du PR Origine;Département du PR Origine  ('début');depPrd;String;false;<br/>
- * 4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;<br/>
- * 5;PR Origine;PR Origine  ('début');prd;Integer;false;<br/>
+ * <code><b>this.specificationChampsMap</b></code>.<br/>
+ * </p>
+ * 
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * La description d'un fichier DARWIN_CSV commence par :
+ * </span></b>
+ * </p>
+ * <p>
+ * ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;<br/>
+ * 1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;false;<br/>
+ * 2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;false;<br/>
+ * 3;Département du PR Origine;Département du PR Origine ('début');depPrd;String;false;false;<br/>
+ * 4;Code Concession du PR Origine;Code Concession du PR Origine ('début');concessionPrd;String;false;true;<br/>
+ * 5;PR Origine;PR Origine ('début');prd;Integer;false;false;<br/>
  * .......................................................<br/>
+ * </p>
+ * 
+ * <p>
+ * <table border="1">
+ * <tr>
+ * <th>ordreChamps</th> <th>intitule</th> <th>nomenclature</th> <th>champJava</th> 
+ * <th>typeJava</th> <th>aNomenclature</th> <th>aLexique</th> 
+ * </tr>
+ * <tr>
+ * <td>1</td> <td>Identifiant de la section</td> <td>Identifiant de la section</td> <td>objetId</td> 
+ * <td>Integer</td> <td>false</td> <td>false</td> 
+ * </tr>
+ * <tr>
+ * <td>2</td> <td>route</td> <td>Route au format Isidor (ex : A0034b1 ou A0006)</td> <td>route</td> 
+ * <td>String</td> <td>false</td> <td>false</td> 
+ * </tr>
+ * <tr>
+ * <td>3</td> <td>Département du PR Origine</td> <td>Département du PR Origine ('début')</td> <td>depPrd</td> 
+ * <td>String</td> <td>false</td> <td>false</td> 
+ * </tr>
+ * <tr>
+ * <td>4</td> <td>Code Concession du PR Origine</td> <td>Code Concession du PR Origine ('début')</td> <td>concessionPrd</td> 
+ * <td>String</td> <td>false</td> <td>true</td> 
+ * </tr>
+ * <tr>
+ * <td>5</td> <td>PR Origine</td> <td>PR Origine ('début')</td> <td>prd</td> 
+ * <td>Integer</td> <td>false</td> <td>false</td> 
+ * </tr>
+ * </table>
+ * </p>
+
  * <br/>
  *
- * - Exemple d'utilisation :<br/>
- * <br/>
- * <code>
- * \\ Instanciation d'un Importateur de description.<br/>
- * final ImportateurDescriptionDarwinCsv impoDesc 
- * = new ImportateurDescriptionDarwinCsv();<br/>
- * <br/>
- * try {<br/>
- * <br/>
- * \\<i>Fournit la description sous forme de 
- * SortedMap&lt;Integer,IDescriptionChamp&gt; specificationChampsMap.</i><br/>
- * final SortedMap&lt;Integer,IDescriptionChamp&gt; specificationChampsMap 
- * = impoDesc.importerDescription(DESCRIPTION DARWIN_CSV en csv);<br/>
- * <br/>
- * } catch (Exception e) {<br/>
- * 			System.out.println("RAPPORT : \n" <br/>
- * 				+ impoDesc.getRapportImportDescriptionStb().toString());<br/>
- * }<br/></code>
+ * <p>
+ * - Exemple d'utilisation :
+ * </p>
+ * <code> // instanciation d'un ImportateurDescription.</code><br/>
+ * <code><b>IImportateurDescription importateur = new ImportateurDescriptionDarwinCsv();</b></code><br/>
+ * <code>// IMPORT de la bonne description de fichier encodée en UTF-8 (contenue sous classpath/resources).</code><br/>
+ * <code><b>importateur.importerDescriptionUtf8();</b></code><br/>
+ * <code> // Retourne l'en-tête de la 2ème colonne d'un fichier de description du DARWIN_CSV ("intitule")</code><br/>
+ * <code><b>String fournirEnteteparColonne2 = importateur.fournirEnteteparColonne(2);</b></code><br/>
+ * <code> // Retourne la ligne d'en-tête CSV du fichier de description du DARWIN_CSV ("ordreChamps;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;")</code><br/>
+ * <code><b>String ligneEnTetesCsv = importateur.fournirLigneEnTetesCsv();</b></code><br/>
+ * <code> // retourne la description du 1er champ de la description du DARWIN_CSV ("1;identifiant de la section;identifiant de la section;objetId;Integer;false;false;")</code><br/>
+ * <code><b>String ligneValeursCsv1 = importateur.fournirLigneValeursCsv(1);</b></code><br/>
+ * <code> // retourne la valeur de la 28ème ligne et de la 6ème colonne de la description du fichier DARWIN_CSV ("false")</code><br/>
+ * <code><b>String valeurl28c6 = importateur.fournirValeurparLigneColonne(28, 6);</b></code><br/>
+ * <code> // génère en UTF-8 la description de fichier précédemment importée dans le fichier descriptionGeneree</code><br/>
+ * <code><b>Path decriptionGenereePath = PATH_ABSOLU_REPERTOIRE_TEMP.resolve("description_DARWIN_CSV_generee_UTF-8.csv");</b></code></br>
+ * <code><b>File descriptionGeneree = decriptionGenereePath.toFile();</b></code></br>
+ * <code><b>importateur.genererDescriptionCsvFileUtf8(descriptionGeneree);</b></code></br>
+ * <code> // Retourne la description précédemment importée et regénérée sous forme de String.</code><br/>
+ * <code><b>String resultat = importateur.genererDescriptionCsvString(true);</b></code></br>
+ * <code> // Retourne la IDescriptionChamp correspondant au 2ème champ de la description du DARWIN_CSV (route)</code><br/>
+ * <code><b>IDescriptionChamp descriptionChamp2 = importateur.getDescriptionChamp(2);</b></code></br>
  *<br/>
  * 
  * - Mots-clé :<br/>

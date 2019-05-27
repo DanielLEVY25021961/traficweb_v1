@@ -22,8 +22,12 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 
 /**
  * CLASSE AbstractImportateurDescriptionAscii :<br/>
- * .<br/>
- * <br/>
+ * <p>
+ * Classe abstraite factorisant les attributs et méthodes 
+ * des ImportateurDescription des FICHIERS ASCII 
+ * (HIT, HISTO_F07, HISTO_F08).<br/>
+ * ETEND {@link AbstractImportateurDescription}.
+ * </p>
  *
  * <p>
  * - Exemple d'utilisation :
