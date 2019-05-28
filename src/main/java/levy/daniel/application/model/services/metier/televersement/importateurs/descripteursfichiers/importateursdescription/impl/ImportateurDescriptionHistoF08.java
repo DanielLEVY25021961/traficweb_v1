@@ -253,6 +253,17 @@ public class ImportateurDescriptionHistoF08 extends
 	protected final String getCleColonnesPasJointives() {
 		return "importateurdescriptionf08.liredescription.colonnespasjointif";
 	} // Fin de getCleColonnesPasJointives().______________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * "importateurdescriptionf08.liredescription.pascsv"
+	 */
+	@Override
+	protected final String getClePasCsv() {
+		return "importateurdescriptionf08.liredescription.pascsv";
+	} // Fin de getClePasCsv().____________________________________________
 	
 	
 	

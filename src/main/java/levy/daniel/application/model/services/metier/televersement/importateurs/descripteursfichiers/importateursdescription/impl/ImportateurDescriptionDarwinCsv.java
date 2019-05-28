@@ -1,20 +1,21 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesdescriptions.ConfigurationDescriptionsFichiersManager;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampDarwinCsv;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescription;
@@ -124,11 +125,10 @@ public class ImportateurDescriptionDarwinCsv extends
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * CLASSE_IMPORTATEURDESCRIPTIONDARWINCSV : String :<br/>
-	 * "Classe ImportateurDescriptionDarwinCsv - ".<br/>
+	 * "Classe ImportateurDescriptionDarwinCsv".<br/>
 	 */
 	public static final String CLASSE_IMPORTATEURDESCRIPTIONDARWINCSV 
-	= "Classe ImportateurDescriptionDarwinCsv - ";
+	= "Classe ImportateurDescriptionDarwinCsv";
 	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
@@ -190,33 +190,46 @@ public class ImportateurDescriptionDarwinCsv extends
 	
 	
 	/**
-	 * method CONSTRUCTEUR ImportateurDescriptionDarwinCsv() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>passe automatiquement la <b>description de fichier du DARWIN_CSV</b>
+	 * <code><b>ConfigurationDescriptionsFichiersManager.getFichierDescriptionDarwinCsv()</b></code> 
+	 * à <code><b>this.descriptionDuFichierFile</b></code> de la classe.</li>
+	 * <li>délègue à un 
+	 * <code><b>ConfigurationDescriptionsFichiersManager</b></code> 
+	 * le soin de fournir la bonne description de fichier.</li>
+	 * <li>passe automatiquement une <b>description de champ DARWIN_CSV</b>
+	 * <code><b>DescriptionChampDarwinCsv</b></code> à 
+	 * <code><b>this.descriptionChamp</b></code>.</li>
+	 * <li>alimente <code><b>this.logImportDescription</b></code> 
+	 * avec la valeur contenue dans 
+	 * <code>ressources_externes/messages_techniques.properties</code> 
+	 * pour savoir si il faut logger les rapports d'import.</li>
+	 * </ul>
 	 * 
 	 * @throws Exception 
 	 */
 	public ImportateurDescriptionDarwinCsv() throws Exception {
 		
-		super();
-		
-		/* Passe le bon DescriptionChamp. */
-		this.descriptionChamp = new DescriptionChampDarwinCsv();
-		
-		/* Détermination de la valeur du boolean qui
-		 * stipule si il faut logger l'import de la description
-		 * ou pas. */
-		this.determinerSiLogErreurs();
+		this(ConfigurationDescriptionsFichiersManager.getFichierDescriptionDarwinCsv());
 		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 	
 		
 	 /**
-	 * method CONSTRUCTEUR ImportateurDescriptionDarwinCsv(
-	 * File pDescriptionDuFichierFile) :<br/>
 	 * CONSTRUCTEUR ARCHICOMPLET.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>passe pDescriptionDuFichierFile 
+	 * à <code><b>this.descriptionDuFichierFile</b></code> de la classe.</li>
+	 * <li>passe automatiquement une <b>description de champ DARWIN_CSV</b>
+	 * <code><b>DescriptionChampDarwinCsv</b></code> à 
+	 * <code><b>this.descriptionChamp</b></code>.</li>
+	 * <li>alimente <code><b>this.logImportDescription</b></code> 
+	 * avec la valeur contenue dans 
+	 * <code>ressources_externes/messages_techniques.properties</code> 
+	 * pour savoir si il faut logger les rapports d'import.</li>
+	 * </ul>
 	 *
 	 * @param pDescriptionDuFichierFile : File : 
 	 * la description de fichier à mettre 
@@ -248,7 +261,7 @@ public class ImportateurDescriptionDarwinCsv extends
 		return this.importerDescription(
 				null, StandardCharsets.UTF_8);
 		
-	} // Fin de importerDescriptionUtf8(...).______________________________
+	} // Fin de importerDescriptionUtf8()._________________________________
 
 	
 	
@@ -258,14 +271,12 @@ public class ImportateurDescriptionDarwinCsv extends
 	@Override
 	public final SortedMap<Integer, IDescriptionChamp> importerDescriptionUtf8(
 			final File pFileDescription) 
-					throws FichierNullException
-					, TableauNullException
-					, TableauVideException
-					, ExceptionImport
-					, IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+					throws Exception {
+		
+		return this.importerDescription(
+				pFileDescription, StandardCharsets.UTF_8);
+		
+	} // Fin de importerDescriptionUtf8(...).______________________________
 
 
 
@@ -275,14 +286,12 @@ public class ImportateurDescriptionDarwinCsv extends
 	@Override
 	public final SortedMap<Integer, IDescriptionChamp> importerDescriptionLatin9(
 			final File pFileDescription) 
-					throws FichierNullException
-					, TableauNullException
-					, TableauVideException
-					, ExceptionImport
-					, IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+					throws Exception {
+		
+		return this.importerDescription(
+				pFileDescription, Charset.forName("ISO-8859-15"));
+		
+	} // Fin de importerDescriptionLatin9(...);____________________________
 
 
 
@@ -293,275 +302,243 @@ public class ImportateurDescriptionDarwinCsv extends
 	public SortedMap<Integer, IDescriptionChamp> importerDescription(
 			final File pFileDescription
 				, final Charset pCharset)
-						throws FichierNullException
-						, TableauNullException
-						, TableauVideException
-						, ExceptionImport
-						, IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	
-	/**
-	 * method traiterDescriptionNull() :<br/>
-	 * LOG.fatal, rapporte et jette une FichierNullException 
-	 * si pFile et this.descriptionDuFichierFile 
-	 * sont null ou inexistants.<br/>
-	 * <br/>
-	 * 
-	 * @throws FichierNullException  : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 */
-	private void traiterDescriptionNull() throws FichierNullException {
+						throws Exception {
 		
-		if (this.descriptionDuFichierFile == null 
-				|| !this.descriptionDuFichierFile.exists()) {
-			
-			final String message 
-			= CLASSE_IMPORTATEURDESCRIPTIONDARWINCSV
-			+ METHODE_IMPORTERDESCRIPTION 
-			+ "Le fichier de description à importer est null ou inexistant";
-			
-			/* Logge. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message);
-			}
-			
-			/* Rapport d'erreur. */
-			if (this.logImportDescription) {
-				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(NEWLINE);
-			}
-			
-			/* Jette une Exception circonstanciée. */
-			throw new FichierNullException(message);
-			
-		} // Fin de pFile et descriptionDuFichierFile absents.______
+		File fileDescription = null;
 		
-	} // Fin de traiterDescriptionNull().__________________________________
-	
-
-	
-	/**
-	 * method traiterFichierNonCsv() :<br/>
-	 * LOG.fatal, rapporte et jette une ExceptionImport 
-	 * si la description de fichier n'a pas l'extension csv.<br/>
-	 * <br/>
-	 * 
-	 * @throws Exception 
-	 */
-	private void traiterFichierNonCsv() throws Exception {
-		
-		/* Fichier lu non csv. */
-		if (!this.descriptionDuFichierFile.getPath().endsWith("csv")) {
+		/* DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ************/
+		/* utilise automatiquement la description this.descriptionDuFichierFile 
+		 * si pFileDescription est null ou ne convient pas. */
+		if (pFileDescription == null 
+				|| pFileDescription.length() == 0 
+					|| !pFileDescription.exists() 
+						|| !pFileDescription.isFile()) {
 			
-			final String clePasCSV 
-			= "importateurdescriptiondarwincsv.liredescription.pascsv";
-
-			final String messagePasCsv
-			= ConfigurationApplicationManager
-				.getBundleMessagesTechnique()
-					.getString(clePasCSV);
-
-			final String message 
-			= CLASSE_IMPORTATEURDESCRIPTIONDARWINCSV 
-			+ METHODE_IMPORTERDESCRIPTION
-			+ messagePasCsv
-			+ this.descriptionDuFichierFile.getAbsolutePath();
-
-			/* Logge. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message);
-			}
+			/* Si this.descriptionDuFichierFile est aussi absent. */
+			/* LOG.fatal, rapporte et jette une FichierNullException. */
+			this.traiterDescriptionNull();
 			
-			/* Rapport d'erreur. */
-			if (this.logImportDescription) {
-				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(NEWLINE);
-			}
-			
-			/* Jette une Exception circonstanciée. */
-			throw new ExceptionImport(message);
-			
-		} // Fin de if (!pDescription.getPath().endsWith("csv")).________
-		
-	} // Fin de traiterFichierNonCsv().____________________________________
-	
-	
-	
-	/**
-	 * method controlerUniciteNomJava(
-	 * IDescriptionChamp pDesc) :<br/>
-	 * Contrôle l'unicité des noms de champ java dans la description.<br/>
-	 * <br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * un nom de champ java 
-	 * existe en doublon dans la description.<br/>
-	 * <br/>
-	 * ne fait rien si pDesc est null.<br/>
-	 * <br/>
-	 *
-	 * @param pDesc : IDescriptionChamp : 
-	 * "Ligne" de la description du fichier.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	private void controlerUniciteNomJava(
-			final IDescriptionChamp pDesc) throws Exception {
-		
-		/* ne fait rien si pDesc est null. */
-		if (pDesc == null) {
-			return;
+			/* sinon : */
+			fileDescription = this.descriptionDuFichierFile;
 		}
+		else {
+			
+			fileDescription = pFileDescription;
+			
+			/* Passage du paramètre aux attributs. */
+			this.descriptionDuFichierFile = fileDescription;
+			
+		} /* FIN DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ********/
 		
-		/* Cast en DescriptionChampDarwinCsv. */
-		final DescriptionChampDarwinCsv desc 
-			= (DescriptionChampDarwinCsv) pDesc;
-				
-		/* Controle de l'UNICITE de nomChampJava. */		
-		final String nomChampJava = desc.getChampJava();
 		
-		if (!(this.nomsChampsJavaSet.contains(nomChampJava))) {
-			this.nomsChampsJavaSet.add(nomChampJava);
+		// **************PARAMETRES VALIDES****************************/		
+
+		/* choisit automatiquement le Charset UTF-8 si pCharset == null 
+		 * ou pCharset ne peut pas encoder. */
+		Charset charset = null;
+		
+		if (pCharset == null || !pCharset.canEncode()) {
+			charset = StandardCharsets.UTF_8;
 		} else {
-			
-			if (!(StringUtils.equalsIgnoreCase(nomChampJava, "sans objet"))) {
-	
-				final String cleMauvaisNomChamp 
-				= "importateurdescriptionf07.liredescription.mauvaisnomchamp";
-	
-				final String messageMauvaisNomChamp 
-				= ConfigurationApplicationManager
-					.getBundleMessagesTechnique()
-						.getString(cleMauvaisNomChamp);
-	
-				final String message 
-				= desc.toString() 
-				+ SEPARATEUR_MOINS_AERE
-				+ CLASSE_IMPORTATEURDESCRIPTIONDARWINCSV 
-				+ METHODE_IMPORTERDESCRIPTION
-				+ messageMauvaisNomChamp 
-				+ nomChampJava;
-	
-				/* Logge. */
-				if (LOG.isFatalEnabled()) {
-					LOG.fatal(message);
-				}
-	
-				/* Rapport éventuel. */
-				if (this.logImportDescription) {
-					this.rapportImportDescriptionStb.append(message);
-				}
-	
-				/* Jette une Exception circonstanciée. */
-				throw new ExceptionImport(message);
-			}				
-			
-		} // Fin du contrôle d'unicité des noms de champ._____________
-			
-	} // Fin de controlerUniciteNomJava(
-	 // IDescriptionChamp pDesc).__________________________________________
-	
-	
-	
-	/**
-	 * method controlerJointif(
-	 * int pCompteurDeLigne
-	 * , IDescriptionChamp pDesc) :<br/>
-	 * Vérifie que l'ordre des champs dans la description est jointif.<br/>
-	 * <br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * <br/>
-	 * ne fait rien si pDesc est null.<br/>
-	 * <br/>
-	 *
-	 * @param pCompteurDeLigne : int : 
-	 * numéro de ligne lue dans la description.<br/
-	 * @param pDesc : IDescriptionChamp : 
-	 * "Ligne" de la description du fichier.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	private void controlerJointif(
-			final int pCompteurDeLigne
-				, final IDescriptionChamp pDesc) throws Exception {
-		
-		/* ne fait rien si pDesc est null. */
-		if (pDesc == null) {
-			return;
+			charset = pCharset;
 		}
 		
+		/* Instanciation du tableau des longueurs maxi. */
+		this.instancierTableauLongueursMaxi();
 		
-		/* ORDRE DES CHAMPS CONTINU. ****/
-		if (pCompteurDeLigne > 1) {
+		/* INSTANCIATION de la SortedMap specificationChampsMap. */
+		this.specificationChampsMap = new TreeMap<Integer, IDescriptionChamp>();
+		
+		int compteurDeLigne = 0;
+		
+		/* LECTURE DE fileDescription et 
+		 * injection dans la SortedMap this.specificationChampsMap. */
+		
+		/* Instancie un Pattern chargé de retrouver le 
+		 * séparateur ';' dans la ligne. */
+		final Pattern patternCsv = Pattern.compile(SEP_PV);
+		
+		/* OUVERTURE DES FLUX. */
+		final FileInputStream fis = new FileInputStream(fileDescription);
+		final InputStreamReader isr = new InputStreamReader(fis, charset);
+		final BufferedReader bfr = new BufferedReader(isr);
+		
+		String ligneLue = null;
+		
+		/* LECTURE DE CHAQUE LIGNE DE LA DESCRIPTION. */
+		while ((ligneLue = bfr.readLine()) != null) {
 			
-			/* Cast en DescriptionChampDarwinCsv. */
-			final DescriptionChampDarwinCsv desc 
-				= (DescriptionChampDarwinCsv) pDesc;
+			/* Incrémentation du compteur. */
+			compteurDeLigne++;
 			
-			/* Récupération de l'ordre du champ en cours. */
-			final Integer ordreChampEnCours 
-				= desc.getOrdreChamps();
-					
-			/* Récupération de la description précédente. */
-			final DescriptionChampDarwinCsv descPrecedent 
-			= (DescriptionChampDarwinCsv) 
-					this.specificationChampsMap.get(pCompteurDeLigne -1);
-			
-	
-			/* Récupération de l'ordre du champ précédent. */
-			if (descPrecedent != null) {
+			if (compteurDeLigne == 1) {
 				
-				final Integer ordreChampPrecedent 
-				= descPrecedent.getOrdreChamps();
+				/* retire un éventuel caractère BOM_UTF_8 à la 
+				 * première ligne si charset == UTF-8. */
+				final String bomUtf8 = "\uFEFF";
 				
-	
-				/* Si l'ordre des champs n'est pas jointif. */
-				if (ordreChampEnCours != ordreChampPrecedent + 1) {
-					
-					final String clePasJointif 
-					= "importateurdescriptionf07.liredescription.pasjointif";
-	
-					final String messagePasJointif
-					= ConfigurationApplicationManager
-						.getBundleMessagesTechnique()
-							.getString(clePasJointif);
-	
-					final String message 
-					= "Ligne " 
-					+ pCompteurDeLigne 
-					+ SEPARATEUR_MOINS_AERE 
-					+ desc.getIntitule() 
-					+ SEPARATEUR_MOINS_AERE 
-					+ CLASSE_IMPORTATEURDESCRIPTIONDARWINCSV 
-					+ METHODE_IMPORTERDESCRIPTION
-					+ messagePasJointif
-					+ ordreChampEnCours
-					+ " alors que l'ordre du champ précédent est : "
-					+ ordreChampPrecedent;
-	
-					/* Logge. */
-					if (LOG.isFatalEnabled()) {
-						LOG.fatal(message);
+				if (charset.equals(StandardCharsets.UTF_8)) {
+					if (StringUtils.contains(ligneLue, bomUtf8)) {
+						ligneLue = StringUtils.remove(ligneLue, BOM_UTF_8);
 					}
+				}
+				
+				/* décompose la première ligne. */
+				final String[] tokens 
+					= patternCsv.split(ligneLue);
+				
+				/* saute la ligne d'en-tête le cas échéant en se basant 
+				 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête 
+				 * et une valeur entière pour toutes les lignes significatives. */
+				final String ordreChamps = tokens[0];
+				
+				if (!StringUtils.isBlank(ordreChamps)) {
+					try {
+						Integer.parseInt(ordreChamps);
+					} catch (NumberFormatException e) {
+						continue;
+					}
+				}
+			}
+			
+							
+			/* Injection des valeurs de chaque champ 
+			 * de la description de fichier dans un DescriptionChamp. */
+			IDescriptionChamp desc = null;
+			
+			try {
+				
+				desc = this.descriptionChamp.getClass().newInstance();
+				
+			} catch (InstantiationException e1) {
+				
+				/* Fermeture des flux. */
+				bfr.close();
+				isr.close();
+				fis.close();
+				
+				throw new RuntimeException(e1);
+				
+			} catch (IllegalAccessException e1) {
+				
+				/* Fermeture des flux. */
+				bfr.close();
+				isr.close();
+				fis.close();
+				
+				throw new RuntimeException(e1);
+			}
+			
+			if (desc == null) {
+				
+				/* Fermeture des flux. */
+				bfr.close();
+				isr.close();
+				fis.close();
+				
+				return null;
+			}
+						
+			/* Lecture de chaque ligne de la description. */
+			try {
+				
+				/* Saute les lignes null ou vides 
+				 * dans la description de fichier. */
+				if (StringUtils.isBlank(ligneLue)) {
+					continue;
+				}
+				
+				/* décompose la ligne lue. */
+				final String[] tokens 
+					= patternCsv.split(ligneLue);
+				
+				/* importe les tokens lus dans la DescriptionChamp. */
+				desc.lireChamp(tokens);
+				
+				/* Rapport d'erreur (provenant du DescriptionChamp). */
+				final String messageDescripteur 
+					= desc.getRapportDescriptionStb().toString();
+								
+				/* Rapport d'erreur. */
+				if (!StringUtils.isBlank(messageDescripteur)) {
 					
-					/* Rapport éventuel. */
+					final String message 
+					= desc.toString() 
+					+ SEPARATEUR_MOINS_AERE
+					+ this.getNomClasse()
+					+ METHODE_IMPORTERDESCRIPTION 
+					+ messageDescripteur;
+					
 					if (this.logImportDescription) {
 						this.rapportImportDescriptionStb.append(message);
+						this.rapportImportDescriptionStb.append(NEWLINE);
+						
 					}
 					
-					/* Jette une Exception circonstanciée. */
-					throw new ExceptionImport(message);
+				}
+			} catch (Exception e) {
+				
+				/* Rapport d'erreur (provenant du Descripteur). */
+				final String messageDescripteur 
+					= desc.getRapportDescriptionStb().toString();
+				
+				/* Rapport d'erreur. */
+				if (!StringUtils.isBlank(messageDescripteur)) {
 					
-				} // Fin de ordre pas jointif._______________________
-			}			
+					final String message 
+					= "MAUVAIS FICHIER DE DESCRIPTION ???" 
+					+ SEPARATEUR_MOINS_AERE
+					+ this.getNomClasse()
+					+ METHODE_IMPORTERDESCRIPTION 
+					+ messageDescripteur;
+					
+					/* Logge */
+					if (LOG.isFatalEnabled()) {
+						LOG.fatal(message, e);
+					}
+					
+					if (this.logImportDescription) {
+						this.rapportImportDescriptionStb.append(message);
+						this.rapportImportDescriptionStb.append(NEWLINE);						
+					}
+					
+					
+					/* Fermeture des flux. */
+					bfr.close();
+					isr.close();
+					fis.close();
+					
+					/* Jette une Exception circonstanciée. */
+					throw new ExceptionImport(message, e);
+					
+				}
+				
+			}
+						
+			/* Gestion des longueurs maxi. */			
+			this.gererLongueursMaxi(desc);
+			
+			/* CONTROLES. */
+			/* Contrôle de l'unicité des noms Java. */
+			this.controlerUniciteNomJava(desc);
+			
+			/* controle que l'ordre des champs est jointif */
+			this.controlerJointif(compteurDeLigne - 1, desc);
+			
+			/* AJOUT DE LA DESCRIPTION A LA MAP triée 
+			 * this.specificationChampsMap. */
+			this.specificationChampsMap.put(compteurDeLigne - 1, desc);
 		}
-	} // Fin de controlerJointif(
-	 // int pCompteurDeLigne
-	 // , IDescriptionChamp pDesc).________________________________________
+		
+		/* FERMETURE DES FLUX. */
+		bfr.close();
+		isr.close();
+		fis.close();
+		
+		return this.specificationChampsMap;		
+
+	} // Fin de importerDescription(...).__________________________________
+
 	
 
 	/**
@@ -585,15 +562,58 @@ public class ImportateurDescriptionDarwinCsv extends
 	} // Fin de recupererCleLogErreur().___________________________________
 
 
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final String getNomClasse() {
+		return CLASSE_IMPORTATEURDESCRIPTIONDARWINCSV;
+	} // Fin de getNomClasse().____________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * "importateurdescriptiondarwincsv.liredescription.mauvaisnomchamp"
+	 */
+	@Override
+	protected final String getCleMauvaisNomChamp() {
+		return "importateurdescriptiondarwincsv.liredescription.mauvaisnomchamp";
+	} // Fin de getCleMauvaisNomChamp().___________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * "importateurdescriptiondarwincsv.liredescription.pasjointif"
+	 */
+	@Override
+	protected final String getClePasJointif() {
+		return "importateurdescriptiondarwincsv.liredescription.pasjointif";
+	} // Fin de getClePasJointif().________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * "importateurdescriptiondarwincsv.liredescription.pascsv"
+	 */
+	@Override
+	protected final String getClePasCsv() {
+		return "importateurdescriptiondarwincsv.liredescription.pascsv";
+	} // Fin de getClePasCsv().____________________________________________
+
+
 	
 	/**
-	 * "Description des champs d'un fichier Darwin csv".<br/>
+	 * "Description des champs d'un fichier DARWIN_CSV".<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String getLabelDescriptionFichier() {
-		return "Description des champs d'un fichier Darwin csv";
+		return "Description des champs d'un fichier DARWIN_CSV";
 	} // Fin de getNomDescriptionChamp().__________________________________
 	
 

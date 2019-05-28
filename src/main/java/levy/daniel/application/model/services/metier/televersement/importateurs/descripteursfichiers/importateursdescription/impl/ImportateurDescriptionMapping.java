@@ -6,11 +6,11 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.SortedMap;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesdescriptions.ConfigurationDescriptionsFichiersManager;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullException;
@@ -70,11 +70,10 @@ public class ImportateurDescriptionMapping extends
 
 	/* CONSTANTES. */
 	/**
-	 * CLASSE_IMPORTATEURDESCRIPTIONMAPPING : String : <br/>
-	 * "CLASSE ImportateurDescriptionMapping - ".<br/>
+	 * "CLASSE ImportateurDescriptionMapping".<br/>
 	 */
 	public static final String CLASSE_IMPORTATEURDESCRIPTIONMAPPING 
-		= "CLASSE ImportateurDescriptionMapping - ";
+		= "CLASSE ImportateurDescriptionMapping";
 	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
@@ -137,30 +136,45 @@ public class ImportateurDescriptionMapping extends
 	
 	/**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
+	 * <ul>
+	 * <li>passe automatiquement la <b>description de fichier du MAPPING</b>
+	 * <code><b>ConfigurationDescriptionsFichiersManager.getFichierDescriptionMapping()</b></code> 
+	 * à <code><b>this.descriptionDuFichierFile</b></code> de la classe.</li>
+	 * <li>délègue à un 
+	 * <code><b>ConfigurationDescriptionsFichiersManager</b></code> 
+	 * le soin de fournir la bonne description de fichier.</li>
+	 * <li>passe automatiquement une <b>description de champ MAPPING</b>
+	 * <code><b>DescriptionChampMapping</b></code> à 
+	 * <code><b>this.descriptionChamp</b></code>.</li>
+	 * <li>alimente <code><b>this.logImportDescription</b></code> 
+	 * avec la valeur contenue dans 
+	 * <code>ressources_externes/messages_techniques.properties</code> 
+	 * pour savoir si il faut logger les rapports d'import.</li>
+	 * </ul>
 	 * 
 	 * @throws Exception 
 	 */
 	public ImportateurDescriptionMapping() throws Exception {
 		
-		super();
-		
-		/* Passe le bon DescriptionChamp. */
-		this.descriptionChamp = new DescriptionChampMapping();
-		
-		/* Détermination de la valeur du boolean qui
-		 * stipule si il faut logger l'import de la description
-		 * ou pas. */
-		this.determinerSiLogErreurs();
+		this(ConfigurationDescriptionsFichiersManager.getFichierDescriptionMapping());
 		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 	
 		
 	 /**
-	 * method CONSTRUCTEUR ImportateurDescriptionMapping(
-	 * File pDescriptionDuFichierFile) :<br/>
 	 * CONSTRUCTEUR ARCHICOMPLET.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>passe pDescriptionDuFichierFile 
+	 * à <code><b>this.descriptionDuFichierFile</b></code> de la classe.</li>
+	 * <li>passe automatiquement une <b>description de champ MAPPING</b>
+	 * <code><b>DescriptionChampMapping</b></code> à 
+	 * <code><b>this.descriptionChamp</b></code>.</li>
+	 * <li>alimente <code><b>this.logImportDescription</b></code> 
+	 * avec la valeur contenue dans 
+	 * <code>ressources_externes/messages_techniques.properties</code> 
+	 * pour savoir si il faut logger les rapports d'import.</li>
+	 * </ul>
 	 *
 	 * @param pDescriptionDuFichierFile : File : 
 	 * la description de fichier à mettre 
@@ -207,9 +221,11 @@ public class ImportateurDescriptionMapping extends
 					, TableauVideException
 					, ExceptionImport
 					, IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+		return this.importerDescription(
+				pFileDescription, StandardCharsets.UTF_8);
+		
+	} // Fin de importerDescriptionUtf8(...).______________________________
 
 
 
@@ -224,9 +240,11 @@ public class ImportateurDescriptionMapping extends
 					, TableauVideException
 					, ExceptionImport
 					, IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+		return this.importerDescription(
+				pFileDescription, Charset.forName("ISO-8859-15"));
+		
+	} // Fin de importerDescriptionLatin9(...);____________________________
 
 
 
@@ -245,227 +263,10 @@ public class ImportateurDescriptionMapping extends
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-
-	/**
-	 * method traiterDescriptionNull() :<br/>
-	 * LOG.fatal, rapporte et jette une FichierNullException 
-	 * si pFile et this.descriptionDuFichierFile 
-	 * sont null ou inexistants.<br/>
-	 * <br/>
-	 * 
-	 * @throws FichierNullException  : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 */
-	private void traiterDescriptionNull() throws FichierNullException {
-		
-		if (this.descriptionDuFichierFile == null 
-				|| !this.descriptionDuFichierFile.exists()) {
-			
-			final String message 
-			= CLASSE_IMPORTATEURDESCRIPTIONMAPPING 
-			+ METHODE_IMPORTERDESCRIPTION 
-			+ "Le fichier de description à importer est null ou inexistant";
-			
-			/* Logge. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message);
-			}
-			
-			/* Rapport d'erreur. */
-			if (this.logImportDescription) {
-				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(NEWLINE);
-			}
-			
-			/* Jette une Exception circonstanciée. */
-			throw new FichierNullException(message);
-			
-		} // Fin de pFile et descriptionDuFichierFile absents.______
-		
-	} // Fin de traiterDescriptionNull().__________________________________
 	
 	
 	
 	/**
-	 * method controlerUniciteNomJava(
-	 * IDescriptionChamp pDesc) :<br/>
-	 * Contrôle l'unicité des noms de champ java dans la description.<br/>
-	 * <br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * un nom de champ java 
-	 * existe en doublon dans la description.<br/>
-	 * <br/>
-	 * ne fait rien si pDesc est null.<br/>
-	 * <br/>
-	 *
-	 * @param pDesc : IDescriptionChamp : 
-	 * "Ligne" de la description du fichier.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	private void controlerUniciteNomJava(
-			final IDescriptionChamp pDesc) throws Exception {
-		
-		/* ne fait rien si pDesc est null. */
-		if (pDesc == null) {
-			return;
-		}
-		
-		/* Cast en DescriptionChampHistoF07. */
-		final DescriptionChampMapping desc 
-			= (DescriptionChampMapping) pDesc;
-				
-		/* Controle de l'UNICITE de nomChampJava. */		
-		final String nomChampJava = desc.getChampJavaHisto();
-		
-		if (!(this.nomsChampsJavaSet.contains(nomChampJava))) {
-			this.nomsChampsJavaSet.add(nomChampJava);
-		} else {
-			
-			if (!(StringUtils.equalsIgnoreCase(nomChampJava, "sans objet"))) {
-	
-				final String cleMauvaisNomChamp 
-				= "importateurdescriptionf07.liredescription.mauvaisnomchamp";
-	
-				final String messageMauvaisNomChamp 
-				= ConfigurationApplicationManager
-					.getBundleMessagesTechnique()
-						.getString(cleMauvaisNomChamp);
-	
-				final String message 
-				= desc.toString() 
-				+ SEPARATEUR_MOINS_AERE
-				+ CLASSE_IMPORTATEURDESCRIPTIONMAPPING 
-				+ METHODE_IMPORTERDESCRIPTION
-				+ messageMauvaisNomChamp 
-				+ nomChampJava;
-	
-				/* Logge. */
-				if (LOG.isFatalEnabled()) {
-					LOG.fatal(message);
-				}
-	
-				/* Rapport éventuel. */
-				if (this.logImportDescription) {
-					this.rapportImportDescriptionStb.append(message);
-				}
-	
-				/* Jette une Exception circonstanciée. */
-				throw new ExceptionImport(message);
-			}				
-			
-		} // Fin du contrôle d'unicité des noms de champ._____________
-			
-	} // Fin de controlerUniciteNomJava(
-	 // IDescriptionChamp pDesc).__________________________________________
-	
-		
-	
-	/**
-	 * method controlerJointif(
-	 * int pCompteurDeLigne
-	 * , IDescriptionChamp pDesc) :<br/>
-	 * Vérifie que l'ordre des champs dans la description est jointif.<br/>
-	 * <br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * <br/>
-	 * ne fait rien si pDesc est null.<br/>
-	 * <br/>
-	 *
-	 * @param pCompteurDeLigne : int : 
-	 * numéro de ligne lue dans la description.<br/
-	 * @param pDesc : IDescriptionChamp : 
-	 * "Ligne" de la description du fichier.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	private void controlerJointif(
-			final int pCompteurDeLigne
-				, final IDescriptionChamp pDesc) throws Exception {
-		
-		/* ne fait rien si pDesc est null. */
-		if (pDesc == null) {
-			return;
-		}
-		
-		
-		/* ORDRE DES CHAMPS CONTINU. ****/
-		if (pCompteurDeLigne > 1) {
-			
-			/* Cast en DescriptionChampHistoF07. */
-			final DescriptionChampMapping desc 
-				= (DescriptionChampMapping) pDesc;
-			
-			/* Récupération de l'ordre du champ en cours. */
-			final Integer ordreChampEnCours 
-				= desc.getOrdreChampsHisto();
-					
-			/* Récupération de la description précédente. */
-			final DescriptionChampMapping descPrecedent 
-			= (DescriptionChampMapping) 
-					this.specificationChampsMap.get(pCompteurDeLigne -1);
-			
-	
-			/* Récupération de l'ordre du champ précédent. */
-			if (descPrecedent != null) {
-				
-				final Integer ordreChampPrecedent 
-				= descPrecedent.getOrdreChampsHisto();
-				
-	
-				/* Si l'ordre des champs n'est pas jointif. */
-				if (ordreChampEnCours != ordreChampPrecedent + 1) {
-					
-					final String clePasJointif 
-					= "importateurdescriptionf07.liredescription.pasjointif";
-	
-					final String messagePasJointif
-					= ConfigurationApplicationManager
-						.getBundleMessagesTechnique()
-							.getString(clePasJointif);
-	
-					final String message 
-					= "Ligne " 
-					+ pCompteurDeLigne 
-					+ SEPARATEUR_MOINS_AERE 
-					+ desc.getIntitule() 
-					+ SEPARATEUR_MOINS_AERE 
-					+ CLASSE_IMPORTATEURDESCRIPTIONMAPPING 
-					+ METHODE_IMPORTERDESCRIPTION
-					+ messagePasJointif
-					+ ordreChampEnCours
-					+ " alors que l'ordre du champ précédent est : "
-					+ ordreChampPrecedent;
-	
-					/* Logge. */
-					if (LOG.isFatalEnabled()) {
-						LOG.fatal(message);
-					}
-					
-					/* Rapport éventuel. */
-					if (this.logImportDescription) {
-						this.rapportImportDescriptionStb.append(message);
-					}
-					
-					/* Jette une Exception circonstanciée. */
-					throw new ExceptionImport(message);
-					
-				} // Fin de ordre pas jointif._______________________
-			}			
-		}
-	} // Fin de controlerJointif(
-	 // int pCompteurDeLigne
-	 // , IDescriptionChamp pDesc).________________________________________
-	
-	
-	
-	/**
-	 * method controlerColonnesJointives(
-	 * int pCompteurDeLigne
-	 * , IDescriptionChamp pDesc) :<br/>
 	 * Vérifie que les colonnes dans la description sont jointives.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
@@ -582,6 +383,49 @@ public class ImportateurDescriptionMapping extends
 	public final String recupererCleLogErreur() {
 		return "importateurdescriptionmapping.log.erreur";
 	} // Fin de recupererCleLogErreur().___________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final String getNomClasse() {
+		return CLASSE_IMPORTATEURDESCRIPTIONMAPPING;
+	} // Fin de getNomClasse().____________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * "importateurdescriptionmapping.liredescription.mauvaisnomchamp"
+	 */
+	@Override
+	protected final String getCleMauvaisNomChamp() {
+		return "importateurdescriptionmapping.liredescription.mauvaisnomchamp";
+	} // Fin de getCleMauvaisNomChamp().___________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * "importateurdescriptionmapping.liredescription.pasjointif"
+	 */
+	@Override
+	protected final String getClePasJointif() {
+		return "importateurdescriptionmapping.liredescription.pasjointif";
+	} // Fin de getClePasJointif().________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * "importateurdescriptionmapping.liredescription.pascsv"
+	 */
+	@Override
+	protected final String getClePasCsv() {
+		return "importateurdescriptionmapping.liredescription.pascsv";
+	} // Fin de getClePasCsv().____________________________________________
 
 	
 	

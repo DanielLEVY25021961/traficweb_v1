@@ -255,6 +255,17 @@ public class ImportateurDescriptionHit extends
 	protected final String getCleColonnesPasJointives() {
 		return "importateurdescriptionhit.liredescription.colonnespasjointif";
 	} // Fin de getCleColonnesPasJointives().______________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * "importateurdescriptionhit.liredescription.pascsv"
+	 */
+	@Override
+	protected final String getClePasCsv() {
+		return "importateurdescriptionhit.liredescription.pascsv";
+	} // Fin de getClePasCsv().____________________________________________
 	
 
 	

@@ -22,6 +22,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexistantException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierPasNormalException;
@@ -1271,6 +1272,309 @@ public abstract class AbstractImportateurDescription implements
 		} // Fin de descriptionDuFichierFile == null.___________________
 		
 	} // Fin de traiterDescriptionFileNull().______________________________
+	
+
+	
+	/**
+	 * LOG.fatal, rapporte et jette une FichierNullException 
+	 * <code><b>this.descriptionDuFichierFile</b></code> 
+	 * est null ou inexistant.<br/>
+	 * <br/>
+	 * 
+	 * @throws FichierNullException  : 
+	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
+	 */
+	protected final void traiterDescriptionNull() throws FichierNullException {
+		
+		if (this.descriptionDuFichierFile == null 
+				|| !this.descriptionDuFichierFile.exists()) {
+			
+			final String message 
+			= this.getNomClasse() 
+			+ METHODE_IMPORTERDESCRIPTION 
+			+ "Le fichier de description à importer est null ou inexistant";
+			
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logImportDescription) {
+				this.rapportImportDescriptionStb.append(message);
+				this.rapportImportDescriptionStb.append(NEWLINE);
+			}
+			
+			/* Jette une Exception circonstanciée. */
+			throw new FichierNullException(message);
+			
+		} // Fin de descriptionDuFichierFile absent.______
+		
+	} // Fin de traiterDescriptionNull().__________________________________
+
+
+	
+	/**
+	 * Retourne le nom de la Classe CONCRETE.<br/>
+	 * A implémenter dans chaque classe concrète.<br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	protected abstract String getNomClasse();
+	
+
+	
+	/**
+	 * Vérifie que l'ordre des champs dans 
+	 * la description de fichier est jointif.<br/>
+	 * <br/>
+	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
+	 * l'ordre des champs n'est pas jointif.<br/>
+	 * <br/>
+	 * ne fait rien si pDesc est null.<br/>
+	 * <br/>
+	 *
+	 * @param pCompteurDeLigne : int : 
+	 * numéro de ligne lue dans la description.<br/
+	 * @param pDesc : IDescriptionChamp : 
+	 * "Ligne" de la description du fichier.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	protected final void controlerJointif(
+			final int pCompteurDeLigne
+				, final IDescriptionChamp pDesc) throws Exception {
+		
+		/* ne fait rien si pDesc est null. */
+		if (pDesc == null) {
+			return;
+		}
+		
+		
+		/* ORDRE DES CHAMPS CONTINU. ****/
+		if (pCompteurDeLigne > 1) {
+			
+			/* Récupération de l'ordre du champ en cours. */
+			final Integer ordreChampEnCours 
+				= pDesc.getOrdreChamps();
+					
+			/* Récupération de la description précédente. */
+			final IDescriptionChamp descPrecedent 
+			= this.specificationChampsMap.get(pCompteurDeLigne -1);
+			
+
+			/* Récupération de l'ordre du champ précédent. */
+			if (descPrecedent != null) {
+				
+				final Integer ordreChampPrecedent 
+				= descPrecedent.getOrdreChamps();
+				
+
+				/* Si l'ordre des champs n'est pas jointif. */
+				if (ordreChampEnCours != ordreChampPrecedent + 1) {
+					
+					final String clePasJointif 
+						= this.getClePasJointif();
+
+					final String messagePasJointif
+					= ConfigurationApplicationManager
+						.getBundleMessagesTechnique()
+							.getString(clePasJointif);
+
+					final String message 
+					= "Ligne " 
+					+ pCompteurDeLigne 
+					+ SEPARATEUR_MOINS_AERE 
+					+ pDesc.getIntitule() 
+					+ SEPARATEUR_MOINS_AERE 
+					+ this.getNomClasse()
+					+ METHODE_IMPORTERDESCRIPTION
+					+ messagePasJointif
+					+ ordreChampEnCours
+					+ " alors que l'ordre du champ précédent est : "
+					+ ordreChampPrecedent;
+
+					/* Logge. */
+					if (LOG.isFatalEnabled()) {
+						LOG.fatal(message);
+					}
+					
+					/* Rapport éventuel. */
+					if (this.logImportDescription) {
+						this.rapportImportDescriptionStb.append(message);
+					}
+					
+					/* Jette une Exception circonstanciée. */
+					throw new ExceptionImport(message);
+					
+				} // Fin de ordre pas jointif._______________________
+			}			
+		}
+	} // Fin de controlerJointif(
+	 // int pCompteurDeLigne
+	 // , IDescriptionChamp pDesc).________________________________________
+	
+
+	
+	/**
+	 * Retourne la clé comprise dans 
+	 * ressources_externes/messagestechniques.properties 
+	 * en cas d'ordre des champs non jointif dans une description.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	protected abstract String getClePasJointif();
+	
+
+	
+	/**
+	 * Contrôle l'unicité des noms de champ java 
+	 * dans la description de fichier.<br/>
+	 * <br/>
+	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
+	 * un nom de champ java 
+	 * existe en doublon dans la description.<br/>
+	 * <br/>
+	 * ne fait rien si pDesc est null.<br/>
+	 * <br/>
+	 *
+	 * @param pDesc : IDescriptionChamp : 
+	 * "Ligne" de la description du fichier.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	protected final void controlerUniciteNomJava(
+			final IDescriptionChamp pDesc) throws Exception {
+		
+		/* ne fait rien si pDesc est null. */
+		if (pDesc == null) {
+			return;
+		}
+		
+
+		/* Controle de l'UNICITE de nomChampJava. */		
+		final String nomChampJava = pDesc.getNomChampJava();
+		
+		if (!(this.nomsChampsJavaSet.contains(nomChampJava))) {
+			this.nomsChampsJavaSet.add(nomChampJava);
+		} else {
+			
+			if (!(StringUtils.equalsIgnoreCase(nomChampJava, "sans objet"))) {
+
+				final String cleMauvaisNomChamp 
+					= this.getCleMauvaisNomChamp();
+
+				final String messageMauvaisNomChamp 
+				= ConfigurationApplicationManager
+					.getBundleMessagesTechnique()
+						.getString(cleMauvaisNomChamp);
+
+				final String message 
+				= pDesc.toString() 
+				+ SEPARATEUR_MOINS_AERE
+				+ this.getNomClasse() 
+				+ METHODE_IMPORTERDESCRIPTION
+				+ messageMauvaisNomChamp 
+				+ nomChampJava;
+
+				/* Logge. */
+				if (LOG.isFatalEnabled()) {
+					LOG.fatal(message);
+				}
+
+				/* Rapport éventuel. */
+				if (this.logImportDescription) {
+					this.rapportImportDescriptionStb.append(message);
+				}
+
+				/* Jette une Exception circonstanciée. */
+				throw new ExceptionImport(message);
+			}				
+			
+		} // Fin du contrôle d'unicité des noms de champ._____________
+			
+	} // Fin de controlerUniciteNomJava(
+	 // IDescriptionChamp pDesc).__________________________________________
+	
+
+	
+	/**
+	 * Retourne la clé comprise dans 
+	 * ressources_externes/messagestechniques.properties 
+	 * en cas de doublon d'un nom de champ Java.<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	protected abstract String getCleMauvaisNomChamp();
+	
+
+	
+	/**
+	 * Contrôle que la description de fichier 
+	 * <code><b>this.descriptionDuFichierFile</b></code> 
+	 * comporte l'extension ".csv".<br/>
+	 * <br/>
+	 * LOG.fatal, rapporte et jette une ExceptionImport 
+	 * si la description de fichier n'a pas l'extension csv.<br/>
+	 * <br/>
+	 * - ne fait rien si this.descriptionDuFichierFile == null.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	protected final void traiterFichierNonCsv() throws Exception {
+		
+		/* ne fait rien si this.descriptionDuFichierFile == null. */
+		if (this.descriptionDuFichierFile == null) {
+			this.traiterDescriptionFileNull("methode traiterFichierNonCsv()");
+		}
+		
+		/* Fichier lu non csv. */
+		if (!this.descriptionDuFichierFile.getPath().endsWith("csv")) {
+			
+			final String clePasCSV = this.getClePasCsv();
+
+			final String messagePasCsv
+			= ConfigurationApplicationManager
+				.getBundleMessagesTechnique()
+					.getString(clePasCSV);
+
+			final String message 
+			= this.getNomClasse()
+			+ METHODE_IMPORTERDESCRIPTION
+			+ messagePasCsv
+			+ this.descriptionDuFichierFile.getAbsolutePath();
+
+			/* Logge. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			/* Rapport d'erreur. */
+			if (this.logImportDescription) {
+				this.rapportImportDescriptionStb.append(message);
+				this.rapportImportDescriptionStb.append(NEWLINE);
+			}
+			
+			/* Jette une Exception circonstanciée. */
+			throw new ExceptionImport(message);
+			
+		} // Fin de if (!pDescription.getPath().endsWith("csv")).________
+		
+	} // Fin de traiterFichierNonCsv().____________________________________
+	
+
+	
+	/**
+	 * Retourne la clé comprise dans 
+	 * ressources_externes/messagestechniques.properties 
+	 * en cas de fichier de description sans extension ".csv".<br/>
+	 * <br/>
+	 *
+	 * @return : String.<br/>
+	 */
+	protected abstract String getClePasCsv();
 	
 
 	

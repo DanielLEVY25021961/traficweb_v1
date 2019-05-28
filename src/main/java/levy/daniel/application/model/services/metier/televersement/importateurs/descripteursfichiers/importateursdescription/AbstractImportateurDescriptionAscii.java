@@ -16,7 +16,6 @@ import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
@@ -313,7 +312,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 					= patternCsv.split(ligneLue);
 				
 				/* saute la ligne d'en-tête le cas échéant en se basant 
-				 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête HistonatF07 
+				 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête 
 				 * et une valeur entière pour toutes les lignes significatives. */
 				final String ordreChamps = tokens[0];
 				
@@ -472,123 +471,11 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	// File pFileDescription
 	// , Charset pCharset).________________________________________________
 	
-
-	
-	/**
-	 * LOG.fatal, rapporte et jette une FichierNullException 
-	 * <code><b>this.descriptionDuFichierFile</b></code> 
-	 * est null ou inexistant.<br/>
-	 * <br/>
-	 * 
-	 * @throws FichierNullException  : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 */
-	private void traiterDescriptionNull() throws FichierNullException {
-		
-		if (this.descriptionDuFichierFile == null 
-				|| !this.descriptionDuFichierFile.exists()) {
-			
-			final String message 
-			= this.getNomClasse() 
-			+ METHODE_IMPORTERDESCRIPTION 
-			+ "Le fichier de description à importer est null ou inexistant";
-			
-			/* Logge. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message);
-			}
-			
-			/* Rapport d'erreur. */
-			if (this.logImportDescription) {
-				this.rapportImportDescriptionStb.append(message);
-				this.rapportImportDescriptionStb.append(NEWLINE);
-			}
-			
-			/* Jette une Exception circonstanciée. */
-			throw new FichierNullException(message);
-			
-		} // Fin de descriptionDuFichierFile absent.______
-		
-	} // Fin de traiterDescriptionNull().__________________________________
-	
-
-	
-	/**
-	 * method controlerUniciteNomJava(
-	 * IDescriptionChamp pDesc) :<br/>
-	 * Contrôle l'unicité des noms de champ java dans la description.<br/>
-	 * <br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * un nom de champ java 
-	 * existe en doublon dans la description.<br/>
-	 * <br/>
-	 * ne fait rien si pDesc est null.<br/>
-	 * <br/>
-	 *
-	 * @param pDesc : IDescriptionChamp : 
-	 * "Ligne" de la description du fichier.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	private void controlerUniciteNomJava(
-			final IDescriptionChamp pDesc) throws Exception {
-		
-		/* ne fait rien si pDesc est null. */
-		if (pDesc == null) {
-			return;
-		}
-		
-
-		/* Controle de l'UNICITE de nomChampJava. */		
-		final String nomChampJava = pDesc.getNomChampJava();
-		
-		if (!(this.nomsChampsJavaSet.contains(nomChampJava))) {
-			this.nomsChampsJavaSet.add(nomChampJava);
-		} else {
-			
-			if (!(StringUtils.equalsIgnoreCase(nomChampJava, "sans objet"))) {
-
-				final String cleMauvaisNomChamp 
-					= this.getCleMauvaisNomChamp();
-
-				final String messageMauvaisNomChamp 
-				= ConfigurationApplicationManager
-					.getBundleMessagesTechnique()
-						.getString(cleMauvaisNomChamp);
-
-				final String message 
-				= pDesc.toString() 
-				+ SEPARATEUR_MOINS_AERE
-				+ this.getNomClasse() 
-				+ METHODE_IMPORTERDESCRIPTION
-				+ messageMauvaisNomChamp 
-				+ nomChampJava;
-
-				/* Logge. */
-				if (LOG.isFatalEnabled()) {
-					LOG.fatal(message);
-				}
-
-				/* Rapport éventuel. */
-				if (this.logImportDescription) {
-					this.rapportImportDescriptionStb.append(message);
-				}
-
-				/* Jette une Exception circonstanciée. */
-				throw new ExceptionImport(message);
-			}				
-			
-		} // Fin du contrôle d'unicité des noms de champ._____________
-			
-	} // Fin de controlerUniciteNomJava(
-	 // IDescriptionChamp pDesc).__________________________________________
-	
 	
 	
 	/**
-	 * method controlerLongueur(
-	 * IDescriptionChamp pDesc) :<br/>
-	 * Vérifie que la longueur fournie est égale à la longueur calculée.<br/>
+	 * Vérifie que la longueur fournie pour un champ 
+	 * de la description de fichier est égale à la longueur calculée.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte lorsqu'une longueur founie 
 	 * diffère de la Longueur calculée dans la description.<br/>
@@ -657,108 +544,12 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	} // Fin de controlerLongueur(
 	 // IDescriptionChamp pDesc).__________________________________________
 	
-
-	
-	/**
-	 * method controlerJointif(
-	 * int pCompteurDeLigne
-	 * , IDescriptionChamp pDesc) :<br/>
-	 * Vérifie que l'ordre des champs dans la description est jointif.<br/>
-	 * <br/>
-	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * <br/>
-	 * ne fait rien si pDesc est null.<br/>
-	 * <br/>
-	 *
-	 * @param pCompteurDeLigne : int : 
-	 * numéro de ligne lue dans la description.<br/
-	 * @param pDesc : IDescriptionChamp : 
-	 * "Ligne" de la description du fichier.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	private void controlerJointif(
-			final int pCompteurDeLigne
-				, final IDescriptionChamp pDesc) throws Exception {
-		
-		/* ne fait rien si pDesc est null. */
-		if (pDesc == null) {
-			return;
-		}
-		
-		
-		/* ORDRE DES CHAMPS CONTINU. ****/
-		if (pCompteurDeLigne > 1) {
-			
-			/* Récupération de l'ordre du champ en cours. */
-			final Integer ordreChampEnCours 
-				= pDesc.getOrdreChamps();
-					
-			/* Récupération de la description précédente. */
-			final IDescriptionChamp descPrecedent 
-			= this.specificationChampsMap.get(pCompteurDeLigne -1);
-			
-
-			/* Récupération de l'ordre du champ précédent. */
-			if (descPrecedent != null) {
-				
-				final Integer ordreChampPrecedent 
-				= descPrecedent.getOrdreChamps();
-				
-
-				/* Si l'ordre des champs n'est pas jointif. */
-				if (ordreChampEnCours != ordreChampPrecedent + 1) {
-					
-					final String clePasJointif 
-						= this.getClePasJointif();
-
-					final String messagePasJointif
-					= ConfigurationApplicationManager
-						.getBundleMessagesTechnique()
-							.getString(clePasJointif);
-
-					final String message 
-					= "Ligne " 
-					+ pCompteurDeLigne 
-					+ SEPARATEUR_MOINS_AERE 
-					+ pDesc.getIntitule() 
-					+ SEPARATEUR_MOINS_AERE 
-					+ this.getNomClasse()
-					+ METHODE_IMPORTERDESCRIPTION
-					+ messagePasJointif
-					+ ordreChampEnCours
-					+ " alors que l'ordre du champ précédent est : "
-					+ ordreChampPrecedent;
-
-					/* Logge. */
-					if (LOG.isFatalEnabled()) {
-						LOG.fatal(message);
-					}
-					
-					/* Rapport éventuel. */
-					if (this.logImportDescription) {
-						this.rapportImportDescriptionStb.append(message);
-					}
-					
-					/* Jette une Exception circonstanciée. */
-					throw new ExceptionImport(message);
-					
-				} // Fin de ordre pas jointif._______________________
-			}			
-		}
-	} // Fin de controlerJointif(
-	 // int pCompteurDeLigne
-	 // , IDescriptionChamp pDesc).________________________________________
-	
 		
 
 	
 	/**
-	 * method controlerColonnesJointives(
-	 * int pCompteurDeLigne
-	 * , IDescriptionChamp pDesc) :<br/>
-	 * Vérifie que les colonnes dans la description sont jointives.<br/>
+	 * Vérifie que les colonnes dans la 
+	 * description de fichier sont jointives.<br/>
 	 * <br/>
 	 * - LOG.fatal, rapporte et jette une ExceptionImport lorsque 
 	 * les colonnes ne sont pas jointives.<br/>
@@ -773,7 +564,7 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	 * 
 	 * @throws Exception 
 	 */
-	protected void controlerColonnesJointives(
+	private void controlerColonnesJointives(
 			final int pCompteurDeLigne
 				, final IDescriptionChamp pDesc) 
 								throws Exception {
@@ -851,29 +642,6 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	} // Fin de controlerColonnesJointives(
 	 // int pCompteurDeLigne
 	 // , IDescriptionChamp pDesc).________________________________________
-
-
-	
-	/**
-	 * method getNomClasse() :<br/>
-	 * Retourne le nom de la Classe.<br/>
-	 * <br/>
-	 *
-	 * @return : String.<br/>
-	 */
-	protected abstract String getNomClasse();
-	
-
-		
-	/**
-	 * method getCleMauvaisNomChamp() :<br/>
-	 * Retourne la clé comprise dans messagestechniques.properties 
-	 * en cas de doublon d'un nom de champ Java.<br/>
-	 * <br/>
-	 *
-	 * @return : String.<br/>
-	 */
-	protected abstract String getCleMauvaisNomChamp();
 	
 	
 	
@@ -886,18 +654,6 @@ public abstract class AbstractImportateurDescriptionAscii extends
 	 * @return : String.<br/>
 	 */
 	protected abstract String getCleBadLongueur();
-	
-
-	
-	/**
-	 * method getClePasJointif() :<br/>
-	 * Retourne la clé comprise dans messagestechniques.properties 
-	 * en cas d'ordre des champs non jointif dans une description.<br/>
-	 * <br/>
-	 *
-	 * @return : String.<br/>
-	 */
-	protected abstract String getClePasJointif();
 	
 
 		
