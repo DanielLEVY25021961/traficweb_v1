@@ -289,19 +289,35 @@ public abstract class AbstractImportateurDescription implements
 	 * <li>passe à la classe le fichier de description à importer 
 	 * <code><b>this.descriptionDuFichierFile</b></code></li>
 	 * </ul>
+	 * - contrôle que <code><b>this.descriptionDuFichierFile</b></code> 
+	 * est non null et existant.<br/>
+	 * - contrôle que <code><b>this.descriptionDuFichierFile</b></code> 
+	 * possède l'extension csv.<br/>
+	 * <br/>
+	 * 
 	 *
 	 * @param pDescriptionChamp : IDescriptionChamp.<br/>
 	 * @param pDescriptionDuFichierFile : File : 
 	 * la description de fichier à mettre 
 	 * à la disposition de l'application.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public AbstractImportateurDescription(
 			final IDescriptionChamp pDescriptionChamp
-				, final File pDescriptionDuFichierFile) {
+				, final File pDescriptionDuFichierFile) throws Exception {
 		
 		super();
 		this.descriptionChamp = pDescriptionChamp;
 		this.descriptionDuFichierFile = pDescriptionDuFichierFile;
+		
+		/* contrôle que this.descriptionDuFichierFile 
+		 * est non null et existant. */
+		this.traiterDescriptionNull();
+		
+		/* contrôle que this.descriptionDuFichierFile 
+		 * possède l'extension csv. */
+		this.traiterFichierNonCsv();
 		
 	} // Fin de CONSTRUCTEUR ARCHICOMPLET._________________________________
 	

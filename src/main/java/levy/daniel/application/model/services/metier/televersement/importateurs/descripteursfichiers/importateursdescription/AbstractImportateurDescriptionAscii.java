@@ -254,6 +254,8 @@ public abstract class AbstractImportateurDescriptionAscii extends
 			
 		} /* FIN DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ********/
 		
+		/* véfifie que le fichier de description possède l'extension CSV. */
+		this.traiterFichierNonCsv();
 		
 		// **************PARAMETRES VALIDES****************************/		
 
