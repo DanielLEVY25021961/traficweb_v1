@@ -331,11 +331,13 @@ public interface IImportateurDescription
 	 * 
 	 * - Contrôle :<br/>
 	 * <ul>
+	 * <li>l'extension csv du fichier de description.</li>
 	 * <li>la validité du fichier de description csv par rapport 
 	 * à l'ImportateurDescription (LOG, rapport et ExceptionImport).</li>
 	 * <li>l'unicité des noms java des champs dans la description 
 	 * (LOG, rapport et ExceptionImport).</li>
-	 * <li>Autres contrôles.</li>
+	 * <li>Autres contrôles (ordre des champs jointifs, 
+	 * colonnes jointives pour les fichiers ASCII, ...).</li>
 	 * </ul>
 	 * - <i>saute la ligne d'en-tête le cas échéant</i>.<br/>
 	 * - <i>retire un éventuel BOM-UTF-8 au début 
@@ -559,12 +561,31 @@ public interface IImportateurDescription
 	 * description du fichier à lire (spécification).<br/>
 	 * Précise par exemple que les colonnes 1 à 3 comprennent le
 	 * Numéro du Département, les colonnes 4-9 le numéro
-	 * de section, etc...<br/>
-	 * <br/>
+	 * de section, etc...
+	 * <ul>
+	 * <li>LOG.fatal, rapporte et jette une FichierNullException 
+	 * si pDescriptionDuFichierFile est null.</li>
+	 * <li>LOG.fatal, rapporte et jette une FichierVideException 
+	 * si pDescriptionDuFichierFile est vide.</li>
+	 * <li>LOG.fatal, rapporte et jette une FichierInexistantException 
+	 * si pDescriptionDuFichierFile est inexistant.</li>
+	 * <li>LOG.fatal, rapporte et jette une FichierPasNormalException 
+	 * si pDescriptionDuFichierFile n'est pas un File 
+	 * normal (répertoire).</li>
+	 * <li>passe le paramètre à l'attribut 
+	 * <code><b>this.descriptionDuFichierFile</b></code>.</li>
+	 * <li>LOG.fatal, rapporte et jette une ExceptionImport 
+	 * si la description de fichier 
+	 * <code><b>this.descriptionDuFichierFile</b></code>
+	 * n'a pas l'extension ".csv".</li>
+	 * </ul>
 	 * 
 	 * @param pDescriptionDuFichierFile : File.<br/>
+	 * 
+	 * @throws Exception
 	 */
-	void setDescriptionDuFichierFile(File pDescriptionDuFichierFile);
+	void setDescriptionDuFichierFile(File pDescriptionDuFichierFile) 
+			throws Exception ;
 
 
 

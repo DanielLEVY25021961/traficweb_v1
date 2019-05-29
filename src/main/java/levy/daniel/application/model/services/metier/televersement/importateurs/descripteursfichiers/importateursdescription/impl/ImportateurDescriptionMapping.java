@@ -1,20 +1,22 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesdescriptions.ConfigurationDescriptionsFichiersManager;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampMapping;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.AbstractImportateurDescription;
@@ -216,11 +218,7 @@ public class ImportateurDescriptionMapping extends
 	@Override
 	public final SortedMap<Integer, IDescriptionChamp> importerDescriptionUtf8(
 			final File pFileDescription) 
-					throws FichierNullException
-					, TableauNullException
-					, TableauVideException
-					, ExceptionImport
-					, IOException {
+					throws Exception {
 		
 		return this.importerDescription(
 				pFileDescription, StandardCharsets.UTF_8);
@@ -235,11 +233,7 @@ public class ImportateurDescriptionMapping extends
 	@Override
 	public final SortedMap<Integer, IDescriptionChamp> importerDescriptionLatin9(
 			final File pFileDescription) 
-					throws FichierNullException
-					, TableauNullException
-					, TableauVideException
-					, ExceptionImport
-					, IOException {
+					throws Exception {
 		
 		return this.importerDescription(
 				pFileDescription, Charset.forName("ISO-8859-15"));
@@ -255,14 +249,247 @@ public class ImportateurDescriptionMapping extends
 	public final SortedMap<Integer, IDescriptionChamp> importerDescription(
 			final File pFileDescription
 				, final Charset pCharset)
-			throws FichierNullException
-			, TableauNullException
-			, TableauVideException
-			, ExceptionImport
-			, IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+							throws Exception {
+		
+		File fileDescription = null;
+		
+		/* DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ************/
+		/* utilise automatiquement la description this.descriptionDuFichierFile 
+		 * si pFileDescription est null ou ne convient pas. */
+		if (pFileDescription == null 
+				|| pFileDescription.length() == 0 
+					|| !pFileDescription.exists() 
+						|| !pFileDescription.isFile()) {
+			
+			/* Si this.descriptionDuFichierFile est aussi absent. */
+			/* LOG.fatal, rapporte et jette une FichierNullException. */
+			this.traiterDescriptionNull();
+			
+			/* sinon : */
+			fileDescription = this.descriptionDuFichierFile;
+		}
+		else {
+			
+			fileDescription = pFileDescription;
+			
+			/* Passage du paramètre aux attributs. */
+			this.descriptionDuFichierFile = fileDescription;
+			
+		} /* FIN DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ********/
+		
+		/* véfifie que le fichier de description possède l'extension CSV. */
+		this.traiterFichierNonCsv();
+				
+		// **************PARAMETRES VALIDES****************************/		
+
+		/* choisit automatiquement le Charset UTF-8 si pCharset == null 
+		 * ou pCharset ne peut pas encoder. */
+		Charset charset = null;
+		
+		if (pCharset == null || !pCharset.canEncode()) {
+			charset = StandardCharsets.UTF_8;
+		} else {
+			charset = pCharset;
+		}
+		
+		/* Instanciation du tableau des longueurs maxi. */
+		this.instancierTableauLongueursMaxi();
+		
+		/* INSTANCIATION de la SortedMap specificationChampsMap. */
+		this.specificationChampsMap = new TreeMap<Integer, IDescriptionChamp>();
+		
+		int compteurDeLigne = 0;
+		
+		/* LECTURE DE fileDescription et 
+		 * injection dans la SortedMap this.specificationChampsMap. */
+		
+		/* Instancie un Pattern chargé de retrouver le 
+		 * séparateur ';' dans la ligne. */
+		final Pattern patternCsv = Pattern.compile(SEP_PV);
+		
+		/* OUVERTURE DES FLUX. */
+		final FileInputStream fis = new FileInputStream(fileDescription);
+		final InputStreamReader isr = new InputStreamReader(fis, charset);
+		final BufferedReader bfr = new BufferedReader(isr);
+		
+		String ligneLue = null;
+		
+		/* LECTURE DE CHAQUE LIGNE DE LA DESCRIPTION. */
+		while ((ligneLue = bfr.readLine()) != null) {
+			
+			/* Incrémentation du compteur. */
+			compteurDeLigne++;
+			
+			if (compteurDeLigne == 1) {
+				
+				/* retire un éventuel caractère BOM_UTF_8 à la 
+				 * première ligne si charset == UTF-8. */
+				final String bomUtf8 = "\uFEFF";
+				
+				if (charset.equals(StandardCharsets.UTF_8)) {
+					if (StringUtils.contains(ligneLue, bomUtf8)) {
+						ligneLue = StringUtils.remove(ligneLue, BOM_UTF_8);
+					}
+				}
+				
+				/* décompose la première ligne. */
+				final String[] tokens 
+					= patternCsv.split(ligneLue);
+				
+				/* saute la ligne d'en-tête le cas échéant en se basant 
+				 * sur le fait qu'on aura 'ordreChamps' pour l'en-tête 
+				 * et une valeur entière pour toutes les lignes significatives. */
+				final String ordreChamps = tokens[0];
+				
+				if (!StringUtils.isBlank(ordreChamps)) {
+					try {
+						Integer.parseInt(ordreChamps);
+					} catch (NumberFormatException e) {
+						continue;
+					}
+				}
+			}
+			
+							
+			/* Injection des valeurs de chaque champ 
+			 * de la description de fichier dans un DescriptionChamp. */
+			IDescriptionChamp desc = null;
+			
+			try {
+				
+				desc = this.descriptionChamp.getClass().newInstance();
+				
+			} catch (InstantiationException e1) {
+				
+				/* Fermeture des flux. */
+				bfr.close();
+				isr.close();
+				fis.close();
+				
+				throw new RuntimeException(e1);
+				
+			} catch (IllegalAccessException e1) {
+				
+				/* Fermeture des flux. */
+				bfr.close();
+				isr.close();
+				fis.close();
+				
+				throw new RuntimeException(e1);
+			}
+			
+			if (desc == null) {
+				
+				/* Fermeture des flux. */
+				bfr.close();
+				isr.close();
+				fis.close();
+				
+				return null;
+			}
+						
+			/* Lecture de chaque ligne de la description. */
+			try {
+				
+				/* Saute les lignes null ou vides 
+				 * dans la description de fichier. */
+				if (StringUtils.isBlank(ligneLue)) {
+					continue;
+				}
+				
+				/* décompose la ligne lue. */
+				final String[] tokens 
+					= patternCsv.split(ligneLue);
+				
+				/* importe les tokens lus dans la DescriptionChamp. */
+				desc.lireChamp(tokens);
+				
+				/* Rapport d'erreur (provenant du DescriptionChamp). */
+				final String messageDescripteur 
+					= desc.getRapportDescriptionStb().toString();
+								
+				/* Rapport d'erreur. */
+				if (!StringUtils.isBlank(messageDescripteur)) {
+					
+					final String message 
+					= desc.toString() 
+					+ SEPARATEUR_MOINS_AERE
+					+ this.getNomClasse()
+					+ METHODE_IMPORTERDESCRIPTION 
+					+ messageDescripteur;
+					
+					if (this.logImportDescription) {
+						this.rapportImportDescriptionStb.append(message);
+						this.rapportImportDescriptionStb.append(NEWLINE);
+						
+					}
+					
+				}
+			} catch (Exception e) {
+				
+				/* Rapport d'erreur (provenant du Descripteur). */
+				final String messageDescripteur 
+					= desc.getRapportDescriptionStb().toString();
+				
+				/* Rapport d'erreur. */
+				if (!StringUtils.isBlank(messageDescripteur)) {
+					
+					final String message 
+					= "MAUVAIS FICHIER DE DESCRIPTION ???" 
+					+ SEPARATEUR_MOINS_AERE
+					+ this.getNomClasse()
+					+ METHODE_IMPORTERDESCRIPTION 
+					+ messageDescripteur;
+					
+					/* Logge */
+					if (LOG.isFatalEnabled()) {
+						LOG.fatal(message, e);
+					}
+					
+					if (this.logImportDescription) {
+						this.rapportImportDescriptionStb.append(message);
+						this.rapportImportDescriptionStb.append(NEWLINE);						
+					}
+					
+					
+					/* Fermeture des flux. */
+					bfr.close();
+					isr.close();
+					fis.close();
+					
+					/* Jette une Exception circonstanciée. */
+					throw new ExceptionImport(message, e);
+					
+				}
+				
+			}
+						
+			/* Gestion des longueurs maxi. */			
+			this.gererLongueursMaxi(desc);
+			
+			/* CONTROLES. */
+			/* Contrôle de l'unicité des noms Java. */
+			this.controlerUniciteNomJava(desc);
+			
+			/* controle que l'ordre des champs est jointif */
+			this.controlerJointif(compteurDeLigne - 1, desc);
+			
+			/* contrôle que les colonnes sont jointives. */
+			this.controlerColonnesJointives(compteurDeLigne - 1, desc);
+			
+			/* AJOUT DE LA DESCRIPTION A LA MAP triée 
+			 * this.specificationChampsMap. */
+			this.specificationChampsMap.put(compteurDeLigne - 1, desc);
+		}
+		
+		/* FERMETURE DES FLUX. */
+		bfr.close();
+		isr.close();
+		fis.close();
+		
+		return this.specificationChampsMap;		
+
+	} // Fin de importerDescription(...).__________________________________
 	
 	
 	

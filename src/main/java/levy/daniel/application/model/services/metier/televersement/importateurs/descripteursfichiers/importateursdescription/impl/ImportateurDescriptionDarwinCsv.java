@@ -330,7 +330,9 @@ public class ImportateurDescriptionDarwinCsv extends
 			
 		} /* FIN DETERMINATION DU FICHIER DE DESCRIPTION A LIRE. ********/
 		
-		
+		/* véfifie que le fichier de description possède l'extension CSV. */
+		this.traiterFichierNonCsv();
+				
 		// **************PARAMETRES VALIDES****************************/		
 
 		/* choisit automatiquement le Charset UTF-8 si pCharset == null 

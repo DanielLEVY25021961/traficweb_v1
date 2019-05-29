@@ -113,6 +113,12 @@ public abstract class AbstractImportateurDescription implements
 	public static final String METHODE_GENERER_AUTOMATIQUEMENT_FILE 
 		= "Méthode genererAutomatiquementFile(Charset pCharset)";
 	
+	/**
+	 * "Méthode setDescriptionDuFichierFile(File pDescriptionDuFichierFile)".
+	 */
+	public static final String METHODE_SET_DESCRIPTIONFICHIER_FILE 
+	= "Méthode setDescriptionDuFichierFile(File pDescriptionDuFichierFile)";
+	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
@@ -1533,7 +1539,7 @@ public abstract class AbstractImportateurDescription implements
 	 * comporte l'extension ".csv".<br/>
 	 * <br/>
 	 * LOG.fatal, rapporte et jette une ExceptionImport 
-	 * si la description de fichier n'a pas l'extension csv.<br/>
+	 * si la description de fichier n'a pas l'extension ".csv".<br/>
 	 * <br/>
 	 * - ne fait rien si this.descriptionDuFichierFile == null.<br/>
 	 * 
@@ -2170,12 +2176,42 @@ public abstract class AbstractImportateurDescription implements
 
 	
 	/**
-	 * {@inheritDoc}
+	 * {@inheritDoc} 
 	 */
 	@Override
 	public final void setDescriptionDuFichierFile(
-			final File pDescriptionDuFichierFile) {
+			final File pDescriptionDuFichierFile) throws Exception {
+		
+		/* LOG.fatal, rapporte et jette une FichierNullException 
+		 * si pDescriptionDuFichierFile est null.*/
+		this.traiterFichierNull(
+				pDescriptionDuFichierFile
+					, METHODE_SET_DESCRIPTIONFICHIER_FILE);
+		
+		/* LOG.fatal, rapporte et jette une FichierVideException 
+		 * si pDescriptionDuFichierFile est vide.*/
+		this.traiterFichierVide(
+				pDescriptionDuFichierFile
+					, METHODE_SET_DESCRIPTIONFICHIER_FILE);
+		
+		/* LOG.fatal, rapporte et jette une FichierInexistantException 
+		 * si pDescriptionDuFichierFile est inexistant.*/
+		this.traiterFichierInexistant(
+				pDescriptionDuFichierFile
+					, METHODE_SET_DESCRIPTIONFICHIER_FILE);
+		
+		/* LOG.fatal, rapporte et jette une FichierPasNormalException 
+		 * si pDescriptionDuFichierFile n'est pas un File normal (répertoire).*/
+		this.traiterFichierPasNormal(
+				pDescriptionDuFichierFile
+					, METHODE_SET_DESCRIPTIONFICHIER_FILE);
+		
+		/* passe le paramètre à l'attribut. */
 		this.descriptionDuFichierFile = pDescriptionDuFichierFile;
+		
+		/* LOG.fatal, rapporte et jette une ExceptionImportsi la description de fichier n'a pas l'extension ".csv". */
+		this.traiterFichierNonCsv();
+		
 	} // Fin de setDescriptionDuFichierFile(
 	 // File pDescriptionDuFichierFile).___________________________________
 	
