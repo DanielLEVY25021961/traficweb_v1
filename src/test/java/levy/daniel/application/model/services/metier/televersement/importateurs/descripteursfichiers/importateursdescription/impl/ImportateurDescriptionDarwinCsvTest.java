@@ -154,7 +154,7 @@ public class ImportateurDescriptionDarwinCsvTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -191,7 +191,7 @@ public class ImportateurDescriptionDarwinCsvTest {
 
 		/* garantit le bon fonctionnement de fournirLigneEnTetesCsv(). */
 		assertEquals("lignesEnTetesCsv doit valoir importateur.getDescriptionChamp().fournirLigneEnTetesCsv() : "
-				, "ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;"
+				, "ordreChamps;intitulé;nomenclature;champJava;typeJava;aNomenclature;aLexique;"
 				, ligneEnTetesCsv);
 		
 		assertEquals("lignesEnTetesCsv doit valoir importateur.getDescriptionChamp().fournirLigneEnTetesCsv() : "
@@ -245,19 +245,9 @@ public class ImportateurDescriptionDarwinCsvTest {
 			= importateur.fournirEnteteparColonne(6);
 		final String fournirEnteteparColonne7 
 			= importateur.fournirEnteteparColonne(7);
+		
 		final String fournirEnteteparColonne8 
 			= importateur.fournirEnteteparColonne(8);
-		final String fournirEnteteparColonne9 
-			= importateur.fournirEnteteparColonne(9);
-		final String fournirEnteteparColonne10 
-			= importateur.fournirEnteteparColonne(10);
-		final String fournirEnteteparColonne11 
-			= importateur.fournirEnteteparColonne(11);
-		final String fournirEnteteparColonne12 
-			= importateur.fournirEnteteparColonne(12);
-
-		final String fournirEnteteparColonne13 
-			= importateur.fournirEnteteparColonne(13);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -271,13 +261,8 @@ public class ImportateurDescriptionDarwinCsvTest {
 			System.out.println("fournirEnteteparColonne5 : " + fournirEnteteparColonne5);
 			System.out.println("fournirEnteteparColonne6 : " + fournirEnteteparColonne6);
 			System.out.println("fournirEnteteparColonne7 : " + fournirEnteteparColonne7);
-			System.out.println("fournirEnteteparColonne8 : " + fournirEnteteparColonne8);
-			System.out.println("fournirEnteteparColonne9 : " + fournirEnteteparColonne9);
-			System.out.println("fournirEnteteparColonne10 : " + fournirEnteteparColonne10);
-			System.out.println("fournirEnteteparColonne11 : " + fournirEnteteparColonne11);
-			System.out.println("fournirEnteteparColonne12 : " + fournirEnteteparColonne12);
 			
-			System.out.println("fournirEnteteparColonne13 : " + fournirEnteteparColonne13);
+			System.out.println("fournirEnteteparColonne8 : " + fournirEnteteparColonne8);
 		}
 		
 		/* garantit que fournirEnteteparColonne(0) null. */
@@ -292,53 +277,33 @@ public class ImportateurDescriptionDarwinCsvTest {
 						, fournirEnteteparColonne1);
 		assertEquals(
 				DOIT_RETOURNER_BONNE_VALEUR
-					, "colonnes"
+					, "intitulé"
 						, fournirEnteteparColonne2);
 		assertEquals(
 				DOIT_RETOURNER_BONNE_VALEUR
-					, "longueur"
+					, "nomenclature"
 						, fournirEnteteparColonne3);
 		assertEquals(
 				DOIT_RETOURNER_BONNE_VALEUR
-					, "intitule"
+					, "champJava"
 						, fournirEnteteparColonne4);
 		assertEquals(
 				DOIT_RETOURNER_BONNE_VALEUR
-					, "nomenclature"
+					, "typeJava"
 						, fournirEnteteparColonne5);
 		assertEquals(
 				DOIT_RETOURNER_BONNE_VALEUR
-					, "champJava"
+					, "aNomenclature"
 						, fournirEnteteparColonne6);
 		assertEquals(
 				DOIT_RETOURNER_BONNE_VALEUR
-					, "typeJava"
-						, fournirEnteteparColonne7);
-		assertEquals(
-				DOIT_RETOURNER_BONNE_VALEUR
-					, "aNomenclature"
-						, fournirEnteteparColonne8);
-		assertEquals(
-				DOIT_RETOURNER_BONNE_VALEUR
 					, "aLexique"
-						, fournirEnteteparColonne9);
-		assertEquals(
-				DOIT_RETOURNER_BONNE_VALEUR
-					, "colonneDebut"
-						, fournirEnteteparColonne10);
-		assertEquals(
-				DOIT_RETOURNER_BONNE_VALEUR
-					, "colonneFin"
-						, fournirEnteteparColonne11);
-		assertEquals(
-				DOIT_RETOURNER_BONNE_VALEUR
-					, "longueurCalculee"
-						, fournirEnteteparColonne12);
+						, fournirEnteteparColonne7);
 		
 		/* garantit que fournirEnteteparColonne(hors index) retourne null. */
 		assertNull(
 				DOIT_RETOURNER_NULL
-				, fournirEnteteparColonne13);
+				, fournirEnteteparColonne8);
 		
 	} // Fin de testFournirEnteteparColonne()._____________________________
 
@@ -379,10 +344,10 @@ public class ImportateurDescriptionDarwinCsvTest {
 		/* garantit que fournirLigneEnTetesCsv() retourne la bonne valeur. */
 		assertEquals(
 				DOIT_RETOURNER_BONNE_VALEUR
-					, "ordreChamps;colonnes;longueur;intitule;nomenclature;champJava;typeJava;aNomenclature;aLexique;colonneDebut;colonneFin;longueurCalculee;"
+					, "ordreChamps;intitulé;nomenclature;champJava;typeJava;aNomenclature;aLexique;"
 						, ligneEnTetesCsv);
-		assertEquals("l'en-tête doit comporter 12 éléments : "
-				, 12
+		assertEquals("l'en-tête doit comporter 7 éléments : "
+				, 7
 					, tokens.length);
 		
 	} // Fin de testFournirLigneEnTetesCsv().______________________________
@@ -419,8 +384,8 @@ public class ImportateurDescriptionDarwinCsvTest {
 		final String ligneValeursCsv0 = importateur.fournirLigneValeursCsv(0);
 		final String ligneValeursCsv1 = importateur.fournirLigneValeursCsv(1);
 		final String ligneValeursCsv2 = importateur.fournirLigneValeursCsv(2);
-		final String ligneValeursCsv102 = importateur.fournirLigneValeursCsv(102);
-		final String ligneValeursCsv104 = importateur.fournirLigneValeursCsv(104);
+		final String ligneValeursCsv65 = importateur.fournirLigneValeursCsv(65);
+		final String ligneValeursCsv66 = importateur.fournirLigneValeursCsv(66);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -428,8 +393,8 @@ public class ImportateurDescriptionDarwinCsvTest {
 			System.out.println("ligneValeursCsv0 : " + ligneValeursCsv0);
 			System.out.println("ligneValeursCsv1 : " + ligneValeursCsv1);
 			System.out.println("ligneValeursCsv2 : " + ligneValeursCsv2);
-			System.out.println("ligneValeursCsv102 : " + ligneValeursCsv102);
-			System.out.println("ligneValeursCsv104 : " + ligneValeursCsv104);
+			System.out.println("ligneValeursCsv65 : " + ligneValeursCsv65);
+			System.out.println("ligneValeursCsv66 : " + ligneValeursCsv66);
 		}
 		
 		final String ligneEnTetesCsv = importateur.fournirLigneEnTetesCsv();
@@ -441,19 +406,19 @@ public class ImportateurDescriptionDarwinCsvTest {
 		
 		/* garantit que fournirLigneValeursCsv(i) retourne la bonne valeur. */
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "1;1-3;3;Numéro de Département;cadré à gauche. Ex: dept 13 = 130;numDepartement;Integer;false;false;1;3;3;"
+				, "1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;false;"
 				, ligneValeursCsv1);
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "2;4-9;6;Numéro de Section;;numSection;String;false;false;4;9;6;"
+				, "2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;false;"
 				, ligneValeursCsv2);
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "102;509-520;12;Zone libre;12 espaces;sans objet;sans objet;false;false;509;520;12;"
-				, ligneValeursCsv102);
+				, "65;Sous-réseau Indice;1 – Autoroute Interurbaine [sep] 2 – Autoroute et voie rapide urbaine [sep] 3 – Route nationale interurbaine à caractéristiques autoroutières [sep] 4 – Autre route nationale [sep] 5 – Autoroute concédée [sep] 9 – Inconnu ou non renseigné;sousReseauIndice;Integer;true;false;"
+				, ligneValeursCsv65);
 		
 		/* garantit que fournirLigneValeursCsv(hors index) retourne null. */
 		assertNull(
 				DOIT_RETOURNER_NULL
-				, ligneValeursCsv104);
+				, ligneValeursCsv66);
 		
 	} // Fin de testFournirLigneValeursCsv().______________________________
 
@@ -493,18 +458,18 @@ public class ImportateurDescriptionDarwinCsvTest {
 		// METHODE A TESTER.
 		final String valeurl0c0 = importateur.fournirValeurparLigneColonne(0, 0);
 		final String valeurl0c1 = importateur.fournirValeurparLigneColonne(0, 1);
-		final String valeurl0c6 = importateur.fournirValeurparLigneColonne(0, 6);
-		final String valeurl0c12 = importateur.fournirValeurparLigneColonne(0, 12);
-		final String valeurl0c13 = importateur.fournirValeurparLigneColonne(0, 13);
+		final String valeurl0c2 = importateur.fournirValeurparLigneColonne(0, 2);
+		final String valeurl0c7 = importateur.fournirValeurparLigneColonne(0, 7);
+		final String valeurl0c8 = importateur.fournirValeurparLigneColonne(0, 8);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
 			System.out.println("valeurl0c0 : " + valeurl0c0);
 			System.out.println("valeurl0c1 : " + valeurl0c1);
-			System.out.println("valeurl0c6 : " + valeurl0c6);
-			System.out.println("valeurl0c12 : " + valeurl0c12);
-			System.out.println("valeurl0c13 : " + valeurl0c13);
+			System.out.println("valeurl0c2 : " + valeurl0c2);
+			System.out.println("valeurl0c7 : " + valeurl0c7);
+			System.out.println("valeurl0c8 : " + valeurl0c8);
 		}
 		
 		/* garantit que fournirValeurparLigneColonne(0, pCol) 
@@ -513,11 +478,11 @@ public class ImportateurDescriptionDarwinCsvTest {
 				, "ordreChamps"
 					, valeurl0c1);
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "champJava"
-					, valeurl0c6);
+				, "intitulé"
+					, valeurl0c2);
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "longueurCalculee"
-					, valeurl0c12);
+				, "aLexique"
+					, valeurl0c7);
 		
 		/* garantit que fournirValeurparLigneColonne(0, inexistant) 
 		 * retourne null. */
@@ -526,15 +491,15 @@ public class ImportateurDescriptionDarwinCsvTest {
 					, valeurl0c0);
 		assertNull(
 				DOIT_RETOURNER_NULL
-					, valeurl0c13);
+					, valeurl0c8);
 		
 		
 		// METHODE A TESTER.
 		final String valeurl27c0 = importateur.fournirValeurparLigneColonne(27, 0);
 		final String valeurl27c1 = importateur.fournirValeurparLigneColonne(27, 1);
-		final String valeurl27c6 = importateur.fournirValeurparLigneColonne(27, 6);
-		final String valeurl27c12 = importateur.fournirValeurparLigneColonne(27, 12);
-		final String valeurl27c13 = importateur.fournirValeurparLigneColonne(27, 13);
+		final String valeurl27c2 = importateur.fournirValeurparLigneColonne(27, 2);
+		final String valeurl27c3 = importateur.fournirValeurparLigneColonne(27, 3);
+		final String valeurl27c8 = importateur.fournirValeurparLigneColonne(27, 8);
 		final String valeurl103c7 = importateur.fournirValeurparLigneColonne(103, 7);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -542,9 +507,9 @@ public class ImportateurDescriptionDarwinCsvTest {
 			System.out.println();
 			System.out.println("valeurl27c0 : " + valeurl27c0);
 			System.out.println("valeurl27c1 : " + valeurl27c1);
-			System.out.println("valeurl27c6 : " + valeurl27c6);
-			System.out.println("valeurl27c12 : " + valeurl27c12);
-			System.out.println("valeurl27c13 : " + valeurl27c13);
+			System.out.println("valeurl27c2 : " + valeurl27c2);
+			System.out.println("valeurl27c3 : " + valeurl27c3);
+			System.out.println("valeurl27c8 : " + valeurl27c8);
 			System.out.println("valeurl103c7 : " + valeurl103c7);
 		}
 		
@@ -554,11 +519,11 @@ public class ImportateurDescriptionDarwinCsvTest {
 				, "27"
 					, valeurl27c1);
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "mjaN"
-					, valeurl27c6);
+				, "MJA N-4"
+					, valeurl27c2);
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "6"
-					, valeurl27c12);
+				, "Moyenne journalière annuelle de l'année de traitement – 4  (n-4) en véhicules/jour"
+					, valeurl27c3);
 		
 		/* garantit que fournirValeurparLigneColonne(ligne, inexistant) 
 		 * retourne null. */
@@ -567,7 +532,7 @@ public class ImportateurDescriptionDarwinCsvTest {
 					, valeurl27c0);
 		assertNull(
 				DOIT_RETOURNER_NULL
-					, valeurl27c13);
+					, valeurl27c8);
 		
 		/* garantit que fournirValeurparLigneColonne(inexistant, colonne) 
 		 * retourne null. */
@@ -711,8 +676,8 @@ public class ImportateurDescriptionDarwinCsvTest {
 		final IDescriptionChamp descriptionChamp0 = importateur.getDescriptionChamp(0);
 		final IDescriptionChamp descriptionChamp1 = importateur.getDescriptionChamp(1);
 		final IDescriptionChamp descriptionChamp2 = importateur.getDescriptionChamp(2);
-		final IDescriptionChamp descriptionChamp102 = importateur.getDescriptionChamp(102);
-		final IDescriptionChamp descriptionChamp103 = importateur.getDescriptionChamp(103);
+		final IDescriptionChamp descriptionChamp65 = importateur.getDescriptionChamp(65);
+		final IDescriptionChamp descriptionChamp66 = importateur.getDescriptionChamp(66);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -720,8 +685,8 @@ public class ImportateurDescriptionDarwinCsvTest {
 			System.out.println("descriptionChamp0 : " + descriptionChamp0);
 			System.out.println("descriptionChamp1 : " + descriptionChamp1.fournirLigneValeursCsv());
 			System.out.println("descriptionChamp2 : " + descriptionChamp2.fournirLigneValeursCsv());
-			System.out.println("descriptionChamp102 : " + descriptionChamp102.fournirLigneValeursCsv());
-			System.out.println("descriptionChamp103 : " + descriptionChamp103);
+			System.out.println("descriptionChamp65 : " + descriptionChamp65.fournirLigneValeursCsv());
+			System.out.println("descriptionChamp66 : " + descriptionChamp66);
 		}
 		
 		/* garantit que getDescriptionChamp(0) retourne null. */
@@ -731,19 +696,19 @@ public class ImportateurDescriptionDarwinCsvTest {
 		
 		/* garantit que getDescriptionChamp(i) retourne la bonne valeur. */
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "1;1-3;3;Numéro de Département;cadré à gauche. Ex: dept 13 = 130;numDepartement;Integer;false;false;1;3;3;"
+				, "1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;false;"
 				, descriptionChamp1.fournirLigneValeursCsv());
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "2;4-9;6;Numéro de Section;;numSection;String;false;false;4;9;6;"
+				, "2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;false;"
 				, descriptionChamp2.fournirLigneValeursCsv());
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "102;509-520;12;Zone libre;12 espaces;sans objet;sans objet;false;false;509;520;12;"
-				, descriptionChamp102.fournirLigneValeursCsv());
+				, "65;Sous-réseau Indice;1 – Autoroute Interurbaine [sep] 2 – Autoroute et voie rapide urbaine [sep] 3 – Route nationale interurbaine à caractéristiques autoroutières [sep] 4 – Autre route nationale [sep] 5 – Autoroute concédée [sep] 9 – Inconnu ou non renseigné;sousReseauIndice;Integer;true;false;"
+				, descriptionChamp65.fournirLigneValeursCsv());
 		
 		/* garantit que getDescriptionChamp(hors index) retourne null. */
 		assertNull(
 				DOIT_RETOURNER_NULL
-				, descriptionChamp103);
+				, descriptionChamp66);
 		
 	} // Fin de testGetDescriptionChamp()._________________________________
 
