@@ -1389,7 +1389,7 @@ public abstract class AbstractImportateurDescription implements
 			if (descPrecedent != null) {
 				
 				final Integer ordreChampPrecedent 
-				= descPrecedent.getOrdreChamps();
+				 = descPrecedent.getOrdreChamps();
 				
 
 				/* Si l'ordre des champs n'est pas jointif. */

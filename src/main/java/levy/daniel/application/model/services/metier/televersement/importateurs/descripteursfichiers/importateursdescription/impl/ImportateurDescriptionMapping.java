@@ -243,7 +243,9 @@ public class ImportateurDescriptionMapping extends
 
 
 	/**
-	 * {@inheritDoc}
+	 * {@inheritDoc}<br/>
+	 * contrôle que les colonnes sont jointives.<br/>
+	 * <br/>
 	 */
 	@Override
 	public final SortedMap<Integer, IDescriptionChamp> importerDescription(

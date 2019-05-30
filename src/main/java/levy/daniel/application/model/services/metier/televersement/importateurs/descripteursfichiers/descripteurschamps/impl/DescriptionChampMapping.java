@@ -38,13 +38,13 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * qu'après l'execution de sa méthode lireChamps(String[] pTokens) 
  * où pTokens représente toutes les valeurs de la description 
  * du champ sous forme de tableau de String.<br/>
- * <code>public static final String[] PRD = {"16", "P.R.Origine", "prD", "50", "52", "3", "16", "P.R. Origine", "prOrigine", "5", "PR Origine", "prd", "prD", "localisation"};</code><br/>
+ * <code>public static final String[] PRD = {"16", "P.R.Origine", "prD", "50", "52", "3", "16", "P.R. Origine", "prOrigine", "5", "PR Origine", "prd", "prD", "localisation";true;};</code><br/>
  * <code>descripteur.lireChamps(PRD);</code><br/>
  * <br/>
  * Un fichier de description d'un Mapping Histonat-HIT-Darwin-ISIDOR formatée en csv (';') 
  * commence par :<br/>
  * <br/>
- * ordreChampsHistonat;intituleHistonat;champJavaHistonat;colonneDebut;colonneFin;longueurCalculee;ordreChampsHit;intituleHit;champJavaHit;ordreChampDarwin;intituleDarwin;champJavaDarwin;baliseIsidor;isLocalisant;<br/>
+ * ordreChampsHistonat;intituleHistonat;champJavaHistonat;colonneDebut;colonneFin;longueurCalculee;ordreChampsHit;intituleHit;champJavaHit;ordreChampsDarwin;intituleDarwin;champJavaDarwin;baliseIsidor;isLocalisant;<br/>
  * 1;Numéro de Département;numDepartement;1;3;3;1;Numéro de Département;numDepartement;null;null;null;numDepartement;metier;<br/>
  * 2;Numéro de Section ;numSectionTrafic;4;9;6;2;Numéro de Section;numSection;12;Numéro de la Section de Trafic;numSectionTrafic;numSectionTrafic;metier;<br/>
  * 3;Sens;sensSectionTrafic;10;10;1;3;Sens;sens;13;Sens de la Section de Trafic;sensSectionTrafic;sensSectionTrafic;metier;<br/>
@@ -539,13 +539,15 @@ public class DescriptionChampMapping extends AbstractDescriptionChampCsv {
 
 	
 	/**
-	 * method lireOrdreChampsHisto(
-	 * String[] pTokens) :<br/>
 	 * - Récupère ordreChampsHisto 
 	 * (pTokens[0]) dans le tableau de Tokens 
-	 * de la description.<br/>
-	 * - Alimente directement l'attribut ordreChamps.<br/>
-	 * <br/>
+	 * de la description.
+	 * <ul>
+	 * <li>Alimente directement l'attribut 
+	 * <code><b>this.ordreChampsHisto</b></code>.</li>
+	 * <li>passe this.ordreChampsHisto à l'attribut 
+	 * <code><b>this.ordreChamps</b></code>.</li>
+	 * </ul>
 	 *
 	 * @param pTokens : String[].<br/>
 	 * 
@@ -579,9 +581,12 @@ public class DescriptionChampMapping extends AbstractDescriptionChampCsv {
 			ordreChampsHistonatString 
 				= ordrechampNettoye;
 			
-			/* Passage aux atributs. */
+			/* Passage aux attributs. */
 			this.ordreChampsHisto 
 			= Integer.parseInt(ordreChampsHistonatString);
+			
+			/* passe this.ordreChampsHisto à l'attribut this.ordreChamps. */
+			this.ordreChamps = this.ordreChampsHisto;
 						
 		} 
 		
