@@ -16,7 +16,9 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 /**
  * INTERFACE IImportateurDescription :<br/>
  * <p>
- * RESPONSABILITE : IMPORT D'UN FICHIER DE DESCRIPTION.
+ * RESPONSABILITE : IMPORTER LES FICHIERS DE DESCRIPTION (au format csv 
+ * avec séparateur ';' encodés en UTF-8) SOUS FORME DE 
+ * SortedMap&lt;Integer, IDescriptionChamp&gt;.
  * </p>
  * 
  * <p>
@@ -34,6 +36,19 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * <b>this.specificationChampsMap</b></code> 
  * retournée par la méthode 
  * <code><b>importerDescription(File pFileDescription)</b></code>.
+ * </p>
+ * 
+ *   
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ImportateurDescription : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/importateursdescription/diagramme_de_classes_ImportateurDescription_1.png" 
+ * alt="Diagramme de classe du ImportateurDescription" />
+ * <img src="../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/importateursdescription/diagramme_de_classes_ImportateurDescription_2.png" 
+ * alt="Diagramme de classe du ImportateurDescription" />
  * </p>
  * 
  * <br/>

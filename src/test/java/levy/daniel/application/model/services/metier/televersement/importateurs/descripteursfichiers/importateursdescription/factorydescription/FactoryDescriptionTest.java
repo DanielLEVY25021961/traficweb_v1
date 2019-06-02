@@ -113,8 +113,8 @@ public class FactoryDescriptionTest {
 		}
 		
 		// METHODE A TESTER.
-		final SortedMap<Integer, IDescriptionChamp> descriptionHitMap = 
-				FactoryDescription.getDecriptionHitMap();
+		final SortedMap<Integer, IDescriptionChamp> descriptionHitMap 
+			= FactoryDescription.getDecriptionHitMap();
 		
 		final SortedMap<Integer, IDescriptionChamp> descriptionHitMap1 = 
 				FactoryDescription.getDecriptionHitMap();

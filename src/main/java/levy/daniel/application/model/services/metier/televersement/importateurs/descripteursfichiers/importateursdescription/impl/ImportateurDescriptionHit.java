@@ -59,6 +59,18 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * </tr>
  * </table>
  * </p>
+ *   
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ImportateurDescription : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/importateursdescription/diagramme_de_classes_ImportateurDescription_1.png" 
+ * alt="Diagramme de classe du ImportateurDescription" />
+ * <img src="../../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/importateursdescription/diagramme_de_classes_ImportateurDescription_2.png" 
+ * alt="Diagramme de classe du ImportateurDescription" />
+ * </p>
  * 
  * <br/>
  *

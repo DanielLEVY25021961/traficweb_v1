@@ -51,10 +51,28 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * IDescriptionChamp pour le sens encapsule toutes les données 
  * précisées pour ce champ dans la description de fichier du HISTO_F08.<br/>
  * </p>
+ *   
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ImportateurDescription : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/importateursdescription/diagramme_de_classes_ImportateurDescription_1.png" 
+ * alt="Diagramme de classe du ImportateurDescription" />
+ * <img src="../../../../../../../../../../../../../../javadoc/images/model/services/metier/televersement/importateurs/descripteursfichiers/importateursdescription/diagramme_de_classes_ImportateurDescription_2.png" 
+ * alt="Diagramme de classe du ImportateurDescription" />
+ * </p>
+ * 
  * <br/>
  *
- * - Exemple d'utilisation :<br/>
- *<br/>
+ *<p>
+ * - Exemple d'utilisation :
+ *</p>
+ *<p>
+ *<code> // Récupère la DESCRIPTION DU FICHIER HIT sous forme de Map</code><br/>
+ *<code><b>SortedMap<Integer, IDescriptionChamp> descriptionHitMap = FactoryDescription.getDecriptionHitMap();</b></code><br/>
+ *</p>
  * 
  * - Mots-clé :<br/>
  * <br/>

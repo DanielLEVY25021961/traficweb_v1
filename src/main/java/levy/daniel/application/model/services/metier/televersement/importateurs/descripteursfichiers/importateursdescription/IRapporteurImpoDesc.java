@@ -4,7 +4,7 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
  * INTERFACE IRapporteurImpoDesc :<br/>
  * <p>
  * RESPONSABILITE : RAPPORTER LES ERREURS LORS DE 
- * L'IMPORT D'UNE DESCRIPTION.
+ * L'IMPORT D'UNE DESCRIPTION DE FICHIER.
  * </p>
  * <p>
  * Tout ImportateurDescription doit générer 
