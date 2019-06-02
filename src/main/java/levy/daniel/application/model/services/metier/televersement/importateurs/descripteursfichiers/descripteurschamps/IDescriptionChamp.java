@@ -7,11 +7,30 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullE
 import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
 
 /**
- * class IDescriptionChamp :<br/>
+ * INTERFACE IDescriptionChamp :<br/>
  * 
  * <p>
- * RESPONSABILITE : ENCAPSULATION D'UNE LIGNE D'UNE DESCRIPTION (CHAMP).<br/>
+ * RESPONSABILITE : ENCAPSULATION D'UNE LIGNE (CHAMP) 
+ * D'UN FICHIER DE DESCRIPTION (fichier de description du HIT
+ * , fichier de description du HISTO_F07, ...).<br/>
  * Interface factorisant les méthodes des DescriptionChamp.<br/>
+ * </p>
+ * 
+ * <p>
+ * Une description de champ est une encapsulation (pure fabrication) 
+ * chargée de stocker tous les éléments caractérisant un champ défini 
+ * dans une description de fichier.
+ * </p>
+ * 
+ * <p>
+ * Par exemple, le fichier de description du HISTO_F08 
+ * stipule que le 3ème champ dans un fichier ASCII HISTO_F08 
+ * est le <code>sens</code>.<br/>
+ * le fichier de description du HISTO_F08 stipule également 
+ * que le sens figure à la colonne 10 d'un HISTO_F08
+ * , qu'il doit respecter une nomenclature, ...<br/>
+ * IDescriptionChamp pour le sens encapsule toutes les données 
+ * précisées pour ce champ dans la description de fichier du HISTO_F08.<br/>
  * </p>
  * 
  * 
