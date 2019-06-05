@@ -1,4 +1,4 @@
-package levy.daniel.application.metier.importateurs.importeurs;
+package levy.daniel.application.model.services.metier.televersement.importateurs.importeurs;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,33 +11,34 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.IConstantes;
-import levy.daniel.application.exceptions.technical.impl.FichierInexistantException;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.FichierPasNormalException;
-import levy.daniel.application.exceptions.technical.impl.FichierVideException;
-import levy.daniel.application.exceptions.technical.impl.MapNullException;
-import levy.daniel.application.exceptions.technical.impl.MapVideException;
-import levy.daniel.application.metier.importateurs.controleursimport.IControleurImport;
-import levy.daniel.application.metier.importateurs.controleursimport.messagescontrolesimport.IMessageControleImport;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.IImportateurDescription;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.IConstantes;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexistantException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierPasNormalException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapNullException;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.MapVideException;
+import levy.daniel.application.metier.importateurs.controleursimport.IControleurImport;
+import levy.daniel.application.metier.importateurs.controleursimport.messagescontrolesimport.IMessageControleImport;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.IImportateurDescription;
+
 /**
  * class AbstractImporteur :<br/>
  * Classe abstraite modélisant tous les importeurs de fichiers 
- * (HIT, HistonatF07, FEOR XML, Darwin.csv...).<br/>
+ * (HIT, HISTO_F07, FEOR XML, DARWIN_CSV.csv...).<br/>
  * <br/>
  * <br/>
  *
@@ -59,37 +60,77 @@ import org.apache.commons.logging.LogFactory;
 public abstract class AbstractImporteur implements IImporteur {
 
 	// ************************ATTRIBUTS************************************/
-
+	
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	/**
+	 * Séparateur point virgule pour les CSV.<br/>
+	 * ";"
+	 */
+	public static final String SEP_PV = ";";
+    
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String SEPARATEUR_MOINS_AERE = " - ";
+		
+	/**
+	 * "_".<br/>
+	 */
+	public static final String UNDERSCORE = "_";
 	
 	/**
-	 * descriptionChamp : IDescriptionChamp :<br/>
+	 * Tabulation "\t".<br/>
+	 */
+	public static final String TAB = "\t";
+	
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
+	
+	//*****************************************************************/
+	//**************************** BOM_UTF-8 **************************/
+	//*****************************************************************/
+	/**
+	 * '\uFEFF'<br/>
+	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
+	 */
+	public static final char BOM_UTF_8 = '\uFEFF';
+	
+	/**
 	 * Encapsulation permettant de stocker toutes les valeurs 
 	 * décrivant un champ dans une description de fichier.<br/>
 	 * Par exemple :<br/>
-	 * [ordreChamps, colonnes, longueur, intitule, nomenclature
-	 * , champJava, typeJava, aNomenclature
-	 * , colonneDebut, colonneFin, longueurCalculee] 
-	 * pour une description de HistonatF07.<br/>
-	 * [ordreChamps, intitule, nomenclature, champJava, typeJava, aNomenclature] 
-	 * pour une description de Darwin csv.<br/>
+	 * <code>[ordreChamps, colonnes, longueur, intitule, nomenclature
+	 * , champJava, typeJava, aNomenclature, aLexique
+	 * , colonneDebut, colonneFin, longueurCalculee]</code> 
+	 * pour une description de HISTO_F07.<br/>
+	 * <code>[ordreChamps, intitule, nomenclature, champJava, typeJava
+	 * , aNomenclature, aLexique]</code> 
+	 * pour une description de DARWIN_CSV.<br/>
 	 */
 	protected IDescriptionChamp descriptionChamp;
-
 	
 	/**
-	 * importateurDescription : IImportateurDescription :<br/>
 	 * Importateur de description.<br/>
 	 * Les ImportateurDescription sont chargés 
 	 * de mettre à disposition de l'application les description 
-	 * des fichiers (HIT, HISTONATF07, DarwinCsv, Feor XML, ...).<br/>
-	 * Ces descriptions sont fournies par les ImportateursDescription sous forme de 
+	 * des fichiers (HIT, HISTO_F07, DARWIN_CSV, Feor XML, ...).<br/>
+	 * Ces descriptions sont fournies par les ImportateursDescription 
+	 * sous forme de 
 	 * SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 */
 	protected IImportateurDescription importateurDescription;
-
 	
 	/**
-	 * logImport : boolean : 
 	 * boolean qui stipule si les Importeur
 	 * doivent rapporter ou pas 
 	 * (rapport d'erreur lors de la lecture de fichiers).<br/>
@@ -97,40 +138,30 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * ATTENTION : Tester si il est vide.<br/>
 	 */
 	protected boolean logImport;
-	
-
-	
+		
 	/**
-	 * rapportImportStb : StringBuffer : <br/>
 	 * StringBuffer chargé de contenir le rapport de
 	 * l'import du fichier.<br/>
 	 * Ce rapport n'est null que si this.logImport vaut false. 
 	 * Tester si il est vide.<br/>
 	 */
 	protected StringBuffer rapportImportStb;
-
 	
 	/**
-	 * fichierAImporter : File :<br/>
-	 * Le fichier (HIT, Darwin, ...) à importer.<br/>
+	 * Le fichier (HIT, DARWIN_CSV, ...) à importer.<br/>
 	 */
 	protected File fichierAImporter;
-	
-	
+		
 	/**
-	 * fichierImporteMap : SortedMap<Integer,SortedMap<Integer,String>> :<br/>
 	 * SortedMap&lt;Integer, SortedMap&lt;Integer, String&gt;&gt; 
-	 * encapsulant le fichier (HIT, Darwin, ...) importé avec :<br/>
+	 * encapsulant le fichier (HIT, DARWIN_CSV, ...) importé avec :<br/>
 	 * - Integer : le numéro d'ordre de la ligne dans le fichier.<br/>
 	 * - Integer : le numéro d'un champ dans une ligne.<br/>
 	 * - String : la valeur du champ sous forme de String UTF-8.<br/>
 	 */
 	protected SortedMap<Integer, SortedMap<Integer, String>> fichierImporteMap;
-	
-	
-	
+		
 	/**
-	 * logControle : boolean :<br/>
 	 * boolean qui stipule si les Importeur
 	 * doivent rapporter ou pas les contrôles de validité 
 	 * (rapport de champ non renseigné, 
@@ -140,11 +171,8 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * ATTENTION : Tester si il est vide.<br/>
 	 */
 	protected boolean logControle;
-	
-	
-	
+		
 	/**
-	 * rapportControleStb : StringBuffer : <br/>
 	 * StringBuffer chargé de contenir le rapport des
 	 * contrôles de validité des champs 
 	 * lors de l'import du fichier (format csv, en-tête inclus).<br/>
@@ -152,38 +180,32 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * Tester si il est vide.<br/>
 	 */
 	protected StringBuffer rapportControleStb;
-
-
 	
 	/**
-	 * rapportControleMap : <br/>
 	 * SortedMap&lt;Integer, 
 	 * SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt;&gt; 
 	 * contenant les rapports de contrôle de validité des champs 
 	 * pour l'ensemble du fichier importé avec :<br/>
 	 * <ul>
 	 * <li>Integer : numéro de la ligne (1-based) 
-	 * dans le fichier importé.</li><br/>
+	 * dans le fichier importé.</li>
 	 * <li>SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt; 
-	 * avec :<br/>
+	 * avec :
 	 * <ul>
 	 * <li>Integer : le numéro d'ordre du champ (1-based) 
-	 * dans la ligne.</li><br/>
+	 * dans la ligne.</li>
 	 * <li>Set&lt;IMessageControleImport&gt;&gt; : l'ensemble 
 	 * des messages de contrôle générés pour le champ.</li>
 	 * </ul> 
 	 * </li>
 	 * </ul>
 	 * Ce rapport n'est null que si this.logControle vaut false.<br/> 
-	 * ATTENTION : Tester si il est vide.<br/>
+	 * ATTENTION : <b>Tester si il est vide</b>.<br/>
 	 */
 	protected SortedMap<Integer, SortedMap<Integer, Set<IMessageControleImport>>> 
 													rapportControleMap;
-
-	
 	
 	/**
-	 * controleurImport : IControleurImport :<br/>
 	 * Controleur de validité des champs.<br/>
 	 */
 	protected IControleurImport controleurImport;
@@ -238,7 +260,7 @@ public abstract class AbstractImporteur implements IImporteur {
 										, MapNullException
 											, MapVideException {
 		
-		return this.importer(pFile, IConstantes.CHARSET_UTF8);
+		return this.importer(pFile, StandardCharsets.UTF_8);
 		
 	} // Fin de importer(
 	// File pFile).________________________________________________________
@@ -260,7 +282,7 @@ public abstract class AbstractImporteur implements IImporteur {
 							, MapNullException
 							, MapVideException {
 		
-		return this.importer(pFile, IConstantes.CHARSET_LATIN9);
+		return this.importer(pFile, Charset.forName("ISO-8859-15"));
 		
 	} // Fin de importerFichierEnLatin9(
 	 // File pFile)._______________________________________________________
@@ -282,7 +304,7 @@ public abstract class AbstractImporteur implements IImporteur {
 							, MapNullException
 							, MapVideException {
 		
-		return this.importer(pFile, IConstantes.CHARSET_ANSI);
+		return this.importer(pFile, Charset.forName("Windows-1252"));
 		
 	} // Fin de importerFichierEnAnsi(
 	 // File pFile)._______________________________________________________
@@ -304,7 +326,7 @@ public abstract class AbstractImporteur implements IImporteur {
 							, MapNullException
 							, MapVideException {
 		
-		return this.importer(pFile, IConstantes.CHARSET_UTF8);
+		return this.importer(pFile, StandardCharsets.UTF_8);
 		
 	} // Fin de importerFichierEnUtf8(
 	 // File pFile)._______________________________________________________
@@ -353,7 +375,7 @@ public abstract class AbstractImporteur implements IImporteur {
 		
 		/* Choisit automatiquement le Charset UTF-8 si pCharset == null. */
 		if (pCharset == null) {
-			charset = IConstantes.CHARSET_UTF8;
+			charset = StandardCharsets.UTF_8;
 		}
 		else {
 			charset = pCharset;
@@ -384,7 +406,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			
 			/* Retire un éventuel caractère BOM-UTF-8 
 			 * en début de chaque ligne. */
-			if (ligneLue.charAt(0) == IConstantes.BOM_UTF_8) {
+			if (ligneLue.charAt(0) == BOM_UTF_8) {
 				ligneADecomposer = StringUtils.substring(ligneLue, 1);
 			}
 			else {
@@ -427,10 +449,6 @@ public abstract class AbstractImporteur implements IImporteur {
 
 	
 	/**
-	 * method controlerValiditeChamps(
-	 * int pNumeroLigne
-	 * , SortedMap&lt;Integer, String&gt; pLigneMap
-	 * , String pLigneLue) :<br/>
 	 * <ul>
 	 * <li>Exécute les contrôles de validité des champs de la ligne 
 	 * pNumeroLigne (1-based) du fichier importé.<br/>
@@ -527,37 +545,29 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 	
 	/**
-	 * method decomposerLigne(
-	 * String pString) :<br/>
 	 * Décompose chaque ligne lue dans le fichier 
 	 * en fonction de la description et retourne une Map triée 
-	 * SortedMap&lt;Integer, String&gt; avec :<br/>
+	 * SortedMap&lt;Integer, String&gt; avec :
 	 * <ul>
-	 * <li>Integer : l'ordre du champ.</li><br/>
+	 * <li>Integer : l'ordre du champ.</li>
 	 * <li>String : la valeur du champ sous forme de String 
-	 * encodée dans le Charset par défaut de la plateforme (UTF-8).</li><br/>
+	 * encodée dans le Charset par défaut de la plateforme (UTF-8).</li>
 	 * </ul>
-	 * <br/>
 	 * - Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.<br/>
-	 * <br/>
 	 * - retourne null si pString est blank.<br/>
-	 * <br/>
-	 * Implémenté au niveau du dessous dans AbstractImporteurAscii 
+	 * - Implémenté au niveau du dessous dans AbstractImporteurAscii 
 	 * ou AbstractImporteurNonAscii.<br/>
 	 * <br/>
 	 *
 	 * @param pString
 	 * @return : SortedMap&lt;Integer,String&gt;.<br/>
 	 */
-	protected abstract SortedMap<Integer, String> decomposerLigne(
-			final String pString);
+	protected abstract SortedMap<Integer, String> decomposerLigne(String pString);
 	
 	
 	
 	/**
-	 * method traiterFichierNull(
-	 * File pFile) :<br/>
 	 * Traitement des fichiers null pour la méthode importer(pFile).<br/>
 	 * LOG.fatal, rapporte dans this.rapportImportStb 
 	 * et jette une FichierNullException si pFile est null.<br/>
@@ -579,8 +589,6 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 	
 	/**
-	 * method traiterFichierVide(
-	 * File pFile) :<br/>
 	 * Traitement des fichiers vide pour la méthode importer(pFile).<br/>
 	 * LOG.fatal, rapporte dans this.rapportImportStb 
 	 * et jette une FichierVideException si pFile est vide.<br/>
@@ -602,8 +610,6 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 	
 	/**
-	 * method traiterFichierInexistant(
-	 * File pFile) :<br/>
 	 * Traitement des fichiers inexistants 
 	 * pour la méthode importer(pFile).<br/>
 	 * LOG.fatal, rapporte dans this.rapportImportStb 
@@ -628,8 +634,6 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 
 	/**
-	 * method traiterFichierPasNormal(
-	 * File pFile) :<br/>
 	 * Traitement des répertoires (fichier non 'normaux') 
 	 * pour la méthode importer(pFile).<br/>
 	 * LOG.fatal, rapporte dans this.rapportImportStb 
@@ -653,9 +657,6 @@ public abstract class AbstractImporteur implements IImporteur {
 
 	
 	/**
-	 * method traiterFichierNull(
-	 * File pFile
-	 * , String pMethode) :<br/>
 	 * LOG.fatal, rapporte dans this.rapportImportStb 
 	 * et jette une FichierNullException si pFile est null.<br/>
 	 * <br/>
@@ -675,10 +676,10 @@ public abstract class AbstractImporteur implements IImporteur {
 			/* Constitution du message. */
 			final String message 
 			= this.recupererNomClasse()
-			+ IConstantes.SEPARATEUR_MOINS_AERE
+			+ SEPARATEUR_MOINS_AERE
 			+ pMethode
-			+ IConstantes.SEPARATEUR_MOINS_AERE
-			+ ConfigurationApplicationManager.getBundleMessagesTechniques()
+			+ SEPARATEUR_MOINS_AERE
+			+ ConfigurationApplicationManager.getBundleMessagesTechnique()
 			.getString(this.recupererCleImporterFileNull());
 			
 			/* Logge. */
@@ -689,7 +690,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			/* Rapport d'erreur. */
 			if (this.logImport) {
 				this.rapportImportStb.append(message);
-				this.rapportImportStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportStb.append(NEWLINE);
 			}
 			
 			/* Exception circonstanciée. */
@@ -704,9 +705,6 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 	
 	/**
-	 * method traiterFichierVide(
-	 * File pFile
-	 * , String pMethode) :<br/>
 	 * LOG.fatal, rapporte dans this.rapportImportStb 
 	 * et jette une FichierVideException si pFile est vide.<br/>
 	 * <br/>
@@ -726,10 +724,10 @@ public abstract class AbstractImporteur implements IImporteur {
 			/* Constitution du message. */
 			final String message 
 			= this.recupererNomClasse()
-			+ IConstantes.SEPARATEUR_MOINS_AERE
+			+ SEPARATEUR_MOINS_AERE
 			+ pMethode 
-			+ IConstantes.SEPARATEUR_MOINS_AERE
-			+ ConfigurationApplicationManager.getBundleMessagesTechniques()
+			+ SEPARATEUR_MOINS_AERE
+			+ ConfigurationApplicationManager.getBundleMessagesTechnique()
 			.getString(this.recupererCleImporterFileVide()) 
 			+ pFile.getAbsolutePath();
 			
@@ -741,7 +739,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			/* Rapport d'erreur. */
 			if (this.logImport) {
 				this.rapportImportStb.append(message);
-				this.rapportImportStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportStb.append(NEWLINE);
 			}
 			
 			/* Exception circonstanciée. */
@@ -756,9 +754,6 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 	
 	/**
-	 * method traiterFichierInexistant(
-	 * File pFile
-	 * , String pMethode) :<br/>
 	 * LOG.fatal, rapporte dans this.rapportImportStb 
 	 * et jette une FichierInexistantException 
 	 * si pFile est inexistant.<br/>
@@ -779,10 +774,10 @@ public abstract class AbstractImporteur implements IImporteur {
 			/* Constitution du message. */
 			final String message 
 			= this.recupererNomClasse()
-			+ IConstantes.SEPARATEUR_MOINS_AERE
+			+ SEPARATEUR_MOINS_AERE
 			+ pMethode 
-			+ IConstantes.SEPARATEUR_MOINS_AERE
-			+ ConfigurationApplicationManager.getBundleMessagesTechniques()
+			+ SEPARATEUR_MOINS_AERE
+			+ ConfigurationApplicationManager.getBundleMessagesTechnique()
 			.getString(this.recupererCleImporterFileInexistant()) 
 			+ pFile.getAbsolutePath();
 			
@@ -794,7 +789,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			/* Rapport d'erreur. */
 			if (this.logImport) {
 				this.rapportImportStb.append(message);
-				this.rapportImportStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportStb.append(NEWLINE);
 			}
 						
 			/* Exception circonstanciée. */
@@ -809,9 +804,6 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 
 	/**
-	 * method traiterFichierPasNormal(
-	 * File pFile
-	 * , String pMethode) :<br/>
 	 * LOG.fatal, rapporte dans this.rapportImportStb 
 	 * et jette une FichierPasNormalException 
 	 * si pFile est un répertoire.<br/>
@@ -832,10 +824,10 @@ public abstract class AbstractImporteur implements IImporteur {
 			/* Constitution du message. */
 			final String message 
 			= this.recupererNomClasse()
-			+ IConstantes.SEPARATEUR_MOINS_AERE
+			+ SEPARATEUR_MOINS_AERE
 			+ pMethode
-			+ IConstantes.SEPARATEUR_MOINS_AERE
-			+ ConfigurationApplicationManager.getBundleMessagesTechniques()
+			+ SEPARATEUR_MOINS_AERE
+			+ ConfigurationApplicationManager.getBundleMessagesTechnique()
 			.getString(this.recupererCleImporterFilePasNormal()) 
 			+ pFile.getAbsolutePath();
 			
@@ -847,7 +839,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			/* Rapport d'erreur. */
 			if (this.logImport) {
 				this.rapportImportStb.append(message);
-				this.rapportImportStb.append(IConstantes.SAUT_LIGNE);
+				this.rapportImportStb.append(NEWLINE);
 			}
 			
 			/* Exception circonstanciée. */
@@ -891,9 +883,9 @@ public abstract class AbstractImporteur implements IImporteur {
 			
 			stb.append("Ligne ");
 			stb.append(numeroLigne);
-			stb.append(IConstantes.SEPARATEUR_MOINS_AERE);
+			stb.append(SEPARATEUR_MOINS_AERE);
 			stb.append(champsMap.toString());
-			stb.append(IConstantes.SAUT_LIGNE);
+			stb.append(NEWLINE);
 		}
 		
 		return stb.toString();
@@ -952,8 +944,7 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 	
 	/**
-	 * method determinerSiLogErreurs() :<br/>
-	 * - Va chercher dans messages_techniques.properties 
+	 * - Va chercher dans ressource_externes/messages_techniques.properties 
 	 * si il faut créer des rapports d'erreur d'import des fichiers.<br/>
 	 * - Instancie le cas échéant le rapport d'erreur.<br/>
 	 * <br/>
@@ -963,7 +954,7 @@ public abstract class AbstractImporteur implements IImporteur {
 		final String cleLogImport = this.recupererCleLogErreur();
 
 		final String logImportString 
-		= ConfigurationApplicationManager.getBundleMessagesTechniques()
+		= ConfigurationApplicationManager.getBundleMessagesTechnique()
 				.getString(cleLogImport);
 		
 		if (StringUtils.containsIgnoreCase(logImportString, "true")) {
@@ -984,8 +975,7 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 	
 	/**
-	 * method determinerSiLogControle() :<br/>
-	 * - Va chercher dans messagescontroles.properties 
+	 * - Va chercher dans ressources_externes/messagescontroles.properties 
 	 * si il faut créer des rapports de contrôle de validité 
 	 * lors de l'import des fichiers.<br/>
 	 * - Instancie le cas échéant le rapport de contrôle de validité.<br/>
@@ -996,7 +986,7 @@ public abstract class AbstractImporteur implements IImporteur {
 		final String cleLogControle = this.recupererCleLogControle();
 
 		final String logControleString 
-		= ConfigurationApplicationManager.getBundleMessagesControles()
+		= ConfigurationApplicationManager.getBundleMessagesControle()
 				.getString(cleLogControle);
 		
 		if (StringUtils.containsIgnoreCase(logControleString, "true")) {
@@ -1070,13 +1060,13 @@ public abstract class AbstractImporteur implements IImporteur {
 						this.rapportControleStb.append(
 								message.fournirLigneEnTetesCsv());
 						this.rapportControleStb
-							.append(IConstantes.SAUT_LIGNE);
+							.append(NEWLINE);
 					}
 					
 					this.rapportControleStb.append(
 							message.fournirLigneValeursCsv());
 					this.rapportControleStb
-						.append(IConstantes.SAUT_LIGNE);
+						.append(NEWLINE);
 					
 				} // FIN DE BOUCLE SUR LES MESSAGES DE CHAQUE CHAMP.___
 				
@@ -1406,7 +1396,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			 * rapport de contrôle de validité des champs. */
 			stb.append("Ligne numéro : ");
 			stb.append(numeroLigne);
-			stb.append(IConstantes.SAUT_LIGNE);
+			stb.append(NEWLINE);
 						
 			/* Récupération de toutes les lignes 
 			 * du rapport de contrôle de validité des champs 
@@ -1447,7 +1437,7 @@ public abstract class AbstractImporteur implements IImporteur {
 							 * considéré si le message n'est pas null. */
 							if (message != null) {								
 								stb.append(message.toString());
-								stb.append(IConstantes.SAUT_LIGNE);								
+								stb.append(NEWLINE);								
 							}
 														
 						} // FIN DE BOUCLE SUR CHAQUE MESSAGE DU CHAMP._____
@@ -1495,7 +1485,7 @@ public abstract class AbstractImporteur implements IImporteur {
 		
 		stb.append("Ligne numéro : ");
 		stb.append(pNumeroLigne);
-		stb.append(IConstantes.SAUT_LIGNE);
+		stb.append(NEWLINE);
 					
 		
 		final Set<Entry<Integer, Set<IMessageControleImport>>> setChamps 
@@ -1523,7 +1513,7 @@ public abstract class AbstractImporteur implements IImporteur {
 					for (final IMessageControleImport  message : setMessagesChamp) {
 						
 						stb.append(message.toString());
-						stb.append(IConstantes.SAUT_LIGNE);
+						stb.append(NEWLINE);
 						
 					} // FIN DE BOUCLE SUR CHAQUE MESSAGE DU CHAMP._____
 					
@@ -1695,7 +1685,7 @@ public abstract class AbstractImporteur implements IImporteur {
 		/* Ajout de la ligne d'en-tête si pAvecLigneEntetes. */
 		if (pAvecLigneEntetes) {
 			stb.append(this.fournirLigneEnTetesCsv());
-			stb.append(IConstantes.SAUT_LIGNE);
+			stb.append(NEWLINE);
 		}
 		
 		final int nombreLignes = this.fichierImporteMap.size();
@@ -1705,7 +1695,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			stb.append(this.fournirLigneValeursCsv(i));
 			
 			if (i < nombreLignes) {
-				stb.append(IConstantes.SAUT_LIGNE);
+				stb.append(NEWLINE);
 			}
 		}
 		
@@ -2573,7 +2563,6 @@ public abstract class AbstractImporteur implements IImporteur {
 
 
 	/**
-	 * method getRapportControleMap() :<br/>
 	 * Getter de la 
 	 * SortedMap&lt;Integer, SortedMap&lt;Integer
 	 * , Set&lt;IMessageControleImport&gt;&gt;&gt; :<br/>
@@ -2598,9 +2587,6 @@ public abstract class AbstractImporteur implements IImporteur {
 
 
 	/**
-	 * method setRapportControleMap(
-	 * SortedMap<Integer,SortedMap<Integer,Set<IMessageControleImport>>> 
-	 * pRapportControleMap) :<br/>
 	 * Setter de la 
 	 * SortedMap&lt;Integer, SortedMap&lt;Integer
 	 * , Set&lt;IMessageControleImport&gt;&gt;&gt; :<br/>
@@ -2629,7 +2615,6 @@ public abstract class AbstractImporteur implements IImporteur {
 
 
 	/**
-	 * method getControleurImport() :<br/>
 	 * Getter du Controleur de validité des champs.
 	 * <br/>
 	 *

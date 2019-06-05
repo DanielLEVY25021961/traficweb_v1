@@ -225,7 +225,7 @@ public interface IFournisseurCsvImporteur {
 	 * le fichier importé <code><b>this.fichierAImporter</b></code>.<br/>
 	 * Ce fichier csv généré est accessible dans le même répertoire 
 	 * que this.fichierAImporter et porte le même nom 
-	 * avec l'extension _utf8.csv.<br/>
+	 * avec l'extension _UTF-8.csv.<br/>
 	 * <br/>
 	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
 	 * <br/>
@@ -238,11 +238,78 @@ public interface IFournisseurCsvImporteur {
 	 * @throws IOException<br/> 
 	 */
 	File genererCsvFile() throws IOException;
+	
+	
+		
+	/**
+	 * Génère un <b>fichier csv encodé en ISO-8859-15 (Latin9)
+	 *  avec séparateur ';'</b> contenant 
+	 * le fichier importé <code><b>this.fichierAImporter</b></code>.<br/>
+	 * Ce fichier csv généré est accessible dans le même répertoire 
+	 * que this.fichierAImporter et porte le même nom 
+	 * avec l'extension _ISO-8859-15.csv.<br/>
+	 * <br/>
+	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
+	 * <br/>
+	 * - retourne null si <code><b>this.fichierImporteMap</b></code> 
+	 * est null.<br/>
+	 * <br/>
+	 *
+	 * @return : File : le fichier csv généré.<br/>
+	 * 
+	 * @throws IOException<br/> 
+	 */
+	File genererCsvFileLatin9() throws IOException;
+	
+	
+	
+	/**
+	 * Génère un <b>fichier csv encodé en Windows-1252 (ANSI)
+	 *  avec séparateur ';'</b> contenant 
+	 * le fichier importé <code><b>this.fichierAImporter</b></code>.<br/>
+	 * Ce fichier csv généré est accessible dans le même répertoire 
+	 * que this.fichierAImporter et porte le même nom 
+	 * avec l'extension _WINDOWS-1252.csv.<br/>
+	 * <br/>
+	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
+	 * <br/>
+	 * - retourne null si <code><b>this.fichierImporteMap</b></code> 
+	 * est null.<br/>
+	 * <br/>
+	 *
+	 * @return : File : le fichier csv généré.<br/>
+	 * 
+	 * @throws IOException<br/> 
+	 */
+	File genererCsvFileAnsi() throws IOException;
+
+	
+	
+	/**
+	 * Génère un <b>fichier csv encodé en UTF-8 avec séparateur ';'</b> 
+	 * contenant 
+	 * le fichier importé <code><b>this.fichierAImporter</b></code>.<br/>
+	 * Ce fichier csv généré est accessible dans le même répertoire 
+	 * que this.fichierAImporter et porte le même nom 
+	 * avec l'extension _UTF-8.csv.<br/>
+	 * <br/>
+	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
+	 * <br/>
+	 * - retourne null si <code><b>this.fichierImporteMap</b></code> 
+	 * est null.<br/>
+	 * <br/>
+	 *
+	 * @return : File : le fichier csv généré.<br/>
+	 * 
+	 * @throws IOException<br/> 
+	 */
+	File genererCsvFileUtf8() throws IOException;
 
 
 	
 	/**
-	 *  Génère un <b>fichier csv encodé UTF-8 avec séparateur ';'</b> contenant 
+	 * Génère un <b>fichier csv encodé en UTF-8 avec séparateur ';'</b> 
+	 * contenant 
 	 * le fichier importé <code><b>this.fichierAImporter</b></code>.<br/>
 	 * - Ce fichier csv généré est accessible à pFile.<br/>
 	 * - La ligne d'en-têtes est toujours générée.<br/>
@@ -258,7 +325,6 @@ public interface IFournisseurCsvImporteur {
 	 * - retourne null si pFile est null et 
 	 * <code><b>this.fichierAImporter</b></code> est introuvable.<br/>
 	 * <br/>
-	 * <br/>
 	 *
 	 * @param pFile : File : le fichier csv à générer.<br/>
 	 * 
@@ -271,118 +337,56 @@ public interface IFournisseurCsvImporteur {
 
 	
 	/**
-	 * method genererCsvFile(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile) :<br/>
-	 * Génère un fichier csv UTF-8 avec séparateur ';' contenant 
-	 * le fichier importé this.fichierAImporter.<br/>
-	 * Ce fichier csv généré est accessible à pFile.<br/>
-	 * pAvecLigneEntetes à true permet de générer la ligne d'en-tête.<br/>
-	 * Génère automatiquement le fichier de sortie dans le 
+	 * Génère un <b>fichier csv encodé en UTF-8 avec séparateur ';'</b> 
+	 * contenant 
+	 * le fichier importé <code><b>this.fichierAImporter</b></code>.<br/>
+	 * - Ce fichier csv généré est accessible à pFile.<br/>
+	 * - pAvecLigneEntetes à true permet de générer la ligne d'en-tête.<br/>
+	 * - Génère automatiquement le fichier de sortie dans le 
 	 * même répertoire que this.fichierAImporter 
-	 * avec l'extension _charset.csv 
+	 * avec l'extension _UTF-8.csv 
 	 * si pFile est null.<br/>
 	 * <br/>
 	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
 	 * <br/>
 	 * - retourne null si <code><b>this.fichierImporteMap</b></code> 
 	 * est null.<br/>
-	 * <br/>
 	 * - retourne null si pFile est null et 
-	 * this.fichierAImporter est introuvable.<br/>
+	 * <code><b>this.fichierAImporter</b></code> est introuvable.<br/>
 	 * <br/>
 	 *
 	 * @param pAvecLigneEntetes : boolean :boolean qui stipule 
 	 * si il faut rajouter la ligne d'en-têtes au fichier csv généré.<br/>
-	 * 
 	 * @param pFile : File : le fichier csv à générer.<br/>
 	 * 
 	 * @return : File : le fichier csv généré.<br/>
 	 * 
-	 * @throws IOException<br/> 
+	 * @throws IOException  
 	 */
 	File genererCsvFile(
-			final boolean pAvecLigneEntetes
-				, final File pFile) throws IOException;
-	
-	
-	
-	
-	/**
-	 * method genererCsvFileLatin9() :<br/>
-	 * Génère un fichier csv encodé en Latin9 avec séparateur ';' contenant 
-	 * le fichier importé this.fichierAImporter.<br/>
-	 * Ce fichier csv généré est accessible à pFile.<br/>
-	 * contient la ligne d'en-tête.<br/>
-	 * Génère automatiquement le fichier de sortie dans le 
-	 * même répertoire que this.fichierAImporter 
-	 * avec l'extension _ISO-8859-15.csv.<br/>
-	 * <br/>
-	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
-	 * <br/>
-	 * - retourne null si <code><b>this.fichierImporteMap</b></code> 
-	 * est null.<br/>
-	 * <br/>
-	 * - retourne null si pFile est null et 
-	 * this.fichierAImporter est introuvable.<br/>
-	 * <br/>
-	 *
-	 * @return : File : le fichier csv généré.<br/>
-	 * 
-	 * @throws IOException<br/>
-	 */
-	File genererCsvFileLatin9() throws IOException;
-
-	
-	
-	/**
-	 * method genererCsvFileUtf8() :<br/>
-	 * Génère un fichier csv encodé en UTF-8 avec séparateur ';' contenant 
-	 * le fichier importé this.fichierAImporter.<br/>
-	 * Ce fichier csv généré est accessible à pFile.<br/>
-	 * contient la ligne d'en-tête.<br/>
-	 * Génère automatiquement le fichier de sortie dans le 
-	 * même répertoire que this.fichierAImporter 
-	 * avec l'extension _UTF-8.csv.<br/>
-	 * <br/>
-	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
-	 * <br/>
-	 * - retourne null si <code><b>this.fichierImporteMap</b></code> 
-	 * est null.<br/>
-	 * <br/>
-	 * - retourne null si pFile est null et 
-	 * this.fichierAImporter est introuvable.<br/>
-	 * <br/>
-	 *
-	 * @return : File : le fichier csv généré.<br/>
-	 * 
-	 * @throws IOException<br/>
-	 */
-	File genererCsvFileUtf8() throws IOException;
+			boolean pAvecLigneEntetes
+				, File pFile) throws IOException;
 	
 	
 	
 	/**
-	 * method genererCsvFile(
-	 * boolean pAvecLigneEntetes
-	 * , File pFile
-	 * , Charset pCharset) :<br/>
-	 * Génère un fichier csv encodé en pCharset avec séparateur ';' contenant 
-	 * le fichier importé this.fichierAImporter.<br/>
-	 * Ce fichier csv généré est accessible à pFile.<br/>
-	 * pAvecLigneEntetes à true permet de générer la ligne d'en-tête.<br/>
-	 * Génère automatiquement le fichier de sortie dans le 
+	 * Génère un <b>fichier csv encodé en pCharset avec séparateur ';'</b> 
+	 * contenant 
+	 * le fichier importé <code><b>this.fichierAImporter</b></code>.<br/>
+	 * - Ce fichier csv généré est accessible à pFile.<br/>
+	 * - pAvecLigneEntetes à true permet de générer la ligne d'en-tête.<br/>
+	 * - Génère automatiquement le fichier de sortie dans le 
 	 * même répertoire que this.fichierAImporter 
-	 * avec l'extension _charset.csv 
+	 * avec l'extension _CHARSET.csv 
 	 * si pFile est null.<br/>
+	 * - Choisit automatiquement UTF-8 si pCharset == null.<br/>
 	 * <br/>
 	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
 	 * <br/>
 	 * - retourne null si <code><b>this.fichierImporteMap</b></code> 
 	 * est null.<br/>
-	 * <br/>
 	 * - retourne null si pFile est null et 
-	 * this.fichierAImporter est introuvable.<br/>
+	 * <code><b>this.fichierAImporter</b></code> est introuvable.<br/>
 	 * <br/>
 	 *
 	 * @param pAvecLigneEntetes : boolean :boolean qui stipule 
@@ -393,12 +397,12 @@ public interface IFournisseurCsvImporteur {
 	 * 
 	 * @return : File : le fichier csv généré.<br/>
 	 * 
-	 * @throws IOException<br/>
+	 * @throws IOException  
 	 */
 	File genererCsvFile(
-			final boolean pAvecLigneEntetes
-				, final File pFile
-					, final Charset pCharset) throws IOException;
+			boolean pAvecLigneEntetes
+				, File pFile
+					, Charset pCharset) throws IOException;
 	
 
 	
