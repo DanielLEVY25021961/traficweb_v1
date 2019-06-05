@@ -51,9 +51,10 @@ public interface IFournisseurJTableImporteur {
 	 * est null dans l'ImportateurDescription.<br/>
 	 * @throws MapVideException lorsque : la Map 'specificationChampsMap' 
 	 * est vide dans l'ImportateurDescription.<br/>
+	 * @throws Exception 
 	*/
 	String fournirEnteteparColonne(
-			int pI) throws MapVideException, MapNullException;
+			int pI) throws MapVideException, MapNullException, Exception;
 
 	
 	

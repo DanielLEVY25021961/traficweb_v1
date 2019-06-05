@@ -16,11 +16,11 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 
 /**
  * INTERFACE IImporteur :<br/>
- * RESPONSABILITE : IMPORTER LES FICHIERS (HIT, HistonatF07, Darwin csv, ...) 
+ * RESPONSABILITE : IMPORTER LES FICHIERS (HIT, HISTO_F07, DARWIN_CSV, ...) 
  * ET LES METTRE A DISPOSITION DE L'APPLICATION SOUS FORME DE MAP 
  * (SortedMap&lt;Integer, SortedMap&lt;Integer, String&gt;&gt;).<br/>
  * Interface modélisant tous les importeurs de fichiers 
- * (HIT, HistonatF07, FEOR XML, Darwin.csv...).<br/>
+ * (HIT, HISTO_F07, FEOR XML, DARWIN_CSV...).<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -39,11 +39,10 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  *
  */
 public interface IImporteur 
-	extends IRapporteurImporteur
-				, IFournisseurJTableImporteur
+	extends IFournisseurJTableImporteur
 						, IFournisseurCsvImporteur
 							, IFournisseurFichier
-								, IControleurImporteur {
+								, IRapporteurImporteur {
 	
 
 	
@@ -111,6 +110,7 @@ public interface IImporteur
 	 * est null dans l'ImportateurDescription.<br/>
 	 * @throws MapVideException lorsque : la Map 'specificationChampsMap' 
 	 * est vide dans l'ImportateurDescription.<br/>
+	 * @throws Exception
 	 */
 	SortedMap<Integer, SortedMap<Integer, String>> importer(
 			File pFile) 
@@ -120,7 +120,8 @@ public interface IImporteur
 								, FichierPasNormalException
 									, IOException
 										, MapNullException
-											, MapVideException;
+											, MapVideException
+												, Exception;
 	
 	
 
@@ -175,6 +176,7 @@ public interface IImporteur
 	 * est null dans l'ImportateurDescription.<br/>
 	 * @throws MapVideException lorsque : la Map 'specificationChampsMap' 
 	 * est vide dans l'ImportateurDescription.<br/>
+	 * @throws Exception
 	 */
 	SortedMap<Integer, SortedMap<Integer, String>> 
 			importerFichierEnLatin9(
@@ -185,7 +187,8 @@ public interface IImporteur
 							, FichierPasNormalException
 							, IOException
 							, MapNullException
-							, MapVideException;
+							, MapVideException
+							, Exception;
 	
 
 	
@@ -239,6 +242,7 @@ public interface IImporteur
 	 * est null dans l'ImportateurDescription.<br/>
 	 * @throws MapVideException lorsque : la Map 'specificationChampsMap' 
 	 * est vide dans l'ImportateurDescription.<br/>
+	 * @throws Exception
 	 */
 	SortedMap<Integer, SortedMap<Integer, String>> 
 			importerFichierEnAnsi(
@@ -249,7 +253,8 @@ public interface IImporteur
 							, FichierPasNormalException
 							, IOException
 							, MapNullException
-							, MapVideException;
+							, MapVideException
+							, Exception;
 	
 	
 	
@@ -302,6 +307,7 @@ public interface IImporteur
 	 * est null dans l'ImportateurDescription.<br/>
 	 * @throws MapVideException lorsque : la Map 'specificationChampsMap' 
 	 * est vide dans l'ImportateurDescription.<br/>
+	 * @throws Exception
 	 */
 	SortedMap<Integer, SortedMap<Integer, String>> 
 			importerFichierEnUTf8(
@@ -312,7 +318,8 @@ public interface IImporteur
 							, FichierPasNormalException
 							, IOException
 							, MapNullException
-							, MapVideException;
+							, MapVideException
+							, Exception;
 	
 
 	
@@ -370,6 +377,7 @@ public interface IImporteur
 	 * est null dans l'ImportateurDescription.<br/>
 	 * @throws MapVideException lorsque : la Map 'specificationChampsMap' 
 	 * est vide dans l'ImportateurDescription.<br/>
+	 * @throws Exception
 	 */
 	SortedMap<Integer, SortedMap<Integer, String>> 
 								importer(
@@ -381,7 +389,8 @@ public interface IImporteur
 												, FichierPasNormalException
 												, IOException
 												, MapNullException
-												, MapVideException;
+												, MapVideException
+												, Exception;
 	
 	
 
@@ -412,6 +421,7 @@ public interface IImporteur
 	 * @throws FichierInexistantException  : si pFile n'existe pas.<br/>
 	 * @throws FichierPasNormalException : si pFile est un répertoire.<br/>
 	 * @throws IOException : si problème d'entrée/sortie.<br/>
+	 * @throws Exception 
 	 */
 	int compterNombreLignes(
 					File pFile) 
@@ -419,7 +429,7 @@ public interface IImporteur
 							, FichierVideException
 								, FichierInexistantException
 									, FichierPasNormalException
-										, IOException;
+										, IOException, Exception;
 	
 
 	

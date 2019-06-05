@@ -1,18 +1,18 @@
-package levy.daniel.application.metier.importateurs.importeurs;
+package levy.daniel.application.model.services.metier.televersement.importateurs.importeurs;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import levy.daniel.application.IConstantes;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.AbstractDescriptionChampAscii;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
 /**
  * class AbstractImporteurAscii :<br/>
@@ -39,6 +39,51 @@ import org.apache.commons.logging.LogFactory;
 public abstract class AbstractImporteurAscii extends AbstractImporteur {
 
 	// ************************ATTRIBUTS************************************/
+	
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	/**
+	 * Séparateur point virgule pour les CSV.<br/>
+	 * ";"
+	 */
+	public static final String SEP_PV = ";";
+    
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String SEPARATEUR_MOINS_AERE = " - ";
+		
+	/**
+	 * "_".<br/>
+	 */
+	public static final String UNDERSCORE = "_";
+	
+	/**
+	 * Tabulation "\t".<br/>
+	 */
+	public static final String TAB = "\t";
+	
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
+	
+	//*****************************************************************/
+	//**************************** BOM_UTF-8 **************************/
+	//*****************************************************************/
+	/**
+	 * '\uFEFF'<br/>
+	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
+	 */
+	public static final char BOM_UTF_8 = '\uFEFF';
+	
 
 	/**
 	 * LOG : Log : 
@@ -49,14 +94,13 @@ public abstract class AbstractImporteurAscii extends AbstractImporteur {
 
 	// *************************METHODES************************************/
 	
-	
-	
+		
 	 /**
-	 * method CONSTRUCTEUR AbstractImporteurAscii() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
+	 * 
+	 * @throws Exception 
 	 */
-	public AbstractImporteurAscii() {
+	public AbstractImporteurAscii() throws Exception {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -78,7 +122,7 @@ public abstract class AbstractImporteurAscii extends AbstractImporteur {
 		
 		/* Retire un éventuel caractère BOM-UTF-8 
 		 * en début de chaque ligne. */
-		if (pString.charAt(0) == IConstantes.BOM_UTF_8) {
+		if (pString.charAt(0) == BOM_UTF_8) {
 			ligneADecomposer = StringUtils.substring(pString, 1);
 		}
 		else {
@@ -114,7 +158,7 @@ public abstract class AbstractImporteurAscii extends AbstractImporteur {
 			
 			/* Passage forcé en UTF-8 */
 			final String champUtf8 
-				= new String(champ.getBytes(IConstantes.CHARSET_UTF8));
+				= new String(champ.getBytes(StandardCharsets.UTF_8));
 			
 			/* Ajout dans la Map décrivant la ligne. */
 			ligneMap.put(numeroChamp, champUtf8);

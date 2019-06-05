@@ -19,4 +19,4 @@
  * @since 26 juin 2014
  *
  */
-package levy.daniel.application.metier.importateurs.importeurs.impl;
+package levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl;

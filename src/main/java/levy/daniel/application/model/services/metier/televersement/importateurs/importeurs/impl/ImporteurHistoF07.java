@@ -1,18 +1,11 @@
-package levy.daniel.application.metier.importateurs.importeurs.impl;
-
-import java.io.IOException;
-
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauVideException;
-import levy.daniel.application.metier.importateurs.controleursimport.impl.ControleurImportHistoF07;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHistoF07;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.FactorySingletonImportateurDescription;
-import levy.daniel.application.metier.importateurs.importeurs.AbstractImporteurAscii;
+package levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHistoF07;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionHistoF07;
+import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.AbstractImporteurAscii;
 
 /**
  * class ImporteurHistoF07 :<br/>
@@ -56,30 +49,12 @@ public class ImporteurHistoF07 extends AbstractImporteurAscii {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR ImporteurHistoF07() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * <br/>
-	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
-	 * @throws ExceptionImport lorsque :<br/>
-	 * le fichier de description passé en paramètre pFileDescription 
-	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
-	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * les colonnes ne sont pas jointives.<br/>
-	 * @throws TableauVideException : 
-	 * si une ligne de la description est null.<br/>
-	 * @throws TableauNullException : 
-	 * si une ligne de la description est vide.<br/> 
+	 * @throws Exception 
 	 */
 	public ImporteurHistoF07() 
-			throws FichierNullException
-			, TableauNullException
-			, TableauVideException
-			, ExceptionImport
-			, IOException {
+			throws Exception {
 		
 		super();
 		
@@ -88,11 +63,7 @@ public class ImporteurHistoF07 extends AbstractImporteurAscii {
 		
 		/* Passe l'importateur de description. */
 		this.importateurDescription 
-			= FactorySingletonImportateurDescription
-				.getImportateurDescriptionHistoF07();
-		
-		/* Passe le ControleurImport. */
-		this.controleurImport = new ControleurImportHistoF07();
+			= new ImportateurDescriptionHistoF07();
 		
 	} // Fin du CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -179,18 +150,6 @@ public class ImporteurHistoF07 extends AbstractImporteurAscii {
 	public final String recupererCleImporterFilePasNormal() {
 		return "importeurhistof07.importer.filepasnormal";
 	} // Fin de recupererCleImporterFilePasNormal()._______________________ 
-
-	
-	
-	/**
-	 * "importeurhistof07.log.controle".<br/>
-	 * <br/>
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String recupererCleLogControle() {
-		return "importeurhistof07.log.controle";
-	} // Fin de recupererCleLogControle()._________________________________
 	
 
 	

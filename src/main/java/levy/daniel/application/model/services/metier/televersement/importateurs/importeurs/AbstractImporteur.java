@@ -9,7 +9,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.StringReader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
@@ -23,15 +22,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
-import levy.daniel.application.IConstantes;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexistantException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierPasNormalException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierVideException;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.MapNullException;
-import levy.daniel.application.apptechnic.exceptions.technical.impl.MapVideException;
-import levy.daniel.application.metier.importateurs.controleursimport.IControleurImport;
-import levy.daniel.application.metier.importateurs.controleursimport.messagescontrolesimport.IMessageControleImport;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.IImportateurDescription;
 
@@ -160,57 +154,6 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * - String : la valeur du champ sous forme de String UTF-8.<br/>
 	 */
 	protected SortedMap<Integer, SortedMap<Integer, String>> fichierImporteMap;
-		
-	/**
-	 * boolean qui stipule si les Importeur
-	 * doivent rapporter ou pas les contrôles de validité 
-	 * (rapport de champ non renseigné, 
-	 * d'erreurs de format ou de nomenclature 
-	 * dans un champ lors de l'import d'un fichier).<br/>
-	 * Ce rapport n'est null que si this.logControle vaut false. 
-	 * ATTENTION : Tester si il est vide.<br/>
-	 */
-	protected boolean logControle;
-		
-	/**
-	 * StringBuffer chargé de contenir le rapport des
-	 * contrôles de validité des champs 
-	 * lors de l'import du fichier (format csv, en-tête inclus).<br/>
-	 * Ce rapport n'est null que si this.logControle vaut false. 
-	 * Tester si il est vide.<br/>
-	 */
-	protected StringBuffer rapportControleStb;
-	
-	/**
-	 * SortedMap&lt;Integer, 
-	 * SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt;&gt; 
-	 * contenant les rapports de contrôle de validité des champs 
-	 * pour l'ensemble du fichier importé avec :<br/>
-	 * <ul>
-	 * <li>Integer : numéro de la ligne (1-based) 
-	 * dans le fichier importé.</li>
-	 * <li>SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt; 
-	 * avec :
-	 * <ul>
-	 * <li>Integer : le numéro d'ordre du champ (1-based) 
-	 * dans la ligne.</li>
-	 * <li>Set&lt;IMessageControleImport&gt;&gt; : l'ensemble 
-	 * des messages de contrôle générés pour le champ.</li>
-	 * </ul> 
-	 * </li>
-	 * </ul>
-	 * Ce rapport n'est null que si this.logControle vaut false.<br/> 
-	 * ATTENTION : <b>Tester si il est vide</b>.<br/>
-	 */
-	protected SortedMap<Integer, SortedMap<Integer, Set<IMessageControleImport>>> 
-													rapportControleMap;
-	
-	/**
-	 * Controleur de validité des champs.<br/>
-	 */
-	protected IControleurImport controleurImport;
-	
-	
 	
 	/**
 	 * LOG : Log : 
@@ -224,22 +167,23 @@ public abstract class AbstractImporteur implements IImporteur {
 
 	
 	 /**
-	 * method CONSTRUCTEUR AbstractImporteur() :<br/>
-	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
+	 * CONSTRUCTEUR D'ARITE NULLE.
+	 * <ul>
+	 * <li>va chercher dans ressources_externes/messagestechnique.properties 
+	 * la valeur de <code><b>this.logImport</b></code>.</li>
+	 * </ul>
+	 * @throws Exception 
 	 */
-	public AbstractImporteur() {
+	public AbstractImporteur() throws Exception {
 		
 		super();
 		
+		/* va chercher dans ressources_externes/messagestechnique.properties 
+		 * la valeur de this.logImport*/
 		/* Détermination de la valeur du boolean qui
-		 * stipule si il faut logger l'import du fichier
+		 * stipule si il faut logger les erreurs d'import du fichier
 		 * ou pas. */
 		this.determinerSiLogErreurs();
-		
-		/* Détermination de la valeur du boolean qui 
-		 * stipule si il faut contrôler la validité des champs*/
-		this.determinerSiLogControle();
 		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -252,13 +196,7 @@ public abstract class AbstractImporteur implements IImporteur {
 	public final SortedMap<Integer, SortedMap<Integer, String>> 
 														importer(
 															final File pFile) 
-					throws FichierNullException
-						, FichierVideException
-							, FichierInexistantException
-								, FichierPasNormalException
-									, IOException
-										, MapNullException
-											, MapVideException {
+					throws Exception {
 		
 		return this.importer(pFile, StandardCharsets.UTF_8);
 		
@@ -274,13 +212,7 @@ public abstract class AbstractImporteur implements IImporteur {
 	public final SortedMap<Integer, SortedMap<Integer, String>> 
 			importerFichierEnLatin9(
 				final File pFile) 
-							throws FichierNullException
-							, FichierVideException
-							, FichierInexistantException
-							, FichierPasNormalException
-							, IOException
-							, MapNullException
-							, MapVideException {
+							throws Exception {
 		
 		return this.importer(pFile, Charset.forName("ISO-8859-15"));
 		
@@ -296,13 +228,7 @@ public abstract class AbstractImporteur implements IImporteur {
 	public final SortedMap<Integer, SortedMap<Integer, String>> 
 			importerFichierEnAnsi(
 				final File pFile) 
-							throws FichierNullException
-							, FichierVideException
-							, FichierInexistantException
-							, FichierPasNormalException
-							, IOException
-							, MapNullException
-							, MapVideException {
+							throws Exception {
 		
 		return this.importer(pFile, Charset.forName("Windows-1252"));
 		
@@ -318,13 +244,7 @@ public abstract class AbstractImporteur implements IImporteur {
 	public final SortedMap<Integer, SortedMap<Integer, String>> 
 			importerFichierEnUTf8(
 				final File pFile) 
-							throws FichierNullException
-							, FichierVideException
-							, FichierInexistantException
-							, FichierPasNormalException
-							, IOException
-							, MapNullException
-							, MapVideException {
+							throws Exception {
 		
 		return this.importer(pFile, StandardCharsets.UTF_8);
 		
@@ -335,19 +255,14 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 	/**
 	 * {@inheritDoc}
+	 * @throws Exception 
 	 */
 	@Override
 	public final SortedMap<Integer, SortedMap<Integer, String>> 
 								importer(
 									final File pFile
 										, final Charset pCharset) 
-												throws FichierNullException
-												, FichierVideException
-												, FichierInexistantException
-												, FichierPasNormalException
-												, IOException
-												, MapNullException
-												, MapVideException {
+												throws Exception {
 
 		// ********** PARAMETRES INVALIDES *******************************/
 		/* Fichier null. */
@@ -419,15 +334,6 @@ public abstract class AbstractImporteur implements IImporteur {
 					.decomposerLigne(ligneADecomposer);
 
 			
-			// CONTROLE DE VALIDITE DES CHAMPS POUR CHAQUE LIGNE.____
-			if (this.logControle) {
-
-				/* EXECUTION DU CONTROLE. ****/
-				this.controlerValiditeChamps(numeroLigne, ligneMap, ligneLue);
-				
-			} // FIN DE CONTROLE DE VALIDITE DES CHAMPS POUR CHAQUE LIGNE.____
-
-			
 			// AJOUT DE LA LIGNE DECOMPOSEE DANS LA MAP RESULTAT._____
 			if (ligneMap != null) {
 				this.fichierImporteMap.put(numeroLigne, ligneMap);
@@ -442,105 +348,7 @@ public abstract class AbstractImporteur implements IImporteur {
 
 		return this.fichierImporteMap;
 
-	} // Fin de importer(
-	// File pFile
-	// , Charset pCharset).________________________________________________
-	
-
-	
-	/**
-	 * <ul>
-	 * <li>Exécute les contrôles de validité des champs de la ligne 
-	 * pNumeroLigne (1-based) du fichier importé.<br/>
-	 * La ligne du fichier à contrôler est fournie sous forme de 
-	 * SortedMap&lt;Integer, String&gt; avec :<br/>
-	 * <ul>
-	 * <li>Integer : le numéro d'ordre du champ dans la ligne.</li><br/>
-	 * <li>String : la valeur prise par le champ.</li><br/>
-	 * </ul>
-	 * </li>
-	 * <li>Délègue à this.controleurImport le contrôle 
-	 * de validité des champs de la ligne.<br/>
-	 * this.controleurImport génère une 
-	 * SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt; avec :<br/>
-	 * <ul>
-	 * <li>Integer : le numéro d'ordre du champ (1-based) 
-	 * dans la ligne.</li><br/>
-	 * <li>Set&lt;IMessageControleImport&gt;&gt; : l'ensemble 
-	 * des messages de contrôle générés pour le champ.</li>
-	 * </ul> 
-	 * </li>
-	 * <li>Ajoute la Map des contrôles de validité des champs de la ligne 
-	 * au rapport du fichier this.rapportControleMap.<br/>
-	 * this.rapportControleMap est une 
-	 * SortedMap&lt;Integer, 
-	 * SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt;&gt; 
-	 * avec :<br/>
-	 * <ul>
-	 * <li>Integer : numéro de la ligne (1-based) 
-	 * dans le fichier importé.</li><br/>
-	 * <li>SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt; 
-	 * avec :<br/>
-	 * <ul>
-	 * <li>Integer : le numéro d'ordre du champ (1-based) 
-	 * dans la ligne.</li><br/>
-	 * <li>Set&lt;IMessageControleImport&gt;&gt; : l'ensemble 
-	 * des messages de contrôle générés pour le champ.</li>
-	 * </ul></li></ul></li>
-	 * <li>Ajoute chaque message de controle de validité 
-	 * des champs de la ligne au rapport en csv 
-	 * this.rapportControleStb.</li><br/>
-	 *</ul>
-	 * 
-	 * - Ne fait rien si pLigneMap == null.<br/>
-	 * <br/>
-	 *
-	 * @param pNumeroLigne : int : le numéro de ligne (1-based) 
-	 * dans le fichier importé.<br/>
-	 * @param pLigneMap : SortedMap&lt;Integer, String&gt; 
-	 * décrivant la ligne pNumeroLigne du fichier avec :<br/>
-	 * <ul>
-	 * <li>Integer : le numéro d'ordre (1-based) du champ dans la ligne.</li><br/>
-	 * <li>String : la valeur prise par le champ.</li><br/>
-	 * </ul>
-	 * @param pLigneLue : String : la ligne pNumeroLigne (1-based) 
-	 * du fichier importé.<br/>
-	 * <br/>
-	 * 
-	 * @throws MapNullException lorsque : la Map 'specificationChampsMap' 
-	 * est null dans l'ImportateurDescription.<br/>
-	 * @throws MapVideException lorsque : la Map 'specificationChampsMap' 
-	 * est vide dans l'ImportateurDescription.<br/>
-	 */
-	private void controlerValiditeChamps(
-			final int pNumeroLigne
-				, final SortedMap<Integer, String> pLigneMap
-					, final String pLigneLue) 
-							throws MapNullException, MapVideException {
-		
-		/* Ne fait rien si pLigneMap == null. */
-		if (pLigneMap == null) {
-			return;
-		}
-		
-		/* EXECUTION DU CONTROLE. ****/
-		/* Délègue à this.controleurImport 
-		 * le contrôle de validité des champs de la ligne. */
-		final SortedMap<Integer, Set<IMessageControleImport>> mapLigne 
-		= this.controleurImport
-				.controlerImport(pNumeroLigne, pLigneMap, pLigneLue);
-
-		/* Ajoute la Map des contrôles de validité des champs 
-		 * de la ligne au rapport du fichier this.rapportControleMap. */
-		this.rapportControleMap.put(pNumeroLigne, mapLigne);
-
-		/* Ajoute chaque message de controle de validité des champs de la ligne au rapport en csv this.rapportControleStb. */
-		this.ajouterAuRapportStb(mapLigne);
-		
-	} // Fin de controlerValiditeChamps(
-	 // int pNumeroLigne
-	 // , SortedMap<Integer, String> pLigneMap
-	 // , String pLigneLue)._______________________________________________
+	} // Fin de importer(...)._____________________________________________
 	
 	
 	
@@ -575,11 +383,11 @@ public abstract class AbstractImporteur implements IImporteur {
 	 *
 	 * @param pFile : File.<br/>
 	 * 
-	 * @throws FichierNullException : si pFile est null.<br/> 
+	 * @throws Exception 
 	 */
 	protected final void traiterFichierNull(
 								final File pFile) 
-											throws FichierNullException {
+											throws Exception {
 		
 		this.traiterFichierNull(pFile, METHODE_IMPORTER);
 		
@@ -596,11 +404,11 @@ public abstract class AbstractImporteur implements IImporteur {
 	 *
 	 * @param pFile : File.<br/>
 	 * 
-	 * @throws FichierVideException : si pFile est vide.<br/> 
+	 * @throws Exception 
 	 */
 	protected final void traiterFichierVide(
 								final File pFile) 
-									throws FichierVideException {
+									throws Exception {
 		
 		this.traiterFichierVide(pFile, METHODE_IMPORTER);
 
@@ -619,12 +427,11 @@ public abstract class AbstractImporteur implements IImporteur {
 	 *
 	 * @param pFile : File.<br/>
 	 * 
-	 * @throws FichierInexistantException : 
-	 * si le fichier est inexistant.<br/> 
+	 * @throws Exception 
 	 */
 	protected final void traiterFichierInexistant(
 								final File pFile) 
-									throws FichierInexistantException {
+									throws Exception {
 		
 		this.traiterFichierInexistant(pFile, METHODE_IMPORTER);
 
@@ -643,11 +450,11 @@ public abstract class AbstractImporteur implements IImporteur {
 	 *
 	 * @param pFile : File.<br/>
 	 * 
-	 * @throws FichierPasNormalException : si pFile est un répertoire.<br/>
+	 * @throws Exception 
 	 */
 	protected final void traiterFichierPasNormal(
 							final File pFile) 
-								throws FichierPasNormalException {
+								throws Exception {
 		
 		this.traiterFichierPasNormal(pFile, METHODE_IMPORTER);
 
@@ -664,12 +471,12 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * @param pFile : File.<br/>
 	 * @param pMethode : String : nom de la méthode appelante.<br/>
 	 * 
-	 * @throws FichierNullException : si pFile est null.<br/> 
+	 * @throws Exception 
 	 */
 	protected final void traiterFichierNull(
 								final File pFile
 									, final String pMethode) 
-											throws FichierNullException {
+											throws Exception {
 		
 		if (pFile == null) {
 			
@@ -712,12 +519,12 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * @param pFile : File.<br/>
 	 * @param pMethode : String : nom de la méthode appelante.<br/>
 	 * 
-	 * @throws FichierVideException : si pFile est vide.<br/> 
+	 * @throws Exception 
 	 */
 	protected final void traiterFichierVide(
 				final File pFile
 					, final String pMethode) 
-								throws FichierVideException {
+								throws Exception {
 		
 		if (pFile.length() == 0) {
 			
@@ -762,12 +569,12 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * @param pFile : File.<br/>
 	 * @param pMethode : String : nom de la méthode appelante.<br/>
 	 * 
-	 * @throws FichierInexistantException : si le fichier est inexistant.<br/> 
+	 * @throws Exception 
 	 */
 	protected final void traiterFichierInexistant(
 			final File pFile
 				, final String pMethode) 
-						throws FichierInexistantException {
+						throws Exception {
 		
 		if (!pFile.exists()) {
 			
@@ -812,12 +619,12 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * @param pFile : File.<br/>
 	 * @param pMethode : String : nom de la méthode appelante.<br/>
 	 * 
-	 * @throws FichierPasNormalException : si pFile est un répertoire.<br/>
+	 * @throws Exception 
 	 */
 	protected final void traiterFichierPasNormal(
 			final File pFile
 				, final String pMethode) 
-						throws FichierPasNormalException {
+						throws Exception {
 		
 		if (!pFile.isFile()) {
 			
@@ -901,11 +708,7 @@ public abstract class AbstractImporteur implements IImporteur {
 	@Override
 	public final int compterNombreLignes(
 					final File pFile) 
-						throws FichierNullException
-							, FichierVideException
-								, FichierInexistantException
-									, FichierPasNormalException
-										, IOException {
+						throws Exception {
 		
 		//************PARAMETRES INVALIDES. *****************************/
 		/* Fichier null. */
@@ -944,12 +747,15 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 	
 	/**
-	 * - Va chercher dans ressource_externes/messages_techniques.properties 
-	 * si il faut créer des rapports d'erreur d'import des fichiers.<br/>
-	 * - Instancie le cas échéant le rapport d'erreur.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>Va chercher dans ressource_externes/messages_techniques.properties 
+	 * si il faut créer des rapports d'erreur d'import des fichiers.</li>
+	 * <li>Instancie le cas échéant le rapport d'erreur d'import 
+	 * <code><b>this.rapportImportStb</b></code>.</li>
+	 * </ul>
+	 * @throws Exception 
 	 */
-	protected final void determinerSiLogErreurs() {
+	protected final void determinerSiLogErreurs() throws Exception {
 		
 		final String cleLogImport = this.recupererCleLogErreur();
 
@@ -973,117 +779,10 @@ public abstract class AbstractImporteur implements IImporteur {
 	} // Fin de determinerSiLogErreurs().__________________________________
 	
 	
-	
-	/**
-	 * - Va chercher dans ressources_externes/messagescontroles.properties 
-	 * si il faut créer des rapports de contrôle de validité 
-	 * lors de l'import des fichiers.<br/>
-	 * - Instancie le cas échéant le rapport de contrôle de validité.<br/>
-	 * <br/>
-	 */
-	protected final void determinerSiLogControle() {
-		
-		final String cleLogControle = this.recupererCleLogControle();
-
-		final String logControleString 
-		= ConfigurationApplicationManager.getBundleMessagesControle()
-				.getString(cleLogControle);
-		
-		if (StringUtils.containsIgnoreCase(logControleString, "true")) {
-			this.logControle = true;
-		}
-		else {
-			this.logControle = false;
-		}
-		
-		/* Instanciation du rapport de controle
-		 * si logImportDescription == true. */
-		if (this.logControle) {
-			this.rapportControleStb = new StringBuffer();
-			this.rapportControleMap 
-			= new TreeMap<Integer, SortedMap<Integer, Set<IMessageControleImport>>>();
-		}
-		
-	} // Fin de determinerSiLogControle().__________________________________
-	
-
-	
-	/**
-	 * method ajouterAuRapportStb(
-	 * SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt; pMapLigne) :<br/>
-	 * Ajoute les lignes de messages de contrôle de validité 
-	 * à this.rapportControleStb.<br/>
-	 * Ajoute automatiquement un en-tête au rapportControleStb.<br/>
-	 * <br/>
-	 * - ne fait rien si this.rapportControleStb est null.<br/>
-	 * - ne fait rien si pMapLigne est null.<br/>
-	 * <br/>
-	 *
-	 * @param pMapLigne : 
-	 * SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt;.<br/>
-	 */
-	private void ajouterAuRapportStb(
-			final SortedMap<Integer, Set<IMessageControleImport>> pMapLigne) {
-		
-		/* ne fait rien si this.rapportControleStb est null. */
-		if (this.rapportControleStb == null) {
-			return;
-		}
-		
-		/* ne fait rien si pMapLigne est null. */
-		if (pMapLigne == null) {
-			return;
-		}
-				
-		// SI LA LIGNE N'EST PAS VIDE._________
-		if (!pMapLigne.isEmpty()) {
-			
-			final Set<Entry<Integer, Set<IMessageControleImport>>> set 
-			= pMapLigne.entrySet();
-			
-			final Iterator<Entry<Integer, Set<IMessageControleImport>>> ite 
-			= set.iterator();
-			
-			// BOUCLE SUR CHAQUE CHAMP D'UNE LIGNE.___________
-			while (ite.hasNext()) {
-				
-				final Entry<Integer, Set<IMessageControleImport>> entry 
-				= ite.next();
-				
-				final Set<IMessageControleImport> setMessages 
-				= entry.getValue();
-				
-				// BOUCLE SUR LES MESSAGES DE CHAQUE CHAMP.___
-				for (final IMessageControleImport message : setMessages) {
-					
-					if (this.rapportControleStb.length() == 0) {
-						this.rapportControleStb.append(
-								message.fournirLigneEnTetesCsv());
-						this.rapportControleStb
-							.append(NEWLINE);
-					}
-					
-					this.rapportControleStb.append(
-							message.fournirLigneValeursCsv());
-					this.rapportControleStb
-						.append(NEWLINE);
-					
-				} // FIN DE BOUCLE SUR LES MESSAGES DE CHAQUE CHAMP.___
-				
-			} // FIN DE BOUCLE SUR CHAQUE CHAMP D'UNE LIGNE.___________
-			
-		} // FIN DE SI LA LIGNE N'EST PAS VIDE._________________________
-		
-	} // Fin de ajouterAuRapportStb(...).__________________________________
-	
-	
 		
 	/**
-	 * method genererAutomatiquementFile(
-	 * String pSuffixe 
-	 * , Charset pCharset
-	 * , String pExtension) :<br/>
 	 * Génère automatiquement le fichier de sortie 
+	 * (VIDE ET NON ECRIT SUR DISQUE)
 	 * dans le même répertoire que this.fichierAImporter 
 	 * avec l'extension _ pSuffixe_pCharsetName.pExtension.<br/>
 	 * <br/>
@@ -1151,383 +850,6 @@ public abstract class AbstractImporteur implements IImporteur {
 	// , Charset pCharset
 	 // , String pExtension))._____________________________________________
 	
-
-
-		
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final File genererCsvRapportControleLatin9() throws IOException {
-		
-		return this.genererCsvRapportControle(
-				null, IConstantes.CHARSET_LATIN9);
-		
-	} // Fin de genererCsvRapportControleLatin9()._________________________
-	
-
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final File genererCsvRapportControleANSI() throws IOException {
-		
-		return this.genererCsvRapportControle(
-				null, IConstantes.CHARSET_ANSI);
-		
-	} // Fin de genererCsvRapportControleANSI().___________________________
-	
-	
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final File genererCsvRapportControleUtf8() throws IOException {
-		
-		return this.genererCsvRapportControle(
-				null, IConstantes.CHARSET_UTF8);
-		
-	} // Fin de genererCsvRapportControleUtf8()._____________________________
-	
-	
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final File genererCsvRapportControleLatin9(
-			final File pFile) throws IOException {
-		
-		return this.genererCsvRapportControle(
-				pFile, IConstantes.CHARSET_LATIN9);
-		
-	} // Fin de genererCsvRapportControleLatin9(
-	 // File pFile)._______________________________________________________
-
-
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final File genererCsvRapportControleANSI(
-			final File pFile) throws IOException {
-		
-		return this.genererCsvRapportControle(
-				pFile, IConstantes.CHARSET_ANSI);
-		
-	} // Fin de genererCsvRapportControleANSI(
-	 // File pFile)._______________________________________________________
-	
-	
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final File genererCsvRapportControleUtf8(
-			final File pFile) throws IOException {
-		
-		return this.genererCsvRapportControle(
-				pFile, IConstantes.CHARSET_UTF8);
-		
-	} // Fin de genererCsvRapportControleUtf8(
-	 // File pFile)._______________________________________________________
-	
-	
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final File genererCsvRapportControle(
-			final File pFile
-					, final Charset pCharset) throws IOException {
-		
-		/* retourne null si this.rapportControleStb est null. */
-		if (this.rapportControleStb == null) {
-			return null;
-		}
-		
-		File fileGenere = null;
-		
-		/* Génère automatiquement le fichier de sortie dans le 
-		 * même répertoire que this.fichierAImporter 
-		 * avec l'extension _RapportControle_charset.csv 
-		 * si pFile est null. */
-		if (pFile == null) {
-			
-			fileGenere = this.genererAutomatiquementFile(
-					"RapportControle", pCharset, "csv");
-			
-			/* retourne null si pFile est null et 
-			 * this.fichierAImporter est introuvable. */
-			if (fileGenere == null) {
-				return null;
-			}
-			
-		}
-		else {
-			
-			fileGenere = pFile;
-		}
-	
-		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
-		/* ECRITURE EN pCharset. */
-		final FileOutputStream fos = new FileOutputStream(fileGenere);
-		final OutputStreamWriter osw = new OutputStreamWriter(fos, pCharset);
-		final BufferedWriter bfw = new BufferedWriter(osw);
-				
-		
-		/* Ajout des lignes de données. */
-		/*String to File. */
-		/* OUVERTURE DES FLUX EN LECTURE VERS LE RAPPORT. */
-		final StringReader sr 
-			= new StringReader(this.rapportControleStb.toString());
-		final BufferedReader bfr = new BufferedReader(sr);
-		
-		String ligneLue = null;
-		int numeroLigneLue = 0;
-		
-		while ((ligneLue = bfr.readLine()) != null) {
-			
-			numeroLigneLue++;
-			
-			/* Rajoute un BOM-UTF-8 à la première ligne si 
-			 * pCharset == CHARSET_UTF8 pour forcer 
-			 * Excel à détecter l'UTF-8. */
-			if (numeroLigneLue == 1) {
-				if (pCharset.equals(IConstantes.CHARSET_UTF8)) {
-					ligneLue = IConstantes.BOM_UTF_8 + ligneLue;
-				}
-			}
-			
-			
-			/* Ecriture de la ligne dans le flux (en UTF-8)*/
-			bfw.write(ligneLue);
-			
-			/* Insertion d'un saut de ligne. */
-			bfw.newLine();
-			
-		}
-		
-		/* ECRITURE SUR DISQUE. */
-		bfw.flush();
-		
-		/* FERMETURE DES FLUX. */
-		bfw.close();
-		osw.close();
-		fos.close();
-		
-		return fileGenere;
-	
-	} // Fin de genererCsvRapportControle(
-	 // File pFile
-	 // , Charset pCharset)._______________________________________________
-	
-	
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final String afficherRapportControleMap() {
-		
-		/* retourne null si this.rapportControleMap est null. */
-		if (this.rapportControleMap == null) {
-			return null;
-		}
-		
-		/* retourne vide si this.rapportControleMap est vide. */
-		if (this.rapportControleMap.isEmpty()) {
-			return "";
-		}
-		
-		final StringBuffer stb =  new StringBuffer();
-		
-		/* Obtention d'un Set<Entry> auprès de la Map contenant 
-		 * le rapport de contrôle de validité des champs. */
-		final Set<Entry<Integer
-			, SortedMap<Integer, Set<IMessageControleImport>>>> set 
-				= this.rapportControleMap.entrySet();
-		
-		/* retourne null si le set obtenu auprès de la Map est null; */
-		if (set == null) {
-			return null;
-		}
-		
-		/* Obtention d'un Iterator auprès du Set<Entry>. */
-		final Iterator<Entry<Integer
-			, SortedMap<Integer, Set<IMessageControleImport>>>> ite 
-				= set.iterator();
-		
-		/* retourne null si l'Iterator obtenu auprès du Set est null. */
-		if (ite == null) {
-			return null;
-		}
-		
-		// BOUCLE SUR LES LIGNES.____________________________________________
-		while(ite.hasNext()) {
-			
-			final Entry<Integer
-				, SortedMap<Integer, Set<IMessageControleImport>>> entry 
-					= ite.next();
-			
-			/* retourne null si l'Entry obtenu auprès de l'Iterator est null; */
-			if (entry == null) {
-				return null;
-			}
-			
-			/* Récupération des valeurs dans l'Entry. */
-			final Integer numeroLigne = entry.getKey();
-			final SortedMap<Integer, Set<IMessageControleImport>> map 
-				= entry.getValue();
-			
-			/* Si la Map des rapports de contrôle de validité 
-			 * sur le champ est null ou vide
-			 * , reprend la boucle. */
-			if (map == null || map.isEmpty()) {
-				continue;
-			}
-	
-			/* Sinon, construit le message pour le 
-			 * rapport de contrôle de validité des champs. */
-			stb.append("Ligne numéro : ");
-			stb.append(numeroLigne);
-			stb.append(NEWLINE);
-						
-			/* Récupération de toutes les lignes 
-			 * du rapport de contrôle de validité des champs 
-			 * relatives au champ considéré auprès de setChamps. */
-			final Set<Entry<Integer, Set<IMessageControleImport>>> setChamps 
-				= map.entrySet();
-			
-			// SI LE SET DES MESSAGES DU CHAMP N'EST PAS NULL.__________
-			if (setChamps != null) {
-				
-				// SI LE SET DES MESSAGES DU CHAMP N'EST PAS VIDE.__________
-				if (!setChamps.isEmpty()) {
-					
-					final Iterator<Entry<Integer, Set<IMessageControleImport>>> iteChamps 
-					= setChamps.iterator();
-					
-					// BOUCLE SUR CHAQUE CHAMP._________
-					while(iteChamps.hasNext()) {
-						
-						final Entry<Integer, Set<IMessageControleImport>> entryChamp 
-						= iteChamps.next();
-						
-						/* Poursuit la boucle si entryChamp == null. */
-						if (entryChamp == null) {
-							continue;
-						}
-						
-						/* Sinon, récupère l'ensemble des 
-						 * messages de contrôle de validité des champs 
-						 * relatifs au champ considéré. */
-						final Set<IMessageControleImport> setMessagesChamp 
-						= entryChamp.getValue();
-						
-						// BOUCLE SUR CHAQUE MESSAGE DU CHAMP._____
-						for (final IMessageControleImport  message : setMessagesChamp) {
-							
-							/* Ajoute chaque message relatif au champ 
-							 * considéré si le message n'est pas null. */
-							if (message != null) {								
-								stb.append(message.toString());
-								stb.append(NEWLINE);								
-							}
-														
-						} // FIN DE BOUCLE SUR CHAQUE MESSAGE DU CHAMP._____
-						
-					} // FIN DE BOUCLE SUR CHAQUE CHAMP._________
-					
-				} // FIN DE SI LE SET DES MESSAGES DU CHAMP N'EST PAS VIDE.____
-				
-			} // FIN DE SI LE SET DES MESSAGES DU CHAMP N'EST PAS NULL.________
-			
-		} // FIN DE BOUCLE SUR LES LIGNES.____________________________________
-		
-		return stb.toString();
-		
-	} // Fin de afficherRapportControleMap().______________________________
-	
-	
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final String afficherRapportControleMapLigne(
-			final int pNumeroLigne) {
-		
-		/* retourne null si this.rapportControleMap est null. */
-		if (this.rapportControleMap == null) {
-			return null;
-		}
-		
-		/* retourne vide si this.rapportControleMap est vide. */
-		if (this.rapportControleMap.isEmpty()) {
-			return "";
-		}
-		
-		final StringBuffer stb =  new StringBuffer();
-		
-		final SortedMap<Integer, Set<IMessageControleImport>> map 
-		= this.rapportControleMap.get(pNumeroLigne);
-		
-		/* retourne null si aucun contrôle n' a matché pour cette ligne. */
-		if (map == null || map.isEmpty()) {
-			return null;
-		}
-		
-		stb.append("Ligne numéro : ");
-		stb.append(pNumeroLigne);
-		stb.append(NEWLINE);
-					
-		
-		final Set<Entry<Integer, Set<IMessageControleImport>>> setChamps 
-			= map.entrySet();
-		
-		// SI LE SET DES MESSAGES DU CHAMP N'EST PAS NULL.__________
-		if (setChamps != null) {
-			
-			// SI LE SET DES MESSAGES DU CHAMP N'EST PAS VIDE.__________
-			if (!setChamps.isEmpty()) {
-				
-				final Iterator<Entry<Integer, Set<IMessageControleImport>>> iteChamps 
-				= setChamps.iterator();
-				
-				// BOUCLE SUR CHAQUE CHAMP._________
-				while(iteChamps.hasNext()) {
-					
-					final Entry<Integer, Set<IMessageControleImport>> entryChamp 
-					= iteChamps.next();
-					
-					final Set<IMessageControleImport> setMessagesChamp 
-					= entryChamp.getValue();
-					
-					// BOUCLE SUR CHAQUE MESSAGE DU CHAMP._____
-					for (final IMessageControleImport  message : setMessagesChamp) {
-						
-						stb.append(message.toString());
-						stb.append(NEWLINE);
-						
-					} // FIN DE BOUCLE SUR CHAQUE MESSAGE DU CHAMP._____
-					
-				} // FIN DE BOUCLE SUR CHAQUE CHAMP._________
-				
-			} // FIN DE SI LE SET DES MESSAGES DU CHAMP N'EST PAS VIDE.____
-			
-		} // FIN DE SI LE SET DES MESSAGES DU CHAMP N'EST PAS NULL.________
-	
-		return stb.toString();
-		
-	} // Fin de afficherRapportControleMapLigne(
-	 // int pNumeroLigne)._________________________________________________
-	
 	
 
 	/**
@@ -1536,7 +858,7 @@ public abstract class AbstractImporteur implements IImporteur {
 	@Override
 	public final String fournirEnteteparColonne(
 			final int pI) 
-			throws MapNullException, MapVideException {
+						throws Exception {
 		
 		/* retourne null si this.importateurDescription est null. */
 		if (this.importateurDescription == null) {
@@ -1608,7 +930,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			final IDescriptionChamp desc = entry.getValue();
 			
 			stb.append(desc.getIntitule());
-			stb.append(IConstantes.SEP_PV);
+			stb.append(SEP_PV);
 			
 		} // FIN BOUCLE SUR LES CHAMPS DE LA DESCRIPTION.-----			
 		// FIN de DECOMPOSITION D'UNE LIGNE.---------------------------
@@ -1646,7 +968,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			final String valeur = entry.getValue();
 			
 			stb.append(valeur);
-			stb.append(IConstantes.SEP_PV);
+			stb.append(SEP_PV);
 		}
 		
 		return stb.toString();
@@ -1820,7 +1142,6 @@ public abstract class AbstractImporteur implements IImporteur {
 
 	
 	/**
-	 * method genererCsvFileLatin9() :<br/>
 	 * Génère un fichier csv encodé en Latin9 avec séparateur ';' contenant 
 	 * le fichier importé this.fichierAImporter.<br/>
 	 * Ce fichier csv généré est accessible à pFile.<br/>
@@ -1844,9 +1165,39 @@ public abstract class AbstractImporteur implements IImporteur {
 	@Override
 	public final File genererCsvFileLatin9() throws IOException {
 		
-		return this.genererCsvFile(true, null, IConstantes.CHARSET_LATIN9);
+		return this.genererCsvFile(true, null, Charset.forName("ISO-8859-15"));
 		
 	} // Fin de genererCsvFileLatin9().____________________________________
+
+
+	
+	/**
+	 * Génère un fichier csv encodé en ANSI avec séparateur ';' contenant 
+	 * le fichier importé this.fichierAImporter.<br/>
+	 * Ce fichier csv généré est accessible à pFile.<br/>
+	 * contient la ligne d'en-tête.<br/>
+	 * Génère automatiquement le fichier de sortie dans le 
+	 * même répertoire que this.fichierAImporter 
+	 * avec l'extension _Windows-1252.csv.<br/>
+	 * <br/>
+	 * FAIRE IMPORTER pour remplir this.fichierImporteMap 
+	 * AVANT d'utiliser cette méthode.<br/>
+	 * <br/>
+	 * - retourne null si this.fichierImporteMap est null.<br/>
+	 * - retourne null si pFile est null et 
+	 * this.fichierAImporter est introuvable.<br/>
+	 * <br/>
+	 *
+	 * @return : File : le fichier csv généré.<br/>
+	 * 
+	 * @throws IOException<br/>
+	 */
+	@Override
+	public final File genererCsvFileAnsi() throws IOException {
+		
+		return this.genererCsvFile(true, null, Charset.forName("Windows-1252"));
+		
+	} // Fin de genererCsvFileAnsi().______________________________________
 
 	
 	
@@ -1875,7 +1226,7 @@ public abstract class AbstractImporteur implements IImporteur {
 	@Override
 	public final File genererCsvFileUtf8() throws IOException {
 		
-		return this.genererCsvFile(true, null, IConstantes.CHARSET_UTF8);
+		return this.genererCsvFile(true, null, StandardCharsets.UTF_8);
 		
 	} // Fin de genererCsvFileUtf8().______________________________________
 	
@@ -2148,8 +1499,8 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * @return : String : pI-ème ligne du fichier.<br/>
 	 */
 	protected abstract String reconstituerLigne(
-			final SortedMap<Integer, SortedMap<Integer, String>> pFichierImporteMap
-				, final int pI);
+			SortedMap<Integer, SortedMap<Integer, String>> pFichierImporteMap
+				, int pI);
 	
 	
 		
@@ -2161,9 +1512,23 @@ public abstract class AbstractImporteur implements IImporteur {
 		
 		return this.reconstituerFichier(
 				this.fichierImporteMap
-					, IConstantes.CHARSET_LATIN9, false, null);
+					, Charset.forName("ISO-8859-15"), false, null);
 		
 	} // Fin de reconstituerFichierLatin9()._______________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final File reconstituerFichierAnsi() throws IOException {
+		
+		return this.reconstituerFichier(
+				this.fichierImporteMap
+					, Charset.forName("Windows-1252"), false, null);
+		
+	} // Fin de reconstituerFichierAnsi()._________________________________
 	
 
 
@@ -2175,7 +1540,7 @@ public abstract class AbstractImporteur implements IImporteur {
 		
 		return this.reconstituerFichier(
 				this.fichierImporteMap
-					, IConstantes.CHARSET_UTF8, false, null);
+					, StandardCharsets.UTF_8, false, null);
 		
 	} // Fin de reconstituerFichierUtf8()._________________________________
 
@@ -2200,7 +1565,7 @@ public abstract class AbstractImporteur implements IImporteur {
 		Charset charset = null;
 		
 		if (pCharset == null) {
-			charset = IConstantes.CHARSET_UTF8;
+			charset = StandardCharsets.UTF_8;
 		}
 		else {
 			charset = pCharset;
@@ -2484,164 +1849,6 @@ public abstract class AbstractImporteur implements IImporteur {
 		this.fichierImporteMap = pFichierImporteMap;
 	} // Fin de setFichierImporteMap(
 	 // SortedMap<Integer,SortedMap<Integer,String>> pFichierImporteMap).__
-
-
-
-	/**
-	 * method isLogControle() :<br/>
-	 * Getter du boolean qui stipule si les Importeur
-	 * doivent rapporter ou pas les contrôles de validité 
-	 * (rapport d'erreurs de format lors de la lecture de fichiers).<br/>
-	 * <br/>
-	 *
-	 * @return logControle : boolean.<br/>
-	 */
-	@Override
-	public final boolean isLogControle() {
-		return this.logControle;
-	} // Fin de isLogControle().___________________________________________
-
-
-
-	/**
-	 * method setLogControle(
-	 * boolean pLogControle) :<br/>
-	 * Setter du boolean qui stipule si les Importeur
-	 * doivent rapporter ou pas les contrôles de validité 
-	 * (rapport d'erreurs de format lors de la lecture de fichiers).<br/>
-	 * <br/>
-	 *
-	 * @param pLogControle : boolean : 
-	 * valeur à passer à logControle.<br/>
-	 */
-	@Override
-	public final void setLogControle(
-			final boolean pLogControle) {
-		this.logControle = pLogControle;
-	} // Fin de setLogControle(
-	 // boolean pLogControle)._____________________________________________
-
-
-
-	/**
-	 * method getRapportControleStb() :<br/>
-	 * Getter du StringBuffer chargé de contenir le rapport des
-	 * contrôles de validité des champs 
-	 * lors de l'import du fichier.<br/>
-	 * <br/>
-	 * - Le rapport ne peut être null que si this.logControle == false.<br/>
-	 * - Sinon, le rapport peut être VIDE si aucun contrôle n'a matché.<br/>
-	 * <br/>
-	 *
-	 * @return rapportControleStb : StringBuffer.<br/>
-	 */
-	@Override
-	public final StringBuffer getRapportControleStb() {
-		return this.rapportControleStb;
-	} // Fin de getRapportControleStb().___________________________________
-
-
-
-	/**
-	 * method setRapportControleStb(
-	 * StringBuffer pRapportControleStb) :<br/>
-	 * Setter du StringBuffer chargé de contenir le rapport des
-	 * contrôles de validité des champs 
-	 * lors de l'import du fichier.<br/>
-	 * <br/>
-	 *
-	 * @param pRapportControleStb : StringBuffer : 
-	 * valeur à passer à rapportControleStb.<br/>
-	 */
-	@Override
-	public final void setRapportControleStb(
-			final StringBuffer pRapportControleStb) {
-		this.rapportControleStb = pRapportControleStb;
-	} // Fin de setRapportControleStb(
-	 // StringBuffer pRapportControleStb)._________________________________
-
-
-
-	/**
-	 * Getter de la 
-	 * SortedMap&lt;Integer, SortedMap&lt;Integer
-	 * , Set&lt;IMessageControleImport&gt;&gt;&gt; :<br/>
-	 * Rapport de contrôle de validité sous forme de map triée avec :<br/>
-	 * - Integer : le numéro de la ligne.<br/>
-	 * - SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt; 
-	 * map triée avec :<br/>
-	 * - Integer : le numéro d'ordre du champ dans la ligne.<br/>
-	 * - Set&lt;IMessageControleImport&gt; : 
-	 * ensemble des messages de contrôle pour ce champ.<br/>
-	 * <br/>
-	 *
-	 * @return rapportControleMap : 
-	 * SortedMap<Integer,SortedMap<Integer,Set<IMessageControleImport>>>.<br/>
-	 */
-	@Override
-	public final SortedMap<Integer, SortedMap<Integer, Set<IMessageControleImport>>> 
-													getRapportControleMap() {
-		return this.rapportControleMap;
-	} // Fin de getRapportControleMap().___________________________________
-
-
-
-	/**
-	 * Setter de la 
-	 * SortedMap&lt;Integer, SortedMap&lt;Integer
-	 * , Set&lt;IMessageControleImport&gt;&gt;&gt; :<br/>
-	 * Rapport de contrôle de validité sous forme de map triée avec :<br/>
-	 * - Integer : le numéro de la ligne.<br/>
-	 * - SortedMap&lt;Integer, Set&lt;IMessageControleImport&gt;&gt; 
-	 * map triée avec :<br/>
-	 * - Integer : le numéro d'ordre du champ dans la ligne.<br/>
-	 * - Set&lt;IMessageControleImport&gt; : 
-	 * ensemble des messages de contrôle pour ce champ.<br/>
-	 * <br/>
-	 *
-	 * @param pRapportControleMap : 
-	 * SortedMap<Integer,SortedMap<Integer,Set<IMessageControleImport>>> : 
-	 * valeur à passer à rapportControleMap.<br/>
-	 */
-	@Override
-	public final void setRapportControleMap(
-			final SortedMap<Integer, SortedMap<Integer, Set<IMessageControleImport>>> 
-			pRapportControleMap) {
-		this.rapportControleMap = pRapportControleMap;
-	} // Fin de setRapportControleMap(
-	 // SortedMap<Integer,SortedMap<Integer,Set<IMessageControleImport>>> 
-	 // pRapportControleMap).______________________________________________
-
-
-
-	/**
-	 * Getter du Controleur de validité des champs.
-	 * <br/>
-	 *
-	 * @return controleurImport : IControleurImport.<br/>
-	 */
-	@Override
-	public final IControleurImport getControleurImport() {
-		return this.controleurImport;
-	} // Fin de getControleurImport()._____________________________________
-
-
-
-	/**
-	 * method setControleurImport(
-	 * IControleurImport pControleurImport) :<br/>
-	 * Setter du Controleur de validité des champs.
-	 * <br/>
-	 *
-	 * @param pControleurImport : IControleurImport : 
-	 * valeur à passer à controleurImport.<br/>
-	 */
-	@Override
-	public final void setControleurImport(
-			final IControleurImport pControleurImport) {
-		this.controleurImport = pControleurImport;
-	} // Fin de setControleurImport(
-	 // IControleurImport pControleurImport).______________________________
 
 		
 	

@@ -1,17 +1,18 @@
-package levy.daniel.application.metier.importateurs.importeurs;
+package levy.daniel.application.model.services.metier.televersement.importateurs.importeurs;
 
-import java.util.Map.Entry;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
-
-import levy.daniel.application.IConstantes;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
 /**
  * class AbstractImporteurNonAscii :<br/>
@@ -41,6 +42,41 @@ import org.apache.commons.logging.LogFactory;
 public abstract class AbstractImporteurNonAscii extends AbstractImporteur {
 
 	// ************************ATTRIBUTS************************************/
+	
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	/**
+	 * Séparateur point virgule pour les CSV.<br/>
+	 * ";"
+	 */
+	public static final String SEP_PV = ";";
+    
+	/**
+	 * " - ".<br/>
+	 */
+	public static final String SEPARATEUR_MOINS_AERE = " - ";
+		
+	/**
+	 * "_".<br/>
+	 */
+	public static final String UNDERSCORE = "_";
+	
+	/**
+	 * Tabulation "\t".<br/>
+	 */
+	public static final String TAB = "\t";
+	
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
 
 	/**
 	 * LOG : Log : 
@@ -55,11 +91,11 @@ public abstract class AbstractImporteurNonAscii extends AbstractImporteur {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR AbstractImporteurNonAscii() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * <br/>
+	 * @throws Exception 
 	 */
-	public AbstractImporteurNonAscii() {
+	public AbstractImporteurNonAscii() throws Exception {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -81,7 +117,7 @@ public abstract class AbstractImporteurNonAscii extends AbstractImporteur {
 		
 		/* Retire un éventuel caractère BOM-UTF-8 
 		 * en début de chaque ligne. */
-		if (pString.charAt(0) == IConstantes.BOM_UTF_8) {
+		if (pString.charAt(0) == BOM_UTF_8) {
 			ligneADecomposer = StringUtils.substring(pString, 1);
 		}
 		else {
@@ -92,8 +128,10 @@ public abstract class AbstractImporteurNonAscii extends AbstractImporteur {
 		/* Instancie un Pattern chargé de retrouver le 
 		 * séparateur ';' dans la ligne csv passée en paramètre. */
 		/* Casse la ligne en Tokens. */
+		final Pattern patternSeparateurCsv = Pattern.compile(SEP_PV);
+		
 		final String[] tokens 
-			= IConstantes.PATTERN_SEPARATEUR_CSV.split(ligneADecomposer);
+			= patternSeparateurCsv.split(ligneADecomposer);
 		
 		/* Map des descriptions. */
 		final SortedMap<Integer, IDescriptionChamp> descriptionMap 
@@ -120,7 +158,7 @@ public abstract class AbstractImporteurNonAscii extends AbstractImporteur {
 			
 			/* Passage forcé en UTF-8 */
 			final String champUtf8 
-				= new String(champ.getBytes(IConstantes.CHARSET_UTF8));
+				= new String(champ.getBytes(StandardCharsets.UTF_8));
 			
 			/* Ajout dans la Map décrivant la ligne. */
 			ligneMap.put(numeroChamp, champUtf8);
@@ -172,7 +210,7 @@ public abstract class AbstractImporteurNonAscii extends AbstractImporteur {
 				final String valeurChamp = entry.getValue();
 								
 				stb.append(valeurChamp);
-				stb.append(IConstantes.SEP_PV);
+				stb.append(SEP_PV);
 								
 			}// FIN DE BOUCLE A L'INTERIEUR DE LA LIGNE.-----
 			

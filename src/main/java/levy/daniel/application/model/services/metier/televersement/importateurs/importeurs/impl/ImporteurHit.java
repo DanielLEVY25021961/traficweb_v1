@@ -1,18 +1,11 @@
-package levy.daniel.application.metier.importateurs.importeurs.impl;
-
-import java.io.IOException;
-
-import levy.daniel.application.exceptions.technical.impl.ExceptionImport;
-import levy.daniel.application.exceptions.technical.impl.FichierNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauNullException;
-import levy.daniel.application.exceptions.technical.impl.TableauVideException;
-import levy.daniel.application.metier.importateurs.controleursimport.impl.ControleurImportHit;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
-import levy.daniel.application.metier.importateurs.descripteursfichiers.importateursdescription.FactorySingletonImportateurDescription;
-import levy.daniel.application.metier.importateurs.importeurs.AbstractImporteurAscii;
+package levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionHit;
+import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.AbstractImporteurAscii;
 
 /**
  * class ImporteurHit :<br/>
@@ -56,31 +49,12 @@ public class ImporteurHit extends AbstractImporteurAscii {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR ImporteurHit() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * <br/>
-	 * 
-	 * @throws FichierNullException : 
-	 * si pFile et this.descriptionDuFichierFile sont null ou inexistants.<br/>
-	 * @throws IOException lorsque : problème d'entrée sortie.<br/>
-	 * @throws ExceptionImport lorsque :<br/>
-	 * le fichier de description passé en paramètre pFileDescription 
-	 * n'est pas le bon 
-	 * (description de Darwin csv au lieu de HistonatF07 par exemple).<br/>
-	 * un nom de champ java existe en doublon dans la description.<br/>
-	 * l'ordre des champs n'est pas jointif.<br/>
-	 * les colonnes ne sont pas jointives.<br/>
-	 * @throws TableauVideException : 
-	 * si une ligne de la description est null.<br/>
-	 * @throws TableauNullException : 
-	 * si une ligne de la description est vide.<br/> 
+	 * @throws Exception 
 	 */
 	public ImporteurHit() 
-			throws FichierNullException
-			, TableauNullException
-			, TableauVideException
-			, ExceptionImport
-			, IOException {
+			throws Exception {
 		
 		super();
 		
@@ -89,12 +63,8 @@ public class ImporteurHit extends AbstractImporteurAscii {
 		
 		/* Passe l'importateur de description. */
 		this.importateurDescription 
-			= FactorySingletonImportateurDescription
-				.getImportateurDescriptionHit();
+			= new ImportateurDescriptionHit();
 		
-		/* Passe le ControleurImport. */
-		this.controleurImport = new ControleurImportHit();
-				
 	} // Fin du CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 	
@@ -179,19 +149,6 @@ public class ImporteurHit extends AbstractImporteurAscii {
 	public final String recupererCleImporterFilePasNormal() {
 		return "importeurhit.importer.filepasnormal";
 	} // Fin de recupererCleImporterFilePasNormal()._______________________ 
-
-
-
-
-	/**
-	 * "importeurhit.log.controle".<br/>
-	 * <br/>
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String recupererCleLogControle() {
-		return "importeurhit.log.controle";
-	} // Fin de recupererCleLogControle()._________________________________
 	
 	
 	
