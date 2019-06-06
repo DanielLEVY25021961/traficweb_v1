@@ -104,11 +104,35 @@ public final class FactoryDescription {
 	private static SortedMap<Integer, IDescriptionChamp> descriptionHitMap;
 
 	/**
+	 * Importateur de description pour HIT.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IImportateurDescription importateurHit;
+	
+	/**
+	 * DescriptionChamp pour HIT.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IDescriptionChamp descriptionChampHit;
+
+	/**
 	 * SortedMap&ltInteger, IDescriptionChamp&gt; 
 	 * encapsulant la description du fichier HISTO_F07.<br/>
 	 * <b>SINGLETON</b>.
 	 */
 	private static SortedMap<Integer, IDescriptionChamp> descriptionHistoF07Map;
+
+	/**
+	 * Importateur de description pour HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IImportateurDescription importateurHistoF07;
+	
+	/**
+	 * DescriptionChamp pour HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IDescriptionChamp descriptionChampHistoF07;
 
 	/**
 	 * SortedMap&ltInteger, IDescriptionChamp&gt; 
@@ -118,6 +142,18 @@ public final class FactoryDescription {
 	private static SortedMap<Integer, IDescriptionChamp> descriptionHistoF08Map;
 
 	/**
+	 * Importateur de description pour HISTO_F08.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IImportateurDescription importateurHistoF08;
+	
+	/**
+	 * DescriptionChamp pour HISTO_F08.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IDescriptionChamp descriptionChampHistoF08;
+
+	/**
 	 * SortedMap&ltInteger, IDescriptionChamp&gt; 
 	 * encapsulant la description du fichier DARWIN_CSV.<br/>
 	 * <b>SINGLETON</b>.
@@ -125,11 +161,35 @@ public final class FactoryDescription {
 	private static SortedMap<Integer, IDescriptionChamp> descriptionDarwinCsvMap;
 
 	/**
+	 * Importateur de description pour DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IImportateurDescription importateurDarwinCsv;
+	
+	/**
+	 * DescriptionChamp pour DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IDescriptionChamp descriptionChampDarwinCsv;
+		
+	/**
 	 * SortedMap&ltInteger, IDescriptionChamp&gt; 
 	 * encapsulant la description du fichier MAPPING.<br/>
 	 * <b>SINGLETON</b>.
 	 */
 	private static SortedMap<Integer, IDescriptionChamp> descriptionMappingMap;
+
+	/**
+	 * Importateur de description pour MAPPING.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IImportateurDescription importateurMapping;
+	
+	/**
+	 * DescriptionChamp pour MAPPING.<br/>
+	 * <b>SINGLETON</b>.
+	 */
+	private static IDescriptionChamp descriptionChampMapping;
 	
 	
 	/**
@@ -227,13 +287,22 @@ public final class FactoryDescription {
 			
 			if (descriptionHitMap == null) {
 				
-				final IImportateurDescription importateur 
-					= new ImportateurDescriptionHit();
+				if (importateurHit == null) {
+					
+					importateurHit 
+						= new ImportateurDescriptionHit();
+					
+					/* import de la description. */
+					importateurHit.importerDescriptionUtf8();
+				}
 				
-				importateur.importerDescriptionUtf8();
-				
+				if  (descriptionChampHit == null) {
+					descriptionChampHit 
+						= importateurHit.getDescriptionChamp();
+				}
+												
 				descriptionHitMap 
-					= importateur.getSpecificationChampsMap();
+					= importateurHit.getSpecificationChampsMap();
 				
 			}
 			
@@ -242,6 +311,34 @@ public final class FactoryDescription {
 		} // Fin de synchronized.___________________
 		
 	} // Fin de getDecriptionHitMap()._____________________________________
+
+	
+	
+	/**
+	 * Getter de l'Importateur de description pour HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionHitMap()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.importateurHit : IImportateurDescription.<br/>
+	 */
+	public static IImportateurDescription getImportateurHit() {
+		return importateurHit;
+	} // Fin de getImportateurHit()._______________________________________
+
+
+	
+	/**
+	 * Getter de la DescriptionChamp pour HIT.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionHitMap()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.descriptionChampHit : IDescriptionChamp.<br/>
+	 */
+	public static IDescriptionChamp getDescriptionChampHit() {
+		return descriptionChampHit;
+	} // Fin de getDescriptionChampHit().__________________________________
 	
 
 	
@@ -262,13 +359,22 @@ public final class FactoryDescription {
 			
 			if (descriptionHistoF07Map == null) {
 				
-				final IImportateurDescription importateur 
-					= new ImportateurDescriptionHistoF07();
+				if (importateurHistoF07 == null) {
+					
+					importateurHistoF07 
+						= new ImportateurDescriptionHistoF07();
+					
+					/* import de la description. */
+					importateurHistoF07.importerDescriptionUtf8();
+				}
 				
-				importateur.importerDescriptionUtf8();
-				
+				if  (descriptionChampHistoF07 == null) {
+					descriptionChampHistoF07 
+						= importateurHistoF07.getDescriptionChamp();
+				}
+												
 				descriptionHistoF07Map 
-					= importateur.getSpecificationChampsMap();
+					= importateurHistoF07.getSpecificationChampsMap();
 				
 			}
 			
@@ -277,6 +383,34 @@ public final class FactoryDescription {
 		} // Fin de synchronized.___________________
 		
 	} // Fin de getDecriptionHistoF07Map().________________________________
+
+	
+	
+	/**
+	 * Getter de l'Importateur de description pour HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionHistoF07Map()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.importateurHistoF07 : IImportateurDescription.<br/>
+	 */
+	public static IImportateurDescription getImportateurHistoF07() {
+		return importateurHistoF07;
+	} // Fin de getImportateurHistoF07()._______________________________________
+
+
+	
+	/**
+	 * Getter de la DescriptionChamp pour HISTO_F07.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionHistoF07Map()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.descriptionChampHistoF07 : IDescriptionChamp.<br/>
+	 */
+	public static IDescriptionChamp getDescriptionChampHistoF07() {
+		return descriptionChampHistoF07;
+	} // Fin de getDescriptionChampHistoF07().__________________________________
 	
 
 	
@@ -297,13 +431,22 @@ public final class FactoryDescription {
 			
 			if (descriptionHistoF08Map == null) {
 				
-				final IImportateurDescription importateur 
-					= new ImportateurDescriptionHistoF08();
+				if (importateurHistoF08 == null) {
+					
+					importateurHistoF08 
+						= new ImportateurDescriptionHistoF08();
+					
+					/* import de la description. */
+					importateurHistoF08.importerDescriptionUtf8();
+				}
 				
-				importateur.importerDescriptionUtf8();
-				
+				if  (descriptionChampHistoF08 == null) {
+					descriptionChampHistoF08 
+						= importateurHistoF08.getDescriptionChamp();
+				}
+												
 				descriptionHistoF08Map 
-					= importateur.getSpecificationChampsMap();
+					= importateurHistoF08.getSpecificationChampsMap();
 				
 			}
 			
@@ -312,6 +455,34 @@ public final class FactoryDescription {
 		} // Fin de synchronized.___________________
 		
 	} // Fin de getDecriptionHistoF08Map().________________________________
+
+	
+	
+	/**
+	 * Getter de l'Importateur de description pour HISTO_F08.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionHistoF08Map()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.importateurHistoF08 : IImportateurDescription.<br/>
+	 */
+	public static IImportateurDescription getImportateurHistoF08() {
+		return importateurHistoF08;
+	} // Fin de getImportateurHistoF08()._______________________________________
+
+
+	
+	/**
+	 * Getter de la DescriptionChamp pour HISTO_F08.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionHistoF08Map()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.descriptionChampHistoF08 : IDescriptionChamp.<br/>
+	 */
+	public static IDescriptionChamp getDescriptionChampHistoF08() {
+		return descriptionChampHistoF08;
+	} // Fin de getDescriptionChampHistoF08().__________________________________
 	
 
 	
@@ -332,13 +503,22 @@ public final class FactoryDescription {
 			
 			if (descriptionDarwinCsvMap == null) {
 				
-				final IImportateurDescription importateur 
-					= new ImportateurDescriptionDarwinCsv();
+				if (importateurDarwinCsv == null) {
+					
+					importateurDarwinCsv 
+						= new ImportateurDescriptionDarwinCsv();
+					
+					/* import de la description. */
+					importateurDarwinCsv.importerDescriptionUtf8();
+				}
 				
-				importateur.importerDescriptionUtf8();
-				
+				if  (descriptionChampDarwinCsv == null) {
+					descriptionChampDarwinCsv 
+						= importateurDarwinCsv.getDescriptionChamp();
+				}
+												
 				descriptionDarwinCsvMap 
-					= importateur.getSpecificationChampsMap();
+					= importateurDarwinCsv.getSpecificationChampsMap();
 				
 			}
 			
@@ -347,9 +527,37 @@ public final class FactoryDescription {
 		} // Fin de synchronized.___________________
 		
 	} // Fin de getDecriptionDarwinCsvMap()._______________________________
-	
 
 	
+		
+	/**
+	 * Getter de l'Importateur de description pour DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionDarwinCsvMap()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.importateurDarwinCsv : IImportateurDescription.<br/>
+	 */
+	public static IImportateurDescription getImportateurDarwinCsv() {
+		return importateurDarwinCsv;
+	} // Fin de getImportateurDarwinCsv()._________________________________
+
+
+	
+	/**
+	 * Getter de la DescriptionChamp pour DARWIN_CSV.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionDarwinCsvMap()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.descriptionChampDarwinCsv : IDescriptionChamp.<br/>
+	 */
+	public static IDescriptionChamp getDescriptionChampDarwinCsv() {
+		return descriptionChampDarwinCsv;
+	} // Fin de getDescriptionChampDarwinCsv().____________________________
+
+
+
 	/**
 	 * getter de la SortedMap&ltInteger, IDescriptionChamp&gt; 
 	 * encapsulant la description du fichier MAPPING.<br/>
@@ -367,13 +575,22 @@ public final class FactoryDescription {
 			
 			if (descriptionMappingMap == null) {
 				
-				final IImportateurDescription importateur 
-					= new ImportateurDescriptionMapping();
+				if (importateurMapping == null) {
+					
+					importateurMapping 
+						= new ImportateurDescriptionMapping();
+					
+					/* import de la description. */
+					importateurMapping.importerDescriptionUtf8();
+				}
 				
-				importateur.importerDescriptionUtf8();
-				
+				if  (descriptionChampMapping == null) {
+					descriptionChampMapping 
+						= importateurMapping.getDescriptionChamp();
+				}
+												
 				descriptionMappingMap 
-					= importateur.getSpecificationChampsMap();
+					= importateurMapping.getSpecificationChampsMap();
 				
 			}
 			
@@ -382,8 +599,35 @@ public final class FactoryDescription {
 		} // Fin de synchronized.___________________
 		
 	} // Fin de getDecriptionMappingMap()._________________________________
+
 	
 	
+	/**
+	 * Getter de l'Importateur de description pour MAPPING.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionMappingMap()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.importateurMapping : IImportateurDescription.<br/>
+	 */
+	public static IImportateurDescription getImportateurMapping() {
+		return importateurMapping;
+	} // Fin de getImportateurMapping()._________________________________
+
+
+	
+	/**
+	 * Getter de la DescriptionChamp pour MAPPING.<br/>
+	 * <b>SINGLETON</b>.<br/>
+	 * <b>ATTENTION, N'UTILISER QUE APRES getDecriptionMappingMap()</b>.<br/>
+	 * <br/>
+	 *
+	 * @return this.descriptionChampMapping : IDescriptionChamp.<br/>
+	 */
+	public static IDescriptionChamp getDescriptionChampMapping() {
+		return descriptionChampMapping;
+	} // Fin de getDescriptionChampMapping().____________________________
 	
 	
+		
 } // FIN DE LA CLASSE FactoryDescription.------------------------------------

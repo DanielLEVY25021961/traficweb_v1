@@ -3,15 +3,15 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
@@ -22,6 +22,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexistantException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierPasNormalException;
@@ -54,6 +55,19 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 public abstract class AbstractImporteur implements IImporteur {
 
 	// ************************ATTRIBUTS************************************/
+	
+	/**
+	 * "Classe AbstractImporteur".<br/>
+	 */
+	public static final String CLASSE_ABSTRACTIMPORTEUR 
+		= "Classe AbstractImporteur";
+	
+	/**
+	 * "Méthode Importer(File pFile, Charset pCharset)".<br/>
+	 */
+	public static final String METHODE_IMPORTER 
+		= "Méthode Importer(File pFile, Charset pCharset)";
+	
 	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
@@ -123,6 +137,11 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * SortedMap&lt;Integer, IDescriptionChamp&gt;.<br/>
 	 */
 	protected IImportateurDescription importateurDescription;
+	
+	/**
+	 * .<br/>
+	 */
+	protected SortedMap<Integer, IDescriptionChamp> specificationChampsMap;
 	
 	/**
 	 * boolean qui stipule si les Importeur
@@ -296,25 +315,37 @@ public abstract class AbstractImporteur implements IImporteur {
 			charset = pCharset;
 		}
 
-		/* Ouverture des flux. */
-		final FileInputStream fis = new FileInputStream(pFile);
-		final InputStreamReader isr = new InputStreamReader(fis, charset);
-		final BufferedReader bfr = new BufferedReader(isr);
-
-		String ligneLue = "";
 		int numeroLigne = 0;
-
+		
 		// LECTURE DES LIGNES.**********************************
-		while (true) {
+		final List<String> listeLignes = 
+				Files.readAllLines(this.fichierAImporter.toPath(), charset);
+
+		if (listeLignes == null) {
+			
+			final String message 
+				= CLASSE_ABSTRACTIMPORTEUR 
+				+ SEPARATEUR_MOINS_AERE 
+				+ METHODE_IMPORTER 
+				+ SEPARATEUR_MOINS_AERE 
+				+ "Files.readAllLines(this.fichierAImporter.toPath(), charset) "
+				+ "a retourné NULL";
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			throw new ExceptionImport(message);
+		}
+		
+		for (final String ligneLue : listeLignes) {
 
 			/* Incrémentation du numéro de ligne. */
 			numeroLigne++;
 			
-			/* Lecture de la ligne. */
-			ligneLue = bfr.readLine();
-
+			/* saute une éventuelle ligne vide dans le fichier à importer. */
 			if (ligneLue == null) {
-				break;
+				continue;
 			}
 			
 			String ligneADecomposer = null;
@@ -339,13 +370,8 @@ public abstract class AbstractImporteur implements IImporteur {
 				this.fichierImporteMap.put(numeroLigne, ligneMap);
 			}
 
-		} // FIN LECTURE DES LIGNES.******************************
-
-		/* FERMETURE DES FLUX. */
-		fis.close();
-		isr.close();
-		bfr.close();
-
+		} // FIN DECOMPOSITION DES LIGNES.******************************
+		
 		return this.fichierImporteMap;
 
 	} // Fin de importer(...)._____________________________________________

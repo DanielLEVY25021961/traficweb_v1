@@ -15,10 +15,10 @@ import org.apache.commons.logging.LogFactory;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.IDescriptionChamp;
 
 /**
- * class AbstractImporteurNonAscii :<br/>
- * RESPONSABILITE : IMPORTER LES FICHIERS NON ASCII (Darwin csv, ...).<br/>
+ * CLASSE AbstractImporteurNonAscii :<br/>
+ * RESPONSABILITE : IMPORTER LES FICHIERS NON ASCII (DARWIN_CSV, ...).<br/>
  * Classe abstraite modélisant tous les importeurs de fichiers NON Ascii
- * (Darwin csv, ...).<br/>
+ * (DARWIN_CSV, ...).<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -79,6 +79,14 @@ public abstract class AbstractImporteurNonAscii extends AbstractImporteur {
 	public static final String NEWLINE = System.getProperty("line.separator");
 
 	/**
+	 * Pattern REGEX chargé de retrouver le 
+	 * séparateur ';' dans une ligne à décomposer.<br/>
+	 * <code>Pattern.compile(SEP_PV)</code>.<br/>
+	 */
+	public static final Pattern PATTERN_SEPARATEUR_PV 
+		= Pattern.compile(SEP_PV);
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -125,20 +133,13 @@ public abstract class AbstractImporteurNonAscii extends AbstractImporteur {
 		}
 		
 		// DECOMPOSITION D'UNE LIGNE.----------------------------------
-		/* Instancie un Pattern chargé de retrouver le 
-		 * séparateur ';' dans la ligne csv passée en paramètre. */
 		/* Casse la ligne en Tokens. */
-		final Pattern patternSeparateurCsv = Pattern.compile(SEP_PV);
-		
 		final String[] tokens 
-			= patternSeparateurCsv.split(ligneADecomposer);
+			= PATTERN_SEPARATEUR_PV.split(ligneADecomposer);
 		
 		/* Map des descriptions. */
-		final SortedMap<Integer, IDescriptionChamp> descriptionMap 
-			= this.importateurDescription.getSpecificationChampsMap();
-
 		final Set<Entry<Integer, IDescriptionChamp>> set 
-			= descriptionMap.entrySet();
+			= this.specificationChampsMap.entrySet();
 		
 		final SortedMap<Integer, String> ligneMap 
 			= new TreeMap<Integer, String>();

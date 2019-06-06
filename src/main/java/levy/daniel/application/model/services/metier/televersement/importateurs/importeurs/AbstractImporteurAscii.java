@@ -131,11 +131,8 @@ public abstract class AbstractImporteurAscii extends AbstractImporteur {
 		
 		// DECOMPOSITION D'UNE LIGNE.----------------------------------
 		/* Map des descriptions. */
-		final SortedMap<Integer, IDescriptionChamp> descriptionMap 
-			= this.importateurDescription.getSpecificationChampsMap();
-
 		final Set<Entry<Integer, IDescriptionChamp>> set 
-			= descriptionMap.entrySet();
+			= this.specificationChampsMap.entrySet();
 		
 		final SortedMap<Integer, String> ligneMap 
 			= new TreeMap<Integer, String>();
@@ -146,11 +143,11 @@ public abstract class AbstractImporteurAscii extends AbstractImporteur {
 			final Integer numeroChamp = entry.getKey();
 			final IDescriptionChamp desc = entry.getValue();
 			
-			final AbstractDescriptionChampAscii descHit 
+			final AbstractDescriptionChampAscii descAscii 
 				= (AbstractDescriptionChampAscii) desc;
 			
-			final int debutChamp = descHit.getColonneDebut() - 1;
-			final int finChamp = descHit.getColonneFin();
+			final int debutChamp = descAscii.getColonneDebut() - 1;
+			final int finChamp = descAscii.getColonneFin();
 			
 			// Extraction dans la ligne.______
 			final String champ 

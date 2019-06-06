@@ -83,16 +83,11 @@ public interface IImporteur
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
+	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>
 	 * <li>Génère un rapport dans <code><b>this.rapportImportStb</b></code> 
 	 * si souci d'import 
 	 * (fichier null, inexistant, répertoire, vide ou I/O Exception) 
 	 * et si <code><b>this.logImport</b></code> vaut true.</li>
-	 * <li>Génère un rapport de contrôle de validité
-	 * dans <code><b>this.rapportControleStb</b></code> et 
-	 * <code><b>this.rapportControleMap</b></code> 
-	 * si un champ n'est pas valide 
-	 * (champ non renseigné, mauvais type, hors nomenclature, ...) 
-	 * et si <code><b>this.logControle</b></code> vaut true.</li>
 	 * </ul>
 	 * <br/>
 	 *
@@ -148,16 +143,11 @@ public interface IImporteur
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
+	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>
 	 * <li>Génère un rapport dans <code><b>this.rapportImportStb</b></code> 
 	 * si souci d'import 
 	 * (fichier null, inexistant, répertoire, vide ou I/O Exception) 
 	 * et si <code><b>this.logImport</b></code> vaut true.</li>
-	 * <li>Génère un rapport de contrôle de validité
-	 * dans <code><b>this.rapportControleStb</b></code> et 
-	 * <code><b>this.rapportControleMap</b></code> 
-	 * si un champ n'est pas valide 
-	 * (champ non renseigné, mauvais type, hors nomenclature, ...) 
-	 * et si <code><b>this.logControle</b></code> vaut true.</li>
 	 * </ul>
 	 * <br/>
 	 *
@@ -214,16 +204,11 @@ public interface IImporteur
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
+	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>
 	 * <li>Génère un rapport dans <code><b>this.rapportImportStb</b></code> 
 	 * si souci d'import 
 	 * (fichier null, inexistant, répertoire, vide ou I/O Exception) 
 	 * et si <code><b>this.logImport</b></code> vaut true.</li>
-	 * <li>Génère un rapport de contrôle de validité
-	 * dans <code><b>this.rapportControleStb</b></code> et 
-	 * <code><b>this.rapportControleMap</b></code> 
-	 * si un champ n'est pas valide 
-	 * (champ non renseigné, mauvais type, hors nomenclature, ...) 
-	 * et si <code><b>this.logControle</b></code> vaut true.</li>
 	 * </ul>
 	 * <br/>
 	 *
@@ -280,16 +265,13 @@ public interface IImporteur
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
+	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>
 	 * <li>Génère un rapport dans <code><b>this.rapportImportStb</b></code> 
 	 * si souci d'import 
 	 * (fichier null, inexistant, répertoire, vide ou I/O Exception) 
 	 * et si <code><b>this.logImport</b></code> vaut true.</li>
 	 * <li>Génère un rapport de contrôle de validité
 	 * dans <code><b>this.rapportControleStb</b></code> et 
-	 * <code><b>this.rapportControleMap</b></code> 
-	 * si un champ n'est pas valide 
-	 * (champ non renseigné, mauvais type, hors nomenclature, ...) 
-	 * et si <code><b>this.logControle</b></code> vaut true.</li>
 	 * </ul>
 	 * <br/>
 	 *
@@ -347,16 +329,11 @@ public interface IImporteur
 	 * si pCharset == null.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
+	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>
 	 * <li>Génère un rapport dans <code><b>this.rapportImportStb</b></code> 
 	 * si souci d'import 
 	 * (fichier null, inexistant, répertoire, vide ou I/O Exception) 
 	 * et si <code><b>this.logImport</b></code> vaut true.</li>
-	 * <li>Génère un rapport de contrôle de validité
-	 * dans <code><b>this.rapportControleStb</b></code> et 
-	 * <code><b>this.rapportControleMap</b></code> 
-	 * si un champ n'est pas valide 
-	 * (champ non renseigné, mauvais type, hors nomenclature, ...) 
-	 * et si <code><b>this.logControle</b></code> vaut true.</li>
 	 * </ul>
 	 * <br/>
 	 *

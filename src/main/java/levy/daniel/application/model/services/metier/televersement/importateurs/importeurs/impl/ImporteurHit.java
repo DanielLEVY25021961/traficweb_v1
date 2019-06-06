@@ -3,12 +3,11 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
-import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionHit;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.factorydescription.FactoryDescription;
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.AbstractImporteurAscii;
 
 /**
- * class ImporteurHit :<br/>
+ * CLASSE ImporteurHit :<br/>
  * Importeur de fichiers HIT.<br/>
  * <br/>
  *
@@ -32,7 +31,6 @@ public class ImporteurHit extends AbstractImporteurAscii {
 	// ************************ATTRIBUTS************************************/
 	/* CONSTANTES. */
 	/**
-	 * CLASSE_IMPORTEUR_HIT : String :<br/>
 	 * "Classe ImporteurHit".<br/>
 	 */
 	public static final String CLASSE_IMPORTEUR_HIT 
@@ -50,7 +48,14 @@ public class ImporteurHit extends AbstractImporteurAscii {
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>passe le bon <code><b>this.specificationChampsMap</b></code>.</li>
+	 * <li>Passe le bon importateur de description 
+	 * <code><b>this.importateurDescription</b></code>.</li>
+	 * <li>Passe le bon DescriptionChamp 
+	 * <code><b>this.descriptionChamp</b></code>.</li>
+	 * </ul>
+	 * 
 	 * @throws Exception 
 	 */
 	public ImporteurHit() 
@@ -58,13 +63,19 @@ public class ImporteurHit extends AbstractImporteurAscii {
 		
 		super();
 		
-		/* Passe le bon DescriptionChamp. */
-		this.descriptionChamp = new DescriptionChampHit();
+		/* passe le bon this.specificationChampsMap. */
+		this.specificationChampsMap 
+			= FactoryDescription.getDecriptionHitMap();
 		
-		/* Passe l'importateur de description. */
+		/* Passe le bon importateur de description 
+		 * this.importateurDescription. */
 		this.importateurDescription 
-			= new ImportateurDescriptionHit();
+			= FactoryDescription.getImportateurHit();
 		
+		/* Passe le bon DescriptionChamp this.descriptionChamp. */
+		this.descriptionChamp 
+			= FactoryDescription.getDescriptionChampHit();
+				
 	} // Fin du CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 	

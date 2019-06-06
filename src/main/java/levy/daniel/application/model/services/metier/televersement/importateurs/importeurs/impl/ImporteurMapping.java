@@ -4,11 +4,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.factorydescription.FactoryDescription;
-import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.AbstractImporteurAscii;
+import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.AbstractImporteurNonAscii;
 
 /**
- * CLASSE ImporteurHistoF07 :<br/>
- * Importeur de fichiers HISTO_F07.<br/>
+ * CLASSE ImporteurMapping :<br/>
+ * Importeur de fichiers MAPPING.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -23,27 +23,32 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  *
  * @author dan Lévy
  * @version 1.0
- * @since 7 juil. 2014
+ * @since 31 juil. 2014
  *
  */
-public class ImporteurHistoF07 extends AbstractImporteurAscii {
+public class ImporteurMapping extends AbstractImporteurNonAscii {
 
 	// ************************ATTRIBUTS************************************/
+
 	/* CONSTANTES. */
 	/**
-	 * "Classe ImporteurHistoF07".<br/>
+	 * "Classe ImporteurMapping".<br/>
 	 */
-	public static final String CLASSE_IMPORTEUR_HISTOF07 
-		= "Classe ImporteurHistoF07";
-
+	public static final String CLASSE_IMPORTEUR_MAPPING 
+		= "Classe ImporteurMapping";
+	
 	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	private static final Log LOG = LogFactory.getLog(ImporteurHistoF07.class);
+	@SuppressWarnings("unused")
+	private static final Log LOG = LogFactory
+			.getLog(ImporteurMapping.class);
 
+	
 	// *************************METHODES************************************/
+	
 	
 	
 	 /**
@@ -58,110 +63,110 @@ public class ImporteurHistoF07 extends AbstractImporteurAscii {
 	 * 
 	 * @throws Exception 
 	 */
-	public ImporteurHistoF07() 
+	public ImporteurMapping() 
 			throws Exception {
 		
 		super();
-				
+		
 		/* passe le bon this.specificationChampsMap. */
 		this.specificationChampsMap 
-			= FactoryDescription.getDecriptionHistoF07Map();
+			= FactoryDescription.getDecriptionMappingMap();
 		
 		/* Passe le bon importateur de description 
 		 * this.importateurDescription. */
 		this.importateurDescription 
-			= FactoryDescription.getImportateurHistoF07();
+			= FactoryDescription.getImportateurMapping();
 		
 		/* Passe le bon DescriptionChamp this.descriptionChamp. */
 		this.descriptionChamp 
-			= FactoryDescription.getDescriptionChampHistoF07();
-		
+			= FactoryDescription.getDescriptionChampMapping();
+				
 	} // Fin du CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
-			
+	
 	
 	/**
-	 * "importeurhistof07.niveau.anomalie".<br/>
+	 * "importeurmapping.niveau.anomalie".<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String recupererCleNiveauAnomalie() {
-		return "importeurhistof07.niveau.anomalie";
+		return "importeurmapping.niveau.anomalie";
 	} // Fin de recupererCleNiveauAnomalie().______________________________
 
 	
 		
 	/**
-	 * "importeurhistof07.log.erreur".<br/>
+	 * "importeurmapping.log.erreur".<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String recupererCleLogErreur() {
-		return "importeurhistof07.log.erreur";
+		return "importeurmapping.log.erreur";
 	} // Fin de recupererCleLogErreur().___________________________________
 
 
 	
 	/**
-	 * "Classe ImporteurHistoF07".<br/>
+	 * "Classe ImporteurMapping".<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String recupererNomClasse() {
-		return CLASSE_IMPORTEUR_HISTOF07;
+		return CLASSE_IMPORTEUR_MAPPING;
 	} // Fin de recupererNomClasse().______________________________________
 	
 	
 	
 	/**
-	 * "importeurhistof07.importer.filenull".<br/>
+	 * "importeurmapping.importer.filenull".<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String recupererCleImporterFileNull() {
-		return "importeurhistof07.importer.filenull";
+		return "importeurmapping.importer.filenull";
 	} // Fin de upererCleImporterFileNull()._______________________________
 
 
 
 	/**
-	 * "importeurhistof07.importer.filevide".<br/>
+	 * "importeurmapping.importer.filevide".<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String recupererCleImporterFileVide() {
-		return "importeurhistof07.importer.filevide";
+		return "importeurmapping.importer.filevide";
 	} // Fin de recupererCleImporterFileVide().____________________________
 
 
 
 	/**
-	 * "importeurhistof07.importer.fileinexistant".<br/>
+	 * "importeurmapping.importer.fileinexistant".<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String recupererCleImporterFileInexistant() {
-		return "importeurhistof07.importer.fileinexistant";
+		return "importeurmapping.importer.fileinexistant";
 	} // Fin de recupererCleImporterFileInexistant().______________________
 
 
 	
 	/**
-	 * "importeurhistof07.importer.filepasnormal".<br/>
+	 * "importeurmapping.importer.filepasnormal".<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final String recupererCleImporterFilePasNormal() {
-		return "importeurhistof07.importer.filepasnormal";
+		return "importeurmapping.importer.filepasnormal";
 	} // Fin de recupererCleImporterFilePasNormal()._______________________ 
 	
 
 	
-} // FIN DE LA CLASSE ImporteurHistoF07.-------------------------------------
+} // FIN DE LA CLASSE ImporteurMapping.------------------------------------__

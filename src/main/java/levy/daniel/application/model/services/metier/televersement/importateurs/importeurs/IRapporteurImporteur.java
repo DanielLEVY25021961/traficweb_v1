@@ -60,7 +60,7 @@ public interface IRapporteurImporteur {
 	 * Getter du rapport du Importeur.<br/>
 	 * <br/>
 	 * Ce rapport n'est null que si this.logImport vaut false. 
-	 * Tester si il est vide.<br/>
+	 * <b>Tester si il est vide</b>.<br/>
 	 * <br/>
 	 * 
 	 * @return rapportImportStb : StringBuffer.<br/>
@@ -73,7 +73,7 @@ public interface IRapporteurImporteur {
 	 * Setter du rapport du Importeur.<br/>
 	 * <br/>
 	 * Ce rapport n'est null que si this.logImport vaut false. 
-	 * Tester si il est vide.<br/>
+	 * <b>Tester si il est vide</b>.<br/>
 	 * <br/>
 	 * 
 	 * @param pRapportImportStb : StringBuffer.<br/>

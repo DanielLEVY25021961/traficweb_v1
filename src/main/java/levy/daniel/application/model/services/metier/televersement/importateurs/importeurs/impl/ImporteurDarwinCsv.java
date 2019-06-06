@@ -3,13 +3,12 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampDarwinCsv;
-import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.impl.ImportateurDescriptionDarwinCsv;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.factorydescription.FactoryDescription;
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.AbstractImporteurNonAscii;
 
 /**
- * class ImporteurDarwinCsv :<br/>
- * Importeur de fichiers Darwin csv.<br/>
+ * CLASSE ImporteurDarwinCsv :<br/>
+ * Importeur de fichiers DARWIN_CSV.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -33,7 +32,6 @@ public class ImporteurDarwinCsv extends AbstractImporteurNonAscii {
 
 	/* CONSTANTES. */
 	/**
-	 * CLASSE_IMPORTEUR_DARWINCSV : String :<br/>
 	 * "Classe ImporteurDarwinCsv".<br/>
 	 */
 	public static final String CLASSE_IMPORTEUR_DARWINCSV 
@@ -54,9 +52,15 @@ public class ImporteurDarwinCsv extends AbstractImporteurNonAscii {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR ImporteurDarwinCsv() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>passe le bon <code><b>this.specificationChampsMap</b></code>.</li>
+	 * <li>Passe le bon importateur de description 
+	 * <code><b>this.importateurDescription</b></code>.</li>
+	 * <li>Passe le bon DescriptionChamp 
+	 * <code><b>this.descriptionChamp</b></code>.</li>
+	 * </ul>
+	 * 
 	 * @throws Exception 
 	 */
 	public ImporteurDarwinCsv() 
@@ -64,13 +68,19 @@ public class ImporteurDarwinCsv extends AbstractImporteurNonAscii {
 		
 		super();
 		
-		/* Passe le bon DescriptionChamp. */
-		this.descriptionChamp = new DescriptionChampDarwinCsv();
+		/* passe le bon this.specificationChampsMap. */
+		this.specificationChampsMap 
+			= FactoryDescription.getDecriptionDarwinCsvMap();
 		
-		/* Passe l'importateur de description. */
+		/* Passe le bon importateur de description 
+		 * this.importateurDescription. */
 		this.importateurDescription 
-			= new ImportateurDescriptionDarwinCsv();
+			= FactoryDescription.getImportateurDarwinCsv();
 		
+		/* Passe le bon DescriptionChamp this.descriptionChamp. */
+		this.descriptionChamp 
+			= FactoryDescription.getDescriptionChampDarwinCsv();
+				
 	} // Fin du CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 	
