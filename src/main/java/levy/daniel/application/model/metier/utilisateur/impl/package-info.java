@@ -1,6 +1,7 @@
 /**
  * class package-info :<br/>
- * .<br/>
+ * Ce package contient tous les OBJETS METIER CONCRETS 
+ * relatifs au concept de <b>UtilisateurCerbere</b>.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

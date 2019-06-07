@@ -28,7 +28,7 @@ import levy.daniel.application.model.metier.IExportateurJTable;
 public interface IUtilisateurCerbereDTO 
 	extends Comparable<IUtilisateurCerbereDTO>
 							, Serializable, Cloneable
-								, IExportateurCsv, IExportateurJTable{
+								, IExportateurCsv, IExportateurJTable {
 
 	
 	

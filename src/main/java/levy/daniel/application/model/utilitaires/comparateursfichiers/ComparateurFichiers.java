@@ -277,7 +277,7 @@ public final class ComparateurFichiers {
 			}
 			
 			/* COMPARAISON LIGNE A LIGNE. */
-			int nombreDeLignes = liste1.size();
+			final int nombreDeLignes = liste1.size();
 			String ligne1 = null;
 			String ligne2 = null;
 			
