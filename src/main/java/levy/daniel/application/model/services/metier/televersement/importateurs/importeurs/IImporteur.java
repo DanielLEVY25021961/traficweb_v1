@@ -80,6 +80,11 @@ public interface IImporteur
 	 * </ul>
 	 * </ul>
 	 * </li>
+	 * <li>utilise <code>Files.readAllLines(
+	 * this.fichierAImporter.toPath(), charset);</code> 
+	 * pour lire les lignes du fichier.<br/>
+	 * jette donc une Exception de décodage <code>malformedInputException</code> 
+	 * si le charset ne correspond pas à celui du fichier de données.</li>
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
@@ -140,6 +145,11 @@ public interface IImporteur
 	 * </ul>
 	 * </ul>
 	 * </li>
+	 * <li>utilise <code>Files.readAllLines(
+	 * this.fichierAImporter.toPath(), charset);</code> 
+	 * pour lire les lignes du fichier.<br/>
+	 * jette donc une Exception de décodage <code>malformedInputException</code> 
+	 * si le charset ne correspond pas à celui du fichier de données.</li>
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
@@ -201,6 +211,11 @@ public interface IImporteur
 	 * </ul>
 	 * </ul>
 	 * </li>
+	 * <li>utilise <code>Files.readAllLines(
+	 * this.fichierAImporter.toPath(), charset);</code> 
+	 * pour lire les lignes du fichier.<br/>
+	 * jette donc une Exception de décodage <code>malformedInputException</code> 
+	 * si le charset ne correspond pas à celui du fichier de données.</li>
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
@@ -262,6 +277,11 @@ public interface IImporteur
 	 * </ul>
 	 * </ul>
 	 * </li>
+	 * <li>utilise <code>Files.readAllLines(
+	 * this.fichierAImporter.toPath(), charset);</code> 
+	 * pour lire les lignes du fichier.<br/>
+	 * jette donc une Exception de décodage <code>malformedInputException</code> 
+	 * si le charset ne correspond pas à celui du fichier de données.</li>
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
@@ -324,6 +344,11 @@ public interface IImporteur
 	 * </ul>
 	 * </ul>
 	 * </li>
+	 * <li>utilise <code>Files.readAllLines(
+	 * this.fichierAImporter.toPath(), charset);</code> 
+	 * pour lire les lignes du fichier.<br/>
+	 * jette donc une Exception de décodage <code>malformedInputException</code> 
+	 * si le charset ne correspond pas à celui du fichier de données.</li>
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Choisit automatiquement le Charset UTF-8 
 	 * si pCharset == null.</li>

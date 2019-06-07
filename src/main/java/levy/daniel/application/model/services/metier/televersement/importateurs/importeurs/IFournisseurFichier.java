@@ -67,6 +67,8 @@ public interface IFournisseurFichier {
 	 * <li>Génère automatiquement le fichier de sortie dans le 
 	 * même répertoire que <code><b>this.fichierAImporter</b></code> 
 	 * avec l'extension _ISO-8859-15.extension.</li>
+	 * <li>crée un fichier vide sur disque et son arborescence 
+	 * si il n'existe pas.</li>
 	 * </ul>
 	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
 	 * <br/>
@@ -90,7 +92,9 @@ public interface IFournisseurFichier {
 	 * <li>Encode le fichier de sortie en Ansi.</li>
 	 * <li>Génère automatiquement le fichier de sortie dans le 
 	 * même répertoire que <code><b>this.fichierAImporter</b></code> 
-	 * avec l'extension _Windows-1252.extension.</li>
+	 * avec l'extension <b>_windows-1252.extension</b>.</li>
+	 * <li>crée un fichier vide sur disque et son arborescence 
+	 * si il n'existe pas.</li>
 	 * </ul>
 	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
 	 * <br/>
@@ -115,6 +119,8 @@ public interface IFournisseurFichier {
 	 * <li>Génère automatiquement le fichier de sortie dans le 
 	 * même répertoire que this.fichierAImporter 
 	 * avec l'extension _UTF-8.extension.</li>
+	 * <li>crée un fichier vide sur disque et son arborescence 
+	 * si il n'existe pas.</li>
 	 * </ul>
 	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
 	 * <br/>
@@ -153,6 +159,8 @@ public interface IFournisseurFichier {
 	 * même répertoire que this.fichierAImporter 
 	 * avec l'extension _charset.extension 
 	 * si pFile est null.</li>
+	 * <li>crée un fichier vide sur disque et son arborescence 
+	 * si il n'existe pas.</li>
 	 * </ul>
 	 * ATTENTION : FAIRE importer(File) AVANT d'utiliser cette méthode.<br/>
 	 * <br/>

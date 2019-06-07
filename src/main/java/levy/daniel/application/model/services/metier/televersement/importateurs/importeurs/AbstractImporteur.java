@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
@@ -22,6 +23,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnaireslocale.LocaleManager;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexistantException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
@@ -41,6 +43,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  *<br/>
  * 
  * - Mots-clé :<br/>
+ * Créer fichier sur disque, creer fichier sur disque,<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -87,6 +90,11 @@ public abstract class AbstractImporteur implements IImporteur {
 	 * "_".<br/>
 	 */
 	public static final String UNDERSCORE = "_";
+	
+	/**
+	 * "."
+	 */
+	public static final String POINT = ".";
 	
 	/**
 	 * Tabulation "\t".<br/>
@@ -316,11 +324,35 @@ public abstract class AbstractImporteur implements IImporteur {
 		}
 
 		int numeroLigne = 0;
+		List<String> listeLignes = null;
 		
 		// LECTURE DES LIGNES.**********************************
-		final List<String> listeLignes = 
-				Files.readAllLines(this.fichierAImporter.toPath(), charset);
+		try {
+			
+			listeLignes = 
+					Files.readAllLines(this.fichierAImporter.toPath(), charset);
+			
+		} catch (Exception e) {
+			
+			final String message 
+				= CLASSE_ABSTRACTIMPORTEUR 
+				+ SEPARATEUR_MOINS_AERE 
+				+ METHODE_IMPORTER 
+				+ SEPARATEUR_MOINS_AERE 
+				+ "Il est impossible de lire le fichier : " 
+				+ this.fichierAImporter.getAbsolutePath() 
+				+ " avec le Charset : " 
+				+ charset.displayName(LocaleManager.getLocaleApplication());
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message, e);
+			}
+			
+			throw new ExceptionImport(message, e);
+			
+		}
 
+		
 		if (listeLignes == null) {
 			
 			final String message 
@@ -337,7 +369,9 @@ public abstract class AbstractImporteur implements IImporteur {
 			
 			throw new ExceptionImport(message);
 		}
+
 		
+		// DECOMPOSITION DES LIGNES
 		for (final String ligneLue : listeLignes) {
 
 			/* Incrémentation du numéro de ligne. */
@@ -1378,7 +1412,6 @@ public abstract class AbstractImporteur implements IImporteur {
 
 
 	/**
-	 * method genererAutomatiquementFile() :<br/>
 	 * Génère automatiquement le fichier de sortie 
 	 * dans le même répertoire que this.fichierAImporter 
 	 * avec l'extension _utf8.csv.<br/>
@@ -1414,7 +1447,7 @@ public abstract class AbstractImporteur implements IImporteur {
 		
 		/* Récupération du nom sans extension. */
 		final String nomSansExtension 
-			= StringUtils.substringBeforeLast(nom, ".");
+			= StringUtils.substringBeforeLast(nom, POINT);
 				
 		/* Création du nom complet du fichier généré. */
 		final String cheminGenere 
@@ -1433,12 +1466,12 @@ public abstract class AbstractImporteur implements IImporteur {
 
 
 	/**
-	 * method genererAutomatiquementFile(
-	 * Charset pCharset) :<br/>
 	 * Génère automatiquement le fichier de sortie 
-	 * dans le même répertoire que this.fichierAImporter 
-	 * avec l'extension _charset.csv.<br/>
-	 * <br/>
+	 * dans le même répertoire que <code><b>this.fichierAImporter</b></code> 
+	 * avec l'extension <b>_charset.csv</b>.<br/>
+	 * <ul>
+	 * <li>Choisit automatiquement le Charset UTF-8 si pCharset == null.</li>
+	 * </ul>
 	 * - retourne null si this.fichierAImporter est null.<br/>
 	 * - retourne null si this.fichierAImporter n'existe pas.<br/>
 	 * <br/>
@@ -1460,7 +1493,16 @@ public abstract class AbstractImporteur implements IImporteur {
 			return null;
 		}
 		
+		Charset charset = null;
 		
+		/* Choisit automatiquement le Charset UTF-8 si pCharset == null. */
+		if (pCharset == null) {
+			charset = StandardCharsets.UTF_8;
+		}
+		else {
+			charset = pCharset;
+		}
+
 		/* Récupération du chemin complet de this.fichierAImporter. */
 		final String path = this.fichierAImporter.getAbsolutePath();
 		
@@ -1480,7 +1522,7 @@ public abstract class AbstractImporteur implements IImporteur {
 			= pathSansNom 
 			+ nomSansExtension
 			+ "_" 
-			+ pCharset.displayName() 
+			+ charset.displayName() 
 			+ ".csv";
 		
 		/* Création du fichier généré. */
@@ -1508,9 +1550,6 @@ public abstract class AbstractImporteur implements IImporteur {
 	
 
 	/**
-	 * method reconstituerLigne(
-	 * SortedMap<Integer, SortedMap<Integer, String>> pFichierImporteMap
-	 * , int pI) :<br/>
 	 * Reconstitue la pI-ème ligne du fichier 
 	 * (telle qu'elle est stockée dans this.fichierImporteMap, 
 	 * donc avec l'encodage par défaut de la plateforme UTF-8).<br/>
@@ -1608,12 +1647,6 @@ public abstract class AbstractImporteur implements IImporteur {
 			
 			fileGenere = this.genererAutomatiquementFileReconstitue(pCharset);
 			
-			/* retourne null si pFile est null et 
-			 * this.fichierAImporter est introuvable. */
-			if (fileGenere == null) {
-				return null;
-			}
-			
 		}
 		else {
 			
@@ -1621,6 +1654,17 @@ public abstract class AbstractImporteur implements IImporteur {
 		}
 		
 		
+		/* retourne null si fileGenere est null. */
+		if (fileGenere == null) {
+			return null;
+		}
+		
+		/* crée un fichier vide sur disque et son arborescence 
+		 * si il n'existe pas. */
+		if (!fileGenere.exists()) {
+			this.creerFichierVideEtArborescenceSurDisque(fileGenere);
+		}
+
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
 		/* ECRITURE EN pCharset. */
 		final FileOutputStream fos = new FileOutputStream(fileGenere);
@@ -1681,12 +1725,12 @@ public abstract class AbstractImporteur implements IImporteur {
 
 	
 	/**
-	 * method genererAutomatiquementFileReconstitue(
-	 * Charset pCharset) :<br/>
 	 * Génère automatiquement le fichier de sortie 
 	 * dans le même répertoire que this.file 
 	 * avec l'extension _charset.extension.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>Choisit automatiquement le Charset UTF-8 si pCharset == null.</li>
+	 * </ul>
 	 * - retourne null si this.fichierAImporter est null.<br/>
 	 * - retourne null si this.fichierAImporter n'existe pas.<br/>
 	 * <br/>
@@ -1707,7 +1751,16 @@ public abstract class AbstractImporteur implements IImporteur {
 		if (!this.fichierAImporter.exists()) {
 			return null;
 		}
+				
+		Charset charset = null;
 		
+		/* Choisit automatiquement le Charset UTF-8 si pCharset == null. */
+		if (pCharset == null) {
+			charset = StandardCharsets.UTF_8;
+		}
+		else {
+			charset = pCharset;
+		}
 		
 		/* Récupération du chemin complet de this.fichierAImporter. */
 		final String path = this.fichierAImporter.getAbsolutePath();
@@ -1721,19 +1774,34 @@ public abstract class AbstractImporteur implements IImporteur {
 		
 		/* Récupération du nom sans extension. */
 		final String nomSansExtension 
-			= StringUtils.substringBeforeLast(nom, ".");
+			= StringUtils.substringBeforeLast(nom, POINT);
 		
 		final String extension 
-		= StringUtils.substringAfterLast(nom, ".");
-				
+		= StringUtils.substringAfterLast(nom, POINT);
+		
+		String cheminGenere = null;
+		
 		/* Création du nom complet du fichier généré. */
-		final String cheminGenere 
+		if (!StringUtils.isBlank(extension)) {
+			
+			cheminGenere 
 			= pathSansNom 
 			+ nomSansExtension
-			+ "_" 
-			+ pCharset.displayName() 
+			+ UNDERSCORE 
+			+ charset.displayName()
+			+ POINT
 			+ extension;
-		
+			
+		} else {
+			
+			cheminGenere 
+			= pathSansNom 
+			+ nomSansExtension
+			+ UNDERSCORE 
+			+ charset.displayName();
+			
+		}
+				
 		/* Création du fichier généré. */
 		final File fileGenere = new File(cheminGenere);
 		
@@ -1741,6 +1809,60 @@ public abstract class AbstractImporteur implements IImporteur {
 		
 	} // Fin de genererAutomatiquementFileReconstitue(
 	// Charset pCharset).__________________________________________________
+
+
+	
+	/**
+	 * <b>Crée sur disque le File pFile <i>vide</i></b> 
+	 * si il n'existe pas déjà.<br/>
+	 * <ul>
+	 * <li>retourne le fichier vide créé.</li>
+	 * <li>crée sur disque l'<b>arborescence au dessus de pFile</b> 
+	 * si elle n'existe pas.</li>
+	 * <li>crée sur disque le fichier vide pFile 
+	 * si il n'existe pas.</li>
+	 * </ul>
+	 * - retourne null si pFile == null.<br/>
+	 * - retourne null si pFile existe.<br/>
+	 * <br/>
+	 *
+	 * @param pFile : File : fichier inexistant sur disque à créer.
+	 * 
+	 * @return File : le fichier VIDE créé sur disque.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	private File creerFichierVideEtArborescenceSurDisque(
+							final File pFile) throws IOException {
+		
+		/* retourne null si pFile == null. */
+		if (pFile == null) {
+			return null;
+		}
+		
+		/* retourne null si pFile existe. */
+		if (pFile.exists()) {
+			return null;
+		}
+		
+		final Path pFilePath = pFile.toPath();
+		final Path pFileParentPath = pFilePath.getParent();
+		
+		/* crée l'arborescence au dessus de pFile si elle n'existe pas. */
+		if (pFileParentPath != null) {
+			
+			if (!pFileParentPath.toFile().exists()) {
+				Files.createDirectories(pFileParentPath);
+			}
+			
+			/* crée le fichier VIDE pFile si il n'existe pas. */
+			Files.createFile(pFilePath);
+
+		}
+		
+		return pFile;
+		
+	} // Fin de creerFichierVideEtArborescenceSurDisque(...).______________
 	
 
 	

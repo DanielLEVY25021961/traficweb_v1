@@ -1,7 +1,10 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.io.File;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.SortedMap;
@@ -12,6 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.IImporteur;
+import levy.daniel.application.model.utilitaires.comparateursfichiers.ComparateurFichiers;
 
 /**
  * CLASSE ImporteurHitTest :<br/>
@@ -141,7 +145,13 @@ public class ImporteurHitTest {
 	
 		
 	/**
-	 * .<br/>
+	 * Teste la méthode importer(File, Charset).<br/>
+	 * <ul>
+	 * <li>garantit que importer(...) retourne le fichier sous forme de Map.</li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * </ul>
 	 * 
 	 *  @throws Exception 
 	 */
@@ -161,17 +171,76 @@ public class ImporteurHitTest {
 		
 		final Path fichierDonneesPath = PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("HITDIRA2017.txt");
 		final File fichierDonnees = fichierDonneesPath.toFile();
+		final Charset charsetAnsi = Charset.forName("Windows-1252");
+		final Charset charsetUtf8 = StandardCharsets.UTF_8;
 		
 		// METHODE A TESTER.
 		final SortedMap<Integer, SortedMap<Integer, String>> fichierMap 
-			= importeur.importer(fichierDonnees, Charset.forName("Windows-1252"));
+			= importeur.importer(fichierDonnees, charsetAnsi);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(importeur.afficherFichierImporteMap());
 		}
 		
-
+		/* garantit que importer(...) retourne le fichier sous forme de Map. */
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, fichierMap);
+		
+		final SortedMap<Integer, String> ligne1 = fichierMap.get(1);
+		final SortedMap<Integer, String> ligne2 = fichierMap.get(2);
+		final SortedMap<Integer, String> ligne3 = fichierMap.get(3);
+		
+		final File fileReconstitueAnsi = importeur.reconstituerFichierAnsi();
+		final File fileReconstitueUtf8 = importeur.reconstituerFichierUtf8();
+		
+		final boolean memeFichiersAnsi 
+			= ComparateurFichiers.compareFichiersLigneALigne(
+					fichierDonnees, charsetAnsi
+					, fileReconstitueAnsi, charsetAnsi);
+		
+		final String rapportComparaison 
+			= ComparateurFichiers.getRapportComparaison();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			
+			System.out.println();
+			System.out.println("fichierDonnees : " + fichierDonnees.getAbsolutePath());
+			System.out.println("fileReconstitueAnsi : " + fileReconstitueAnsi.getAbsolutePath());
+			
+			System.out.println("memeFichiersAnsi : " + memeFichiersAnsi);
+			
+			if (rapportComparaison != null) {
+				System.out.println(rapportComparaison);
+			}
+			
+		}
+		
+		final boolean memeFichiersAnsiUtf8 
+			= ComparateurFichiers.compareFichiersLigneALigne(
+					fichierDonnees, charsetAnsi
+					, fileReconstitueUtf8, charsetUtf8);
+		
+		final String rapportComparaisonAnsiUtf8 
+			= ComparateurFichiers.getRapportComparaison();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			
+			System.out.println();
+			System.out.println("fichierDonnees : " + fichierDonnees.getAbsolutePath());
+			System.out.println("fileReconstitueUtf8 : " + fileReconstitueUtf8.getAbsolutePath());
+			
+			System.out.println("memeFichiersAnsiUtf8 : " + memeFichiersAnsiUtf8);
+			
+			if (rapportComparaisonAnsiUtf8 != null) {
+				System.out.println(rapportComparaisonAnsiUtf8);
+			}
+			
+		}
+		
+		
+		
 	} // Fin de testImporter().____________________________________________
 
 
