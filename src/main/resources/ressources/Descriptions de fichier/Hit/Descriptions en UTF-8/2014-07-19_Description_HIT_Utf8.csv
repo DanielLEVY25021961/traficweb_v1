@@ -37,10 +37,10 @@
 36;145-146;2;Année de sectionement;Année de Sectionnement sur deux caractères (ex 07 pour 2007);anneeSectionnement;Date;false;false;145;146;2
 37;147-152;6;Zone libre;6 espaces;sans objet;sans objet;false;false;147;152;6
 38;153-158;6;MJA;Moyenne journalière annuelle de l'année de traitement (n-0) en véhicules/jour;mjaN;Integer;false;false;153;158;6
-39;159;1;Mode de calcul;1 caractère (ou espace);modeCalcul;String;false;false;159;159;1
+39;159;1;Mode de calcul;1 caractère (ou espace);modeCalculN;String;false;false;159;159;1
 40;160-162;3;Pourcentage de trafic poids lourds (annuel);%PL de l'année de traitement (n-0). 3 chiffres dont 1 décimale, sans séparateur décimal. Ex : 99.9 ------> sans point (999);pcPLN;Integer;false;false;160;162;3
 41;163;1;Moyen d'évaluation des PL N;1 caractère (ou espace);evaluationPLN;String;false;false;163;163;1
-42;164-166;3;Pourcentage de trafic de nuit tous véhicules (annuel);%Trafic de Nuit tous véhicules de l'année de traitement (n-0). 3 chiffres dont 1 décimale, sans séparateur décimal. Ex : 99.9 ------> sans point (999);pcNuitNannuel;Integer;false;false;164;166;3
+42;164-166;3;Pourcentage de trafic de nuit tous véhicules (annuel);%Trafic de Nuit tous véhicules de l'année de traitement (n-0). 3 chiffres dont 1 décimale, sans séparateur décimal. Ex : 99.9 ------> sans point (999);pcNuitAnnuelN;Integer;false;false;164;166;3
 43;167;1;Indice de fiabilité de la TMJA;1 caractère (ou espace);indiceFiabiliteMjaN;String;false;false;167;167;1
 44;168-173;6;Moyenne journalière mensuelle 01;du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour;mjmNmois01;Integer;false;false;168;173;6
 45;174-176;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 01;du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois01;Integer;false;false;174;176;3
@@ -67,45 +67,45 @@
 66;267-272;6;Moyenne journalière mensuelle 12;du mois de décembre (12) de l'année de traitement (n-0) en véhicules/jour;mjmNmois12;Integer;false;false;267;272;6
 67;273-275;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 12;du mois de décembre (12) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois12;Integer;false;false;273;275;3
 68;276-287;12;Zone libre;12 espaces;sans objet;sans objet;false;false;276;287;12
-69;288-289;2;Année N-1;Année de traitement - 1  (n-1) sur deux caractères (ex 06 pour 2006);anneeNMoins1;Date;false;false;288;289;2
+69;288-289;2;Année N-1;Année de traitement - 1  (n-1) sur deux caractères (ex 06 pour 2006);anneeNmoins1;Date;false;false;288;289;2
 70;290-295;6;MJA N-1;Moyenne journalière annuelle de l'année de traitement -1 (n-1) en véhicules/jour;mjaNmoins1;Integer;false;false;290;295;6
 71;296;1;Type de Comptage N-1;1 - Permanent horaire. [sep] 2 - Permanent journalier. [sep] 3 - Semi-permanent horaire. [sep] 4 - Semi-permanent journalier. [sep] 5 - Secondaire journalier. [sep] 6 - Secondaire semi-journalier. [sep] 7 - Temporaire horaire. [sep] 8 -  Temporaire journalier. [sep] 9 - Secondaire non compté.;typeComptageNmoins1;Integer;true;false;296;296;1
 72;297;1;Mode de calcul N-1;1 caractère (ou espace);modeCalculNmoins1;String;false;false;297;297;1
 73;298-300;3;Pourcentage de trafic poids lourds (annuel) N-1;de l'année de traitement - 1  (n-1). Ex : 99.9 ------> sans point (999);pcPLNmoins1;Integer;false;false;298;300;3
-74;301;1;Moyen d'évaluation des PL N-1;1 caractère (ou espace);evaluationPlNmoins1;String;false;false;301;301;1
-75;302-304;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-1;de l'année de traitement - 1  (n-1). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins1;Integer;false;false;302;304;3
+74;301;1;Moyen d'évaluation des PL N-1;1 caractère (ou espace);evaluationPLNmoins1;String;false;false;301;301;1
+75;302-304;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-1;de l'année de traitement - 1  (n-1). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins1;Integer;false;false;302;304;3
 76;305;1;Indice de fiabilité de la TMJA N-1;1 caractère (ou espace);indiceFiabiliteMjaNmoins1;String;false;false;305;305;1
-77;306-307;2;Année N-2;Année de traitement - 2  (n-2) sur deux caractères (ex 05 pour 2005);anneeNMoins2;Date;false;false;306;307;2
+77;306-307;2;Année N-2;Année de traitement - 2  (n-2) sur deux caractères (ex 05 pour 2005);anneeNmoins2;Date;false;false;306;307;2
 78;308-313;6;MJA N-2;Moyenne journalière annuelle de l'année de traitement -2 (n-2) en véhicules/jour;mjaNmoins2;Integer;false;false;308;313;6
 79;314;1;Type de Comptage N-2;1 - Permanent horaire. [sep] 2 - Permanent journalier. [sep] 3 - Semi-permanent horaire. [sep] 4 - Semi-permanent journalier. [sep] 5 - Secondaire journalier. [sep] 6 - Secondaire semi-journalier. [sep] 7 - Temporaire horaire. [sep] 8 -  Temporaire journalier. [sep] 9 - Secondaire non compté.;typeComptageNmoins2;Integer;true;false;314;314;1
 80;315;1;Mode de calcul N-2;1 caractère (ou espace);modeCalculNmoins2;String;false;false;315;315;1
 81;316-318;3;Pourcentage de trafic poids lourds (annuel) N-2;de l'année de traitement - 2  (n-2). Ex : 99.9 ------> sans point (999);pcPLNmoins2;Integer;false;false;316;318;3
-82;319;1;Moyen d'évaluation des PL N-2;1 caractère (ou espace);evaluationPlNmoins2;String;false;false;319;319;1
-83;320-322;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-2;de l'année de traitement - 2  (n-2). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins2;Integer;false;false;320;322;3
+82;319;1;Moyen d'évaluation des PL N-2;1 caractère (ou espace);evaluationPLNmoins2;String;false;false;319;319;1
+83;320-322;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-2;de l'année de traitement - 2  (n-2). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins2;Integer;false;false;320;322;3
 84;323;1;Indice de fiabilité de la TMJA N-2;1 caractère (ou espace);indiceFiabiliteMjaNmoins2;String;false;false;323;323;1
-85;324-325;2;Année N-3;Année de traitement - 3  (n-3) sur deux caractères (ex 04 pour 2004);anneeNMoins3;Date;false;false;324;325;2
+85;324-325;2;Année N-3;Année de traitement - 3  (n-3) sur deux caractères (ex 04 pour 2004);anneeNmoins3;Date;false;false;324;325;2
 86;326-331;6;MJA N-3;Moyenne journalière annuelle de l'année de traitement -3 (n-3) en véhicules/jour;mjaNmoins3;Integer;false;false;326;331;6
 87;332;1;Type de Comptage N-3;1 - Permanent horaire. [sep] 2 - Permanent journalier. [sep] 3 - Semi-permanent horaire. [sep] 4 - Semi-permanent journalier. [sep] 5 - Secondaire journalier. [sep] 6 - Secondaire semi-journalier. [sep] 7 - Temporaire horaire. [sep] 8 -  Temporaire journalier. [sep] 9 - Secondaire non compté.;typeComptageNmoins3;Integer;true;false;332;332;1
 88;333;1;Mode de calcul N-3;1 caractère (ou espace);modeCalculNmoins3;String;false;false;333;333;1
 89;334-336;3;Pourcentage de trafic poids lourds (annuel) N-3;de l'année de traitement - 3  (n-3). Ex : 99.9 ------> sans point (999);pcPLNmoins3;Integer;false;false;334;336;3
-90;337;1;Moyen d'évaluation des PL N-3;1 caractère (ou espace);evaluationPlNmoins3;String;false;false;337;337;1
-91;338-340;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-3;de l'année de traitement - 3  (n-3). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins3;Integer;false;false;338;340;3
+90;337;1;Moyen d'évaluation des PL N-3;1 caractère (ou espace);evaluationPLNmoins3;String;false;false;337;337;1
+91;338-340;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-3;de l'année de traitement - 3  (n-3). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins3;Integer;false;false;338;340;3
 92;341;1;Indice de fiabilité de la TMJA N-3;1 caractère (ou espace);indiceFiabiliteMjaNmoins3;String;false;false;341;341;1
-93;342-343;2;Année N-4;Année de traitement - 4  (n-4) sur deux caractères (ex 03 pour 2003);anneeNMoins4;Date;false;false;342;343;2
+93;342-343;2;Année N-4;Année de traitement - 4  (n-4) sur deux caractères (ex 03 pour 2003);anneeNmoins4;Date;false;false;342;343;2
 94;344-349;6;MJA N-4;Moyenne journalière annuelle de l'année de traitement - 4  (n-4) en véhicules/jour;mjaNmoins4;Integer;false;false;344;349;6
 95;350;1;Type de Comptage N-4;1 - Permanent horaire. [sep] 2 - Permanent journalier. [sep] 3 - Semi-permanent horaire. [sep] 4 - Semi-permanent journalier. [sep] 5 - Secondaire journalier. [sep] 6 - Secondaire semi-journalier. [sep] 7 - Temporaire horaire. [sep] 8 -  Temporaire journalier. [sep] 9 - Secondaire non compté.;typeComptageNmoins4;Integer;true;false;350;350;1
 96;351;1;Mode de calcul N-4;1 caractère (ou espace);modeCalculNmoins4;String;false;false;351;351;1
 97;352-354;3;Pourcentage de trafic poids lourds (annuel) N-4;de l'année de traitement - 4  (n-4). Ex : 99.9 ------> sans point (999);pcPLNmoins4;Integer;false;false;352;354;3
-98;355;1;Moyen d'évaluation des PL N-4;1 caractère (ou espace);evaluationPlNmoins4;String;false;false;355;355;1
-99;356-358;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-4;de l'année de traitement - 4  (n-4). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins4;Integer;false;false;356;358;3
+98;355;1;Moyen d'évaluation des PL N-4;1 caractère (ou espace);evaluationPLNmoins4;String;false;false;355;355;1
+99;356-358;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-4;de l'année de traitement - 4  (n-4). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins4;Integer;false;false;356;358;3
 100;359;1;Indice de fiabilité de la TMJA N-4;1 caractère (ou espace);indiceFiabiliteMjaNmoins4;String;false;false;359;359;1
-101;360-361;2;Année N-5;Année de traitement - 5  (n-5) sur deux caractères (ex 02 pour 2002);anneeNMoins5;Date;false;false;360;361;2
+101;360-361;2;Année N-5;Année de traitement - 5  (n-5) sur deux caractères (ex 02 pour 2002);anneeNmoins5;Date;false;false;360;361;2
 102;362-367;6;MJA N-5;Moyenne journalière annuelle de l'année de traitement -5  (n-5) en véhicules/jour;mjaNmoins5;Integer;false;false;362;367;6
 103;368;1;Type de Comptage N-5;1 - Permanent horaire. [sep] 2 - Permanent journalier. [sep] 3 - Semi-permanent horaire. [sep] 4 - Semi-permanent journalier. [sep] 5 - Secondaire journalier. [sep] 6 - Secondaire semi-journalier. [sep] 7 - Temporaire horaire. [sep] 8 -  Temporaire journalier. [sep] 9 - Secondaire non compté.;typeComptageNmoins5;Integer;true;false;368;368;1
 104;369;1;Mode de calcul N-5;1 caractère (ou espace);modeCalculNmoins5;String;false;false;369;369;1
 105;370-372;3;Pourcentage de trafic poids lourds (annuel) N-5;de l'année de traitement - 5  (n-5). Ex : 99.9 ------> sans point (999);pcPLNmoins5;Integer;false;false;370;372;3
-106;373;1;Moyen d'évaluation des PL N-5;1 caractère (ou espace);evaluationPlNmoins5;String;false;false;373;373;1
-107;374-376;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-5;de l'année de traitement - 5  (n-5). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins5;Integer;false;false;374;376;3
+106;373;1;Moyen d'évaluation des PL N-5;1 caractère (ou espace);evaluationPLNmoins5;String;false;false;373;373;1
+107;374-376;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-5;de l'année de traitement - 5  (n-5). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins5;Integer;false;false;374;376;3
 108;377;1;Indice de fiabilité de la TMJA N-5;1 caractère (ou espace);indiceFiabiliteMjaNmoins5;String;false;false;377;377;1
 109;378-383;6;Moyenne journalière mensuelle 01 de l'année N-1;du mois de janvier (01) de l'année N-1 en véhicules/jour;mjmNmoins1mois01;Integer;false;false;378;383;6
 110;384-386;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 01 de l'année N-1;du mois de janvier (01) de l'année N-1 en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmoins1mois01;Integer;false;false;384;386;3

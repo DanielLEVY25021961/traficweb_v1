@@ -78,7 +78,55 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	/**
 	 * {@inheritDoc}
 	 * <b>enTete CSV pour un ISectionHitDTO</b> :<br/>
-	 * "id;civilite;prenom;nom;tel;email;service;unite;profil;portee;restriction;".<br/>
+	 * "id;numDepartement;numSection;sens;nature;classe;anneeTraitement;
+	 * zoneLibre1;
+	 * numRoute;indiceNumRoute;indiceLettreRoute;categorieAdminRoute;
+	 * typeComptage;classementRoute;classeLargeurChausseeU;
+	 * classeLargeurChausseesS;typeReseau;pRoupK;
+	 * lieuDitOrigine;prOrigine;absOrigine;
+	 * lieuDitExtremite;prExtremite;absExtremite;
+	 * lieuDitComptage;prComptage;absComptage;
+	 * longueurSection;longueurRaseCampagne;
+	 * numDepartementRattachement;numSectionRattachement;sensRattachement;
+	 * numDepartementLimitrophe;numSectionLimitrophe;sensLimitrophe;
+	 * moisSectionnement;anneeSectionnement;
+	 * zoneLibre2;
+	 * mjaN;modeCalculN;pcPLN;evaluationPLN;pcNuitAnnuelN;indiceFiabiliteMjaN;
+	 * mjmNmois01;pcNuitNmois01;mjmNmois02;pcNuitNmois02;
+	 * mjmNmois03;pcNuitNmois03;mjmNmois04;pcNuitNmois04;
+	 * mjmNmois05;pcNuitNmois05;mjmNmois06;pcNuitNmois06;
+	 * mjmNmois07;pcNuitNmois07;mjmNmois08;pcNuitNmois08
+	 * ;mjmNmois09;pcNuitNmois09;mjmNmois10;pcNuitNmois10;
+	 * mjmNmois11;pcNuitNmois11;mjmNmois12;pcNuitNmois12;
+	 * zoneLibre3;
+	 * anneeNmoins1;mjaNmoins1;typeComptageNmoins1;modeCalculNmoins1;
+	 * pcPLNmoins1;evaluationPLNmoins1;pcNuitAnnuelNmoins1;
+	 * indiceFiabiliteMjaNmoins1;
+	 * anneeNmoins2;mjaNmoins2;typeComptageNmoins2;modeCalculNmoins2;
+	 * pcPLNmoins2;evaluationPLNmoins2;pcNuitAnnuelNmoins2;
+	 * indiceFiabiliteMjaNmoins2;
+	 * anneeNmoins3;mjaNmoins3;typeComptageNmoins3;modeCalculNmoins3;
+	 * pcPLNmoins3;evaluationPLNmoins3;pcNuitAnnuelNmoins3;
+	 * indiceFiabiliteMjaNmoins3;
+	 * anneeNmoins4;mjaNmoins4;typeComptageNmoins4;modeCalculNmoins4;
+	 * pcPLNmoins4;evaluationPLNmoins4;pcNuitAnnuelNmoins4;
+	 * indiceFiabiliteMjaNmoins4;
+	 * anneeNmoins5;mjaNmoins5;typeComptageNmoins5;modeCalculNmoins5;
+	 * pcPLNmoins5;evaluationPLNmoins5;pcNuitAnnuelNmoins5;
+	 * indiceFiabiliteMjaNmoins5;
+	 * mjmNmoins1mois01;pcNuitNmoins1mois01;
+	 * mjmNmoins1mois02;pcNuitNmoins1mois02;
+	 * mjmNmoins1mois03;pcNuitNmoins1mois03;
+	 * mjmNmoins1mois04;pcNuitNmoins1mois04;
+	 * mjmNmoins1mois05;pcNuitNmoins1mois05;
+	 * mjmNmoins1mois06;pcNuitNmoins1mois06;
+	 * mjmNmoins1mois07;pcNuitNmoins1mois07;
+	 * mjmNmoins1mois08;pcNuitNmoins1mois08;
+	 * mjmNmoins1mois09;pcNuitNmoins1mois09
+	 * ;mjmNmoins1mois10;pcNuitNmoins1mois10;
+	 * mjmNmoins1mois11;pcNuitNmoins1mois11;
+	 * mjmNmoins1mois12;pcNuitNmoins1mois12;
+	 * zoneLibre4;".<br/>
 	 * <br/>
 	 */
 	@Override
@@ -89,7 +137,55 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	/**
 	 * {@inheritDoc}
 	 * <b>enTete CSV pour un ISectionHitDTO</b> :<br/>
-	 * "id;civilite;prenom;nom;tel;email;service;unite;profil;portee;restriction;".<br/>
+	 * "id;numDepartement;numSection;sens;nature;classe;anneeTraitement;
+	 * zoneLibre1;
+	 * numRoute;indiceNumRoute;indiceLettreRoute;categorieAdminRoute;
+	 * typeComptage;classementRoute;classeLargeurChausseeU;
+	 * classeLargeurChausseesS;typeReseau;pRoupK;
+	 * lieuDitOrigine;prOrigine;absOrigine;
+	 * lieuDitExtremite;prExtremite;absExtremite;
+	 * lieuDitComptage;prComptage;absComptage;
+	 * longueurSection;longueurRaseCampagne;
+	 * numDepartementRattachement;numSectionRattachement;sensRattachement;
+	 * numDepartementLimitrophe;numSectionLimitrophe;sensLimitrophe;
+	 * moisSectionnement;anneeSectionnement;
+	 * zoneLibre2;
+	 * mjaN;modeCalculN;pcPLN;evaluationPLN;pcNuitAnnuelN;indiceFiabiliteMjaN;
+	 * mjmNmois01;pcNuitNmois01;mjmNmois02;pcNuitNmois02;
+	 * mjmNmois03;pcNuitNmois03;mjmNmois04;pcNuitNmois04;
+	 * mjmNmois05;pcNuitNmois05;mjmNmois06;pcNuitNmois06;
+	 * mjmNmois07;pcNuitNmois07;mjmNmois08;pcNuitNmois08
+	 * ;mjmNmois09;pcNuitNmois09;mjmNmois10;pcNuitNmois10;
+	 * mjmNmois11;pcNuitNmois11;mjmNmois12;pcNuitNmois12;
+	 * zoneLibre3;
+	 * anneeNmoins1;mjaNmoins1;typeComptageNmoins1;modeCalculNmoins1;
+	 * pcPLNmoins1;evaluationPLNmoins1;pcNuitAnnuelNmoins1;
+	 * indiceFiabiliteMjaNmoins1;
+	 * anneeNmoins2;mjaNmoins2;typeComptageNmoins2;modeCalculNmoins2;
+	 * pcPLNmoins2;evaluationPLNmoins2;pcNuitAnnuelNmoins2;
+	 * indiceFiabiliteMjaNmoins2;
+	 * anneeNmoins3;mjaNmoins3;typeComptageNmoins3;modeCalculNmoins3;
+	 * pcPLNmoins3;evaluationPLNmoins3;pcNuitAnnuelNmoins3;
+	 * indiceFiabiliteMjaNmoins3;
+	 * anneeNmoins4;mjaNmoins4;typeComptageNmoins4;modeCalculNmoins4;
+	 * pcPLNmoins4;evaluationPLNmoins4;pcNuitAnnuelNmoins4;
+	 * indiceFiabiliteMjaNmoins4;
+	 * anneeNmoins5;mjaNmoins5;typeComptageNmoins5;modeCalculNmoins5;
+	 * pcPLNmoins5;evaluationPLNmoins5;pcNuitAnnuelNmoins5;
+	 * indiceFiabiliteMjaNmoins5;
+	 * mjmNmoins1mois01;pcNuitNmoins1mois01;
+	 * mjmNmoins1mois02;pcNuitNmoins1mois02;
+	 * mjmNmoins1mois03;pcNuitNmoins1mois03;
+	 * mjmNmoins1mois04;pcNuitNmoins1mois04;
+	 * mjmNmoins1mois05;pcNuitNmoins1mois05;
+	 * mjmNmoins1mois06;pcNuitNmoins1mois06;
+	 * mjmNmoins1mois07;pcNuitNmoins1mois07;
+	 * mjmNmoins1mois08;pcNuitNmoins1mois08;
+	 * mjmNmoins1mois09;pcNuitNmoins1mois09
+	 * ;mjmNmoins1mois10;pcNuitNmoins1mois10;
+	 * mjmNmoins1mois11;pcNuitNmoins1mois11;
+	 * mjmNmoins1mois12;pcNuitNmoins1mois12;
+	 * zoneLibre4;".<br/>
 	 * <br/>
 	 */
 	@Override
@@ -100,7 +196,55 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	/**
 	 * {@inheritDoc}
 	 * <b>enTete CSV pour un ISectionHitDTO</b> :<br/>
-	 * "id;civilite;prenom;nom;tel;email;service;unite;profil;portee;restriction;".<br/>
+	 * "id;numDepartement;numSection;sens;nature;classe;anneeTraitement;
+	 * zoneLibre1;
+	 * numRoute;indiceNumRoute;indiceLettreRoute;categorieAdminRoute;
+	 * typeComptage;classementRoute;classeLargeurChausseeU;
+	 * classeLargeurChausseesS;typeReseau;pRoupK;
+	 * lieuDitOrigine;prOrigine;absOrigine;
+	 * lieuDitExtremite;prExtremite;absExtremite;
+	 * lieuDitComptage;prComptage;absComptage;
+	 * longueurSection;longueurRaseCampagne;
+	 * numDepartementRattachement;numSectionRattachement;sensRattachement;
+	 * numDepartementLimitrophe;numSectionLimitrophe;sensLimitrophe;
+	 * moisSectionnement;anneeSectionnement;
+	 * zoneLibre2;
+	 * mjaN;modeCalculN;pcPLN;evaluationPLN;pcNuitAnnuelN;indiceFiabiliteMjaN;
+	 * mjmNmois01;pcNuitNmois01;mjmNmois02;pcNuitNmois02;
+	 * mjmNmois03;pcNuitNmois03;mjmNmois04;pcNuitNmois04;
+	 * mjmNmois05;pcNuitNmois05;mjmNmois06;pcNuitNmois06;
+	 * mjmNmois07;pcNuitNmois07;mjmNmois08;pcNuitNmois08
+	 * ;mjmNmois09;pcNuitNmois09;mjmNmois10;pcNuitNmois10;
+	 * mjmNmois11;pcNuitNmois11;mjmNmois12;pcNuitNmois12;
+	 * zoneLibre3;
+	 * anneeNmoins1;mjaNmoins1;typeComptageNmoins1;modeCalculNmoins1;
+	 * pcPLNmoins1;evaluationPLNmoins1;pcNuitAnnuelNmoins1;
+	 * indiceFiabiliteMjaNmoins1;
+	 * anneeNmoins2;mjaNmoins2;typeComptageNmoins2;modeCalculNmoins2;
+	 * pcPLNmoins2;evaluationPLNmoins2;pcNuitAnnuelNmoins2;
+	 * indiceFiabiliteMjaNmoins2;
+	 * anneeNmoins3;mjaNmoins3;typeComptageNmoins3;modeCalculNmoins3;
+	 * pcPLNmoins3;evaluationPLNmoins3;pcNuitAnnuelNmoins3;
+	 * indiceFiabiliteMjaNmoins3;
+	 * anneeNmoins4;mjaNmoins4;typeComptageNmoins4;modeCalculNmoins4;
+	 * pcPLNmoins4;evaluationPLNmoins4;pcNuitAnnuelNmoins4;
+	 * indiceFiabiliteMjaNmoins4;
+	 * anneeNmoins5;mjaNmoins5;typeComptageNmoins5;modeCalculNmoins5;
+	 * pcPLNmoins5;evaluationPLNmoins5;pcNuitAnnuelNmoins5;
+	 * indiceFiabiliteMjaNmoins5;
+	 * mjmNmoins1mois01;pcNuitNmoins1mois01;
+	 * mjmNmoins1mois02;pcNuitNmoins1mois02;
+	 * mjmNmoins1mois03;pcNuitNmoins1mois03;
+	 * mjmNmoins1mois04;pcNuitNmoins1mois04;
+	 * mjmNmoins1mois05;pcNuitNmoins1mois05;
+	 * mjmNmoins1mois06;pcNuitNmoins1mois06;
+	 * mjmNmoins1mois07;pcNuitNmoins1mois07;
+	 * mjmNmoins1mois08;pcNuitNmoins1mois08;
+	 * mjmNmoins1mois09;pcNuitNmoins1mois09
+	 * ;mjmNmoins1mois10;pcNuitNmoins1mois10;
+	 * mjmNmoins1mois11;pcNuitNmoins1mois11;
+	 * mjmNmoins1mois12;pcNuitNmoins1mois12;
+	 * zoneLibre4;".<br/>
 	 * <br/>
 	 */
 	@Override
@@ -111,7 +255,55 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	/**
 	 * {@inheritDoc}
 	 * <b>enTete CSV pour un ISectionHitDTO</b> :<br/>
-	 * "id;civilite;prenom;nom;tel;email;service;unite;profil;portee;restriction;".<br/>
+	 * "id;numDepartement;numSection;sens;nature;classe;anneeTraitement;
+	 * zoneLibre1;
+	 * numRoute;indiceNumRoute;indiceLettreRoute;categorieAdminRoute;
+	 * typeComptage;classementRoute;classeLargeurChausseeU;
+	 * classeLargeurChausseesS;typeReseau;pRoupK;
+	 * lieuDitOrigine;prOrigine;absOrigine;
+	 * lieuDitExtremite;prExtremite;absExtremite;
+	 * lieuDitComptage;prComptage;absComptage;
+	 * longueurSection;longueurRaseCampagne;
+	 * numDepartementRattachement;numSectionRattachement;sensRattachement;
+	 * numDepartementLimitrophe;numSectionLimitrophe;sensLimitrophe;
+	 * moisSectionnement;anneeSectionnement;
+	 * zoneLibre2;
+	 * mjaN;modeCalculN;pcPLN;evaluationPLN;pcNuitAnnuelN;indiceFiabiliteMjaN;
+	 * mjmNmois01;pcNuitNmois01;mjmNmois02;pcNuitNmois02;
+	 * mjmNmois03;pcNuitNmois03;mjmNmois04;pcNuitNmois04;
+	 * mjmNmois05;pcNuitNmois05;mjmNmois06;pcNuitNmois06;
+	 * mjmNmois07;pcNuitNmois07;mjmNmois08;pcNuitNmois08
+	 * ;mjmNmois09;pcNuitNmois09;mjmNmois10;pcNuitNmois10;
+	 * mjmNmois11;pcNuitNmois11;mjmNmois12;pcNuitNmois12;
+	 * zoneLibre3;
+	 * anneeNmoins1;mjaNmoins1;typeComptageNmoins1;modeCalculNmoins1;
+	 * pcPLNmoins1;evaluationPLNmoins1;pcNuitAnnuelNmoins1;
+	 * indiceFiabiliteMjaNmoins1;
+	 * anneeNmoins2;mjaNmoins2;typeComptageNmoins2;modeCalculNmoins2;
+	 * pcPLNmoins2;evaluationPLNmoins2;pcNuitAnnuelNmoins2;
+	 * indiceFiabiliteMjaNmoins2;
+	 * anneeNmoins3;mjaNmoins3;typeComptageNmoins3;modeCalculNmoins3;
+	 * pcPLNmoins3;evaluationPLNmoins3;pcNuitAnnuelNmoins3;
+	 * indiceFiabiliteMjaNmoins3;
+	 * anneeNmoins4;mjaNmoins4;typeComptageNmoins4;modeCalculNmoins4;
+	 * pcPLNmoins4;evaluationPLNmoins4;pcNuitAnnuelNmoins4;
+	 * indiceFiabiliteMjaNmoins4;
+	 * anneeNmoins5;mjaNmoins5;typeComptageNmoins5;modeCalculNmoins5;
+	 * pcPLNmoins5;evaluationPLNmoins5;pcNuitAnnuelNmoins5;
+	 * indiceFiabiliteMjaNmoins5;
+	 * mjmNmoins1mois01;pcNuitNmoins1mois01;
+	 * mjmNmoins1mois02;pcNuitNmoins1mois02;
+	 * mjmNmoins1mois03;pcNuitNmoins1mois03;
+	 * mjmNmoins1mois04;pcNuitNmoins1mois04;
+	 * mjmNmoins1mois05;pcNuitNmoins1mois05;
+	 * mjmNmoins1mois06;pcNuitNmoins1mois06;
+	 * mjmNmoins1mois07;pcNuitNmoins1mois07;
+	 * mjmNmoins1mois08;pcNuitNmoins1mois08;
+	 * mjmNmoins1mois09;pcNuitNmoins1mois09
+	 * ;mjmNmoins1mois10;pcNuitNmoins1mois10;
+	 * mjmNmoins1mois11;pcNuitNmoins1mois11;
+	 * mjmNmoins1mois12;pcNuitNmoins1mois12;
+	 * zoneLibre4;".<br/>
 	 * <br/>
 	 */
 	@Override
@@ -447,7 +639,7 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	 *
 	 * @return this.pRoupK : String.<br/>
 	 */
-	String getpRoupK();
+	String getPRoupK();
 
 
 	
@@ -457,7 +649,7 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	* @param pPRoupK : String : 
 	* valeur à passer à this.pRoupK.<br/>
 	*/
-	void setpRoupK(String pPRoupK);
+	void setPRoupK(String pPRoupK);
 
 	
 	
@@ -861,21 +1053,21 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 
 	
 	/**
-	 * Getter du mode de calcul des trafics.
+	 * Getter du mode de calcul des trafics de l'année de traitement N.
 	 *
-	 * @return this.modeCalcul : String.<br/>
+	 * @return this.modeCalculN : String.<br/>
 	 */
-	String getModeCalcul();
+	String getModeCalculN();
 
 
 	
 	/**
-	* Setter du mode de calcul des trafics.
+	* Setter du mode de calcul des trafics de l'année de traitement N.
 	*
-	* @param pModeCalcul : String : 
-	* valeur à passer à this.modeCalcul.<br/>
+	* @param pModeCalculN : String : 
+	* valeur à passer à this.modeCalculN.<br/>
 	*/
-	void setModeCalcul(String pModeCalcul);
+	void setModeCalculN(String pModeCalculN);
 
 
 	
@@ -925,9 +1117,9 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
 	 * de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNannuel : String.<br/>
+	 * @return this.pcNuitAnnuelN : String.<br/>
 	 */
-	String getPcNuitNannuel();
+	String getPcNuitAnnuelN();
 
 
 	
@@ -935,15 +1127,15 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	* Setter du pourcentage de trafic de nuit tous véhicules annuel 
 	* de l'année de traitement N.
 	*
-	* @param pPcNuitNannuel : String : 
-	* valeur à passer à this.pcNuitNannuel.<br/>
+	* @param pPcNuitAnnuelN : String : 
+	* valeur à passer à this.pcNuitAnnuelN.<br/>
 	*/
-	void setPcNuitNannuel(String pPcNuitNannuel);
+	void setPcNuitAnnuelN(String pPcNuitAnnuelN);
 
 
 	
 	/**
-	 * Getter de l'indice de fiabilité de la TMJAN.
+	 * Getter de l'indice de fiabilité de la TMJA de l'année de traitement N.
 	 *
 	 * @return this.indiceFiabiliteMjaN : String.<br/>
 	 */
@@ -952,7 +1144,7 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 
 	
 	/**
-	* Setter de l'indice de fiabilité de la TMJAN.
+	* Setter de l'indice de fiabilité de la TMJA de l'année de traitement N.
 	*
 	* @param pIndiceFiabiliteMjaN : String : 
 	* valeur à passer à this.indiceFiabiliteMjaN.<br/>
@@ -1481,6 +1673,1367 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	* valeur à passer à this.zoneLibre3.<br/>
 	*/
 	void setZoneLibre3(String pZoneLibre3);
+
+
+	
+	/**
+	 * Getter de l'année n-1.
+	 *
+	 * @return this.anneeNmoins1 : String.<br/>
+	 */
+	String getAnneeNmoins1();
+	
+
+	
+	/**
+	* Setter de l'année n-1.
+	*
+	* @param pAnneeNmoins1 : String : 
+	* valeur à passer à this.anneeNmoins1.<br/>
+	*/
+	void setAnneeNmoins1(String pAnneeNmoins1);
+
+
+	
+	/**
+	 * Getter du trafic moyen journalier annuel de l'année n-1.
+	 *
+	 * @return this.mjaNmoins1 : String.<br/>
+	 */
+	String getMjaNmoins1();
+
+
+	
+	/**
+	* Setter du trafic moyen journalier annuel de l'année n-1.
+	*
+	* @param pMjaNmoins1 : String : 
+	* valeur à passer à this.mjaNmoins1.<br/>
+	*/
+	void setMjaNmoins1(String pMjaNmoins1);
+
+
+	
+	/**
+	 * Getter du type de comptage de l'année n-1.
+	 *
+	 * @return this.typeComptageNmoins1 : String.<br/>
+	 */
+	String getTypeComptageNmoins1();
+
+
+	
+	/**
+	* Setter du type de comptage de l'année n-1.
+	*
+	* @param pTypeComptageNmoins1 : String : 
+	* valeur à passer à this.typeComptageNmoins1.<br/>
+	*/
+	void setTypeComptageNmoins1(String pTypeComptageNmoins1);
+
+
+	
+	/**
+	 * Getter du mode de calcul des trafics de l'année n-1.
+	 *
+	 * @return this.modeCalculNmoins1 : String.<br/>
+	 */
+	String getModeCalculNmoins1();
+
+
+	
+	/**
+	* Setter du mode de calcul des trafics de l'année n-1.
+	*
+	* @param pModeCalculNmoins1 : String : 
+	* valeur à passer à this.modeCalculNmoins1.<br/>
+	*/
+	void setModeCalculNmoins1(String pModeCalculNmoins1);
+
+
+	
+	/**
+	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-1.
+	 *
+	 * @return this.pcPLNmoins1 : String.<br/>
+	 */
+	String getPcPLNmoins1();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic poids lourds annuel de l'année n-1.
+	*
+	* @param pPcPLNmoins1 : String : 
+	* valeur à passer à this.pcPLNmoins1.<br/>
+	*/
+	void setPcPLNmoins1(String pPcPLNmoins1);
+
+
+	
+	/**
+	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	 * de l'année n-1.
+	 *
+	 * @return this.evaluationPLNmoins1 : String.<br/>
+	 */
+	String getEvaluationPLNmoins1();
+
+
+	
+	/**
+	* Setter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	* de l'année n-1.
+	*
+	* @param pEvaluationPLNmoins1 : String : 
+	* valeur à passer à this.evaluationPLNmoins1.<br/>
+	*/
+	void setEvaluationPLNmoins1(String pEvaluationPLNmoins1);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
+	 * de l'année n-1.
+	 *
+	 * @return this.pcNuitAnnuelNmoins1 : String.<br/>
+	 */
+	String getPcNuitAnnuelNmoins1();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules annuel 
+	* de l'année n-1.
+	*
+	* @param pPcNuitAnnuelNmoins1 : String : 
+	* valeur à passer à this.pcNuitAnnuelNmoins1.<br/>
+	*/
+	void setPcNuitAnnuelNmoins1(String pPcNuitAnnuelNmoins1);
+
+
+	
+	/**
+	 * Getter de l'indice de fiabilité de la TMJA 
+	 * de l'année n-1.
+	 *
+	 * @return this.indiceFiabiliteMjaNmoins1 : String.<br/>
+	 */
+	String getIndiceFiabiliteMjaNmoins1();
+
+
+	
+	/**
+	* Setter de l'indice de fiabilité de la TMJA 
+	* de l'année n-1.
+	*
+	* @param pIndiceFiabiliteMjaNmoins1 : String : 
+	* valeur à passer à this.indiceFiabiliteMjaNmoins1.<br/>
+	*/
+	void setIndiceFiabiliteMjaNmoins1(String pIndiceFiabiliteMjaNmoins1);
+
+
+	
+	/**
+	 * Getter de l'année n-2.
+	 *
+	 * @return this.anneeNmoins2 : String.<br/>
+	 */
+	String getAnneeNmoins2();
+	
+
+	
+	/**
+	* Setter de l'année n-2.
+	*
+	* @param pAnneeNmoins2 : String : 
+	* valeur à passer à this.anneeNmoins2.<br/>
+	*/
+	void setAnneeNmoins2(String pAnneeNmoins2);
+
+
+	
+	/**
+	 * Getter du trafic moyen journalier annuel de l'année n-2.
+	 *
+	 * @return this.mjaNmoins2 : String.<br/>
+	 */
+	String getMjaNmoins2();
+
+
+	
+	/**
+	* Setter du trafic moyen journalier annuel de l'année n-2.
+	*
+	* @param pMjaNmoins2 : String : 
+	* valeur à passer à this.mjaNmoins2.<br/>
+	*/
+	void setMjaNmoins2(String pMjaNmoins2);
+
+
+	
+	/**
+	 * Getter du type de comptage de l'année n-2.
+	 *
+	 * @return this.typeComptageNmoins2 : String.<br/>
+	 */
+	String getTypeComptageNmoins2();
+
+
+	
+	/**
+	* Setter du type de comptage de l'année n-2.
+	*
+	* @param pTypeComptageNmoins2 : String : 
+	* valeur à passer à this.typeComptageNmoins2.<br/>
+	*/
+	void setTypeComptageNmoins2(String pTypeComptageNmoins2);
+
+
+	
+	/**
+	 * Getter du mode de calcul des trafics de l'année n-2.
+	 *
+	 * @return this.modeCalculNmoins2 : String.<br/>
+	 */
+	String getModeCalculNmoins2();
+
+
+	
+	/**
+	* Setter du mode de calcul des trafics de l'année n-2.
+	*
+	* @param pModeCalculNmoins2 : String : 
+	* valeur à passer à this.modeCalculNmoins2.<br/>
+	*/
+	void setModeCalculNmoins2(String pModeCalculNmoins2);
+
+
+	
+	/**
+	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-2.
+	 *
+	 * @return this.pcPLNmoins2 : String.<br/>
+	 */
+	String getPcPLNmoins2();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic poids lourds annuel de l'année n-2.
+	*
+	* @param pPcPLNmoins2 : String : 
+	* valeur à passer à this.pcPLNmoins2.<br/>
+	*/
+	void setPcPLNmoins2(String pPcPLNmoins2);
+
+
+	
+	/**
+	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	 * de l'année n-2.
+	 *
+	 * @return this.evaluationPLNmoins2 : String.<br/>
+	 */
+	String getEvaluationPLNmoins2();
+
+
+	
+	/**
+	* Setter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	* de l'année n-2.
+	*
+	* @param pEvaluationPLNmoins2 : String : 
+	* valeur à passer à this.evaluationPLNmoins2.<br/>
+	*/
+	void setEvaluationPLNmoins2(String pEvaluationPLNmoins2);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
+	 * de l'année n-2.
+	 *
+	 * @return this.pcNuitAnnuelNmoins2 : String.<br/>
+	 */
+	String getPcNuitAnnuelNmoins2();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules annuel 
+	* de l'année n-2.
+	*
+	* @param pPcNuitAnnuelNmoins2 : String : 
+	* valeur à passer à this.pcNuitAnnuelNmoins2.<br/>
+	*/
+	void setPcNuitAnnuelNmoins2(String pPcNuitAnnuelNmoins2);
+
+
+	
+	/**
+	 * Getter de l'indice de fiabilité de la TMJA 
+	 * de l'année n-2.
+	 *
+	 * @return this.indiceFiabiliteMjaNmoins2 : String.<br/>
+	 */
+	String getIndiceFiabiliteMjaNmoins2();
+
+
+	
+	/**
+	* Setter de l'indice de fiabilité de la TMJA 
+	* de l'année n-2.
+	*
+	* @param pIndiceFiabiliteMjaNmoins2 : String : 
+	* valeur à passer à this.indiceFiabiliteMjaNmoins2.<br/>
+	*/
+	void setIndiceFiabiliteMjaNmoins2(String pIndiceFiabiliteMjaNmoins2);
+
+
+	
+	/**
+	 * Getter de l'année n-3.
+	 *
+	 * @return this.anneeNmoins3 : String.<br/>
+	 */
+	String getAnneeNmoins3();
+	
+
+	
+	/**
+	* Setter de l'année n-3.
+	*
+	* @param pAnneeNmoins3 : String : 
+	* valeur à passer à this.anneeNmoins3.<br/>
+	*/
+	void setAnneeNmoins3(String pAnneeNmoins3);
+
+
+	
+	/**
+	 * Getter du trafic moyen journalier annuel de l'année n-3.
+	 *
+	 * @return this.mjaNmoins3 : String.<br/>
+	 */
+	String getMjaNmoins3();
+
+
+	
+	/**
+	* Setter du trafic moyen journalier annuel de l'année n-3.
+	*
+	* @param pMjaNmoins3 : String : 
+	* valeur à passer à this.mjaNmoins3.<br/>
+	*/
+	void setMjaNmoins3(String pMjaNmoins3);
+
+
+	
+	/**
+	 * Getter du type de comptage de l'année n-3.
+	 *
+	 * @return this.typeComptageNmoins3 : String.<br/>
+	 */
+	String getTypeComptageNmoins3();
+
+
+	
+	/**
+	* Setter du type de comptage de l'année n-3.
+	*
+	* @param pTypeComptageNmoins3 : String : 
+	* valeur à passer à this.typeComptageNmoins3.<br/>
+	*/
+	void setTypeComptageNmoins3(String pTypeComptageNmoins3);
+
+
+	
+	/**
+	 * Getter du mode de calcul des trafics de l'année n-3.
+	 *
+	 * @return this.modeCalculNmoins3 : String.<br/>
+	 */
+	String getModeCalculNmoins3();
+
+
+	
+	/**
+	* Setter du mode de calcul des trafics de l'année n-3.
+	*
+	* @param pModeCalculNmoins3 : String : 
+	* valeur à passer à this.modeCalculNmoins3.<br/>
+	*/
+	void setModeCalculNmoins3(String pModeCalculNmoins3);
+
+
+	
+	/**
+	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-3.
+	 *
+	 * @return this.pcPLNmoins3 : String.<br/>
+	 */
+	String getPcPLNmoins3();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic poids lourds annuel de l'année n-3.
+	*
+	* @param pPcPLNmoins3 : String : 
+	* valeur à passer à this.pcPLNmoins3.<br/>
+	*/
+	void setPcPLNmoins3(String pPcPLNmoins3);
+
+
+	
+	/**
+	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	 * de l'année n-3.
+	 *
+	 * @return this.evaluationPLNmoins3 : String.<br/>
+	 */
+	String getEvaluationPLNmoins3();
+
+
+	
+	/**
+	* Setter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	* de l'année n-3.
+	*
+	* @param pEvaluationPLNmoins3 : String : 
+	* valeur à passer à this.evaluationPLNmoins3.<br/>
+	*/
+	void setEvaluationPLNmoins3(String pEvaluationPLNmoins3);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
+	 * de l'année n-3.
+	 *
+	 * @return this.pcNuitAnnuelNmoins3 : String.<br/>
+	 */
+	String getPcNuitAnnuelNmoins3();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules annuel 
+	* de l'année n-3.
+	*
+	* @param pPcNuitAnnuelNmoins3 : String : 
+	* valeur à passer à this.pcNuitAnnuelNmoins3.<br/>
+	*/
+	void setPcNuitAnnuelNmoins3(String pPcNuitAnnuelNmoins3);
+
+
+	
+	/**
+	 * Getter de l'indice de fiabilité de la TMJA 
+	 * de l'année n-3.
+	 *
+	 * @return this.indiceFiabiliteMjaNmoins3 : String.<br/>
+	 */
+	String getIndiceFiabiliteMjaNmoins3();
+
+
+	
+	/**
+	* Setter de l'indice de fiabilité de la TMJA 
+	* de l'année n-3.
+	*
+	* @param pIndiceFiabiliteMjaNmoins3 : String : 
+	* valeur à passer à this.indiceFiabiliteMjaNmoins3.<br/>
+	*/
+	void setIndiceFiabiliteMjaNmoins3(String pIndiceFiabiliteMjaNmoins3);
+
+
+	
+	/**
+	 * Getter de l'année n-4.
+	 *
+	 * @return this.anneeNmoins4 : String.<br/>
+	 */
+	String getAnneeNmoins4();
+	
+
+	
+	/**
+	* Setter de l'année n-4.
+	*
+	* @param pAnneeNmoins4 : String : 
+	* valeur à passer à this.anneeNmoins4.<br/>
+	*/
+	void setAnneeNmoins4(String pAnneeNmoins4);
+
+
+	
+	/**
+	 * Getter du trafic moyen journalier annuel de l'année n-4.
+	 *
+	 * @return this.mjaNmoins4 : String.<br/>
+	 */
+	String getMjaNmoins4();
+
+
+	
+	/**
+	* Setter du trafic moyen journalier annuel de l'année n-4.
+	*
+	* @param pMjaNmoins4 : String : 
+	* valeur à passer à this.mjaNmoins4.<br/>
+	*/
+	void setMjaNmoins4(String pMjaNmoins4);
+
+
+	
+	/**
+	 * Getter du type de comptage de l'année n-4.
+	 *
+	 * @return this.typeComptageNmoins4 : String.<br/>
+	 */
+	String getTypeComptageNmoins4();
+
+
+	
+	/**
+	* Setter du type de comptage de l'année n-4.
+	*
+	* @param pTypeComptageNmoins4 : String : 
+	* valeur à passer à this.typeComptageNmoins4.<br/>
+	*/
+	void setTypeComptageNmoins4(String pTypeComptageNmoins4);
+
+
+	
+	/**
+	 * Getter du mode de calcul des trafics de l'année n-4.
+	 *
+	 * @return this.modeCalculNmoins4 : String.<br/>
+	 */
+	String getModeCalculNmoins4();
+
+
+	
+	/**
+	* Setter du mode de calcul des trafics de l'année n-4.
+	*
+	* @param pModeCalculNmoins4 : String : 
+	* valeur à passer à this.modeCalculNmoins4.<br/>
+	*/
+	void setModeCalculNmoins4(String pModeCalculNmoins4);
+
+
+	
+	/**
+	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-4.
+	 *
+	 * @return this.pcPLNmoins4 : String.<br/>
+	 */
+	String getPcPLNmoins4();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic poids lourds annuel de l'année n-4.
+	*
+	* @param pPcPLNmoins4 : String : 
+	* valeur à passer à this.pcPLNmoins4.<br/>
+	*/
+	void setPcPLNmoins4(String pPcPLNmoins4);
+
+
+	
+	/**
+	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	 * de l'année n-4.
+	 *
+	 * @return this.evaluationPLNmoins4 : String.<br/>
+	 */
+	String getEvaluationPLNmoins4();
+
+
+	
+	/**
+	* Setter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	* de l'année n-4.
+	*
+	* @param pEvaluationPLNmoins4 : String : 
+	* valeur à passer à this.evaluationPLNmoins4.<br/>
+	*/
+	void setEvaluationPLNmoins4(String pEvaluationPLNmoins4);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
+	 * de l'année n-4.
+	 *
+	 * @return this.pcNuitAnnuelNmoins4 : String.<br/>
+	 */
+	String getPcNuitAnnuelNmoins4();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules annuel 
+	* de l'année n-4.
+	*
+	* @param pPcNuitAnnuelNmoins4 : String : 
+	* valeur à passer à this.pcNuitAnnuelNmoins4.<br/>
+	*/
+	void setPcNuitAnnuelNmoins4(String pPcNuitAnnuelNmoins4);
+
+
+	
+	/**
+	 * Getter de l'indice de fiabilité de la TMJA 
+	 * de l'année n-4.
+	 *
+	 * @return this.indiceFiabiliteMjaNmoins4 : String.<br/>
+	 */
+	String getIndiceFiabiliteMjaNmoins4();
+
+
+	
+	/**
+	* Setter de l'indice de fiabilité de la TMJA 
+	* de l'année n-4.
+	*
+	* @param pIndiceFiabiliteMjaNmoins4 : String : 
+	* valeur à passer à this.indiceFiabiliteMjaNmoins4.<br/>
+	*/
+	void setIndiceFiabiliteMjaNmoins4(String pIndiceFiabiliteMjaNmoins4);
+
+
+	
+	/**
+	 * Getter de l'année n-5.
+	 *
+	 * @return this.anneeNmoins5 : String.<br/>
+	 */
+	String getAnneeNmoins5();
+	
+
+	
+	/**
+	* Setter de l'année n-5.
+	*
+	* @param pAnneeNmoins5 : String : 
+	* valeur à passer à this.anneeNmoins5.<br/>
+	*/
+	void setAnneeNmoins5(String pAnneeNmoins5);
+
+
+	
+	/**
+	 * Getter du trafic moyen journalier annuel de l'année n-5.
+	 *
+	 * @return this.mjaNmoins5 : String.<br/>
+	 */
+	String getMjaNmoins5();
+
+
+	
+	/**
+	* Setter du trafic moyen journalier annuel de l'année n-5.
+	*
+	* @param pMjaNmoins5 : String : 
+	* valeur à passer à this.mjaNmoins5.<br/>
+	*/
+	void setMjaNmoins5(String pMjaNmoins5);
+
+
+	
+	/**
+	 * Getter du type de comptage de l'année n-5.
+	 *
+	 * @return this.typeComptageNmoins5 : String.<br/>
+	 */
+	String getTypeComptageNmoins5();
+
+
+	
+	/**
+	* Setter du type de comptage de l'année n-5.
+	*
+	* @param pTypeComptageNmoins5 : String : 
+	* valeur à passer à this.typeComptageNmoins5.<br/>
+	*/
+	void setTypeComptageNmoins5(String pTypeComptageNmoins5);
+
+
+	
+	/**
+	 * Getter du mode de calcul des trafics de l'année n-5.
+	 *
+	 * @return this.modeCalculNmoins5 : String.<br/>
+	 */
+	String getModeCalculNmoins5();
+
+
+	
+	/**
+	* Setter du mode de calcul des trafics de l'année n-5.
+	*
+	* @param pModeCalculNmoins5 : String : 
+	* valeur à passer à this.modeCalculNmoins5.<br/>
+	*/
+	void setModeCalculNmoins5(String pModeCalculNmoins5);
+
+
+	
+	/**
+	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-5.
+	 *
+	 * @return this.pcPLNmoins5 : String.<br/>
+	 */
+	String getPcPLNmoins5();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic poids lourds annuel de l'année n-5.
+	*
+	* @param pPcPLNmoins5 : String : 
+	* valeur à passer à this.pcPLNmoins5.<br/>
+	*/
+	void setPcPLNmoins5(String pPcPLNmoins5);
+
+
+	
+	/**
+	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	 * de l'année n-5.
+	 *
+	 * @return this.evaluationPLNmoins5 : String.<br/>
+	 */
+	String getEvaluationPLNmoins5();
+
+
+	
+	/**
+	* Setter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
+	* de l'année n-5.
+	*
+	* @param pEvaluationPLNmoins5 : String : 
+	* valeur à passer à this.evaluationPLNmoins5.<br/>
+	*/
+	void setEvaluationPLNmoins5(String pEvaluationPLNmoins5);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
+	 * de l'année n-5.
+	 *
+	 * @return this.pcNuitAnnuelNmoins5 : String.<br/>
+	 */
+	String getPcNuitAnnuelNmoins5();
+
+
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules annuel 
+	* de l'année n-5.
+	*
+	* @param pPcNuitAnnuelNmoins5 : String : 
+	* valeur à passer à this.pcNuitAnnuelNmoins5.<br/>
+	*/
+	void setPcNuitAnnuelNmoins5(String pPcNuitAnnuelNmoins5);
+
+
+	
+	/**
+	 * Getter de l'indice de fiabilité de la TMJA 
+	 * de l'année n-5.
+	 *
+	 * @return this.indiceFiabiliteMjaNmoins5 : String.<br/>
+	 */
+	String getIndiceFiabiliteMjaNmoins5();
+
+
+	
+	/**
+	* Setter de l'indice de fiabilité de la TMJA 
+	* de l'année n-5.
+	*
+	* @param pIndiceFiabiliteMjaNmoins5 : String : 
+	* valeur à passer à this.indiceFiabiliteMjaNmoins5.<br/>
+	*/
+	void setIndiceFiabiliteMjaNmoins5(String pIndiceFiabiliteMjaNmoins5);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de janvier (01) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois01 : String.<br/>
+	 */
+	String getMjmNmoins1mois01();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de janvier (01) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois01 : String : 
+	* valeur à passer à this.mjmNmoins1mois01.<br/>
+	*/
+	void setMjmNmoins1mois01(String pMjmNmoins1mois01);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de janvier (01) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois01 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois01();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de janvier (01) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois01 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois01.<br/>
+	*/
+	void setPcNuitNmoins1mois01(String pPcNuitNmoins1mois01);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de février (02) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois02 : String.<br/>
+	 */
+	String getMjmNmoins1mois02();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de février (02) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois02 : String : 
+	* valeur à passer à this.mjmNmoins1mois02.<br/>
+	*/
+	void setMjmNmoins1mois02(String pMjmNmoins1mois02);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de février (02) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois02 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois02();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de février (02) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois02 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois02.<br/>
+	*/
+	void setPcNuitNmoins1mois02(String pPcNuitNmoins1mois02);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de mars (03) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois03 : String.<br/>
+	 */
+	String getMjmNmoins1mois03();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de mars (03) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois03 : String : 
+	* valeur à passer à this.mjmNmoins1mois03.<br/>
+	*/
+	void setMjmNmoins1mois03(String pMjmNmoins1mois03);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de mars (03) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois03 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois03();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de mars (03) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois03 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois03.<br/>
+	*/
+	void setPcNuitNmoins1mois03(String pPcNuitNmoins1mois03);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de avril (04) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois04 : String.<br/>
+	 */
+	String getMjmNmoins1mois04();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de avril (04) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois04 : String : 
+	* valeur à passer à this.mjmNmoins1mois04.<br/>
+	*/
+	void setMjmNmoins1mois04(String pMjmNmoins1mois04);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de avril (04) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois04 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois04();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de avril (04) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois04 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois04.<br/>
+	*/
+	void setPcNuitNmoins1mois04(String pPcNuitNmoins1mois04);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de mai (05) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois05 : String.<br/>
+	 */
+	String getMjmNmoins1mois05();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de mai (05) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois05 : String : 
+	* valeur à passer à this.mjmNmoins1mois05.<br/>
+	*/
+	void setMjmNmoins1mois05(String pMjmNmoins1mois05);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de mai (05) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois05 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois05();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de mai (05) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois05 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois05.<br/>
+	*/
+	void setPcNuitNmoins1mois05(String pPcNuitNmoins1mois05);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de juin (06) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois06 : String.<br/>
+	 */
+	String getMjmNmoins1mois06();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de juin (06) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois06 : String : 
+	* valeur à passer à this.mjmNmoins1mois06.<br/>
+	*/
+	void setMjmNmoins1mois06(String pMjmNmoins1mois06);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de juin (06) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois06 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois06();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de juin (06) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois06 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois06.<br/>
+	*/
+	void setPcNuitNmoins1mois06(String pPcNuitNmoins1mois06);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de juillet (07) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois07 : String.<br/>
+	 */
+	String getMjmNmoins1mois07();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de juillet (07) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois07 : String : 
+	* valeur à passer à this.mjmNmoins1mois07.<br/>
+	*/
+	void setMjmNmoins1mois07(String pMjmNmoins1mois07);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de juillet (07) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois07 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois07();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de juillet (07) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois07 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois07.<br/>
+	*/
+	void setPcNuitNmoins1mois07(String pPcNuitNmoins1mois07);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de août (08) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois08 : String.<br/>
+	 */
+	String getMjmNmoins1mois08();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de août (08) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois08 : String : 
+	* valeur à passer à this.mjmNmoins1mois08.<br/>
+	*/
+	void setMjmNmoins1mois08(String pMjmNmoins1mois08);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de août (08) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois08 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois08();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de août (08) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois08 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois08.<br/>
+	*/
+	void setPcNuitNmoins1mois08(String pPcNuitNmoins1mois08);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de septembre (09) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois09 : String.<br/>
+	 */
+	String getMjmNmoins1mois09();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de septembre (09) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois09 : String : 
+	* valeur à passer à this.mjmNmoins1mois09.<br/>
+	*/
+	void setMjmNmoins1mois09(String pMjmNmoins1mois09);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de septembre (09) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois09 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois09();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de septembre (09) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois09 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois09.<br/>
+	*/
+	void setPcNuitNmoins1mois09(String pPcNuitNmoins1mois09);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de octobre (10) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois10 : String.<br/>
+	 */
+	String getMjmNmoins1mois10();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de octobre (10) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois10 : String : 
+	* valeur à passer à this.mjmNmoins1mois10.<br/>
+	*/
+	void setMjmNmoins1mois10(String pMjmNmoins1mois10);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de octobre (10) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois10 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois10();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de octobre (10) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois10 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois10.<br/>
+	*/
+	void setPcNuitNmoins1mois10(String pPcNuitNmoins1mois10);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de novembre (11) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois11 : String.<br/>
+	 */
+	String getMjmNmoins1mois11();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de novembre (11) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois11 : String : 
+	* valeur à passer à this.mjmNmoins1mois11.<br/>
+	*/
+	void setMjmNmoins1mois11(String pMjmNmoins1mois11);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de novembre (11) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois11 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois11();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de novembre (11) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois11 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois11.<br/>
+	*/
+	void setPcNuitNmoins1mois11(String pPcNuitNmoins1mois11);
+
+
+	
+	/**
+	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
+	 * du mois de décembre (12) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.mjmNmoins1mois12 : String.<br/>
+	 */
+	String getMjmNmoins1mois12();
+
+
+	
+	/**
+	* Setter de la moyenne journalière mensuelle en véhicules/jour 
+	* du mois de décembre (12) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pMjmNmoins1mois12 : String : 
+	* valeur à passer à this.mjmNmoins1mois12.<br/>
+	*/
+	void setMjmNmoins1mois12(String pMjmNmoins1mois12);
+
+	
+	
+	/**
+	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel 
+	 * du mois de décembre (12) 
+	 * de l'année précédent l'année de traitement N.
+	 *
+	 * @return this.pcNuitNmoins1mois12 : String.<br/>
+	 */
+	String getPcNuitNmoins1mois12();
+
+	
+	
+	/**
+	* Setter du pourcentage de trafic de nuit tous véhicules mensuel 
+	* du mois de décembre (12) 
+	* de l'année précédent l'année de traitement N.
+	*
+	* @param pPcNuitNmoins1mois12 : String : 
+	* valeur à passer à this.pcNuitNmoins1mois12.<br/>
+	*/
+	void setPcNuitNmoins1mois12(String pPcNuitNmoins1mois12);
+
+
+	
+	/**
+	 * Getter de la zone libre 4.
+	 *
+	 * @return this.zoneLibre4 : String.<br/>
+	 */
+	String getZoneLibre4();
+
+
+	
+	/**
+	* Setter de la zone libre 4.
+	*
+	* @param pZoneLibre4 : String : 
+	* valeur à passer à this.zoneLibre4.<br/>
+	*/
+	void setZoneLibre4(String pZoneLibre4);
 	
 	
 

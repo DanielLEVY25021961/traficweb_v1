@@ -62,7 +62,7 @@ import org.apache.commons.logging.LogFactory;
  * instancier une Locale, SINGLETON, singleton,<br/>
  * sélectionner une Locale, selectionner une locale,<br/>
  * afficherListString, afficherList<String>, afficher Liste String, <br/>
- * afficherListeString, <br/>
+ * afficherListeString, afficher liste String<br/>
  * <br/>
  *
  * - Dépendances :<br/>

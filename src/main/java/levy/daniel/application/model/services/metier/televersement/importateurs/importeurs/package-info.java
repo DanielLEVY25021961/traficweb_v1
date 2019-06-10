@@ -6,8 +6,8 @@
  * <code><b>SortedMap&lt;Integer, SortedMap&lt;Integer, String&gt;&gt;</b></code> 
  * avec :
  * <ul>
- * <li>Integer : le numéro de la ligne dans le fichier importé.</li>
- * <li>Integer : le numéro d'ordre du champ dans la description 
+ * <li>Integer : le numéro (1-based) de la ligne dans le fichier importé.</li>
+ * <li>Integer : le numéro d'ordre (1-based) du champ dans la description 
  * du fichier importé.</li>
  * <li>String : la valeur lue pour ce champ.</li>
  * </ul>

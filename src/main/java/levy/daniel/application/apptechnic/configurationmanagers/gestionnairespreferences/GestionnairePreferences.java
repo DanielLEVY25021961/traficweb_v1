@@ -112,6 +112,7 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesloc
  * commentaire dans un fichier properties, écrire commentaire, <br/>
  * lire dans un fichier properties, écrire dans un fichier properties, <br/>
  * créer une String à partir d'une liste de lignes, <br/>
+ * REGEX, Regex, 
  * <br/>
  *
  * - Dépendances :<br/>

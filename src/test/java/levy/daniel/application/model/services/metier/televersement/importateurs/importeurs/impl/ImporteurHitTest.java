@@ -7,6 +7,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 import java.util.SortedMap;
 
 import org.apache.commons.logging.Log;
@@ -14,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import levy.daniel.application.model.dto.metier.sections.ISectionHitDTO;
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.IImporteur;
 import levy.daniel.application.model.utilitaires.comparateursfichiers.ComparateurFichiers;
 
@@ -148,9 +150,6 @@ public class ImporteurHitTest {
 	 * Teste la méthode importer(File, Charset).<br/>
 	 * <ul>
 	 * <li>garantit que importer(...) retourne le fichier sous forme de Map.</li>
-	 * <li></li>
-	 * <li></li>
-	 * <li></li>
 	 * </ul>
 	 * 
 	 *  @throws Exception 
@@ -161,7 +160,7 @@ public class ImporteurHitTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -175,8 +174,7 @@ public class ImporteurHitTest {
 		final Charset charsetUtf8 = StandardCharsets.UTF_8;
 		
 		// METHODE A TESTER.
-		final SortedMap<Integer, SortedMap<Integer, String>> fichierMap 
-			= importeur.importer(fichierDonnees, charsetAnsi);
+		final SortedMap<Integer, SortedMap<Integer, String>> fichierMap = importeur.importer(fichierDonnees, charsetAnsi);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -185,10 +183,6 @@ public class ImporteurHitTest {
 		
 		/* garantit que importer(...) retourne le fichier sous forme de Map. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, fichierMap);
-		
-		final SortedMap<Integer, String> ligne1 = fichierMap.get(1);
-		final SortedMap<Integer, String> ligne2 = fichierMap.get(2);
-		final SortedMap<Integer, String> ligne3 = fichierMap.get(3);
 		
 		final File fileReconstitueAnsi = importeur.reconstituerFichierAnsi();
 		final File fileReconstitueUtf8 = importeur.reconstituerFichierUtf8();
@@ -238,10 +232,52 @@ public class ImporteurHitTest {
 			}
 			
 		}
-		
-		
-		
+				
 	} // Fin de testImporter().____________________________________________
+
+	
+	
+	/**
+	 * Teste la méthode importerDTO(File, Charset).<br/>
+	 * <ul>
+	 * <li>garantit que importerDTO(...) retourne le fichier sous forme de Map.</li>
+	 * </ul>
+	 * 
+	 *  @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testImporterDTO() throws Exception {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = true;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ImporteurHitTest - méthode testImporterDTO() ********** ");
+		}
+		
+		final Path fichierDonneesPath = PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("HITDIRA2017.txt");
+		final File fichierDonnees = fichierDonneesPath.toFile();
+		final Charset charsetAnsi = Charset.forName("Windows-1252");
+		
+		// METHODE A TESTER.
+		final ImporteurHit importeurHIT = (ImporteurHit) importeur;
+		final Map<Integer, ISectionHitDTO> fichierMapDTO 
+			= importeurHIT.importerDTO(fichierDonnees, charsetAnsi);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(importeurHIT.afficherMapDTO(fichierMapDTO));
+			System.out.println("nombre de lignes : " + importeurHIT.fournirNombreDeLignes());
+		}
+		
+		/* garantit que importerDTO(...) retourne le fichier sous forme de Map. */
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, fichierMapDTO);
+				
+	} // Fin de testImporterDTO()._________________________________________
 
 
 	

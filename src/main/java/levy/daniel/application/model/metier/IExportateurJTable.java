@@ -31,6 +31,7 @@ public interface IExportateurJTable {
 	* pour affichage dans une JTable</b> par exemple.<br/>
 	* <ul>
 	* <li>Suit l'ordre défini dans le csv.</li>
+	* <li>retourne "invalide" si pI est hors indexes.</li>
 	* </ul>
 	*
 	* @param pI : int : pIème colonne (0 - based).<br/>
@@ -49,6 +50,7 @@ public interface IExportateurJTable {
 	* <li>Retourne toujours une <b>String</b> si l'objet 
 	* n'est pas null.</li>
 	* <li>Retourne null si la valeur dans l'objet est null.</li>
+	* <li>retourne "invalide" si pI est hors indexes.</li>
 	* </ul>
 	*
 	* @param pI : int : pIème colonne (0 - based).<br/>

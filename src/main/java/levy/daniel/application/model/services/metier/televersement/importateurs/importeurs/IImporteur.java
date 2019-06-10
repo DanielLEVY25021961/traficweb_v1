@@ -397,7 +397,10 @@ public interface IImporteur
 	
 
 	/**
-	 * Affiche la map importée.<br/>
+	 * retourne une String pour l'affichage de la 
+	 * SortedMap&lt;Integer, SortedMap&lt;Integer, String&gt;&gt; 
+	 * <code><b>this.fichierImporteMap</b></code> résultant de l'import 
+	 * du fichier de données lu avec sa description de fichier.<br/>
 	 * <br/>
 	 * - retourne null 
 	 * si <code><b>this.fichierImporteMap</b></code> est null.<br/>
