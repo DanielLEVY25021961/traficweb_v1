@@ -2,12 +2,13 @@ package levy.daniel.application.model.dto.metier.sections;
 
 import java.io.Serializable;
 
+import levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO;
 import levy.daniel.application.model.metier.IExportateurCsv;
 import levy.daniel.application.model.metier.IExportateurJTable;
 
 /**
  * INTERFACE ISectionHitDTO :<br/>
- * .<br/>
+ * Interface factorisant les comportements des {@link SectionHitDTO}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -577,7 +578,7 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 
 	
 	/**
-	 * Getter du classement de la route.
+	 * Getter du classement de la route (agglomération).
 	 *
 	 * @return this.classementRoute : String.<br/>
 	 */
@@ -586,7 +587,7 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 
 	
 	/**
-	* Setter du classement de la route.
+	* Setter du classement de la route (agglomération).
 	*
 	* @param pClassementRoute : String : 
 	* valeur à passer à this.classementRoute.<br/>

@@ -123,7 +123,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	private String typeComptage;
 	
 	/**
-	 * classement de la route.
+	 * classement de la route (agglomération).
 	 */
 	private String classementRoute;
 	
@@ -1009,68 +1009,54 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final int hashCode() {
-		
-		return Objects.hash(this.absComptage, this.absExtremite
-				, this.absOrigine, this.anneeNmoins1, this.anneeNmoins2
-				, this.anneeNmoins3, this.anneeNmoins4, this.anneeNmoins5
-				, this.anneeSectionnement, this.anneeTraitement
-				, this.categorieAdminRoute, this.classe
-				, this.classeLargeurChausseeU, this.classeLargeurChausseesS
-				, this.classementRoute, this.evaluationPLN
-				, this.evaluationPLNmoins1, this.evaluationPLNmoins2
-				, this.evaluationPLNmoins3, this.evaluationPLNmoins4
-				, this.evaluationPLNmoins5, this.indiceFiabiliteMjaN
-				, this.indiceFiabiliteMjaNmoins1
-				, this.indiceFiabiliteMjaNmoins2
-				, this.indiceFiabiliteMjaNmoins3
-				, this.indiceFiabiliteMjaNmoins4
-				, this.indiceFiabiliteMjaNmoins5
-				, this.indiceLettreRoute, this.indiceNumRoute
-				, this.lieuDitComptage, this.lieuDitExtremite
-				, this.lieuDitOrigine, this.longueurRaseCampagne
-				, this.longueurSection, this.mjaN
-				, this.mjaNmoins1, this.mjaNmoins2, this.mjaNmoins3
-				, this.mjaNmoins4, this.mjaNmoins5, this.mjmNmoins1mois01
-				, this.mjmNmoins1mois02, this.mjmNmoins1mois03
-				, this.mjmNmoins1mois04, this.mjmNmoins1mois05
-				, this.mjmNmoins1mois06, this.mjmNmoins1mois07
-				, this.mjmNmoins1mois08, this.mjmNmoins1mois09
-				, this.mjmNmoins1mois10, this.mjmNmoins1mois11
-				, this.mjmNmoins1mois12, this.mjmNmois01
-				, this.mjmNmois02, this.mjmNmois03, this.mjmNmois04
-				, this.mjmNmois05, this.mjmNmois06, this.mjmNmois07
-				, this.mjmNmois08, this.mjmNmois09, this.mjmNmois10
-				, this.mjmNmois11, this.mjmNmois12, this.modeCalculN
-				, this.modeCalculNmoins1, this.modeCalculNmoins2
-				, this.modeCalculNmoins3, this.modeCalculNmoins4
-				, this.modeCalculNmoins5, this.moisSectionnement
-				, this.nature, this.numDepartement
-				, this.numDepartementLimitrophe, this.numDepartementRattachement
-				, this.numRoute, this.numSection, this.numSectionLimitrophe
-				, this.numSectionRattachement, this.pRoupK, this.pcNuitAnnuelN
-				, this.pcNuitAnnuelNmoins1, this.pcNuitAnnuelNmoins2
-				, this.pcNuitAnnuelNmoins3, this.pcNuitAnnuelNmoins4
-				, this.pcNuitAnnuelNmoins5, this.pcNuitNmoins1mois01
-				, this.pcNuitNmoins1mois02, this.pcNuitNmoins1mois03
-				, this.pcNuitNmoins1mois04, this.pcNuitNmoins1mois05
-				, this.pcNuitNmoins1mois06, this.pcNuitNmoins1mois07
-				, this.pcNuitNmoins1mois08, this.pcNuitNmoins1mois09
-				, this.pcNuitNmoins1mois10, this.pcNuitNmoins1mois11
-				, this.pcNuitNmoins1mois12, this.pcNuitNmois01
-				, this.pcNuitNmois02, this.pcNuitNmois03, this.pcNuitNmois04
-				, this.pcNuitNmois05, this.pcNuitNmois06, this.pcNuitNmois07
-				, this.pcNuitNmois08, this.pcNuitNmois09, this.pcNuitNmois10
-				, this.pcNuitNmois11, this.pcNuitNmois12, this.pcPLN
-				, this.pcPLNmoins1, this.pcPLNmoins2, this.pcPLNmoins3
-				, this.pcPLNmoins4, this.pcPLNmoins5, this.prComptage
-				, this.prExtremite, this.prOrigine, this.sens
-				, this.sensLimitrophe, this.sensRattachement
-				, this.typeComptage, this.typeComptageNmoins1
-				, this.typeComptageNmoins2, this.typeComptageNmoins3
-				, this.typeComptageNmoins4, this.typeComptageNmoins5
-				, this.typeReseau, this.zoneLibre1, this.zoneLibre2
-				, this.zoneLibre3, this.zoneLibre4);
-		
+
+		return Objects.hash(
+			this.getNumDepartement(), this.getNumSection()
+			, this.getSens(), this.getNature(), this.getClasse()
+			, this.getAnneeTraitement(), this.getZoneLibre1(), this.getNumRoute()
+			, this.getIndiceNumRoute(), this.getIndiceLettreRoute(), this.getCategorieAdminRoute()
+			, this.getTypeComptage(), this.getClassementRoute(), this.getClasseLargeurChausseeU()
+			, this.getClasseLargeurChausseesS(), this.getTypeReseau(), this.getPRoupK()
+			, this.getLieuDitOrigine(), this.getPrOrigine(), this.getAbsOrigine()
+			, this.getLieuDitExtremite(), this.getPrExtremite(), this.getAbsExtremite()
+			, this.getLieuDitComptage(), this.getPrComptage(), this.getAbsComptage()
+			, this.getLongueurSection(), this.getLongueurRaseCampagne(), this.getNumDepartementRattachement()
+			, this.getNumSectionRattachement(), this.getSensRattachement(), this.getNumDepartementLimitrophe()
+			, this.getNumSectionLimitrophe(), this.getSensLimitrophe(), this.getMoisSectionnement()
+			, this.getAnneeSectionnement(), this.getZoneLibre2(), this.getMjaN()
+			, this.getModeCalculN(), this.getPcPLN(), this.getEvaluationPLN()
+			, this.getPcNuitAnnuelN(), this.getIndiceFiabiliteMjaN(), this.getMjmNmois01()
+			, this.getPcNuitNmois01(), this.getMjmNmois02(), this.getPcNuitNmois02()
+			, this.getMjmNmois03(), this.getPcNuitNmois03(), this.getMjmNmois04()
+			, this.getPcNuitNmois04(), this.getMjmNmois05(), this.getPcNuitNmois05()
+			, this.getMjmNmois06(), this.getPcNuitNmois06(), this.getMjmNmois07()
+			, this.getPcNuitNmois07(), this.getMjmNmois08(), this.getPcNuitNmois08()
+			, this.getMjmNmois09(), this.getPcNuitNmois09(), this.getMjmNmois10()
+			, this.getPcNuitNmois10(), this.getMjmNmois11(), this.getPcNuitNmois11()
+			, this.getMjmNmois12(), this.getPcNuitNmois12(), this.getZoneLibre3()
+			, this.getAnneeNmoins1(), this.getMjaNmoins1(), this.getTypeComptageNmoins1()
+			, this.getModeCalculNmoins1(), this.getPcPLNmoins1(), this.getEvaluationPLNmoins1()
+			, this.getPcNuitAnnuelNmoins1(), this.getIndiceFiabiliteMjaNmoins1(), this.getAnneeNmoins2()
+			, this.getMjaNmoins2(), this.getTypeComptageNmoins2(), this.getModeCalculNmoins2()
+			, this.getPcPLNmoins2(), this.getEvaluationPLNmoins2(), this.getPcNuitAnnuelNmoins2()
+			, this.getIndiceFiabiliteMjaNmoins2(), this.getAnneeNmoins3(), this.getMjaNmoins3()
+			, this.getTypeComptageNmoins3(), this.getModeCalculNmoins3(), this.getPcPLNmoins3()
+			, this.getEvaluationPLNmoins3(), this.getPcNuitAnnuelNmoins3(), this.getIndiceFiabiliteMjaNmoins3()
+			, this.getAnneeNmoins4(), this.getMjaNmoins4(), this.getTypeComptageNmoins4()
+			, this.getModeCalculNmoins4(), this.getPcPLNmoins4(), this.getEvaluationPLNmoins4()
+			, this.getPcNuitAnnuelNmoins4(), this.getIndiceFiabiliteMjaNmoins4(), this.getAnneeNmoins5()
+			, this.getMjaNmoins5(), this.getTypeComptageNmoins5(), this.getModeCalculNmoins5()
+			, this.getPcPLNmoins5(), this.getEvaluationPLNmoins5(), this.getPcNuitAnnuelNmoins5()
+			, this.getIndiceFiabiliteMjaNmoins5(), this.getMjmNmoins1mois01(), this.getPcNuitNmoins1mois01()
+			, this.getMjmNmoins1mois02(), this.getPcNuitNmoins1mois02(), this.getMjmNmoins1mois03()
+			, this.getPcNuitNmoins1mois03(), this.getMjmNmoins1mois04(), this.getPcNuitNmoins1mois04()
+			, this.getMjmNmoins1mois05(), this.getPcNuitNmoins1mois05(), this.getMjmNmoins1mois06()
+			, this.getPcNuitNmoins1mois06(), this.getMjmNmoins1mois07(), this.getPcNuitNmoins1mois07()
+			, this.getMjmNmoins1mois08(), this.getPcNuitNmoins1mois08(), this.getMjmNmoins1mois09()
+			, this.getPcNuitNmoins1mois09(), this.getMjmNmoins1mois10(), this.getPcNuitNmoins1mois10()
+			, this.getMjmNmoins1mois11(), this.getPcNuitNmoins1mois11(), this.getMjmNmoins1mois12()
+			, this.getPcNuitNmoins1mois12(), this.getZoneLibre4());
+
 	} // Fin de hashCode().________________________________________________
 
 

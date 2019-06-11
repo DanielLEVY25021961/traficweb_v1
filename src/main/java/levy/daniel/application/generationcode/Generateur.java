@@ -72,6 +72,11 @@ public final class Generateur {
 	 * " - ".<br/>
 	 */
 	public static final String SEPARATEUR_MOINS_AERE = " - ";
+	
+	/**
+	 * ", ".
+	 */
+	public static final String VIRGULE_ESPACE = ", ";
 		
 	/**
 	 * "_".<br/>
@@ -157,6 +162,243 @@ public final class Generateur {
 	private Generateur() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
+
+	
+	
+	/**
+	 * <b>fournit une String comportant le code à insérer 
+	 * dans une méthode hashCode() d'une classe pClass</b>.<br/>
+	 * <br/>
+	 * - utilise <code><b>Objects.hash(...)</b></code> de JAVA 8.<br/>
+	 * <br/>
+	 * Par exemple :<br/>
+	 * <pre>
+	 * return Objects.hash(
+	 * 		this.getId(), this.getObjetID(), this.getRoute()
+	 * 		, this.getDepPrD(), this.getConcessionPrD(), this.getPrD()
+	 * 		, this.getAbsD(), this.getDepPrF(), this.getConcessionPrF()
+	 * </pre><br/>
+	 *
+	 * @param pClass : java.lang.Class<?>
+	 * 
+	 * @return : String : code de la méthode hashCode() de pClass.<br/>
+	 * 
+	 * @throws IOException 
+	 */
+	public static String genererMethodeHashCode(final Class<?> pClass) 
+			throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationChampGetterSetter> map 
+			= fournirMapChampGetterSetter(pClass);
+		
+		final Collection<EncapsulationChampGetterSetter> listeChamps 
+			=  map.values();
+		
+		final int nombreChampsParLigne = 3;
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB);
+		stb.append("return Objects.hash(");
+		stb.append(NEWLINE);
+		
+		int compteur = 0;
+		final int nombreChamps = listeChamps.size();
+		
+		for (final EncapsulationChampGetterSetter encaps : listeChamps) {
+			
+			compteur++;
+			
+			// TRAITEMENT DES VIRGULES ET TABULATIONS EN DEBUT DE LIGNE.****
+			
+			/* SI NOUVELLE LIGNE APRES LA PREMIERE LIGNE. */
+			if (compteur > nombreChampsParLigne) {
+				
+				/* SI PREMIER CHAMP APRES LA PREMIERE LIGNE. */
+				if ((compteur % nombreChampsParLigne) == 1) {
+					
+					/* tabulations à chaque début de ligne. */
+					stb.append(TAB + TAB + TAB);
+					
+					/* virgule à chaque début de ligne 
+					 * sauf sur la première ligne. */					
+					stb.append(VIRGULE_ESPACE);
+					
+					
+				}
+			
+			/* PREMIERE LIGNE. */
+			} else {
+				
+				/* SI PREMIER CHAMP DANS LA PREMIERE LIGNE. */
+				if ((compteur % nombreChampsParLigne) == 1) {
+					
+					/* tabulations au début de la première ligne. */
+					stb.append(TAB + TAB + TAB);
+				}
+				
+			} // FIN DU TRAITEMENT DES VIRGULES ET TABULATIONS 
+			// EN DEBUT DE LIGNE. ***************************************
+			
+			
+			if ((compteur % nombreChampsParLigne) != 0) {
+				
+				stb.append("this.");
+				stb.append(encaps.getNomGetter());
+				stb.append("()");
+				
+				/* virgule après chaque champ dans une ligne 
+				 * sauf pour le dernier champ de la ligne 
+				 * ou le dernier champ de la classe.*/
+				if (compteur < nombreChamps) {
+					stb.append(VIRGULE_ESPACE);
+				}
+				
+				if (compteur == nombreChamps) {
+					stb.append(");");
+				}
+				
+			} else {
+				
+				stb.append("this.");
+				stb.append(encaps.getNomGetter());
+				stb.append("()");
+				
+				if (compteur == nombreChamps) {
+					stb.append(");");
+				}
+				
+				stb.append(NEWLINE);
+				
+			}
+						
+		}
+
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		return stb.toString();
+		
+	} // Fin de genererMethodeHashCode(...)._______________________________
+
+	
+	
+	/**
+	 * <b>fournit une String comportant le code à insérer 
+	 * dans une méthode equals(...) d'une classe pClass</b>.<br/>
+	 * <br/>
+	 * - utilise <code><b>Objects.equals(...)</b></code> de JAVA 8.<br/>
+	 * <br/>
+	 * Par exemple :<br/>
+	 * <pre>
+
+	 * </pre><br/>
+	 *
+	 * @param pClass : java.lang.Class<?>
+	 * 
+	 * @return : String : code de la méthode equals() de pClass.<br/>
+	 * 
+	 * @throws IOException 
+	 */
+	public static String genererMethodeEquals(final Class<?> pClass) 
+			throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationChampGetterSetter> map 
+			= fournirMapChampGetterSetter(pClass);
+		
+		final Collection<EncapsulationChampGetterSetter> listeChamps 
+			=  map.values();
+		
+		// PARMETRAGE.
+		final int nombreChampsParLigne = 2;
+		final String nomObjetEquals = "other";
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB);
+		stb.append("return Objects");
+		stb.append(NEWLINE);
+		
+		int compteur = 0;
+		final int nombreChamps = listeChamps.size();
+		
+		for (final EncapsulationChampGetterSetter encaps : listeChamps) {
+			
+			compteur++;
+			
+			// TRAITEMENT DES EQUALS ET TABULATIONS EN DEBUT DE LIGNE.****
+			
+			/* PREMIERE LIGNE. */
+			if (compteur == 1) {
+				
+				/* tabulations au début de la première ligne. */
+				stb.append(TAB + TAB + TAB);
+				
+				/* ajout de .equals( */
+				stb.append(".equals(");
+			
+			/* LIGNES APRES LA PREMIER LIGNE. */
+			} else {
+				
+				/* tabulations au début de la ligne après le première ligne. */
+				stb.append(TAB + TAB + TAB);
+				
+				/* SI PREMIER CHAMP APRES LA PREMIERE LIGNE. */
+				if ((compteur % nombreChampsParLigne) == 1) {
+					
+					/* ajout de "&& Objects.equals( */
+					stb.append("&& Objects.equals(");
+				}
+				
+			} // FIN DU TRAITEMENT DES EQUALS ET TABULATIONS 
+			// EN DEBUT DE LIGNE. ***************************************
+					
+			if ((compteur % nombreChampsParLigne) != 0) {
+				
+				stb.append("this.");
+				stb.append(encaps.getNomGetter());
+				stb.append("()");
+				
+				stb.append(VIRGULE_ESPACE);
+				
+				stb.append(nomObjetEquals);
+				stb.append(POINT);
+				stb.append(encaps.getNomGetter());
+				stb.append("()");
+				stb.append(')');
+								
+				if (compteur == nombreChamps) {
+					stb.append(");");
+				}
+				
+			} else {
+				
+				stb.append("this.");
+				stb.append(encaps.getNomGetter());
+				stb.append("()");
+				
+				if (compteur == nombreChamps) {
+					stb.append(");");
+				}
+				
+				stb.append(NEWLINE);
+				
+			}
+						
+		}
+
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		return stb.toString();
+		
+	} // Fin de genererMethodeHashCode(...)._______________________________
 
 	
 	
@@ -1437,7 +1679,9 @@ public final class Generateur {
 	public static void main(
 			final String... pArgs) throws Exception {
 		
-		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO");
+//		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO");
+		
+		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionDarwinDTO");
 		
 //		List<Method> listeGetters = findGetters(classe);
 //		System.out.println(afficherListeMethod(listeGetters));
@@ -1474,12 +1718,16 @@ public final class Generateur {
 //		
 //		System.out.println(afficherListeString(listeChampsPrivateOrdonnee));
 
-
+		
+//		System.out.println(genererMethodeHashCode(classe));
+		
+		System.out.println(genererMethodeEquals(classe));
+		
 //		System.out.println(genererMethodeClone(classe));
 		
 //		System.out.println(genererMethodeToString(classe));
 
-		System.out.println(genererMethodeToStringASCII(classe));
+//		System.out.println(genererMethodeToStringASCII(classe));
 		
 //		System.out.println(genererMethodeFournirEnTeteCsv(classe));
 		

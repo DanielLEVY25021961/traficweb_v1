@@ -29,7 +29,7 @@
 28;159;1;Zone libre;1 espace;sans objet;sans objet;false;false;159;159;1
 29;160-162;3;Pourcentage de trafic poids lourds (annuel);de l'année de traitement (n-0). Ex : 99.9 ------> sans point (999);pcPLN;Integer;false;false;160;162;3
 30;163;1;Zone libre;1 espace;sans objet;sans objet;false;false;163;163;1
-31;164-166;3;Pourcentage de trafic de nuit tous véhicules (annuel);de l'année de traitement (n-0). Ex : 99.9 ------> sans point (999);pcNuitNannuel;Integer;false;false;164;166;3
+31;164-166;3;Pourcentage de trafic de nuit tous véhicules (annuel);de l'année de traitement (n-0). Ex : 99.9 ------> sans point (999);pcNuitAnnuelN;Integer;false;false;164;166;3
 32;167;1;Zone libre;1 espace;sans objet;sans objet;false;false;167;167;1
 33;168-173;6;Moyenne journalière mensuelle 01;du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour;mjmNmois01;Integer;false;false;168;173;6
 34;174-176;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 01;du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois01;Integer;false;false;174;176;3
@@ -61,35 +61,35 @@
 60;296-297;2;Zone libre;2 espaces;sans objet;sans objet;false;false;296;297;2
 61;298-300;3;Pourcentage de trafic poids lourds (annuel) N-1;de l'année de traitement – 1  (n-1). Ex : 99.9 ------> sans point (999);pcPLNmoins1;Integer;false;false;298;300;3
 62;301;1;Zone libre;1 espace;sans objet;sans objet;false;false;301;301;1
-63;302-304;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-1;de l'année de traitement - 1  (n-1). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins1;Integer;false;false;302;304;3
+63;302-304;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-1;de l'année de traitement - 1  (n-1). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins1;Integer;false;false;302;304;3
 64;305;1;Zone libre;1 espace;sans objet;sans objet;false;false;305;305;1
 65;306-307;2;Année N-2;Année de traitement – 2  (n-2) sur deux caractères (ex 05 pour 2005);anneeNMoins2;Date;false;false;306;307;2
 66;308-313;6;MJA N-2;Moyenne journalière annuelle de l'année de traitement -2 (n-2) en véhicules/jour;mjaNmoins2;Integer;false;false;308;313;6
 67;314-315;2;Zone libre;2 espaces;sans objet;sans objet;false;false;314;315;2
 68;316-318;3;Pourcentage de trafic poids lourds (annuel) N-2;de l'année de traitement – 2  (n-2). Ex : 99.9 ------> sans point (999);pcPLNmoins2;Integer;false;false;316;318;3
 69;319;1;Zone libre;1 espace;sans objet;sans objet;false;false;319;319;1
-70;320-322;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-2;de l'année de traitement - 2  (n-2). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins2;Integer;false;false;320;322;3
+70;320-322;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-2;de l'année de traitement - 2  (n-2). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins2;Integer;false;false;320;322;3
 71;323;1;Zone libre;1 espace;sans objet;sans objet;false;false;323;323;1
 72;324-325;2;Année N-3;Année de traitement – 3  (n-3) sur deux caractères (ex 04 pour 2004);anneeNMoins3;Date;false;false;324;325;2
 73;326-331;6;MJA N-3;Moyenne journalière annuelle de l'année de traitement -3 (n-3) en véhicules/jour;mjaNmoins3;Integer;false;false;326;331;6
 74;332-333;2;Zone libre;2 espaces;sans objet;sans objet;false;false;332;333;2
 75;334-336;3;Pourcentage de trafic poids lourds (annuel) N-3;de l'année de traitement – 3  (n-3). Ex : 99.9 ------> sans point (999);pcPLNmoins3;Integer;false;false;334;336;3
 76;337;1;Zone libre;1 espace;sans objet;sans objet;false;false;337;337;1
-77;338-340;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-3;de l'année de traitement - 3  (n-3). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins3;Integer;false;false;338;340;3
+77;338-340;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-3;de l'année de traitement - 3  (n-3). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins3;Integer;false;false;338;340;3
 78;341;1;Zone libre;1 espace;sans objet;sans objet;false;false;341;341;1
 79;342-343;2;Année N-4;Année de traitement – 4  (n-4) sur deux caractères (ex 03 pour 2003);anneeNMoins4;Date;false;false;342;343;2
 80;344-349;6;MJA N-4;Moyenne journalière annuelle de l'année de traitement - 4  (n-4) en véhicules/jour;mjaNmoins4;Integer;false;false;344;349;6
 81;350-351;2;Zone libre;2 espaces;sans objet;sans objet;false;false;350;351;2
 82;352-354;3;Pourcentage de trafic poids lourds (annuel) N-4;de l'année de traitement – 4  (n-4). Ex : 99.9 ------> sans point (999);pcPLNmoins4;Integer;false;false;352;354;3
 83;355;1;Zone libre;1 espace;sans objet;sans objet;false;false;355;355;1
-84;356-358;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-4;de l'année de traitement - 4  (n-4). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins4;Integer;false;false;356;358;3
+84;356-358;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-4;de l'année de traitement - 4  (n-4). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins4;Integer;false;false;356;358;3
 85;359;1;Zone libre;1 espace;sans objet;sans objet;false;false;359;359;1
 86;360-361;2;Année N-5;Année de traitement – 5  (n-5) sur deux caractères (ex 02 pour 2002);anneeNMoins5;Date;false;false;360;361;2
 87;362-367;6;MJA N-5;Moyenne journalière annuelle de l'année de traitement -5  (n-5) en véhicules/jour;mjaNmoins5;Integer;false;false;362;367;6
 88;368-369;2;Zone libre;2 espaces;sans objet;sans objet;false;false;368;369;2
 89;370-372;3;Pourcentage de trafic poids lourds (annuel) N-5;de l'année de traitement – 5  (n-5). Ex : 99.9 ------> sans point (999);pcPLNmoins5;Integer;false;false;370;372;3
 90;373;1;Zone libre;1 espace;sans objet;sans objet;false;false;373;373;1
-91;374-376;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-5;de l'année de traitement - 5  (n-5). Ex : 99.9 ------> sans point (999);pcNuitNannuelNmoins5;Integer;false;false;374;376;3
+91;374-376;3;Pourcentage de trafic de nuit tous véhicules (annuel) N-5;de l'année de traitement - 5  (n-5). Ex : 99.9 ------> sans point (999);pcNuitAnnuelNmoins5;Integer;false;false;374;376;3
 92;377-396;20;Gestionnaire;Code SICRE (DIRA, DDE12, SANEF) cadré à gauche;gestionnaireSicre;String;false;false;377;396;20
 93;397;1;Code Concession;- C : Concédé [sep] - N : Non Concédé;codeConcessionSicre;String;false;true;397;397;1
 94;398-400;3;Département Début;Code Sicre [sep] 01 – Ain [sep] 10 – Aube [sep] 973 – Guyane cadré à gauche;numDepartementDebutSicre;Integer;false;false;398;400;3
