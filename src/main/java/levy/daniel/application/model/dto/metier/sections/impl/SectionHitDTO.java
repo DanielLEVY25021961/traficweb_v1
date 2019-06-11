@@ -1,6 +1,7 @@
 package levy.daniel.application.model.dto.metier.sections.impl;
 
 import java.util.Objects;
+import java.util.SortedMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -832,10 +833,177 @@ public class SectionHitDTO implements ISectionHitDTO {
 	public SectionHitDTO() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
+
 	
-	
-	
-	
+		
+	 /**
+	 * CONSTRUCTEUR CONVERTISSEUR.<br/>
+	 * Instancie un DTO à partir d'une SortedMap&lt;Integer, String&gt; 
+	 * description de ligne d'un fichier HIT.<br/>
+	 * <br/>
+	 * - LOG.fatal et jette une RunTImeException 
+	 * si pDescriptionChamp == null.<br/>
+	 * </br/>
+	 * 
+	 * 
+	 * @param pDescriptionLigne : SortedMap&lt;Integer, String&gt;
+	 */
+	public SectionHitDTO(final SortedMap<Integer, String> pDescriptionLigne) {
+		
+		super();
+		
+		/* LOG.fatal et jette une RunTImeException si pDescriptionChamp == null. */
+		if (pDescriptionLigne == null) {
+			
+			final String message 
+				= "Impossible d'instancier un SectionHitDTO à partir "
+						+ "d'une SortedMap<Integer, String> "
+						+ "pDescriptionChamp null";
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			throw new RuntimeException(message);
+		}
+
+		this.setId(null);
+		this.setNumDepartement(pDescriptionLigne.get(1));
+		this.setNumSection(pDescriptionLigne.get(2));
+		this.setSens(pDescriptionLigne.get(3));
+		this.setNature(pDescriptionLigne.get(4));
+		this.setClasse(pDescriptionLigne.get(5));
+		this.setAnneeTraitement(pDescriptionLigne.get(6));
+		this.setZoneLibre1(pDescriptionLigne.get(7));
+		this.setNumRoute(pDescriptionLigne.get(8));
+		this.setIndiceNumRoute(pDescriptionLigne.get(9));
+		this.setIndiceLettreRoute(pDescriptionLigne.get(10));
+		this.setCategorieAdminRoute(pDescriptionLigne.get(11));
+		this.setTypeComptage(pDescriptionLigne.get(12));
+		this.setClassementRoute(pDescriptionLigne.get(13));
+		this.setClasseLargeurChausseeU(pDescriptionLigne.get(14));
+		this.setClasseLargeurChausseesS(pDescriptionLigne.get(15));
+		this.setTypeReseau(pDescriptionLigne.get(16));
+		this.setPRoupK(pDescriptionLigne.get(17));
+		this.setLieuDitOrigine(pDescriptionLigne.get(18));
+		this.setPrOrigine(pDescriptionLigne.get(19));
+		this.setAbsOrigine(pDescriptionLigne.get(20));
+		this.setLieuDitExtremite(pDescriptionLigne.get(21));
+		this.setPrExtremite(pDescriptionLigne.get(22));
+		this.setAbsExtremite(pDescriptionLigne.get(23));
+		this.setLieuDitComptage(pDescriptionLigne.get(24));
+		this.setPrComptage(pDescriptionLigne.get(25));
+		this.setAbsComptage(pDescriptionLigne.get(26));
+		this.setLongueurSection(pDescriptionLigne.get(27));
+		this.setLongueurRaseCampagne(pDescriptionLigne.get(28));
+		this.setNumDepartementRattachement(pDescriptionLigne.get(29));
+		this.setNumSectionRattachement(pDescriptionLigne.get(30));
+		this.setSensRattachement(pDescriptionLigne.get(31));
+		this.setNumDepartementLimitrophe(pDescriptionLigne.get(32));
+		this.setNumSectionLimitrophe(pDescriptionLigne.get(33));
+		this.setSensLimitrophe(pDescriptionLigne.get(34));
+		this.setMoisSectionnement(pDescriptionLigne.get(35));
+		this.setAnneeSectionnement(pDescriptionLigne.get(36));
+		this.setZoneLibre2(pDescriptionLigne.get(37));
+		this.setMjaN(pDescriptionLigne.get(38));
+		this.setModeCalculN(pDescriptionLigne.get(39));
+		this.setPcPLN(pDescriptionLigne.get(40));
+		this.setEvaluationPLN(pDescriptionLigne.get(41));
+		this.setPcNuitAnnuelN(pDescriptionLigne.get(42));
+		this.setIndiceFiabiliteMjaN(pDescriptionLigne.get(43));
+		this.setMjmNmois01(pDescriptionLigne.get(44));
+		this.setPcNuitNmois01(pDescriptionLigne.get(45));
+		this.setMjmNmois02(pDescriptionLigne.get(46));
+		this.setPcNuitNmois02(pDescriptionLigne.get(47));
+		this.setMjmNmois03(pDescriptionLigne.get(48));
+		this.setPcNuitNmois03(pDescriptionLigne.get(49));
+		this.setMjmNmois04(pDescriptionLigne.get(50));
+		this.setPcNuitNmois04(pDescriptionLigne.get(51));
+		this.setMjmNmois05(pDescriptionLigne.get(52));
+		this.setPcNuitNmois05(pDescriptionLigne.get(53));
+		this.setMjmNmois06(pDescriptionLigne.get(54));
+		this.setPcNuitNmois06(pDescriptionLigne.get(55));
+		this.setMjmNmois07(pDescriptionLigne.get(56));
+		this.setPcNuitNmois07(pDescriptionLigne.get(57));
+		this.setMjmNmois08(pDescriptionLigne.get(58));
+		this.setPcNuitNmois08(pDescriptionLigne.get(59));
+		this.setMjmNmois09(pDescriptionLigne.get(60));
+		this.setPcNuitNmois09(pDescriptionLigne.get(61));
+		this.setMjmNmois10(pDescriptionLigne.get(62));
+		this.setPcNuitNmois10(pDescriptionLigne.get(63));
+		this.setMjmNmois11(pDescriptionLigne.get(64));
+		this.setPcNuitNmois11(pDescriptionLigne.get(65));
+		this.setMjmNmois12(pDescriptionLigne.get(66));
+		this.setPcNuitNmois12(pDescriptionLigne.get(67));
+		this.setZoneLibre3(pDescriptionLigne.get(68));
+		this.setAnneeNmoins1(pDescriptionLigne.get(69));
+		this.setMjaNmoins1(pDescriptionLigne.get(70));
+		this.setTypeComptageNmoins1(pDescriptionLigne.get(71));
+		this.setModeCalculNmoins1(pDescriptionLigne.get(72));
+		this.setPcPLNmoins1(pDescriptionLigne.get(73));
+		this.setEvaluationPLNmoins1(pDescriptionLigne.get(74));
+		this.setPcNuitAnnuelNmoins1(pDescriptionLigne.get(75));
+		this.setIndiceFiabiliteMjaNmoins1(pDescriptionLigne.get(76));
+		this.setAnneeNmoins2(pDescriptionLigne.get(77));
+		this.setMjaNmoins2(pDescriptionLigne.get(78));
+		this.setTypeComptageNmoins2(pDescriptionLigne.get(79));
+		this.setModeCalculNmoins2(pDescriptionLigne.get(80));
+		this.setPcPLNmoins2(pDescriptionLigne.get(81));
+		this.setEvaluationPLNmoins2(pDescriptionLigne.get(82));
+		this.setPcNuitAnnuelNmoins2(pDescriptionLigne.get(83));
+		this.setIndiceFiabiliteMjaNmoins2(pDescriptionLigne.get(84));
+		this.setAnneeNmoins3(pDescriptionLigne.get(85));
+		this.setMjaNmoins3(pDescriptionLigne.get(86));
+		this.setTypeComptageNmoins3(pDescriptionLigne.get(87));
+		this.setModeCalculNmoins3(pDescriptionLigne.get(88));
+		this.setPcPLNmoins3(pDescriptionLigne.get(89));
+		this.setEvaluationPLNmoins3(pDescriptionLigne.get(90));
+		this.setPcNuitAnnuelNmoins3(pDescriptionLigne.get(91));
+		this.setIndiceFiabiliteMjaNmoins3(pDescriptionLigne.get(92));
+		this.setAnneeNmoins4(pDescriptionLigne.get(93));
+		this.setMjaNmoins4(pDescriptionLigne.get(94));
+		this.setTypeComptageNmoins4(pDescriptionLigne.get(95));
+		this.setModeCalculNmoins4(pDescriptionLigne.get(96));
+		this.setPcPLNmoins4(pDescriptionLigne.get(97));
+		this.setEvaluationPLNmoins4(pDescriptionLigne.get(98));
+		this.setPcNuitAnnuelNmoins4(pDescriptionLigne.get(99));
+		this.setIndiceFiabiliteMjaNmoins4(pDescriptionLigne.get(100));
+		this.setAnneeNmoins5(pDescriptionLigne.get(101));
+		this.setMjaNmoins5(pDescriptionLigne.get(102));
+		this.setTypeComptageNmoins5(pDescriptionLigne.get(103));
+		this.setModeCalculNmoins5(pDescriptionLigne.get(104));
+		this.setPcPLNmoins5(pDescriptionLigne.get(105));
+		this.setEvaluationPLNmoins5(pDescriptionLigne.get(106));
+		this.setPcNuitAnnuelNmoins5(pDescriptionLigne.get(107));
+		this.setIndiceFiabiliteMjaNmoins5(pDescriptionLigne.get(108));
+		this.setMjmNmoins1mois01(pDescriptionLigne.get(109));
+		this.setPcNuitNmoins1mois01(pDescriptionLigne.get(110));
+		this.setMjmNmoins1mois02(pDescriptionLigne.get(111));
+		this.setPcNuitNmoins1mois02(pDescriptionLigne.get(112));
+		this.setMjmNmoins1mois03(pDescriptionLigne.get(113));
+		this.setPcNuitNmoins1mois03(pDescriptionLigne.get(114));
+		this.setMjmNmoins1mois04(pDescriptionLigne.get(115));
+		this.setPcNuitNmoins1mois04(pDescriptionLigne.get(116));
+		this.setMjmNmoins1mois05(pDescriptionLigne.get(117));
+		this.setPcNuitNmoins1mois05(pDescriptionLigne.get(118));
+		this.setMjmNmoins1mois06(pDescriptionLigne.get(119));
+		this.setPcNuitNmoins1mois06(pDescriptionLigne.get(120));
+		this.setMjmNmoins1mois07(pDescriptionLigne.get(121));
+		this.setPcNuitNmoins1mois07(pDescriptionLigne.get(122));
+		this.setMjmNmoins1mois08(pDescriptionLigne.get(123));
+		this.setPcNuitNmoins1mois08(pDescriptionLigne.get(124));
+		this.setMjmNmoins1mois09(pDescriptionLigne.get(125));
+		this.setPcNuitNmoins1mois09(pDescriptionLigne.get(126));
+		this.setMjmNmoins1mois10(pDescriptionLigne.get(127));
+		this.setPcNuitNmoins1mois10(pDescriptionLigne.get(128));
+		this.setMjmNmoins1mois11(pDescriptionLigne.get(129));
+		this.setPcNuitNmoins1mois11(pDescriptionLigne.get(130));
+		this.setMjmNmoins1mois12(pDescriptionLigne.get(131));
+		this.setPcNuitNmoins1mois12(pDescriptionLigne.get(132));
+		this.setZoneLibre4(pDescriptionLigne.get(133));
+
+	}
+		
 	/**
 	 * {@inheritDoc}
 	 */
@@ -2254,7 +2422,154 @@ public class SectionHitDTO implements ISectionHitDTO {
 		return stb.toString();
 
 	} // Fin de toString().________________________________________________
+
 	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String toStringASCII() {
+
+		final StringBuilder stb = new StringBuilder();
+
+		stb.append(this.getNumDepartement());
+		stb.append(this.getNumSection());
+		stb.append(this.getSens());
+		stb.append(this.getNature());
+		stb.append(this.getClasse());
+		stb.append(this.getAnneeTraitement());
+		stb.append(this.getZoneLibre1());
+		stb.append(this.getNumRoute());
+		stb.append(this.getIndiceNumRoute());
+		stb.append(this.getIndiceLettreRoute());
+		stb.append(this.getCategorieAdminRoute());
+		stb.append(this.getTypeComptage());
+		stb.append(this.getClassementRoute());
+		stb.append(this.getClasseLargeurChausseeU());
+		stb.append(this.getClasseLargeurChausseesS());
+		stb.append(this.getTypeReseau());
+		stb.append(this.getPRoupK());
+		stb.append(this.getLieuDitOrigine());
+		stb.append(this.getPrOrigine());
+		stb.append(this.getAbsOrigine());
+		stb.append(this.getLieuDitExtremite());
+		stb.append(this.getPrExtremite());
+		stb.append(this.getAbsExtremite());
+		stb.append(this.getLieuDitComptage());
+		stb.append(this.getPrComptage());
+		stb.append(this.getAbsComptage());
+		stb.append(this.getLongueurSection());
+		stb.append(this.getLongueurRaseCampagne());
+		stb.append(this.getNumDepartementRattachement());
+		stb.append(this.getNumSectionRattachement());
+		stb.append(this.getSensRattachement());
+		stb.append(this.getNumDepartementLimitrophe());
+		stb.append(this.getNumSectionLimitrophe());
+		stb.append(this.getSensLimitrophe());
+		stb.append(this.getMoisSectionnement());
+		stb.append(this.getAnneeSectionnement());
+		stb.append(this.getZoneLibre2());
+		stb.append(this.getMjaN());
+		stb.append(this.getModeCalculN());
+		stb.append(this.getPcPLN());
+		stb.append(this.getEvaluationPLN());
+		stb.append(this.getPcNuitAnnuelN());
+		stb.append(this.getIndiceFiabiliteMjaN());
+		stb.append(this.getMjmNmois01());
+		stb.append(this.getPcNuitNmois01());
+		stb.append(this.getMjmNmois02());
+		stb.append(this.getPcNuitNmois02());
+		stb.append(this.getMjmNmois03());
+		stb.append(this.getPcNuitNmois03());
+		stb.append(this.getMjmNmois04());
+		stb.append(this.getPcNuitNmois04());
+		stb.append(this.getMjmNmois05());
+		stb.append(this.getPcNuitNmois05());
+		stb.append(this.getMjmNmois06());
+		stb.append(this.getPcNuitNmois06());
+		stb.append(this.getMjmNmois07());
+		stb.append(this.getPcNuitNmois07());
+		stb.append(this.getMjmNmois08());
+		stb.append(this.getPcNuitNmois08());
+		stb.append(this.getMjmNmois09());
+		stb.append(this.getPcNuitNmois09());
+		stb.append(this.getMjmNmois10());
+		stb.append(this.getPcNuitNmois10());
+		stb.append(this.getMjmNmois11());
+		stb.append(this.getPcNuitNmois11());
+		stb.append(this.getMjmNmois12());
+		stb.append(this.getPcNuitNmois12());
+		stb.append(this.getZoneLibre3());
+		stb.append(this.getAnneeNmoins1());
+		stb.append(this.getMjaNmoins1());
+		stb.append(this.getTypeComptageNmoins1());
+		stb.append(this.getModeCalculNmoins1());
+		stb.append(this.getPcPLNmoins1());
+		stb.append(this.getEvaluationPLNmoins1());
+		stb.append(this.getPcNuitAnnuelNmoins1());
+		stb.append(this.getIndiceFiabiliteMjaNmoins1());
+		stb.append(this.getAnneeNmoins2());
+		stb.append(this.getMjaNmoins2());
+		stb.append(this.getTypeComptageNmoins2());
+		stb.append(this.getModeCalculNmoins2());
+		stb.append(this.getPcPLNmoins2());
+		stb.append(this.getEvaluationPLNmoins2());
+		stb.append(this.getPcNuitAnnuelNmoins2());
+		stb.append(this.getIndiceFiabiliteMjaNmoins2());
+		stb.append(this.getAnneeNmoins3());
+		stb.append(this.getMjaNmoins3());
+		stb.append(this.getTypeComptageNmoins3());
+		stb.append(this.getModeCalculNmoins3());
+		stb.append(this.getPcPLNmoins3());
+		stb.append(this.getEvaluationPLNmoins3());
+		stb.append(this.getPcNuitAnnuelNmoins3());
+		stb.append(this.getIndiceFiabiliteMjaNmoins3());
+		stb.append(this.getAnneeNmoins4());
+		stb.append(this.getMjaNmoins4());
+		stb.append(this.getTypeComptageNmoins4());
+		stb.append(this.getModeCalculNmoins4());
+		stb.append(this.getPcPLNmoins4());
+		stb.append(this.getEvaluationPLNmoins4());
+		stb.append(this.getPcNuitAnnuelNmoins4());
+		stb.append(this.getIndiceFiabiliteMjaNmoins4());
+		stb.append(this.getAnneeNmoins5());
+		stb.append(this.getMjaNmoins5());
+		stb.append(this.getTypeComptageNmoins5());
+		stb.append(this.getModeCalculNmoins5());
+		stb.append(this.getPcPLNmoins5());
+		stb.append(this.getEvaluationPLNmoins5());
+		stb.append(this.getPcNuitAnnuelNmoins5());
+		stb.append(this.getIndiceFiabiliteMjaNmoins5());
+		stb.append(this.getMjmNmoins1mois01());
+		stb.append(this.getPcNuitNmoins1mois01());
+		stb.append(this.getMjmNmoins1mois02());
+		stb.append(this.getPcNuitNmoins1mois02());
+		stb.append(this.getMjmNmoins1mois03());
+		stb.append(this.getPcNuitNmoins1mois03());
+		stb.append(this.getMjmNmoins1mois04());
+		stb.append(this.getPcNuitNmoins1mois04());
+		stb.append(this.getMjmNmoins1mois05());
+		stb.append(this.getPcNuitNmoins1mois05());
+		stb.append(this.getMjmNmoins1mois06());
+		stb.append(this.getPcNuitNmoins1mois06());
+		stb.append(this.getMjmNmoins1mois07());
+		stb.append(this.getPcNuitNmoins1mois07());
+		stb.append(this.getMjmNmoins1mois08());
+		stb.append(this.getPcNuitNmoins1mois08());
+		stb.append(this.getMjmNmoins1mois09());
+		stb.append(this.getPcNuitNmoins1mois09());
+		stb.append(this.getMjmNmoins1mois10());
+		stb.append(this.getPcNuitNmoins1mois10());
+		stb.append(this.getMjmNmoins1mois11());
+		stb.append(this.getPcNuitNmoins1mois11());
+		stb.append(this.getMjmNmoins1mois12());
+		stb.append(this.getPcNuitNmoins1mois12());
+		stb.append(this.getZoneLibre4());
+
+		return stb.toString();
+		
+	} // Fin de toStringASCII().___________________________________________
 
 
 	/**

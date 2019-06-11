@@ -8,6 +8,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.SortedMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -147,6 +148,51 @@ public class SectionHitDTOTest {
 	public SectionHitDTOTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
+	
+
+	
+	/**
+	 * teste la méthode toStringASCII().<br/>
+	 * <ul>
+	 * <li>garantit que toStringASCII() ne retourne pas null.</li>
+	 * </ul>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testToStringASCII() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitDTOTest - méthode testToStringASCII() ********** ");
+		}
+		
+		// METHODE A TESTER.
+		String toStringASCII = null;
+		
+		if (dto != null) {
+			
+			toStringASCII = dto.toStringASCII();
+						
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println(toStringASCII);
+			}
+			
+			/* garantit que toStringASCII() ne retourne pas null. */
+			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, toStringASCII);
+			
+			assertEquals("doit retourner 520 : "
+					, 520
+						, toStringASCII.length());
+
+		}
+		
+	} // Fin de testToStringASCII().____________________________________
 	
 
 	
@@ -427,12 +473,21 @@ public class SectionHitDTOTest {
 		final File fichierDonnees = fichierDonneesPath.toFile();
 		final Charset charsetAnsi = Charset.forName("Windows-1252");
 		
-		// METHODE A TESTER.
+		// OBJET A TESTER.
 		final ImporteurHit importeurHIT = new ImporteurHit();
+		
 		final Map<Integer, ISectionHitDTO> fichierMapDTO 
 			= importeurHIT.importerDTO(fichierDonnees, charsetAnsi);
 		
+		final SortedMap<Integer, SortedMap<Integer, String>> fichierImporteMap 
+			= importeurHIT.getFichierImporteMap();
+		
+		final SortedMap<Integer, String> ligneMap = fichierImporteMap.get(1);
+		final ISectionHitDTO dtoMap = new SectionHitDTO(ligneMap);
+		
 		dto = fichierMapDTO.get(1);
+		
+		assertEquals("doivent être égaux : ", dto, dtoMap);
 		
 	} // Fin de beforeClass()._____________________________________________
 

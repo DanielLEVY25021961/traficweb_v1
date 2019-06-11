@@ -73,6 +73,24 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	@Override
 	String toString();
 
+	
+	
+	/**
+	 * retourne le DTO sous forme ASCII, 
+	 * c'est à dire avec tous les champs concaténés sans séparateur.<br/>
+	 * <br/>
+	 * par exemple :<br/>
+	 * "860000900310017 00100 411 251CHAUNAY EX RN 10    1000110DEPARTEMENT 79
+	 *       1070118CHAUNAY             1060"<br/>
+	 * <br/>
+	 * - ne met pas l'ID en base.<br/>
+	 * - ne met pas de saut de ligne à la fin.<br/>
+	 * <br/>
+	 *
+	 * @return : String :  .<br/>
+	 */
+	String toStringASCII();
+
 
 
 	/**

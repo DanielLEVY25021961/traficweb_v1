@@ -300,6 +300,66 @@ public final class Generateur {
 		return stb.toString();
 		
 	} // Fin de genererMethodeToString(...)._______________________________
+
+	
+	
+	/**
+	 * <b>fournit une String comportant le code à insérer 
+	 * dans une méthode toStringASCII() d'une classe pClass</b>.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class<?>
+	 * 
+	 * @return : String : code de la méthode toStringASCII() de pClass.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererMethodeToStringASCII(final Class<?> pClass) 
+			throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationChampGetterSetter> map 
+			= fournirMapChampGetterSetter(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB);
+		stb.append("final StringBuilder stb = new StringBuilder();");
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+				
+		final int nombreChamps = map.size();
+		int compteur = 0;
+		
+		for (final EncapsulationChampGetterSetter champ : map.values()) {
+			
+			compteur++;
+						
+			stb.append(TAB + TAB);
+			stb.append("stb.append(this.");
+			stb.append(champ.getNomGetter());
+			stb.append("());");
+			stb.append(NEWLINE);
+			
+		}
+		
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB);
+		stb.append("return stb.toString();");
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+
+		return stb.toString();
+		
+	} // Fin de genererMethodeToStringASCII(...).__________________________
 	
 	
 	
@@ -1397,13 +1457,13 @@ public final class Generateur {
 //		System.out.println(afficherMapStringEncapsulation(map));
 //		System.out.println("nombre de champs : " + map.size());
 
-		final Map<String, EncapsulationTypeChamp> mapEncapsulationTypeChamp 
-			= fournirMapEncapsulationTypeChamp(classe);		
-		System.out.println(
-				afficherMapStringEncapsulationTypeChamp(
-						mapEncapsulationTypeChamp));
-		System.out.println("nombre de champs : " 
-						+ mapEncapsulationTypeChamp.size());
+//		final Map<String, EncapsulationTypeChamp> mapEncapsulationTypeChamp 
+//			= fournirMapEncapsulationTypeChamp(classe);		
+//		System.out.println(
+//				afficherMapStringEncapsulationTypeChamp(
+//						mapEncapsulationTypeChamp));
+//		System.out.println("nombre de champs : " 
+//						+ mapEncapsulationTypeChamp.size());
 
 //		final File fichierSource = trouverFichierSource(classe);
 //		System.out.println(fichierSource.getAbsolutePath());
@@ -1418,6 +1478,8 @@ public final class Generateur {
 //		System.out.println(genererMethodeClone(classe));
 		
 //		System.out.println(genererMethodeToString(classe));
+
+		System.out.println(genererMethodeToStringASCII(classe));
 		
 //		System.out.println(genererMethodeFournirEnTeteCsv(classe));
 		
