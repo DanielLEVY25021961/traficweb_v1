@@ -340,6 +340,7 @@ import org.apache.commons.logging.LogFactory;
  * trier entry sur String, trier Map sur clé,<br/>
  * trier Map sur key, trier Map sur Key, trier map sur key,<br/>
  * String.format(...), String.format,<br/>
+ * extraire nom, extraire nom simple d'un Path, extraire path Simple,<br/>
  * <br/>
  *
  * - Dépendances :<br/>

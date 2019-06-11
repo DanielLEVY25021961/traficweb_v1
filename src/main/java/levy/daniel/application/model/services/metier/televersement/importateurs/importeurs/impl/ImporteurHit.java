@@ -266,7 +266,7 @@ public class ImporteurHit extends AbstractImporteurAscii {
 			return null;
 		}
 		
-		ISectionHitDTO sectionDTO = new SectionHitDTO();
+		final ISectionHitDTO sectionDTO = new SectionHitDTO();
 
 		sectionDTO.setId(null);
 		sectionDTO.setNumDepartement(pDescriptionChamp.get(1));

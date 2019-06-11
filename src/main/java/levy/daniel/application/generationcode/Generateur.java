@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,6 +41,9 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespat
  * REGEX, Regex, Expression reguliere, Expression Régulière,
  * détecter champ private, <br/>
  * conserver l'ordre d'entrée d'une Map, LinkedHashMap, <br/>
+ * extraire nom, extraire nom simple d'un Type, extraire Type Simple,<br/>
+ * transforme points chemin Java en slashes, transformer point en slash,<br/>
+ * transformer chemin java en Path avec des slashes,<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -130,6 +134,12 @@ public final class Generateur {
 	 * <b>"^(\\s*)private (\\S+) (\\S+);$"</b>.
 	 */
 	public static final String MOTIF_CHAMP_PRIVATE = "^(\\s*)private (\\S+) (\\S+);$";
+	
+	/**
+	 * ':'.<br/>
+	 */
+	public static final char DEUX_POINTS = ':';
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -179,7 +189,7 @@ public final class Generateur {
 			
 			stb.append("clone.");
 			stb.append(encaps.getNomSetter());
-			stb.append("(");
+			stb.append('(');
 			stb.append("this.");
 			stb.append(encaps.getNomGetter());
 			stb.append("());");
@@ -446,7 +456,6 @@ public final class Generateur {
 		stb.append(NEWLINE);
 		stb.append(NEWLINE);
 		
-		final int nombreChamps = map.size();
 		int compteur = 0;
 		
 		for (final EncapsulationChampGetterSetter champ : map.values()) {
@@ -454,7 +463,7 @@ public final class Generateur {
 			stb.append(TAB + TAB);
 			stb.append("case ");
 			stb.append(compteur);
-			stb.append(":");
+			stb.append(DEUX_POINTS);
 			stb.append(NEWLINE);
 			
 			stb.append(TAB + TAB + TAB);
@@ -548,7 +557,6 @@ public final class Generateur {
 		stb.append(NEWLINE);
 		stb.append(NEWLINE);
 		
-		final int nombreChamps = map.size();
 		int compteur = 0;
 		
 		for (final EncapsulationChampGetterSetter champ : map.values()) {
@@ -556,7 +564,7 @@ public final class Generateur {
 			stb.append(TAB + TAB);
 			stb.append("case ");
 			stb.append(compteur);
-			stb.append(":");
+			stb.append(DEUX_POINTS);
 			stb.append(NEWLINE);
 			
 			stb.append(TAB + TAB + TAB);
@@ -625,7 +633,6 @@ public final class Generateur {
 		stb.append("");
 		stb.append(NEWLINE);
 		
-		final int nombreChamps = map.size();
 		int compteur = 0;
 		
 		for (final EncapsulationChampGetterSetter champ : map.values()) {
@@ -648,7 +655,10 @@ public final class Generateur {
 	
 	/**
 	 * <b>retourne la liste des champs private de la classe pClasse 
-	 * <i>ordonnée selon l'ordre de déclaration dans la classe</i></b>.<br/>
+	 * <i>ordonnée selon l'ordre de déclaration dans la classe</i></b>.
+	 * <br/>
+	 * - retourne null si le fichier source de la classe n'est pas trouvé.<br/>
+	 * <br/>
 	 *
 	 * @param pClass : java.lang.Class<?>
 	 * 
@@ -663,6 +673,7 @@ public final class Generateur {
 		
 		final File fichierSource = trouverFichierSource(pClass);
 		
+		/* retourne null si le fichier source de la classe n'est pas trouvé. */
 		if (fichierSource == null) {
 			return null;
 		}
@@ -675,8 +686,6 @@ public final class Generateur {
 		final Pattern patternChampPrivate 
 			= Pattern.compile(MOTIF_CHAMP_PRIVATE);
 				
-		final List<String> champsPrivate = new ArrayList<String>();
-		
 		for (final String ligne : lignesLues) {
 			
 			final Matcher matcherChampPrivate 
@@ -699,7 +708,7 @@ public final class Generateur {
 	/**
 	 * <b>fournit une Map&lt;String,EncapsulationChampGetterSetter&gt;
 	 * d'encapsulations associant un champ d'une classe, 
-	 * son Getter et son Setter</b> avec :.<br/>
+	 * son Getter et son Setter</b> avec :<br/>
 	 * - String : le nom du champ.<br/>
 	 * - EncapsulationChampGetterSetter : 
 	 * encapsulation contenant le champ, son getter et son setter.<br/>
@@ -762,6 +771,92 @@ public final class Generateur {
 		return resultatOrdonne;
 		
 	} // Fin de fournirMapChampGetterSetter(...).__________________________
+
+	
+	
+	/**
+	 * <b>fournit une Map&lt;String, EncapsulationTypeChamp&gt;
+	 * d'encapsulations associant un champ d'une classe, 
+	 * son Modifier, son Type, son Getter et son Setter</b> avec :<br/>
+	 * - String : le nom du champ.<br/>
+	 * - EncapsulationTypeChamp : 
+	 * encapsulation contenant le champ, son Modifier, son Type
+	 * , son getter et son setter.<br/>
+	 * <ul>
+	 * <li><b>conserve l'ordre de déclaration des champs dans la classe</b>.</li>
+	 * </ul>
+	 *
+	 * @param pClass : java.lang.Class<?>
+	 * 
+	 * @return : Map&lt;String, EncapsulationTypeChamp&gt; :  .<br/>
+	 * 
+	 * @throws IOException 
+	 */
+	public static Map<String, EncapsulationTypeChamp> 
+				fournirMapEncapsulationTypeChamp(final Class<?> pClass) 
+						throws IOException {
+		
+		final Map<String, EncapsulationTypeChamp> resultat 
+			= new ConcurrentHashMap<String, EncapsulationTypeChamp>();
+		
+		final List<Field> listeChamps = findChampsPrivate(pClass);
+		
+		for (final Field field : listeChamps) {
+			
+			final EncapsulationTypeChamp encaps 
+				= new EncapsulationTypeChamp();
+			
+			/* MODIFIERS. */
+			final int modifiers = field.getModifiers();
+			final String modifiersString = Modifier.toString(modifiers);
+			
+			encaps.setModifiers(modifiers);
+			encaps.setModifierString(modifiersString);
+			
+			/* TYPE. */
+			final Type type = field.getType();
+			final String typeString = extraireNomSimpleType(type.getTypeName());
+			
+			encaps.setType(type);
+			encaps.setTypeString(typeString);
+			
+			/* CHAMP. */
+			final String nomChamp = field.getName();
+			
+			encaps.setChamp(field);
+			encaps.setNomChamp(nomChamp);
+			
+			/* GETTER. */
+			final Method getter = trouverGetterChamp(pClass, field);
+			if (getter != null) {
+				encaps.setGetter(getter);
+				encaps.setNomGetter(getter.getName());
+			}
+			
+			/* SETTER. */
+			final Method setter = trouverSetterChamp(pClass, field);
+			if (setter != null) {
+				encaps.setSetter(setter);
+				encaps.setNomSetter(setter.getName());
+			}
+			
+			resultat.put(nomChamp, encaps);
+		}
+		
+		/* ORDRE DECLARATIF. */
+		final List<String> listeChampsPrivateOrdonnee 
+			= trouverListeDeclarativeChampsPrivate(pClass);
+		
+		final Map<String, EncapsulationTypeChamp> resultatOrdonne 
+			= new LinkedHashMap<String, EncapsulationTypeChamp>();
+		
+		for (final String champ : listeChampsPrivateOrdonnee) {
+			resultatOrdonne.put(champ, resultat.get(champ));
+		}
+		
+		return resultatOrdonne;
+		
+	} // Fin de fournirMapEncapsulationTypeChamp(...)._____________________
 
 	
 	
@@ -1015,7 +1110,7 @@ public final class Generateur {
 	 * 
 	 * @return : boolean : true si pMethod est un Setter.<br/>
 	 */
-	public static boolean isSetter(Method pMethod) {
+	public static boolean isSetter(final Method pMethod) {
 
 		return Modifier.isPublic(pMethod.getModifiers()) 
 				&& pMethod.getReturnType().equals(void.class)
@@ -1082,6 +1177,41 @@ public final class Generateur {
 		return pathRelatif;
 		
 	} // Fin de fournirPathAPartirCanonicalName(...).______________________
+	
+
+	
+	/**
+	 * <b>Retourne le nom simple d'un Type Java</b>.<br/>
+	 * Par exemple : retourne "String" pour "java.lang.String".<br/>
+	 * <br/>
+	 * - Retourne null si pString est blank.<br/>
+	 * - retourne pString si pString ne contient aucun point.
+	 * <br/>
+	 *
+	 * @param pString : nom complet d'un Type Java avec des séparateurs '.'
+	 * 
+	 * @return : String : nom simple du Type Java.<br/>
+	 */
+	public static String extraireNomSimpleType(
+			final String pString) {
+		
+		/* Retourne null si pString est blank. */
+		if (StringUtils.isBlank(pString)) {
+			return null;
+		}
+		
+		/* retourne pString si pString ne contient aucun point. */
+		if (!StringUtils.contains(pString, POINT)) {
+			return pString;
+		}
+		
+		final String[] tableau = StringUtils.split(pString, ".");
+		final int tailleTableau = tableau.length;
+		final int dernierElement = tailleTableau - 1;
+		
+		return tableau[dernierElement];
+		
+	} // Fin de extraireNomSimpleType(...).________________________________
 	
 	
 	
@@ -1162,6 +1292,42 @@ public final class Generateur {
 		return stb.toString();
 		
 	} // Fin de afficherMapStringEncapsulation(...)._______________________
+	
+
+	
+	/**
+	 * retourne une String pour l'affichage d'une 
+	 * Map&lt;String, EncapsulationTypeChamp&gt;.
+	 *
+	 * @param pMap : Map&lt;String, EncapsulationTypeChamp&gt;
+	 * 
+	 * @return : String : pour affichage.<br/>
+	 */
+	public static String afficherMapStringEncapsulationTypeChamp(
+			final Map<String, EncapsulationTypeChamp> pMap) {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Set<Entry<String, EncapsulationTypeChamp>> entrySet 
+			= pMap.entrySet();
+		
+		final Iterator<Entry<String, EncapsulationTypeChamp>> ite 
+			= entrySet.iterator();
+		
+		while (ite.hasNext()) {
+			
+			final Entry<String, EncapsulationTypeChamp> entry 
+				= ite.next();
+			
+			final EncapsulationTypeChamp encaps = entry.getValue();
+			
+			stb.append(encaps.toString());
+			stb.append(NEWLINE);
+		}
+		
+		return stb.toString();
+		
+	} // Fin de afficherMapStringEncapsulationTypeChamp(...).______________
 
 	
 	
@@ -1227,12 +1393,17 @@ public final class Generateur {
 		
 		
 //		final Map<String, EncapsulationChampGetterSetter> map 
-//			= fournirMapChampGetterSetter(classe);
-//		
+//			= fournirMapChampGetterSetter(classe);		
 //		System.out.println(afficherMapStringEncapsulation(map));
-//		
 //		System.out.println("nombre de champs : " + map.size());
-		
+
+		final Map<String, EncapsulationTypeChamp> mapEncapsulationTypeChamp 
+			= fournirMapEncapsulationTypeChamp(classe);		
+		System.out.println(
+				afficherMapStringEncapsulationTypeChamp(
+						mapEncapsulationTypeChamp));
+		System.out.println("nombre de champs : " 
+						+ mapEncapsulationTypeChamp.size());
 
 //		final File fichierSource = trouverFichierSource(classe);
 //		System.out.println(fichierSource.getAbsolutePath());
@@ -1256,7 +1427,7 @@ public final class Generateur {
 		
 //		System.out.println(genererMethodeFournirValeurColonne(classe));
 		
-		System.out.println(genererMethodeFournirDTO(classe));
+//		System.out.println(genererMethodeFournirDTO(classe));
 		
     } // Fin de main(...)._________________________________________________
 	
