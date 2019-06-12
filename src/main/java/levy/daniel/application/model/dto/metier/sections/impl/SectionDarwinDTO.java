@@ -1,6 +1,7 @@
 package levy.daniel.application.model.dto.metier.sections.impl;
 
 import java.util.Objects;
+import java.util.SortedMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -434,6 +435,108 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
+	
+	
+	 /**
+	 * CONSTRUCTEUR CONVERTISSEUR.<br/>
+	 * Instancie un DTO à partir d'une SortedMap&lt;Integer, String&gt; 
+	 * description de ligne d'un fichier DARWIN_CSV.<br/>
+	 * <br/>
+	 * - LOG.fatal et jette une RunTimeException 
+	 * si pDescriptionLigne == null.<br/>
+	 * </br/>
+	 * 
+	 * 
+	 * @param pDescriptionLigne : SortedMap&lt;Integer, String&gt;
+	 */
+	public SectionDarwinDTO(final SortedMap<Integer, String> pDescriptionLigne) {
+		
+		super();
+		
+		/* LOG.fatal et jette une RunTimeException si pDescriptionLigne == null. */
+		if (pDescriptionLigne == null) {
+			
+			final String message 
+				= "Impossible d'instancier un SectionDarwinDTO à partir "
+						+ "d'une SortedMap<Integer, String> "
+						+ "pDescriptionChamp null";
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			throw new RuntimeException(message);
+		}
+		
+		this.setId(null);
+		this.setObjetID(pDescriptionLigne.get(1));
+		this.setRoute(pDescriptionLigne.get(2));
+		this.setDepPrD(pDescriptionLigne.get(3));
+		this.setConcessionPrD(pDescriptionLigne.get(4));
+		this.setPrD(pDescriptionLigne.get(5));
+		this.setAbsD(pDescriptionLigne.get(6));
+		this.setDepPrF(pDescriptionLigne.get(7));
+		this.setConcessionPrF(pDescriptionLigne.get(8));
+		this.setPrF(pDescriptionLigne.get(9));
+		this.setAbsF(pDescriptionLigne.get(10));
+		this.setAnneeMesureTrafic(pDescriptionLigne.get(11));
+		this.setNumSectionTrafic(pDescriptionLigne.get(12));
+		this.setSensSectionTrafic(pDescriptionLigne.get(13));
+		this.setTypeComptageTrafic(pDescriptionLigne.get(14));
+		this.setMjaN(pDescriptionLigne.get(15));
+		this.setPcPLN(pDescriptionLigne.get(16));
+		this.setPcNuitAnnuelN(pDescriptionLigne.get(17));
+		this.setMjaNmoins1(pDescriptionLigne.get(18));
+		this.setPcPLNmoins1(pDescriptionLigne.get(19));
+		this.setPcNuitAnnuelNmoins1(pDescriptionLigne.get(20));
+		this.setMjaNmoins2(pDescriptionLigne.get(21));
+		this.setPcPLNmoins2(pDescriptionLigne.get(22));
+		this.setPcNuitAnnuelNmoins2(pDescriptionLigne.get(23));
+		this.setMjaNmoins3(pDescriptionLigne.get(24));
+		this.setPcPLNmoins3(pDescriptionLigne.get(25));
+		this.setPcNuitAnnuelNmoins3(pDescriptionLigne.get(26));
+		this.setMjaNmoins4(pDescriptionLigne.get(27));
+		this.setPcPLNmoins4(pDescriptionLigne.get(28));
+		this.setPcNuitAnnuelNmoins4(pDescriptionLigne.get(29));
+		this.setMjaNmoins5(pDescriptionLigne.get(30));
+		this.setPcPLNmoins5(pDescriptionLigne.get(31));
+		this.setPcNuitAnnuelNmoins5(pDescriptionLigne.get(32));
+		this.setMjmNmois01(pDescriptionLigne.get(33));
+		this.setPcNuitNmois01(pDescriptionLigne.get(34));
+		this.setMjmNmois02(pDescriptionLigne.get(35));
+		this.setPcNuitNmois02(pDescriptionLigne.get(36));
+		this.setMjmNmois03(pDescriptionLigne.get(37));
+		this.setPcNuitNmois03(pDescriptionLigne.get(38));
+		this.setMjmNmois04(pDescriptionLigne.get(39));
+		this.setPcNuitNmois04(pDescriptionLigne.get(40));
+		this.setMjmNmois05(pDescriptionLigne.get(41));
+		this.setPcNuitNmois05(pDescriptionLigne.get(42));
+		this.setMjmNmois06(pDescriptionLigne.get(43));
+		this.setPcNuitNmois06(pDescriptionLigne.get(44));
+		this.setMjmNmois07(pDescriptionLigne.get(45));
+		this.setPcNuitNmois07(pDescriptionLigne.get(46));
+		this.setMjmNmois08(pDescriptionLigne.get(47));
+		this.setPcNuitNmois08(pDescriptionLigne.get(48));
+		this.setMjmNmois09(pDescriptionLigne.get(49));
+		this.setPcNuitNmois09(pDescriptionLigne.get(50));
+		this.setMjmNmois10(pDescriptionLigne.get(51));
+		this.setPcNuitNmois10(pDescriptionLigne.get(52));
+		this.setMjmNmois11(pDescriptionLigne.get(53));
+		this.setPcNuitNmois11(pDescriptionLigne.get(54));
+		this.setMjmNmois12(pDescriptionLigne.get(55));
+		this.setPcNuitNmois12(pDescriptionLigne.get(56));
+		this.setClassementRoute(pDescriptionLigne.get(57));
+		this.setProfilTraversSicre(pDescriptionLigne.get(58));
+		this.setOrigineSection(pDescriptionLigne.get(59));
+		this.setExtremiteSection(pDescriptionLigne.get(60));
+		this.setLieuDitComptage(pDescriptionLigne.get(61));
+		this.setPrComptage(pDescriptionLigne.get(62));
+		this.setAbsComptage(pDescriptionLigne.get(63));
+		this.setItiEuropeen1(pDescriptionLigne.get(64));
+		this.setSousReseauIndice(pDescriptionLigne.get(65));
+		
+	} // Fin de CONSTRUCTEUR CONVERTISSEUR.________________________________
+
 
 
 	/**
@@ -443,7 +546,7 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 	public final int hashCode() {
 
 		return Objects.hash(
-			this.getId(), this.getObjetID(), this.getRoute()
+			this.getObjetID(), this.getRoute()
 			, this.getDepPrD(), this.getConcessionPrD(), this.getPrD()
 			, this.getAbsD(), this.getDepPrF(), this.getConcessionPrF()
 			, this.getPrF(), this.getAbsF(), this.getAnneeMesureTrafic()
@@ -475,70 +578,89 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 	 */
 	@Override
 	public final boolean equals(
-			final Object pObject) {
+			final Object pObjet) {
 		
-		if (this == pObject) {
+		if (this == pObjet) {
 			return true;
 		}
 		
-		if (pObject == null) {
+		if (pObjet == null) {
 			return false;
 		}
-		if (!(pObject instanceof SectionDarwinDTO)) {
+		if (!(pObjet instanceof SectionDarwinDTO)) {
 			return false;
 		}
 		
-		final ISectionDarwinDTO other = (ISectionDarwinDTO) pObject;
-		
+		final ISectionDarwinDTO other = (ISectionDarwinDTO) pObjet;
+
 		return Objects
-				.equals(absComptage, other.absComptage) 
-				&& Objects.equals(absD, other.absD)
-				&& Objects.equals(absF, other.absF) 
-				&& Objects.equals(anneeMesureTrafic, other.anneeMesureTrafic)
-				&& Objects.equals(classementRoute, other.classementRoute)
-				&& Objects.equals(concessionPrD, other.concessionPrD)
-				&& Objects.equals(concessionPrF, other.concessionPrF) && Objects.equals(depPrD, other.depPrD)
-				&& Objects.equals(depPrF, other.depPrF) && Objects.equals(extremiteSection, other.extremiteSection)
-				&& Objects.equals(itiEuropeen1, other.itiEuropeen1)
-				&& Objects.equals(lieuDitComptage, other.lieuDitComptage) && Objects.equals(mjaN, other.mjaN)
-				&& Objects.equals(mjaNmoins1, other.mjaNmoins1) && Objects.equals(mjaNmoins2, other.mjaNmoins2)
-				&& Objects.equals(mjaNmoins3, other.mjaNmoins3) && Objects.equals(mjaNmoins4, other.mjaNmoins4)
-				&& Objects.equals(mjaNmoins5, other.mjaNmoins5) && Objects.equals(mjmNmois01, other.mjmNmois01)
-				&& Objects.equals(mjmNmois02, other.mjmNmois02) && Objects.equals(mjmNmois03, other.mjmNmois03)
-				&& Objects.equals(mjmNmois04, other.mjmNmois04) && Objects.equals(mjmNmois05, other.mjmNmois05)
-				&& Objects.equals(mjmNmois06, other.mjmNmois06) && Objects.equals(mjmNmois07, other.mjmNmois07)
-				&& Objects.equals(mjmNmois08, other.mjmNmois08) && Objects.equals(mjmNmois09, other.mjmNmois09)
-				&& Objects.equals(mjmNmois10, other.mjmNmois10) && Objects.equals(mjmNmois11, other.mjmNmois11)
-				&& Objects.equals(mjmNmois12, other.mjmNmois12)
-				&& Objects.equals(numSectionTrafic, other.numSectionTrafic) && Objects.equals(objetID, other.objetID)
-				&& Objects.equals(origineSection, other.origineSection)
-				&& Objects.equals(pcNuitAnnuelN, other.pcNuitAnnuelN)
-				&& Objects.equals(pcNuitAnnuelNmoins1, other.pcNuitAnnuelNmoins1)
-				&& Objects.equals(pcNuitAnnuelNmoins2, other.pcNuitAnnuelNmoins2)
-				&& Objects.equals(pcNuitAnnuelNmoins3, other.pcNuitAnnuelNmoins3)
-				&& Objects.equals(pcNuitAnnuelNmoins4, other.pcNuitAnnuelNmoins4)
-				&& Objects.equals(pcNuitAnnuelNmoins5, other.pcNuitAnnuelNmoins5)
-				&& Objects.equals(pcNuitNmois01, other.pcNuitNmois01)
-				&& Objects.equals(pcNuitNmois02, other.pcNuitNmois02)
-				&& Objects.equals(pcNuitNmois03, other.pcNuitNmois03)
-				&& Objects.equals(pcNuitNmois04, other.pcNuitNmois04)
-				&& Objects.equals(pcNuitNmois05, other.pcNuitNmois05)
-				&& Objects.equals(pcNuitNmois06, other.pcNuitNmois06)
-				&& Objects.equals(pcNuitNmois07, other.pcNuitNmois07)
-				&& Objects.equals(pcNuitNmois08, other.pcNuitNmois08)
-				&& Objects.equals(pcNuitNmois09, other.pcNuitNmois09)
-				&& Objects.equals(pcNuitNmois10, other.pcNuitNmois10)
-				&& Objects.equals(pcNuitNmois11, other.pcNuitNmois11)
-				&& Objects.equals(pcNuitNmois12, other.pcNuitNmois12) && Objects.equals(pcPLN, other.pcPLN)
-				&& Objects.equals(pcPLNmoins1, other.pcPLNmoins1) && Objects.equals(pcPLNmoins2, other.pcPLNmoins2)
-				&& Objects.equals(pcPLNmoins3, other.pcPLNmoins3) && Objects.equals(pcPLNmoins4, other.pcPLNmoins4)
-				&& Objects.equals(pcPLNmoins5, other.pcPLNmoins5) && Objects.equals(prComptage, other.prComptage)
-				&& Objects.equals(prD, other.prD) && Objects.equals(prF, other.prF)
-				&& Objects.equals(profilTraversSicre, other.profilTraversSicre) && Objects.equals(route, other.route)
-				&& Objects.equals(sensSectionTrafic, other.sensSectionTrafic)
-				&& Objects.equals(sousReseauIndice, other.sousReseauIndice)
-				&& Objects.equals(typeComptageTrafic, other.typeComptageTrafic);
-	}
+			.equals(this.getObjetID(), other.getObjetID())
+			&& Objects.equals(this.getRoute(), other.getRoute())
+			&& Objects.equals(this.getDepPrD(), other.getDepPrD())
+			&& Objects.equals(this.getConcessionPrD(), other.getConcessionPrD())
+			&& Objects.equals(this.getPrD(), other.getPrD())
+			&& Objects.equals(this.getAbsD(), other.getAbsD())
+			&& Objects.equals(this.getDepPrF(), other.getDepPrF())
+			&& Objects.equals(this.getConcessionPrF(), other.getConcessionPrF())
+			&& Objects.equals(this.getPrF(), other.getPrF())
+			&& Objects.equals(this.getAbsF(), other.getAbsF())
+			&& Objects.equals(this.getAnneeMesureTrafic(), other.getAnneeMesureTrafic())
+			&& Objects.equals(this.getNumSectionTrafic(), other.getNumSectionTrafic())
+			&& Objects.equals(this.getSensSectionTrafic(), other.getSensSectionTrafic())
+			&& Objects.equals(this.getTypeComptageTrafic(), other.getTypeComptageTrafic())
+			&& Objects.equals(this.getMjaN(), other.getMjaN())
+			&& Objects.equals(this.getPcPLN(), other.getPcPLN())
+			&& Objects.equals(this.getPcNuitAnnuelN(), other.getPcNuitAnnuelN())
+			&& Objects.equals(this.getMjaNmoins1(), other.getMjaNmoins1())
+			&& Objects.equals(this.getPcPLNmoins1(), other.getPcPLNmoins1())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins1(), other.getPcNuitAnnuelNmoins1())
+			&& Objects.equals(this.getMjaNmoins2(), other.getMjaNmoins2())
+			&& Objects.equals(this.getPcPLNmoins2(), other.getPcPLNmoins2())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins2(), other.getPcNuitAnnuelNmoins2())
+			&& Objects.equals(this.getMjaNmoins3(), other.getMjaNmoins3())
+			&& Objects.equals(this.getPcPLNmoins3(), other.getPcPLNmoins3())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins3(), other.getPcNuitAnnuelNmoins3())
+			&& Objects.equals(this.getMjaNmoins4(), other.getMjaNmoins4())
+			&& Objects.equals(this.getPcPLNmoins4(), other.getPcPLNmoins4())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins4(), other.getPcNuitAnnuelNmoins4())
+			&& Objects.equals(this.getMjaNmoins5(), other.getMjaNmoins5())
+			&& Objects.equals(this.getPcPLNmoins5(), other.getPcPLNmoins5())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins5(), other.getPcNuitAnnuelNmoins5())
+			&& Objects.equals(this.getMjmNmois01(), other.getMjmNmois01())
+			&& Objects.equals(this.getPcNuitNmois01(), other.getPcNuitNmois01())
+			&& Objects.equals(this.getMjmNmois02(), other.getMjmNmois02())
+			&& Objects.equals(this.getPcNuitNmois02(), other.getPcNuitNmois02())
+			&& Objects.equals(this.getMjmNmois03(), other.getMjmNmois03())
+			&& Objects.equals(this.getPcNuitNmois03(), other.getPcNuitNmois03())
+			&& Objects.equals(this.getMjmNmois04(), other.getMjmNmois04())
+			&& Objects.equals(this.getPcNuitNmois04(), other.getPcNuitNmois04())
+			&& Objects.equals(this.getMjmNmois05(), other.getMjmNmois05())
+			&& Objects.equals(this.getPcNuitNmois05(), other.getPcNuitNmois05())
+			&& Objects.equals(this.getMjmNmois06(), other.getMjmNmois06())
+			&& Objects.equals(this.getPcNuitNmois06(), other.getPcNuitNmois06())
+			&& Objects.equals(this.getMjmNmois07(), other.getMjmNmois07())
+			&& Objects.equals(this.getPcNuitNmois07(), other.getPcNuitNmois07())
+			&& Objects.equals(this.getMjmNmois08(), other.getMjmNmois08())
+			&& Objects.equals(this.getPcNuitNmois08(), other.getPcNuitNmois08())
+			&& Objects.equals(this.getMjmNmois09(), other.getMjmNmois09())
+			&& Objects.equals(this.getPcNuitNmois09(), other.getPcNuitNmois09())
+			&& Objects.equals(this.getMjmNmois10(), other.getMjmNmois10())
+			&& Objects.equals(this.getPcNuitNmois10(), other.getPcNuitNmois10())
+			&& Objects.equals(this.getMjmNmois11(), other.getMjmNmois11())
+			&& Objects.equals(this.getPcNuitNmois11(), other.getPcNuitNmois11())
+			&& Objects.equals(this.getMjmNmois12(), other.getMjmNmois12())
+			&& Objects.equals(this.getPcNuitNmois12(), other.getPcNuitNmois12())
+			&& Objects.equals(this.getClassementRoute(), other.getClassementRoute())
+			&& Objects.equals(this.getProfilTraversSicre(), other.getProfilTraversSicre())
+			&& Objects.equals(this.getOrigineSection(), other.getOrigineSection())
+			&& Objects.equals(this.getExtremiteSection(), other.getExtremiteSection())
+			&& Objects.equals(this.getLieuDitComptage(), other.getLieuDitComptage())
+			&& Objects.equals(this.getPrComptage(), other.getPrComptage())
+			&& Objects.equals(this.getAbsComptage(), other.getAbsComptage())
+			&& Objects.equals(this.getItiEuropeen1(), other.getItiEuropeen1())
+			&& Objects.equals(this.getSousReseauIndice(), other.getSousReseauIndice());
+
+	} // Fin de equals(...)._______________________________________________
 
 
 
@@ -546,10 +668,102 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int compareTo(ISectionDarwinDTO pObjet) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public final int compareTo(
+			final ISectionDarwinDTO pObjet) {
+		
+		if (this == pObjet) {
+			return 0;
+		}
+
+		if (pObjet == null) {
+			return -1;
+		}
+		
+		int compareAnneeMesureTrafic = 0;
+		int compareDepPrD = 0;
+		int compareRoute = 0;
+		int comparePrD = 0;
+		
+		/* anneeMesureTrafic. */
+		if (this.getAnneeMesureTrafic() == null) {
+			if (pObjet.getAnneeMesureTrafic() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getAnneeMesureTrafic() == null) {
+				return -1;
+			}
+			
+			compareAnneeMesureTrafic 
+			= this.getAnneeMesureTrafic()
+				.compareToIgnoreCase(pObjet.getAnneeMesureTrafic());
+		
+			if (compareAnneeMesureTrafic != 0) {
+				return compareAnneeMesureTrafic;
+			}
+		}
+		
+		/* depPrD. */
+		if (this.getDepPrD() == null) {
+			if (pObjet.getDepPrD() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getDepPrD() == null) {
+				return -1;
+			}
+			
+			compareDepPrD 
+			= this.getDepPrD()
+				.compareToIgnoreCase(pObjet.getDepPrD());
+		
+			if (compareDepPrD != 0) {
+				return compareDepPrD;
+			}
+		}
+
+		/* route. */
+		if (this.getRoute() == null) {
+			if (pObjet.getRoute() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getRoute() == null) {
+				return -1;
+			}
+			
+			compareRoute 
+			= this.getRoute()
+				.compareToIgnoreCase(pObjet.getRoute());
+		
+			if (compareRoute != 0) {
+				return compareRoute;
+			}
+		}
+		
+		/* prD. */
+		if (this.getPrD() == null) {
+			if (pObjet.getPrD() != null) {
+				return +1;
+			}
+			
+			return 0;
+		}
+		
+		if (pObjet.getPrD() == null) {
+			return -1;
+		}
+		
+		comparePrD 
+			= this.getPrD()
+				.compareToIgnoreCase(pObjet.getPrD());
+		
+		return comparePrD;
+
+	} // Fin de compareTo(...).____________________________________________
 
 
 
@@ -557,10 +771,707 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ISectionDarwinDTO clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public final ISectionDarwinDTO clone() throws CloneNotSupportedException {
+		
+		final ISectionDarwinDTO clone 
+			= (ISectionDarwinDTO) super.clone();
+				
+		clone.setId(this.getId());
+		clone.setObjetID(this.getObjetID());
+		clone.setRoute(this.getRoute());
+		clone.setDepPrD(this.getDepPrD());
+		clone.setConcessionPrD(this.getConcessionPrD());
+		clone.setPrD(this.getPrD());
+		clone.setAbsD(this.getAbsD());
+		clone.setDepPrF(this.getDepPrF());
+		clone.setConcessionPrF(this.getConcessionPrF());
+		clone.setPrF(this.getPrF());
+		clone.setAbsF(this.getAbsF());
+		clone.setAnneeMesureTrafic(this.getAnneeMesureTrafic());
+		clone.setNumSectionTrafic(this.getNumSectionTrafic());
+		clone.setSensSectionTrafic(this.getSensSectionTrafic());
+		clone.setTypeComptageTrafic(this.getTypeComptageTrafic());
+		clone.setMjaN(this.getMjaN());
+		clone.setPcPLN(this.getPcPLN());
+		clone.setPcNuitAnnuelN(this.getPcNuitAnnuelN());
+		clone.setMjaNmoins1(this.getMjaNmoins1());
+		clone.setPcPLNmoins1(this.getPcPLNmoins1());
+		clone.setPcNuitAnnuelNmoins1(this.getPcNuitAnnuelNmoins1());
+		clone.setMjaNmoins2(this.getMjaNmoins2());
+		clone.setPcPLNmoins2(this.getPcPLNmoins2());
+		clone.setPcNuitAnnuelNmoins2(this.getPcNuitAnnuelNmoins2());
+		clone.setMjaNmoins3(this.getMjaNmoins3());
+		clone.setPcPLNmoins3(this.getPcPLNmoins3());
+		clone.setPcNuitAnnuelNmoins3(this.getPcNuitAnnuelNmoins3());
+		clone.setMjaNmoins4(this.getMjaNmoins4());
+		clone.setPcPLNmoins4(this.getPcPLNmoins4());
+		clone.setPcNuitAnnuelNmoins4(this.getPcNuitAnnuelNmoins4());
+		clone.setMjaNmoins5(this.getMjaNmoins5());
+		clone.setPcPLNmoins5(this.getPcPLNmoins5());
+		clone.setPcNuitAnnuelNmoins5(this.getPcNuitAnnuelNmoins5());
+		clone.setMjmNmois01(this.getMjmNmois01());
+		clone.setPcNuitNmois01(this.getPcNuitNmois01());
+		clone.setMjmNmois02(this.getMjmNmois02());
+		clone.setPcNuitNmois02(this.getPcNuitNmois02());
+		clone.setMjmNmois03(this.getMjmNmois03());
+		clone.setPcNuitNmois03(this.getPcNuitNmois03());
+		clone.setMjmNmois04(this.getMjmNmois04());
+		clone.setPcNuitNmois04(this.getPcNuitNmois04());
+		clone.setMjmNmois05(this.getMjmNmois05());
+		clone.setPcNuitNmois05(this.getPcNuitNmois05());
+		clone.setMjmNmois06(this.getMjmNmois06());
+		clone.setPcNuitNmois06(this.getPcNuitNmois06());
+		clone.setMjmNmois07(this.getMjmNmois07());
+		clone.setPcNuitNmois07(this.getPcNuitNmois07());
+		clone.setMjmNmois08(this.getMjmNmois08());
+		clone.setPcNuitNmois08(this.getPcNuitNmois08());
+		clone.setMjmNmois09(this.getMjmNmois09());
+		clone.setPcNuitNmois09(this.getPcNuitNmois09());
+		clone.setMjmNmois10(this.getMjmNmois10());
+		clone.setPcNuitNmois10(this.getPcNuitNmois10());
+		clone.setMjmNmois11(this.getMjmNmois11());
+		clone.setPcNuitNmois11(this.getPcNuitNmois11());
+		clone.setMjmNmois12(this.getMjmNmois12());
+		clone.setPcNuitNmois12(this.getPcNuitNmois12());
+		clone.setClassementRoute(this.getClassementRoute());
+		clone.setProfilTraversSicre(this.getProfilTraversSicre());
+		clone.setOrigineSection(this.getOrigineSection());
+		clone.setExtremiteSection(this.getExtremiteSection());
+		clone.setLieuDitComptage(this.getLieuDitComptage());
+		clone.setPrComptage(this.getPrComptage());
+		clone.setAbsComptage(this.getAbsComptage());
+		clone.setItiEuropeen1(this.getItiEuropeen1());
+		clone.setSousReseauIndice(this.getSousReseauIndice());
+
+		return (SectionDarwinDTO) clone;
+		
+	} // Fin de clone().___________________________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String toString() {
+
+		final StringBuilder stb = new StringBuilder();
+
+		stb.append("SectionDarwinDTO [");
+
+		stb.append("id=");
+		if (this.getId() != null) {
+			stb.append(this.getId());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("objetID=");
+		if (this.getObjetID() != null) {
+			stb.append(this.getObjetID());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("route=");
+		if (this.getRoute() != null) {
+			stb.append(this.getRoute());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("depPrD=");
+		if (this.getDepPrD() != null) {
+			stb.append(this.getDepPrD());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("concessionPrD=");
+		if (this.getConcessionPrD() != null) {
+			stb.append(this.getConcessionPrD());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("prD=");
+		if (this.getPrD() != null) {
+			stb.append(this.getPrD());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("absD=");
+		if (this.getAbsD() != null) {
+			stb.append(this.getAbsD());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("depPrF=");
+		if (this.getDepPrF() != null) {
+			stb.append(this.getDepPrF());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("concessionPrF=");
+		if (this.getConcessionPrF() != null) {
+			stb.append(this.getConcessionPrF());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("prF=");
+		if (this.getPrF() != null) {
+			stb.append(this.getPrF());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("absF=");
+		if (this.getAbsF() != null) {
+			stb.append(this.getAbsF());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("anneeMesureTrafic=");
+		if (this.getAnneeMesureTrafic() != null) {
+			stb.append(this.getAnneeMesureTrafic());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("numSectionTrafic=");
+		if (this.getNumSectionTrafic() != null) {
+			stb.append(this.getNumSectionTrafic());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("sensSectionTrafic=");
+		if (this.getSensSectionTrafic() != null) {
+			stb.append(this.getSensSectionTrafic());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("typeComptageTrafic=");
+		if (this.getTypeComptageTrafic() != null) {
+			stb.append(this.getTypeComptageTrafic());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjaN=");
+		if (this.getMjaN() != null) {
+			stb.append(this.getMjaN());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcPLN=");
+		if (this.getPcPLN() != null) {
+			stb.append(this.getPcPLN());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitAnnuelN=");
+		if (this.getPcNuitAnnuelN() != null) {
+			stb.append(this.getPcNuitAnnuelN());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjaNmoins1=");
+		if (this.getMjaNmoins1() != null) {
+			stb.append(this.getMjaNmoins1());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcPLNmoins1=");
+		if (this.getPcPLNmoins1() != null) {
+			stb.append(this.getPcPLNmoins1());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitAnnuelNmoins1=");
+		if (this.getPcNuitAnnuelNmoins1() != null) {
+			stb.append(this.getPcNuitAnnuelNmoins1());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjaNmoins2=");
+		if (this.getMjaNmoins2() != null) {
+			stb.append(this.getMjaNmoins2());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcPLNmoins2=");
+		if (this.getPcPLNmoins2() != null) {
+			stb.append(this.getPcPLNmoins2());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitAnnuelNmoins2=");
+		if (this.getPcNuitAnnuelNmoins2() != null) {
+			stb.append(this.getPcNuitAnnuelNmoins2());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjaNmoins3=");
+		if (this.getMjaNmoins3() != null) {
+			stb.append(this.getMjaNmoins3());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcPLNmoins3=");
+		if (this.getPcPLNmoins3() != null) {
+			stb.append(this.getPcPLNmoins3());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitAnnuelNmoins3=");
+		if (this.getPcNuitAnnuelNmoins3() != null) {
+			stb.append(this.getPcNuitAnnuelNmoins3());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjaNmoins4=");
+		if (this.getMjaNmoins4() != null) {
+			stb.append(this.getMjaNmoins4());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcPLNmoins4=");
+		if (this.getPcPLNmoins4() != null) {
+			stb.append(this.getPcPLNmoins4());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitAnnuelNmoins4=");
+		if (this.getPcNuitAnnuelNmoins4() != null) {
+			stb.append(this.getPcNuitAnnuelNmoins4());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjaNmoins5=");
+		if (this.getMjaNmoins5() != null) {
+			stb.append(this.getMjaNmoins5());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcPLNmoins5=");
+		if (this.getPcPLNmoins5() != null) {
+			stb.append(this.getPcPLNmoins5());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitAnnuelNmoins5=");
+		if (this.getPcNuitAnnuelNmoins5() != null) {
+			stb.append(this.getPcNuitAnnuelNmoins5());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois01=");
+		if (this.getMjmNmois01() != null) {
+			stb.append(this.getMjmNmois01());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois01=");
+		if (this.getPcNuitNmois01() != null) {
+			stb.append(this.getPcNuitNmois01());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois02=");
+		if (this.getMjmNmois02() != null) {
+			stb.append(this.getMjmNmois02());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois02=");
+		if (this.getPcNuitNmois02() != null) {
+			stb.append(this.getPcNuitNmois02());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois03=");
+		if (this.getMjmNmois03() != null) {
+			stb.append(this.getMjmNmois03());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois03=");
+		if (this.getPcNuitNmois03() != null) {
+			stb.append(this.getPcNuitNmois03());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois04=");
+		if (this.getMjmNmois04() != null) {
+			stb.append(this.getMjmNmois04());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois04=");
+		if (this.getPcNuitNmois04() != null) {
+			stb.append(this.getPcNuitNmois04());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois05=");
+		if (this.getMjmNmois05() != null) {
+			stb.append(this.getMjmNmois05());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois05=");
+		if (this.getPcNuitNmois05() != null) {
+			stb.append(this.getPcNuitNmois05());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois06=");
+		if (this.getMjmNmois06() != null) {
+			stb.append(this.getMjmNmois06());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois06=");
+		if (this.getPcNuitNmois06() != null) {
+			stb.append(this.getPcNuitNmois06());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois07=");
+		if (this.getMjmNmois07() != null) {
+			stb.append(this.getMjmNmois07());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois07=");
+		if (this.getPcNuitNmois07() != null) {
+			stb.append(this.getPcNuitNmois07());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois08=");
+		if (this.getMjmNmois08() != null) {
+			stb.append(this.getMjmNmois08());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois08=");
+		if (this.getPcNuitNmois08() != null) {
+			stb.append(this.getPcNuitNmois08());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois09=");
+		if (this.getMjmNmois09() != null) {
+			stb.append(this.getMjmNmois09());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois09=");
+		if (this.getPcNuitNmois09() != null) {
+			stb.append(this.getPcNuitNmois09());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois10=");
+		if (this.getMjmNmois10() != null) {
+			stb.append(this.getMjmNmois10());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois10=");
+		if (this.getPcNuitNmois10() != null) {
+			stb.append(this.getPcNuitNmois10());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois11=");
+		if (this.getMjmNmois11() != null) {
+			stb.append(this.getMjmNmois11());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois11=");
+		if (this.getPcNuitNmois11() != null) {
+			stb.append(this.getPcNuitNmois11());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("mjmNmois12=");
+		if (this.getMjmNmois12() != null) {
+			stb.append(this.getMjmNmois12());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("pcNuitNmois12=");
+		if (this.getPcNuitNmois12() != null) {
+			stb.append(this.getPcNuitNmois12());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("classementRoute=");
+		if (this.getClassementRoute() != null) {
+			stb.append(this.getClassementRoute());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("profilTraversSicre=");
+		if (this.getProfilTraversSicre() != null) {
+			stb.append(this.getProfilTraversSicre());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("origineSection=");
+		if (this.getOrigineSection() != null) {
+			stb.append(this.getOrigineSection());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("extremiteSection=");
+		if (this.getExtremiteSection() != null) {
+			stb.append(this.getExtremiteSection());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("lieuDitComptage=");
+		if (this.getLieuDitComptage() != null) {
+			stb.append(this.getLieuDitComptage());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("prComptage=");
+		if (this.getPrComptage() != null) {
+			stb.append(this.getPrComptage());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("absComptage=");
+		if (this.getAbsComptage() != null) {
+			stb.append(this.getAbsComptage());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("itiEuropeen1=");
+		if (this.getItiEuropeen1() != null) {
+			stb.append(this.getItiEuropeen1());
+		} else {
+			stb.append(NULL);
+		}
+		stb.append(VIRGULE_ESPACE);
+
+		stb.append("sousReseauIndice=");
+		if (this.getSousReseauIndice() != null) {
+			stb.append(this.getSousReseauIndice());
+		} else {
+			stb.append(NULL);
+		}
+
+		stb.append(']');
+
+		return stb.toString();
+		
+	} // Fin de toString().________________________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String toStringASCII() {
+
+		final StringBuilder stb = new StringBuilder();
+
+		stb.append(this.getId());
+		stb.append(this.getObjetID());
+		stb.append(this.getRoute());
+		stb.append(this.getDepPrD());
+		stb.append(this.getConcessionPrD());
+		stb.append(this.getPrD());
+		stb.append(this.getAbsD());
+		stb.append(this.getDepPrF());
+		stb.append(this.getConcessionPrF());
+		stb.append(this.getPrF());
+		stb.append(this.getAbsF());
+		stb.append(this.getAnneeMesureTrafic());
+		stb.append(this.getNumSectionTrafic());
+		stb.append(this.getSensSectionTrafic());
+		stb.append(this.getTypeComptageTrafic());
+		stb.append(this.getMjaN());
+		stb.append(this.getPcPLN());
+		stb.append(this.getPcNuitAnnuelN());
+		stb.append(this.getMjaNmoins1());
+		stb.append(this.getPcPLNmoins1());
+		stb.append(this.getPcNuitAnnuelNmoins1());
+		stb.append(this.getMjaNmoins2());
+		stb.append(this.getPcPLNmoins2());
+		stb.append(this.getPcNuitAnnuelNmoins2());
+		stb.append(this.getMjaNmoins3());
+		stb.append(this.getPcPLNmoins3());
+		stb.append(this.getPcNuitAnnuelNmoins3());
+		stb.append(this.getMjaNmoins4());
+		stb.append(this.getPcPLNmoins4());
+		stb.append(this.getPcNuitAnnuelNmoins4());
+		stb.append(this.getMjaNmoins5());
+		stb.append(this.getPcPLNmoins5());
+		stb.append(this.getPcNuitAnnuelNmoins5());
+		stb.append(this.getMjmNmois01());
+		stb.append(this.getPcNuitNmois01());
+		stb.append(this.getMjmNmois02());
+		stb.append(this.getPcNuitNmois02());
+		stb.append(this.getMjmNmois03());
+		stb.append(this.getPcNuitNmois03());
+		stb.append(this.getMjmNmois04());
+		stb.append(this.getPcNuitNmois04());
+		stb.append(this.getMjmNmois05());
+		stb.append(this.getPcNuitNmois05());
+		stb.append(this.getMjmNmois06());
+		stb.append(this.getPcNuitNmois06());
+		stb.append(this.getMjmNmois07());
+		stb.append(this.getPcNuitNmois07());
+		stb.append(this.getMjmNmois08());
+		stb.append(this.getPcNuitNmois08());
+		stb.append(this.getMjmNmois09());
+		stb.append(this.getPcNuitNmois09());
+		stb.append(this.getMjmNmois10());
+		stb.append(this.getPcNuitNmois10());
+		stb.append(this.getMjmNmois11());
+		stb.append(this.getPcNuitNmois11());
+		stb.append(this.getMjmNmois12());
+		stb.append(this.getPcNuitNmois12());
+		stb.append(this.getClassementRoute());
+		stb.append(this.getProfilTraversSicre());
+		stb.append(this.getOrigineSection());
+		stb.append(this.getExtremiteSection());
+		stb.append(this.getLieuDitComptage());
+		stb.append(this.getPrComptage());
+		stb.append(this.getAbsComptage());
+		stb.append(this.getItiEuropeen1());
+		stb.append(this.getSousReseauIndice());
+
+		return stb.toString();
+
+	} // Fin de toStringASCII().___________________________________________
 
 
 
@@ -568,10 +1479,41 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String toStringASCII() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public final String fournirEnTeteCsv() {
+		
+		return "id;objetID;route;"
+				+ "depPrD;concessionPrD;prD;absD;"
+				+ "depPrF;concessionPrF;prF;absF;"
+				+ "anneeMesureTrafic;"
+				+ "numSectionTrafic;"
+				+ "sensSectionTrafic;"
+				+ "typeComptageTrafic;"
+				+ "mjaN;pcPLN;pcNuitAnnuelN;"
+				+ "mjaNmoins1;pcPLNmoins1;pcNuitAnnuelNmoins1;"
+				+ "mjaNmoins2;pcPLNmoins2;pcNuitAnnuelNmoins2;"
+				+ "mjaNmoins3;pcPLNmoins3;pcNuitAnnuelNmoins3;"
+				+ "mjaNmoins4;pcPLNmoins4;pcNuitAnnuelNmoins4;"
+				+ "mjaNmoins5;pcPLNmoins5;pcNuitAnnuelNmoins5;"
+				+ "mjmNmois01;pcNuitNmois01;"
+				+ "mjmNmois02;pcNuitNmois02;"
+				+ "mjmNmois03;pcNuitNmois03;"
+				+ "mjmNmois04;pcNuitNmois04;"
+				+ "mjmNmois05;pcNuitNmois05;"
+				+ "mjmNmois06;pcNuitNmois06;"
+				+ "mjmNmois07;pcNuitNmois07;"
+				+ "mjmNmois08;pcNuitNmois08;"
+				+ "mjmNmois09;pcNuitNmois09;"
+				+ "mjmNmois10;pcNuitNmois10;"
+				+ "mjmNmois11;pcNuitNmois11;"
+				+ "mjmNmois12;pcNuitNmois12;"
+				+ "classementRoute;"
+				+ "profilTraversSicre;"
+				+ "origineSection;extremiteSection;"
+				+ "lieuDitComptage;prComptage;absComptage;"
+				+ "itiEuropeen1;"
+				+ "sousReseauIndice;";
+		
+	} // Fin de fournirEnTeteCsv().________________________________________
 
 
 
@@ -579,10 +1521,146 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String fournirEnTeteCsv() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public final String fournirStringCsv() {
+
+		final StringBuilder stb = new StringBuilder();
+
+		stb.append(this.getId());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getObjetID());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getRoute());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getDepPrD());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getConcessionPrD());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPrD());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getAbsD());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getDepPrF());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getConcessionPrF());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPrF());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getAbsF());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getAnneeMesureTrafic());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getNumSectionTrafic());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getSensSectionTrafic());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getTypeComptageTrafic());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjaN());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcPLN());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitAnnuelN());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjaNmoins1());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcPLNmoins1());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitAnnuelNmoins1());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjaNmoins2());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcPLNmoins2());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitAnnuelNmoins2());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjaNmoins3());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcPLNmoins3());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitAnnuelNmoins3());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjaNmoins4());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcPLNmoins4());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitAnnuelNmoins4());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjaNmoins5());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcPLNmoins5());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitAnnuelNmoins5());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois01());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois01());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois02());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois02());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois03());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois03());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois04());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois04());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois05());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois05());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois06());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois06());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois07());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois07());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois08());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois08());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois09());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois09());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois10());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois10());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois11());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois11());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getMjmNmois12());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPcNuitNmois12());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getClassementRoute());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getProfilTraversSicre());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getOrigineSection());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getExtremiteSection());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getLieuDitComptage());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getPrComptage());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getAbsComptage());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getItiEuropeen1());
+		stb.append(POINT_VIRGULE);
+		stb.append(this.getSousReseauIndice());
+		stb.append(POINT_VIRGULE);
+
+		return stb.toString();
+
+	} // Fin de fournirStringCsv().________________________________________
 
 
 
@@ -590,10 +1668,286 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String fournirStringCsv() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public final String fournirEnTeteColonne(
+			final int pI) {
+
+		String entete = null;
+
+		switch (pI) {
+
+		case 0:
+			entete = "id";
+			break;
+
+		case 1:
+			entete = "objetID";
+			break;
+
+		case 2:
+			entete = "route";
+			break;
+
+		case 3:
+			entete = "depPrD";
+			break;
+
+		case 4:
+			entete = "concessionPrD";
+			break;
+
+		case 5:
+			entete = "prD";
+			break;
+
+		case 6:
+			entete = "absD";
+			break;
+
+		case 7:
+			entete = "depPrF";
+			break;
+
+		case 8:
+			entete = "concessionPrF";
+			break;
+
+		case 9:
+			entete = "prF";
+			break;
+
+		case 10:
+			entete = "absF";
+			break;
+
+		case 11:
+			entete = "anneeMesureTrafic";
+			break;
+
+		case 12:
+			entete = "numSectionTrafic";
+			break;
+
+		case 13:
+			entete = "sensSectionTrafic";
+			break;
+
+		case 14:
+			entete = "typeComptageTrafic";
+			break;
+
+		case 15:
+			entete = "mjaN";
+			break;
+
+		case 16:
+			entete = "pcPLN";
+			break;
+
+		case 17:
+			entete = "pcNuitAnnuelN";
+			break;
+
+		case 18:
+			entete = "mjaNmoins1";
+			break;
+
+		case 19:
+			entete = "pcPLNmoins1";
+			break;
+
+		case 20:
+			entete = "pcNuitAnnuelNmoins1";
+			break;
+
+		case 21:
+			entete = "mjaNmoins2";
+			break;
+
+		case 22:
+			entete = "pcPLNmoins2";
+			break;
+
+		case 23:
+			entete = "pcNuitAnnuelNmoins2";
+			break;
+
+		case 24:
+			entete = "mjaNmoins3";
+			break;
+
+		case 25:
+			entete = "pcPLNmoins3";
+			break;
+
+		case 26:
+			entete = "pcNuitAnnuelNmoins3";
+			break;
+
+		case 27:
+			entete = "mjaNmoins4";
+			break;
+
+		case 28:
+			entete = "pcPLNmoins4";
+			break;
+
+		case 29:
+			entete = "pcNuitAnnuelNmoins4";
+			break;
+
+		case 30:
+			entete = "mjaNmoins5";
+			break;
+
+		case 31:
+			entete = "pcPLNmoins5";
+			break;
+
+		case 32:
+			entete = "pcNuitAnnuelNmoins5";
+			break;
+
+		case 33:
+			entete = "mjmNmois01";
+			break;
+
+		case 34:
+			entete = "pcNuitNmois01";
+			break;
+
+		case 35:
+			entete = "mjmNmois02";
+			break;
+
+		case 36:
+			entete = "pcNuitNmois02";
+			break;
+
+		case 37:
+			entete = "mjmNmois03";
+			break;
+
+		case 38:
+			entete = "pcNuitNmois03";
+			break;
+
+		case 39:
+			entete = "mjmNmois04";
+			break;
+
+		case 40:
+			entete = "pcNuitNmois04";
+			break;
+
+		case 41:
+			entete = "mjmNmois05";
+			break;
+
+		case 42:
+			entete = "pcNuitNmois05";
+			break;
+
+		case 43:
+			entete = "mjmNmois06";
+			break;
+
+		case 44:
+			entete = "pcNuitNmois06";
+			break;
+
+		case 45:
+			entete = "mjmNmois07";
+			break;
+
+		case 46:
+			entete = "pcNuitNmois07";
+			break;
+
+		case 47:
+			entete = "mjmNmois08";
+			break;
+
+		case 48:
+			entete = "pcNuitNmois08";
+			break;
+
+		case 49:
+			entete = "mjmNmois09";
+			break;
+
+		case 50:
+			entete = "pcNuitNmois09";
+			break;
+
+		case 51:
+			entete = "mjmNmois10";
+			break;
+
+		case 52:
+			entete = "pcNuitNmois10";
+			break;
+
+		case 53:
+			entete = "mjmNmois11";
+			break;
+
+		case 54:
+			entete = "pcNuitNmois11";
+			break;
+
+		case 55:
+			entete = "mjmNmois12";
+			break;
+
+		case 56:
+			entete = "pcNuitNmois12";
+			break;
+
+		case 57:
+			entete = "classementRoute";
+			break;
+
+		case 58:
+			entete = "profilTraversSicre";
+			break;
+
+		case 59:
+			entete = "origineSection";
+			break;
+
+		case 60:
+			entete = "extremiteSection";
+			break;
+
+		case 61:
+			entete = "lieuDitComptage";
+			break;
+
+		case 62:
+			entete = "prComptage";
+			break;
+
+		case 63:
+			entete = "absComptage";
+			break;
+
+		case 64:
+			entete = "itiEuropeen1";
+			break;
+
+		case 65:
+			entete = "sousReseauIndice";
+			break;
+
+		default:
+			entete = "invalide";
+			break;
+
+		} // Fin du Switch._________________________________
+
+		return entete;
+
+	} // Fin de fournirEnTeteColonne(...)._________________________________
 
 
 
@@ -601,21 +1955,286 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String fournirEnTeteColonne(int pI) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public final Object fournirValeurColonne(
+			final int pI) {
 
+		Object valeur = null;
 
+		switch (pI) {
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Object fournirValeurColonne(int pI) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		case 0:
+			valeur = this.getId();
+			break;
+
+		case 1:
+			valeur = this.getObjetID();
+			break;
+
+		case 2:
+			valeur = this.getRoute();
+			break;
+
+		case 3:
+			valeur = this.getDepPrD();
+			break;
+
+		case 4:
+			valeur = this.getConcessionPrD();
+			break;
+
+		case 5:
+			valeur = this.getPrD();
+			break;
+
+		case 6:
+			valeur = this.getAbsD();
+			break;
+
+		case 7:
+			valeur = this.getDepPrF();
+			break;
+
+		case 8:
+			valeur = this.getConcessionPrF();
+			break;
+
+		case 9:
+			valeur = this.getPrF();
+			break;
+
+		case 10:
+			valeur = this.getAbsF();
+			break;
+
+		case 11:
+			valeur = this.getAnneeMesureTrafic();
+			break;
+
+		case 12:
+			valeur = this.getNumSectionTrafic();
+			break;
+
+		case 13:
+			valeur = this.getSensSectionTrafic();
+			break;
+
+		case 14:
+			valeur = this.getTypeComptageTrafic();
+			break;
+
+		case 15:
+			valeur = this.getMjaN();
+			break;
+
+		case 16:
+			valeur = this.getPcPLN();
+			break;
+
+		case 17:
+			valeur = this.getPcNuitAnnuelN();
+			break;
+
+		case 18:
+			valeur = this.getMjaNmoins1();
+			break;
+
+		case 19:
+			valeur = this.getPcPLNmoins1();
+			break;
+
+		case 20:
+			valeur = this.getPcNuitAnnuelNmoins1();
+			break;
+
+		case 21:
+			valeur = this.getMjaNmoins2();
+			break;
+
+		case 22:
+			valeur = this.getPcPLNmoins2();
+			break;
+
+		case 23:
+			valeur = this.getPcNuitAnnuelNmoins2();
+			break;
+
+		case 24:
+			valeur = this.getMjaNmoins3();
+			break;
+
+		case 25:
+			valeur = this.getPcPLNmoins3();
+			break;
+
+		case 26:
+			valeur = this.getPcNuitAnnuelNmoins3();
+			break;
+
+		case 27:
+			valeur = this.getMjaNmoins4();
+			break;
+
+		case 28:
+			valeur = this.getPcPLNmoins4();
+			break;
+
+		case 29:
+			valeur = this.getPcNuitAnnuelNmoins4();
+			break;
+
+		case 30:
+			valeur = this.getMjaNmoins5();
+			break;
+
+		case 31:
+			valeur = this.getPcPLNmoins5();
+			break;
+
+		case 32:
+			valeur = this.getPcNuitAnnuelNmoins5();
+			break;
+
+		case 33:
+			valeur = this.getMjmNmois01();
+			break;
+
+		case 34:
+			valeur = this.getPcNuitNmois01();
+			break;
+
+		case 35:
+			valeur = this.getMjmNmois02();
+			break;
+
+		case 36:
+			valeur = this.getPcNuitNmois02();
+			break;
+
+		case 37:
+			valeur = this.getMjmNmois03();
+			break;
+
+		case 38:
+			valeur = this.getPcNuitNmois03();
+			break;
+
+		case 39:
+			valeur = this.getMjmNmois04();
+			break;
+
+		case 40:
+			valeur = this.getPcNuitNmois04();
+			break;
+
+		case 41:
+			valeur = this.getMjmNmois05();
+			break;
+
+		case 42:
+			valeur = this.getPcNuitNmois05();
+			break;
+
+		case 43:
+			valeur = this.getMjmNmois06();
+			break;
+
+		case 44:
+			valeur = this.getPcNuitNmois06();
+			break;
+
+		case 45:
+			valeur = this.getMjmNmois07();
+			break;
+
+		case 46:
+			valeur = this.getPcNuitNmois07();
+			break;
+
+		case 47:
+			valeur = this.getMjmNmois08();
+			break;
+
+		case 48:
+			valeur = this.getPcNuitNmois08();
+			break;
+
+		case 49:
+			valeur = this.getMjmNmois09();
+			break;
+
+		case 50:
+			valeur = this.getPcNuitNmois09();
+			break;
+
+		case 51:
+			valeur = this.getMjmNmois10();
+			break;
+
+		case 52:
+			valeur = this.getPcNuitNmois10();
+			break;
+
+		case 53:
+			valeur = this.getMjmNmois11();
+			break;
+
+		case 54:
+			valeur = this.getPcNuitNmois11();
+			break;
+
+		case 55:
+			valeur = this.getMjmNmois12();
+			break;
+
+		case 56:
+			valeur = this.getPcNuitNmois12();
+			break;
+
+		case 57:
+			valeur = this.getClassementRoute();
+			break;
+
+		case 58:
+			valeur = this.getProfilTraversSicre();
+			break;
+
+		case 59:
+			valeur = this.getOrigineSection();
+			break;
+
+		case 60:
+			valeur = this.getExtremiteSection();
+			break;
+
+		case 61:
+			valeur = this.getLieuDitComptage();
+			break;
+
+		case 62:
+			valeur = this.getPrComptage();
+			break;
+
+		case 63:
+			valeur = this.getAbsComptage();
+			break;
+
+		case 64:
+			valeur = this.getItiEuropeen1();
+			break;
+
+		case 65:
+			valeur = this.getSousReseauIndice();
+			break;
+
+		default:
+			valeur = "invalide";
+			break;
+
+		} // Fin du Switch._________________________________
+
+		return valeur;
+
+	} // Fin de fournirValeurColonne(...)._________________________________
 
 
 

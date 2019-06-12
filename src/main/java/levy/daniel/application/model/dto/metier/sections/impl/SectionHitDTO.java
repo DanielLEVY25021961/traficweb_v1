@@ -841,8 +841,8 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * Instancie un DTO à partir d'une SortedMap&lt;Integer, String&gt; 
 	 * description de ligne d'un fichier HIT.<br/>
 	 * <br/>
-	 * - LOG.fatal et jette une RunTImeException 
-	 * si pDescriptionChamp == null.<br/>
+	 * - LOG.fatal et jette une RunTimeException 
+	 * si pDescriptionLigne == null.<br/>
 	 * </br/>
 	 * 
 	 * 
@@ -852,7 +852,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 		
 		super();
 		
-		/* LOG.fatal et jette une RunTImeException si pDescriptionChamp == null. */
+		/* LOG.fatal et jette une RunTimeException si pDescriptionLigne == null. */
 		if (pDescriptionLigne == null) {
 			
 			final String message 
@@ -1002,7 +1002,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		this.setPcNuitNmoins1mois12(pDescriptionLigne.get(132));
 		this.setZoneLibre4(pDescriptionLigne.get(133));
 
-	}
+	} // Fin de CONSTRUCTEUR CONVERTISSEUR.________________________________
+	
+	
 		
 	/**
 	 * {@inheritDoc}
@@ -1067,153 +1069,154 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final boolean equals(
-			final Object pObject) {
+			final Object pObjet) {
 		
-		if (this == pObject) {
+		if (this == pObjet) {
 			return true;
 		}
-		if (pObject == null) {
+		if (pObjet == null) {
 			return false;
 		}
-		if (!(pObject instanceof SectionHitDTO)) {
+		if (!(pObjet instanceof SectionHitDTO)) {
 			return false;
 		}
 		
-		final SectionHitDTO other = (SectionHitDTO) pObject;
-		
-		return Objects.equals(this.absComptage, other.absComptage) 
-				&& Objects.equals(this.absExtremite, other.absExtremite)
-				&& Objects.equals(this.absOrigine, other.absOrigine) 
-				&& Objects.equals(this.anneeNmoins1, other.anneeNmoins1)
-				&& Objects.equals(this.anneeNmoins2, other.anneeNmoins2) 
-				&& Objects.equals(this.anneeNmoins3, other.anneeNmoins3)
-				&& Objects.equals(this.anneeNmoins4, other.anneeNmoins4) 
-				&& Objects.equals(this.anneeNmoins5, other.anneeNmoins5)
-				&& Objects.equals(this.anneeSectionnement, other.anneeSectionnement)
-				&& Objects.equals(this.anneeTraitement, other.anneeTraitement)
-				&& Objects.equals(this.categorieAdminRoute, other.categorieAdminRoute)
-				&& Objects.equals(this.classe, other.classe)
-				&& Objects.equals(this.classeLargeurChausseeU, other.classeLargeurChausseeU)
-				&& Objects.equals(this.classeLargeurChausseesS, other.classeLargeurChausseesS)
-				&& Objects.equals(this.classementRoute, other.classementRoute)
-				&& Objects.equals(this.evaluationPLN, other.evaluationPLN)
-				&& Objects.equals(this.evaluationPLNmoins1, other.evaluationPLNmoins1)
-				&& Objects.equals(this.evaluationPLNmoins2, other.evaluationPLNmoins2)
-				&& Objects.equals(this.evaluationPLNmoins3, other.evaluationPLNmoins3)
-				&& Objects.equals(this.evaluationPLNmoins4, other.evaluationPLNmoins4)
-				&& Objects.equals(this.evaluationPLNmoins5, other.evaluationPLNmoins5)
-				&& Objects.equals(this.indiceFiabiliteMjaN, other.indiceFiabiliteMjaN)
-				&& Objects.equals(this.indiceFiabiliteMjaNmoins1, other.indiceFiabiliteMjaNmoins1)
-				&& Objects.equals(this.indiceFiabiliteMjaNmoins2, other.indiceFiabiliteMjaNmoins2)
-				&& Objects.equals(this.indiceFiabiliteMjaNmoins3, other.indiceFiabiliteMjaNmoins3)
-				&& Objects.equals(this.indiceFiabiliteMjaNmoins4, other.indiceFiabiliteMjaNmoins4)
-				&& Objects.equals(this.indiceFiabiliteMjaNmoins5, other.indiceFiabiliteMjaNmoins5)
-				&& Objects.equals(this.indiceLettreRoute, other.indiceLettreRoute)
-				&& Objects.equals(this.indiceNumRoute, other.indiceNumRoute)
-				&& Objects.equals(this.lieuDitComptage, other.lieuDitComptage)
-				&& Objects.equals(this.lieuDitExtremite, other.lieuDitExtremite)
-				&& Objects.equals(this.lieuDitOrigine, other.lieuDitOrigine)
-				&& Objects.equals(this.longueurRaseCampagne, other.longueurRaseCampagne)
-				&& Objects.equals(this.longueurSection, other.longueurSection) 
-				&& Objects.equals(this.mjaN, other.mjaN)
-				&& Objects.equals(this.mjaNmoins1, other.mjaNmoins1) 
-				&& Objects.equals(this.mjaNmoins2, other.mjaNmoins2)
-				&& Objects.equals(this.mjaNmoins3, other.mjaNmoins3) 
-				&& Objects.equals(this.mjaNmoins4, other.mjaNmoins4)
-				&& Objects.equals(this.mjaNmoins5, other.mjaNmoins5)
-				&& Objects.equals(this.mjmNmoins1mois01, other.mjmNmoins1mois01)
-				&& Objects.equals(this.mjmNmoins1mois02, other.mjmNmoins1mois02)
-				&& Objects.equals(this.mjmNmoins1mois03, other.mjmNmoins1mois03)
-				&& Objects.equals(this.mjmNmoins1mois04, other.mjmNmoins1mois04)
-				&& Objects.equals(this.mjmNmoins1mois05, other.mjmNmoins1mois05)
-				&& Objects.equals(this.mjmNmoins1mois06, other.mjmNmoins1mois06)
-				&& Objects.equals(this.mjmNmoins1mois07, other.mjmNmoins1mois07)
-				&& Objects.equals(this.mjmNmoins1mois08, other.mjmNmoins1mois08)
-				&& Objects.equals(this.mjmNmoins1mois09, other.mjmNmoins1mois09)
-				&& Objects.equals(this.mjmNmoins1mois10, other.mjmNmoins1mois10)
-				&& Objects.equals(this.mjmNmoins1mois11, other.mjmNmoins1mois11)
-				&& Objects.equals(this.mjmNmoins1mois12, other.mjmNmoins1mois12)
-				&& Objects.equals(this.mjmNmois01, other.mjmNmois01) 
-				&& Objects.equals(this.mjmNmois02, other.mjmNmois02)
-				&& Objects.equals(this.mjmNmois03, other.mjmNmois03) 
-				&& Objects.equals(this.mjmNmois04, other.mjmNmois04)
-				&& Objects.equals(this.mjmNmois05, other.mjmNmois05) 
-				&& Objects.equals(this.mjmNmois06, other.mjmNmois06)
-				&& Objects.equals(this.mjmNmois07, other.mjmNmois07) 
-				&& Objects.equals(this.mjmNmois08, other.mjmNmois08)
-				&& Objects.equals(this.mjmNmois09, other.mjmNmois09) 
-				&& Objects.equals(this.mjmNmois10, other.mjmNmois10)
-				&& Objects.equals(this.mjmNmois11, other.mjmNmois11) 
-				&& Objects.equals(this.mjmNmois12, other.mjmNmois12)
-				&& Objects.equals(this.modeCalculN, other.modeCalculN)
-				&& Objects.equals(this.modeCalculNmoins1, other.modeCalculNmoins1)
-				&& Objects.equals(this.modeCalculNmoins2, other.modeCalculNmoins2)
-				&& Objects.equals(this.modeCalculNmoins3, other.modeCalculNmoins3)
-				&& Objects.equals(this.modeCalculNmoins4, other.modeCalculNmoins4)
-				&& Objects.equals(this.modeCalculNmoins5, other.modeCalculNmoins5)
-				&& Objects.equals(this.moisSectionnement, other.moisSectionnement) 
-				&& Objects.equals(this.nature, other.nature)
-				&& Objects.equals(this.numDepartement, other.numDepartement)
-				&& Objects.equals(this.numDepartementLimitrophe, other.numDepartementLimitrophe)
-				&& Objects.equals(this.numDepartementRattachement, other.numDepartementRattachement)
-				&& Objects.equals(this.numRoute, other.numRoute) 
-				&& Objects.equals(this.numSection, other.numSection)
-				&& Objects.equals(this.numSectionLimitrophe, other.numSectionLimitrophe)
-				&& Objects.equals(this.numSectionRattachement, other.numSectionRattachement)
-				&& Objects.equals(this.pRoupK, other.pRoupK) 
-				&& Objects.equals(this.pcNuitAnnuelN, other.pcNuitAnnuelN)
-				&& Objects.equals(this.pcNuitAnnuelNmoins1, other.pcNuitAnnuelNmoins1)
-				&& Objects.equals(this.pcNuitAnnuelNmoins2, other.pcNuitAnnuelNmoins2)
-				&& Objects.equals(this.pcNuitAnnuelNmoins3, other.pcNuitAnnuelNmoins3)
-				&& Objects.equals(this.pcNuitAnnuelNmoins4, other.pcNuitAnnuelNmoins4)
-				&& Objects.equals(this.pcNuitAnnuelNmoins5, other.pcNuitAnnuelNmoins5)
-				&& Objects.equals(this.pcNuitNmoins1mois01, other.pcNuitNmoins1mois01)
-				&& Objects.equals(this.pcNuitNmoins1mois02, other.pcNuitNmoins1mois02)
-				&& Objects.equals(this.pcNuitNmoins1mois03, other.pcNuitNmoins1mois03)
-				&& Objects.equals(this.pcNuitNmoins1mois04, other.pcNuitNmoins1mois04)
-				&& Objects.equals(this.pcNuitNmoins1mois05, other.pcNuitNmoins1mois05)
-				&& Objects.equals(this.pcNuitNmoins1mois06, other.pcNuitNmoins1mois06)
-				&& Objects.equals(this.pcNuitNmoins1mois07, other.pcNuitNmoins1mois07)
-				&& Objects.equals(this.pcNuitNmoins1mois08, other.pcNuitNmoins1mois08)
-				&& Objects.equals(this.pcNuitNmoins1mois09, other.pcNuitNmoins1mois09)
-				&& Objects.equals(this.pcNuitNmoins1mois10, other.pcNuitNmoins1mois10)
-				&& Objects.equals(this.pcNuitNmoins1mois11, other.pcNuitNmoins1mois11)
-				&& Objects.equals(this.pcNuitNmoins1mois12, other.pcNuitNmoins1mois12)
-				&& Objects.equals(this.pcNuitNmois01, other.pcNuitNmois01)
-				&& Objects.equals(this.pcNuitNmois02, other.pcNuitNmois02)
-				&& Objects.equals(this.pcNuitNmois03, other.pcNuitNmois03)
-				&& Objects.equals(this.pcNuitNmois04, other.pcNuitNmois04)
-				&& Objects.equals(this.pcNuitNmois05, other.pcNuitNmois05)
-				&& Objects.equals(this.pcNuitNmois06, other.pcNuitNmois06)
-				&& Objects.equals(this.pcNuitNmois07, other.pcNuitNmois07)
-				&& Objects.equals(this.pcNuitNmois08, other.pcNuitNmois08)
-				&& Objects.equals(this.pcNuitNmois09, other.pcNuitNmois09)
-				&& Objects.equals(this.pcNuitNmois10, other.pcNuitNmois10)
-				&& Objects.equals(this.pcNuitNmois11, other.pcNuitNmois11)
-				&& Objects.equals(this.pcNuitNmois12, other.pcNuitNmois12) 
-				&& Objects.equals(this.pcPLN, other.pcPLN)
-				&& Objects.equals(this.pcPLNmoins1, other.pcPLNmoins1) 
-				&& Objects.equals(this.pcPLNmoins2, other.pcPLNmoins2)
-				&& Objects.equals(this.pcPLNmoins3, other.pcPLNmoins3) 
-				&& Objects.equals(this.pcPLNmoins4, other.pcPLNmoins4)
-				&& Objects.equals(this.pcPLNmoins5, other.pcPLNmoins5) 
-				&& Objects.equals(this.prComptage, other.prComptage)
-				&& Objects.equals(this.prExtremite, other.prExtremite) 
-				&& Objects.equals(this.prOrigine, other.prOrigine)
-				&& Objects.equals(this.sens, other.sens) 
-				&& Objects.equals(this.sensLimitrophe, other.sensLimitrophe)
-				&& Objects.equals(this.sensRattachement, other.sensRattachement)
-				&& Objects.equals(this.typeComptage, other.typeComptage)
-				&& Objects.equals(this.typeComptageNmoins1, other.typeComptageNmoins1)
-				&& Objects.equals(this.typeComptageNmoins2, other.typeComptageNmoins2)
-				&& Objects.equals(this.typeComptageNmoins3, other.typeComptageNmoins3)
-				&& Objects.equals(this.typeComptageNmoins4, other.typeComptageNmoins4)
-				&& Objects.equals(this.typeComptageNmoins5, other.typeComptageNmoins5)
-				&& Objects.equals(this.typeReseau, other.typeReseau) 
-				&& Objects.equals(this.zoneLibre1, other.zoneLibre1)
-				&& Objects.equals(this.zoneLibre2, other.zoneLibre2) 
-				&& Objects.equals(this.zoneLibre3, other.zoneLibre3)
-				&& Objects.equals(this.zoneLibre4, other.zoneLibre4);
+		final SectionHitDTO other = (SectionHitDTO) pObjet;
+
+		return Objects
+			.equals(this.getNumDepartement(), other.getNumDepartement())
+			&& Objects.equals(this.getNumSection(), other.getNumSection())
+			&& Objects.equals(this.getSens(), other.getSens())
+			&& Objects.equals(this.getNature(), other.getNature())
+			&& Objects.equals(this.getClasse(), other.getClasse())
+			&& Objects.equals(this.getAnneeTraitement(), other.getAnneeTraitement())
+			&& Objects.equals(this.getZoneLibre1(), other.getZoneLibre1())
+			&& Objects.equals(this.getNumRoute(), other.getNumRoute())
+			&& Objects.equals(this.getIndiceNumRoute(), other.getIndiceNumRoute())
+			&& Objects.equals(this.getIndiceLettreRoute(), other.getIndiceLettreRoute())
+			&& Objects.equals(this.getCategorieAdminRoute(), other.getCategorieAdminRoute())
+			&& Objects.equals(this.getTypeComptage(), other.getTypeComptage())
+			&& Objects.equals(this.getClassementRoute(), other.getClassementRoute())
+			&& Objects.equals(this.getClasseLargeurChausseeU(), other.getClasseLargeurChausseeU())
+			&& Objects.equals(this.getClasseLargeurChausseesS(), other.getClasseLargeurChausseesS())
+			&& Objects.equals(this.getTypeReseau(), other.getTypeReseau())
+			&& Objects.equals(this.getPRoupK(), other.getPRoupK())
+			&& Objects.equals(this.getLieuDitOrigine(), other.getLieuDitOrigine())
+			&& Objects.equals(this.getPrOrigine(), other.getPrOrigine())
+			&& Objects.equals(this.getAbsOrigine(), other.getAbsOrigine())
+			&& Objects.equals(this.getLieuDitExtremite(), other.getLieuDitExtremite())
+			&& Objects.equals(this.getPrExtremite(), other.getPrExtremite())
+			&& Objects.equals(this.getAbsExtremite(), other.getAbsExtremite())
+			&& Objects.equals(this.getLieuDitComptage(), other.getLieuDitComptage())
+			&& Objects.equals(this.getPrComptage(), other.getPrComptage())
+			&& Objects.equals(this.getAbsComptage(), other.getAbsComptage())
+			&& Objects.equals(this.getLongueurSection(), other.getLongueurSection())
+			&& Objects.equals(this.getLongueurRaseCampagne(), other.getLongueurRaseCampagne())
+			&& Objects.equals(this.getNumDepartementRattachement(), other.getNumDepartementRattachement())
+			&& Objects.equals(this.getNumSectionRattachement(), other.getNumSectionRattachement())
+			&& Objects.equals(this.getSensRattachement(), other.getSensRattachement())
+			&& Objects.equals(this.getNumDepartementLimitrophe(), other.getNumDepartementLimitrophe())
+			&& Objects.equals(this.getNumSectionLimitrophe(), other.getNumSectionLimitrophe())
+			&& Objects.equals(this.getSensLimitrophe(), other.getSensLimitrophe())
+			&& Objects.equals(this.getMoisSectionnement(), other.getMoisSectionnement())
+			&& Objects.equals(this.getAnneeSectionnement(), other.getAnneeSectionnement())
+			&& Objects.equals(this.getZoneLibre2(), other.getZoneLibre2())
+			&& Objects.equals(this.getMjaN(), other.getMjaN())
+			&& Objects.equals(this.getModeCalculN(), other.getModeCalculN())
+			&& Objects.equals(this.getPcPLN(), other.getPcPLN())
+			&& Objects.equals(this.getEvaluationPLN(), other.getEvaluationPLN())
+			&& Objects.equals(this.getPcNuitAnnuelN(), other.getPcNuitAnnuelN())
+			&& Objects.equals(this.getIndiceFiabiliteMjaN(), other.getIndiceFiabiliteMjaN())
+			&& Objects.equals(this.getMjmNmois01(), other.getMjmNmois01())
+			&& Objects.equals(this.getPcNuitNmois01(), other.getPcNuitNmois01())
+			&& Objects.equals(this.getMjmNmois02(), other.getMjmNmois02())
+			&& Objects.equals(this.getPcNuitNmois02(), other.getPcNuitNmois02())
+			&& Objects.equals(this.getMjmNmois03(), other.getMjmNmois03())
+			&& Objects.equals(this.getPcNuitNmois03(), other.getPcNuitNmois03())
+			&& Objects.equals(this.getMjmNmois04(), other.getMjmNmois04())
+			&& Objects.equals(this.getPcNuitNmois04(), other.getPcNuitNmois04())
+			&& Objects.equals(this.getMjmNmois05(), other.getMjmNmois05())
+			&& Objects.equals(this.getPcNuitNmois05(), other.getPcNuitNmois05())
+			&& Objects.equals(this.getMjmNmois06(), other.getMjmNmois06())
+			&& Objects.equals(this.getPcNuitNmois06(), other.getPcNuitNmois06())
+			&& Objects.equals(this.getMjmNmois07(), other.getMjmNmois07())
+			&& Objects.equals(this.getPcNuitNmois07(), other.getPcNuitNmois07())
+			&& Objects.equals(this.getMjmNmois08(), other.getMjmNmois08())
+			&& Objects.equals(this.getPcNuitNmois08(), other.getPcNuitNmois08())
+			&& Objects.equals(this.getMjmNmois09(), other.getMjmNmois09())
+			&& Objects.equals(this.getPcNuitNmois09(), other.getPcNuitNmois09())
+			&& Objects.equals(this.getMjmNmois10(), other.getMjmNmois10())
+			&& Objects.equals(this.getPcNuitNmois10(), other.getPcNuitNmois10())
+			&& Objects.equals(this.getMjmNmois11(), other.getMjmNmois11())
+			&& Objects.equals(this.getPcNuitNmois11(), other.getPcNuitNmois11())
+			&& Objects.equals(this.getMjmNmois12(), other.getMjmNmois12())
+			&& Objects.equals(this.getPcNuitNmois12(), other.getPcNuitNmois12())
+			&& Objects.equals(this.getZoneLibre3(), other.getZoneLibre3())
+			&& Objects.equals(this.getAnneeNmoins1(), other.getAnneeNmoins1())
+			&& Objects.equals(this.getMjaNmoins1(), other.getMjaNmoins1())
+			&& Objects.equals(this.getTypeComptageNmoins1(), other.getTypeComptageNmoins1())
+			&& Objects.equals(this.getModeCalculNmoins1(), other.getModeCalculNmoins1())
+			&& Objects.equals(this.getPcPLNmoins1(), other.getPcPLNmoins1())
+			&& Objects.equals(this.getEvaluationPLNmoins1(), other.getEvaluationPLNmoins1())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins1(), other.getPcNuitAnnuelNmoins1())
+			&& Objects.equals(this.getIndiceFiabiliteMjaNmoins1(), other.getIndiceFiabiliteMjaNmoins1())
+			&& Objects.equals(this.getAnneeNmoins2(), other.getAnneeNmoins2())
+			&& Objects.equals(this.getMjaNmoins2(), other.getMjaNmoins2())
+			&& Objects.equals(this.getTypeComptageNmoins2(), other.getTypeComptageNmoins2())
+			&& Objects.equals(this.getModeCalculNmoins2(), other.getModeCalculNmoins2())
+			&& Objects.equals(this.getPcPLNmoins2(), other.getPcPLNmoins2())
+			&& Objects.equals(this.getEvaluationPLNmoins2(), other.getEvaluationPLNmoins2())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins2(), other.getPcNuitAnnuelNmoins2())
+			&& Objects.equals(this.getIndiceFiabiliteMjaNmoins2(), other.getIndiceFiabiliteMjaNmoins2())
+			&& Objects.equals(this.getAnneeNmoins3(), other.getAnneeNmoins3())
+			&& Objects.equals(this.getMjaNmoins3(), other.getMjaNmoins3())
+			&& Objects.equals(this.getTypeComptageNmoins3(), other.getTypeComptageNmoins3())
+			&& Objects.equals(this.getModeCalculNmoins3(), other.getModeCalculNmoins3())
+			&& Objects.equals(this.getPcPLNmoins3(), other.getPcPLNmoins3())
+			&& Objects.equals(this.getEvaluationPLNmoins3(), other.getEvaluationPLNmoins3())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins3(), other.getPcNuitAnnuelNmoins3())
+			&& Objects.equals(this.getIndiceFiabiliteMjaNmoins3(), other.getIndiceFiabiliteMjaNmoins3())
+			&& Objects.equals(this.getAnneeNmoins4(), other.getAnneeNmoins4())
+			&& Objects.equals(this.getMjaNmoins4(), other.getMjaNmoins4())
+			&& Objects.equals(this.getTypeComptageNmoins4(), other.getTypeComptageNmoins4())
+			&& Objects.equals(this.getModeCalculNmoins4(), other.getModeCalculNmoins4())
+			&& Objects.equals(this.getPcPLNmoins4(), other.getPcPLNmoins4())
+			&& Objects.equals(this.getEvaluationPLNmoins4(), other.getEvaluationPLNmoins4())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins4(), other.getPcNuitAnnuelNmoins4())
+			&& Objects.equals(this.getIndiceFiabiliteMjaNmoins4(), other.getIndiceFiabiliteMjaNmoins4())
+			&& Objects.equals(this.getAnneeNmoins5(), other.getAnneeNmoins5())
+			&& Objects.equals(this.getMjaNmoins5(), other.getMjaNmoins5())
+			&& Objects.equals(this.getTypeComptageNmoins5(), other.getTypeComptageNmoins5())
+			&& Objects.equals(this.getModeCalculNmoins5(), other.getModeCalculNmoins5())
+			&& Objects.equals(this.getPcPLNmoins5(), other.getPcPLNmoins5())
+			&& Objects.equals(this.getEvaluationPLNmoins5(), other.getEvaluationPLNmoins5())
+			&& Objects.equals(this.getPcNuitAnnuelNmoins5(), other.getPcNuitAnnuelNmoins5())
+			&& Objects.equals(this.getIndiceFiabiliteMjaNmoins5(), other.getIndiceFiabiliteMjaNmoins5())
+			&& Objects.equals(this.getMjmNmoins1mois01(), other.getMjmNmoins1mois01())
+			&& Objects.equals(this.getPcNuitNmoins1mois01(), other.getPcNuitNmoins1mois01())
+			&& Objects.equals(this.getMjmNmoins1mois02(), other.getMjmNmoins1mois02())
+			&& Objects.equals(this.getPcNuitNmoins1mois02(), other.getPcNuitNmoins1mois02())
+			&& Objects.equals(this.getMjmNmoins1mois03(), other.getMjmNmoins1mois03())
+			&& Objects.equals(this.getPcNuitNmoins1mois03(), other.getPcNuitNmoins1mois03())
+			&& Objects.equals(this.getMjmNmoins1mois04(), other.getMjmNmoins1mois04())
+			&& Objects.equals(this.getPcNuitNmoins1mois04(), other.getPcNuitNmoins1mois04())
+			&& Objects.equals(this.getMjmNmoins1mois05(), other.getMjmNmoins1mois05())
+			&& Objects.equals(this.getPcNuitNmoins1mois05(), other.getPcNuitNmoins1mois05())
+			&& Objects.equals(this.getMjmNmoins1mois06(), other.getMjmNmoins1mois06())
+			&& Objects.equals(this.getPcNuitNmoins1mois06(), other.getPcNuitNmoins1mois06())
+			&& Objects.equals(this.getMjmNmoins1mois07(), other.getMjmNmoins1mois07())
+			&& Objects.equals(this.getPcNuitNmoins1mois07(), other.getPcNuitNmoins1mois07())
+			&& Objects.equals(this.getMjmNmoins1mois08(), other.getMjmNmoins1mois08())
+			&& Objects.equals(this.getPcNuitNmoins1mois08(), other.getPcNuitNmoins1mois08())
+			&& Objects.equals(this.getMjmNmoins1mois09(), other.getMjmNmoins1mois09())
+			&& Objects.equals(this.getPcNuitNmoins1mois09(), other.getPcNuitNmoins1mois09())
+			&& Objects.equals(this.getMjmNmoins1mois10(), other.getMjmNmoins1mois10())
+			&& Objects.equals(this.getPcNuitNmoins1mois10(), other.getPcNuitNmoins1mois10())
+			&& Objects.equals(this.getMjmNmoins1mois11(), other.getMjmNmoins1mois11())
+			&& Objects.equals(this.getPcNuitNmoins1mois11(), other.getPcNuitNmoins1mois11())
+			&& Objects.equals(this.getMjmNmoins1mois12(), other.getMjmNmoins1mois12())
+			&& Objects.equals(this.getPcNuitNmoins1mois12(), other.getPcNuitNmoins1mois12())
+			&& Objects.equals(this.getZoneLibre4(), other.getZoneLibre4());
 		
 	} // Fin de equals(...)._______________________________________________
 
@@ -1319,6 +1322,156 @@ public class SectionHitDTO implements ISectionHitDTO {
 		return compareNumeroRoute;
 
 	} // Fin de compareTo(...).____________________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final ISectionHitDTO clone() throws CloneNotSupportedException {
+		
+		final ISectionHitDTO clone 
+			= (ISectionHitDTO) super.clone();
+				
+		clone.setId(this.getId());
+		clone.setNumDepartement(this.getNumDepartement());
+		clone.setNumSection(this.getNumSection());
+		clone.setSens(this.getSens());
+		clone.setNature(this.getNature());
+		clone.setClasse(this.getClasse());
+		clone.setAnneeTraitement(this.getAnneeTraitement());
+		clone.setZoneLibre1(this.getZoneLibre1());
+		clone.setNumRoute(this.getNumRoute());
+		clone.setIndiceNumRoute(this.getIndiceNumRoute());
+		clone.setIndiceLettreRoute(this.getIndiceLettreRoute());
+		clone.setCategorieAdminRoute(this.getCategorieAdminRoute());
+		clone.setTypeComptage(this.getTypeComptage());
+		clone.setClassementRoute(this.getClassementRoute());
+		clone.setClasseLargeurChausseeU(this.getClasseLargeurChausseeU());
+		clone.setClasseLargeurChausseesS(this.getClasseLargeurChausseesS());
+		clone.setTypeReseau(this.getTypeReseau());
+		clone.setPRoupK(this.getPRoupK());
+		clone.setLieuDitOrigine(this.getLieuDitOrigine());
+		clone.setPrOrigine(this.getPrOrigine());
+		clone.setAbsOrigine(this.getAbsOrigine());
+		clone.setLieuDitExtremite(this.getLieuDitExtremite());
+		clone.setPrExtremite(this.getPrExtremite());
+		clone.setAbsExtremite(this.getAbsExtremite());
+		clone.setLieuDitComptage(this.getLieuDitComptage());
+		clone.setPrComptage(this.getPrComptage());
+		clone.setAbsComptage(this.getAbsComptage());
+		clone.setLongueurSection(this.getLongueurSection());
+		clone.setLongueurRaseCampagne(this.getLongueurRaseCampagne());
+		clone.setNumDepartementRattachement(this.getNumDepartementRattachement());
+		clone.setNumSectionRattachement(this.getNumSectionRattachement());
+		clone.setSensRattachement(this.getSensRattachement());
+		clone.setNumDepartementLimitrophe(this.getNumDepartementLimitrophe());
+		clone.setNumSectionLimitrophe(this.getNumSectionLimitrophe());
+		clone.setSensLimitrophe(this.getSensLimitrophe());
+		clone.setMoisSectionnement(this.getMoisSectionnement());
+		clone.setAnneeSectionnement(this.getAnneeSectionnement());
+		clone.setZoneLibre2(this.getZoneLibre2());
+		clone.setMjaN(this.getMjaN());
+		clone.setModeCalculN(this.getModeCalculN());
+		clone.setPcPLN(this.getPcPLN());
+		clone.setEvaluationPLN(this.getEvaluationPLN());
+		clone.setPcNuitAnnuelN(this.getPcNuitAnnuelN());
+		clone.setIndiceFiabiliteMjaN(this.getIndiceFiabiliteMjaN());
+		clone.setMjmNmois01(this.getMjmNmois01());
+		clone.setPcNuitNmois01(this.getPcNuitNmois01());
+		clone.setMjmNmois02(this.getMjmNmois02());
+		clone.setPcNuitNmois02(this.getPcNuitNmois02());
+		clone.setMjmNmois03(this.getMjmNmois03());
+		clone.setPcNuitNmois03(this.getPcNuitNmois03());
+		clone.setMjmNmois04(this.getMjmNmois04());
+		clone.setPcNuitNmois04(this.getPcNuitNmois04());
+		clone.setMjmNmois05(this.getMjmNmois05());
+		clone.setPcNuitNmois05(this.getPcNuitNmois05());
+		clone.setMjmNmois06(this.getMjmNmois06());
+		clone.setPcNuitNmois06(this.getPcNuitNmois06());
+		clone.setMjmNmois07(this.getMjmNmois07());
+		clone.setPcNuitNmois07(this.getPcNuitNmois07());
+		clone.setMjmNmois08(this.getMjmNmois08());
+		clone.setPcNuitNmois08(this.getPcNuitNmois08());
+		clone.setMjmNmois09(this.getMjmNmois09());
+		clone.setPcNuitNmois09(this.getPcNuitNmois09());
+		clone.setMjmNmois10(this.getMjmNmois10());
+		clone.setPcNuitNmois10(this.getPcNuitNmois10());
+		clone.setMjmNmois11(this.getMjmNmois11());
+		clone.setPcNuitNmois11(this.getPcNuitNmois11());
+		clone.setMjmNmois12(this.getMjmNmois12());
+		clone.setPcNuitNmois12(this.getPcNuitNmois12());
+		clone.setZoneLibre3(this.getZoneLibre3());
+		clone.setAnneeNmoins1(this.getAnneeNmoins1());
+		clone.setMjaNmoins1(this.getMjaNmoins1());
+		clone.setTypeComptageNmoins1(this.getTypeComptageNmoins1());
+		clone.setModeCalculNmoins1(this.getModeCalculNmoins1());
+		clone.setPcPLNmoins1(this.getPcPLNmoins1());
+		clone.setEvaluationPLNmoins1(this.getEvaluationPLNmoins1());
+		clone.setPcNuitAnnuelNmoins1(this.getPcNuitAnnuelNmoins1());
+		clone.setIndiceFiabiliteMjaNmoins1(this.getIndiceFiabiliteMjaNmoins1());
+		clone.setAnneeNmoins2(this.getAnneeNmoins2());
+		clone.setMjaNmoins2(this.getMjaNmoins2());
+		clone.setTypeComptageNmoins2(this.getTypeComptageNmoins2());
+		clone.setModeCalculNmoins2(this.getModeCalculNmoins2());
+		clone.setPcPLNmoins2(this.getPcPLNmoins2());
+		clone.setEvaluationPLNmoins2(this.getEvaluationPLNmoins2());
+		clone.setPcNuitAnnuelNmoins2(this.getPcNuitAnnuelNmoins2());
+		clone.setIndiceFiabiliteMjaNmoins2(this.getIndiceFiabiliteMjaNmoins2());
+		clone.setAnneeNmoins3(this.getAnneeNmoins3());
+		clone.setMjaNmoins3(this.getMjaNmoins3());
+		clone.setTypeComptageNmoins3(this.getTypeComptageNmoins3());
+		clone.setModeCalculNmoins3(this.getModeCalculNmoins3());
+		clone.setPcPLNmoins3(this.getPcPLNmoins3());
+		clone.setEvaluationPLNmoins3(this.getEvaluationPLNmoins3());
+		clone.setPcNuitAnnuelNmoins3(this.getPcNuitAnnuelNmoins3());
+		clone.setIndiceFiabiliteMjaNmoins3(this.getIndiceFiabiliteMjaNmoins3());
+		clone.setAnneeNmoins4(this.getAnneeNmoins4());
+		clone.setMjaNmoins4(this.getMjaNmoins4());
+		clone.setTypeComptageNmoins4(this.getTypeComptageNmoins4());
+		clone.setModeCalculNmoins4(this.getModeCalculNmoins4());
+		clone.setPcPLNmoins4(this.getPcPLNmoins4());
+		clone.setEvaluationPLNmoins4(this.getEvaluationPLNmoins4());
+		clone.setPcNuitAnnuelNmoins4(this.getPcNuitAnnuelNmoins4());
+		clone.setIndiceFiabiliteMjaNmoins4(this.getIndiceFiabiliteMjaNmoins4());
+		clone.setAnneeNmoins5(this.getAnneeNmoins5());
+		clone.setMjaNmoins5(this.getMjaNmoins5());
+		clone.setTypeComptageNmoins5(this.getTypeComptageNmoins5());
+		clone.setModeCalculNmoins5(this.getModeCalculNmoins5());
+		clone.setPcPLNmoins5(this.getPcPLNmoins5());
+		clone.setEvaluationPLNmoins5(this.getEvaluationPLNmoins5());
+		clone.setPcNuitAnnuelNmoins5(this.getPcNuitAnnuelNmoins5());
+		clone.setIndiceFiabiliteMjaNmoins5(this.getIndiceFiabiliteMjaNmoins5());
+		clone.setMjmNmoins1mois01(this.getMjmNmoins1mois01());
+		clone.setPcNuitNmoins1mois01(this.getPcNuitNmoins1mois01());
+		clone.setMjmNmoins1mois02(this.getMjmNmoins1mois02());
+		clone.setPcNuitNmoins1mois02(this.getPcNuitNmoins1mois02());
+		clone.setMjmNmoins1mois03(this.getMjmNmoins1mois03());
+		clone.setPcNuitNmoins1mois03(this.getPcNuitNmoins1mois03());
+		clone.setMjmNmoins1mois04(this.getMjmNmoins1mois04());
+		clone.setPcNuitNmoins1mois04(this.getPcNuitNmoins1mois04());
+		clone.setMjmNmoins1mois05(this.getMjmNmoins1mois05());
+		clone.setPcNuitNmoins1mois05(this.getPcNuitNmoins1mois05());
+		clone.setMjmNmoins1mois06(this.getMjmNmoins1mois06());
+		clone.setPcNuitNmoins1mois06(this.getPcNuitNmoins1mois06());
+		clone.setMjmNmoins1mois07(this.getMjmNmoins1mois07());
+		clone.setPcNuitNmoins1mois07(this.getPcNuitNmoins1mois07());
+		clone.setMjmNmoins1mois08(this.getMjmNmoins1mois08());
+		clone.setPcNuitNmoins1mois08(this.getPcNuitNmoins1mois08());
+		clone.setMjmNmoins1mois09(this.getMjmNmoins1mois09());
+		clone.setPcNuitNmoins1mois09(this.getPcNuitNmoins1mois09());
+		clone.setMjmNmoins1mois10(this.getMjmNmoins1mois10());
+		clone.setPcNuitNmoins1mois10(this.getPcNuitNmoins1mois10());
+		clone.setMjmNmoins1mois11(this.getMjmNmoins1mois11());
+		clone.setPcNuitNmoins1mois11(this.getPcNuitNmoins1mois11());
+		clone.setMjmNmoins1mois12(this.getMjmNmoins1mois12());
+		clone.setPcNuitNmoins1mois12(this.getPcNuitNmoins1mois12());
+		clone.setZoneLibre4(this.getZoneLibre4());
+	
+		return (SectionHitDTO) clone;
+
+	} // Fin de clone().___________________________________________________
 
 
 		
@@ -2556,155 +2709,6 @@ public class SectionHitDTO implements ISectionHitDTO {
 		return stb.toString();
 		
 	} // Fin de toStringASCII().___________________________________________
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final ISectionHitDTO clone() throws CloneNotSupportedException {
-		
-		final ISectionHitDTO clone 
-			= (ISectionHitDTO) super.clone();
-				
-		clone.setId(this.getId());
-		clone.setNumDepartement(this.getNumDepartement());
-		clone.setNumSection(this.getNumSection());
-		clone.setSens(this.getSens());
-		clone.setNature(this.getNature());
-		clone.setClasse(this.getClasse());
-		clone.setAnneeTraitement(this.getAnneeTraitement());
-		clone.setZoneLibre1(this.getZoneLibre1());
-		clone.setNumRoute(this.getNumRoute());
-		clone.setIndiceNumRoute(this.getIndiceNumRoute());
-		clone.setIndiceLettreRoute(this.getIndiceLettreRoute());
-		clone.setCategorieAdminRoute(this.getCategorieAdminRoute());
-		clone.setTypeComptage(this.getTypeComptage());
-		clone.setClassementRoute(this.getClassementRoute());
-		clone.setClasseLargeurChausseeU(this.getClasseLargeurChausseeU());
-		clone.setClasseLargeurChausseesS(this.getClasseLargeurChausseesS());
-		clone.setTypeReseau(this.getTypeReseau());
-		clone.setPRoupK(this.getPRoupK());
-		clone.setLieuDitOrigine(this.getLieuDitOrigine());
-		clone.setPrOrigine(this.getPrOrigine());
-		clone.setAbsOrigine(this.getAbsOrigine());
-		clone.setLieuDitExtremite(this.getLieuDitExtremite());
-		clone.setPrExtremite(this.getPrExtremite());
-		clone.setAbsExtremite(this.getAbsExtremite());
-		clone.setLieuDitComptage(this.getLieuDitComptage());
-		clone.setPrComptage(this.getPrComptage());
-		clone.setAbsComptage(this.getAbsComptage());
-		clone.setLongueurSection(this.getLongueurSection());
-		clone.setLongueurRaseCampagne(this.getLongueurRaseCampagne());
-		clone.setNumDepartementRattachement(this.getNumDepartementRattachement());
-		clone.setNumSectionRattachement(this.getNumSectionRattachement());
-		clone.setSensRattachement(this.getSensRattachement());
-		clone.setNumDepartementLimitrophe(this.getNumDepartementLimitrophe());
-		clone.setNumSectionLimitrophe(this.getNumSectionLimitrophe());
-		clone.setSensLimitrophe(this.getSensLimitrophe());
-		clone.setMoisSectionnement(this.getMoisSectionnement());
-		clone.setAnneeSectionnement(this.getAnneeSectionnement());
-		clone.setZoneLibre2(this.getZoneLibre2());
-		clone.setMjaN(this.getMjaN());
-		clone.setModeCalculN(this.getModeCalculN());
-		clone.setPcPLN(this.getPcPLN());
-		clone.setEvaluationPLN(this.getEvaluationPLN());
-		clone.setPcNuitAnnuelN(this.getPcNuitAnnuelN());
-		clone.setIndiceFiabiliteMjaN(this.getIndiceFiabiliteMjaN());
-		clone.setMjmNmois01(this.getMjmNmois01());
-		clone.setPcNuitNmois01(this.getPcNuitNmois01());
-		clone.setMjmNmois02(this.getMjmNmois02());
-		clone.setPcNuitNmois02(this.getPcNuitNmois02());
-		clone.setMjmNmois03(this.getMjmNmois03());
-		clone.setPcNuitNmois03(this.getPcNuitNmois03());
-		clone.setMjmNmois04(this.getMjmNmois04());
-		clone.setPcNuitNmois04(this.getPcNuitNmois04());
-		clone.setMjmNmois05(this.getMjmNmois05());
-		clone.setPcNuitNmois05(this.getPcNuitNmois05());
-		clone.setMjmNmois06(this.getMjmNmois06());
-		clone.setPcNuitNmois06(this.getPcNuitNmois06());
-		clone.setMjmNmois07(this.getMjmNmois07());
-		clone.setPcNuitNmois07(this.getPcNuitNmois07());
-		clone.setMjmNmois08(this.getMjmNmois08());
-		clone.setPcNuitNmois08(this.getPcNuitNmois08());
-		clone.setMjmNmois09(this.getMjmNmois09());
-		clone.setPcNuitNmois09(this.getPcNuitNmois09());
-		clone.setMjmNmois10(this.getMjmNmois10());
-		clone.setPcNuitNmois10(this.getPcNuitNmois10());
-		clone.setMjmNmois11(this.getMjmNmois11());
-		clone.setPcNuitNmois11(this.getPcNuitNmois11());
-		clone.setMjmNmois12(this.getMjmNmois12());
-		clone.setPcNuitNmois12(this.getPcNuitNmois12());
-		clone.setZoneLibre3(this.getZoneLibre3());
-		clone.setAnneeNmoins1(this.getAnneeNmoins1());
-		clone.setMjaNmoins1(this.getMjaNmoins1());
-		clone.setTypeComptageNmoins1(this.getTypeComptageNmoins1());
-		clone.setModeCalculNmoins1(this.getModeCalculNmoins1());
-		clone.setPcPLNmoins1(this.getPcPLNmoins1());
-		clone.setEvaluationPLNmoins1(this.getEvaluationPLNmoins1());
-		clone.setPcNuitAnnuelNmoins1(this.getPcNuitAnnuelNmoins1());
-		clone.setIndiceFiabiliteMjaNmoins1(this.getIndiceFiabiliteMjaNmoins1());
-		clone.setAnneeNmoins2(this.getAnneeNmoins2());
-		clone.setMjaNmoins2(this.getMjaNmoins2());
-		clone.setTypeComptageNmoins2(this.getTypeComptageNmoins2());
-		clone.setModeCalculNmoins2(this.getModeCalculNmoins2());
-		clone.setPcPLNmoins2(this.getPcPLNmoins2());
-		clone.setEvaluationPLNmoins2(this.getEvaluationPLNmoins2());
-		clone.setPcNuitAnnuelNmoins2(this.getPcNuitAnnuelNmoins2());
-		clone.setIndiceFiabiliteMjaNmoins2(this.getIndiceFiabiliteMjaNmoins2());
-		clone.setAnneeNmoins3(this.getAnneeNmoins3());
-		clone.setMjaNmoins3(this.getMjaNmoins3());
-		clone.setTypeComptageNmoins3(this.getTypeComptageNmoins3());
-		clone.setModeCalculNmoins3(this.getModeCalculNmoins3());
-		clone.setPcPLNmoins3(this.getPcPLNmoins3());
-		clone.setEvaluationPLNmoins3(this.getEvaluationPLNmoins3());
-		clone.setPcNuitAnnuelNmoins3(this.getPcNuitAnnuelNmoins3());
-		clone.setIndiceFiabiliteMjaNmoins3(this.getIndiceFiabiliteMjaNmoins3());
-		clone.setAnneeNmoins4(this.getAnneeNmoins4());
-		clone.setMjaNmoins4(this.getMjaNmoins4());
-		clone.setTypeComptageNmoins4(this.getTypeComptageNmoins4());
-		clone.setModeCalculNmoins4(this.getModeCalculNmoins4());
-		clone.setPcPLNmoins4(this.getPcPLNmoins4());
-		clone.setEvaluationPLNmoins4(this.getEvaluationPLNmoins4());
-		clone.setPcNuitAnnuelNmoins4(this.getPcNuitAnnuelNmoins4());
-		clone.setIndiceFiabiliteMjaNmoins4(this.getIndiceFiabiliteMjaNmoins4());
-		clone.setAnneeNmoins5(this.getAnneeNmoins5());
-		clone.setMjaNmoins5(this.getMjaNmoins5());
-		clone.setTypeComptageNmoins5(this.getTypeComptageNmoins5());
-		clone.setModeCalculNmoins5(this.getModeCalculNmoins5());
-		clone.setPcPLNmoins5(this.getPcPLNmoins5());
-		clone.setEvaluationPLNmoins5(this.getEvaluationPLNmoins5());
-		clone.setPcNuitAnnuelNmoins5(this.getPcNuitAnnuelNmoins5());
-		clone.setIndiceFiabiliteMjaNmoins5(this.getIndiceFiabiliteMjaNmoins5());
-		clone.setMjmNmoins1mois01(this.getMjmNmoins1mois01());
-		clone.setPcNuitNmoins1mois01(this.getPcNuitNmoins1mois01());
-		clone.setMjmNmoins1mois02(this.getMjmNmoins1mois02());
-		clone.setPcNuitNmoins1mois02(this.getPcNuitNmoins1mois02());
-		clone.setMjmNmoins1mois03(this.getMjmNmoins1mois03());
-		clone.setPcNuitNmoins1mois03(this.getPcNuitNmoins1mois03());
-		clone.setMjmNmoins1mois04(this.getMjmNmoins1mois04());
-		clone.setPcNuitNmoins1mois04(this.getPcNuitNmoins1mois04());
-		clone.setMjmNmoins1mois05(this.getMjmNmoins1mois05());
-		clone.setPcNuitNmoins1mois05(this.getPcNuitNmoins1mois05());
-		clone.setMjmNmoins1mois06(this.getMjmNmoins1mois06());
-		clone.setPcNuitNmoins1mois06(this.getPcNuitNmoins1mois06());
-		clone.setMjmNmoins1mois07(this.getMjmNmoins1mois07());
-		clone.setPcNuitNmoins1mois07(this.getPcNuitNmoins1mois07());
-		clone.setMjmNmoins1mois08(this.getMjmNmoins1mois08());
-		clone.setPcNuitNmoins1mois08(this.getPcNuitNmoins1mois08());
-		clone.setMjmNmoins1mois09(this.getMjmNmoins1mois09());
-		clone.setPcNuitNmoins1mois09(this.getPcNuitNmoins1mois09());
-		clone.setMjmNmoins1mois10(this.getMjmNmoins1mois10());
-		clone.setPcNuitNmoins1mois10(this.getPcNuitNmoins1mois10());
-		clone.setMjmNmoins1mois11(this.getMjmNmoins1mois11());
-		clone.setPcNuitNmoins1mois11(this.getPcNuitNmoins1mois11());
-		clone.setMjmNmoins1mois12(this.getMjmNmoins1mois12());
-		clone.setPcNuitNmoins1mois12(this.getPcNuitNmoins1mois12());
-		clone.setZoneLibre4(this.getZoneLibre4());
-	
-		return (SectionHitDTO) clone;
-
-	} // Fin de clone().___________________________________________________
 
 	
 	

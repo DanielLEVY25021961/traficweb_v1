@@ -218,7 +218,7 @@ public final class Generateur {
 			if (compteur > nombreChampsParLigne) {
 				
 				/* SI PREMIER CHAMP APRES LA PREMIERE LIGNE. */
-				if ((compteur % nombreChampsParLigne) == 1) {
+				if (compteur % nombreChampsParLigne == 1) {
 					
 					/* tabulations à chaque début de ligne. */
 					stb.append(TAB + TAB + TAB);
@@ -234,7 +234,7 @@ public final class Generateur {
 			} else {
 				
 				/* SI PREMIER CHAMP DANS LA PREMIERE LIGNE. */
-				if ((compteur % nombreChampsParLigne) == 1) {
+				if (compteur % nombreChampsParLigne == 1) {
 					
 					/* tabulations au début de la première ligne. */
 					stb.append(TAB + TAB + TAB);
@@ -244,7 +244,7 @@ public final class Generateur {
 			// EN DEBUT DE LIGNE. ***************************************
 			
 			
-			if ((compteur % nombreChampsParLigne) != 0) {
+			if (compteur % nombreChampsParLigne != 0) {
 				
 				stb.append("this.");
 				stb.append(encaps.getNomGetter());
@@ -315,7 +315,7 @@ public final class Generateur {
 			=  map.values();
 		
 		// PARMETRAGE.
-		final int nombreChampsParLigne = 2;
+		final int nombreChampsParLigne = 1;
 		final String nomObjetEquals = "other";
 		
 		stb.append("");
@@ -342,24 +342,6 @@ public final class Generateur {
 				
 				/* ajout de .equals( */
 				stb.append(".equals(");
-			
-			/* LIGNES APRES LA PREMIER LIGNE. */
-			} else {
-				
-				/* tabulations au début de la ligne après le première ligne. */
-				stb.append(TAB + TAB + TAB);
-				
-				/* SI PREMIER CHAMP APRES LA PREMIERE LIGNE. */
-				if ((compteur % nombreChampsParLigne) == 1) {
-					
-					/* ajout de "&& Objects.equals( */
-					stb.append("&& Objects.equals(");
-				}
-				
-			} // FIN DU TRAITEMENT DES EQUALS ET TABULATIONS 
-			// EN DEBUT DE LIGNE. ***************************************
-					
-			if ((compteur % nombreChampsParLigne) != 0) {
 				
 				stb.append("this.");
 				stb.append(encaps.getNomGetter());
@@ -374,24 +356,47 @@ public final class Generateur {
 				stb.append(')');
 								
 				if (compteur == nombreChamps) {
-					stb.append(");");
-				}
-				
-			} else {
-				
-				stb.append("this.");
-				stb.append(encaps.getNomGetter());
-				stb.append("()");
-				
-				if (compteur == nombreChamps) {
-					stb.append(");");
+					stb.append(SEP_PV);
 				}
 				
 				stb.append(NEWLINE);
+			
+			/* LIGNES APRES LA PREMIER LIGNE. */
+			} else {
+
+				/* tabulations au début de la ligne après le première ligne. */
+				if (compteur % nombreChampsParLigne == 0) {
+					stb.append(TAB + TAB + TAB);
+				}
 				
-			}
-						
-		}
+				/* ajout de "&& Objects.equals( */
+				stb.append("&& Objects.equals(");
+
+				stb.append("this.");
+				stb.append(encaps.getNomGetter());
+				stb.append("()");
+
+				stb.append(VIRGULE_ESPACE);
+
+				stb.append(nomObjetEquals);
+				stb.append(POINT);
+				stb.append(encaps.getNomGetter());
+				stb.append("()");
+				stb.append(')');
+
+				if (compteur == nombreChamps) {
+					stb.append(SEP_PV);
+				}
+
+				/* SAUT DE LIGNE SI NOUVELLE LIGNE. */
+				if ((compteur-1) % nombreChampsParLigne == 0) {
+					stb.append(NEWLINE);
+				}
+
+			} // FIN DU TRAITEMENT DES EQUALS ET TABULATIONS 
+			// EN DEBUT DE LIGNE. ***************************************
+					
+		}	
 
 		stb.append("");
 		stb.append(NEWLINE);
@@ -576,13 +581,8 @@ public final class Generateur {
 		stb.append(NEWLINE);
 		stb.append(NEWLINE);
 				
-		final int nombreChamps = map.size();
-		int compteur = 0;
-		
 		for (final EncapsulationChampGetterSetter champ : map.values()) {
-			
-			compteur++;
-						
+							
 			stb.append(TAB + TAB);
 			stb.append("stb.append(this.");
 			stb.append(champ.getNomGetter());
@@ -1721,7 +1721,7 @@ public final class Generateur {
 		
 //		System.out.println(genererMethodeHashCode(classe));
 		
-		System.out.println(genererMethodeEquals(classe));
+//		System.out.println(genererMethodeEquals(classe));
 		
 //		System.out.println(genererMethodeClone(classe));
 		
@@ -1737,7 +1737,7 @@ public final class Generateur {
 		
 //		System.out.println(genererMethodeFournirValeurColonne(classe));
 		
-//		System.out.println(genererMethodeFournirDTO(classe));
+		System.out.println(genererMethodeFournirDTO(classe));
 		
     } // Fin de main(...)._________________________________________________
 	
