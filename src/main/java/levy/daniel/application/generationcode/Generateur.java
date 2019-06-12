@@ -364,10 +364,15 @@ public final class Generateur {
 			/* LIGNES APRES LA PREMIER LIGNE. */
 			} else {
 
-				/* tabulations au début de la ligne après le première ligne. */
-				if (compteur % nombreChampsParLigne == 0) {
-					stb.append(TAB + TAB + TAB);
-				}
+				/* tabulations au début de la ligne après le première ligne 
+				 * (CAS ou nombreChampsParLigne > 1). */		
+//				if (compteur % nombreChampsParLigne == 0) {
+//					stb.append(TAB + TAB + TAB);
+//				}			
+				
+				/* tabulations au début de la ligne après le première ligne 
+				 * (CAS ou nombreChampsParLigne == 1). */
+				stb.append(TAB + TAB + TAB);
 				
 				/* ajout de "&& Objects.equals( */
 				stb.append("&& Objects.equals(");
@@ -389,9 +394,12 @@ public final class Generateur {
 				}
 
 				/* SAUT DE LIGNE SI NOUVELLE LIGNE. */
-				if ((compteur-1) % nombreChampsParLigne == 0) {
-					stb.append(NEWLINE);
-				}
+				// CAS OU nombreChampsParLigne > 1
+//				if ((compteur-1) % nombreChampsParLigne == 0) {
+//					stb.append(NEWLINE);
+//				}
+				// CAS OU nombreChampsParLigne == 1
+				stb.append(NEWLINE);
 
 			} // FIN DU TRAITEMENT DES EQUALS ET TABULATIONS 
 			// EN DEBUT DE LIGNE. ***************************************

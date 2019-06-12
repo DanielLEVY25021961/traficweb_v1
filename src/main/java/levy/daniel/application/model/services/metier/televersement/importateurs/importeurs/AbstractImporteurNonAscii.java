@@ -154,15 +154,26 @@ public abstract class AbstractImporteurNonAscii extends AbstractImporteur {
 			final int positionChamp = desc.getOrdreChamps();
 						
 			// Extraction dans la ligne csv.______
-			final String champ 
-				= tokens[positionChamp - 1];
+			String champ = null;
 			
-			/* Passage forcé en UTF-8 */
-			final String champUtf8 
-				= new String(champ.getBytes(StandardCharsets.UTF_8));
+			try {
+				
+				champ = tokens[positionChamp - 1];
+				
+				/* Passage forcé en UTF-8 */
+				final String champUtf8 
+					= new String(champ.getBytes(StandardCharsets.UTF_8));
+				
+				/* Ajout dans la Map décrivant la ligne. */
+				ligneMap.put(numeroChamp, champUtf8);
+				
+			} catch (Exception e) {
+				
+				/* Ajout d'un champ null dans la Map décrivant la ligne. */
+				ligneMap.put(numeroChamp, null);
+				
+			}
 			
-			/* Ajout dans la Map décrivant la ligne. */
-			ligneMap.put(numeroChamp, champUtf8);
 			
 		} // FIN BOUCLE SUR LES CHAMPS DE LA DESCRIPTION.-----			
 		// FIN de DECOMPOSITION D'UNE LIGNE.---------------------------

@@ -86,6 +86,7 @@ public interface IImporteur
 	 * jette donc une Exception de décodage <code>malformedInputException</code> 
 	 * si le charset ne correspond pas à celui du fichier de données.</li>
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
+	 * <li>saute une éventuelle ligne d'en-tête.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
 	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>
@@ -151,6 +152,7 @@ public interface IImporteur
 	 * jette donc une Exception de décodage <code>malformedInputException</code> 
 	 * si le charset ne correspond pas à celui du fichier de données.</li>
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
+	 * <li>saute une éventuelle ligne d'en-tête.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
 	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>
@@ -217,6 +219,7 @@ public interface IImporteur
 	 * jette donc une Exception de décodage <code>malformedInputException</code> 
 	 * si le charset ne correspond pas à celui du fichier de données.</li>
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
+	 * <li>saute une éventuelle ligne d'en-tête.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
 	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>
@@ -283,6 +286,7 @@ public interface IImporteur
 	 * jette donc une Exception de décodage <code>malformedInputException</code> 
 	 * si le charset ne correspond pas à celui du fichier de données.</li>
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
+	 * <li>saute une éventuelle ligne d'en-tête.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
 	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>
@@ -352,6 +356,7 @@ public interface IImporteur
 	 * <li>Alimente <code><b>this.fichierImporteMap</b></code>.</li>
 	 * <li>Choisit automatiquement le Charset UTF-8 
 	 * si pCharset == null.</li>
+	 * <li>saute une éventuelle ligne d'en-tête.</li>
 	 * <li>Retire un éventuel caractère BOM-UTF-8 
 	 * en début de chaque ligne.</li>
 	 * <li>saute une éventuelle ligne vide dans le fichier à importer.</li>

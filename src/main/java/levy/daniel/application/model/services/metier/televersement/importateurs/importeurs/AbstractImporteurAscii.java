@@ -174,7 +174,7 @@ public abstract class AbstractImporteurAscii extends AbstractImporteur {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected String reconstituerLigne(
+	protected final String reconstituerLigne(
 			final SortedMap<Integer, SortedMap<Integer, String>> pFichierImporteMap
 			, final int pI) {
 		
@@ -219,7 +219,17 @@ public abstract class AbstractImporteurAscii extends AbstractImporteur {
 	} // Fin de reconstituerLigne(
 	// SortedMap<Integer, SortedMap<Integer, String>> pFichierImporteMap
 	// , int pI).__________________________________________________________
+
+
 	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final boolean estLigneEntete(
+			final String pLigne) {
+		return false;
+	} // Fin de estLigneEntete(...)._______________________________________
 	
 
 	

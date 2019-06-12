@@ -1,5 +1,6 @@
 package levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -82,6 +83,27 @@ public class ImporteurMapping extends AbstractImporteurNonAscii {
 			= FactoryDescription.getDescriptionChampMapping();
 				
 	} // Fin du CONSTRUCTEUR D'ARITE NULLE.________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final boolean estLigneEntete(
+			final String pLigne) {
+		
+		if (StringUtils.isBlank(pLigne)) {
+			return false;
+		}
+		
+		if (StringUtils.startsWithIgnoreCase(pLigne, "numDepartement")) {
+			return true;
+		}
+		
+		return false;
+		
+	} // Fin de estLigneEntete(...)._______________________________________
 	
 	
 	

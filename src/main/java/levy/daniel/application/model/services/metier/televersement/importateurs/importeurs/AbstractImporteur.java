@@ -373,6 +373,11 @@ public abstract class AbstractImporteur implements IImporteur {
 		
 		// DECOMPOSITION DES LIGNES
 		for (final String ligneLue : listeLignes) {
+			
+			/* saute une éventuelle ligne d'en-tête. */
+			if (numeroLigne == 0 && estLigneEntete(ligneLue)) {
+				continue;
+			}
 
 			/* Incrémentation du numéro de ligne. */
 			numeroLigne++;
@@ -409,6 +414,18 @@ public abstract class AbstractImporteur implements IImporteur {
 		return this.fichierImporteMap;
 
 	} // Fin de importer(...)._____________________________________________
+	
+
+	
+	/**
+	 * détermine si pLigne est une ligne d'en-tête d'un fichier de données.<br/>
+	 * retourne true si pLigne est une ligne d'en-tête<br/>
+	 *
+	 * @param pLigne : String : ligne d'un fichier de données.
+	 * 
+	 * @return : boolean : true si pLigne est une ligne d'en-tête.<br/>
+	 */
+	protected abstract boolean estLigneEntete(String pLigne);
 	
 	
 	

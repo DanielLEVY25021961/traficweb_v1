@@ -15,13 +15,13 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import levy.daniel.application.model.dto.metier.sections.ISectionHitDTO;
+import levy.daniel.application.model.dto.metier.sections.ISectionDarwinDTO;
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.IImporteur;
 import levy.daniel.application.model.utilitaires.comparateursfichiers.ComparateurFichiers;
 
 /**
- * CLASSE ImporteurHitTest :<br/>
- * Test JUnit de la classe {@link ImporteurHit}.<br/>
+ * CLASSE ImporteurDarwinCsvTest :<br/>
+ * Test JUnit de la classe {@link ImporteurDarwinCsv}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -39,7 +39,7 @@ import levy.daniel.application.model.utilitaires.comparateursfichiers.Comparateu
  * @since 6 juin 2019
  *
  */
-public class ImporteurHitTest {
+public class ImporteurDarwinCsvTest {
 
 	// ************************ATTRIBUTS************************************/
 	
@@ -133,14 +133,14 @@ public class ImporteurHitTest {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
-	private static final Log LOG = LogFactory.getLog(ImporteurHitTest.class);
+	private static final Log LOG = LogFactory.getLog(ImporteurDarwinCsvTest.class);
 
 	// *************************METHODES************************************/
 		
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ImporteurHitTest() {
+	public ImporteurDarwinCsvTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -160,16 +160,16 @@ public class ImporteurHitTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ImporteurHitTest - méthode testImporter() ********** ");
+			System.out.println("********** CLASSE ImporteurDarwinCsvTest - méthode testImporter() ********** ");
 		}
 		
 		final Path fichierDonneesPath 
-			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("HITDIRA2017.txt");
+			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("darwin2017.csv");
 		final File fichierDonnees = fichierDonneesPath.toFile();
 		final Charset charsetAnsi = Charset.forName("Windows-1252");
 		final Charset charsetUtf8 = StandardCharsets.UTF_8;
@@ -258,17 +258,17 @@ public class ImporteurHitTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ImporteurHitTest - méthode testImporterDTO() ********** ");
+			System.out.println("********** CLASSE ImporteurDarwinCsvTest - méthode testImporterDTO() ********** ");
 		}
 		
 		final Path fichierDonneesPath 
-			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("HITDIRA2017.txt");
+			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("darwin2017.csv");
 		final File fichierDonnees = fichierDonneesPath.toFile();
 		final Charset charsetAnsi = Charset.forName("Windows-1252");
 		
 		// METHODE A TESTER.
-		final ImporteurHit importeurHIT = (ImporteurHit) importeur;
-		final Map<Integer, ISectionHitDTO> fichierMapDTO 
+		final ImporteurDarwinCsv importeurHIT = (ImporteurDarwinCsv) importeur;
+		final Map<Integer, ISectionDarwinDTO> fichierMapDTO 
 			= importeurHIT.importerDTO(fichierDonnees, charsetAnsi);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -292,10 +292,10 @@ public class ImporteurHitTest {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		
-		importeur = new ImporteurHit();
+		importeur = new ImporteurDarwinCsv();
 		
 	} // Fin de beforeClass()._____________________________________________
 	
 	
 	
-} // FIN DE LA CLASSE ImporteurHitTest.--------------------------------------
+} // FIN DE LA CLASSE ImporteurDarwinCsvTest.--------------------------------

@@ -1402,7 +1402,6 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 
 		final StringBuilder stb = new StringBuilder();
 
-		stb.append(this.getId());
 		stb.append(this.getObjetID());
 		stb.append(this.getRoute());
 		stb.append(this.getDepPrD());
