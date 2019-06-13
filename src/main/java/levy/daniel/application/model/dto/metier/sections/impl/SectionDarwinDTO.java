@@ -459,7 +459,7 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 			final String message 
 				= "Impossible d'instancier un SectionDarwinDTO à partir "
 						+ "d'une SortedMap<Integer, String> "
-						+ "pDescriptionChamp null";
+						+ "pDescriptionLigne null";
 			
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(message);

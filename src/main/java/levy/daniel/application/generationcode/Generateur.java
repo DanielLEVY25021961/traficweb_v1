@@ -315,7 +315,9 @@ public final class Generateur {
 			=  map.values();
 		
 		// PARMETRAGE.
-		final int nombreChampsParLigne = 1;
+		// cas ou nombreChampsParLigne > 1
+//		final int nombreChampsParLigne = 2;
+		
 		final String nomObjetEquals = "other";
 		
 		stb.append("");

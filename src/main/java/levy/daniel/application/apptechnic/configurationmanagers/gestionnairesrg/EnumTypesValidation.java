@@ -98,8 +98,8 @@ public enum EnumTypesValidation {
      /**
      * CONSTRUCTEUR COMPLET.<br/>
      *
-     * @param pNumero : int :
-     * @param pTypeString : String : 
+     * @param pNumero : int : type de validation sous forme de numéro.
+     * @param pTypeString : String : label du type de validation.
      */
     EnumTypesValidation(
     		final int pNumero, final String pTypeString) {
