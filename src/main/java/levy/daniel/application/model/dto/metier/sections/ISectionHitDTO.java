@@ -31,8 +31,7 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 							, IExportateurCsv, IExportateurJTable {
 
 	
-	
-	
+		
 	/**
 	 * {@inheritDoc}
 	 */

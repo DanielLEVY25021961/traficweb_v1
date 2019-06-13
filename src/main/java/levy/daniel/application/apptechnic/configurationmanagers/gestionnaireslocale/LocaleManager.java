@@ -659,14 +659,14 @@ static {
 
 
 	/**
-	 * Getter .<br/>
-	 * <br/>
+	 * Getter de la <b>Locale par défaut de l'application</b> 
+	 * paramétrée par l'utilisateur (administrateur).<br/>
 	 *
 	 * @return localeParDefautApplication : Locale.<br/>
 	 */
 	public static Locale getLocaleParDefautApplication() {
 		return localeParDefautApplication;
-	}
+	} // Fin de getLocaleParDefautApplication().___________________________
 
 
 

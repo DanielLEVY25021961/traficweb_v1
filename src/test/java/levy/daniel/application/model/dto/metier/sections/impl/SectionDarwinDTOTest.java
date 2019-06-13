@@ -455,7 +455,8 @@ public class SectionDarwinDTOTest {
 		
 	} // Fin de testFournirValeurColonne().________________________________
 
-
+	
+	
 	
 	/**
 	 * Exécuté avant tout test de la méthode.<br/>
