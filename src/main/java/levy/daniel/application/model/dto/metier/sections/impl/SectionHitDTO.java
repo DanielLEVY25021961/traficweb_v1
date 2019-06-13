@@ -1077,11 +1077,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 		if (pObjet == null) {
 			return false;
 		}
-		if (!(pObjet instanceof SectionHitDTO)) {
+		if (!(pObjet instanceof ISectionHitDTO)) {
 			return false;
 		}
 		
-		final SectionHitDTO other = (SectionHitDTO) pObjet;
+		final ISectionHitDTO other = (ISectionHitDTO) pObjet;
 
 		return Objects
 			.equals(this.getNumDepartement(), other.getNumDepartement())

@@ -1,8 +1,12 @@
 package levy.daniel.application.model.metier.televersement;
 
 import java.io.File;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import levy.daniel.application.model.metier.IExportateurCsv;
+import levy.daniel.application.model.metier.IExportateurJTable;
+import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
 import levy.daniel.application.model.metier.utilisateur.EnumGestionnaire;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 
@@ -26,7 +30,101 @@ import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
  * @since 13 juin 2019
  *
  */
-public interface ITeleversement {
+public interface ITeleversement extends Comparable<ITeleversement>
+								, Serializable, Cloneable
+								, IExportateurCsv, IExportateurJTable {
+
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	int hashCode();
+
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	boolean equals(Object pObjet);
+
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	int compareTo(ITeleversement pObjet);
+
+
+
+	/**
+	 * clone.<br/>
+	 *
+	 * @return ITeleversement
+	 * 
+	 * @throws CloneNotSupportedException
+	 */
+	ITeleversement clone() throws CloneNotSupportedException;
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	String toString();
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * <b>enTete CSV pour un ITeleversement</b> :<br/>
+	 * "id;dateTeleversement;utilisateur;gestionnaire;typeFichier;
+	 * nomFichierTeleverse;fichierStockeServeur;anneeGestion;"<br/>
+	 * <br/>
+	 */
+	@Override
+	String fournirEnTeteCsv();
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * <b>enTete CSV pour un ITeleversement</b> :<br/>
+	 * "id;dateTeleversement;utilisateur;gestionnaire;typeFichier;
+	 * nomFichierTeleverse;fichierStockeServeur;anneeGestion;"<br/>
+	 * <br/>
+	 */
+	@Override
+	String fournirStringCsv();
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * <b>enTete CSV pour un ITeleversement</b> :<br/>
+	 * "id;dateTeleversement;utilisateur;gestionnaire;typeFichier;
+	 * nomFichierTeleverse;fichierStockeServeur;anneeGestion;"<br/>
+	 * <br/>
+	 */
+	@Override
+	String fournirEnTeteColonne(int pI);
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * <b>enTete CSV pour un ITeleversement</b> :<br/>
+	 * "id;dateTeleversement;utilisateur;gestionnaire;typeFichier;
+	 * nomFichierTeleverse;fichierStockeServeur;anneeGestion;"<br/>
+	 * <br/>
+	 */
+	@Override
+	Object fournirValeurColonne(int pI);
+
 	
 	
 	/**
@@ -163,6 +261,25 @@ public interface ITeleversement {
 	* valeur à passer à this.fichierStockeServeur.<br/>
 	*/
 	void setFichierStockeServeur(File pFichierStockeServeur);
+
+
+	
+	/**
+	 * Getter de l'année de gestion concernée par le téléversement.
+	 *
+	 * @return this.anneeGestion : IAnneeGestion.<br/>
+	 */
+	IAnneeGestion getAnneeGestion();
+
+
+	
+	/**
+	* Setter de l'année de gestion concernée par le téléversement.
+	*
+	* @param pAnneeGestion : IAnneeGestion : 
+	* valeur à passer à this.anneeGestion.<br/>
+	*/
+	void setAnneeGestion(IAnneeGestion pAnneeGestion);
 
 	
 

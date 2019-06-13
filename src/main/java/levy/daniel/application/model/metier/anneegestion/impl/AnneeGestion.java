@@ -190,11 +190,11 @@ public class AnneeGestion implements IAnneeGestion {
 			return false;
 		}
 		
-		if (!(pObjet instanceof AnneeGestion)) {
+		if (!(pObjet instanceof IAnneeGestion)) {
 			return false;
 		}
 		
-		final AnneeGestion other = (AnneeGestion) pObjet;
+		final IAnneeGestion other = (IAnneeGestion) pObjet;
 		
 		return Objects.equals(
 				this.getAnneeGestion(), other.getAnneeGestion());

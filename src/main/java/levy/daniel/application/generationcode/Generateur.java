@@ -1691,7 +1691,9 @@ public final class Generateur {
 		
 //		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO");
 		
-		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionDarwinDTO");
+//		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionDarwinDTO");
+		
+		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.televersement.impl.Televersement");
 		
 //		List<Method> listeGetters = findGetters(classe);
 //		System.out.println(afficherListeMethod(listeGetters));
@@ -1745,14 +1747,12 @@ public final class Generateur {
 		
 //		System.out.println(genererMethodeFournirEnTeteColonne(classe));
 		
-//		System.out.println(genererMethodeFournirValeurColonne(classe));
+		System.out.println(genererMethodeFournirValeurColonne(classe));
 		
-		System.out.println(genererMethodeFournirDTO(classe));
+//		System.out.println(genererMethodeFournirDTO(classe));
 		
     } // Fin de main(...)._________________________________________________
-	
-	
-	
+
 	
 	
 } // FIN DE LA CLASSE Generateur.--------------------------------------------

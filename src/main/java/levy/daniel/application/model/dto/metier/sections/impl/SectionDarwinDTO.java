@@ -587,7 +587,7 @@ public class SectionDarwinDTO implements ISectionDarwinDTO {
 		if (pObjet == null) {
 			return false;
 		}
-		if (!(pObjet instanceof SectionDarwinDTO)) {
+		if (!(pObjet instanceof ISectionDarwinDTO)) {
 			return false;
 		}
 		
