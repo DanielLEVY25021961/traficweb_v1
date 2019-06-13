@@ -1,13 +1,15 @@
 package levy.daniel.application.model.metier.televersement.impl;
 
+import java.io.File;
 import java.time.LocalDateTime;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.model.metier.televersement.EnumTypeFichierDonnees;
 import levy.daniel.application.model.metier.televersement.ITeleversement;
+import levy.daniel.application.model.metier.utilisateur.EnumGestionnaire;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
-import levy.daniel.application.model.metier.utilisateur.impl.EnumGestionnaire;
 
 /**
  * CLASSE Televersement :<br/>
@@ -20,17 +22,17 @@ import levy.daniel.application.model.metier.utilisateur.impl.EnumGestionnaire;
  * <code>le [25/02/2019 à 16h05], l'utilisateur [Zorro.Yoka] 
  * agissant pour le compte de la [DIRA] téléverse un [fichier HIT] 
  * nommé [DIRAHIT2018] à stocker sur le serveur 
- * sous [2019-02-25_16-05_HITDIRA2019_UTF-8.txt] 
+ * sous [2019-02-25_16-05_HITDIRA2018_UTF-8.txt] 
  * pour l'année de gestion [2018].</code>
  * </p>
  * 
  * <p>
  * Soit :<br/>
  * <code>le [this.dateTeleversement], l'utilisateur [this.utilisateur] 
- * agissant pour le compte de la [this.gestionnaire] 
- * téléverse un [fichier HIT] 
- * nommé [2019_DIRAHIT] à stocker sur le serveur 
- * sous [2019-02-25_16-05_HITDIRA2019_UTF-8.txt] 
+ * agissant pour le compte de [this.gestionnaire] 
+ * téléverse un [this.typeFichier] 
+ * nommé [this.nomFichierTeleverse] à stocker sur le serveur 
+ * sous [this.fichierStockeServeur] 
  * pour l'année de gestion [2018].</code>
  * </p>
  * 
@@ -99,7 +101,22 @@ public class Televersement implements ITeleversement {
 	 * pour le compte duquel l'utilisateur agit.
 	 */
 	private EnumGestionnaire gestionnaire;
+	
+	/**
+	 * type du fichier (HIT, DARWIN_CSV) téléversé par l'utilisateur.
+	 */
+	private EnumTypeFichierDonnees typeFichier;
+	
+	/**
+	 * nom du fichier soumis au téléversement ("HITDIRA2018" par exemple).
+	 */
+	private String nomFichierTeleverse;
 
+	/**
+	 * fichier résultant du téléversement stocké sur le serveur.
+	 */
+	private File fichierStockeServeur;
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -193,6 +210,69 @@ public class Televersement implements ITeleversement {
 			final EnumGestionnaire pGestionnaire) {
 		this.gestionnaire = pGestionnaire;
 	} // Fin de setGestionnaire(...).______________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final EnumTypeFichierDonnees getTypeFichier() {
+		return this.typeFichier;
+	} // Fin de getTypeFichier().__________________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void setTypeFichier(
+			final EnumTypeFichierDonnees pTypeFichier) {
+		this.typeFichier = pTypeFichier;
+	} // Fin de setTypeFichier(...)._______________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getNomFichierTeleverse() {
+		return this.nomFichierTeleverse;
+	} // Fin de getNomFichierTeleverse().__________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void setNomFichierTeleverse(
+			final String pNomFichierTeleverse) {
+		this.nomFichierTeleverse = pNomFichierTeleverse;
+	} // Fin de setNomFichierTeleverse(...)._______________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final File getFichierStockeServeur() {
+		return this.fichierStockeServeur;
+	} // Fin de getFichierStockeServeur()._________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void setFichierStockeServeur(
+			final File pFichierStockeServeur) {
+		this.fichierStockeServeur = pFichierStockeServeur;
+	} // Fin de setFichierStockeServeur(...).______________________________
 	
 	
 	

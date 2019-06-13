@@ -1,7 +1,7 @@
-package levy.daniel.application.model.metier.utilisateur.impl;
+package levy.daniel.application.model.metier.utilisateur;
 
 /**
- * Enumeration EnumGestionnaire :<br/>
+ * ENUMERATION EnumGestionnaire :<br/>
  * Enumération chargée de gérer tous les gestionnaires possibles.<br/>
  * <br/>
  *
@@ -128,8 +128,8 @@ public enum EnumGestionnaire {
 	 */
 	public final String getNomComplet() {
 		return this.nomComplet;
-	} // Fin de Getter du nom complet du gestionnaire._____________________
+	} // Fin de getNomComplet().___________________________________________
 
 	
 	
-} // FIN DE L'Enumeration EnumGestionnaire.----------------------------------
+} // FIN DE L'ENUMERATION EnumGestionnaire.----------------------------------

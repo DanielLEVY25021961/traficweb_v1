@@ -1,9 +1,10 @@
 package levy.daniel.application.model.metier.televersement;
 
+import java.io.File;
 import java.time.LocalDateTime;
 
+import levy.daniel.application.model.metier.utilisateur.EnumGestionnaire;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
-import levy.daniel.application.model.metier.utilisateur.impl.EnumGestionnaire;
 
 /**
  * INTERFACE ITeleversement :<br/>
@@ -103,6 +104,65 @@ public interface ITeleversement {
 	* valeur à passer à this.gestionnaire.<br/>
 	*/
 	void setGestionnaire(EnumGestionnaire pGestionnaire);
+
+
+	
+	/**
+	 * Getter du type du fichier (HIT, DARWIN_CSV) téléversé par l'utilisateur.
+	 *
+	 * @return this.typeFichier : EnumTypeFichierDonnees.<br/>
+	 */
+	EnumTypeFichierDonnees getTypeFichier();
+
+
+	
+	/**
+	* Setter du type du fichier (HIT, DARWIN_CSV) téléversé par l'utilisateur.
+	*
+	* @param pTypeFichier : EnumTypeFichierDonnees : 
+	* valeur à passer à this.typeFichier.<br/>
+	*/
+	void setTypeFichier(EnumTypeFichierDonnees pTypeFichier);
+
+
+	
+	/**
+	 * Getter du nom du fichier soumis au téléversement 
+	 * ("HITDIRA2018" par exemple).
+	 *
+	 * @return this.nomFichierTeleverse : String.<br/>
+	 */
+	String getNomFichierTeleverse();
+
+
+	
+	/**
+	* Setter du nom du fichier soumis au téléversement 
+	* ("HITDIRA2018" par exemple).
+	*
+	* @param pNomFichierTeleverse : String : 
+	* valeur à passer à this.nomFichierTeleverse.<br/>
+	*/
+	void setNomFichierTeleverse(String pNomFichierTeleverse);
+
+
+
+	/**
+	 * Getter du fichier résultant du téléversement stocké sur le serveur.
+	 *
+	 * @return this.fichierStockeServeur : File.<br/>
+	 */
+	File getFichierStockeServeur();
+
+
+	
+	/**
+	* Setter du fichier résultant du téléversement stocké sur le serveur.
+	*
+	* @param pFichierStockeServeur : File : 
+	* valeur à passer à this.fichierStockeServeur.<br/>
+	*/
+	void setFichierStockeServeur(File pFichierStockeServeur);
 
 	
 
