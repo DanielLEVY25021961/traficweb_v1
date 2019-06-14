@@ -398,11 +398,18 @@ public class Televersement implements ITeleversement {
 			= (ITeleversement) super.clone();
 		
 		/* CLONAGE PROFOND. */
-		final IUtilisateurCerbere utilisateurCerbereClone 
+		IUtilisateurCerbere utilisateurCerbereClone = null;
+		if (this.getUtilisateur() != null) {
+			utilisateurCerbereClone 
 			= this.getUtilisateur().clone();
-		final IAnneeGestion anneeGestionClone 
+		}
+		
+		IAnneeGestion anneeGestionClone = null;
+		if (this.getAnneeGestion() != null) {
+			anneeGestionClone 
 			= this.getAnneeGestion().clone();
-				
+		}
+						
 		clone.setId(this.getId());
 		clone.setDateTeleversement(this.getDateTeleversement());
 		clone.setUtilisateur(utilisateurCerbereClone);
@@ -480,7 +487,7 @@ public class Televersement implements ITeleversement {
 
 		stb.append("fichierStockeServeur=");
 		if (this.getFichierStockeServeur() != null) {
-			stb.append(this.getFichierStockeServeur().getAbsolutePath());
+			stb.append(this.getFichierStockeServeur().getName());
 		} else {
 			stb.append(NULL);
 		}
@@ -524,19 +531,56 @@ public class Televersement implements ITeleversement {
 
 		stb.append(this.getId());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getDateTeleversement());
+		
+		final LocalDateTime dateTeleversementLocal = this.getDateTeleversement();
+		if (dateTeleversementLocal != null) {
+			stb.append(this.formaterLocalDateTimeEnString(dateTeleversementLocal));
+		} else {
+			stb.append(NULL);
+		}		
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getUtilisateur());
+		
+		final IUtilisateurCerbere utilisateurLocal = this.getUtilisateur();
+		if (utilisateurLocal != null) {
+			stb.append(utilisateurLocal.getNom());
+		} else {
+			stb.append(NULL);
+		}		
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getGestionnaire());
+		
+		final EnumGestionnaire gestionnaireLocal = this.getGestionnaire();
+		if (gestionnaireLocal != null) {
+			stb.append(gestionnaireLocal.getNomCourt());
+		} else {
+			stb.append(NULL);
+		}		
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getTypeFichier());
+		
+		final EnumTypeFichierDonnees typeFichierLocal = this.getTypeFichier();
+		if (typeFichierLocal != null) {
+			stb.append(typeFichierLocal.getNomCourt());
+		} else {
+			stb.append(NULL);
+		}		
 		stb.append(POINT_VIRGULE);
+		
 		stb.append(this.getNomFichierTeleverse());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getFichierStockeServeur());
+		
+		final File fichierStockeServeurLocal = this.getFichierStockeServeur();
+		if (fichierStockeServeurLocal != null) {
+			stb.append(fichierStockeServeurLocal.getName());
+		} else {
+			stb.append(NULL);
+		}		
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAnneeGestion());
+		
+		final IAnneeGestion anneeGestionLocal = this.getAnneeGestion();
+		if (anneeGestionLocal != null) {
+			stb.append(anneeGestionLocal.getAnneeGestion());
+		} else {
+			stb.append(NULL);
+		}		
 		stb.append(POINT_VIRGULE);
 
 		return stb.toString();
@@ -612,25 +656,38 @@ public class Televersement implements ITeleversement {
 		switch (pI) {
 
 		case 0:
-			valeur = this.getId();
+			final Long idLocal = this.getId();
+			if (idLocal != null) {
+				valeur = String.valueOf(this.getId());
+			}			
 			break;
 
 		case 1:
+			final LocalDateTime dateTeleversementLocal 
+				= this.getDateTeleversement();
 			valeur 
-				= this.formaterLocalDateTimeEnString(
-							this.getDateTeleversement());
+				= this.formaterLocalDateTimeEnString(dateTeleversementLocal);
 			break;
 
 		case 2:
-			valeur = this.getUtilisateur().getNom();
+			final IUtilisateurCerbere utilisateurLocal = this.getUtilisateur();
+			if (utilisateurLocal != null) {
+				valeur = this.getUtilisateur().getNom();
+			}			
 			break;
 
 		case 3:
-			valeur = this.getGestionnaire().getNomCourt();
+			final EnumGestionnaire gestionnaireLocal = this.getGestionnaire();
+			if (gestionnaireLocal != null) {
+				valeur = this.getGestionnaire().getNomCourt();
+			}			
 			break;
 
 		case 4:
-			valeur = this.getTypeFichier().getNomCourt();
+			final EnumTypeFichierDonnees typeFichierLocal = this.getTypeFichier();
+			if (typeFichierLocal != null) {
+				valeur = this.getTypeFichier().getNomCourt();
+			}			
 			break;
 
 		case 5:
@@ -638,11 +695,17 @@ public class Televersement implements ITeleversement {
 			break;
 
 		case 6:
-			valeur = this.getFichierStockeServeur().getAbsolutePath();
+			final File fichierStockeServeurLocal = this.getFichierStockeServeur();
+			if (fichierStockeServeurLocal != null) {
+				valeur = this.getFichierStockeServeur().getName();
+			}			
 			break;
 
 		case 7:
-			valeur = this.getAnneeGestion().getAnneeGestion();
+			final IAnneeGestion anneeGestionLocal = this.getAnneeGestion();
+			if (anneeGestionLocal != null) {
+				valeur = anneeGestionLocal.getAnneeGestion();
+			}			
 			break;
 
 		default:
