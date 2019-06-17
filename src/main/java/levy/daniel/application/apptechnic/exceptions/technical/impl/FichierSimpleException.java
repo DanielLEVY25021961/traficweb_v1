@@ -8,17 +8,17 @@ import org.apache.commons.logging.LogFactory;
 import levy.daniel.application.apptechnic.exceptions.technical.AbstractTechnicalException;
 
 /**
- * class FichierPasNormalException :<br/>
+ * class FichierSimpleException :<br/>
  * Hérite de AbstractTechnicalException.<br/>
  * Typée pour signaler que le File créé à partir d'un chemin
- * passé en paramètre d'une méthode est un répertoire 
- * (pas un fichier simple).<br/>
+ * passé en paramètre d'une méthode est un Fichier simple 
+ * (pas un répertoire).<br/>
  * Utilise la liste static listeExceptions de
  * AbstractTechnicalException pour y logger les
  * messages d'Exception.<br/>
  * <br/>
  * Exception concrète de type Exception lancée lorsque
- * un fichier passé en paramètre est un répertoire (pas un fichier simple).<br/>
+ * un fichier passé en paramètre est inexistant.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -36,7 +36,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.AbstractTechnical
  * @since 23 mai 2011
  *
  */
-public class FichierPasNormalException extends AbstractTechnicalException {
+public class FichierSimpleException extends AbstractTechnicalException {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -51,63 +51,63 @@ public class FichierPasNormalException extends AbstractTechnicalException {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG = LogFactory
-			.getLog(FichierPasNormalException.class);
+			.getLog(FichierSimpleException.class);
 
 	// *************************METHODES************************************/
 	
 
 	/**
-	 * method CONSTRUCTEUR FichierPasNormalException() :<br/>
+	 * method CONSTRUCTEUR FichierSimpleException() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * Permet de construire une FichierPasNormalException
+	 * Permet de construire une FichierSimpleException
 	 * sans message ni propagation d'exception cause.<br/>
 	 *
 	 */
-	public FichierPasNormalException() {
+	public FichierSimpleException() {
 		super();
-	} // Fin de FichierPasNormalException().______________________________
+	} // Fin de FichierSimpleException().______________________________
 	
 
 
 	/**
-	 * method CONSTRUCTEUR FichierPasNormalException(String pMessage) :<br/>
+	 * method CONSTRUCTEUR FichierSimpleException(String pMessage) :<br/>
 	 * Constructeur d'arité 1.<br/>
-	 * Permet de construire une FichierPasNormalException
+	 * Permet de construire une FichierSimpleException
 	 * qui propage un message.<br/>
 	 *
 	 * @param pMessage : String : le message à propager.<br/>
 	 */
-	public FichierPasNormalException(final String pMessage) {
+	public FichierSimpleException(final String pMessage) {
 		super(pMessage);
-	} // Fin de CONSTRUCTEUR FichierPasNormalException(
+	} // Fin de CONSTRUCTEUR FichierSimpleException(
 	// String pMessage).___________________________________________________
 	
 	
 	
 	/**
-	 * method CONSTRUCTEUR FichierPasNormalException(
+	 * method CONSTRUCTEUR FichierSimpleException(
 	 * Throwable pCause) :<br/>
 	 * Constructeur d'arité 1.<br/>
-	 * Permet de construire une FichierPasNormalException
+	 * Permet de construire une FichierSimpleException
 	 * qui propage un Throwable qui a causé la présente
 	 * exception.<br/>
 	 *
 	 * @param pCause : Throwable : l'exception qui a
 	 * causé la présente et que l'on veut propager.<br/>
 	 */
-	public FichierPasNormalException(final Throwable pCause) {
+	public FichierSimpleException(final Throwable pCause) {
 		super(pCause);
-	} // Fin de CONSTRUCTEUR FichierPasNormalException(
+	} // Fin de CONSTRUCTEUR FichierSimpleException(
 	// Throwable pCause).__________________________________________________
 	
 	
 	
 	/**
-	 * method CONSTRUCTEUR FichierPasNormalException(
+	 * method CONSTRUCTEUR FichierSimpleException(
 	 * String pMessage
 	 * , Throwable pCause) :<br/>
 	 * Constructeur d'arité 2.<br/>
-	 * Permet de construire une FichierPasNormalException
+	 * Permet de construire une FichierSimpleException
 	 * qui propage :<br/>
 	 * - un message,<br/>
 	 * - un Throwable qui a causé la présente
@@ -117,21 +117,21 @@ public class FichierPasNormalException extends AbstractTechnicalException {
 	 * @param pCause : Throwable : l'exception qui a
 	 * causé la présente et que l'on veut propager.<br/>
 	 */
-	public FichierPasNormalException(
+	public FichierSimpleException(
 			final String pMessage, final Throwable pCause) {
 		super(pMessage, pCause);
-	} // Fin de CONSTRUCTEUR FichierPasNormalException(
+	} // Fin de CONSTRUCTEUR FichierSimpleException(
 	 // String pMessage, Throwable pCause).________________________________
 
 	
 	
 	/**
-	 * method CONSTRUCTEUR FichierPasNormalException(
+	 * method CONSTRUCTEUR FichierSimpleException(
 	 * String pMessage
 	 * , Throwable pCause
 	 * , List<String> pListeExceptions) :<br/>
 	 * Constructeur d'arité 3.<br/>
-	 * Permet de construire une FichierPasNormalException
+	 * Permet de construire une FichierSimpleException
 	 * qui propage :<br/>
 	 * - un message,<br/>
 	 * - un Throwable qui a causé la présente
@@ -145,18 +145,18 @@ public class FichierPasNormalException extends AbstractTechnicalException {
 	 * @param pListeExceptions : Liste dans laquelle on veut
 	 * insérer le message de la présente Exception.<br/>
 	 */
-	public FichierPasNormalException(
+	public FichierSimpleException(
 			final String pMessage
 				, final Throwable pCause
 					, final List<String> pListeExceptions) {
 		
 		super(pMessage, pCause, pListeExceptions);
 		
-	} // Fin de CONSTRUCTEUR FichierPasNormalException(
+	} // Fin de CONSTRUCTEUR FichierSimpleException(
 	 // String pMessage
 	 // , Throwable pCause
 	 // , List<String> pListeExceptions).__________________________________
 	
 
 	
-} // FIN DE LA CLASSE FichierPasNormalException.-----------------------------
+} // FIN DE LA CLASSE FichierSimpleException.--------------------------------

@@ -48,6 +48,16 @@ public class TeleversementTest {
 	// ************************ATTRIBUTS************************************/
 
 	/**
+	 * "titi".
+	 */
+	public static final String TITI = "titi";
+
+	/**
+	 * "HITDIRA2018".
+	 */
+	public static final String NOM_FICHIER_HITDIRA2018 = "HITDIRA2018";
+	
+	/**
 	 * "M.".<br/>
 	 */
 	public static final String M = "M.";
@@ -199,7 +209,7 @@ public class TeleversementTest {
 						, UTILISATEUR_DIRA_1
 							, EnumGestionnaire.DIRA
 								, EnumTypeFichierDonnees.HIT
-									, "HITDIRA2018"
+									, NOM_FICHIER_HITDIRA2018
 										, new File("toto")
 											, ANNEE_GESTION_2018);
 	
@@ -218,7 +228,7 @@ public class TeleversementTest {
 					, UTILISATEUR_DIRA_1
 						, EnumGestionnaire.DIRA
 							, EnumTypeFichierDonnees.HIT
-								, "HITDIRA2018"
+								, NOM_FICHIER_HITDIRA2018
 									, new File("tata")
 										, ANNEE_GESTION_2018);
 	
@@ -232,8 +242,8 @@ public class TeleversementTest {
 					, UTILISATEUR_DIRA_1
 						, EnumGestionnaire.DIRA
 							, EnumTypeFichierDonnees.HIT
-								, "HITDIRA2018"
-									, new File("titi")
+								, NOM_FICHIER_HITDIRA2018
+									, new File(TITI)
 										, ANNEE_GESTION_2018);
 	
 	/**
@@ -264,7 +274,7 @@ public class TeleversementTest {
 						, EnumGestionnaire.DIRA
 							, EnumTypeFichierDonnees.HIT
 								, null
-									, new File("titi")
+									, new File(TITI)
 										, ANNEE_GESTION_2018);
 	
 	/**
@@ -279,7 +289,7 @@ public class TeleversementTest {
 						, EnumGestionnaire.DIRA
 							, EnumTypeFichierDonnees.HIT
 								, null
-									, new File("titi")
+									, new File(TITI)
 										, ANNEE_GESTION_2018);
 	
 	/**
@@ -292,8 +302,8 @@ public class TeleversementTest {
 					, UTILISATEUR_DIRA_1
 						, EnumGestionnaire.DIRA
 							, EnumTypeFichierDonnees.HIT
-								, "HITDIRA2018"
-									, new File("titi")
+								, NOM_FICHIER_HITDIRA2018
+									, new File(TITI)
 										, ANNEE_GESTION_2018);
 	
 	/**
@@ -306,8 +316,8 @@ public class TeleversementTest {
 					, UTILISATEUR_DIRA_1
 						, EnumGestionnaire.DIRA
 							, EnumTypeFichierDonnees.HIT
-								, "HITDIRA2018"
-									, new File("titi")
+								, NOM_FICHIER_HITDIRA2018
+									, new File(TITI)
 										, ANNEE_GESTION_2018);
 	
 	/**
@@ -320,7 +330,7 @@ public class TeleversementTest {
 					, UTILISATEUR_DIRA_1
 						, EnumGestionnaire.DIRA
 							, EnumTypeFichierDonnees.HIT
-								, "HITDIRA2018"
+								, NOM_FICHIER_HITDIRA2018
 									, new File("toto")
 										, ANNEE_GESTION_2018);
 	

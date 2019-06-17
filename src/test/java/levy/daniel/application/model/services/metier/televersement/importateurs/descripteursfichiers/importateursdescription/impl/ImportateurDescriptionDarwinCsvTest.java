@@ -406,7 +406,7 @@ public class ImportateurDescriptionDarwinCsvTest {
 		
 		/* garantit que fournirLigneValeursCsv(i) retourne la bonne valeur. */
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;false;"
+				, "1;Identifiant de la section;Identifiant de la section;objetID;Integer;false;false;"
 				, ligneValeursCsv1);
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
 				, "2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;false;"
@@ -696,7 +696,7 @@ public class ImportateurDescriptionDarwinCsvTest {
 		
 		/* garantit que getDescriptionChamp(i) retourne la bonne valeur. */
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-				, "1;Identifiant de la section;Identifiant de la section;objetId;Integer;false;false;"
+				, "1;Identifiant de la section;Identifiant de la section;objetID;Integer;false;false;"
 				, descriptionChamp1.fournirLigneValeursCsv());
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
 				, "2;route;Route au format Isidor (ex : A0034b1 ou A0006);route;String;false;false;"
