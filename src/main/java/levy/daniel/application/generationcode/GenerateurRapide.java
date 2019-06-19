@@ -28,7 +28,7 @@ import org.apache.commons.logging.LogFactory;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespaths.ArboresceurPresentProjet;
 
 /**
- * CLASSE Generateur :<br/>
+ * CLASSE GenerateurRapide :<br/>
  * .<br/>
  * <br/>
  *
@@ -55,7 +55,7 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespat
  * @since 8 juin 2019
  *
  */
-public final class Generateur {
+public final class GenerateurRapide {
 
 	// ************************ATTRIBUTS************************************/
 	
@@ -150,7 +150,7 @@ public final class Generateur {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
-	private static final Log LOG = LogFactory.getLog(Generateur.class);
+	private static final Log LOG = LogFactory.getLog(GenerateurRapide.class);
 
 	// *************************METHODES************************************/
 	
@@ -159,7 +159,7 @@ public final class Generateur {
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * privat pour bloquer l'instanciation.
 	 */
-	private Generateur() {
+	private GenerateurRapide() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -1693,7 +1693,7 @@ public final class Generateur {
 		
 //		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionDarwinDTO");
 		
-		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.televersement.impl.Televersement");
+		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.televersement.impl.TeleversementDTO");
 		
 //		List<Method> listeGetters = findGetters(classe);
 //		System.out.println(afficherListeMethod(listeGetters));
@@ -1755,4 +1755,4 @@ public final class Generateur {
 
 	
 	
-} // FIN DE LA CLASSE Generateur.--------------------------------------------
+} // FIN DE LA CLASSE GenerateurRapide.--------------------------------------------
