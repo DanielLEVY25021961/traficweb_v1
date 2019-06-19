@@ -13,7 +13,7 @@ import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
 
 /**
  * CLASSE UtilisateurCerbereConvertisseurMetierDTO :<br/>
- *  classe <b>utilitaire</b> chargée de <b>convertir 
+ * classe <b>utilitaire</b> chargée de <b>convertir 
  * un DTO en OBJET METIER</b> et de <b>convertir un
  * OBJET METIER en DTO</b>.<br/>
  * <br/>

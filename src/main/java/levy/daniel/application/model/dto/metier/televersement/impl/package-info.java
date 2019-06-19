@@ -1,7 +1,7 @@
 /**
  * CLASSE package-info :<br/>
  * Ce package contient tous les Data Transfer Object (DTO) CONCRETS
- * relatifs au concept de <b>Téléversement</b>.<br/>
+ * relatifs au concept de <b>Televersement</b>.<br/>
  * 
  * <ul>
  * <li>Les DTO ne servent qu'à véhiculer de l'information 

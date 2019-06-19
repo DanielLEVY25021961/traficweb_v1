@@ -1,4 +1,4 @@
-package levy.daniel.application.model.metier.anneegestion.impl;
+package levy.daniel.application.model.dto.metier.anneegestion.impl;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -7,12 +7,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.model.dto.metier.anneegestion.IAnneeGestionDTO;
 import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
 
 /**
- * CLASSE AnneeGestion :<br/>
- * AnneeGestion modélise une année de mesure 
- * et de consolidation des trafics.<br/>
+ * CLASSE AnneeGestionDTO :<br/>
+ * .<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -27,10 +27,10 @@ import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
  *
  * @author dan Lévy
  * @version 1.0
- * @since 13 juin 2019
+ * @since 19 juin 2019
  *
  */
-public class AnneeGestion implements IAnneeGestion {
+public class AnneeGestionDTO implements IAnneeGestionDTO {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -60,9 +60,9 @@ public class AnneeGestion implements IAnneeGestion {
 	public static final String UNUSED = "unused";
 	
 	/**
-	 * id en base.
+	 * id en base (sous forme de String).
 	 */
-	private Long id;
+	private String id;
 
 	/**
 	 * année de gestion sur 4 chiffres ("2018" par exemple).
@@ -70,26 +70,20 @@ public class AnneeGestion implements IAnneeGestion {
 	private String anneeGestion;
 
 	/**
-	 * année de gestion sous forme de LocalDate 
-	 * fixée au 1er janvier de l'année.
-	 */
-	private LocalDate anneeGestionDate;
-
-	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
-	private static final Log LOG = LogFactory.getLog(AnneeGestion.class);
-
+	private static final Log LOG = LogFactory.getLog(AnneeGestionDTO.class);
+	
+	
 	// *************************METHODES************************************/
-
 
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public AnneeGestion() {
+	public AnneeGestionDTO() {
 		this(null, null);
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -101,7 +95,7 @@ public class AnneeGestion implements IAnneeGestion {
 	 *  @param pAnneeGestion : String : 
 	 * année de gestion sur 4 chiffres ("2018" par exemple). 
 	 */
-	public AnneeGestion(final String pAnneeGestion) {
+	public AnneeGestionDTO(final String pAnneeGestion) {
 		this(null, pAnneeGestion);
 	} // Fin de CONSTRUCTEUR COMPLET.______________________________________
 	
@@ -110,18 +104,16 @@ public class AnneeGestion implements IAnneeGestion {
 	 /**
 	 * CONSTRUCTEUR COMPLET BASE.<br/>
 	 * 
-	 * @param pId : Long : id en base.
+	 * @param pId : String : id en base (sous forme de String).
 	 * @param pAnneeGestion : String : 
 	 * année de gestion sur 4 chiffres ("2018" par exemple). 
 	 */
-	public AnneeGestion(final Long pId, final String pAnneeGestion) {
+	public AnneeGestionDTO(final String pId, final String pAnneeGestion) {
 		
 		super();
 		
 		this.id = pId;
 		this.anneeGestion = pAnneeGestion;
-		this.anneeGestionDate 
-			= this.fournirDateAuPremierJanvier(this.anneeGestion);
 		
 	} // Fin de CONSTRUCTEUR COMPLET BASE._________________________________
 
@@ -209,7 +201,7 @@ public class AnneeGestion implements IAnneeGestion {
 	 */
 	@Override
 	public final int compareTo(
-			final IAnneeGestion pObjet) {
+			final IAnneeGestionDTO pObjet) {
 		
 		if (this == pObjet) {
 			return 0;
@@ -248,15 +240,15 @@ public class AnneeGestion implements IAnneeGestion {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IAnneeGestion clone() throws CloneNotSupportedException {
+	public final IAnneeGestionDTO clone() throws CloneNotSupportedException {
 		
-		final IAnneeGestion clone 
-			= (IAnneeGestion) super.clone();
+		final IAnneeGestionDTO clone 
+			= (IAnneeGestionDTO) super.clone();
 				
 		clone.setId(this.getId());
 		clone.setAnneeGestion(this.getAnneeGestion());
 	
-		return (AnneeGestion) clone;
+		return (AnneeGestionDTO) clone;
 
 	} // Fin de clone().___________________________________________________
 
@@ -369,7 +361,7 @@ public class AnneeGestion implements IAnneeGestion {
 		switch (pI) {
 
 		case 0:
-			valeur = String.valueOf(this.getId());
+			valeur = this.getId();
 			break;
 
 		case 1:
@@ -392,7 +384,7 @@ public class AnneeGestion implements IAnneeGestion {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Long getId() {	
+	public final String getId() {	
 		return this.id;
 	} // Fin de getId().___________________________________________________
 
@@ -403,7 +395,7 @@ public class AnneeGestion implements IAnneeGestion {
 	 */
 	@Override
 	public final void setId(
-			final Long pId) {	
+			final String pId) {	
 		this.id = pId;
 	} // Fin de setId(...).________________________________________________
 
@@ -424,25 +416,10 @@ public class AnneeGestion implements IAnneeGestion {
 	 */
 	@Override
 	public final void setAnneeGestion(
-			final String pAnneeGestion) {
-		
+			final String pAnneeGestion) {		
 		this.anneeGestion = pAnneeGestion;
-		
-		this.anneeGestionDate 
-			= this.fournirDateAuPremierJanvier(this.anneeGestion);
-		
 	} // Fin de setAnneeGestion(...).______________________________________
 
 
 	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final LocalDate getAnneeGestionDate() {
-		return this.anneeGestionDate;
-	} // Fin de getAnneeGestionDate()._____________________________________
-	
-	
-	
-} // FIN DE LA CLASSE AnneeGestion.------------------------------------------
+} // FIN DE LA CLASSE AnneeGestionDTO.---------------------------------------

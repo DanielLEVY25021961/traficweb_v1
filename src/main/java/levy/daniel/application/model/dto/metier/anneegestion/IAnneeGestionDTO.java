@@ -1,14 +1,13 @@
-package levy.daniel.application.model.metier.anneegestion;
+package levy.daniel.application.model.dto.metier.anneegestion;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import levy.daniel.application.model.metier.IExportateurCsv;
 import levy.daniel.application.model.metier.IExportateurJTable;
 
 /**
- * INTERFACE IAnneeGestion :<br/>
- * IAnneeGestion factorise les méthodes des AnneeGestion.<br/>
+ * INTERFACE IAnneeGestionDTO :<br/>
+ * .<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -23,13 +22,14 @@ import levy.daniel.application.model.metier.IExportateurJTable;
  *
  * @author dan Lévy
  * @version 1.0
- * @since 13 juin 2019
+ * @since 19 juin 2019
  *
  */
-public interface IAnneeGestion extends Comparable<IAnneeGestion>
-						, Serializable, Cloneable
-							, IExportateurCsv, IExportateurJTable {
-
+public interface IAnneeGestionDTO 
+				extends Comparable<IAnneeGestionDTO>
+							, Serializable, Cloneable
+								, IExportateurCsv, IExportateurJTable {
+	
 	
 	
 	/**
@@ -52,18 +52,18 @@ public interface IAnneeGestion extends Comparable<IAnneeGestion>
 	 * {@inheritDoc}
 	 */
 	@Override
-	int compareTo(IAnneeGestion pObjet);
+	int compareTo(IAnneeGestionDTO pObjet);
 
 
 
 	/**
 	 * clone.<br/>
 	 *
-	 * @return IAnneeGestion
+	 * @return IAnneeGestionDTO
 	 * 
 	 * @throws CloneNotSupportedException
 	 */
-	IAnneeGestion clone() throws CloneNotSupportedException;
+	IAnneeGestionDTO clone() throws CloneNotSupportedException;
 
 
 
@@ -77,7 +77,7 @@ public interface IAnneeGestion extends Comparable<IAnneeGestion>
 
 	/**
 	 * {@inheritDoc}
-	 * <b>enTete CSV pour un IAnneeGestion</b> :<br/>
+	 * <b>enTete CSV pour un Televersement</b> :<br/>
 	 * "id;anneeGestion;"<br/>
 	 * <br/>
 	 */
@@ -88,7 +88,7 @@ public interface IAnneeGestion extends Comparable<IAnneeGestion>
 
 	/**
 	 * {@inheritDoc}
-	 * <b>enTete CSV pour un IAnneeGestion</b> :<br/>
+	 * <b>enTete CSV pour un Televersement</b> :<br/>
 	 * "id;anneeGestion;"<br/>
 	 * <br/>
 	 */
@@ -99,7 +99,7 @@ public interface IAnneeGestion extends Comparable<IAnneeGestion>
 
 	/**
 	 * {@inheritDoc}
-	 * <b>enTete CSV pour un IAnneeGestion</b> :<br/>
+	 * <b>enTete CSV pour un Televersement</b> :<br/>
 	 * "id;anneeGestion;"<br/>
 	 * <br/>
 	 */
@@ -110,7 +110,7 @@ public interface IAnneeGestion extends Comparable<IAnneeGestion>
 
 	/**
 	 * {@inheritDoc}
-	 * <b>enTete CSV pour un IAnneeGestion</b> :<br/>
+	 * <b>enTete CSV pour un Televersement</b> :<br/>
 	 * "id;anneeGestion;"<br/>
 	 * <br/>
 	 */
@@ -120,21 +120,21 @@ public interface IAnneeGestion extends Comparable<IAnneeGestion>
 	
 	
 	/**
-	 * Getter de l'ID en base.<br/>
+	 * Getter de l'ID en base (sous forme de String).<br/>
 	 *
-	 * @return this.id : Long.<br/>
+	 * @return this.id : String.<br/>
 	 */
-	Long getId();
+	String getId();
 
 	
 	
 	/**
-	* Setter de l'ID en base.<br/>
+	* Setter de l'ID en base (sous forme de String).<br/>
 	*
-	* @param pId : Long : 
+	* @param pId : String : 
 	* valeur à passer à this.id.<br/>
 	*/
-	void setId(Long pId);
+	void setId(String pId);
 
 
 	
@@ -154,17 +154,7 @@ public interface IAnneeGestion extends Comparable<IAnneeGestion>
 	* valeur à passer à this.anneeGestion.<br/>
 	*/
 	void setAnneeGestion(String pAnneeGestion);
-
-
-	
-	/**
-	 * Getter de l'année de gestion sous forme de LocalDate 
-	 * fixée au 1er janvier de l'année.
-	 *
-	 * @return this.anneeGestionDate : LocalDate.<br/>
-	 */
-	LocalDate getAnneeGestionDate();
 	
 	
-
-} // FIN DE LA INTERFACE IAnneeGestion.--------------------------------------
+	
+} // FIN DE L'INTERFACE IAnneeGestionDTO.------------------------------------

@@ -11,7 +11,12 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import levy.daniel.application.model.dto.metier.anneegestion.IAnneeGestionDTO;
+import levy.daniel.application.model.dto.metier.anneegestion.impl.AnneeGestionDTO;
 import levy.daniel.application.model.dto.metier.televersement.ITeleversementDTO;
+import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
+import levy.daniel.application.model.dto.metier.utilisateur.impl.UtilisateurCerbereDTO;
+import levy.daniel.application.model.services.valideurs.metier.utilisateurs.EnumCivilites;
 
 /**
  * CLASSE TeleversementDTOTest :<br/>
@@ -118,17 +123,30 @@ public class TeleversementDTOTest {
 	public static final String PROFIL_GESTIONNAIRE = "GESTIONNAIRE";
 
 	/**
-	 * ADMINISTRATEUR "papy Gonzales".<br/>
+	 * ADMINISTRATEUR.<br/>
 	 */
-	public static final String UTILISATEUR_ADMIN_1 
-		= "papy Gonzales";
-	
+	public static final IUtilisateurCerbereDTO UTILISATEUR_ADMIN_1 
+		= new UtilisateurCerbereDTO(
+				EnumCivilites.MONSIEUR.getAbreviation()
+				, "papy", "Gonzales"
+				, "01 68 97 36 12", "papy.gonzales@free.fr"
+				, SERVICETEST, UNITETEST
+				, PROFIL_ADMINISTRATEUR, "France entière", null);
+		
 	/**
-	 * NOMTEST.<br/>
+	 * DIRA.<br/>
 	 */
-	public static final transient String UTILISATEUR_DIRA_1 
-		= NOMTEST;
-	
+	public static final transient IUtilisateurCerbereDTO UTILISATEUR_DIRA_1 
+	= new UtilisateurCerbereDTO("3"
+			, EnumCivilites.MADEMOISELLE.getAbreviation()
+			, PRENOMTEST, NOMTEST
+			, "05 25 89 87 45"
+			, MAILTEST
+			, SERVICE_DIRA, UNITE_DIRA_SIEER_CIGT
+			, PROFIL_GESTIONNAIRE
+			, "DIRA"
+			, "44");
+
 	/**
 	 * LocalDateTime.of(2019, 6, 13, 8, 37, 43).<br/>
 	 * 2019-06-13_08_37_43
@@ -153,20 +171,20 @@ public class TeleversementDTOTest {
 	/**
 	 * 2016.<br/>
 	 */
-	public static final String ANNEE_GESTION_2016 
-		= "2016";
+	public static final IAnneeGestionDTO ANNEE_GESTION_2016 
+		= new AnneeGestionDTO("2016");
 	
 	/**
 	 * 2017.<br/>
 	 */
-	public static final String ANNEE_GESTION_2017 
-		= "2017";
+	public static final IAnneeGestionDTO ANNEE_GESTION_2017 
+		= new AnneeGestionDTO("2017");
 	
 	/**
 	 * 2018.<br/>
 	 */
-	public static final String ANNEE_GESTION_2018 
-		= "2018";
+	public static final IAnneeGestionDTO ANNEE_GESTION_2018 
+		= new AnneeGestionDTO("2018");
 	
 	/**
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>

@@ -2,6 +2,8 @@ package levy.daniel.application.model.dto.metier.televersement;
 
 import java.io.Serializable;
 
+import levy.daniel.application.model.dto.metier.anneegestion.IAnneeGestionDTO;
+import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
 import levy.daniel.application.model.metier.IExportateurCsv;
 import levy.daniel.application.model.metier.IExportateurJTable;
 
@@ -166,7 +168,7 @@ public interface ITeleversementDTO
 	 *
 	 * @return this.utilisateur : String.<br/>
 	 */
-	String getUtilisateur();
+	IUtilisateurCerbereDTO getUtilisateur();
 
 
 	
@@ -176,7 +178,7 @@ public interface ITeleversementDTO
 	* @param pUtilisateur : String : 
 	* valeur à passer à this.utilisateur.<br/>
 	*/
-	void setUtilisateur(String pUtilisateur);
+	void setUtilisateur(IUtilisateurCerbereDTO pUtilisateur);
 
 
 	
@@ -263,19 +265,19 @@ public interface ITeleversementDTO
 	/**
 	 * Getter de l'année de gestion concernée par le téléversement.
 	 *
-	 * @return this.anneeGestion : String.<br/>
+	 * @return this.anneeGestion : IAnneeGestionDTO.<br/>
 	 */
-	String getAnneeGestion();
+	IAnneeGestionDTO getAnneeGestion();
 
 
 	
 	/**
 	* Setter de l'année de gestion concernée par le téléversement.
 	*
-	* @param pAnneeGestion : String : 
+	* @param pAnneeGestionDTO : IAnneeGestionDTO : 
 	* valeur à passer à this.anneeGestion.<br/>
 	*/
-	void setAnneeGestion(String pAnneeGestion);
+	void setAnneeGestion(IAnneeGestionDTO pAnneeGestionDTO);
 
 	
 

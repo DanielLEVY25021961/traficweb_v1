@@ -5,7 +5,9 @@ import java.util.Objects;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.model.dto.metier.anneegestion.IAnneeGestionDTO;
 import levy.daniel.application.model.dto.metier.televersement.ITeleversementDTO;
+import levy.daniel.application.model.dto.metier.utilisateur.IUtilisateurCerbereDTO;
 
 /**
  * CLASSE TeleversementDTO :<br/>
@@ -69,7 +71,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	/**
 	 * utilisateur réalisant le téléversement.
 	 */
-	private String utilisateur;
+	private IUtilisateurCerbereDTO utilisateur;
 	
 	/**
 	 * gestionnaire (DIRA, DARWIN, ...) 
@@ -95,7 +97,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	/**
 	 * année de gestion concernée par le téléversement.
 	 */
-	private String anneeGestion;
+	private IAnneeGestionDTO anneeGestion;
 
 	/**
 	 * LOG : Log : 
@@ -122,7 +124,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 *
 	 * @param pDateTeleversement : String : 
 	 * date-heure du téléversement.
-	 * @param pUtilisateur : String : 
+	 * @param pUtilisateur : IUtilisateurCerbereDTO : 
 	 * utilisateur réalisant le téléversement.
 	 * @param pGestionnaire : String : 
 	 * gestionnaire (DIRA, DARWIN, ...) 
@@ -133,17 +135,17 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 * nom du fichier soumis au téléversement ("HITDIRA2018" par exemple).
 	 * @param pFichierStockeServeur : String : 
 	 * fichier résultant du téléversement stocké sur le serveur.
-	 * @param pAnneeGestion : String : 
+	 * @param pAnneeGestion : IAnneeGestionDTO : 
 	 * année de gestion concernée par le téléversement.
 	 */
 	public TeleversementDTO(
 				final String pDateTeleversement
-				, final String pUtilisateur
+				, final IUtilisateurCerbereDTO pUtilisateur
 				, final String pGestionnaire
 				, final String pTypeFichier
 				, final String pNomFichierTeleverse
 				, final String pFichierStockeServeur
-				, final String pAnneeGestion) {
+				, final IAnneeGestionDTO pAnneeGestion) {
 		
 		this(null
 				, pDateTeleversement
@@ -165,7 +167,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 * id en base.
 	 * @param pDateTeleversement : String : 
 	 * date-heure du téléversement.
-	 * @param pUtilisateur : String : 
+	 * @param pUtilisateur : IUtilisateurCerbereDTO : 
 	 * utilisateur réalisant le téléversement.
 	 * @param pGestionnaire : String : 
 	 * gestionnaire (DIRA, DARWIN, ...) 
@@ -176,18 +178,18 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 * nom du fichier soumis au téléversement ("HITDIRA2018" par exemple).
 	 * @param pFichierStockeServeur : String : 
 	 * fichier résultant du téléversement stocké sur le serveur.
-	 * @param pAnneeGestion : String : 
+	 * @param pAnneeGestion : IAnneeGestionDTO : 
 	 * année de gestion concernée par le téléversement.
 	 */
 	public TeleversementDTO(
 			final String pId
 				, final String pDateTeleversement
-				, final String pUtilisateur
+				, final IUtilisateurCerbereDTO pUtilisateur
 				, final String pGestionnaire
 				, final String pTypeFichier
 				, final String pNomFichierTeleverse
 				, final String pFichierStockeServeur
-				, final String pAnneeGestion) {
+				, final IAnneeGestionDTO pAnneeGestion) {
 		
 		super();
 		
@@ -281,7 +283,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 			
 			compareAnneeGestion 
 				= this.getAnneeGestion()
-					.compareToIgnoreCase(pObjet.getAnneeGestion());
+					.compareTo(pObjet.getAnneeGestion());
 		
 			if (compareAnneeGestion != 0) {
 				return compareAnneeGestion;
@@ -339,15 +341,26 @@ public class TeleversementDTO implements ITeleversementDTO {
 		
 		final ITeleversementDTO clone 
 			= (ITeleversementDTO) super.clone();
+		
+		// CLONEAGE PROFOND.
+		IUtilisateurCerbereDTO utilisateurDTOClone = null;
+		if (this.getUtilisateur() != null) {
+			utilisateurDTOClone = this.getUtilisateur().clone();
+		}
+		
+		IAnneeGestionDTO anneeGestionDTOClone = null;
+		if (this.getAnneeGestion() != null) {
+			anneeGestionDTOClone = this.getAnneeGestion().clone();
+		}
 				
 		clone.setId(this.getId());
 		clone.setDateTeleversement(this.getDateTeleversement());
-		clone.setUtilisateur(this.getUtilisateur());
+		clone.setUtilisateur(utilisateurDTOClone);
 		clone.setGestionnaire(this.getGestionnaire());
 		clone.setTypeFichier(this.getTypeFichier());
 		clone.setNomFichierTeleverse(this.getNomFichierTeleverse());
 		clone.setFichierStockeServeur(this.getFichierStockeServeur());
-		clone.setAnneeGestion(this.getAnneeGestion());
+		clone.setAnneeGestion(anneeGestionDTOClone);
 		
 		return (TeleversementDTO) clone;
 		
@@ -383,7 +396,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 
 		stb.append("utilisateur=");
 		if (this.getUtilisateur() != null) {
-			stb.append(this.getUtilisateur());
+			stb.append(this.getUtilisateur().getNom());
 		} else {
 			stb.append(NULL);
 		}
@@ -422,8 +435,9 @@ public class TeleversementDTO implements ITeleversementDTO {
 		stb.append(VIRGULE_ESPACE);
 
 		stb.append("anneeGestion=");
-		if (this.getAnneeGestion() != null) {
-			stb.append(this.getAnneeGestion());
+		final IAnneeGestionDTO anneGestionDTO = this.getAnneeGestion();
+		if (anneGestionDTO != null) {
+			stb.append(anneGestionDTO.getAnneeGestion());
 		} else {
 			stb.append(NULL);
 		}
@@ -440,7 +454,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String fournirEnTeteCsv() {
+	public final String fournirEnTeteCsv() {
 		return "id;dateTeleversement;utilisateur;gestionnaire;"
 				+ "typeFichier;nomFichierTeleverse;fichierStockeServeur;"
 				+ "anneeGestion;";
@@ -452,25 +466,42 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String fournirStringCsv() {
+	public final String fournirStringCsv() {
 
 		final StringBuilder stb = new StringBuilder();
 
 		stb.append(this.getId());
 		stb.append(POINT_VIRGULE);
+		
 		stb.append(this.getDateTeleversement());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getUtilisateur());
+		
+		if (this.getUtilisateur() != null) {
+			stb.append(this.getUtilisateur().getNom());
+		} else {
+			stb.append(NULL);
+		}		
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getGestionnaire());
+		
+		stb.append(this.getGestionnaire());		
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getTypeFichier());
+		
+		stb.append(this.getTypeFichier());		
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getNomFichierTeleverse());
+		
+		stb.append(this.getNomFichierTeleverse());		
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getFichierStockeServeur());
+		
+		stb.append(this.getFichierStockeServeur());		
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAnneeGestion());
+		
+		final IAnneeGestionDTO anneeGestionDTO = this.getAnneeGestion();
+		if (anneeGestionDTO != null) {
+			stb.append(anneeGestionDTO.getAnneeGestion());
+		} else {
+			stb.append(NULL);
+		}
+		
 		stb.append(POINT_VIRGULE);
 
 		return stb.toString();
@@ -483,7 +514,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String fournirEnTeteColonne(
+	public final String fournirEnTeteColonne(
 			final int pI) {
 
 		String entete = null;
@@ -538,7 +569,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object fournirValeurColonne(
+	public final Object fournirValeurColonne(
 			final int pI) {
 
 		Object valeur = null;
@@ -554,7 +585,10 @@ public class TeleversementDTO implements ITeleversementDTO {
 			break;
 
 		case 2:
-			valeur = this.getUtilisateur();
+			final IUtilisateurCerbereDTO utilisateurCerbereDTO = this.getUtilisateur();
+			if (utilisateurCerbereDTO != null) {
+				valeur = utilisateurCerbereDTO.getNom();
+			}			
 			break;
 
 		case 3:
@@ -574,7 +608,10 @@ public class TeleversementDTO implements ITeleversementDTO {
 			break;
 
 		case 7:
-			valeur = this.getAnneeGestion();
+			final IAnneeGestionDTO anneeGestionDTO = this.getAnneeGestion();
+			if (anneeGestionDTO != null) {
+				valeur = anneeGestionDTO.getAnneeGestion();
+			}			
 			break;
 
 		default:
@@ -635,7 +672,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getUtilisateur() {
+	public final IUtilisateurCerbereDTO getUtilisateur() {
 		return this.utilisateur;
 	} // Fin de getUtilisateur().__________________________________________
 
@@ -646,7 +683,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 */
 	@Override
 	public final void setUtilisateur(
-			final String pUtilisateur) {
+			final IUtilisateurCerbereDTO pUtilisateur) {
 		this.utilisateur = pUtilisateur;
 	} // Fin de setUtilisateur(...)._______________________________________
 
@@ -740,7 +777,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getAnneeGestion() {
+	public final IAnneeGestionDTO getAnneeGestion() {
 		return this.anneeGestion;
 	} // Fin de getAnneeGestion()._________________________________________
 
@@ -751,7 +788,7 @@ public class TeleversementDTO implements ITeleversementDTO {
 	 */
 	@Override
 	public final void setAnneeGestion(
-			final String pAnneeGestion) {
+			final IAnneeGestionDTO pAnneeGestion) {
 		this.anneeGestion = pAnneeGestion;
 	} // Fin de setAnneeGestion(...).______________________________________
 
