@@ -1,7 +1,16 @@
-package levy.daniel.application.model.metier.anneegestion.impl;
+package levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa;
 
 import java.time.LocalDate;
 import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -10,9 +19,8 @@ import org.apache.commons.logging.LogFactory;
 import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
 
 /**
- * CLASSE AnneeGestion :<br/>
- * AnneeGestion modélise une année de mesure 
- * et de consolidation des trafics.<br/>
+ * CLASSE AnneeGestionEntityJPA :<br/>
+ * .<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -25,12 +33,17 @@ import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
  * <br/>
  *
  *
- * @author dan Lévy
+ * @author daniel.levy Lévy
  * @version 1.0
- * @since 13 juin 2019
+ * @since 20 juin 2019
  *
  */
-public class AnneeGestion implements IAnneeGestion {
+@Entity(name="AnneeGestionEntityJPA")
+@Table(name="ANNEESGESTION", schema="PUBLIC"
+, uniqueConstraints=@UniqueConstraint(name="UNICITE_ANNEEGESTION"
+, columnNames={"ANNEEGESTION"})
+, indexes={@Index(name="INDEX_ANNEEGESTION", columnList="ANNEEGESTION")})
+public class AnneeGestionEntityJPA implements IAnneeGestion {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -80,16 +93,17 @@ public class AnneeGestion implements IAnneeGestion {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
-	private static final Log LOG = LogFactory.getLog(AnneeGestion.class);
+	private static final Log LOG 
+		= LogFactory.getLog(AnneeGestionEntityJPA.class);
 
-	// *************************METHODES************************************/
-
+	
+	// ************************METHODES************************************/
 
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public AnneeGestion() {
+	public AnneeGestionEntityJPA() {
 		this(null, null);
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -101,7 +115,7 @@ public class AnneeGestion implements IAnneeGestion {
 	 *  @param pAnneeGestion : String : 
 	 * année de gestion sur 4 chiffres ("2018" par exemple). 
 	 */
-	public AnneeGestion(final String pAnneeGestion) {
+	public AnneeGestionEntityJPA(final String pAnneeGestion) {
 		this(null, pAnneeGestion);
 	} // Fin de CONSTRUCTEUR COMPLET.______________________________________
 	
@@ -114,7 +128,7 @@ public class AnneeGestion implements IAnneeGestion {
 	 * @param pAnneeGestion : String : 
 	 * année de gestion sur 4 chiffres ("2018" par exemple). 
 	 */
-	public AnneeGestion(final Long pId, final String pAnneeGestion) {
+	public AnneeGestionEntityJPA(final Long pId, final String pAnneeGestion) {
 		
 		super();
 		
@@ -256,7 +270,7 @@ public class AnneeGestion implements IAnneeGestion {
 		clone.setId(this.getId());
 		clone.setAnneeGestion(this.getAnneeGestion());
 	
-		return (AnneeGestion) clone;
+		return (AnneeGestionEntityJPA) clone;
 
 	} // Fin de clone().___________________________________________________
 
@@ -270,7 +284,7 @@ public class AnneeGestion implements IAnneeGestion {
 
 		final StringBuilder stb = new StringBuilder();
 
-		stb.append("AnneeGestion [");
+		stb.append("AnneeGestionEntityJPA [");
 
 		stb.append("id=");
 		if (this.getId() != null) {
@@ -391,6 +405,9 @@ public class AnneeGestion implements IAnneeGestion {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID")
 	@Override
 	public final Long getId() {	
 		return this.id;
@@ -412,6 +429,9 @@ public class AnneeGestion implements IAnneeGestion {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ANNEEGESTION"
+			, unique = false, updatable = true
+			, insertable = true, nullable = false)
 	@Override
 	public final String getAnneeGestion() {
 		return this.anneeGestion;
@@ -445,4 +465,4 @@ public class AnneeGestion implements IAnneeGestion {
 	
 	
 	
-} // FIN DE LA CLASSE AnneeGestion.------------------------------------------
+} // FIN DE LA CLASSE AnneeGestionEntityJPA.---------------------------------
