@@ -46,6 +46,11 @@ import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
 public class TeleversementConvertisseurMetierDTOTest {
 
 	// ************************ATTRIBUTS************************************/
+
+	/**
+	 * "DIRA".
+	 */
+	public static final String DIRA = "DIRA";
 	
 	/**
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>
@@ -101,8 +106,8 @@ public class TeleversementConvertisseurMetierDTOTest {
 					, "M."
 					, "Papy", "Gonzales"
 					, "01 63 43 43 89", "papy.gonzales@free.fr"
-					, "DIRA", "DIRA/SIEER/TRAFIC_1"
-					, "GESTIONNAIRE", "DIRA", null);
+					, DIRA, "DIRA/SIEER/TRAFIC_1"
+					, "GESTIONNAIRE", DIRA, null);
 		
 		final IAnneeGestionDTO anneeGestionDTO 
 			= new AnneeGestionDTO("7", "2019");
@@ -111,7 +116,7 @@ public class TeleversementConvertisseurMetierDTOTest {
 			= new TeleversementDTO("1"
 					, "2019-06-20T10:14:27"
 					, utlisateurDTO
-					, "DIRA"
+					, DIRA
 					, "HIT"
 					, "HITDIRA2019"
 					, "serveur/donnees/2019_HIT_DIRA.txt"
@@ -159,8 +164,8 @@ public class TeleversementConvertisseurMetierDTOTest {
 					, "M."
 					, "papy", "Gonzales"
 					, "01 63 43 43 89", "papy.gonzales@free.fr"
-					, "DIRA", "DIRA/SIEER/TRAFIC_1"
-					, "GESTIONNAIRE", "DIRA", null);
+					, DIRA, "DIRA/SIEER/TRAFIC_1"
+					, "GESTIONNAIRE", DIRA, null);
 		
 		final IAnneeGestion anneeGestion = new AnneeGestion(100L, "2019");
 		

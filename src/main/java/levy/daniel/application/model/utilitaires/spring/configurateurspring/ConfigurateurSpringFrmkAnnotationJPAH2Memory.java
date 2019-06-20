@@ -10,6 +10,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
+import levy.daniel.application.model.persistence.metier.anneegestion.dao.jpaspring.impl.AnneeGestionDAOJPASpring;
 import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
 import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpaspring.impl.UtilisateurCerbereDAOJPASpring;
 
@@ -112,6 +114,30 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2Memory {
 	public IUtilisateurCerbereDAO utilisateurCerbereDAOJPASpring() {
 		return new UtilisateurCerbereDAOJPASpring();
 	} // Fin de utilisateurCerbereDAOJPASpring().__________________________
+
+	
+	
+	/**
+	 * <b>configure un bean pour le DAO AnneeGestionDAOJPASpring 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "AnneeGestionDAOJPASpring" 
+	 * (au lieu de "anneeGestionDAOJPASpring" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au DAO 
+	 * (via l'annotation Repository).
+	 *  Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du DAO</li>
+	 * </ul>
+	 *
+	 * @return : AnneeGestionDAOJPASpring : 
+	 * IAnneeGestionDAO.<br/>
+	 */
+	@Bean(value = "AnneeGestionDAOJPASpring")
+	public IAnneeGestionDAO anneeGestionDAOJPASpring() {
+		return new AnneeGestionDAOJPASpring();
+	} // Fin de anneeGestionDAOJPASpring().________________________________
 
 		
 	

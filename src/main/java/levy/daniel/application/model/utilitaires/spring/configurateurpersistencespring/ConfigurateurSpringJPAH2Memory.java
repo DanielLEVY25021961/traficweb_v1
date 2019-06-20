@@ -148,8 +148,9 @@ public class ConfigurateurSpringJPAH2Memory {
 		
 		final List<String> managedClassNames = new LinkedList<String>();
 		
-		managedClassNames.add(
-				"levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa.UtilisateurCerbereEntityJPA");
+		// AJOUT DES ENTITIES A MAPPER **************************
+		managedClassNames.add("levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA");
+		managedClassNames.add("levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa.UtilisateurCerbereEntityJPA");
 		
 		final MyMutablePersistenceUnitInfo 
 			mutablePersistenceUnitInfo 

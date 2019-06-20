@@ -1,4 +1,4 @@
-package levy.daniel.application.model.persistence.metier.utilisateur.dao.jpaspring.impl;
+package levy.daniel.application.model.persistence.metier.anneegestion.dao.jpaspring.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -33,33 +33,22 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
-import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
+import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
+import levy.daniel.application.model.metier.anneegestion.impl.AnneeGestion;
 import levy.daniel.application.model.persistence.daoexceptions.AbstractDaoException;
-import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
+import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
 import levy.daniel.application.model.utilitaires.spring.afficheurcontexte.AfficheurContexteSpring;
 import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2Memory;
 
 /**
- * CLASSE UtilisateurCerbereDAOJPASpringTest :<br/>
- * Test JUnit de la classe {@link UtilisateurCerbereDAOJPASpring}.<br/>
- * TEST DE DAO SPRING.<br/>
+ * CLASSE AnneeGestionDAOJPASpringTest :<br/>
+ * Test JUnit de la classe {@link AnneeGestionDAOJPASpring}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
  *<br/>
  * 
  * - Mots-clé :<br/>
- * Test Spring, Test JUnit Spring, SPRING, TEST DAO SPRING,<br/>
- * fabriquer liste à partir d'un Iterable,<br/>
- * Test Dao, test DAO, Test persistence avec SPRING frmawork,<br/> 
- * UTILISER LES ANNOTATIONS RunWith(SpringRunner.class), DataJpaTest 
- * et ComponentScan("levy.daniel.application").<br/>
- * ComponentScan("levy.daniel.application") est ESSENTIEL sinon SPRING BOOT 
- * ne résoud pas les dépendances et ne trouve pas 
- * les Beans lors des tests JUnit.<br/>
- * classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD 
- * recharge le contexte SPRING après chaque test.<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -68,22 +57,22 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
  *
  * @author dan Lévy
  * @version 1.0
- * @since 22 févr. 2019
+ * @since 20 juin 2019
  *
  */
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @ContextConfiguration(classes= {ConfigurateurSpringFrmkAnnotationJPAH2Memory.class})
-public class UtilisateurCerbereDAOJPASpringTest {
+public class AnneeGestionDAOJPASpringTest {
 
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * "Classe UtilisateurCerbereDAOJPASpringTest".
+	 * "Classe AnneeGestionDAOJPASpringTest".
 	 */
-	public static final String CLASSE_UTILISATEURCERBERE_DAOJPASPRING_TEST 
-		= "Classe UtilisateurCerbereDAOJPASpringTest";
+	public static final String CLASSE_ANNEEGESTION_DAOJPASPRING_TEST 
+		= "Classe AnneeGestionDAOJPASpringTest";
 	
 	/**
 	 * Contexte SPRING injecté par SPRING dès que 
@@ -107,8 +96,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * Instancié dans avantTests() ou injecté par Spring.
 	 */
 	@Autowired(required=true)
-    @Qualifier("UtilisateurCerbereDAOJPASpring")
-	private transient IUtilisateurCerbereDAO dao;
+    @Qualifier("AnneeGestionDAOJPASpring")
+	private transient IAnneeGestionDAO dao;
 	
 	/**
 	 * boolean qui spécifie si le DAO testé est de type JPA 
@@ -761,68 +750,59 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 	/**
 	 * FORMAT pour affichage formaté à la console 
-	 * des IUtilisateurCerbere.<br/>
-	 * "id=%1$-5d civilité = %2$-5s  
-	 * prénom = %3$-15s nom = %4$-20s 
-	 * tel = %5$-18s eMail = %6$-25s  Service = %7$-15s  
-	 * Unité = %8$-35s  Profil = %9$-25s  Portée = %10$-15s  
-	 * Restriction = %11$-35s".
+	 * des IAnneeGesion.<br/>
+	 * "id=%1$-5d anneeGestion = %2$-5s".
 	 */
-	public static final String FORMAT_UTILISATEURCERBERE 
-		= "id=%1$-5d civilité = %2$-5s  prénom = %3$-15s "
-				+ "nom = %4$-20s tel = %5$-18s eMail = %6$-25s  "
-				+ "Service = %7$-15s  Unité = %8$-35s  Profil = %9$-25s  "
-				+ "Portée = %10$-15s  Restriction = %11$-35s";
-	
+	public static final String FORMAT_ANNEEGESTION 
+		= "id=%1$-5d anneeGestion = %2$-5s";
+
 	/**
-	 * "M.".<br/>
+	 * 2012.
 	 */
-	public static final String M = "M.";
-	
+	public static final String ANNEE_2012 = "2012";
+
 	/**
-	 * "prenomTest".<br/>
+	 * 2015.
 	 */
-	public static final String PRENOMTEST = "prenomTest";
-	
+	public static final String ANNEE_2015 = "2015";
+
 	/**
-	 * "nomTest".<br/>
+	 * 2016.
 	 */
-	public static final String NOMTEST = "nomTest";
-	
+	public static final String ANNEE_2016 = "2016";
+
 	/**
-	 * "01 02 03 04 05".
+	 * 2017.
 	 */
-	public static final String TELTEST = "01 02 03 04 05";
-	
+	public static final String ANNEE_2017 = "2017";
+
 	/**
-	 * "test.test@yahoo.fr".<br/>
+	 * 2018.
 	 */
-	public static final String MAILTEST = "test.test@yahoo.fr";
-	
+	public static final String ANNEE_2018 = "2018";
+
 	/**
-	 * "CEREMA".<br/>
+	 * 2019.
 	 */
-	public static final String SERVICETEST = "CEREMA";
+	public static final String ANNEE_2019 = "2019";
 	
-	/**
-	 * "CEREMA/DTecITM/CITS/DACSI".<br/>
+	 /**
+	 * objet CORRECT à créer dans le stockage 
+	 * pour la méthode remplirStockage() .<br/>
+	 * <b>Ne doit pas causer de doublon</b>.<br/>
+	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
 	 */
-	public static final String UNITETEST = "CEREMA/DTecITM/CITS/DACSI";
+	public static transient IAnneeGestion objetRemplirStockage1 
+		= new AnneeGestion(ANNEE_2016);
 	
-	/**
-	 * "ADMINISTRATEUR".<br/>
+	 /**
+	 * objet CORRECT à créer dans le stockage 
+	 * pour la méthode remplirStockage() .<br/>
+	 * <b>Ne doit pas causer de doublon</b>.<br/>
+	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
 	 */
-	public static final String PROFILTEST = "ADMINISTRATEUR";
-	
-	/**
-	 * "CEREMA".
-	 */
-	public static final String PORTEETEST = "CEREMA";
-	
-	/**
-	 * "france métropolitaine".
-	 */
-	public static final String RESTRICTIONTEST = "france métropolitaine";
+	public static transient IAnneeGestion objetRemplirStockage2 
+		= new AnneeGestion(ANNEE_2017);
 
 	 /**
 	 * objet CORRECT à créer dans le stockage 
@@ -830,31 +810,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * <b>Ne doit pas causer de doublon</b>.<br/>
 	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
 	 */
-	public static transient IUtilisateurCerbere objetRemplirStockage1 
-		= new UtilisateurCerbere(
-			M
-			, "Horace", "Silver"
-			, "04 79 85 54 63", "horace.silver@free.fr"
-			, "SG", "SG/PSII/PSII2"
-			, "GESTIONNAIRE"
-			, "SG"
-			, "sans objet");
-	
-	 /**
-	 * objet CORRECT à créer dans le stockage 
-	 * pour la méthode remplirStockage() .<br/>
-	 * <b>Ne doit pas causer de doublon</b>.<br/>
-	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
-	 */
-	public static transient IUtilisateurCerbere objetRemplirStockage2 
-		= new UtilisateurCerbere(
-			M
-			, "Johnny", "Halliday"
-			, "01 44 85 54 63", "johnny.halliday@free.fr"
-			, "CEREMA", "CEREMA/DTecITM/CITS/DACSI"
-			, "CONSULTANT"
-			, "CEREMA"
-			, "France entière");
+	public static transient IAnneeGestion objetRemplirStockage3 
+	= new AnneeGestion(ANNEE_2018);
 
 	 /**
 	 * objet CORRECT à créer dans le stockage 
@@ -862,31 +819,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * <b>Ne doit pas causer de doublon</b>.<br/>
 	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
 	 */
-	public static transient IUtilisateurCerbere objetRemplirStockage3 
-	= new UtilisateurCerbere(
-			"Mme"
-			, "Papy", "Gonzales"
-			, "00 33 (1) 585 54 63", "papy.gonzales@aol.com"
-			, "DIRA", "DIRA/SIEER/SGT"
-			, "ADMINISTRATEUR LOCAL"
-			, "DIRA"
-			, "DIRA + DIRE");
-
-	 /**
-	 * objet CORRECT à créer dans le stockage 
-	 * pour la méthode remplirStockage() .<br/>
-	 * <b>Ne doit pas causer de doublon</b>.<br/>
-	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
-	 */
-	public static transient IUtilisateurCerbere objetRemplirStockage4 
-		= new UtilisateurCerbere(
-				"Mlle"
-				, "Zorro", "Démoniaque"
-				, "00 33 (3) 472 54 63", "zorro.demoniac@british.com"
-				, "DIRE", "DIRE/SIEER/GST"
-				, "ADMINISTRATEUR LOCAL"
-				, "DIRE"
-				, "DIRE");
+	public static transient IAnneeGestion objetRemplirStockage4 
+		= new AnneeGestion(ANNEE_2019);
 	
 	/**
 	 * objet CORRECT à créer dans le stockage 
@@ -894,15 +828,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * Ne doit pas causer de doublon avec les objetRemplirStockage.<br/>
 	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
 	 */
-	public static transient IUtilisateurCerbere objetACreer1 
-		= new UtilisateurCerbere(
-			M
-			, "Michael", "Caine"
-			, "00 33 322 56 98", "michael.caine@aol.com"
-			, "NY", "New York"
-			, "ADMINISTRATEUR NATIONAL"
-			, "USA"
-			, "USA + Canada");
+	public static transient IAnneeGestion objetACreer1 
+		= new AnneeGestion(ANNEE_2015);
 	
 	/**
 	 * objet CORRECT à créer dans le stockage 
@@ -910,98 +837,56 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * Ne doit pas causer de doublon avec les objetRemplirStockage.<br/>
 	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
 	 */
-	public static transient IUtilisateurCerbere objetACreer2 
-		= new UtilisateurCerbere(
-			M
-			, "Steve", "McQueen"
-			, "00 31 344 56 98", "steve.mcqueen@aol.com"
-			, "Greenwich", "San Fransisco"
-			, "ADMINISTRATEUR NATIONAL"
-			, "USA"
-			, "USA + Canada");
+	public static transient IAnneeGestion objetACreer2 
+		= new AnneeGestion("2020");
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().<br/>
 	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
 	 */
-	public static transient IUtilisateurCerbere objet1 
-		= new UtilisateurCerbere(
-				M
-				, PRENOMTEST, NOMTEST
-				, TELTEST, MAILTEST
-				, SERVICETEST, UNITETEST
-				, PROFILTEST
-				, PORTEETEST
-				, RESTRICTIONTEST);
+	public static transient IAnneeGestion objet1 
+		= new AnneeGestion(ANNEE_2012);
 	
 	/**
 	 * objet1MemeInstance doit être la même instance que objet1.<br/>
 	 */
-	public static transient IUtilisateurCerbere objet1MemeInstance = objet1;
+	public static transient IAnneeGestion objet1MemeInstance = objet1;
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().<br/>
 	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
 	 */
-	public static transient IUtilisateurCerbere objet2EqualsObj1 
-		=  new UtilisateurCerbere(
-				M
-				, PRENOMTEST, NOMTEST
-				, "01 01 01 01 01", MAILTEST
-				, SERVICETEST, UNITETEST
-				, PROFILTEST
-				, PORTEETEST
-				, RESTRICTIONTEST);
+	public static transient IAnneeGestion objet2EqualsObj1 
+		=  new AnneeGestion(ANNEE_2012);
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().<br/>
 	 * <b>PAS d'ID pour ne pas gêner de séquence</b>.
 	 */
-	public static transient IUtilisateurCerbere objet3EqualsObj1 
-		= new UtilisateurCerbere(
-				M
-				, PRENOMTEST, NOMTEST
-				, "02 02 02 02 02", MAILTEST
-				, SERVICETEST, UNITETEST
-				, PROFILTEST
-				, PORTEETEST
-				, RESTRICTIONTEST);
+	public static transient IAnneeGestion objet3EqualsObj1 
+		= new AnneeGestion(ANNEE_2012);
 
 	/**
 	 * objetNull1 et objetNull2 doivent être instanciés 
 	 * avec le constructeur d'arité nulle ou avoir 
 	 * tous les attributs aux valeurs par défaut.
 	 */
-	public static transient IUtilisateurCerbere objetNull1 
-		= new UtilisateurCerbere(null, null
-				, null
-				, null
-				, null, null
-				, null
-				, null
-				, null
-				, null);
+	public static transient IAnneeGestion objetNull1 
+		= new AnneeGestion(null, null);
 	
 	/**
 	 * objetNull1 et objetNull2 doivent être instanciés 
 	 * avec le constructeur d'arité nulle ou avoir 
 	 * tous les attributs aux valeurs par défaut.
 	 */
-	public static transient IUtilisateurCerbere objetNull2 
-		= new UtilisateurCerbere();
+	public static transient IAnneeGestion objetNull2 
+		= new AnneeGestion();
 
 	/**
 	 * Objet Inexistant dans le stockage.
 	 */
-	public static transient IUtilisateurCerbere objetInexistant 
-		= new UtilisateurCerbere(
-			"Maître"
-			, "prenomInexistant", "nomInexistant"
-			, "telInexistant", "mailInexistant"
-			, "serviceInexistant", "uniteInexistant"
-			, "Profil inexistant"
-			, "portée inexistant"
-			, "rrestriction inexistant");
+	public static transient IAnneeGestion objetInexistant 
+		= new AnneeGestion("3000");
 
 	
 	/**
@@ -1009,30 +894,16 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * sans toucher à son id et sans créer 
 	 * de doublon dans le stockage.<br/>
 	 */
-	public static transient IUtilisateurCerbere objetModifieCorrect
-		= new UtilisateurCerbere(
-				M
-				, "Horace modifié", "Silver modifié"
-				, "04 79 85 54 63", "horace.silver@free.fr"
-				, "SG", "SG/PSII/PSII2"
-				, "GESTIONNAIRE"
-				, "SG"
-				, "sans objet");
+	public static transient IAnneeGestion objetModifieCorrect
+		= new AnneeGestion("2022");
 	
 	/**
 	 * Objet modifiant objetRemplirStockage2 
 	 * sans toucher à son id et créant 
 	 * un doublon avec objetRemplirStockage1 dans le stockage.<br/>
 	 */
-	public static transient IUtilisateurCerbere objetModifieDoublon
-		= new UtilisateurCerbere(
-				M
-				, "Horace", "Silver"
-				, "01 44 85 54 63", "horace.silver@free.fr"
-				, "CEREMA", "SG/PSII/PSII2"
-				, "CONSULTANT"
-				, "CEREMA"
-				, "France entière");
+	public static transient IAnneeGestion objetModifieDoublon
+		= new AnneeGestion("2018");
 
 
 	/**
@@ -1041,7 +912,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(UtilisateurCerbereDAOJPASpringTest.class);
+		= LogFactory.getLog(AnneeGestionDAOJPASpringTest.class);
 
 	// *************************METHODES************************************/
 	
@@ -1050,7 +921,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public UtilisateurCerbereDAOJPASpringTest() {
+	public AnneeGestionDAOJPASpringTest() {
 		
 		super();
 		
@@ -1082,7 +953,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testCreateNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1107,7 +978,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -1123,12 +994,12 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetVraimentNull1 = null;
+		final IAnneeGestion objetVraimentNull1 = null;
 		
 		
 		
 		
-		IUtilisateurCerbere objetVraimentNull1Persistant = null;
+		IAnneeGestion objetVraimentNull1Persistant = null;
 						
 		
 		try {
@@ -1189,7 +1060,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testCreateObjetNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateObjetNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1214,7 +1085,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -1227,8 +1098,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		}
 
 		
-		IUtilisateurCerbere objetNull1Persistant = null;
-		IUtilisateurCerbere objetNull2Persistant = null;
+		IAnneeGestion objetNull1Persistant = null;
+		IAnneeGestion objetNull2Persistant = null;
 						
 		
 		try {
@@ -1307,7 +1178,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testCreate() ********** ");
+			System.out.println();
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreate() ********** ");
 		}
 
 		
@@ -1325,7 +1197,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		} // Fin de this.dao NON INJECTE._____________________
 
 		
-		afficherContexte();
+//		afficherContexte();
 		
 		/* vide et remplit le stockage. */
 		this.remplirStockage(false);
@@ -1335,7 +1207,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -1350,7 +1222,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			/* ********************************************************* */
 			/* ***********************CREATION************************** */		
-			final IUtilisateurCerbere objetPersiste1 = this.dao.create(objetACreer1);
+			final IAnneeGestion objetPersiste1 = this.dao.create(objetACreer1);
 			/* ********************************************************* */
 			
 			/* AFFICHAGE A LA CONSOLE. */
@@ -1365,7 +1237,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 						, objetPersiste1);
 			
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -1413,7 +1285,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testCreateDoublon() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1435,14 +1307,14 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		Long nombreObjetsInitial = 0L;
 		Long nombreObjetsFinal = 0L;
 		
-		IUtilisateurCerbere objet1Persistant = null;
-		IUtilisateurCerbere objet1MemeInstancePersistant = null;
-		IUtilisateurCerbere objet2EqualsObjet1Persistant = null;
-		IUtilisateurCerbere objet3EqualsObjet1Persistant = null;
+		IAnneeGestion objet1Persistant = null;
+		IAnneeGestion objet1MemeInstancePersistant = null;
+		IAnneeGestion objet2EqualsObjet1Persistant = null;
+		IAnneeGestion objet3EqualsObjet1Persistant = null;
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -1522,7 +1394,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 						, objet3EqualsObjet1Persistant);
 			
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -1571,7 +1443,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testPersistNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testPersistNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1594,7 +1466,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		Long nombreObjetsInitial = 0L;
 		Long nombreObjetsFinal = 0L;
 		
-		final IUtilisateurCerbere objetVraimentNull1 = null;
+		final IAnneeGestion objetVraimentNull1 = null;
 						
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -1655,7 +1527,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testPersistObjetNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testPersistObjetNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1744,7 +1616,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testPersist() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testPersist() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1769,7 +1641,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -1783,7 +1655,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetAPersister = objetACreer1;
+		final IAnneeGestion objetAPersister = objetACreer1;
 		
 		if (AFFICHAGE_GENERAL && affichage) {			
 			System.out.println();
@@ -1800,7 +1672,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -1847,7 +1719,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testPersistDoublon() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testPersistDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1872,7 +1744,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -1909,7 +1781,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -1959,7 +1831,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testCreateReturnIdNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateReturnIdNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1995,7 +1867,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetVraimentNull1 = null;
+		final IAnneeGestion objetVraimentNull1 = null;
 		Long objetVraimentNull1PersistantId = null;
 
 		
@@ -2060,7 +1932,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testCreateReturnIdObjetNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateReturnIdObjetNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2179,7 +2051,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testCreateReturnId() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateReturnId() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2204,7 +2076,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -2218,7 +2090,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */		
-		final IUtilisateurCerbere objetAStocker = objetACreer1;
+		final IAnneeGestion objetAStocker = objetACreer1;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -2251,7 +2123,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -2299,7 +2171,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testCreateReturnIdDoublon() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateReturnIdDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2323,7 +2195,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -2420,7 +2292,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -2470,7 +2342,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testSaveIterableNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testSaveIterableNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2495,7 +2367,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 					
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -2510,15 +2382,15 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */				
-		final List<IUtilisateurCerbere> listVraimentNull1 = null;
-		List<IUtilisateurCerbere> listVraimentNull1Persistant = null;
+		final List<IAnneeGestion> listVraimentNull1 = null;
+		List<IAnneeGestion> listVraimentNull1Persistant = null;
 		
 
 		try {
 			
 			/* *********************************************** */
 			/* ********************* CREATION **************** */
-			listVraimentNull1Persistant = (List<IUtilisateurCerbere>) this.dao.saveIterable(listVraimentNull1);
+			listVraimentNull1Persistant = (List<IAnneeGestion>) this.dao.saveIterable(listVraimentNull1);
 			/* *********************************************** */
 			
 			/* *********** */
@@ -2532,7 +2404,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -2590,7 +2462,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testSaveIterableObjetsNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testSaveIterableObjetsNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2615,7 +2487,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 				
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 					
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -2630,10 +2502,10 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */				
-		final List<IUtilisateurCerbere> listAvecNull1 = new ArrayList<IUtilisateurCerbere>();
+		final List<IAnneeGestion> listAvecNull1 = new ArrayList<IAnneeGestion>();
 		listAvecNull1.add(objetNull1);
 		listAvecNull1.add(objetNull2);
-		List<IUtilisateurCerbere> listAvecNull1Persistant = null;
+		List<IAnneeGestion> listAvecNull1Persistant = null;
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -2648,7 +2520,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			/* *********************************************** */
 			/* ********************* CREATION **************** */
-			listAvecNull1Persistant = (List<IUtilisateurCerbere>) this.dao.saveIterable(listAvecNull1);
+			listAvecNull1Persistant = (List<IAnneeGestion>) this.dao.saveIterable(listAvecNull1);
 			/* *********************************************** */
 			
 			/* *********** */
@@ -2665,7 +2537,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL			
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -2725,7 +2597,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testSaveIterable() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testSaveIterable() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2750,7 +2622,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 					
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -2765,10 +2637,10 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */				
-		final List<IUtilisateurCerbere> list1 = new ArrayList<IUtilisateurCerbere>();
+		final List<IAnneeGestion> list1 = new ArrayList<IAnneeGestion>();
 		list1.add(objetACreer1);
 		list1.add(objetACreer2);
-		List<IUtilisateurCerbere> list1Persistante = null;
+		List<IAnneeGestion> list1Persistante = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -2783,7 +2655,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			/* *********************************************** */
 			/* ********************* CREATION **************** */
-			list1Persistante = (List<IUtilisateurCerbere>) this.dao.saveIterable(list1);
+			list1Persistante = (List<IAnneeGestion>) this.dao.saveIterable(list1);
 			/* *********************************************** */
 			
 			/* AFFICHAGE A LA CONSOLE. */
@@ -2812,7 +2684,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -2865,7 +2737,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testSaveIterableDoublon() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testSaveIterableDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2890,7 +2762,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 					
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -2905,12 +2777,12 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */				
-		final List<IUtilisateurCerbere> list1 = new ArrayList<IUtilisateurCerbere>();
+		final List<IAnneeGestion> list1 = new ArrayList<IAnneeGestion>();
 		list1.add(objet1);
 		list1.add(objet1MemeInstance);
 		list1.add(objet2EqualsObj1);
 		list1.add(objet3EqualsObj1);
-		List<IUtilisateurCerbere> list1Persistante = null;
+		List<IAnneeGestion> list1Persistante = null;
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -2927,7 +2799,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			/* *********************************************** */
 			/* ********************* CREATION **************** */
-			list1Persistante = (List<IUtilisateurCerbere>) this.dao.saveIterable(list1);
+			list1Persistante = (List<IAnneeGestion>) this.dao.saveIterable(list1);
 			/* *********************************************** */
 			
 			/* AFFICHAGE A LA CONSOLE. */
@@ -2955,7 +2827,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -3003,7 +2875,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testRetrieveNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3028,7 +2900,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -3043,8 +2915,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */						
-		final IUtilisateurCerbere objetARechercher1 = null;
-		IUtilisateurCerbere objetPersisteTrouve1 = null;
+		final IAnneeGestion objetARechercher1 = null;
+		IAnneeGestion objetPersisteTrouve1 = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -3082,7 +2954,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -3130,7 +3002,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testRetrieveObjetNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveObjetNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3155,7 +3027,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -3170,8 +3042,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */								
-		final IUtilisateurCerbere objetARechercher1 = objetNull1;
-		IUtilisateurCerbere objetPersisteTrouve1 = null;
+		final IAnneeGestion objetARechercher1 = objetNull1;
+		IAnneeGestion objetPersisteTrouve1 = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -3212,7 +3084,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -3260,7 +3132,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testRetrieveInexistant() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveInexistant() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3285,7 +3157,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -3300,8 +3172,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */										
-		final IUtilisateurCerbere objetARechercher1 = objetInexistant;
-		IUtilisateurCerbere objetPersisteTrouve1 = null;
+		final IAnneeGestion objetARechercher1 = objetInexistant;
+		IAnneeGestion objetPersisteTrouve1 = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -3342,7 +3214,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -3392,7 +3264,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testRetrieve() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieve() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3417,7 +3289,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -3432,8 +3304,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */												
-		final IUtilisateurCerbere objetARechercher1 = objetRemplirStockage1;
-		IUtilisateurCerbere objetPersisteTrouve1 = null;
+		final IAnneeGestion objetARechercher1 = objetRemplirStockage1;
+		IAnneeGestion objetPersisteTrouve1 = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -3480,7 +3352,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -3528,7 +3400,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testFindByIdNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindByIdNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3553,7 +3425,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -3569,7 +3441,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		// CONDITIONS DE TEST
 		/* ************************* */														
 		final Long objetARechercher1Id = null;
-		IUtilisateurCerbere objetPersisteTrouve1 = null;
+		IAnneeGestion objetPersisteTrouve1 = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -3607,7 +3479,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -3655,7 +3527,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testFindByIdInexistant() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindByIdInexistant() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3680,7 +3552,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -3696,7 +3568,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		// CONDITIONS DE TEST
 		/* ************************* */																
 		final Long objetARechercher1Id = 17L;
-		IUtilisateurCerbere objetPersisteTrouve1 = null;
+		IAnneeGestion objetPersisteTrouve1 = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -3733,7 +3605,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -3782,7 +3654,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testFindById() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindById() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3807,7 +3679,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -3823,7 +3695,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		// CONDITIONS DE TEST
 		/* ************************* */																		
 		final Long objetARechercher1Id = 3L;
-		IUtilisateurCerbere objetPersisteTrouve1 = null;
+		IAnneeGestion objetPersisteTrouve1 = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -3861,7 +3733,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -3909,7 +3781,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testRetrieveIdNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveIdNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3934,7 +3806,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -3949,7 +3821,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */																				
-		final IUtilisateurCerbere objetARechercher1 = null;
+		final IAnneeGestion objetARechercher1 = null;
 		Long objetPersisteTrouve1Id = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -3988,7 +3860,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -4036,7 +3908,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testRetrieveIdObjetNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveIdObjetNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4061,7 +3933,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -4076,7 +3948,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */																						
-		final IUtilisateurCerbere objetARechercher1 = objetNull1;
+		final IAnneeGestion objetARechercher1 = objetNull1;
 		Long objetPersisteTrouve1Id = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -4118,7 +3990,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -4166,7 +4038,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testRetrieveIdInexistant() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveIdInexistant() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4191,7 +4063,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -4206,7 +4078,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */																								
-		final IUtilisateurCerbere objetARechercher1 = objetInexistant;
+		final IAnneeGestion objetARechercher1 = objetInexistant;
 		Long objetPersisteTrouve1Id = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -4248,7 +4120,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -4297,7 +4169,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testRetrieveId() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveId() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4322,7 +4194,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 		
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -4337,7 +4209,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */																										
-		final IUtilisateurCerbere objetARechercher1 = objetRemplirStockage1;
+		final IAnneeGestion objetARechercher1 = objetRemplirStockage1;
 		Long objetPersisteTrouve1Id = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -4380,7 +4252,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 			
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -4429,7 +4301,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testFindAll() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAll() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4449,7 +4321,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* vide et remplit le stockage. */
 		this.remplirStockage(false);
 		
-		List<IUtilisateurCerbere> stockageList = null;
+		List<IAnneeGestion> stockageList = null;
 		
 		try {
 			
@@ -4503,7 +4375,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testFindAllMaxOut() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllMaxOut() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4528,7 +4400,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -4547,7 +4419,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		// STARTPOSITION HORS DES CLOUS.
 		final int startPosition = 4;
 		final int maxResult = 3;
-		List<IUtilisateurCerbere> resultat = null;
+		List<IAnneeGestion> resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -4581,7 +4453,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -4630,7 +4502,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testFindAllMax() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllMax() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -4654,7 +4526,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -4673,7 +4545,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		// STARTPOSITION DANS LES CLOUS.
 		final int startPosition = 2;
 		final int maxResult = 7;
-		List<IUtilisateurCerbere> resultat = null;
+		List<IAnneeGestion> resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -4712,7 +4584,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -4759,7 +4631,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testFindAllIterableNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllIterableNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -4783,7 +4655,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -4801,7 +4673,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// ITERABLE NULL.
 		final Iterable<Long> ids = null;
-		List<IUtilisateurCerbere> resultat = null;
+		List<IAnneeGestion> resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -4813,7 +4685,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			/* ********************************************************* */
 			/* ********************FINDALLITERABLE********************** */
-			resultat = (List<IUtilisateurCerbere>) this.dao.findAllIterable(ids);
+			resultat = (List<IAnneeGestion>) this.dao.findAllIterable(ids);
 			/* ********************************************************* */
 			
 			/* AFFICHAGE A LA CONSOLE. */
@@ -4836,7 +4708,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL		
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -4883,7 +4755,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testFindAllIterableOut() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllIterableOut() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -4907,7 +4779,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -4927,7 +4799,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		final List<Long> ids = new ArrayList<Long>();
 		ids.add(17L);
 		ids.add(20L);
-		List<IUtilisateurCerbere> resultat = null;
+		List<IAnneeGestion> resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -4943,7 +4815,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			/* ********************************************************* */
 			/* ********************FINDALLITERABLE********************** */
-			resultat = (List<IUtilisateurCerbere>) this.dao.findAllIterable(ids);
+			resultat = (List<IAnneeGestion>) this.dao.findAllIterable(ids);
 			/* ********************************************************* */
 			
 			/* AFFICHAGE A LA CONSOLE. */
@@ -4969,7 +4841,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -5016,7 +4888,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testFindAllIterable() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllIterable() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5040,7 +4912,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -5062,7 +4934,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		ids.add(3L);
 		ids.add(17L);
 		ids.add(20L);
-		List<IUtilisateurCerbere> resultat = null;
+		List<IAnneeGestion> resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -5078,7 +4950,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			/* ********************************************************* */
 			/* ********************FINDALLITERABLE********************** */
-			resultat = (List<IUtilisateurCerbere>) this.dao.findAllIterable(ids);
+			resultat = (List<IAnneeGestion>) this.dao.findAllIterable(ids);
 			/* ********************************************************* */
 			
 			/* AFFICHAGE A LA CONSOLE. */
@@ -5104,7 +4976,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -5151,7 +5023,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testUpdateNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5175,7 +5047,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -5190,8 +5062,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetAModifier = null;
-		IUtilisateurCerbere resultat = null;
+		final IAnneeGestion objetAModifier = null;
+		IAnneeGestion resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -5229,7 +5101,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -5279,7 +5151,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testUpdateInexistant() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5303,7 +5175,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL	
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -5318,8 +5190,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetAModifier = objetInexistant;
-		IUtilisateurCerbere resultat = null;
+		final IAnneeGestion objetAModifier = objetInexistant;
+		IAnneeGestion resultat = null;
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -5369,7 +5241,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -5416,7 +5288,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testUpdateDoublon() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5440,7 +5312,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL		
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -5455,9 +5327,9 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetAModifier = objetRemplirStockage1;
-		IUtilisateurCerbere objetAModifierPersistant = null;
-		IUtilisateurCerbere resultat = null;
+		final IAnneeGestion objetAModifier = objetRemplirStockage1;
+		IAnneeGestion objetAModifierPersistant = null;
+		IAnneeGestion resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -5470,10 +5342,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		if (objetAModifierPersistant != null) {
 			
-			objetAModifierPersistant.setPrenom(objetRemplirStockage2.getPrenom());
-			objetAModifierPersistant.setNom(objetRemplirStockage2.getNom());
-			objetAModifierPersistant.setEmail(objetRemplirStockage2.getEmail());
-			objetAModifierPersistant.setUnite(objetRemplirStockage2.getUnite());
+			objetAModifierPersistant.setAnneeGestion(
+					objetRemplirStockage2.getAnneeGestion());
 			
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
@@ -5512,7 +5382,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -5562,7 +5432,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testUpdate() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdate() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5586,7 +5456,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -5601,9 +5471,9 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetAModifier = objetRemplirStockage1;
-		IUtilisateurCerbere objetAModifierPersistant = null;
-		IUtilisateurCerbere resultat = null;
+		final IAnneeGestion objetAModifier = objetRemplirStockage1;
+		IAnneeGestion objetAModifierPersistant = null;
+		IAnneeGestion resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -5616,10 +5486,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		if (objetAModifierPersistant != null) {
 			
-			objetAModifierPersistant.setPrenom(objetModifieCorrect.getPrenom());
-			objetAModifierPersistant.setNom(objetModifieCorrect.getNom());
-			objetAModifierPersistant.setEmail(objetModifieCorrect.getEmail());
-			objetAModifierPersistant.setUnite(objetModifieCorrect.getUnite());
+			objetAModifierPersistant.setAnneeGestion(ANNEE_2012);
 			
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
@@ -5670,7 +5537,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -5717,7 +5584,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testUpdateIdNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateIdNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5741,7 +5608,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -5757,9 +5624,9 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		// CONDITIONS DE TEST
 		/* ************************* */
 		final Long idObjetAModifier = null;
-		final IUtilisateurCerbere objetAModifier = this.dao.findById(idObjetAModifier);
-		final IUtilisateurCerbere objetModifie = objetModifieCorrect;
-		IUtilisateurCerbere resultat = null;
+		final IAnneeGestion objetAModifier = this.dao.findById(idObjetAModifier);
+		final IAnneeGestion objetModifie = objetModifieCorrect;
+		IAnneeGestion resultat = null;
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -5803,7 +5670,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -5850,7 +5717,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testUpdateIdInexistant() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateIdInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5874,7 +5741,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -5891,9 +5758,9 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		/* ID inexistant. */
 		final Long idObjetAModifier = 17L;
-		final IUtilisateurCerbere objetAModifier = this.dao.findById(idObjetAModifier);
-		final IUtilisateurCerbere objetModifie = objetModifieCorrect;
-		IUtilisateurCerbere resultat = null;
+		final IAnneeGestion objetAModifier = this.dao.findById(idObjetAModifier);
+		final IAnneeGestion objetModifie = objetModifieCorrect;
+		IAnneeGestion resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -5937,7 +5804,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -5984,7 +5851,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testUpdateIdDoublon() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateIdDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6008,7 +5875,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -6024,9 +5891,9 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		// CONDITIONS DE TEST
 		/* ************************* */
 		final Long idObjetAModifier = 2L;
-		final IUtilisateurCerbere objetAModifier = this.dao.findById(idObjetAModifier);
-		final IUtilisateurCerbere objetModifie = objetModifieDoublon;
-		IUtilisateurCerbere resultat = null;
+		final IAnneeGestion objetAModifier = this.dao.findById(idObjetAModifier);
+		final IAnneeGestion objetModifie = objetModifieDoublon;
+		IAnneeGestion resultat = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -6070,7 +5937,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -6119,7 +5986,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testUpdateId() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateId() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6143,7 +6010,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -6164,9 +6031,9 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		} else {
 			idObjetAModifier = 0L;
 		}		
-		final IUtilisateurCerbere objetAModifier = this.dao.findById(idObjetAModifier);
-		final IUtilisateurCerbere objetModifie = objetModifieCorrect;
-		IUtilisateurCerbere resultat = null;
+		final IAnneeGestion objetAModifier = this.dao.findById(idObjetAModifier);
+		final IAnneeGestion objetModifie = objetModifieCorrect;
+		IAnneeGestion resultat = null;
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -6224,7 +6091,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -6271,7 +6138,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6295,7 +6162,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -6310,7 +6177,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetADeleter = null;
+		final IAnneeGestion objetADeleter = null;
 		boolean resultat = false;
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -6345,7 +6212,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -6392,7 +6259,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteInexistant() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6416,7 +6283,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 				
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -6431,7 +6298,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetADeleter = objetInexistant;
+		final IAnneeGestion objetADeleter = objetInexistant;
 		boolean resultat = false;
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -6466,7 +6333,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -6514,7 +6381,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDelete() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDelete() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6538,7 +6405,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 				
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -6553,7 +6420,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetADeleter = objetRemplirStockage1;
+		final IAnneeGestion objetADeleter = objetRemplirStockage1;
 		boolean resultat = false;
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -6588,7 +6455,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -6637,7 +6504,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteByIdNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6661,7 +6528,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -6678,7 +6545,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		final Long idObjetADeleter = null;
 		
-		final IUtilisateurCerbere objetADeleter = this.dao.findById(idObjetADeleter);
+		final IAnneeGestion objetADeleter = this.dao.findById(idObjetADeleter);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -6705,7 +6572,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -6752,7 +6619,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteByIdInexistant() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6776,7 +6643,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -6793,7 +6660,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		final Long idObjetADeleter = 17L;
 		
-		final IUtilisateurCerbere objetADeleter = this.dao.findById(idObjetADeleter);
+		final IAnneeGestion objetADeleter = this.dao.findById(idObjetADeleter);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -6820,7 +6687,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -6867,7 +6734,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteById() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteById() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6891,7 +6758,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -6913,7 +6780,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			idObjetADeleter = 0L;
 		}
 		
-		final IUtilisateurCerbere objetADeleter = this.dao.findById(idObjetADeleter);
+		final IAnneeGestion objetADeleter = this.dao.findById(idObjetADeleter);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -6940,7 +6807,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -6989,7 +6856,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteByIdBooleanNull() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdBooleanNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7013,7 +6880,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -7030,7 +6897,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		final Long idObjetADeleter = null;
 		boolean resultat = false;
-		final IUtilisateurCerbere objetADeleter = this.dao.findById(idObjetADeleter);
+		final IAnneeGestion objetADeleter = this.dao.findById(idObjetADeleter);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -7072,7 +6939,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -7120,7 +6987,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteByIdBooleanInexistant() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdBooleanInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7144,7 +7011,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -7160,7 +7027,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		// CONDITIONS DE TEST
 		/* ************************* */
 		final Long idObjetADeleter = 17L;	
-		final IUtilisateurCerbere objetADeleter = this.dao.findById(idObjetADeleter);
+		final IAnneeGestion objetADeleter = this.dao.findById(idObjetADeleter);
 		boolean resultat = false;
 		
 
@@ -7204,7 +7071,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -7252,7 +7119,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteByIdBoolean() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdBoolean() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7276,7 +7143,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -7297,7 +7164,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		} else {
 			idObjetADeleter = 0L;
 		}	
-		final IUtilisateurCerbere objetADeleter = this.dao.findById(idObjetADeleter);
+		final IAnneeGestion objetADeleter = this.dao.findById(idObjetADeleter);
 		boolean resultat = false;
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -7339,7 +7206,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -7388,7 +7255,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteAll() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteAll() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7412,7 +7279,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -7435,7 +7302,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -7485,7 +7352,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteAllBoolean() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteAllBoolean() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7509,7 +7376,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -7547,7 +7414,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -7596,7 +7463,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteIterable() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteIterable() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7620,7 +7487,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -7635,7 +7502,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final List<IUtilisateurCerbere> list1 = new ArrayList<IUtilisateurCerbere>();
+		final List<IAnneeGestion> list1 = new ArrayList<IAnneeGestion>();
 		list1.add(objetRemplirStockage1);
 		list1.add(objetRemplirStockage2);
 		list1.add(objetNull2);
@@ -7645,7 +7512,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
 			System.out.println("LISTE D'OBJETS A DETRUIRE");
-			for (final IUtilisateurCerbere objet : list1) {
+			for (final IAnneeGestion objet : list1) {
 				System.out.println(objet.toString());
 			}
 		}
@@ -7661,7 +7528,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -7711,7 +7578,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testDeleteIterableBoolean() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteIterableBoolean() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7735,7 +7602,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -7750,7 +7617,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final List<IUtilisateurCerbere> list1 = new ArrayList<IUtilisateurCerbere>();
+		final List<IAnneeGestion> list1 = new ArrayList<IAnneeGestion>();
 		list1.add(objetRemplirStockage1);
 		list1.add(objetRemplirStockage2);
 		list1.add(objetNull2);
@@ -7761,7 +7628,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
 			System.out.println("LISTE D'OBJETS A DETRUIRE");
-			for (final IUtilisateurCerbere objet : list1) {
+			for (final IAnneeGestion objet : list1) {
 				System.out.println(objet.toString());
 			}
 		}
@@ -7790,7 +7657,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -7841,7 +7708,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testExists() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testExists() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7869,7 +7736,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -7885,8 +7752,8 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		/* ************************* */
 		// CONDITIONS DE TEST
 		/* ************************* */
-		final IUtilisateurCerbere objetExistantTest = objetRemplirStockage1;
-		final IUtilisateurCerbere objetInexistantTest = objetInexistant;
+		final IAnneeGestion objetExistantTest = objetRemplirStockage1;
+		final IAnneeGestion objetInexistantTest = objetInexistant;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -7929,7 +7796,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -7979,7 +7846,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testExistsId() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testExistsId() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -8003,7 +7870,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -8070,7 +7937,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			// ETAT FINAL
 			/* récupération. */
-			final List<IUtilisateurCerbere> objetsFinaux = this.dao.findAll();
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
 
 			/* Calcul du nombre d'objets dans le stockage après le traitement. */
 			nombreObjetsFinal = this.dao.count();
@@ -8120,7 +7987,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode testCount() ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCount() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -8143,7 +8010,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		// ETAT INITIAL
 		/* récupération. */
-		final List<IUtilisateurCerbere> objetInitiaux = this.dao.findAll();
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
 
 		/* Compte du nombre d'Objets initialement dans le stockage. */
 		nombreObjetsInitial = this.dao.count();
@@ -8197,19 +8064,19 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		this.viderStockage();
 		
 		/* Constitution d'un lot d'objets. */
-		final List<IUtilisateurCerbere> lot 
-			= new ArrayList<IUtilisateurCerbere>();
+		final List<IAnneeGestion> lot 
+			= new ArrayList<IAnneeGestion>();
 		
 		lot.add(objetRemplirStockage1);
 		lot.add(objetRemplirStockage2);
 		lot.add(objetRemplirStockage3);
 		lot.add(objetRemplirStockage4);
 		
-		List<IUtilisateurCerbere> lotPersistant = null;
+		List<IAnneeGestion> lotPersistant = null;
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE UtilisateurCerbereDAOJPASpringTest - méthode remplirStockage(boolean) ********** ");
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode remplirStockage(boolean) ********** ");
 		}
 		
 		// ETAT INITIAL
@@ -8226,9 +8093,10 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		if (AFFICHAGE_GENERAL && pAffichage) {
 			System.out.println();
 			System.out.println("OBJETS METIER A STOCKER : ");
-			for (final IUtilisateurCerbere objet : lot) {
+			for (final IAnneeGestion objet : lot) {
 				System.out.println(objet.toString());
 			}
+			System.out.println();
 		}
 		
 		
@@ -8236,10 +8104,24 @@ public class UtilisateurCerbereDAOJPASpringTest {
 			
 			/* *********************************************** */
 			/* ********************* CREATION **************** */
-			lotPersistant = (List<IUtilisateurCerbere>) this.dao.saveIterable(lot);
+			lotPersistant = (List<IAnneeGestion>) this.dao.saveIterable(lot);
 			/* *********************************************** */
 			
 			nombreObjetsFinal = this.dao.count();
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && pAffichage) {
+				
+				System.out.println();
+				System.out.println(TIRETS);
+				System.out.println("remplirTable(boolean)");
+				System.out.println("NOMBRE D'OBJETS PERSISTES APRES save(Lot) : " + nombreObjetsFinal);
+				System.out.println("LOT D'ENREGISTREMENTS dans le stockage APRES remplirTable(boolean) : ");
+				System.out.println(this.dao.afficherListeObjetsMetier(lotPersistant));
+				System.out.println(TIRETS);
+				System.out.println();
+
+			}
 			
 			/* garantit que save(Lot pObjects) 
 			 * insère des objets dans le stockage.*/
@@ -8251,19 +8133,6 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		}
 		catch (AbstractDaoException e) {
 			this.afficherAbstractDaoException(e);
-		}
-
-		/* AFFICHAGE A LA CONSOLE. */
-		if (AFFICHAGE_GENERAL && pAffichage) {
-			System.out.println();
-			System.out.println(TIRETS);
-			System.out.println("remplirTable(boolean)");
-			System.out.println("NOMBRE D'OBJETS PERSISTES APRES save(Lot) : " + nombreObjetsFinal);
-			System.out.println("LOT D'ENREGISTREMENTS dans le stockage APRES remplirTable(boolean) : ");
-			System.out.println(this.dao.afficherListeObjetsMetier(lotPersistant));
-			System.out.println(TIRETS);
-			System.out.println();
-
 		}
 
 	} // Fin de remplirStockage(...).______________________________________
@@ -8397,13 +8266,13 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * dans le stockage après le test.</li>
 	 * </ul>
 	 *
-	 * @param pObjetPersistant : IUtilisateurCerbere : 
+	 * @param pObjetPersistant : IAnneeGestion : 
 	 * Objet persistant dans le stockage.<br/>
 	 * @param pNbreObjetsFinal : Long : 
 	 * Nombre d'objets finalement dans le stockage.<br/>
 	 */
 	private void afficherObjetPersistant(
-			final IUtilisateurCerbere pObjetPersistant
+			final IAnneeGestion pObjetPersistant
 				, final Long pNbreObjetsFinal) {
 		
 		if (pObjetPersistant != null) {
@@ -8486,12 +8355,12 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * <br/>
 	 * retourne null si pList == null.<br/>
 	 *
-	 * @param pList : List&lt;IUtilisateurCerbere&gt;.<br/>
+	 * @param pList : List&lt;IAnneeGestion&gt;.<br/>
 	 * 
 	 * @return : String.<br/>
 	 */
 	private String afficherListeObjetsMetier(
-			final List<IUtilisateurCerbere> pList) {
+			final List<IAnneeGestion> pList) {
 		
 		/* retourne null si pList == null. */
 		if (pList == null) {
@@ -8500,7 +8369,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		final StringBuffer stb = new StringBuffer();
 		
-		for (final IUtilisateurCerbere objet : pList) {
+		for (final IAnneeGestion objet : pList) {
 			
 			stb.append(objet.toString());
 			stb.append(SAUT_LIGNE_PLATEFORME);
@@ -8580,7 +8449,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	 * @throws Exception 
 	 */
 	@BeforeClass
-  public static void avantTests() throws Exception {
+ public static void avantTests() throws Exception {
 		
 		/**/
 //		System.out.println();
@@ -8630,9 +8499,16 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		
 		if (contexteSpring != null) {
 			
-			System.out.println();
-			System.out.println("*************** apresTest() DANS LE TEST JUNIT ****************************");
-			System.out.println("*****************CLOTURE DU CONTEXTE SPRING ******************************************************");
+			boolean affichageLocal = false;
+			
+			if (affichageLocal) {
+				
+				System.out.println();
+				System.out.println("*************** apresTest() DANS LE TEST JUNIT ****************************");
+				System.out.println("*****************CLOTURE DU CONTEXTE SPRING ******************************************************");
+				
+			}
+			
 			
 			/* clôt le contexte Spring déclaré par Annotations. */
 			contexteSpring.close();
@@ -8714,7 +8590,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		} else {
 			
 			final String message 
-				= CLASSE_UTILISATEURCERBERE_DAOJPASPRING_TEST 
+				= CLASSE_ANNEEGESTION_DAOJPASPRING_TEST 
 					+ " - METHODE avantTests() - " 
 						+ "LE CONTEXTE N'A PU ETRE INSTANCIE";
 			
@@ -8740,5 +8616,5 @@ public class UtilisateurCerbereDAOJPASpringTest {
 	} // Fin de afficherContexte().________________________________________
 	
 	
-
-} // FIN DE LA CLASSE UtilisateurCerbereDAOJPASpringTest.--------------------
+	
+} // FIN DE LA CLASSE AnneeGestionDAOJPASpringTest.--------------------------

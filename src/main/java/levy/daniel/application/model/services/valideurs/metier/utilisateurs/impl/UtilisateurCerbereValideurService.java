@@ -339,7 +339,7 @@ public class UtilisateurCerbereValideurService
 		
 		valide = civiliteValide && prenomValide && nomValide;
 		
-		System.out.println("valide ? : " + valide);
+//		System.out.println("valide ? : " + valide);
 		
 		return erreursMap;
 		

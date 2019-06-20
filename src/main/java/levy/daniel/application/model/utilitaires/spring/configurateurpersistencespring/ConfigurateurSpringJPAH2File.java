@@ -143,6 +143,8 @@ public class ConfigurateurSpringJPAH2File {
 		
 		managedClassNames.add(
 				"levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa.UtilisateurCerbereEntityJPA");
+		managedClassNames.add(
+				"levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA");
 		
 		final MyMutablePersistenceUnitInfo 
 			mutablePersistenceUnitInfo 

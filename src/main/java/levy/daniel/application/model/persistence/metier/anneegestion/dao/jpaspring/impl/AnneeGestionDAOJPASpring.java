@@ -13,8 +13,10 @@ import javax.persistence.Query;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Repository;
 
 import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
+import levy.daniel.application.model.metier.anneegestion.impl.AnneeGestion;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
 import levy.daniel.application.model.persistence.metier.anneegestion.AnneeGestionConvertisseurMetierEntity;
 import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
@@ -22,7 +24,55 @@ import levy.daniel.application.model.persistence.metier.anneegestion.entities.jp
 
 /**
  * CLASSE AnneeGestionDAOJPASpring :<br/>
- * .<br/>
+ * DAO (Data Access Object) JPA avec SPRING <i>CONCRET</i> 
+ * pour les {@link AnneeGestion}.<br/>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">CONCEPT 
+ * CONCERNE PAR CE DAO</span>
+ * </p>
+ * 
+ * <p>
+ * <b>{@link IAnneeGestion}</b> modélise un <i>concept</i> 
+ * de <b>Année de mesure et consolidation des trafics</b>.
+ * </p>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">DESCRIPTION DE 
+ * DAO</span>
+ * </p>
+ * <ul>
+ * <li>DAO <b>CONCRET</b> pour les <b>{@link IAnneeGestion}</b>.</li>
+ * <li>
+ * Implémente l'interface <b>IAnneeGestionDAO</b>.
+ * </li>
+ * <li>
+ * DAO pour serializer des ENTITIES JPA {@link AnneeGestionEntityJPA} 
+ * lors de l'utilisation de Java Persistence API (JPA)
+ * pour la persistence dans un contexte SPRING.
+ * </li>
+ * </ul>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">IMPLEMENTATION DES DAO</span>
+ * </p>
+ * <ul>
+ * <li>
+ * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_UtilisateurCerbere_DAO_JpaSpring.png" 
+ * alt="implémentation des DAOs AnneeGestion JPA SPRING" border="1" align="center" />
+ * </li>
+ * </ul>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">UTILISATION DES DAO</span>
+ * </p>
+ * <ul>
+ * <li>
+ * <img src="../../../../../../../../../../../../javadoc/images/utilisation_UtilisateurCerbere_DAO_JpaSpring.png" 
+ * alt="utilisation des DAOs AnneeGestion JPA SPRING" border="1" align="center" />
+ * </li>
+ * </ul>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -40,6 +90,7 @@ import levy.daniel.application.model.persistence.metier.anneegestion.entities.jp
  * @since 20 juin 2019
  *
  */
+@Repository(value="AnneeGestionDAOJPASpring")
 public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 
 	// ************************ATTRIBUTS************************************/
@@ -438,7 +489,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 						
 						/* passe si les attributs obligatoires 
 						 * de l'objet ne sont pas remplis.*/
-						if (StringUtils.isBlank(entity.getAnneeGestion())) {
+						if (!StringUtils.isBlank(entity.getAnneeGestion())) {
 							
 							IAnneeGestion objectPersistant = null;
 
@@ -537,7 +588,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		/* REQUETE HQL PARMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where anneeGestion.anneGestion = :pAnneeGestion";
+				+ "where anneeGestion.anneeGestion = :pAnneeGestion";
 		
 		/* Construction de la requête HQL. */
 		final Query requete 

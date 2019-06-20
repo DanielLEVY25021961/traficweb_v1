@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import org.apache.commons.lang3.StringUtils;
@@ -262,7 +263,7 @@ public class AnneeGestionEntityJPA implements IAnneeGestion {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IAnneeGestion clone() throws CloneNotSupportedException {
+	public final AnneeGestionEntityJPA clone() throws CloneNotSupportedException {
 		
 		final IAnneeGestion clone 
 			= (IAnneeGestion) super.clone();
@@ -458,6 +459,7 @@ public class AnneeGestionEntityJPA implements IAnneeGestion {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
 	public final LocalDate getAnneeGestionDate() {
 		return this.anneeGestionDate;
