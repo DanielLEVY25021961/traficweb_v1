@@ -64,7 +64,10 @@ public class TeleversementDTO implements ITeleversementDTO {
 	private String id;
 	
 	/**
-	 * date-heure du téléversement.
+	 * date-heure du téléversement 
+	 * au format LocalDateTime ISO-8601 calendar system 
+	 * comme '2019-06-20T10:26:17' 
+	 * pour 20 juin 2019 à 10h 26 minutes et 17secondes.
 	 */
 	private String dateTeleversement;
 	

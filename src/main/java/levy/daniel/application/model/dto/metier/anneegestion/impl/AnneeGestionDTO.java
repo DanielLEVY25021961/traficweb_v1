@@ -8,7 +8,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.dto.metier.anneegestion.IAnneeGestionDTO;
-import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
 
 /**
  * CLASSE AnneeGestionDTO :<br/>
@@ -183,11 +182,11 @@ public class AnneeGestionDTO implements IAnneeGestionDTO {
 			return false;
 		}
 		
-		if (!(pObjet instanceof IAnneeGestion)) {
+		if (!(pObjet instanceof IAnneeGestionDTO)) {
 			return false;
 		}
 		
-		final IAnneeGestion other = (IAnneeGestion) pObjet;
+		final IAnneeGestionDTO other = (IAnneeGestionDTO) pObjet;
 		
 		return Objects.equals(
 				this.getAnneeGestion(), other.getAnneeGestion());
@@ -262,7 +261,7 @@ public class AnneeGestionDTO implements IAnneeGestionDTO {
 
 		final StringBuilder stb = new StringBuilder();
 
-		stb.append("AnneeGestion [");
+		stb.append("AnneeGestionDTO [");
 
 		stb.append("id=");
 		if (this.getId() != null) {

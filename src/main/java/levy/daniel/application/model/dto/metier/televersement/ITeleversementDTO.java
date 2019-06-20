@@ -145,7 +145,10 @@ public interface ITeleversementDTO
 
 	
 	/**
-	 * Getter de la date-heure du téléversement.
+	 * Getter de la date-heure du téléversement
+	 * au format LocalDateTime ISO-8601 calendar system 
+	 * comme '2019-06-20T10:26:17' 
+	 * pour 20 juin 2019 à 10h 26 minutes et 17secondes.
 	 *
 	 * @return this.dateTeleversement : String.<br/>
 	 */
@@ -154,7 +157,10 @@ public interface ITeleversementDTO
 
 	
 	/**
-	* Setter de la date-heure du téléversement.
+	* Setter de la date-heure du téléversement
+	* au format LocalDateTime ISO-8601 calendar system 
+	* comme '2019-06-20T10:26:17' 
+	* pour 20 juin 2019 à 10h 26 minutes et 17secondes.
 	*
 	* @param pDateTeleversement : String : 
 	* valeur à passer à this.dateTeleversement.<br/>

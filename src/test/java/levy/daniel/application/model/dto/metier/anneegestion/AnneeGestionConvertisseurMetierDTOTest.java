@@ -1,4 +1,4 @@
-package levy.daniel.application.model.dto.metier.utilisateur;
+package levy.daniel.application.model.dto.metier.anneegestion;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -6,13 +6,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 
-import levy.daniel.application.model.dto.metier.utilisateur.impl.UtilisateurCerbereDTO;
-import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
-import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
+import levy.daniel.application.model.dto.metier.anneegestion.impl.AnneeGestionDTO;
+import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
+import levy.daniel.application.model.metier.anneegestion.impl.AnneeGestion;
 
 /**
- * CLASSE UtilisateurCerbereConvertisseurMetierDTOTest :<br/>
- * test JUnit de la classe {@link UtilisateurCerbereConvertisseurMetierDTO}.<br/>
+ * CLASSE AnneeGestionConvertisseurMetierDTOTest :<br/>
+ * Test JUnit de la classe {@link AnneeGestionConvertisseurMetierDTO}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -27,10 +27,10 @@ import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
  *
  * @author daniel.levy Lévy
  * @version 1.0
- * @since 21 févr. 2019
+ * @since 20 juin 2019
  *
  */
-public class UtilisateurCerbereConvertisseurMetierDTOTest {
+public class AnneeGestionConvertisseurMetierDTOTest {
 
 	// ************************ATTRIBUTS************************************/
 	
@@ -43,7 +43,6 @@ public class UtilisateurCerbereConvertisseurMetierDTOTest {
 	 * "unused".<br/>
 	 */
 	public static final String UNUSED = "unused";
-	
 
 	/**
 	 * LOG : Log : 
@@ -51,14 +50,14 @@ public class UtilisateurCerbereConvertisseurMetierDTOTest {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-	= LogFactory.getLog(UtilisateurCerbereConvertisseurMetierDTOTest.class);
+		= LogFactory.getLog(AnneeGestionConvertisseurMetierDTOTest.class);
 
 	// *************************METHODES************************************/
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public UtilisateurCerbereConvertisseurMetierDTOTest() {
+	public AnneeGestionConvertisseurMetierDTOTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -81,21 +80,14 @@ public class UtilisateurCerbereConvertisseurMetierDTOTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE UtilisateurCerbereConvertisseurMetierDTOTest - méthode testConvertirDTOEnObjetMetier() ********** ");
+		System.out.println("********** CLASSE AnneeGestionConvertisseurMetierDTOTest - méthode testConvertirDTOEnObjetMetier() ********** ");
 		}
 		
-		final IUtilisateurCerbereDTO dto 
-			= new UtilisateurCerbereDTO("7"
-					, "M."
-					, "Papy", "Gonzales"
-					, "01 02 03 04 05", "papy.gonzales@yahoo.com"
-					, "SG", "SG/SPSSI/CPII/DOSO/ET"
-					, "ADMINISTRATEUR", "SG", "France métropolitaine");
+		final IAnneeGestionDTO dto = new AnneeGestionDTO("1", "2019");
 		
 		// CONVERSION
-		final IUtilisateurCerbere objet 
-			= UtilisateurCerbereConvertisseurMetierDTO
-				.convertirDTOEnObjetMetier(dto);
+		final IAnneeGestion objet 
+			= AnneeGestionConvertisseurMetierDTO.convertirDTOEnObjetMetier(dto);
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -107,7 +99,7 @@ public class UtilisateurCerbereConvertisseurMetierDTOTest {
 	
 	} // Fin de testConvertirDTOEnObjetMetier().___________________________
 	
-	
+
 	
 	/**
 	 * teste la méthode testConvertirObjetMetierEnDTO(ObjetMetier).<br/>
@@ -126,20 +118,16 @@ public class UtilisateurCerbereConvertisseurMetierDTOTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE UtilisateurCerbereConvertisseurMetierDTOTest - méthode testConvertirObjetMetierEnDTO() ********** ");
+		System.out.println("********** CLASSE AnneeGestionConvertisseurMetierDTOTest - méthode testConvertirObjetMetierEnDTO() ********** ");
 		}
 		
-		final IUtilisateurCerbere objet 
-			= new UtilisateurCerbere(7L
-					, "M."
-					, "Papy", "Gonzales"
-					, "01 02 03 04 05", "papy.gonzales@yahoo.com"
-					, "SG", "SG/SPSSI/CPII/DOSO/ET"
-					, "ADMINISTRATEUR", "SG", "France métropolitaine");
+		final IAnneeGestion objet 
+			= new AnneeGestion(7L
+					, "2021");
 		
 		// CONVERSION
-		final IUtilisateurCerbereDTO dto 
-			= UtilisateurCerbereConvertisseurMetierDTO
+		final IAnneeGestionDTO dto 
+			= AnneeGestionConvertisseurMetierDTO
 				.convertirObjetMetierEnDTO(objet);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -154,4 +142,4 @@ public class UtilisateurCerbereConvertisseurMetierDTOTest {
 
 
 	
-} // Fin de CLASSE UtilisateurCerbereConvertisseurMetierDTOTest.-------------
+} // FIN DE LA CLASSE AnneeGestionConvertisseurMetierDTOTest.----------------
