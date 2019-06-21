@@ -604,6 +604,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<!-- Remplace hibernate-entitymanager, persistence-api, ... -->
 		<!-- 				HIBERNATE-CORE 							-->
+		<!-- GERE LocalDate et LocalDateTime de java8 				-->
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
