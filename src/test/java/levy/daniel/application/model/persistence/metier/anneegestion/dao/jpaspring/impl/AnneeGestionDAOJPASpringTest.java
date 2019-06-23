@@ -750,7 +750,7 @@ public class AnneeGestionDAOJPASpringTest {
 
 	/**
 	 * FORMAT pour affichage formaté à la console 
-	 * des IAnneeGesion.<br/>
+	 * des IAnneeGestion.<br/>
 	 * "id=%1$-5d anneeGestion = %2$-5s".
 	 */
 	public static final String FORMAT_ANNEEGESTION 

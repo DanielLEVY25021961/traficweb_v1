@@ -29,7 +29,6 @@ import org.apache.commons.logging.LogFactory;
 import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
 import levy.daniel.application.model.metier.televersement.EnumTypeFichierDonnees;
 import levy.daniel.application.model.metier.televersement.ITeleversement;
-import levy.daniel.application.model.metier.televersement.impl.Televersement;
 import levy.daniel.application.model.metier.utilisateur.EnumGestionnaire;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA;
@@ -503,7 +502,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 		clone.setFichierStockeServeur(this.getFichierStockeServeur());
 		clone.setAnneeGestion(anneeGestionClone);
 		
-		return (Televersement) clone;
+		return (TeleversementEntityJPA) clone;
 		
 	} // Fin de clone().___________________________________________________
 	
@@ -517,7 +516,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 
 		final StringBuilder stb = new StringBuilder();
 
-		stb.append("Televersement [");
+		stb.append("TeleversementEntityJPA [");
 
 		stb.append("id=");
 		if (this.getId() != null) {

@@ -1,5 +1,7 @@
-package levy.daniel.application.model.persistence.metier.anneegestion;
+package levy.daniel.application.model.persistence.metier.televersement;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -7,12 +9,12 @@ import java.util.Locale;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
-import levy.daniel.application.model.metier.anneegestion.impl.AnneeGestion;
-import levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA;
+import levy.daniel.application.model.metier.televersement.ITeleversement;
+import levy.daniel.application.model.metier.televersement.impl.Televersement;
+import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
 
 /**
- * CLASSE AnneeGestionConvertisseurMetierEntity :<br/>
+ * CLASSE TeleversementConvertisseurMetierEntity :<br/>
  * classe <b>utilitaire</b> chargée de <b>convertir 
  * une ENTITY en OBJET METIER</b> et de <b>convertir un
  * OBJET METIER en ENTITY</b>.<br/>
@@ -28,22 +30,28 @@ import levy.daniel.application.model.persistence.metier.anneegestion.entities.jp
  * <br/>
  *
  *
- * @author daniel.levy Lévy
+ * @author dan Lévy
  * @version 1.0
- * @since 20 juin 2019
+ * @since 21 juin 2019
  *
  */
-public final class AnneeGestionConvertisseurMetierEntity {
+public final class TeleversementConvertisseurMetierEntity {
 
 	// ************************ATTRIBUTS************************************/
 
 	/**
 	 * FORMAT pour affichage formaté à la console 
-	 * des IAnneeGestion.<br/>
-	 * "id=%1$-5d anneeGestion = %2$-5s".
+	 * des ITeleversement.<br/>
+	 * "id = %1$-5d dateTeleversement = %2$-20s utilisateur = %3$-30s 
+	 * gestionnaire = %4$-10s typeFichier = %5$-10s 
+	 * nomfichierTeleverse = %6$-20s 
+	 * fichierStockeServeur = %7$-100s anneeGestion = %8$-4s".
 	 */
-	public static final String FORMAT_ANNEEGESTION 
-		= "id=%1$-5d anneeGestion = %2$-5s";
+	public static final String FORMAT_TELEVERSEMENT 
+		= "id = %1$-5d dateTeleversement = %2$-20s utilisateur = %3$-30s "
+				+ "gestionnaire = %4$-10s typeFichier = %5$-10s "
+				+ "nomfichierTeleverse = %6$-20s "
+				+ "fichierStockeServeur = %7$-100s anneeGestion = %8$-4s";
 
 	/**
 	 * "line.separator".<br/>
@@ -56,15 +64,16 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(AnneeGestionConvertisseurMetierEntity.class);
+		= LogFactory.getLog(TeleversementConvertisseurMetierEntity.class);
 
 	// *************************METHODES************************************/
+	
 	
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.
 	 */
-	private AnneeGestionConvertisseurMetierEntity() {
+	private TeleversementConvertisseurMetierEntity() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -77,21 +86,27 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	 * à null si pEntityJPA == null.</li>
 	 * </ul>
 	 *
-	 * @param pEntityJPA : AnneeGestionEntityJPA.<br/>
+	 * @param pEntityJPA : TeleversementEntityJPA.<br/>
 	 * 
-	 * @return : IAnneeGestion.<br/>
+	 * @return : ITeleversement.<br/>
 	 */
-	public static IAnneeGestion creerObjetMetierAPartirEntityJPA(
-			final AnneeGestionEntityJPA pEntityJPA) {
+	public static ITeleversement creerObjetMetierAPartirEntityJPA(
+			final TeleversementEntityJPA pEntityJPA) {
 
-		synchronized (AnneeGestionConvertisseurMetierEntity.class) {
+		synchronized (TeleversementConvertisseurMetierEntity.class) {
 			
-			final IAnneeGestion objet 
-				= new AnneeGestion();
+			final ITeleversement objet 
+				= new Televersement();
 			
 			if (pEntityJPA != null) {
 				
 				objet.setId(pEntityJPA.getId());
+				objet.setDateTeleversement(pEntityJPA.getDateTeleversement());
+				objet.setUtilisateur(pEntityJPA.getUtilisateur());
+				objet.setGestionnaire(pEntityJPA.getGestionnaire());
+				objet.setTypeFichier(pEntityJPA.getTypeFichier());
+				objet.setNomFichierTeleverse(pEntityJPA.getNomFichierTeleverse());
+				objet.setFichierStockeServeur(pEntityJPA.getFichierStockeServeur());
 				objet.setAnneeGestion(pEntityJPA.getAnneeGestion());
 				
 			}
@@ -113,25 +128,32 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	 * <li>injecte les valeurs de l'ENTITY dans un OBJET METIER.</li>
 	 * </ul>
 	 *
-	 * @param pEntity : AnneeGestionEntityJPA.<br/>
+	 * @param pEntity : TeleversementEntityJPA.<br/>
 	 * 
-	 * @return : IAnneeGestion : Objet métier.<br/>
+	 * @return : ITeleversement : Objet métier.<br/>
 	 */
-	public static IAnneeGestion convertirEntityJPAEnObjetMetier(
-			final AnneeGestionEntityJPA pEntity) {
+	public static ITeleversement convertirEntityJPAEnObjetMetier(
+			final TeleversementEntityJPA pEntity) {
 		
-		synchronized (AnneeGestionConvertisseurMetierEntity.class) {
+		synchronized (TeleversementConvertisseurMetierEntity.class) {
 			
-			IAnneeGestion objet = null;
+			ITeleversement objet = null;
 			
 			if (pEntity != null) {
 				
 				/* récupère les valeurs dans l'Entity. */
 				/* injecte les valeurs typées dans un OBJET METIER. */
 				objet 
-					= new AnneeGestion(
+					= new Televersement(
 							pEntity.getId()
+							, pEntity.getDateTeleversement()
+							, pEntity.getUtilisateur()
+							, pEntity.getGestionnaire()
+							, pEntity.getTypeFichier()
+							, pEntity.getNomFichierTeleverse()
+							, pEntity.getFichierStockeServeur()
 							, pEntity.getAnneeGestion());
+				
 			}
 			
 			return objet;
@@ -150,30 +172,30 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	 * - n'insère dans la liste résultat que les Entities non null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : List&lt;AnneeGestionEntityJPA&gt;.<br/>
+	 * @param pList : List&lt;TeleversementEntityJPA&gt;.<br/>
 	 * 
-	 * @return : List&lt;IAnneeGestion&gt;.<br/>
+	 * @return : List&lt;ITeleversement&gt;.<br/>
 	 */
-	public static List<IAnneeGestion> convertirListEntitiesJPAEnModel(
-			final List<AnneeGestionEntityJPA> pList) {
+	public static List<ITeleversement> convertirListEntitiesJPAEnModel(
+			final List<TeleversementEntityJPA> pList) {
 		
-		synchronized (AnneeGestionConvertisseurMetierEntity.class) {
+		synchronized (TeleversementConvertisseurMetierEntity.class) {
 			
 			/* retourne null si pList == null. */
 			if (pList == null) {
 				return null;
 			}
 			
-			final List<IAnneeGestion> resultat 
-				= new ArrayList<IAnneeGestion>();
+			final List<ITeleversement> resultat 
+				= new ArrayList<ITeleversement>();
 			
-			for (final AnneeGestionEntityJPA entity : pList) {
+			for (final TeleversementEntityJPA entity : pList) {
 				
 				/* n'insère dans la liste résultat 
 				 * que les Entities non null. */
 				if (entity != null) {
 					
-					final IAnneeGestion objet 													
+					final ITeleversement objet 													
 						= convertirEntityJPAEnObjetMetier(entity);
 					
 					resultat.add(objet);
@@ -196,21 +218,27 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	 * à null si pObject == null.</li>
 	 * </ul>
 	 *
-	 * @param pObject : IAnneeGestion.<br/>
+	 * @param pObject : ITeleversement.<br/>
 	 *  
-	 * @return : AnneeGestionEntityJPA.<br/>
+	 * @return : TeleversementEntityJPA.<br/>
 	 */
-	public static AnneeGestionEntityJPA creerEntityJPA(
-			final IAnneeGestion pObject) {
+	public static TeleversementEntityJPA creerEntityJPA(
+			final ITeleversement pObject) {
 		
-		synchronized (AnneeGestionConvertisseurMetierEntity.class) {
+		synchronized (TeleversementConvertisseurMetierEntity.class) {
 			
-			final AnneeGestionEntityJPA entity 
-				= new AnneeGestionEntityJPA();
+			final TeleversementEntityJPA entity 
+				= new TeleversementEntityJPA();
 			
 			if (pObject != null) {
 				
 				entity.setId(pObject.getId());
+				entity.setDateTeleversement(pObject.getDateTeleversement());
+				entity.setUtilisateur(pObject.getUtilisateur());
+				entity.setGestionnaire(pObject.getGestionnaire());
+				entity.setTypeFichier(pObject.getTypeFichier());
+				entity.setNomFichierTeleverse(pObject.getNomFichierTeleverse());
+				entity.setFichierStockeServeur(pObject.getFichierStockeServeur());
 				entity.setAnneeGestion(pObject.getAnneeGestion());
 				
 			}
@@ -231,23 +259,29 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	 * <li>injecte les valeurs de l'objet métier dans une ENTITY.</li>
 	 * </ul>
 	 *
-	 * @param pObject : IAnneeGestion : Objet métier.<br/>
+	 * @param pObject : ITeleversement : Objet métier.<br/>
 	 * 
-	 * @return : AnneeGestionEntityJPA : ENTITY JPA.<br/>
+	 * @return : TeleversementEntityJPA : ENTITY JPA.<br/>
 	 */
-	public static AnneeGestionEntityJPA convertirObjetMetierEnEntityJPA(
-			final IAnneeGestion pObject) {
+	public static TeleversementEntityJPA convertirObjetMetierEnEntityJPA(
+			final ITeleversement pObject) {
 		
-		synchronized (AnneeGestionConvertisseurMetierEntity.class) {
+		synchronized (TeleversementConvertisseurMetierEntity.class) {
 			
-			AnneeGestionEntityJPA resultat = null;
+			TeleversementEntityJPA resultat = null;
 			
 			if (pObject != null) {
 								
 				/* injecte les valeurs String dans un DTO. */
 				resultat 
-					= new AnneeGestionEntityJPA(
+					= new TeleversementEntityJPA(
 							pObject.getId()
+							, pObject.getDateTeleversement()
+							, pObject.getUtilisateur()
+							, pObject.getGestionnaire()
+							, pObject.getTypeFichier()
+							, pObject.getNomFichierTeleverse()
+							, pObject.getFichierStockeServeur()
 							, pObject.getAnneeGestion());
 				
 			}
@@ -267,28 +301,28 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	 * - retourne null si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : List&lt;IAnneeGestion&gt;
+	 * @param pList : List&lt;ITeleversement&gt;
 	 * 
-	 * @return : List&lt;AnneeGestionEntityJPA&gt;.<br/>
+	 * @return : List&lt;TeleversementEntityJPA&gt;.<br/>
 	 */
-	public static List<AnneeGestionEntityJPA> convertirListModelEnEntitiesJPA(
-			final Iterable<IAnneeGestion> pList) {
+	public static List<TeleversementEntityJPA> convertirListModelEnEntitiesJPA(
+			final Iterable<ITeleversement> pList) {
 		
-		synchronized (AnneeGestionConvertisseurMetierEntity.class) {
+		synchronized (TeleversementConvertisseurMetierEntity.class) {
 			
 			/* retourne null si pList == null. */
 			if (pList == null) {
 				return null;
 			}
 			
-			final List<AnneeGestionEntityJPA> resultat 
-				= new ArrayList<AnneeGestionEntityJPA>();
+			final List<TeleversementEntityJPA> resultat 
+				= new ArrayList<TeleversementEntityJPA>();
 			
-			for (final IAnneeGestion objet : pList) {
+			for (final ITeleversement objet : pList) {
 				
 				if (objet != null) {
 					
-					final AnneeGestionEntityJPA entity 
+					final TeleversementEntityJPA entity 
 						= convertirObjetMetierEnEntityJPA(objet);
 					
 					resultat.add(entity);
@@ -306,7 +340,7 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	
 	/**
 	 * <b>retourne une String pour affichage formaté 
-	 * (FORMAT_ANNEEGESTION) 
+	 * (FORMAT_TELEVERSEMENT) 
 	 * d'une liste d'entities</b>.<br/>
 	 * <ul>
 	 * <li>chaque item de la liste est retournée 
@@ -319,13 +353,13 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	 * passée en paramètre.<br/>
 	 * <br/>
 	 *
-	 * @param pList : List&lt;AnneeGestionEntityJPA&gt; : 
+	 * @param pList : List&lt;TeleversementEntityJPA&gt; : 
 	 * liste d'Entities.<br/>
 	 * 
 	 * @return : String : affichage.<br/>
 	 */
 	public static String afficherFormateListEntities(
-			final List<AnneeGestionEntityJPA> pList) {
+			final List<TeleversementEntityJPA> pList) {
 		
 		/* retourne null si pList == null. */
 		if (pList == null) {
@@ -334,7 +368,7 @@ public final class AnneeGestionConvertisseurMetierEntity {
 		
 		final StringBuilder stb = new StringBuilder();
 		
-		for (final IAnneeGestion entity : pList) {
+		for (final ITeleversement entity : pList) {
 			
 			/* n'affiche pas une Entity null 
 			 * dans la liste passée en paramètre. */
@@ -343,9 +377,15 @@ public final class AnneeGestionConvertisseurMetierEntity {
 				final String stringformatee 
 					= String.format(
 							Locale.getDefault()
-								, FORMAT_ANNEEGESTION
+								, FORMAT_TELEVERSEMENT
 								, entity.getId()
-								, entity.getAnneeGestion());
+								, formaterLocalDateTimeEnString(entity.getDateTeleversement())
+								, entity.getUtilisateur().getNom()
+								, entity.getGestionnaire().getNomCourt()
+								, entity.getTypeFichier().getNomCourt()
+								, entity.getNomFichierTeleverse()
+								, entity.getFichierStockeServeur().getAbsolutePath()
+								, entity.getAnneeGestion().getAnneeGestion());
 				
 				stb.append(stringformatee);
 				
@@ -362,7 +402,7 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	
 	/**
 	 * <b>retourne une String pour affichage formaté 
-	 * (FORMAT_ANNEEGESTION) 
+	 * (FORMAT_TELEVERSEMENT) 
 	 * d'une liste d'objets métier</b>.<br/>
 	 * <ul>
 	 * <li>chaque item de la liste est retournée 
@@ -375,13 +415,13 @@ public final class AnneeGestionConvertisseurMetierEntity {
 	 * passée en paramètre.<br/>
 	 * <br/>
 	 *
-	 * @param pList : List&lt;IAnneeGestion&gt; : 
-	 * liste d'Objets metier.<br/>
+	 * @param pList : List&lt;ITeleversement&gt; : 
+	 * liste d'Objets métier.<br/>
 	 * 
 	 * @return : String : affichage.<br/>
 	 */
 	public static String afficherFormateListObjets(
-			final List<IAnneeGestion> pList) {
+			final List<ITeleversement> pList) {
 		
 		/* retourne null si pList == null. */
 		if (pList == null) {
@@ -390,7 +430,7 @@ public final class AnneeGestionConvertisseurMetierEntity {
 		
 		final StringBuilder stb = new StringBuilder();
 		
-		for (final IAnneeGestion objet : pList) {
+		for (final ITeleversement objet : pList) {
 			
 			/* n'affiche pas une Entity null 
 			 * dans la liste passée en paramètre. */
@@ -399,9 +439,15 @@ public final class AnneeGestionConvertisseurMetierEntity {
 				final String stringformatee 
 					= String.format(
 							Locale.getDefault()
-								, FORMAT_ANNEEGESTION
+								, FORMAT_TELEVERSEMENT
 								, objet.getId()
-								, objet.getAnneeGestion());
+								, formaterLocalDateTimeEnString(objet.getDateTeleversement())
+								, objet.getUtilisateur().getNom()
+								, objet.getGestionnaire().getNomCourt()
+								, objet.getTypeFichier().getNomCourt()
+								, objet.getNomFichierTeleverse()
+								, objet.getFichierStockeServeur().getAbsolutePath()
+								, objet.getAnneeGestion().getAnneeGestion());
 				
 				stb.append(stringformatee);
 				
@@ -413,7 +459,42 @@ public final class AnneeGestionConvertisseurMetierEntity {
 		return stb.toString();
 		
 	} //Fin de afficherFormateListObjets(...)._____________________________
+
 	
 	
+	/**
+	 * retourne une String de la forme 
+	 * <code>[annee-mois-jour_heure_minute_seconde]</code> 
+	 * à partir d'une LocalDateTime pDate.<br/>
+	 * Par exemple, retourne <b>2019-06-13_21_03_57</b> 
+	 * pour le 13 juin 2019 à 21h 03 minutes et 57 secondes.<br/>
+	 * <br/>
+	 * - retourne null si pDate == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDate : LocalDateTime : date à formater.
+	 * 
+	 * @return : String : affichage de la date formatée.<br/>
+	 */
+	private static String formaterLocalDateTimeEnString(
+			final LocalDateTime pDate) {
+		
+		/* retourne null si pDate == null. */
+		if (pDate == null) {
+			return null;
+		}
+		
+		/* formateur de type 2019-06-13_21_03_57 
+		 * (13 juin 2019 à 21h 03 minutes et 57 secondes)*/
+		final DateTimeFormatter formatter 
+			= DateTimeFormatter.ofPattern("yyyy-MM-dd_HH_mm_ss");
 	
-} // FIN DE LA CLASSE AnneeGestionConvertisseurMetierEntity.-----------------
+		final String resultat = pDate.format(formatter);
+				
+		return resultat;
+		
+	} // Fin de formaterLocalDateTimeEnString(...).________________________
+	
+		
+	
+} // FIN DE LA CLASSE TeleversementConvertisseurMetierEntity.----------------

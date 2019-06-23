@@ -1,9 +1,12 @@
-package levy.daniel.application.model.persistence.metier.anneegestion;
+package levy.daniel.application.model.persistence.metier.televersement;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -13,12 +16,19 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 
 import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
-import levy.daniel.application.model.metier.anneegestion.impl.AnneeGestion;
+import levy.daniel.application.model.metier.televersement.EnumTypeFichierDonnees;
+import levy.daniel.application.model.metier.televersement.ITeleversement;
+import levy.daniel.application.model.metier.televersement.impl.Televersement;
+import levy.daniel.application.model.metier.utilisateur.EnumGestionnaire;
+import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
+import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
 import levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA;
+import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
+import levy.daniel.application.model.services.valideurs.metier.utilisateurs.EnumCivilites;
 
 /**
- * CLASSE AnneeGestionConvertisseurMetierEntityTest :<br/>
- * Test JUnit de la classe {@link AnneeGestionConvertisseurMetierEntity}.<br/>
+ * CLASSE TeleversementConvertisseurMetierEntityTest :<br/>
+ * Test de la classe {@link TeleversementConvertisseurMetierEntity}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -33,27 +43,12 @@ import levy.daniel.application.model.persistence.metier.anneegestion.entities.jp
  *
  * @author dan Lévy
  * @version 1.0
- * @since 20 juin 2019
+ * @since 21 juin 2019
  *
  */
-public class AnneeGestionConvertisseurMetierEntityTest {
+public class TeleversementConvertisseurMetierEntityTest {
 
 	// ************************ATTRIBUTS************************************/
-
-	/**
-	 * 2016.
-	 */
-	public static final String ANNEE_2016 = "2016";
-
-	/**
-	 * 2017.
-	 */
-	public static final String ANNEE_2017 = "2017";
-
-	/**
-	 * 2018.
-	 */
-	public static final String ANNEE_2018 = "2018";
 		
 	/**
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>
@@ -67,11 +62,135 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 
 	/**
 	 * FORMAT pour affichage formaté à la console 
-	 * des IAnneeGestion.<br/>
-	 * "id=%1$-5d anneeGestion = %2$-5s".
+	 * des ITeleversement.<br/>
+	 * "id = %1$-5d dateTeleversement = %2$-20s utilisateur = %3$-30s 
+	 * gestionnaire = %4$-10s typeFichier = %5$-10s 
+	 * nomfichierTeleverse = %6$-20s 
+	 * fichierStockeServeur = %7$-100s anneeGestion = %8$-4s".
 	 */
-	public static final String FORMAT_ANNEEGESTION 
-		= "id=%1$-5d anneeGestion = %2$-5s";
+	public static final String FORMAT_TELEVERSEMENT 
+		= "id = %1$-5d dateTeleversement = %2$-20s utilisateur = %3$-30s "
+				+ "gestionnaire = %4$-10s typeFichier = %5$-10s "
+				+ "nomfichierTeleverse = %6$-20s "
+				+ "fichierStockeServeur = %7$-100s anneeGestion = %8$-4s";
+
+	/**
+	 * "line.separator".<br/>
+	 */
+	public static final String LINE_SEPARATOR = "line.separator";
+	
+	/**
+	 * LocalDateTime.of(2017, 02, 25, 01, 40, 33);.
+	 */
+	public static final LocalDateTime DATE_TELEVERSEMENT_2017 
+		= LocalDateTime.of(2017, 02, 25, 01, 40, 33);
+	
+	/**
+	 * LocalDateTime.of(2018, 02, 25, 01, 40, 33);.
+	 */
+	public static final LocalDateTime DATE_TELEVERSEMENT_2018 
+		= LocalDateTime.of(2018, 02, 25, 01, 40, 33);
+
+	/**
+	 * "prenomTest".
+	 */
+	public static final String PRENOMTEST = "prenomTest";
+	
+	/**
+	 * "nomTest".
+	 */
+	public static final String NOMTEST = "nomTest";
+	
+	/**
+	 * "telTest".
+	 */
+	public static final String TELTEST = "telTest";
+	
+	/**
+	 * "emailTest".
+	 */
+	public static final String EMAILTEST = "emailTest";
+	
+	/**
+	 * "DIRA".
+	 */
+	public static final String SERVICE_DIRA = "DIRA";
+	
+	/**
+	 * "DIRA/SIEER/TRAFICS_1".
+	 */
+	public static final String UNITE_DIRA_SIEER = "DIRA/SIEER/TRAFICS_1";
+	
+	/**
+	 * "CONSULTANT".
+	 */
+	public static final String PROFIL_CONSULTANT = "CONSULTANT";
+	
+	/**
+	 * "DIRA".
+	 */
+	public static final String PORTEE_DIRA = "DIRA";
+	
+	/**
+	 * "44".
+	 */
+	public static final String RESTRICTION_DIRA_44 = "44";
+	
+	/**
+	 * UTILISATEUR_DIRA.
+	 */
+	public static final IUtilisateurCerbere UTILISATEUR_DIRA 
+		= new UtilisateurCerbere(7L
+				, EnumCivilites.DOCTEUR.getAbreviation()
+				, PRENOMTEST, NOMTEST
+				, TELTEST, EMAILTEST
+				, SERVICE_DIRA, UNITE_DIRA_SIEER
+				, PROFIL_CONSULTANT, PORTEE_DIRA, RESTRICTION_DIRA_44);
+
+	/**
+	 * EnumGestionnaire.DIRA.
+	 */
+	public static final EnumGestionnaire GESTIONNAIRE_DIRA 
+		= EnumGestionnaire.DIRA;
+	
+	/**
+	 * EnumTypeFichierDonnees.HIT.
+	 */
+	public static final EnumTypeFichierDonnees TYPE_FICHIER_HIT 
+		= EnumTypeFichierDonnees.HIT;
+
+	/**
+	 * "HITDIRA2017".
+	 */
+	public static final String NOM_FICHIER_TELEVERSE_DIRA2017 = "HITDIRA2017";
+
+	/**
+	 * "HITDIRA2018".
+	 */
+	public static final String NOM_FICHIER_TELEVERSE_DIRA2018 = "HITDIRA2018";
+	
+	/**
+	 * new File("toto").
+	 */
+	public static final File FICHIER_STOCKE_SERVEUR_TOTO = new File("toto");
+	
+	/**
+	 * 2016.<br/>
+	 */
+	public static final IAnneeGestion ANNEE_GESTION_2016 
+		= new AnneeGestionEntityJPA("2016");
+	
+	/**
+	 * 2017.<br/>
+	 */
+	public static final IAnneeGestion ANNEE_GESTION_2017 
+		= new AnneeGestionEntityJPA("2017");
+	
+	/**
+	 * 2018.<br/>
+	 */
+	public static final IAnneeGestion ANNEE_GESTION_2018 
+		= new AnneeGestionEntityJPA("2018");
 
 	/**
 	 * LOG : Log : 
@@ -79,7 +198,7 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(AnneeGestionConvertisseurMetierEntityTest.class);
+		= LogFactory.getLog(TeleversementConvertisseurMetierEntityTest.class);
 
 	// *************************METHODES************************************/
 	
@@ -87,7 +206,7 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public AnneeGestionConvertisseurMetierEntityTest() {
+	public TeleversementConvertisseurMetierEntityTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -114,15 +233,15 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE AnneeGestionConvertisseurMetierEntityTest - méthode testCreerObjetMetierAPartirEntityJPA() ********** ");
+		System.out.println("********** CLASSE TeleversementConvertisseurMetierEntityTest - méthode testCreerObjetMetierAPartirEntityJPA() ********** ");
 		}
 
 		/* valeur null. */
-		final AnneeGestionEntityJPA entityNull = null;
+		final TeleversementEntityJPA entityNull = null;
 		
 		// CONVERSION
-		final IAnneeGestion objetNull 
-			= AnneeGestionConvertisseurMetierEntity
+		final ITeleversement objetNull 
+			= TeleversementConvertisseurMetierEntity
 				.creerObjetMetierAPartirEntityJPA(entityNull);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -136,18 +255,24 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		assertEquals("creerObjetMetierAPartirEntityJPA(entityNull) "
 				+ "doit retourner un objet instancié par "
 				+ "le constructeur d'arité nulle : "
-				, new AnneeGestion(), objetNull);
+				, new Televersement(), objetNull);
 		
 		
 		/* valeur existante. */
-		final AnneeGestionEntityJPA entity 
-			= new AnneeGestionEntityJPA(
+		final TeleversementEntityJPA entity 
+			= new TeleversementEntityJPA(
 					7L
-					, ANNEE_2017);
+					, DATE_TELEVERSEMENT_2017
+					, UTILISATEUR_DIRA
+					, GESTIONNAIRE_DIRA
+					, TYPE_FICHIER_HIT
+					, NOM_FICHIER_TELEVERSE_DIRA2017
+					, FICHIER_STOCKE_SERVEUR_TOTO
+					, ANNEE_GESTION_2017);
 		
 		// CONVERSION
-		final IAnneeGestion objet 
-			= AnneeGestionConvertisseurMetierEntity
+		final ITeleversement objet 
+			= TeleversementConvertisseurMetierEntity
 			.creerObjetMetierAPartirEntityJPA(entity);
 				
 		/* AFFICHAGE A LA CONSOLE. */
@@ -189,15 +314,15 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE AnneeGestionConvertisseurMetierEntityTest - méthode testConvertirEntityJPAEnObjetMetier() ********** ");
+		System.out.println("********** CLASSE TeleversementConvertisseurMetierEntityTest - méthode testConvertirEntityJPAEnObjetMetier() ********** ");
 		}
 
 		/* valeur null. */
-		final AnneeGestionEntityJPA entityNull = null;
+		final TeleversementEntityJPA entityNull = null;
 		
 		// CONVERSION
-		final IAnneeGestion objetNull 
-			= AnneeGestionConvertisseurMetierEntity
+		final ITeleversement objetNull 
+			= TeleversementConvertisseurMetierEntity
 				.convertirEntityJPAEnObjetMetier(entityNull);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -214,14 +339,20 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		
 		
 		/* valeur existante. */
-		final AnneeGestionEntityJPA entity 
-			= new AnneeGestionEntityJPA(
-					7L
-					, ANNEE_2016);
+		final TeleversementEntityJPA entity 
+			= new TeleversementEntityJPA(
+				7L
+				, DATE_TELEVERSEMENT_2017
+				, UTILISATEUR_DIRA
+				, GESTIONNAIRE_DIRA
+				, TYPE_FICHIER_HIT
+				, NOM_FICHIER_TELEVERSE_DIRA2017
+				, FICHIER_STOCKE_SERVEUR_TOTO
+				, ANNEE_GESTION_2017);
 		
 		// CONVERSION
-		final IAnneeGestion objet 
-			= AnneeGestionConvertisseurMetierEntity
+		final ITeleversement objet 
+			= TeleversementConvertisseurMetierEntity
 				.convertirEntityJPAEnObjetMetier(entity);
 				
 		/* AFFICHAGE A LA CONSOLE. */
@@ -264,15 +395,15 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE AnneeGestionConvertisseurMetierEntityTest - méthode testConvertirListEntitiesJPAEnModel() ********** ");
+		System.out.println("********** CLASSE TeleversementConvertisseurMetierEntityTest - méthode testConvertirListEntitiesJPAEnModel() ********** ");
 		}
 
 		/* valeur null. */
-		final List<AnneeGestionEntityJPA> listEntitiesNull = null;
+		final List<TeleversementEntityJPA> listEntitiesNull = null;
 		
 		// CONVERSION
-		final List<IAnneeGestion> listObjetsNull 
-			= AnneeGestionConvertisseurMetierEntity
+		final List<ITeleversement> listObjetsNull 
+			= TeleversementConvertisseurMetierEntity
 				.convertirListEntitiesJPAEnModel(listEntitiesNull);
 		
 		/* garantit que convertirListEntitiesJPAEnModel(listEntitiesNull) 
@@ -283,21 +414,34 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 
 		
 		/* valeur existante. */
-		final List<AnneeGestionEntityJPA> listEntities 
-			= new ArrayList<AnneeGestionEntityJPA>();
+		final List<TeleversementEntityJPA> listEntities 
+			= new ArrayList<TeleversementEntityJPA>();
 		
 		
-		final AnneeGestionEntityJPA entity1 
-			= new AnneeGestionEntityJPA(
-				7L
-				, ANNEE_2017);
+		final TeleversementEntityJPA entity1 
+			= new TeleversementEntityJPA(
+			7L
+			, DATE_TELEVERSEMENT_2017
+			, UTILISATEUR_DIRA
+			, GESTIONNAIRE_DIRA
+			, TYPE_FICHIER_HIT
+			, NOM_FICHIER_TELEVERSE_DIRA2017
+			, FICHIER_STOCKE_SERVEUR_TOTO
+			, ANNEE_GESTION_2017);
+
 		
-		final AnneeGestionEntityJPA entity2 = null;
+		final TeleversementEntityJPA entity2 = null;
 		
-		final AnneeGestionEntityJPA entity3 
-			= new AnneeGestionEntityJPA(
-				8L
-				, ANNEE_2018);
+		final TeleversementEntityJPA entity3 
+			= new TeleversementEntityJPA(
+			8L
+			, DATE_TELEVERSEMENT_2018
+			, UTILISATEUR_DIRA
+			, GESTIONNAIRE_DIRA
+			, TYPE_FICHIER_HIT
+			, NOM_FICHIER_TELEVERSE_DIRA2018
+			, FICHIER_STOCKE_SERVEUR_TOTO
+			, ANNEE_GESTION_2018);
 		
 		
 		listEntities.add(entity1);
@@ -305,8 +449,8 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		listEntities.add(entity3);
 		
 		// CONVERSION
-		final List<IAnneeGestion> listObjets 
-			= AnneeGestionConvertisseurMetierEntity
+		final List<ITeleversement> listObjets 
+			= TeleversementConvertisseurMetierEntity
 				.convertirListEntitiesJPAEnModel(listEntities);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -320,7 +464,7 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 			System.out.println(this.afficherFormateListEntities(listEntities));
 			System.out.println();
 			System.out.println("LISTE D'OBJETS METIER : ");
-			System.out.println(AnneeGestionConvertisseurMetierEntity.afficherFormateListObjets(listObjets));
+			System.out.println(TeleversementConvertisseurMetierEntity.afficherFormateListObjets(listObjets));
 		}
 		
 		/* garantit que convertirListEntitiesJPAEnModel(listEntities) 
@@ -361,15 +505,15 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE AnneeGestionConvertisseurMetierEntityTest - méthode testCreerEntityJPA() ********** ");
+		System.out.println("********** CLASSE TeleversementConvertisseurMetierEntityTest - méthode testCreerEntityJPA() ********** ");
 		}
 
 		/* valeur null. */
-		final IAnneeGestion objetNull = null;
+		final ITeleversement objetNull = null;
 		
 		// CONVERSION
-		final AnneeGestionEntityJPA entityNull 
-			= AnneeGestionConvertisseurMetierEntity
+		final TeleversementEntityJPA entityNull 
+			= TeleversementConvertisseurMetierEntity
 				.creerEntityJPA(objetNull);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -383,18 +527,24 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		assertEquals("creerEntityJPA(entityNull) "
 				+ "doit retourner un entity instancié par "
 				+ "le constructeur d'arité nulle : "
-				, new AnneeGestionEntityJPA(), entityNull);
+				, new TeleversementEntityJPA(), entityNull);
 		
 		
 		/* valeur existante. */
-		final IAnneeGestion objet 
-			= new AnneeGestion(
+		final ITeleversement objet 
+			= new Televersement(
 					7L
-					, ANNEE_2018);
+					, DATE_TELEVERSEMENT_2017
+					, UTILISATEUR_DIRA
+					, GESTIONNAIRE_DIRA
+					, TYPE_FICHIER_HIT
+					, NOM_FICHIER_TELEVERSE_DIRA2017
+					, FICHIER_STOCKE_SERVEUR_TOTO
+					, ANNEE_GESTION_2017);
 		
 		// CONVERSION
-		final AnneeGestionEntityJPA entity 
-			= AnneeGestionConvertisseurMetierEntity
+		final TeleversementEntityJPA entity 
+			= TeleversementConvertisseurMetierEntity
 				.creerEntityJPA(objet);
 				
 		/* AFFICHAGE A LA CONSOLE. */
@@ -436,15 +586,15 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE AnneeGestionConvertisseurMetierEntityTest - méthode testConvertirObjetMetierEnEntityJPA() ********** ");
+		System.out.println("********** CLASSE TeleversementConvertisseurMetierEntityTest - méthode testConvertirObjetMetierEnEntityJPA() ********** ");
 		}
 
 		/* valeur null. */
-		final IAnneeGestion objetNull = null;
+		final ITeleversement objetNull = null;
 		
 		// CONVERSION
-		final AnneeGestionEntityJPA entityNull 
-			= AnneeGestionConvertisseurMetierEntity
+		final TeleversementEntityJPA entityNull 
+			= TeleversementConvertisseurMetierEntity
 				.convertirObjetMetierEnEntityJPA(objetNull);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -461,14 +611,20 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		
 		
 		/* valeur existante. */
-		final IAnneeGestion objet 
-			= new AnneeGestion(
+		final ITeleversement objet 
+			= new Televersement(
 					7L
-					, ANNEE_2018);
+					, DATE_TELEVERSEMENT_2017
+					, UTILISATEUR_DIRA
+					, GESTIONNAIRE_DIRA
+					, TYPE_FICHIER_HIT
+					, NOM_FICHIER_TELEVERSE_DIRA2017
+					, FICHIER_STOCKE_SERVEUR_TOTO
+					, ANNEE_GESTION_2017);
 		
 		// CONVERSION
-		final AnneeGestionEntityJPA entity 
-			= AnneeGestionConvertisseurMetierEntity
+		final TeleversementEntityJPA entity 
+			= TeleversementConvertisseurMetierEntity
 				.convertirObjetMetierEnEntityJPA(objet);
 				
 		/* AFFICHAGE A LA CONSOLE. */
@@ -506,20 +662,20 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE AnneeGestionConvertisseurMetierEntityTest - méthode testConvertirListModelEnEntitiesJPA() ********** ");
+		System.out.println("********** CLASSE TeleversementConvertisseurMetierEntityTest - méthode testConvertirListModelEnEntitiesJPA() ********** ");
 		}
 
 		/* valeur null. */
-		final List<IAnneeGestion> listObjetsNull = null;
+		final List<ITeleversement> listObjetsNull = null;
 		
 		// CONVERSION
-		final List<AnneeGestionEntityJPA> listEntitiesNull 
-			= AnneeGestionConvertisseurMetierEntity
+		final List<TeleversementEntityJPA> listEntitiesNull 
+			= TeleversementConvertisseurMetierEntity
 				.convertirListModelEnEntitiesJPA(listObjetsNull);
 		
 		/* garantit que convertirListModelEnEntitiesJPA(listObjetsNull) 
@@ -530,20 +686,32 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 
 		
 		/* valeur existante. */
-		final List<IAnneeGestion> listObjets 
-			= new ArrayList<IAnneeGestion>();
+		final List<ITeleversement> listObjets 
+			= new ArrayList<ITeleversement>();
 		
-		final IAnneeGestion objet1 
-			= new AnneeGestion(
-				7L
-				, ANNEE_2017);
+		final ITeleversement objet1 
+			= new Televersement(
+					7L
+					, DATE_TELEVERSEMENT_2017
+					, UTILISATEUR_DIRA
+					, GESTIONNAIRE_DIRA
+					, TYPE_FICHIER_HIT
+					, NOM_FICHIER_TELEVERSE_DIRA2017
+					, FICHIER_STOCKE_SERVEUR_TOTO
+					, ANNEE_GESTION_2017);
 		
-		final IAnneeGestion objet2 = null;
+		final ITeleversement objet2 = null;
 		
-		final IAnneeGestion objet3 
-			= new AnneeGestion(
-				8L
-				, ANNEE_2018);
+		final ITeleversement objet3 
+			= new Televersement(
+					8L
+					, DATE_TELEVERSEMENT_2018
+					, UTILISATEUR_DIRA
+					, GESTIONNAIRE_DIRA
+					, TYPE_FICHIER_HIT
+					, NOM_FICHIER_TELEVERSE_DIRA2018
+					, FICHIER_STOCKE_SERVEUR_TOTO
+					, ANNEE_GESTION_2018);
 		
 		
 		listObjets.add(objet1);
@@ -551,8 +719,8 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		listObjets.add(objet3);
 		
 		// CONVERSION
-		final List<AnneeGestionEntityJPA> listEntities 
-			= AnneeGestionConvertisseurMetierEntity
+		final List<TeleversementEntityJPA> listEntities 
+			= TeleversementConvertisseurMetierEntity
 				.convertirListModelEnEntitiesJPA(listObjets);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -563,7 +731,7 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 			System.out.println("TAILLE DE LA lISTE D'ENTITIES : " + listEntities.size());
 			System.out.println();
 			System.out.println("LISTE D'OBJETS METIER : ");
-			System.out.println(AnneeGestionConvertisseurMetierEntity.afficherFormateListObjets(listObjets));
+			System.out.println(TeleversementConvertisseurMetierEntity.afficherFormateListObjets(listObjets));
 			System.out.println();
 			System.out.println("LISTE D'ENTITES : ");
 			System.out.println(this.afficherFormateListEntities(listEntities));			
@@ -601,13 +769,13 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 	 * passée en paramètre.<br/>
 	 * <br/>
 	 *
-	 * @param pList : List&lt;AnneeGestionEntityJPA&gt; : 
+	 * @param pList : List&lt;TeleversementEntityJPA&gt; : 
 	 * liste d'Entities.<br/>
 	 * 
 	 * @return : String : affichage.<br/>
 	 */
 	private String afficherFormateListEntities(
-			final List<AnneeGestionEntityJPA> pList) {
+			final List<TeleversementEntityJPA> pList) {
 		
 		/* retourne null si pList == null. */
 		if (pList == null) {
@@ -616,7 +784,7 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 		
 		final StringBuilder stb = new StringBuilder();
 		
-		for (final IAnneeGestion entity : pList) {
+		for (final ITeleversement entity : pList) {
 			
 			/* n'affiche pas une Entity null 
 			 * dans la liste passée en paramètre. */
@@ -625,21 +793,62 @@ public class AnneeGestionConvertisseurMetierEntityTest {
 				final String stringformatee 
 					= String.format(
 							Locale.getDefault()
-								, FORMAT_ANNEEGESTION
+								, FORMAT_TELEVERSEMENT
 								, entity.getId()
-								, entity.getAnneeGestion());
+								, formaterLocalDateTimeEnString(entity.getDateTeleversement())
+								, entity.getUtilisateur().getNom()
+								, entity.getGestionnaire().getNomCourt()
+								, entity.getTypeFichier().getNomCourt()
+								, entity.getNomFichierTeleverse()
+								, entity.getFichierStockeServeur().getAbsolutePath()
+								, entity.getAnneeGestion().getAnneeGestion());
 				
 				stb.append(stringformatee);
 				
 				/* utilise le saut de la plateforme. */
-				stb.append(System.getProperty("line.separator"));
+				stb.append(System.getProperty(LINE_SEPARATOR));
 			}
 		}
 		
 		return stb.toString();
 		
 	} //Fin de afficherFormateListEntities(...).___________________________
+
+	
+	
+	/**
+	 * retourne une String de la forme 
+	 * <code>[annee-mois-jour_heure_minute_seconde]</code> 
+	 * à partir d'une LocalDateTime pDate.<br/>
+	 * Par exemple, retourne <b>2019-06-13_21_03_57</b> 
+	 * pour le 13 juin 2019 à 21h 03 minutes et 57 secondes.<br/>
+	 * <br/>
+	 * - retourne null si pDate == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDate : LocalDateTime : date à formater.
+	 * 
+	 * @return : String : affichage de la date formatée.<br/>
+	 */
+	private static String formaterLocalDateTimeEnString(
+			final LocalDateTime pDate) {
+		
+		/* retourne null si pDate == null. */
+		if (pDate == null) {
+			return null;
+		}
+		
+		/* formateur de type 2019-06-13_21_03_57 
+		 * (13 juin 2019 à 21h 03 minutes et 57 secondes)*/
+		final DateTimeFormatter formatter 
+			= DateTimeFormatter.ofPattern("yyyy-MM-dd_HH_mm_ss");
+	
+		final String resultat = pDate.format(formatter);
+				
+		return resultat;
+		
+	} // Fin de formaterLocalDateTimeEnString(...).________________________
 	
 	
 
-} // FIN DE LA CLASSE AnneeGestionConvertisseurMetierEntityTest.-------------
+} // FIN DE LA CLASSE TeleversementConvertisseurMetierEntityTest.------------
