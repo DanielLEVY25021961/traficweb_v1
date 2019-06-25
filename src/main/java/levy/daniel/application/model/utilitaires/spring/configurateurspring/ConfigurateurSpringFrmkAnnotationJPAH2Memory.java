@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
 import levy.daniel.application.model.persistence.metier.anneegestion.dao.jpaspring.impl.AnneeGestionDAOJPASpring;
+import levy.daniel.application.model.persistence.metier.televersement.ITeleversementDAO;
+import levy.daniel.application.model.persistence.metier.televersement.dao.jpaspring.impl.TeleversementDAOJPASpring;
 import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
 import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpaspring.impl.UtilisateurCerbereDAOJPASpring;
 
@@ -138,6 +140,30 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2Memory {
 	public IAnneeGestionDAO anneeGestionDAOJPASpring() {
 		return new AnneeGestionDAOJPASpring();
 	} // Fin de anneeGestionDAOJPASpring().________________________________
+
+	
+	
+	/**
+	 * <b>configure un bean pour le DAO TeleversementDAOJPASpring 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "TeleversementDAOJPASpring" 
+	 * (au lieu de "televersementDAOJPASpring" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au DAO 
+	 * (via l'annotation Repository).
+	 *  Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du DAO</li>
+	 * </ul>
+	 *
+	 * @return : TeleversementDAOJPASpring : 
+	 * ITeleversementDAO.<br/>
+	 */
+	@Bean(value = "TeleversementDAOJPASpring")
+	public ITeleversementDAO televersementDAOJPASpring() {
+		return new TeleversementDAOJPASpring();
+	} // Fin de televersementDAOJPASpring()._______________________________
 
 		
 	

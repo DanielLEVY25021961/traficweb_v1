@@ -801,7 +801,7 @@ public class TeleversementEntityJPATest {
 		
 		/* garantit que les null sont bien gérés dans toString(). */
 		assertEquals("objetNull1.toString() retourne une chaine : "
-				, "Televersement [id=null, dateTeleversement=null, utilisateur=null, gestionnaire=null, typeFichier=null, nomFichierTeleverse=null, fichierStockeServeur=null, anneeGestion=null]"
+				, "TeleversementEntityJPA [id=null, dateTeleversement=null, utilisateur=null, gestionnaire=null, typeFichier=null, nomFichierTeleverse=null, fichierStockeServeur=null, anneeGestion=null]"
 						, objetNull1.toString());
 		
 		final TeleversementEntityJPA objetCaste = (TeleversementEntityJPA) objet1;
@@ -815,7 +815,7 @@ public class TeleversementEntityJPATest {
 		
 		/* garantit le bon affichage de toString(). */
 		assertEquals("affichage : "
-				, "Televersement [id=1, dateTeleversement=2019-06-13_08_37_43, utilisateur=nomTest, gestionnaire=DIRA, typeFichier=HIT, nomFichierTeleverse=HITDIRA2018, fichierStockeServeur=toto, anneeGestion=2018]"
+				, "TeleversementEntityJPA [id=1, dateTeleversement=2019-06-13_08_37_43, utilisateur=nomTest, gestionnaire=DIRA, typeFichier=HIT, nomFichierTeleverse=HITDIRA2018, fichierStockeServeur=toto, anneeGestion=2018]"
 						, objet1.toString());
 				
 	} // Fin de testToString().____________________________________________

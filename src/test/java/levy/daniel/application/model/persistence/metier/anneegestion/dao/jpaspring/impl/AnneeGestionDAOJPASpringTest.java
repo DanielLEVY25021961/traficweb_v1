@@ -49,6 +49,16 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
  *<br/>
  * 
  * - Mots-clé :<br/>
+ * Test Spring, Test JUnit Spring, SPRING, TEST DAO SPRING,<br/>
+ * fabriquer liste à partir d'un Iterable,<br/>
+ * Test Dao, test DAO, Test persistence avec SPRING frmawork,<br/> 
+ * UTILISER LES ANNOTATIONS RunWith(SpringRunner.class), DataJpaTest 
+ * et ComponentScan("levy.daniel.application").<br/>
+ * ComponentScan("levy.daniel.application") est ESSENTIEL sinon SPRING BOOT 
+ * ne résoud pas les dépendances et ne trouve pas 
+ * les Beans lors des tests JUnit.<br/>
+ * classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD 
+ * recharge le contexte SPRING après chaque test.<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -8499,7 +8509,7 @@ public class AnneeGestionDAOJPASpringTest {
 		
 		if (contexteSpring != null) {
 			
-			boolean affichageLocal = false;
+			final boolean affichageLocal = false;
 			
 			if (affichageLocal) {
 				
