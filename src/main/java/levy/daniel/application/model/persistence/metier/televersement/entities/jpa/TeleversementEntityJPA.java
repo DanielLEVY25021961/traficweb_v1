@@ -58,9 +58,9 @@ import levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa
 @Entity(name="TeleversementEntityJPA")
 @Table(name="TELEVERSEMENTS", schema="PUBLIC"
 , uniqueConstraints=@UniqueConstraint(name="UNICITE_DATETELEVERSEMENT_UTILISATEUR_NOMFICHIERTELEVERSE"
-, columnNames={"DATETELEVERSEMENT", "UTILISATEUR", "NOMFICHIERTELEVERSE"})
+, columnNames={"DATETELEVERSEMENT", "ID_UTILISATEUR", "NOMFICHIERTELEVERSE"})
 , indexes={@Index(name="INDEX_ANNEEGESTION_GESTIONNAIRE_DATETELEVERSEMENT"
-, columnList="ANNEEGESTION, GESTIONNAIRE, DATETELEVERSEMENT")})
+, columnList="ID_ANNEEGESTION, GESTIONNAIRE, DATETELEVERSEMENT")})
 public class TeleversementEntityJPA implements ITeleversement {
 
 	// ************************ATTRIBUTS************************************/
