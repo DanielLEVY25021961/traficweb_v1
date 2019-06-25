@@ -1238,7 +1238,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCreateNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1343,7 +1343,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateObjetNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCreateObjetNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1462,7 +1462,7 @@ public class TeleversementDAOJPASpringTest {
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreate() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCreate() ********** ");
 		}
 
 		
@@ -1568,7 +1568,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateDoublon() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCreateDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1726,7 +1726,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testPersistNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testPersistNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1810,7 +1810,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testPersistObjetNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testPersistObjetNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -1899,7 +1899,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testPersist() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testPersist() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2002,7 +2002,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testPersistDoublon() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testPersistDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2114,7 +2114,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateReturnIdNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCreateReturnIdNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2215,7 +2215,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateReturnIdObjetNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCreateReturnIdObjetNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2334,7 +2334,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateReturnId() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCreateReturnId() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2454,7 +2454,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateReturnIdDoublon() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCreateReturnIdDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2625,7 +2625,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testSaveIterableNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testSaveIterableNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2745,7 +2745,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testSaveIterableObjetsNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testSaveIterableObjetsNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -2880,7 +2880,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testSaveIterable() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testSaveIterable() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -3020,7 +3020,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testSaveIterableDoublon() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testSaveIterableDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -3158,7 +3158,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testRetrieveNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3285,7 +3285,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveObjetNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testRetrieveObjetNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3415,7 +3415,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveInexistant() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testRetrieveInexistant() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3547,7 +3547,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieve() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testRetrieve() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3683,7 +3683,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindByIdNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testFindByIdNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3810,7 +3810,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindByIdInexistant() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testFindByIdInexistant() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -3937,7 +3937,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindById() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testFindById() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4064,7 +4064,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveIdNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testRetrieveIdNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4191,7 +4191,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveIdObjetNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testRetrieveIdObjetNull() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4321,7 +4321,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveIdInexistant() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testRetrieveIdInexistant() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4452,7 +4452,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testRetrieveId() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testRetrieveId() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4584,7 +4584,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAll() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testFindAll() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4658,7 +4658,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllMaxOut() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testFindAllMaxOut() ********** ");
 		}
 		
 		/* this.dao NON INJECTE. */
@@ -4785,7 +4785,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllMax() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testFindAllMax() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -4914,7 +4914,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllIterableNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testFindAllIterableNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5038,7 +5038,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllIterableOut() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testFindAllIterableOut() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5171,7 +5171,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testFindAllIterable() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testFindAllIterable() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5306,7 +5306,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testUpdateNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5434,7 +5434,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateInexistant() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testUpdateInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5571,7 +5571,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateDoublon() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testUpdateDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5715,7 +5715,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdate() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testUpdate() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -5867,7 +5867,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateIdNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testUpdateIdNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6000,7 +6000,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateIdInexistant() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testUpdateIdInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6134,7 +6134,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateIdDoublon() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testUpdateIdDoublon() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6269,7 +6269,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testUpdateId() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testUpdateId() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6421,7 +6421,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6542,7 +6542,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteInexistant() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6664,7 +6664,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDelete() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDelete() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6787,7 +6787,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteByIdNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -6902,7 +6902,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdInexistant() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteByIdInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7017,7 +7017,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteById() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteById() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7139,7 +7139,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdBooleanNull() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteByIdBooleanNull() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7270,7 +7270,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdBooleanInexistant() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteByIdBooleanInexistant() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7402,7 +7402,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteByIdBoolean() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteByIdBoolean() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7538,7 +7538,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteAll() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteAll() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7635,7 +7635,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteAllBoolean() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteAllBoolean() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7746,7 +7746,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteIterable() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteIterable() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7861,7 +7861,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testDeleteIterableBoolean() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testDeleteIterableBoolean() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -7991,7 +7991,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testExists() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testExists() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -8129,7 +8129,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testExistsId() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testExistsId() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -8270,7 +8270,7 @@ public class TeleversementDAOJPASpringTest {
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCount() ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCount() ********** ");
 		}
 
 		/* this.dao NON INJECTE. */
@@ -8359,7 +8359,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode remplirStockage(boolean) ********** ");
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode remplirStockage(boolean) ********** ");
 		}
 		
 		// ETAT INITIAL
