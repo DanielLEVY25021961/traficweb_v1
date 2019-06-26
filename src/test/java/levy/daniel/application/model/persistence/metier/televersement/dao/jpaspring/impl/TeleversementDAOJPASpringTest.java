@@ -45,6 +45,8 @@ import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
 import levy.daniel.application.model.persistence.daoexceptions.AbstractDaoException;
 import levy.daniel.application.model.persistence.metier.televersement.ITeleversementDAO;
+import levy.daniel.application.model.persistence.metier.televersement.TeleversementConvertisseurMetierEntity;
+import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
 import levy.daniel.application.model.utilitaires.spring.afficheurcontexte.AfficheurContexteSpring;
 import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2Memory;
 
@@ -1546,6 +1548,98 @@ public class TeleversementDAOJPASpringTest {
 		}
 		
 	} // Fin de testCreate().______________________________________________
+	
+
+	
+	/**
+	 * Teste la méthode create(Objet Metier).<br/>
+	 * <ul>
+	 * <li>garantit que create(objet correct) 
+	 * rajoute l'objet métier dans le stockage.</li>
+	 * <li>garantit que create(objet correct) retourne l'objet persisté.</li>
+	 * </ul>
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+	public void testCreateBidon() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = true;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println("********** CLASSE TeleversementDAOJPASpringTest - méthode testCreateBidon() ********** ");
+		}
+
+		
+		/* this.dao NON INJECTE. */
+		if (this.dao == null) {
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println(TEST_CREATE);
+				this.afficherDAONonInstancie();
+			}
+			
+			return;
+			
+		} // Fin de this.dao NON INJECTE._____________________
+
+		
+		
+		try {
+			
+			final TeleversementEntityJPA objetACreer1ENTITY = TeleversementConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(objetACreer1);
+			
+			/* ********************************************************* */
+			/* ***********************CREATION************************** */		
+			final ITeleversement objetPersiste1 = this.dao.create(objetACreer1ENTITY);
+			/* ********************************************************* */
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println();
+				System.out.println("OBJET CREE 1 : " + objetPersiste1.toString());
+			}
+			
+			/* garantit que create(...) retourne l'objet persisté. */
+			assertNotNull(
+					"l'objet persisté retourne par create(...) ne doit pas être null : "
+						, objetPersiste1);
+			
+			
+			final TeleversementEntityJPA objetACreer2ENTITY = TeleversementConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(objetACreer2);
+			
+			/* ********************************************************* */
+			/* ***********************CREATION************************** */		
+			final ITeleversement objetPersiste2 = this.dao.create(objetACreer2ENTITY);
+			/* ********************************************************* */
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println();
+				System.out.println("OBJET CREE 2 : " + objetPersiste2.toString());
+			}
+			
+			/* garantit que create(...) retourne l'objet persisté. */
+			assertNotNull(
+					"l'objet persisté retourne par create(...) ne doit pas être null : "
+						, objetPersiste2);
+
+			
+		}
+		catch (AbstractDaoException e) {
+			System.out.println(TEST_CREATE);
+			this.afficherAbstractDaoException(e);			
+			e.printStackTrace();
+		}
+		
+	} // Fin de testCreateBidon()._________________________________________
 	
 
 	

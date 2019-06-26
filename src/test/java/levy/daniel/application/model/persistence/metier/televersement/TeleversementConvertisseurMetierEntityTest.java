@@ -24,6 +24,7 @@ import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
 import levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA;
 import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
+import levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa.UtilisateurCerbereEntityJPA;
 import levy.daniel.application.model.services.valideurs.metier.utilisateurs.EnumCivilites;
 
 /**
@@ -573,6 +574,8 @@ public class TeleversementConvertisseurMetierEntityTest {
 	 * retourne null.</li>
 	 * <li>garantit que convertirObjetMetierEnEntityJPA(objet) 
 	 * retourne un entity correspondant.</li>
+	 * <li>garantit que les objets COMPOSANTS du COMPOSITE 
+	 * sont bien convertis en ENTITY.</li>
 	 * </ul>
 	 */
 	@SuppressWarnings(UNUSED)
@@ -631,7 +634,9 @@ public class TeleversementConvertisseurMetierEntityTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
 			System.out.println(objet.toString());
-			System.out.println(entity.toString());			
+			System.out.println(entity.toString());
+			System.out.println(entity.getUtilisateur().toString());
+			System.out.println(entity.getAnneeGestion().toString());
 		}
 		
 		/* garantit que convertirObjetMetierEnEntityJPA(entity) 
@@ -640,6 +645,10 @@ public class TeleversementConvertisseurMetierEntityTest {
 				"l'objet doit correspondre à l'entité : "
 					, objet
 						, entity);
+		
+		/* garantit que les objets composants sont bien convertis en ENTITY. */
+		assertTrue("DOIT ETRE UNE ENTITY : "
+				, entity.getUtilisateur() instanceof UtilisateurCerbereEntityJPA);
 
 	} // Fin de testConvertirObjetMetierEnEntityJPA()._____________________
 

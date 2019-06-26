@@ -22,13 +22,11 @@ import levy.daniel.application.model.metier.televersement.ITeleversement;
 import levy.daniel.application.model.metier.televersement.impl.Televersement;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
-import levy.daniel.application.model.persistence.metier.anneegestion.AnneeGestionConvertisseurMetierEntity;
 import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
 import levy.daniel.application.model.persistence.metier.televersement.ITeleversementDAO;
 import levy.daniel.application.model.persistence.metier.televersement.TeleversementConvertisseurMetierEntity;
 import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
 import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
-import levy.daniel.application.model.persistence.metier.utilisateur.UtilisateurCerbereConvertisseurMetierEntity;
 
 /**
  * CLASSE TeleversementDAOJPASpring :<br/>
@@ -334,34 +332,37 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			return null;
 		}
 
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
-			return null;
-		}
-
 		try {
-			
-			// SAUVEGARDE DES COMPOSANTS ***************
-			final IUtilisateurCerbere utilisateur 
-				= pObject.getUtilisateur();
-			
-			final IAnneeGestion anneeGestion 
-				= pObject.getAnneeGestion();
-
-			this.utilisateurCerbereDAO.create(utilisateur);
-			this.anneeGestionDAO.create(anneeGestion);
-			
-			System.out.println("UTILIISATEUR PERSISTE = " + utilisateur.toString());
-			
-			this.entityManager.merge(UtilisateurCerbereConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(utilisateur));
-			this.entityManager.merge(AnneeGestionConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(anneeGestion));
-
-			
+						
 			/* conversion de l'OBJET METIER en ENTITY. */
 			final TeleversementEntityJPA entity 
 				= TeleversementConvertisseurMetierEntity
 						.convertirObjetMetierEnEntityJPA(pObject);
-				
+			
+			// SAUVEGARDE DES COMPOSANTS *******************************
+			/* RECUPERATION DES ENTITY COMPOSANTES DANS LE COMPOSITE. */
+			final IUtilisateurCerbere utilisateurEntity 
+				= entity.getUtilisateur();
+			
+			final IAnneeGestion anneeGestionEntity 
+				= entity.getAnneeGestion();
+			
+			/* CREATION DANS LE STOCKAGE OU RECUPERATION DES ENTITY 
+			 * COMPOSANTES PERSISTES. */
+			final IUtilisateurCerbere utilisateurEntityPersiste 
+				= this.utilisateurCerbereDAO
+								.createOrRetrieve(utilisateurEntity);
+			
+			final IAnneeGestion anneeGestionEntityPersiste 
+				= this.anneeGestionDAO
+							.createOrRetrieve(anneeGestionEntity);
+			
+
+			/* INJECTION DES ENTITY COMPOSANTES PERSISTEES 
+			 * DANS LE COMPOSITE. */
+			entity.setUtilisateur(utilisateurEntityPersiste);
+			entity.setAnneeGestion(anneeGestionEntityPersiste);
+						
 			/* ***************** */
 			/* PERSISTE en base. */
 			this.entityManager.persist(entity);
@@ -1806,9 +1807,14 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		final Query requete 
 			= this.entityManager.createQuery(requeteString);
 		
+		// RECUPERATION DES COMPOSANTS EN BASE.
+		final IUtilisateurCerbere utilisateurCerberePersistant 
+			= this.utilisateurCerbereDAO.createOrRetrieve(
+					pObject.getUtilisateur());
+		
 		/* Passage des paramètres de la requête HQL. */
 		requete.setParameter("pDateTeleversement", pObject.getDateTeleversement());
-		requete.setParameter("pUtilisateur", pObject.getUtilisateur());
+		requete.setParameter("pUtilisateur", utilisateurCerberePersistant);
 		requete.setParameter("pNomFichierTeleverse", pObject.getNomFichierTeleverse());
 		
 		try {
@@ -1831,9 +1837,16 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		}
 		catch (Exception e) {
 			
+			final String message 
+				= CLASSE_TELEVERSEMENTDAO_JPA_SPRING 
+				+ SEPARATEUR_MOINS_AERE 
+				+ "Méthode exists(objet)" 
+				+ SEPARATEUR_MOINS_AERE 
+				+ e.getMessage();
+			
 			/* LOG. */
 			if (LOG.isFatalEnabled()) {
-				LOG.fatal(e.getMessage(), e);
+				LOG.fatal(message, e);
 			}
 			
 			/* Gestion de la DAO Exception. */
