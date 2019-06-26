@@ -1456,7 +1456,7 @@ public class TeleversementDAOJPASpringTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -1483,7 +1483,7 @@ public class TeleversementDAOJPASpringTest {
 //		afficherContexte();
 		
 		/* vide et remplit le stockage. */
-		this.remplirStockage(false);
+		this.remplirStockage(true);
 		
 		Long nombreObjetsInitial = 0L;
 		Long nombreObjetsFinal = 0L;

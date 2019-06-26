@@ -1302,7 +1302,7 @@ public class UtilisateurCerbereDAOJPASpringTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -1325,10 +1325,10 @@ public class UtilisateurCerbereDAOJPASpringTest {
 		} // Fin de this.dao NON INJECTE._____________________
 
 		
-		afficherContexte();
+//		afficherContexte();
 		
 		/* vide et remplit le stockage. */
-		this.remplirStockage(false);
+		this.remplirStockage(true);
 		
 		Long nombreObjetsInitial = 0L;
 		Long nombreObjetsFinal = 0L;

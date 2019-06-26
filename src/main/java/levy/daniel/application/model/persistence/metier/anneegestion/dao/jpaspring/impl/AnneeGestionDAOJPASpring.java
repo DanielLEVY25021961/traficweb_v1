@@ -184,6 +184,37 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
+
+	
+	/**
+	 * retourne un boolean qui stipule si les champs obligatoires 
+	 * de pObject sont bien remplis.<br/>
+	 * <br/>
+	 * - retourne true si les champs obligatoires sont tous remplis.<br/>
+	 * - retourne false si pObject == null.<br/>
+	 * <br/>
+	 *
+	 * @param pObject : IAnneeGestion : Objet Métier.
+	 * 
+	 * @return : boolean : 
+	 * true si les champs obligatoires sont tous remplis.<br/>
+	 */
+	private boolean champsObligatoiresRemplis(
+				final IAnneeGestion pObject) {
+		
+		/* retourne false si pObject == null. */
+		if (pObject == null) {
+			return false;
+		}
+		
+		if (StringUtils.isBlank(pObject.getAnneeGestion())) {
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de champsObligatoiresRemplis(...).____________________________
+	
 	
 
 	/* CREATE ************/
@@ -225,7 +256,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (StringUtils.isBlank(pObject.getAnneeGestion())) {
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			
 			final String message = CHAMPS_OBLIGATOIRES + pObject.toString();
 			
@@ -292,6 +323,107 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	} // Fin de create(...)._______________________________________________
 
 
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IAnneeGestion createOrRetrieve(
+			final IAnneeGestion pEntity) throws Exception {
+
+		/* instancie une nouvelle liste à chaque appel de la méthode. */
+		this.messagesErrorUtilisateurList = new ArrayList<String>();
+		
+		/* retourne null si pObject == null. */
+		if (pEntity == null) {
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(OBJET_NULL);
+			
+			return null;
+			
+		} // Fin de null._____________________________________
+		
+		
+		/* retourne l'objet déjà persisté si pObject est un doublon. */
+		if (this.exists(pEntity)) {
+			
+			return AnneeGestionConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(
+							this.retrieve(pEntity));
+			
+		} // Fin de DOUBLON.___________________________________
+		
+		
+		/* retourne null si les attributs obligatoires 
+		 * de pObject ne sont pas remplis.*/
+		if (!this.champsObligatoiresRemplis(pEntity)) {
+			
+			final String message = CHAMPS_OBLIGATOIRES + pEntity.toString();
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(message);
+			
+			return null;
+			
+		} // Fin de CHAMPS OBLIGATOIRES.______________________________
+		
+
+		IAnneeGestion persistentObject = null;
+
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+
+		try {
+			
+			AnneeGestionEntityJPA entity = null;
+			
+			/* conversion de l'OBJET METIER en ENTITY. */
+			if (!(pEntity instanceof AnneeGestionEntityJPA)) {
+				entity 
+				= AnneeGestionConvertisseurMetierEntity
+						.convertirObjetMetierEnEntityJPA(pEntity);
+			} else {
+				entity = (AnneeGestionEntityJPA) pEntity;
+			}
+			
+
+			/* ***************** */
+			/* PERSISTE en base. */
+			this.entityManager.persist(entity);
+
+			/* RETOURNE L'ENTITY. */
+			persistentObject = entity;
+
+		}
+		catch (Exception e) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(e.getMessage(), e);
+			}
+
+			/* Gestion de la DAO Exception. */
+			this.gestionnaireException
+				.gererException(
+						CLASSE_ANNEEGESTIONDAO_JPA_SPRING
+							, "méthode create(object)", e);
+
+		}
+
+		/* retourne l'Objet persistant. */
+		return persistentObject;
+
+	} // Fin de createOrRetrieve(...)._____________________________________
+
+
 
 	/**
 	 * {@inheritDoc}
@@ -316,7 +448,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		
 		/* ne fait rien si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (StringUtils.isBlank(pObject.getAnneeGestion())) {
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return;
 		}
 
@@ -381,7 +513,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (StringUtils.isBlank(pObject.getAnneeGestion())) {
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return null;
 		}
 		
@@ -481,55 +613,55 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 
 				final AnneeGestionEntityJPA entity = iteS.next();
 
+				/* passe un null dans le lot. */
+				if (entity == null) {
+					continue;
+				}
+				
 				/* Passe les doublons existants en base. */
 				if (!this.exists(entity)) {
-
-					/* passe un null dans le lot. */
-					if (entity != null) {
-						
-						/* passe si les attributs obligatoires 
-						 * de l'objet ne sont pas remplis.*/
-						if (!StringUtils.isBlank(entity.getAnneeGestion())) {
-							
-							IAnneeGestion objectPersistant = null;
-
-							try {
-
-								/* ***************** */
-								/* PERSISTE en base. */
-								this.entityManager.persist(entity);
-
-								/* conversion de l'ENTITY en OBJET METIER. */
-								objectPersistant 
-									= AnneeGestionConvertisseurMetierEntity
-									.convertirEntityJPAEnObjetMetier(entity);
-
-							} catch (Exception e) {
-
-								/* LOG. */
-								if (LOG.isFatalEnabled()) {
-									LOG.fatal(e.getMessage(), e);
-								}
-
-								/* Gestion de la DAO Exception. */
-								this.gestionnaireException
-									.gererException(
-											CLASSE_ANNEEGESTIONDAO_JPA_SPRING
-												, "Méthode saveIterable(lot)", e);
-							}
-							
-							/* ne sauvegarde pas un doublon 
-							 * présent dans le lot. */
-							if (objectPersistant != null) {
-
-								/* Ajoute à l'iterable resultat. */
-								resultat.add(objectPersistant);								
-							}
-							
-						} // Entity avec attributs obligatoires remplis.
-						
-					} // Entity non null._____________
 					
+					/* passe si les attributs obligatoires 
+					 * de l'objet ne sont pas remplis.*/
+					if (this.champsObligatoiresRemplis(entity)) {
+						
+						IAnneeGestion objectPersistant = null;
+
+						try {
+
+							/* ***************** */
+							/* PERSISTE en base. */
+							this.entityManager.persist(entity);
+
+							/* conversion de l'ENTITY en OBJET METIER. */
+							objectPersistant 
+								= AnneeGestionConvertisseurMetierEntity
+								.convertirEntityJPAEnObjetMetier(entity);
+
+						} catch (Exception e) {
+
+							/* LOG. */
+							if (LOG.isFatalEnabled()) {
+								LOG.fatal(e.getMessage(), e);
+							}
+
+							/* Gestion de la DAO Exception. */
+							this.gestionnaireException
+								.gererException(
+										CLASSE_ANNEEGESTIONDAO_JPA_SPRING
+											, "Méthode saveIterable(lot)", e);
+						}
+						
+						/* ne sauvegarde pas un doublon 
+						 * présent dans le lot. */
+						if (objectPersistant != null) {
+
+							/* Ajoute à l'iterable resultat. */
+							resultat.add(objectPersistant);								
+						}
+						
+					} // Entity avec attributs obligatoires remplis.
+											
 				} // Entity persistante._________________
 				
 			} // Next._____________________________________
@@ -1044,7 +1176,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (StringUtils.isBlank(pObject.getAnneeGestion())) {
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return null;
 		}
 
@@ -1129,7 +1261,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObjectModifie ne sont pas remplis.*/
-		if (StringUtils.isBlank(pObjectModifie.getAnneeGestion())) {
+		if (!this.champsObligatoiresRemplis(pObjectModifie)) {
 			return null;
 		}
 		

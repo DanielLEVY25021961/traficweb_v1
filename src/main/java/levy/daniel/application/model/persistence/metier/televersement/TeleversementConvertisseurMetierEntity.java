@@ -11,7 +11,9 @@ import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.metier.televersement.ITeleversement;
 import levy.daniel.application.model.metier.televersement.impl.Televersement;
+import levy.daniel.application.model.persistence.metier.anneegestion.AnneeGestionConvertisseurMetierEntity;
 import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
+import levy.daniel.application.model.persistence.metier.utilisateur.UtilisateurCerbereConvertisseurMetierEntity;
 
 /**
  * CLASSE TeleversementConvertisseurMetierEntity :<br/>
@@ -277,12 +279,12 @@ public final class TeleversementConvertisseurMetierEntity {
 					= new TeleversementEntityJPA(
 							pObject.getId()
 							, pObject.getDateTeleversement()
-							, pObject.getUtilisateur()
+							, UtilisateurCerbereConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(pObject.getUtilisateur()) 
 							, pObject.getGestionnaire()
 							, pObject.getTypeFichier()
 							, pObject.getNomFichierTeleverse()
 							, pObject.getFichierStockeServeur()
-							, pObject.getAnneeGestion());
+							, AnneeGestionConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(pObject.getAnneeGestion()));
 				
 			}
 						

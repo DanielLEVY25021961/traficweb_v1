@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -855,7 +854,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * {@inheritDoc}
 	 */
 	@ManyToOne(targetEntity = UtilisateurCerbereEntityJPA.class
-			, cascade = CascadeType.ALL, fetch = FetchType.EAGER)	
+			, fetch = FetchType.EAGER)	
 			@JoinColumn(name = "ID_UTILISATEUR", referencedColumnName = "ID"
 			, foreignKey = @ForeignKey(name = "FK_TELEVERSEMENT_UTILISATEUR")
 			, insertable = true, updatable = true
@@ -1032,7 +1031,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * {@inheritDoc}
 	 */
 	@ManyToOne(targetEntity = AnneeGestionEntityJPA.class
-			, cascade = CascadeType.ALL, fetch = FetchType.EAGER)	
+			, fetch = FetchType.EAGER)	
 			@JoinColumn(name = "ID_ANNEEGESTION", referencedColumnName = "ID"
 			, foreignKey = @ForeignKey(name = "FK_TELEVERSEMENT_ANNEEGESTION")
 			, insertable = true, updatable = true

@@ -54,6 +54,34 @@ public interface IAnneeGestionDAO {
 	IAnneeGestion create(IAnneeGestion pObject) throws Exception;
 	
 	
+	
+	/**
+	 * <b>crée une ENTITY pEntity dans le stockage 
+	 * SI ELLE N'EXISTE PAS DEJA
+	 * et retourne l'ENTITY persistée</b>.<br/>
+	 * <b>retourne l'ENTITY pEntity DEJA PERSISTENTE SI ELLE EXISTE DEJA.</b>
+	 * <ul>
+	 * <li>ne crée <b>pas de doublon</b>.</li>
+	 * <li><b>retourne l'ENTITY PERSISTEE</b> si pEntity 
+	 * existe déjà dans le stockage.</li>
+	 * <li>retourne null si les attributs obligatoires 
+	 * de pEntity ne sont pas remplis.</li>
+	 * </ul>
+	 * - retourne null si pEntity == null.<br/>
+	 * <br/>
+	 *
+	 * @param pEntity : IAnneeGestion : 
+	 * l'ENTITY à persister dans le stockage.<br/>
+	 * 
+	 * @return IAnneeGestion : 
+	 * l'ENTITY persistée dans le stockage (sous forme d'interface).<br/>
+	 * 
+	 * @throws Exception
+	 */
+	IAnneeGestion createOrRetrieve(IAnneeGestion pEntity) 
+															throws Exception;
+	
+	
 
 	/**
 	 * <b>crée un objet métier pObject dans le stockage 

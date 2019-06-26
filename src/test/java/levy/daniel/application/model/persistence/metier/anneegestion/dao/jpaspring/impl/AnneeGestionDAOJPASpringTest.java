@@ -37,6 +37,7 @@ import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
 import levy.daniel.application.model.metier.anneegestion.impl.AnneeGestion;
 import levy.daniel.application.model.persistence.daoexceptions.AbstractDaoException;
 import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
+import levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA;
 import levy.daniel.application.model.utilitaires.spring.afficheurcontexte.AfficheurContexteSpring;
 import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2Memory;
 
@@ -153,6 +154,12 @@ public class AnneeGestionDAOJPASpringTest {
 	 */
 	public static final String TEST_CREATE_DOUBLON 
 		= "testCreateDoublon()";
+	
+	/**
+	 * "testCreateOrRetrieve()".<br/>
+	 */
+	public static final String TEST_CREATE_OR_RETRIEVE 
+		= "testCreateOrRetrieve()";
 	
 	/**
 	 * "testPersistNull()".<br/>
@@ -1431,6 +1438,162 @@ public class AnneeGestionDAOJPASpringTest {
 		}
 
 	} // Fin de testCreateDoublon()._______________________________________
+	
+
+	
+	/**
+	 * Teste la méthode createOrRetrieve(ENTITY).<br/>
+	 * <ul>
+	 * <li>garantit que createOrRetrieve(ENTITY correct) 
+	 * rajoute l'ENTITY dans le stockage.</li>
+	 * <li>garantit que createOrRetrieve(ENTITY correct) 
+	 * retourne l'ENTITY persistée.</li>
+	 * <li>garantit que createOrRetrieve(ENTITY doublon) 
+	 * retourne l'ENTITY déjà persistée.</li>
+	 * </ul>
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+	public void testCreateOrRetrieve() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println("********** CLASSE AnneeGestionDAOJPASpringTest - méthode testCreateOrRetrieve() ********** ");
+		}
+
+		
+		/* this.dao NON INJECTE. */
+		if (this.dao == null) {
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println(TEST_CREATE_OR_RETRIEVE);
+				this.afficherDAONonInstancie();
+			}
+			
+			return;
+			
+		} // Fin de this.dao NON INJECTE._____________________
+
+		
+//		afficherContexte();
+		
+		/* vide et remplit le stockage. */
+		this.remplirStockage(false);
+		
+		Long nombreObjetsInitial = 0L;
+		Long nombreObjetsFinal = 0L;
+
+		// ETAT INITIAL
+		/* récupération. */
+		final List<IAnneeGestion> objetInitiaux = this.dao.findAll();
+		
+		/* Compte du nombre d'Objets initialement dans le stockage. */
+		nombreObjetsInitial = this.dao.count();
+		
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("LISTE D'OBJETS AVANT CREATEORRETRIEVE : ");
+			System.out.println(this.dao.afficherListeObjetsMetier(objetInitiaux));
+			this.afficherNbreObjetsInitial(nombreObjetsInitial);
+		}
+		
+		try {
+			
+			/* ********************************************************* */
+			/* ***********************CREATION************************** */		
+			final IAnneeGestion objetPersiste1 = this.dao.createOrRetrieve(objetACreer1);
+			/* ********************************************************* */
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println();
+				System.out.println("OBJET CREE : " + objetPersiste1.toString());
+			}
+			
+			/* garantit que create(...) retourne l'objet persisté. */
+			assertNotNull(
+					"l'objet persisté retourne par createOrRetrieve(...) ne doit pas être null : "
+						, objetPersiste1);
+			
+			/* garantit que createOrRetrieve(ENTITY correct) 
+			 * retourne l'ENTITY persistée.*/
+			assertTrue("DOIT RETOURNER UNE ENTITY : "
+					, objetPersiste1 instanceof AnneeGestionEntityJPA);
+			
+			/* récupération. */
+			final List<IAnneeGestion> objetsFinaux = this.dao.findAll();
+			
+			/* Calcul du nombre d'objets dans le stockage après le traitement. */
+			nombreObjetsFinal = this.dao.count();
+			
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println();
+				System.out.println("LISTE D'OBJETS APRES CREATEORRETRIEVE : ");
+				System.out.println(this.dao.afficherListeObjetsMetier(objetsFinaux));
+				this.afficherNbreObjetsFinal(nombreObjetsFinal);
+			}
+						
+			/* garantit que create rajoute l'objet métier dans le stockage. */
+			assertEquals(FINAL_VAUT_INITIAL_PLUS_1
+					, nombreObjetsFinal
+						, Long.valueOf(nombreObjetsInitial + 1));
+			
+			/* ********************************************************* */
+			/* ***********************CREATION************************** */		
+			final IAnneeGestion objetPersiste1Doublon = this.dao.createOrRetrieve(objetACreer1);
+			/* ********************************************************* */
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println();
+				System.out.println("OBJET CREE DOUBLON: " + objetPersiste1Doublon.toString());
+			}
+			
+			/* garantit que create(...) retourne l'objet persisté. */
+			assertNotNull(
+					"l'objet persisté retourne par createOrRetrieve(...) ne doit pas être null : "
+						, objetPersiste1);
+			
+			/* garantit que createOrRetrieve(ENTITY doublon) 
+			 * retourne l'ENTITY déjà persistée. */
+			assertTrue("DOIT RETOURNER UNE ENTITY : "
+					, objetPersiste1 instanceof AnneeGestionEntityJPA);
+			
+			/* récupération. */
+			final List<IAnneeGestion> objetsFinauxDoublon = this.dao.findAll();
+			
+			/* Calcul du nombre d'objets dans le stockage après le traitement. */
+			nombreObjetsFinal = this.dao.count();
+			
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println();
+				System.out.println("LISTE D'OBJETS APRES CREATEORRETRIEVE DOUBLON : ");
+				System.out.println(this.dao.afficherListeObjetsMetier(objetsFinauxDoublon));
+				this.afficherNbreObjetsFinal(nombreObjetsFinal);
+			}
+						
+			/* garantit que create rajoute l'objet métier dans le stockage. */
+			assertEquals(FINAL_VAUT_INITIAL_PLUS_1
+					, nombreObjetsFinal
+						, Long.valueOf(nombreObjetsInitial + 1));
+
+			
+		}
+		catch (AbstractDaoException e) {
+			System.out.println(TEST_CREATE_OR_RETRIEVE);
+			this.afficherAbstractDaoException(e);			
+			e.printStackTrace();
+		}
+		
+	} // Fin de testCreateOrRetrieve().____________________________________
 	
 
 

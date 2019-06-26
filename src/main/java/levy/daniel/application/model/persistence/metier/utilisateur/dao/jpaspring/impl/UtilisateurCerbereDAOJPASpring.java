@@ -189,6 +189,49 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
+
+	
+	/**
+	 * retourne un boolean qui stipule si les champs obligatoires 
+	 * de pObject sont bien remplis.<br/>
+	 * <br/>
+	 * - retourne true si les champs obligatoires sont tous remplis.<br/>
+	 * - retourne false si pObject == null.<br/>
+	 * <br/>
+	 *
+	 * @param pObject : IUtilisateurCerbere : Objet Métier.
+	 * 
+	 * @return : boolean : 
+	 * true si les champs obligatoires sont tous remplis.<br/>
+	 */
+	private boolean champsObligatoiresRemplis(
+				final IUtilisateurCerbere pObject) {
+		
+		/* retourne false si pObject == null. */
+		if (pObject == null) {
+			return false;
+		}
+		
+		if (StringUtils.isBlank(pObject.getPrenom())) {
+			return false;
+		}
+		
+		if (StringUtils.isBlank(pObject.getNom())) {
+			return false;
+		}
+		
+		if (StringUtils.isBlank(pObject.getEmail())) {
+			return false;
+		}
+		
+		if (StringUtils.isBlank(pObject.getUnite())) {
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de champsObligatoiresRemplis(...).____________________________
+	
 	
 
 	/* CREATE ************/
@@ -230,10 +273,7 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (StringUtils.isBlank(pObject.getPrenom())
-				|| StringUtils.isBlank(pObject.getNom())
-					|| StringUtils.isBlank(pObject.getEmail()) 
-						|| StringUtils.isBlank(pObject.getUnite())) {
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			
 			final String message = CHAMPS_OBLIGATOIRES + pObject.toString();
 			
@@ -300,6 +340,113 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 	} // Fin de create(...)._______________________________________________
 
 
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IUtilisateurCerbere createOrRetrieve(
+			final IUtilisateurCerbere pEntity) throws Exception {
+
+		/* instancie une nouvelle liste à chaque appel de la méthode. */
+		this.messagesErrorUtilisateurList = new ArrayList<String>();
+		
+		/* retourne null si pObject == null. */
+		if (pEntity == null) {
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(OBJET_NULL);
+			
+			return null;
+			
+		} // Fin de null._____________________________________
+		
+		
+		/* retourne l'objet déjà persisté si pObject est un doublon. */
+		if (this.exists(pEntity)) {
+			
+			return UtilisateurCerbereConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(
+							this.retrieve(pEntity));
+			
+		} // Fin de DOUBLON.___________________________________
+		
+		
+		/* retourne null si les attributs obligatoires 
+		 * de pObject ne sont pas remplis.*/
+		if (!this.champsObligatoiresRemplis(pEntity)) {
+			
+			final String message = CHAMPS_OBLIGATOIRES + pEntity.toString();
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(message);
+			
+			return null;
+			
+		} // Fin de CHAMPS OBLIGATOIRES.______________________________
+		
+
+		IUtilisateurCerbere persistentObject = null;
+
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+
+		/* retourne null si pObject est un doublon. */
+		if (this.exists(pEntity)) {
+			return null;
+		}
+
+		try {
+			
+			UtilisateurCerbereEntityJPA entity = null;
+			
+			/* conversion de l'OBJET METIER en ENTITY. */
+			if (!(pEntity instanceof UtilisateurCerbereEntityJPA)) {
+				entity 
+				= UtilisateurCerbereConvertisseurMetierEntity
+						.convertirObjetMetierEnEntityJPA(pEntity);
+			} else {
+				entity = (UtilisateurCerbereEntityJPA) pEntity;
+			}
+			
+
+			/* ***************** */
+			/* PERSISTE en base. */
+			this.entityManager.persist(entity);
+
+			/* RETOURNE L'ENTITY. */
+			persistentObject = entity;
+
+		}
+		catch (Exception e) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(e.getMessage(), e);
+			}
+
+			/* Gestion de la DAO Exception. */
+			this.gestionnaireException
+				.gererException(
+						CLASSE_UTILISATEURCERBEREDAO_JPA_SPRING
+							, "méthode create(object)", e);
+
+		}
+
+		/* retourne l'Objet persistant. */
+		return persistentObject;
+
+	} // Fin de createOrRetrieve(...)._____________________________________
+
+
 
 	/**
 	 * {@inheritDoc}
@@ -324,10 +471,7 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		
 		/* ne fait rien si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (pObject.getPrenom() == null 
-				|| pObject.getNom() == null 
-					|| pObject.getEmail() == null 
-						|| pObject.getUnite() == null) {
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return;
 		}
 
@@ -392,10 +536,7 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (pObject.getPrenom() == null 
-				|| pObject.getNom() == null 
-					|| pObject.getEmail() == null 
-						|| pObject.getUnite() == null) {
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return null;
 		}
 		
@@ -495,57 +636,55 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 
 				final UtilisateurCerbereEntityJPA entity = iteS.next();
 
+				/* passe un null dans le lot. */
+				if (entity == null) {
+					continue;
+				}
+					
+					
 				/* Passe les doublons existants en base. */
 				if (!this.exists(entity)) {
-
-					/* passe un null dans le lot. */
-					if (entity != null) {
+					
+					/* passe si les attributs obligatoires 
+					 * de l'objet ne sont pas remplis.*/
+					if (this.champsObligatoiresRemplis(entity)) {
 						
-						/* passe si les attributs obligatoires 
-						 * de l'objet ne sont pas remplis.*/
-						if (entity.getPrenom() != null 
-								&& entity.getNom() != null 
-									&& entity.getEmail() != null 
-										&& entity.getUnite() != null) {
-							
-							IUtilisateurCerbere objectPersistant = null;
+						IUtilisateurCerbere objectPersistant = null;
 
-							try {
+						try {
 
-								/* ***************** */
-								/* PERSISTE en base. */
-								this.entityManager.persist(entity);
+							/* ***************** */
+							/* PERSISTE en base. */
+							this.entityManager.persist(entity);
 
-								/* conversion de l'ENTITY en OBJET METIER. */
-								objectPersistant 
-									= UtilisateurCerbereConvertisseurMetierEntity
-									.convertirEntityJPAEnObjetMetier(entity);
+							/* conversion de l'ENTITY en OBJET METIER. */
+							objectPersistant 
+								= UtilisateurCerbereConvertisseurMetierEntity
+								.convertirEntityJPAEnObjetMetier(entity);
 
-							} catch (Exception e) {
+						} catch (Exception e) {
 
-								/* LOG. */
-								if (LOG.isFatalEnabled()) {
-									LOG.fatal(e.getMessage(), e);
-								}
-
-								/* Gestion de la DAO Exception. */
-								this.gestionnaireException
-									.gererException(
-											CLASSE_UTILISATEURCERBEREDAO_JPA_SPRING
-												, "Méthode saveIterable(lot)", e);
+							/* LOG. */
+							if (LOG.isFatalEnabled()) {
+								LOG.fatal(e.getMessage(), e);
 							}
-							
-							/* ne sauvegarde pas un doublon 
-							 * présent dans le lot. */
-							if (objectPersistant != null) {
 
-								/* Ajoute à l'iterable resultat. */
-								resultat.add(objectPersistant);								
-							}
-							
-						} // Entity avec attributs obligatoires remplis.
+							/* Gestion de la DAO Exception. */
+							this.gestionnaireException
+								.gererException(
+										CLASSE_UTILISATEURCERBEREDAO_JPA_SPRING
+											, "Méthode saveIterable(lot)", e);
+						}
 						
-					} // Entity non null._____________
+						/* ne sauvegarde pas un doublon 
+						 * présent dans le lot. */
+						if (objectPersistant != null) {
+
+							/* Ajoute à l'iterable resultat. */
+							resultat.add(objectPersistant);								
+						}
+						
+					} // Entity avec attributs obligatoires remplis.
 					
 				} // Entity persistante._________________
 				
@@ -1076,10 +1215,7 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (pObject.getPrenom() == null 
-				|| pObject.getNom() == null 
-					|| pObject.getEmail() == null 
-						|| pObject.getUnite() == null) {
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return null;
 		}
 
@@ -1164,10 +1300,7 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObjectModifie ne sont pas remplis.*/
-		if (pObjectModifie.getPrenom() == null 
-				|| pObjectModifie.getNom() == null 
-					|| pObjectModifie.getEmail() == null 
-						|| pObjectModifie.getUnite() == null) {
+		if (!this.champsObligatoiresRemplis(pObjectModifie)) {
 			return null;
 		}
 		

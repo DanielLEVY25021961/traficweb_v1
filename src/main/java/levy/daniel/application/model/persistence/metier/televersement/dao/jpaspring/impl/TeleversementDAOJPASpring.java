@@ -13,14 +13,22 @@ import javax.persistence.Query;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
 import levy.daniel.application.model.metier.televersement.ITeleversement;
 import levy.daniel.application.model.metier.televersement.impl.Televersement;
+import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
+import levy.daniel.application.model.persistence.metier.anneegestion.AnneeGestionConvertisseurMetierEntity;
+import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
 import levy.daniel.application.model.persistence.metier.televersement.ITeleversementDAO;
 import levy.daniel.application.model.persistence.metier.televersement.TeleversementConvertisseurMetierEntity;
 import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
+import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
+import levy.daniel.application.model.persistence.metier.utilisateur.UtilisateurCerbereConvertisseurMetierEntity;
 
 /**
  * CLASSE TeleversementDAOJPASpring :<br/>
@@ -174,6 +182,22 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		= new ArrayList<String>(); 
 
 	/**
+	 * DAO IUtilisateurCerbereDAO.<br/>
+	 * injecté par Spring.
+	 */
+	@Autowired(required=true)
+    @Qualifier("UtilisateurCerbereDAOJPASpring")
+	private transient IUtilisateurCerbereDAO utilisateurCerbereDAO;
+
+	/**
+	 * DAO IAnneeGestionDAO.<br/>
+	 * injecté par Spring.
+	 */
+	@Autowired(required=true)
+    @Qualifier("AnneeGestionDAOJPASpring")
+	private transient IAnneeGestionDAO anneeGestionDAO;
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -317,11 +341,27 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 
 		try {
 			
+			// SAUVEGARDE DES COMPOSANTS ***************
+			final IUtilisateurCerbere utilisateur 
+				= pObject.getUtilisateur();
+			
+			final IAnneeGestion anneeGestion 
+				= pObject.getAnneeGestion();
+
+			this.utilisateurCerbereDAO.create(utilisateur);
+			this.anneeGestionDAO.create(anneeGestion);
+			
+			System.out.println("UTILIISATEUR PERSISTE = " + utilisateur.toString());
+			
+			this.entityManager.merge(UtilisateurCerbereConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(utilisateur));
+			this.entityManager.merge(AnneeGestionConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(anneeGestion));
+
+			
 			/* conversion de l'OBJET METIER en ENTITY. */
 			final TeleversementEntityJPA entity 
 				= TeleversementConvertisseurMetierEntity
 						.convertirObjetMetierEnEntityJPA(pObject);
-
+				
 			/* ***************** */
 			/* PERSISTE en base. */
 			this.entityManager.persist(entity);
@@ -541,57 +581,79 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			while (iteS.hasNext()) {
 
 				final TeleversementEntityJPA entity = iteS.next();
+				
+				/* passe un null dans le lot. */
+				if (entity == null) {
+					continue;
+				}
+							
+				// SAUVEGARDE DES COMPOSANTS *******************************
+				/* RECUPERATION DES ENTITY COMPOSANTES DANS LE COMPOSITE. */
+				final IUtilisateurCerbere utilisateurEntity 
+					= entity.getUtilisateur();
+				
+				final IAnneeGestion anneeGestionEntity 
+					= entity.getAnneeGestion();
 
+				/* CREATION DANS LE STOCKAGE OU RECUPERATION DES ENTITY 
+				 * COMPOSANTES PERSISTES. */
+				final IUtilisateurCerbere utilisateurEntityPersiste 
+					= this.utilisateurCerbereDAO
+									.createOrRetrieve(utilisateurEntity);
+				
+				final IAnneeGestion anneeGestionEntityPersiste 
+					= this.anneeGestionDAO
+								.createOrRetrieve(anneeGestionEntity);
+							
+				/* INJECTION DES ENTITY COMPOSANTES PERSISTEES 
+				 * DANS LE COMPOSITE. */
+				entity.setUtilisateur(utilisateurEntityPersiste);
+				entity.setAnneeGestion(anneeGestionEntityPersiste);
+				
+
+				// SAUVEGARDE DU COMPOSITE **********************************
 				/* Passe les doublons existants en base. */
 				if (!this.exists(entity)) {
-
-					/* passe un null dans le lot. */
-					if (entity != null) {
-						
-						/* passe si les attributs obligatoires 
-						 * de l'objet ne sont pas remplis.*/
-						if (!this.champsObligatoiresRemplis(entity)) {
-							
-							ITeleversement objectPersistant = null;
-
-							try {
-
-								/* ***************** */
-								/* PERSISTE en base. */
-								this.entityManager.persist(entity);
-
-								/* conversion de l'ENTITY en OBJET METIER. */
-								objectPersistant 
-									= TeleversementConvertisseurMetierEntity
-									.convertirEntityJPAEnObjetMetier(entity);
-
-							} catch (Exception e) {
-
-								/* LOG. */
-								if (LOG.isFatalEnabled()) {
-									LOG.fatal(e.getMessage(), e);
-								}
-
-								/* Gestion de la DAO Exception. */
-								this.gestionnaireException
-									.gererException(
-											CLASSE_TELEVERSEMENTDAO_JPA_SPRING
-												, "Méthode saveIterable(lot)", e);
-							}
-							
-							/* ne sauvegarde pas un doublon 
-							 * présent dans le lot. */
-							if (objectPersistant != null) {
-
-								/* Ajoute à l'iterable resultat. */
-								resultat.add(objectPersistant);								
-							}
-							
-						} // Entity avec attributs obligatoires remplis.
-						
-					} // Entity non null._____________
 					
-				} // Entity persistante._________________
+					/* passe si les attributs obligatoires 
+					 * de l'objet ne sont pas remplis.*/
+					if (this.champsObligatoiresRemplis(entity)) {
+						
+						ITeleversement objectPersistant = null;
+
+						try {
+
+							/* ***************** */
+							/* PERSISTE en base. */
+							/* ***************** */
+							/* SAUVEGARDE DU COMPOSITE en base. */
+							this.entityManager.persist(entity);
+
+							/* conversion de l'ENTITY en OBJET METIER. */
+							objectPersistant 
+								= TeleversementConvertisseurMetierEntity
+								.convertirEntityJPAEnObjetMetier(entity);
+							
+						} catch (Exception e) {
+
+							/* LOG. */
+							if (LOG.isFatalEnabled()) {
+								LOG.fatal(e.getMessage(), e);
+							}
+
+							/* Gestion de la DAO Exception. */
+							this.gestionnaireException
+								.gererException(
+										CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+											, "Méthode saveIterable(lot)", e);
+						}
+
+						/* Ajoute à l'iterable resultat. */
+						resultat.add(objectPersistant);								
+											
+					} // Entity avec attributs obligatoires remplis.
+					
+				} // Entity existante._________________
 				
 			} // Next._____________________________________
 
