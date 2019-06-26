@@ -340,7 +340,8 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 						.convertirObjetMetierEnEntityJPA(pObject);
 			
 			// SAUVEGARDE DES COMPOSANTS *******************************
-			/* RECUPERATION DES ENTITY COMPOSANTES DANS LE COMPOSITE. */
+			/* RECUPERATION DES ENTITY COMPOSANTES TRANSIENTES 
+			 * DANS LE COMPOSITE. */
 			final IUtilisateurCerbere utilisateurEntity 
 				= entity.getUtilisateur();
 			
@@ -437,6 +438,31 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		final TeleversementEntityJPA entity = 
 				TeleversementConvertisseurMetierEntity
 					.convertirObjetMetierEnEntityJPA(pObject);
+		
+		// SAUVEGARDE DES COMPOSANTS *******************************
+		/* RECUPERATION DES ENTITY COMPOSANTES TRANSIENTES 
+		 * DANS LE COMPOSITE. */
+		final IUtilisateurCerbere utilisateurEntity 
+			= entity.getUtilisateur();
+		
+		final IAnneeGestion anneeGestionEntity 
+			= entity.getAnneeGestion();
+		
+		/* CREATION DANS LE STOCKAGE OU RECUPERATION DES ENTITY 
+		 * COMPOSANTES PERSISTES. */
+		final IUtilisateurCerbere utilisateurEntityPersiste 
+			= this.utilisateurCerbereDAO
+							.createOrRetrieve(utilisateurEntity);
+		
+		final IAnneeGestion anneeGestionEntityPersiste 
+			= this.anneeGestionDAO
+						.createOrRetrieve(anneeGestionEntity);
+		
+
+		/* INJECTION DES ENTITY COMPOSANTES PERSISTEES 
+		 * DANS LE COMPOSITE. */
+		entity.setUtilisateur(utilisateurEntityPersiste);
+		entity.setAnneeGestion(anneeGestionEntityPersiste);
 
 		try {
 			
@@ -502,6 +528,32 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		final TeleversementEntityJPA entity = 
 				TeleversementConvertisseurMetierEntity
 					.convertirObjetMetierEnEntityJPA(pObject);
+		
+		// SAUVEGARDE DES COMPOSANTS *******************************
+		/* RECUPERATION DES ENTITY COMPOSANTES TRANSIENTES 
+		 * DANS LE COMPOSITE. */
+		final IUtilisateurCerbere utilisateurEntity 
+			= entity.getUtilisateur();
+		
+		final IAnneeGestion anneeGestionEntity 
+			= entity.getAnneeGestion();
+		
+		/* CREATION DANS LE STOCKAGE OU RECUPERATION DES ENTITY 
+		 * COMPOSANTES PERSISTES. */
+		final IUtilisateurCerbere utilisateurEntityPersiste 
+			= this.utilisateurCerbereDAO
+							.createOrRetrieve(utilisateurEntity);
+		
+		final IAnneeGestion anneeGestionEntityPersiste 
+			= this.anneeGestionDAO
+						.createOrRetrieve(anneeGestionEntity);
+		
+
+		/* INJECTION DES ENTITY COMPOSANTES PERSISTEES 
+		 * DANS LE COMPOSITE. */
+		entity.setUtilisateur(utilisateurEntityPersiste);
+		entity.setAnneeGestion(anneeGestionEntityPersiste);
+
 		
 		ITeleversement persistentObject = null;
 		
@@ -589,7 +641,8 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 				}
 							
 				// SAUVEGARDE DES COMPOSANTS *******************************
-				/* RECUPERATION DES ENTITY COMPOSANTES DANS LE COMPOSITE. */
+				/* RECUPERATION DES ENTITY COMPOSANTES TRANSIENTES 
+				 * DANS LE COMPOSITE. */
 				final IUtilisateurCerbere utilisateurEntity 
 					= entity.getUtilisateur();
 				
@@ -720,9 +773,14 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		final Query requete 
 			= this.entityManager.createQuery(requeteString);
 		
+		// RECUPERATION DES COMPOSANTS EN BASE.
+		final IUtilisateurCerbere utilisateurCerberePersistant 
+			= this.utilisateurCerbereDAO.createOrRetrieve(
+					pObject.getUtilisateur());
+		
 		/* Passage des paramètres de la requête HQL. */
 		requete.setParameter("pDateTeleversement", pObject.getDateTeleversement());
-		requete.setParameter("pUtilisateur", pObject.getUtilisateur());
+		requete.setParameter("pUtilisateur", utilisateurCerberePersistant);
 		requete.setParameter("pNomFichierTeleverse", pObject.getNomFichierTeleverse());
 		
 		try {
@@ -857,9 +915,14 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		final Query requete 
 			= this.entityManager.createQuery(requeteString);
 		
+		// RECUPERATION DES COMPOSANTS EN BASE.
+		final IUtilisateurCerbere utilisateurCerberePersistant 
+			= this.utilisateurCerbereDAO.createOrRetrieve(
+					pObject.getUtilisateur());
+		
 		/* Passage des paramètres de la requête HQL. */
 		requete.setParameter("pDateTeleversement", pObject.getDateTeleversement());
-		requete.setParameter("pUtilisateur", pObject.getUtilisateur());
+		requete.setParameter("pUtilisateur", utilisateurCerberePersistant);
 		requete.setParameter("pNomFichierTeleverse", pObject.getNomFichierTeleverse());
 		
 		try {
@@ -1198,6 +1261,31 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		final TeleversementEntityJPA entity = 
 				TeleversementConvertisseurMetierEntity
 					.convertirObjetMetierEnEntityJPA(pObject);
+		
+		// SAUVEGARDE DES COMPOSANTS *******************************
+		/* RECUPERATION DES ENTITY COMPOSANTES TRANSIENTES 
+		 * DANS LE COMPOSITE. */
+		final IUtilisateurCerbere utilisateurEntity 
+			= entity.getUtilisateur();
+		
+		final IAnneeGestion anneeGestionEntity 
+			= entity.getAnneeGestion();
+		
+		/* CREATION DANS LE STOCKAGE OU RECUPERATION DES ENTITY 
+		 * COMPOSANTES PERSISTES. */
+		final IUtilisateurCerbere utilisateurEntityPersiste 
+			= this.utilisateurCerbereDAO
+							.createOrRetrieve(utilisateurEntity);
+		
+		final IAnneeGestion anneeGestionEntityPersiste 
+			= this.anneeGestionDAO
+						.createOrRetrieve(anneeGestionEntity);
+		
+
+		/* INJECTION DES ENTITY COMPOSANTES PERSISTEES 
+		 * DANS LE COMPOSITE. */
+		entity.setUtilisateur(utilisateurEntityPersiste);
+		entity.setAnneeGestion(anneeGestionEntityPersiste);
 
 		ITeleversement persistentObject = null;
 		
@@ -1288,12 +1376,12 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			
 			/* applique les modifications. */
 			objetAModifier.setDateTeleversement(pObjectModifie.getDateTeleversement());
-			objetAModifier.setUtilisateur(pObjectModifie.getUtilisateur());
+			objetAModifier.setUtilisateur(this.utilisateurCerbereDAO.createOrRetrieve(pObjectModifie.getUtilisateur()));
 			objetAModifier.setGestionnaire(pObjectModifie.getGestionnaire());
 			objetAModifier.setTypeFichier(pObjectModifie.getTypeFichier());
 			objetAModifier.setNomFichierTeleverse(pObjectModifie.getNomFichierTeleverse());
 			objetAModifier.setFichierStockeServeur(pObjectModifie.getFichierStockeServeur());
-			objetAModifier.setAnneeGestion(pObjectModifie.getAnneeGestion());
+			objetAModifier.setAnneeGestion(this.anneeGestionDAO.createOrRetrieve(pObjectModifie.getAnneeGestion()));
 			
 			/* conversion de l'OBJET METIER en ENTITY. */
 			final TeleversementEntityJPA entity = 

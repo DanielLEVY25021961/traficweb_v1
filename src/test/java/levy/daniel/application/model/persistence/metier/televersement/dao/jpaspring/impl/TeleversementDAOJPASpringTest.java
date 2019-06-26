@@ -1458,7 +1458,7 @@ public class TeleversementDAOJPASpringTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -1485,7 +1485,7 @@ public class TeleversementDAOJPASpringTest {
 //		afficherContexte();
 		
 		/* vide et remplit le stockage. */
-		this.remplirStockage(true);
+		this.remplirStockage(false);
 		
 		Long nombreObjetsInitial = 0L;
 		Long nombreObjetsFinal = 0L;
@@ -1567,7 +1567,7 @@ public class TeleversementDAOJPASpringTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -5863,6 +5863,7 @@ public class TeleversementDAOJPASpringTest {
 		
 		if (objetAModifierPersistant != null) {
 			
+			objetAModifierPersistant.setNomFichierTeleverse("HITDIRA2012");
 			objetAModifierPersistant.setAnneeGestion(ANNEE_GESTION_2012);
 			
 			/* AFFICHAGE A LA CONSOLE. */
