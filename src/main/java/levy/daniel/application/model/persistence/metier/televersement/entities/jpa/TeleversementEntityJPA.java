@@ -54,7 +54,7 @@ import levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa
  * @since 21 juin 2019
  *
  */
-@Entity(name="TeleversementEntityJPA")
+@Entity
 @Table(name="TELEVERSEMENTS", schema="PUBLIC"
 , uniqueConstraints=@UniqueConstraint(name="UNICITE_DATETELEVERSEMENT_UTILISATEUR_NOMFICHIERTELEVERSE"
 , columnNames={"DATETELEVERSEMENT", "ID_UTILISATEUR", "NOMFICHIERTELEVERSE"})
