@@ -46,7 +46,7 @@
 
 
 
-		<!-- 		PERMET LA RECHERCHE DES CLASSES ANNOTEES 			-->
+		<!-- 	false PERMET LA DETECTION DES ENTITIES ANNOTEES 		-->
 		<!--  SANS ETRE OBLIGE DE LES LISTER DANS LE persistence.xml 	-->		
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
@@ -67,21 +67,26 @@
 		<!--    postgresql 9.6.4 - port : 5432 - [postgres, postgres]  -->
 		<!-- ========================================================= -->
 <!-- 		<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/base-traficweb_v1" /> -->
+<!-- 		<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/base-traficweb_v1" /> -->
     		
 		 <!-- ========================================================= -->
 		 <!--         mySql 5.7.19.0 - port : 3306 - [root, root]       -->
 		 <!-- ========================================================= -->   	
 <!-- 		 <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/base-traficweb_v1" /> -->
+<!-- 		 <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/base-traficweb_v1" /> -->
 		
 		<!-- ========================================================= -->
 		<!--                     hsqldb 2.4.0 - [sa,    ]              -->
 		<!-- ========================================================= -->
 		<!-- en mode SERVEUR -->
 <!-- 		<property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost/base-traficweb_v1" /> >-->
+<!-- 		<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/base-traficweb_v1" /> >-->
     	<!-- en mode FILE -->
 <!--        <property name="hibernate.connection.url" value="jdbc:hsqldb:file:D:/Donnees/eclipse/eclipseworkspace_oxygen/traficweb_v1/data/base-traficweb_v1-hsqldb/base-traficweb_v1" /> -->
+<!--        <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:D:/Donnees/eclipse/eclipseworkspace_oxygen/traficweb_v1/data/base-traficweb_v1-hsqldb/base-traficweb_v1" /> -->
     	<!-- en mode MEMORY -->
 <!-- 	   <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:base-traficweb_v1" />     -->
+<!-- 	   <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:base-traficweb_v1" />     -->
 
 		<!-- ========================================================= -->
 		<!--                     	H2 1.4.197 - [sa, sa]              -->
@@ -89,10 +94,13 @@
 		<!-- en mode FILE -->
 		<!-- chemin relatif (marche dans Eclipse) -->
 		<property name="hibernate.connection.url" value="jdbc:h2:file:./data/base-traficweb_v1-h2/base-traficweb_v1" /> 
+<!-- 		<property name="javax.persistence.jdbc.url" value="jdbc:h2:file:./data/base-traficweb_v1-h2/base-traficweb_v1" />  -->
 		<!-- chemin absolu (marche dans la console H2) -->
-<!-- 		<property name="hibernate.connection.url" value="jdbc:h2:file:D:/Donnees/eclipse/eclipseworkspace_oxygen/traficweb_v1/data/base-traficweb_v1-h2/base-traficweb_v1" /> -->
+<!-- 		<property name="hibernate.connection.url" value="jdbc:h2:file:D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/data/base-traficweb_v1-h2/base-traficweb_v1" /> -->
+<!-- 		<property name="javax.persistence.jdbc.url" value="jdbc:h2:file:D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/data/base-traficweb_v1-h2/base-traficweb_v1" /> -->
    		<!-- en mode MEMORY -->
 <!-- 	    <property name="hibernate.connection.url" value="jdbc:h2:mem:base-traficweb_v1" />     -->
+<!-- 	    <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:base-traficweb_v1" />     -->
 	
 					
 
@@ -106,13 +114,19 @@
 		<!--    postgresql 9.6.4 - port : 5432 - [postgres, postgres]  -->
 		<!-- ========================================================= --> 
 <!-- 		<property name="hibernate.connection.username" value="postgres" /> -->
+<!-- 		<property name="javax.persistence.jdbc.user" value="postgres" /> -->
+
 <!-- 		<property name="hibernate.connection.password" value="postgres" /> -->
+<!-- 		<property name="javax.persistence.jdbc.password" value="postgres" /> -->
 		
 		<!-- ========================================================= -->
 		<!--         mySql 5.7.19.0 - port : 3306 - [root, root]       -->
 		<!-- ========================================================= -->   		
 <!--     	<property name="hibernate.connection.username" value="root" /> -->
+<!-- 		<property name="javax.persistence.jdbc.user" value="root" /> -->
+
 <!--     	<property name="hibernate.connection.password" value="root" /> -->
+<!--     	<property name="javax.persistence.jdbc.password" value="root" /> -->
     	
  		<!-- ========================================================= -->
 		<!--                     hsqldb 2.4.0  [sa,   ]                -->

@@ -271,12 +271,27 @@ public final class JPAUtils {
 	/**
 	 * <b>retourne un SINGLETON d'EntityManagerFactory</b>.<br/>
 	 * <ul>
-	 * <li>lit <b>src/main/resources/META-INF/persistence.xml</b></li>
+	 * <li><b>lit</b> 
+	 * <code><b>src/main/resources/META-INF/persistence.xml</b></code></li>
+	 * <li>
+	 * le <code>META-INF/persistence.xml</code> contient :
+	 * <ul>
+	 * <li>le nom de l'unité de persistence <b>persistence-unit name</b>.</li>
+	 * <li>le type de transaction (RESOURCE_LOCAL en desktop
+	 * , JTA avec TOMCAT sans Spring lorsque le serveur TOMCAT 
+	 * gère les transactions, rien avec SPRING, ...).</li>
+	 * <li>le <b>provider</b> d'ORM (HIBERNATE, EclipseLink, OpenJPA, ...).</li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * <li></li>
+	 * </ul>
+	 * </li>
 	 * <li><b>nécessite que le serveur de base de données indiqué dans 
-	 * persistence.xml soit démarré.</b>.</li>
+	 * persistence.xml soit démarré</b>.</li>
 	 * <li>charge la configuration du contexte de persistence 
 	 * dans entityManagerFactory.</li>
-	 * <li>retourne un Singleton entityManagerFactory.</li>
+	 * <li>retourne un <b>SINGLETON</b> entityManagerFactory.</li>
 	 * </ul>
 	 *
 	 * @return : entityManagerFactory : 
