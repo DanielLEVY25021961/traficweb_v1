@@ -1104,6 +1104,7 @@ public class SectionHit implements ISectionHit {
 	/**
 	 * retourne un Integer à partir de la chaine fournie dans pString.<br/>
 	 * <br/>
+	 * - retire d'éventuels espaces avant et/ou après la valeur entière.<br/>
 	 * - retourne null si pString est blank.<br/>
 	 * - LOG.fatal et retourne null si pString n'est pas homogène 
 	 * à un entier.<br/>
@@ -1122,7 +1123,7 @@ public class SectionHit implements ISectionHit {
 		
 		Integer resultat = null;
 		
-		final String motifInteger = "\\d+";
+		final String motifInteger = "\\s*(\\d+)\\s*";
 		final Pattern patternInteger 
 			= Pattern.compile(motifInteger); 
 		final Matcher matcher = patternInteger.matcher(pString);
@@ -1132,7 +1133,7 @@ public class SectionHit implements ISectionHit {
 		if (!matcher.matches()) {
 			
 			final String message 
-				= CLASSE_SECTION_HIT 
+				= CLASSE_SECTION_HIT
 				+ MOINS_ESPACE
 				+ "méthode fournirInteger(String)"
 				+ MOINS_ESPACE 
@@ -1146,7 +1147,10 @@ public class SectionHit implements ISectionHit {
 			return null;
 		}
 
-		resultat = Integer.valueOf(pString);
+		/* retire d'éventuels espaces avant et/ou après la valeur entière. */
+		final String valeur = matcher.group(1);
+		
+		resultat = Integer.valueOf(valeur);
 		
 		return resultat;
 		

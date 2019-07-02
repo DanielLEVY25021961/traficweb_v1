@@ -1,21 +1,30 @@
 package levy.daniel.application.model.metier.sections.impl;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.io.File;
+import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
+import java.util.SortedMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import levy.daniel.application.model.dto.metier.sections.ISectionHitDTO;
+import levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO;
 import levy.daniel.application.model.metier.sections.ISectionHit;
+import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl.ImporteurHit;
 
 /**
  * CLASSE SectionHitTest :<br/>
@@ -142,6 +151,16 @@ public class SectionHitTest {
 	 * new SectionHit().
 	 */
 	public static final ISectionHit SECTION_HIT = new SectionHit();
+
+	/**
+	 * DTO a tester.
+	 */
+	public static  ISectionHitDTO dto;
+
+	/**
+	 * OBJET METIER a tester.
+	 */
+	public static ISectionHit objetMetier;
 	
 	/**
 	 * LOG : Log : 
@@ -161,6 +180,366 @@ public class SectionHitTest {
 	
 
 	
+	/**
+	 * teste la méthode toStringASCII().<br/>
+	 * <ul>
+	 * <li>garantit que toStringASCII() ne retourne pas null.</li>
+	 * </ul>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testToStringASCII() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = true;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitTest - méthode testToStringASCII() ********** ");
+		}
+		
+		// METHODE A TESTER.
+		String toStringASCIIDTO = null;
+		String toStringASCIIObjet = null;
+		
+		if (objetMetier != null) {
+			
+			toStringASCIIDTO = dto.toStringASCII();
+			toStringASCIIObjet = objetMetier.toStringASCII();
+						
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println(toStringASCIIDTO);
+				System.out.println(toStringASCIIObjet);
+			}
+			
+			/* garantit que toStringASCII() ne retourne pas null. */
+			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, toStringASCIIDTO);
+			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, toStringASCIIObjet);
+			
+			assertEquals("doit retourner 520 : "
+					, 520
+						, toStringASCIIDTO.length());
+			assertEquals("doit retourner 520 : "
+					, 520
+						, toStringASCIIObjet.length());
+
+		}
+		
+	} // Fin de testToStringASCII().____________________________________
+	
+
+	
+	/**
+	 * teste la méthode fournirEnTeteCsv().<br/>
+	 * <ul>
+	 * <li>garantit que fournirEnTeteCsv() ne retourne pas null.</li>
+	 * </ul>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testFournirEnTeteCsv() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitTest - méthode testFournirEnTeteCsv() ********** ");
+		}
+		
+		// METHODE A TESTER.
+		String enteteCsv = null;
+		
+		if (objetMetier != null) {
+			
+			enteteCsv = objetMetier.fournirEnTeteCsv();
+						
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println(enteteCsv);
+			}
+			
+			/* garantit que fournirEnTeteCsv() ne retourne pas null. */
+			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, enteteCsv);
+
+		}
+		
+	} // Fin de testFournirEnTeteCsv().____________________________________
+	
+
+	
+	/**
+	 * teste la méthode fournirStringCsv().<br/>
+	 * <ul>
+	 * <li>garantit que fournirStringCsv() ne retourne pas null.</li>
+	 * </ul>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testFournirStringCsv() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitTest - méthode testFournirStringCsv() ********** ");
+		}
+		
+		// METHODE A TESTER.
+		String stringCsv = null;
+		
+		if (objetMetier != null) {
+			
+			stringCsv = objetMetier.fournirStringCsv();
+						
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println(stringCsv);
+			}
+			
+			/* garantit que fournirStringCsv() ne retourne pas null. */
+			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, stringCsv);
+			
+		}
+		
+	} // Fin de testFournirStringCsv().____________________________________
+	
+
+	
+	/**
+	 * teste la méthode fournirEnTeteColonne().<br/>
+	 * <ul>
+	 * <li>garantit que fournirEnTeteColonne(hors index) retourne "invalide".</li>
+	 * <li>garantit que fournirEnTeteColonne(i) ne retourne pas null.</li>
+	 * <li>garantit que fournirEnTeteColonne(i) retourne la bonne entete.</li>
+	 * </ul>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testFournirEnTeteColonne() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitTest - méthode testFournirEnTeteColonne() ********** ");
+		}
+		
+		// METHODE A TESTER.
+		String enteteColonne0 = null;
+		String enteteColonne1 = null;
+		String enteteColonne2 = null;
+		String enteteColonne3 = null;
+		String enteteColonne50 = null;
+		String enteteColonne133 = null;
+		String enteteColonne134 = null;
+		
+		if (objetMetier != null) {
+			
+			enteteColonne0 = (String) objetMetier.fournirEnTeteColonne(0);
+			enteteColonne1 = (String) objetMetier.fournirEnTeteColonne(1);
+			enteteColonne2 = (String) objetMetier.fournirEnTeteColonne(2);
+			enteteColonne3 = (String) objetMetier.fournirEnTeteColonne(3);
+			enteteColonne50 = (String) objetMetier.fournirEnTeteColonne(50);
+			enteteColonne133 = (String) objetMetier.fournirEnTeteColonne(133);
+			enteteColonne134 = (String) objetMetier.fournirEnTeteColonne(134);
+						
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println("enteteColonne0 : " + enteteColonne0);
+				System.out.println("enteteColonne1 : " + enteteColonne1);
+				System.out.println("enteteColonne2 : " + enteteColonne2);
+				System.out.println("enteteColonne3 : " + enteteColonne3);
+				System.out.println("enteteColonne50 : " + enteteColonne50);
+				System.out.println("enteteColonne133 : " + enteteColonne133);				
+				System.out.println("enteteColonne134 : " + enteteColonne134);
+			}
+			
+			/* garantit que fournirEnTeteColonne() ne retourne pas null. */
+			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, enteteColonne1);
+			
+			/* garantit que fournirEnTeteColonne(hors index) retourne "invalide". */
+			assertEquals(DOIT_RETOURNER_INVALIDE
+					, "invalide"
+						, enteteColonne134);
+			
+			/* garantit que fournirEnTeteColonne(i) retourne la bonne entete. */
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, "id"
+						, enteteColonne0);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, "numDepartement"
+						, enteteColonne1);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, "numSection"
+						, enteteColonne2);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, "sens"
+						, enteteColonne3);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, "mjmNmois04"
+						, enteteColonne50);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, "zoneLibre4"
+						, enteteColonne133);
+			
+		}
+		
+	} // Fin de testFournirEnTeteColonne().________________________________
+	
+
+	
+	/**
+	 * teste la méthode fournirValeurColonne().<br/>
+	 * <ul>
+	 * <li>garantit que fournirValeurColonne(hors index) retourne "invalide".</li>
+	 * <li>garantit que fournirValeurColonne(i) ne retourne pas null.</li>
+	 * <li>garantit que fournirValeurColonne(i) retourne la bonne valeur.</li>
+	 * </ul>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testFournirValeurColonne() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitTest - méthode testFournirValeurColonne() ********** ");
+		}
+		
+		// METHODE A TESTER.
+		String valeurColonne0 = null;
+		String valeurColonne1 = null;
+		String valeurColonne2 = null;
+		String valeurColonne3 = null;
+		String valeurColonne50 = null;
+		String valeurColonne133 = null;
+		String valeurColonne134 = null;
+		
+		if (objetMetier != null) {
+			
+			valeurColonne0 = (String) objetMetier.fournirValeurColonne(0);
+			valeurColonne1 = (String) objetMetier.fournirValeurColonne(1);
+			valeurColonne2 = (String) objetMetier.fournirValeurColonne(2);
+			valeurColonne3 = (String) objetMetier.fournirValeurColonne(3);
+			valeurColonne50 = (String) objetMetier.fournirValeurColonne(50);
+			valeurColonne133 = (String) objetMetier.fournirValeurColonne(133);
+			valeurColonne134 = (String) objetMetier.fournirValeurColonne(134);
+						
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println("valeurColonne0 : " + valeurColonne0);
+				System.out.println("valeurColonne1 : " + valeurColonne1);
+				System.out.println("valeurColonne2 : " + valeurColonne2);
+				System.out.println("valeurColonne3 : " + valeurColonne3);
+				System.out.println("valeurColonne50 : " + valeurColonne50);
+				System.out.println("valeurColonne133 : " + valeurColonne133);				
+				System.out.println("valeurColonne134 : " + valeurColonne134);
+			}
+			
+			/* garantit que fournirValeurColonne() ne retourne pas null. */
+			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, valeurColonne1);
+			
+			/* garantit que fournirValeurColonne(hors index) retourne "invalide". */
+			assertEquals(DOIT_RETOURNER_INVALIDE
+					, "invalide"
+						, valeurColonne134);
+			
+			/* garantit que fournirValeurColonne(i) retourne la bonne valeur. */
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, objetMetier.getId()
+						, valeurColonne0);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, objetMetier.getNumDepartement()
+						, valeurColonne1);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, objetMetier.getNumSection()
+						, valeurColonne2);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, objetMetier.getSens()
+						, valeurColonne3);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, objetMetier.getMjmNmois04()
+						, valeurColonne50);
+			
+			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+					, objetMetier.getZoneLibre4()
+						, valeurColonne133);
+			
+		}
+		
+	} // Fin de testFournirValeurColonne().________________________________
+
+
+	
+	/**
+	 * Exécuté avant tout test de la méthode.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	@BeforeClass
+	public static void beforeClass() throws Exception {
+				
+		final Path fichierDonneesPath 
+			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("HITDIRA2017.txt");
+		final File fichierDonnees = fichierDonneesPath.toFile();
+		final Charset charsetAnsi = Charset.forName("Windows-1252");
+		
+		// OBJET A TESTER.
+		final ImporteurHit importeurHIT = new ImporteurHit();
+		
+		final Map<Integer, ISectionHit> fichierMapObjet 
+			= importeurHIT.importerObjet(fichierDonnees, charsetAnsi);
+		
+		final SortedMap<Integer, SortedMap<Integer, String>> fichierImporteMap 
+			= importeurHIT.getFichierImporteMap();
+		
+		final SortedMap<Integer, String> ligneMap = fichierImporteMap.get(1);
+		final ISectionHit objetMap = new SectionHit(ligneMap);
+		
+		objetMetier = fichierMapObjet.get(1);
+		
+		
+		final Map<Integer, ISectionHitDTO> fichierMapDTO 
+			= importeurHIT.importerDTO(fichierDonnees, charsetAnsi);
+		
+		final ISectionHitDTO dtoMap = new SectionHitDTO(ligneMap);
+		
+		dto = fichierMapDTO.get(1);
+		
+		assertEquals("doivent être égaux : ", dto, dtoMap);
+
+		
+		assertEquals("doivent être égaux : ", objetMetier, objetMap);
+		
+	} // Fin de beforeClass()._____________________________________________
+
+
+		
 	/**
 	 * teste fournirDateAvecAnneeSurDeuxChiffres(anneeDeuxChiffres).<br/>
 	 * <ul>
