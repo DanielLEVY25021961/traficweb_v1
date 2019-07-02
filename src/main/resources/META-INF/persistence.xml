@@ -82,8 +82,8 @@
 <!-- 		<property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost/base-traficweb_v1" /> >-->
 <!-- 		<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/base-traficweb_v1" /> >-->
     	<!-- en mode FILE -->
-<!--        <property name="hibernate.connection.url" value="jdbc:hsqldb:file:D:/Donnees/eclipse/eclipseworkspace_oxygen/traficweb_v1/data/base-traficweb_v1-hsqldb/base-traficweb_v1" /> -->
-<!--        <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:D:/Donnees/eclipse/eclipseworkspace_oxygen/traficweb_v1/data/base-traficweb_v1-hsqldb/base-traficweb_v1" /> -->
+<!--        <property name="hibernate.connection.url" value="jdbc:hsqldb:file:D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/data/base-traficweb_v1-hsqldb/base-traficweb_v1" /> -->
+<!--        <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:D:/Donnees/eclipse/eclipseworkspace/traficweb_v1/data/base-traficweb_v1-hsqldb/base-traficweb_v1" /> -->
     	<!-- en mode MEMORY -->
 <!-- 	   <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:base-traficweb_v1" />     -->
 <!-- 	   <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:base-traficweb_v1" />     -->
@@ -132,14 +132,19 @@
 		<!--                     hsqldb 2.4.0  [sa,   ]                -->
 		<!-- ========================================================= -->	
 <!--     	<property name="hibernate.connection.username" value="sa" /> -->
+<!--     	<property name="javax.persistence.jdbc.user" value="sa" /> -->
+
 <!--     	<property name="hibernate.connection.password" value="" />	 -->
+<!--     	<property name="javax.persistence.jdbc.password" value="" />	 -->
     	
 		<!-- ========================================================= -->
 		<!--                     	H2 1.4.197 - [sa, sa]              -->
 		<!-- ========================================================= -->
     	<property name="hibernate.connection.username" value="sa" />
+<!--     	<property name="javax.persistence.jdbc.user" value="sa" /> -->
+    	
     	<property name="hibernate.connection.password" value="sa" />	
-
+<!-- 		<property name="javax.persistence.jdbc.password" value="sa" /> -->
 
 		
 					<!-- ************************* -->
@@ -148,21 +153,25 @@
 		<!-- ========================================================= -->
 		<!--    postgresql 9.6.4 - port : 5432 - [postgres, postgres]  -->
 		<!-- ========================================================= -->
+<!-- 		<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" /> -->
 <!-- 		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> -->
 			      
 		 <!-- ========================================================= -->
 		 <!--         mySql 5.7.19.0 - port : 3306 - [root, root]       -->
-		 <!-- ========================================================= -->   	
+		 <!-- ========================================================= --> 
+<!-- 		 <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" /> -->  	
 <!-- 		 <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" /> -->
 				
 		<!-- ========================================================= -->
 		<!--                     hsqldb 2.4.0 - [sa,    ]              -->
 		<!-- ========================================================= -->
+<!-- 		<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" /> -->
 <!-- 		<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" /> -->
 
 		<!-- ========================================================= -->
 		<!--                     	H2 1.4.197 - [sa, sa]              -->
 		<!-- ========================================================= -->
+<!-- 		<property name="hibernate.connection.driver_class" value="org.h2.Driver" />		 -->
 		<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
 
 		

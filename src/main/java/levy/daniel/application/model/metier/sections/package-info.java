@@ -1,7 +1,8 @@
 /**
  * CLASSE package-info :<br/>
  * Ce package contient tous les OBJETS METIER 
- * relatifs au concept de <b>Televersement</b>.<br/>
+ * relatifs au concept de <b>SECTION DE TRAFIC 
+ * (HIT, DARWIN, HISTONAT_F07, ...)</b>.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -14,9 +15,9 @@
  * <br/>
  *
  *
- * @author daniel.levy Lévy
+ * @author dan Lévy
  * @version 1.0
- * @since 7 juin 2019
+ * @since 29 juin 2019
  *
  */
-package levy.daniel.application.model.metier.televersement;
+package levy.daniel.application.model.metier.sections;
