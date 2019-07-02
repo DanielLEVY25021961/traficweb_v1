@@ -274,17 +274,32 @@ public final class JPAUtils {
 	 * <li><b>lit</b> 
 	 * <code><b>src/main/resources/META-INF/persistence.xml</b></code></li>
 	 * <li>
-	 * le <code>META-INF/persistence.xml</code> contient :
+	 * le <code>META-INF/persistence.xml</code> contient la 
+	 * <b>CONFIGURATION DU CONTEXTE</b> :
 	 * <ul>
-	 * <li>le nom de l'unité de persistence <b>persistence-unit name</b>.</li>
-	 * <li>le type de transaction (RESOURCE_LOCAL en desktop
+	 * <li>le <b>NOM de l'unité de persistence</b> 
+	 * <code><b>persistence-unit name</b></code>.</li>
+	 * <li>le <b>TYPE DE TRANSACTION</b> (RESOURCE_LOCAL en desktop
 	 * , JTA avec TOMCAT sans Spring lorsque le serveur TOMCAT 
 	 * gère les transactions, rien avec SPRING, ...).</li>
-	 * <li>le <b>provider</b> d'ORM (HIBERNATE, EclipseLink, OpenJPA, ...).</li>
-	 * <li></li>
-	 * <li></li>
-	 * <li></li>
-	 * <li></li>
+	 * <li>le <b>PROVIDER</b> d'ORM (HIBERNATE, EclipseLink, OpenJPA, ...).</li>
+	 * <li>l'<b>URL</b> de connexion à la BASE 
+	 * <code><b>javax.persistence.jdbc.url</b></code></li>
+	 * <li>le <b>LOGIN</b> <code><b>javax.persistence.jdbc.user</b></code></li>
+	 * <li>le <b>MOT DE PASSE</b> 
+	 * <code><b>javax.persistence.jdbc.password</b></code></li>
+	 * <li>le <b>DRIVER</b> de la BASE 
+	 * <code><b>javax.persistence.jdbc.driver</b></code></li>
+	 * <li>le <b>DIALECTE</b> dépendant du provider choisi 
+	 * comme pour HIBERNATE <code><b>hibernate.dialect</b></code></li>
+	 * <li>les réglages propres au provider (hibernate.show_sql
+	 * , hibernate.format_sql, hibernate.use_sql_comments
+	 * , hibernate.generate_statistics, ...)</li>
+	 * <li>le cache de second niveau 
+	 * <code><b>cache.provider_class</b></code></li>
+	 * <li>la stratégie de conservation des tables 
+	 * <code><b>hibernate.hbm2ddl.auto</b></code></li>
+	 * <li>le <b>pool de connexion</b></li>
 	 * </ul>
 	 * </li>
 	 * <li><b>nécessite que le serveur de base de données indiqué dans 
