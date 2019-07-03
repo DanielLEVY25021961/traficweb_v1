@@ -924,7 +924,8 @@ public final class GenerateurRapide {
 	 * .<br/>
 	 * <br/>
 	 *
-	 * @param pClass
+	 * @param pClass : java.lang.Class<?>
+	 * 
 	 * @return  : String : 
 	 * code de la méthode fournirDTO() de pClass.<br/>
 	 * 
@@ -961,7 +962,208 @@ public final class GenerateurRapide {
 		}
 
 		return stb.toString();
-	}
+		
+	} // Fin de genererMethodeFournirDTO(...)._____________________________
+
+
+	
+	/**
+	 * génère le bloc de code à insérer dans la récupération des valeurs 
+	 * sous forme de String du DTO 
+	 * de la méthode convertirDTOEnObjetMetier(DTO) 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * DTO dont on veut récupérer les valeurs.<br/>
+	 * 
+	 * @return   : String : 
+	 * code à insérer dans la récupération des valeurs du DTO 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererRecupererValeursStringDansDTO(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationChampGetterSetter> map 
+			= fournirMapChampGetterSetter(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		int compteur = 0;
+		
+		for (final EncapsulationChampGetterSetter champ : map.values()) {
+			
+			stb.append(TAB + TAB + TAB);
+			stb.append("final String ");
+			stb.append(champ.getNomChamp());
+			stb.append("String = pDTO.");
+			stb.append(champ.getNomGetter());
+			stb.append("();");
+			stb.append(NEWLINE);
+						
+			compteur++;
+		}
+
+		return stb.toString();
+		
+	} // Fin de genererRecupererValeursStringDansDTO().____________________
+
+
+	
+	/**
+	 * génère le bloc de code à insérer dans la conversion des valeurs 
+	 * sous forme de String du DTO en valeurs typées de l'OBJET METIER
+	 * de la méthode convertirDTOEnObjetMetier(DTO) 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER pour lequel on veut typer les valeurs String du DTO.<br/>
+	 * 
+	 * @return   : String : 
+	 * code à insérer dans la conversion des valeurs du DTO 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererConvertirValeursStringDansDTO(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		int compteur = 0;
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			stb.append(TAB + TAB + TAB);
+			stb.append(champ.getTypeString());
+			stb.append(" ");
+			stb.append(champ.getNomChamp());
+			stb.append(" = ");
+			
+			if (champ.getTypeString().equals("String")) {
+				stb.append(champ.getNomChamp());
+				stb.append("String;");
+			} else {
+				stb.append("null;");
+				stb.append(NEWLINE);
+				stb.append(NEWLINE);
+				stb.append(TAB + TAB + TAB);
+				stb.append("if (!StringUtils.isBlank(");
+				stb.append(champ.getNomChamp());
+				stb.append("String");
+				stb.append(")) {");
+				stb.append(NEWLINE);
+				
+				stb.append(TAB + TAB + TAB + TAB);
+				stb.append("try {");
+				stb.append(NEWLINE);
+				stb.append(TAB + TAB + TAB + TAB + TAB);
+				stb.append(champ.getNomChamp());
+				stb.append(" = ");
+				stb.append(champ.getTypeString());
+				stb.append(".valueOf(");
+				stb.append(champ.getNomChamp());
+				stb.append("String");
+				stb.append(");");
+				stb.append(NEWLINE);
+				
+				stb.append(TAB + TAB + TAB + TAB);
+				stb.append("} catch (Exception e) {");
+				stb.append(NEWLINE);
+				stb.append(TAB + TAB + TAB + TAB + TAB);
+				stb.append(champ.getNomChamp());
+				stb.append(" = null;");
+				stb.append(NEWLINE);
+				
+				stb.append(TAB + TAB + TAB + TAB);
+				stb.append("}");
+				stb.append(NEWLINE);
+				
+				stb.append(TAB + TAB + TAB);
+				stb.append("}");
+				stb.append(NEWLINE);
+			}
+			
+			stb.append(NEWLINE);
+						
+			compteur++;
+		}
+
+		return stb.toString();
+		
+	} // Fin de genererConvertirValeursStringDansDTO().____________________
+
+
+	
+	/**
+	 * génère le bloc de code à insérer dans l'alimentation des valeurs 
+	 * typées de l'OBJET METIER
+	 * de la méthode convertirDTOEnObjetMetier(DTO) 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER que l'on veut alimenter.<br/>
+	 * 
+	 * @return   : String : 
+	 * code à insérer dans l'alimentation d'un OBJET METIER 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererAlimenterValeursTypeesDansDTO(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		int compteur = 0;
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			stb.append(TAB + TAB + TAB);
+			stb.append("objet.");
+			stb.append(champ.getNomSetter());
+			stb.append("(");
+			stb.append(champ.getNomChamp());
+			stb.append(");");
+			stb.append(NEWLINE);
+									
+			compteur++;
+		}
+
+		return stb.toString();
+		
+	} // Fin de genererAlimenterValeursTypeesDansDTO().____________________
 	
 	
 	
@@ -1693,7 +1895,11 @@ public final class GenerateurRapide {
 		
 //		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionDarwinDTO");
 		
-		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.televersement.impl.TeleversementDTO");
+//		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.televersement.impl.TeleversementDTO");
+		
+//		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO");
+		
+		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.sections.impl.SectionHit");
 		
 //		List<Method> listeGetters = findGetters(classe);
 //		System.out.println(afficherListeMethod(listeGetters));
@@ -1747,9 +1953,15 @@ public final class GenerateurRapide {
 		
 //		System.out.println(genererMethodeFournirEnTeteColonne(classe));
 		
-		System.out.println(genererMethodeFournirValeurColonne(classe));
+//		System.out.println(genererMethodeFournirValeurColonne(classe));
 		
 //		System.out.println(genererMethodeFournirDTO(classe));
+		
+//		System.out.println(genererRecupererValeursStringDansDTO(classe));
+		
+//		System.out.println(genererConvertirValeursStringDansDTO(classe));
+		
+		System.out.println(genererAlimenterValeursTypeesDansDTO(classe));
 		
     } // Fin de main(...)._________________________________________________
 

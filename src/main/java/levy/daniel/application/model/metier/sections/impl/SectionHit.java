@@ -12,6 +12,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.metier.sections.ISectionHit;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.IImportateurDescription;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.factorydescription.FactoryDescription;
 
 /**
  * CLASSE SectionHit :<br/>
@@ -72,6 +75,11 @@ public class SectionHit implements ISectionHit {
 	 * "null".<br/>
 	 */
 	public static final String NULL = "null";
+	
+	/**
+	 * Importateur de la description du fichier HIT.
+	 */
+	private IImportateurDescription descriptionFichier;
 	
 	/**
 	 * "unused".<br/>
@@ -850,9 +858,20 @@ public class SectionHit implements ISectionHit {
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.
+	 * <ul>
+	 * <li>alimente <code><b>this.descriptionFichier</b></code>.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
 	 */
-	public SectionHit() {
+	public SectionHit() throws Exception {
+		
 		super();
+		
+		/* alimente this.descriptionFichier. */
+		FactoryDescription.getDecriptionHitMap();		
+		this.descriptionFichier = FactoryDescription.getImportateurHit();
+		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
 	
@@ -861,15 +880,20 @@ public class SectionHit implements ISectionHit {
 	 * CONSTRUCTEUR CONVERTISSEUR.<br/>
 	 * Instancie un OBJET METIER à partir d'une SortedMap&lt;Integer, String&gt; 
 	 * description de ligne d'un fichier HIT.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>alimente <code><b>this.descriptionFichier</b></code>.</li>
+	 * </ul>
 	 * - LOG.fatal et jette une RunTimeException 
 	 * si pDescriptionLigne == null.<br/>
 	 * </br/>
 	 * 
 	 * 
 	 * @param pDescriptionLigne : SortedMap&lt;Integer, String&gt;
+	 * 
+	 * @throws Exception 
 	 */
-	public SectionHit(final SortedMap<Integer, String> pDescriptionLigne) {
+	public SectionHit(final SortedMap<Integer, String> pDescriptionLigne) 
+			throws Exception {
 		
 		super();
 		
@@ -888,6 +912,10 @@ public class SectionHit implements ISectionHit {
 			
 			throw new RuntimeException(message);
 		}
+		
+		/* alimente this.descriptionFichier. */
+		FactoryDescription.getDecriptionHitMap();		
+		this.descriptionFichier = FactoryDescription.getImportateurHit();
 
 		this.setId(null);
 		this.setNumDepartement(pDescriptionLigne.get(1));
@@ -1189,8 +1217,102 @@ public class SectionHit implements ISectionHit {
 		
 	} // Fin de fournirAnneeDeuxChiffresAPartirDate(...).__________________
 
+
 	
+	/**
+	 * <b>retourne la chaine de caractères pString complétée 
+	 * avec des zéros à gauche pour atteindre pTaille</b>.<br/>
+	 * <ul>
+	 * <li>Par exemple : retourne "0025" 
+	 * si pString == "25" et pTaille == 4.</li>
+	 * <li>retourne pString inchangée si sa longueur >= pTaille.</li>
+	 * </ul>
+	 * - retourne null si pTaille == 0.<br/>
+	 * - retourne null si pString == null.<br/>
+	 * <br/>
+	 *
+	 * @param pString : String : 
+	 * chaine de caractères à compléter avec des zéros à gauche.
+	 * @param pTaille : 
+	 * taille finale de la chaine complétée avec des zéros à gauche.
+	 * 
+	 * @return : String : 
+	 * chaine de caractère pString complétée avec des zéros à gauche 
+	 * pour atteindre pTaille.<br/>
+	 */
+	private String completerAvecZerosAGauche(
+			final String pString, final int pTaille) {
 		
+		/* retourne null si pTaille == 0. */
+		if (pTaille == 0) {
+			return null;
+		}
+		
+		/* retourne null si pString == null. */
+		if (pString == null) {
+			return null;
+		}
+		
+		final int tailleString = pString.length();
+		
+		/* retourne pString inchangée si sa longueur >= pTaille. */
+		if (tailleString >= pTaille) {
+			return pString;
+		}
+		
+		String resultat = null;
+		
+		final int nombreZeros = pTaille - tailleString;
+		
+		resultat = pString;
+		
+		for (int i = 0; i < nombreZeros; i++) {
+			resultat = "0" + resultat;
+		}
+		
+		return resultat;
+		
+	} // Fin de completerAvecZerosAGauche(...).____________________________
+	
+
+	
+	/**
+	 * retourne la longueur du champ de numéro d'ordre pNumeroChamp 
+	 * dans la description de fichier 
+	 * <code><b>this.descriptionFichier</b></code>.<br/>
+	 * <br/>
+	 * Par exemple : <code><b>fournirlongueurChamp(20)</b></code> 
+	 * retourne 4 pour le champ absOrigine du HIT.
+	 *
+	 * @param pNumeroChamp : int : numéro d'ordre du champ dans la description.
+	 * 
+	 * @return : int : 
+	 * longueur du champ d'ordre pNumeroChamp dans la description du fichier.
+	 */
+	private int fournirLongueurChamp(final int pNumeroChamp) {
+		
+		DescriptionChampHit description = null;
+		int longueurChamp = 0;
+		
+		try {
+			
+			description 
+			= (DescriptionChampHit) 
+				this.descriptionFichier.getDescriptionChamp(pNumeroChamp);
+			
+			longueurChamp = description.getLongueur();
+			
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+		return longueurChamp;
+		
+	} // Fin de fournirLongueurChamp(...)._________________________________
+	
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -2789,16 +2911,59 @@ public class SectionHit implements ISectionHit {
 		stb.append(this.getTypeReseau());
 		stb.append(this.getPRoupK());
 		stb.append(this.getLieuDitOrigine());
-		stb.append(String.valueOf(this.getPrOrigine()));
-		stb.append(String.valueOf(this.getAbsOrigine()));
+		
+		final String prOrigineString = String.valueOf(this.getPrOrigine());
+		final String prOrigineComplete 
+			= this.completerAvecZerosAGauche(
+					prOrigineString, this.fournirLongueurChamp(19));		
+		stb.append(prOrigineComplete);
+		
+		final String absOrigineString = String.valueOf(this.getAbsOrigine()); 
+		final String absOrigineComplete 
+			= this.completerAvecZerosAGauche(
+					absOrigineString, this.fournirLongueurChamp(20));
+		stb.append(absOrigineComplete);
+		
 		stb.append(this.getLieuDitExtremite());
-		stb.append(String.valueOf(this.getPrExtremite()));
-		stb.append(String.valueOf(this.getAbsExtremite()));
+		
+		final String prExtremiteString = String.valueOf(this.getPrExtremite());
+		final String prExtremiteComplete 
+			= this.completerAvecZerosAGauche(
+					prExtremiteString, this.fournirLongueurChamp(22));
+		stb.append(prExtremiteComplete);
+		
+		final String absExtremiteString = String.valueOf(this.getAbsExtremite());
+		final String absExtremiteComplete 
+			= this.completerAvecZerosAGauche(
+					absExtremiteString, this.fournirLongueurChamp(23));
+		stb.append(absExtremiteComplete);
+		
 		stb.append(this.getLieuDitComptage());
-		stb.append(String.valueOf(this.getPrComptage()));
-		stb.append(String.valueOf(this.getAbsComptage()));
-		stb.append(String.valueOf(this.getLongueurSection()));
-		stb.append(String.valueOf(this.getLongueurRaseCampagne()));
+		
+		final String prComptageString = String.valueOf(this.getPrComptage());
+		final String prComptageComplete 
+			= this.completerAvecZerosAGauche(
+					prComptageString, this.fournirLongueurChamp(25));
+		stb.append(prComptageComplete);
+		
+		final String absComptageString = String.valueOf(this.getAbsComptage());
+		final String absComptageComplete 
+			= this.completerAvecZerosAGauche(
+					absComptageString, this.fournirLongueurChamp(26));
+		stb.append(absComptageComplete);
+
+		final String longueurSectionString = String.valueOf(this.getLongueurSection());
+		final String longueurSectionComplete 
+			= this.completerAvecZerosAGauche(
+					longueurSectionString, this.fournirLongueurChamp(27));
+		stb.append(longueurSectionComplete);
+		
+		final String longueurRaseCampagneString = String.valueOf(this.getLongueurRaseCampagne());
+		final String longueurRaseCampagneComplete 
+			= this.completerAvecZerosAGauche(
+					longueurRaseCampagneString, this.fournirLongueurChamp(28));
+		stb.append(longueurRaseCampagneComplete);
+		
 		stb.append(this.getNumDepartementRattachement());
 		stb.append(this.getNumSectionRattachement());
 		stb.append(this.getSensRattachement());
@@ -2808,111 +2973,310 @@ public class SectionHit implements ISectionHit {
 		stb.append(this.getMoisSectionnement());
 		stb.append(this.getAnneeSectionnement());
 		stb.append(this.getZoneLibre2());
-		stb.append(String.valueOf(this.getMjaN()));
+		
+		final String mjaNString = String.valueOf(this.getMjaN());
+		final String mjaNStringComplete 
+			= this.completerAvecZerosAGauche(
+					mjaNString, this.fournirLongueurChamp(38));
+		stb.append(mjaNStringComplete);
+		
 		stb.append(this.getModeCalculN());
 		stb.append(this.getPcPLN());
 		stb.append(this.getEvaluationPLN());
 		stb.append(this.getPcNuitAnnuelN());
 		stb.append(this.getIndiceFiabiliteMjaN());
-		stb.append(String.valueOf(this.getMjmNmois01()));
+		
+		final String mjmNmois01String = String.valueOf(this.getMjmNmois01());
+		final String mjmNmois01Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois01String, this.fournirLongueurChamp(44));
+		stb.append(mjmNmois01Complete);
+		
 		stb.append(this.getPcNuitNmois01());
-		stb.append(String.valueOf(this.getMjmNmois02()));
+		
+		final String mjmNmois02String = String.valueOf(this.getMjmNmois02());
+		final String mjmNmois02Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois02String, this.fournirLongueurChamp(46));
+		stb.append(mjmNmois02Complete);
+
 		stb.append(this.getPcNuitNmois02());
-		stb.append(String.valueOf(this.getMjmNmois03()));
+		
+		final String mjmNmois03String = String.valueOf(this.getMjmNmois03());
+		final String mjmNmois03Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois03String, this.fournirLongueurChamp(48));
+		stb.append(mjmNmois03Complete);
+
 		stb.append(this.getPcNuitNmois03());
-		stb.append(String.valueOf(this.getMjmNmois04()));
+		
+		final String mjmNmois04String = String.valueOf(this.getMjmNmois04());
+		final String mjmNmois04Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois04String, this.fournirLongueurChamp(50));
+		stb.append(mjmNmois04Complete);
+
 		stb.append(this.getPcNuitNmois04());
-		stb.append(String.valueOf(this.getMjmNmois05()));
+		
+		final String mjmNmois05String = String.valueOf(this.getMjmNmois05());
+		final String mjmNmois05Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois05String, this.fournirLongueurChamp(52));
+		stb.append(mjmNmois05Complete);
+
 		stb.append(this.getPcNuitNmois05());
-		stb.append(String.valueOf(this.getMjmNmois06()));
+		
+		final String mjmNmois06String = String.valueOf(this.getMjmNmois06());
+		final String mjmNmois06Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois06String, this.fournirLongueurChamp(54));
+		stb.append(mjmNmois06Complete);
+
 		stb.append(this.getPcNuitNmois06());
-		stb.append(String.valueOf(this.getMjmNmois07()));
+		
+		final String mjmNmois07String = String.valueOf(this.getMjmNmois07());
+		final String mjmNmois07Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois07String, this.fournirLongueurChamp(56));
+		stb.append(mjmNmois07Complete);
+
 		stb.append(this.getPcNuitNmois07());
-		stb.append(String.valueOf(this.getMjmNmois08()));
+		
+		final String mjmNmois08String = String.valueOf(this.getMjmNmois08());
+		final String mjmNmois08Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois08String, this.fournirLongueurChamp(58));
+		stb.append(mjmNmois08Complete);
+
 		stb.append(this.getPcNuitNmois08());
-		stb.append(String.valueOf(this.getMjmNmois09()));
+		
+		final String mjmNmois09String = String.valueOf(this.getMjmNmois09());
+		final String mjmNmois09Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois09String, this.fournirLongueurChamp(60));
+		stb.append(mjmNmois09Complete);
+
 		stb.append(this.getPcNuitNmois09());
-		stb.append(String.valueOf(this.getMjmNmois10()));
+		
+		final String mjmNmois10String = String.valueOf(this.getMjmNmois10());
+		final String mjmNmois10Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois10String, this.fournirLongueurChamp(62));
+		stb.append(mjmNmois10Complete);
+
 		stb.append(this.getPcNuitNmois10());
-		stb.append(String.valueOf(this.getMjmNmois11()));
+		
+		final String mjmNmois11String = String.valueOf(this.getMjmNmois11());
+		final String mjmNmois11Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois11String, this.fournirLongueurChamp(64));
+		stb.append(mjmNmois11Complete);
+
 		stb.append(this.getPcNuitNmois11());
-		stb.append(String.valueOf(this.getMjmNmois12()));
+		
+		final String mjmNmois12String = String.valueOf(this.getMjmNmois12());
+		final String mjmNmois12Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois12String, this.fournirLongueurChamp(66));
+		stb.append(mjmNmois12Complete);
+
 		stb.append(this.getPcNuitNmois12());
+		
 		stb.append(this.getZoneLibre3());
+		
 		stb.append(
 				this.fournirAnneeDeuxChiffresAPartirDate(
 						this.getAnneeNmoins1()));
-		stb.append(String.valueOf(this.getMjaNmoins1()));
+		
+		final String mjaNmoins1String = String.valueOf(this.getMjaNmoins1());
+		final String mjaNmoins1Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins1String, this.fournirLongueurChamp(70));
+		stb.append(mjaNmoins1Complete);
+		
 		stb.append(this.getTypeComptageNmoins1());
 		stb.append(this.getModeCalculNmoins1());
 		stb.append(this.getPcPLNmoins1());
 		stb.append(this.getEvaluationPLNmoins1());
 		stb.append(this.getPcNuitAnnuelNmoins1());
 		stb.append(this.getIndiceFiabiliteMjaNmoins1());
+		
 		stb.append(
 				this.fournirAnneeDeuxChiffresAPartirDate(
 						this.getAnneeNmoins2()));
-		stb.append(String.valueOf(this.getMjaNmoins2()));
+		
+		final String mjaNmoins2String = String.valueOf(this.getMjaNmoins2());
+		final String mjaNmoins2Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins2String, this.fournirLongueurChamp(78));
+		stb.append(mjaNmoins2Complete);
+
 		stb.append(this.getTypeComptageNmoins2());
 		stb.append(this.getModeCalculNmoins2());
 		stb.append(this.getPcPLNmoins2());
 		stb.append(this.getEvaluationPLNmoins2());
 		stb.append(this.getPcNuitAnnuelNmoins2());
 		stb.append(this.getIndiceFiabiliteMjaNmoins2());
+		
 		stb.append(
 				this.fournirAnneeDeuxChiffresAPartirDate(
 						this.getAnneeNmoins3()));
-		stb.append(String.valueOf(this.getMjaNmoins3()));
+		
+		final String mjaNmoins3String = String.valueOf(this.getMjaNmoins3());
+		final String mjaNmoins3Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins3String, this.fournirLongueurChamp(86));
+		stb.append(mjaNmoins3Complete);
+
 		stb.append(this.getTypeComptageNmoins3());
 		stb.append(this.getModeCalculNmoins3());
 		stb.append(this.getPcPLNmoins3());
 		stb.append(this.getEvaluationPLNmoins3());
 		stb.append(this.getPcNuitAnnuelNmoins3());
 		stb.append(this.getIndiceFiabiliteMjaNmoins3());
+		
 		stb.append(
 				this.fournirAnneeDeuxChiffresAPartirDate(
 						this.getAnneeNmoins4()));
-		stb.append(String.valueOf(this.getMjaNmoins4()));
+		
+		final String mjaNmoins4String = String.valueOf(this.getMjaNmoins4());
+		final String mjaNmoins4Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins4String, this.fournirLongueurChamp(94));
+		stb.append(mjaNmoins4Complete);
+
 		stb.append(this.getTypeComptageNmoins4());
 		stb.append(this.getModeCalculNmoins4());
 		stb.append(this.getPcPLNmoins4());
 		stb.append(this.getEvaluationPLNmoins4());
 		stb.append(this.getPcNuitAnnuelNmoins4());
 		stb.append(this.getIndiceFiabiliteMjaNmoins4());
+		
 		stb.append(
 				this.fournirAnneeDeuxChiffresAPartirDate(
 						this.getAnneeNmoins5()));
-		stb.append(String.valueOf(this.getMjaNmoins5()));
+		
+		final String mjaNmoins5String = String.valueOf(this.getMjaNmoins5());
+		final String mjaNmoins5Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins5String, this.fournirLongueurChamp(102));
+		stb.append(mjaNmoins5Complete);
+
 		stb.append(this.getTypeComptageNmoins5());
 		stb.append(this.getModeCalculNmoins5());
 		stb.append(this.getPcPLNmoins5());
 		stb.append(this.getEvaluationPLNmoins5());
 		stb.append(this.getPcNuitAnnuelNmoins5());
 		stb.append(this.getIndiceFiabiliteMjaNmoins5());
-		stb.append(String.valueOf(this.getMjmNmoins1mois01()));
+		
+		final String mjmNmoins1mois01String 
+			= String.valueOf(this.getMjmNmoins1mois01());
+		final String mjmNmoins1mois01Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois01String, this.fournirLongueurChamp(109));
+		stb.append(mjmNmoins1mois01Complete);
+		
 		stb.append(this.getPcNuitNmoins1mois01());
-		stb.append(String.valueOf(this.getMjmNmoins1mois02()));
+		
+		final String mjmNmoins1mois02String 
+			= String.valueOf(this.getMjmNmoins1mois02());
+		final String mjmNmoins1mois02Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois02String, this.fournirLongueurChamp(111));
+		stb.append(mjmNmoins1mois02Complete);
+
 		stb.append(this.getPcNuitNmoins1mois02());
-		stb.append(String.valueOf(this.getMjmNmoins1mois03()));
+		
+		final String mjmNmoins1mois03String 
+			= String.valueOf(this.getMjmNmoins1mois03());
+		final String mjmNmoins1mois03Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois03String, this.fournirLongueurChamp(113));
+		stb.append(mjmNmoins1mois03Complete);
+
 		stb.append(this.getPcNuitNmoins1mois03());
-		stb.append(String.valueOf(this.getMjmNmoins1mois04()));
+		
+		final String mjmNmoins1mois04String 
+			= String.valueOf(this.getMjmNmoins1mois04());
+		final String mjmNmoins1mois04Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois04String, this.fournirLongueurChamp(115));
+		stb.append(mjmNmoins1mois04Complete);
+
 		stb.append(this.getPcNuitNmoins1mois04());
-		stb.append(String.valueOf(this.getMjmNmoins1mois05()));
+		
+		final String mjmNmoins1mois05String 
+			= String.valueOf(this.getMjmNmoins1mois05());
+		final String mjmNmoins1mois05Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois05String, this.fournirLongueurChamp(117));
+		stb.append(mjmNmoins1mois05Complete);
+
 		stb.append(this.getPcNuitNmoins1mois05());
-		stb.append(String.valueOf(this.getMjmNmoins1mois06()));
+		
+		final String mjmNmoins1mois06String 
+			= String.valueOf(this.getMjmNmoins1mois06());
+		final String mjmNmoins1mois06Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois06String, this.fournirLongueurChamp(119));
+		stb.append(mjmNmoins1mois06Complete);
+
 		stb.append(this.getPcNuitNmoins1mois06());
-		stb.append(String.valueOf(this.getMjmNmoins1mois07()));
+		
+		final String mjmNmoins1mois07String 
+			= String.valueOf(this.getMjmNmoins1mois07());
+		final String mjmNmoins1mois07Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois07String, this.fournirLongueurChamp(121));
+		stb.append(mjmNmoins1mois07Complete);
+
 		stb.append(this.getPcNuitNmoins1mois07());
-		stb.append(String.valueOf(this.getMjmNmoins1mois08()));
+		
+		final String mjmNmoins1mois08String 
+			= String.valueOf(this.getMjmNmoins1mois08());
+		final String mjmNmoins1mois08Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois08String, this.fournirLongueurChamp(123));
+		stb.append(mjmNmoins1mois08Complete);
+
 		stb.append(this.getPcNuitNmoins1mois08());
-		stb.append(String.valueOf(this.getMjmNmoins1mois09()));
+		
+		final String mjmNmoins1mois09String 
+			= String.valueOf(this.getMjmNmoins1mois09());
+		final String mjmNmoins1mois09Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois09String, this.fournirLongueurChamp(125));
+		stb.append(mjmNmoins1mois09Complete);
+
 		stb.append(this.getPcNuitNmoins1mois09());
-		stb.append(String.valueOf(this.getMjmNmoins1mois10()));
+		
+		final String mjmNmoins1mois10String 
+			= String.valueOf(this.getMjmNmoins1mois10());
+		final String mjmNmoins1mois10Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois10String, this.fournirLongueurChamp(127));
+		stb.append(mjmNmoins1mois10Complete);
+
 		stb.append(this.getPcNuitNmoins1mois10());
-		stb.append(String.valueOf(this.getMjmNmoins1mois11()));
+		
+		final String mjmNmoins1mois11String 
+			= String.valueOf(this.getMjmNmoins1mois11());
+		final String mjmNmoins1mois11Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois11String, this.fournirLongueurChamp(129));
+		stb.append(mjmNmoins1mois11Complete);
+
 		stb.append(this.getPcNuitNmoins1mois11());
-		stb.append(String.valueOf(this.getMjmNmoins1mois12()));
+		
+		final String mjmNmoins1mois12String 
+			= String.valueOf(this.getMjmNmoins1mois12());
+		final String mjmNmoins1mois12Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois12String, this.fournirLongueurChamp(131));
+		stb.append(mjmNmoins1mois12Complete);
+
 		stb.append(this.getPcNuitNmoins1mois12());
+		
 		stb.append(this.getZoneLibre4());
 
 		return stb.toString();

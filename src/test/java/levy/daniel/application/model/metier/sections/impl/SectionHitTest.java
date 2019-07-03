@@ -28,7 +28,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
 
 /**
  * CLASSE SectionHitTest :<br/>
- * Test JUnit de la classe <br/>
+ * Test JUnit de la classe {@link SectionHit}<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -150,7 +150,7 @@ public class SectionHitTest {
 	/**
 	 * new SectionHit().
 	 */
-	public static final ISectionHit SECTION_HIT = new SectionHit();
+	public static ISectionHit sectionHit;
 
 	/**
 	 * DTO a tester.
@@ -192,7 +192,7 @@ public class SectionHitTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -294,19 +294,23 @@ public class SectionHitTest {
 		}
 		
 		// METHODE A TESTER.
-		String stringCsv = null;
+		String stringCsvDTO = null;
+		String stringCsvObjet = null;
 		
 		if (objetMetier != null) {
 			
-			stringCsv = objetMetier.fournirStringCsv();
+			stringCsvDTO = dto.fournirStringCsv();
+			stringCsvObjet = objetMetier.fournirStringCsv();
 						
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
-				System.out.println(stringCsv);
+				System.out.println(stringCsvDTO);
+				System.out.println(stringCsvObjet);
 			}
 			
 			/* garantit que fournirStringCsv() ne retourne pas null. */
-			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, stringCsv);
+			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, stringCsvDTO);
+			assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, stringCsvObjet);
 			
 		}
 		
@@ -483,7 +487,7 @@ public class SectionHitTest {
 						, valeurColonne3);
 			
 			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
-					, objetMetier.getMjmNmois04()
+					, String.valueOf(objetMetier.getMjmNmois04())
 						, valeurColonne50);
 			
 			assertEquals(DOIT_RETOURNER_BONNE_VALEUR
@@ -503,6 +507,8 @@ public class SectionHitTest {
 	 */
 	@BeforeClass
 	public static void beforeClass() throws Exception {
+		
+		sectionHit = new SectionHit();
 				
 		final Path fichierDonneesPath 
 			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("HITDIRA2017.txt");
@@ -704,7 +710,48 @@ public class SectionHitTest {
 						, resultat);
 		
 	} // Fin de testFournirAnneeDeuxChiffresAPartirDate()._________________
-
+	
+	
+	
+	/**
+	 * teste la méthode completerAvecZerosAGauche(String, int).<br/>
+	 * <ul>
+	 * <li>garantit que completerAvecZerosAGauche(String, int) 
+	 * retourne le bon résultat.</li>
+	 * </ul>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testCompleterAvecZerosAGauche() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitTest - méthode testCompleterAvecZerosAGauche() ********** ");
+		}
+		
+		final String chaine = "25";
+		final int taille = 4;
+		
+		final String resultat = this.completerAvecZerosAGauche(chaine, taille);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("chaine initiale : " + chaine);
+			System.out.println("taille souhaitée : " + taille);
+			System.out.println("chaine complétée : " + resultat);
+		}
+		
+		/* garantit que completerAvecZerosAGauche(String, int) 
+		 * retourne le bon résultat. */
+		assertEquals(DOIT_RETOURNER_BONNE_VALEUR, "0025", resultat);
+		
+	} // Fin de testCompleterAvecZerosAGauche().___________________________
+	
 	
 	
 	/**
@@ -849,6 +896,63 @@ public class SectionHitTest {
 		return resultat;
 		
 	} // Fin de fournirAnneeDeuxChiffresAPartirDate(...).__________________
+
+
+	
+	/**
+	 * <b>retourne la chaine de caractères pString complétée 
+	 * avec des zéros à gauche pour atteindre pTaille</b>.<br/>
+	 * <ul>
+	 * <li>Par exemple : retourne "0025" 
+	 * si pString == "25" et pTaille == 4.</li>
+	 * <li>retourne pString inchangée si sa longueur >= pTaille.</li>
+	 * </ul>
+	 * - retourne null si pTaille == 0.<br/>
+	 * - retourne null si pString == null.<br/>
+	 * <br/>
+	 *
+	 * @param pString : String : 
+	 * chaine de caractères à compléter avec des zéros à gauche.
+	 * @param pTaille : 
+	 * taille finale de la chaine complétée avec des zéros à gauche.
+	 * 
+	 * @return : String : 
+	 * chaine de caractère pString complétée avec des zéros à gauche 
+	 * pour atteindre pTaille.<br/>
+	 */
+	private String completerAvecZerosAGauche(
+			final String pString, final int pTaille) {
+		
+		/* retourne null si pTaille == 0. */
+		if (pTaille == 0) {
+			return null;
+		}
+		
+		/* retourne null si pString == null. */
+		if (pString == null) {
+			return null;
+		}
+		
+		final int tailleString = pString.length();
+		
+		/* retourne pString inchangée si sa longueur >= pTaille. */
+		if (tailleString >= pTaille) {
+			return pString;
+		}
+		
+		String resultat = null;
+		
+		final int nombreZeros = pTaille - tailleString;
+		
+		resultat = pString;
+		
+		for (int i = 0; i < nombreZeros; i++) {
+			resultat = "0" + resultat;
+		}
+		
+		return resultat;
+		
+	} // Fin de completerAvecZerosAGauche(...).____________________________
 
 	
 	

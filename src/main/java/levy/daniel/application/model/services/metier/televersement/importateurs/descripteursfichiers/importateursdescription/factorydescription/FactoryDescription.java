@@ -273,6 +273,7 @@ public final class FactoryDescription {
 	/**
 	 * getter de la SortedMap&ltInteger, IDescriptionChamp&gt; 
 	 * encapsulant la description du fichier HIT.<br/>
+	 * Alimente automatiquement la description de fichier.<br/>
 	 * <b>SINGLETON</b>.
 	 *
 	 * @return : SortedMap&ltInteger, IDescriptionChamp&gt; :  

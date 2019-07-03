@@ -130,6 +130,15 @@
  *
  * - Exemple d'utilisation :<br/>
  *<br/>
+ * <code> // alimente la SortedMap&lt;Integer, IDescriptionChamp&gt; encapsulant la description du fichier HIT.</code><br/>
+ * <code><b>FactoryDescription.getDecriptionHitMap();</b></code><br/>
+ * <code> // récupère la SortedMap&lt;Integer, IDescriptionChamp&gt; encapsulant la description du fichier HIT déjà alimentée.</code><br/>
+ * <code><b>IImportateurDescription descriptionFichier = FactoryDescription.getImportateurHit();</b></code><br/>
+ * <code> // récupère la description du champ d'ordre 21 absOrigine</code><br/>
+ * <code><b>DescriptionChampHit description = (DescriptionChampHit) this.descriptionFichier.getDescriptionChamp(21);</b></code><br/>
+ * <code>// récupère la longueur du champ absOrigine auprès de sa description de champ</code><br/>
+ * <code><b>int longueurChamp = description.getLongueur();</b></code><br/>
+ *<br/>
  * 
  * - Mots-clé :<br/>
  * <br/>

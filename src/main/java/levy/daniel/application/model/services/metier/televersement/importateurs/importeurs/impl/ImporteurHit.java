@@ -351,9 +351,12 @@ public class ImporteurHit extends AbstractImporteurAscii {
 	 * 
 	 * @return : Map&lt;Integer,ISectionHit&gt; :  
 	 * Map des OBJETS METIER.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	private Map<Integer, ISectionHit> convertirMapDescriptionEnMapObjet(
-			final SortedMap<Integer, SortedMap<Integer, String>> pMap) {
+			final SortedMap<Integer, SortedMap<Integer, String>> pMap) 
+														throws Exception {
 		
 		if (pMap == null) {
 			return null;
@@ -558,9 +561,12 @@ public class ImporteurHit extends AbstractImporteurAscii {
 	 * @param pDescriptionLigne : SortedMap&lt;Integer, String&gt;
 	 * 
 	 * @return : ISectionHit : OBJET METIER.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	private ISectionHit fournirObjetMetier(
-			final SortedMap<Integer, String> pDescriptionLigne) {
+			final SortedMap<Integer, String> pDescriptionLigne) 
+												throws Exception {
 		
 		/* retourne null si pDescriptionLigne == null. */
 		if (pDescriptionLigne == null) {

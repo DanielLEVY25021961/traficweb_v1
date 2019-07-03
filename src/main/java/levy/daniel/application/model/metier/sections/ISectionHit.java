@@ -78,7 +78,12 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * retourne l'OBJET METIER sous forme ASCII, 
 	 * c'est à dire avec tous les champs concaténés sans séparateur.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>complète avec des zéros à gauche les attributs Integer 
+	 * (mjaX, mjmX, ...) pour obtenir la longueur indiquée 
+	 * dans la description de fichier.</li>
+	 * <li><b>reconstitue une ligne HIT</b>.</li>
+	 * </ul>
 	 * par exemple :<br/>
 	 * "860000900310017 00100 411 251CHAUNAY EX RN 10    1000110DEPARTEMENT 79
 	 *       1070118CHAUNAY             1060"<br/>
