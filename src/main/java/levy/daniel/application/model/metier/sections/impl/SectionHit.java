@@ -79,7 +79,7 @@ public class SectionHit implements ISectionHit {
 	/**
 	 * Importateur de la description du fichier HIT.
 	 */
-	private IImportateurDescription descriptionFichier;
+	private final transient IImportateurDescription descriptionFichier;
 	
 	/**
 	 * "unused".<br/>

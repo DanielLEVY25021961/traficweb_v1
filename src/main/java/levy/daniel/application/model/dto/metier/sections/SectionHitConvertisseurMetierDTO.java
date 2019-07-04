@@ -656,7 +656,7 @@ public final class SectionHitConvertisseurMetierDTO {
 				final String pcPLNmoins4 = pcPLNmoins4String;
 				final String evaluationPLNmoins4 = evaluationPLNmoins4String;
 				final String pcNuitAnnuelNmoins4 = pcNuitAnnuelNmoins4String;
-				String indiceFiabiliteMjaNmoins4 = indiceFiabiliteMjaNmoins4String;
+				final String indiceFiabiliteMjaNmoins4 = indiceFiabiliteMjaNmoins4String;
 				
 				LocalDate anneeNmoins5 = null;
 
@@ -1010,13 +1010,1051 @@ public final class SectionHitConvertisseurMetierDTO {
 				// ****************************************************
 				/* récupère les valeurs typées dans l'objet métier. */
 				final Long id = pObject.getId();
+				final String numDepartement = pObject.getNumDepartement();
+				final String numSection = pObject.getNumSection();
+				final String sens = pObject.getSens();
+				final String nature = pObject.getNature();
+				final String classe = pObject.getClasse();
+				final LocalDate anneeTraitement = pObject.getAnneeTraitement();
+				final String zoneLibre1 = pObject.getZoneLibre1();
+				final String numRoute = pObject.getNumRoute();
+				final String indiceNumRoute = pObject.getIndiceNumRoute();
+				final String indiceLettreRoute = pObject.getIndiceLettreRoute();
+				final String categorieAdminRoute = pObject.getCategorieAdminRoute();
+				final String typeComptage = pObject.getTypeComptage();
+				final String classementRoute = pObject.getClassementRoute();
+				final String classeLargeurChausseeU = pObject.getClasseLargeurChausseeU();
+				final String classeLargeurChausseesS = pObject.getClasseLargeurChausseesS();
+				final String typeReseau = pObject.getTypeReseau();
+				final String pRoupK = pObject.getPRoupK();
+				final String lieuDitOrigine = pObject.getLieuDitOrigine();
+				final Integer prOrigine = pObject.getPrOrigine();
+				final Integer absOrigine = pObject.getAbsOrigine();
+				final String lieuDitExtremite = pObject.getLieuDitExtremite();
+				final Integer prExtremite = pObject.getPrExtremite();
+				final Integer absExtremite = pObject.getAbsExtremite();
+				final String lieuDitComptage = pObject.getLieuDitComptage();
+				final Integer prComptage = pObject.getPrComptage();
+				final Integer absComptage = pObject.getAbsComptage();
+				final Integer longueurSection = pObject.getLongueurSection();
+				final Integer longueurRaseCampagne = pObject.getLongueurRaseCampagne();
+				final String numDepartementRattachement = pObject.getNumDepartementRattachement();
+				final String numSectionRattachement = pObject.getNumSectionRattachement();
+				final String sensRattachement = pObject.getSensRattachement();
+				final String numDepartementLimitrophe = pObject.getNumDepartementLimitrophe();
+				final String numSectionLimitrophe = pObject.getNumSectionLimitrophe();
+				final String sensLimitrophe = pObject.getSensLimitrophe();
+				final String moisSectionnement = pObject.getMoisSectionnement();
+				final String anneeSectionnement = pObject.getAnneeSectionnement();
+				final String zoneLibre2 = pObject.getZoneLibre2();
+				final Integer mjaN = pObject.getMjaN();
+				final String modeCalculN = pObject.getModeCalculN();
+				final String pcPLN = pObject.getPcPLN();
+				final String evaluationPLN = pObject.getEvaluationPLN();
+				final String pcNuitAnnuelN = pObject.getPcNuitAnnuelN();
+				final String indiceFiabiliteMjaN = pObject.getIndiceFiabiliteMjaN();
+				final Integer mjmNmois01 = pObject.getMjmNmois01();
+				final String pcNuitNmois01 = pObject.getPcNuitNmois01();
+				final Integer mjmNmois02 = pObject.getMjmNmois02();
+				final String pcNuitNmois02 = pObject.getPcNuitNmois02();
+				final Integer mjmNmois03 = pObject.getMjmNmois03();
+				final String pcNuitNmois03 = pObject.getPcNuitNmois03();
+				final Integer mjmNmois04 = pObject.getMjmNmois04();
+				final String pcNuitNmois04 = pObject.getPcNuitNmois04();
+				final Integer mjmNmois05 = pObject.getMjmNmois05();
+				final String pcNuitNmois05 = pObject.getPcNuitNmois05();
+				final Integer mjmNmois06 = pObject.getMjmNmois06();
+				final String pcNuitNmois06 = pObject.getPcNuitNmois06();
+				final Integer mjmNmois07 = pObject.getMjmNmois07();
+				final String pcNuitNmois07 = pObject.getPcNuitNmois07();
+				final Integer mjmNmois08 = pObject.getMjmNmois08();
+				final String pcNuitNmois08 = pObject.getPcNuitNmois08();
+				final Integer mjmNmois09 = pObject.getMjmNmois09();
+				final String pcNuitNmois09 = pObject.getPcNuitNmois09();
+				final Integer mjmNmois10 = pObject.getMjmNmois10();
+				final String pcNuitNmois10 = pObject.getPcNuitNmois10();
+				final Integer mjmNmois11 = pObject.getMjmNmois11();
+				final String pcNuitNmois11 = pObject.getPcNuitNmois11();
+				final Integer mjmNmois12 = pObject.getMjmNmois12();
+				final String pcNuitNmois12 = pObject.getPcNuitNmois12();
+				final String zoneLibre3 = pObject.getZoneLibre3();
+				final LocalDate anneeNmoins1 = pObject.getAnneeNmoins1();
+				final Integer mjaNmoins1 = pObject.getMjaNmoins1();
+				final String typeComptageNmoins1 = pObject.getTypeComptageNmoins1();
+				final String modeCalculNmoins1 = pObject.getModeCalculNmoins1();
+				final String pcPLNmoins1 = pObject.getPcPLNmoins1();
+				final String evaluationPLNmoins1 = pObject.getEvaluationPLNmoins1();
+				final String pcNuitAnnuelNmoins1 = pObject.getPcNuitAnnuelNmoins1();
+				final String indiceFiabiliteMjaNmoins1 = pObject.getIndiceFiabiliteMjaNmoins1();
+				final LocalDate anneeNmoins2 = pObject.getAnneeNmoins2();
+				final Integer mjaNmoins2 = pObject.getMjaNmoins2();
+				final String typeComptageNmoins2 = pObject.getTypeComptageNmoins2();
+				final String modeCalculNmoins2 = pObject.getModeCalculNmoins2();
+				final String pcPLNmoins2 = pObject.getPcPLNmoins2();
+				final String evaluationPLNmoins2 = pObject.getEvaluationPLNmoins2();
+				final String pcNuitAnnuelNmoins2 = pObject.getPcNuitAnnuelNmoins2();
+				final String indiceFiabiliteMjaNmoins2 = pObject.getIndiceFiabiliteMjaNmoins2();
+				final LocalDate anneeNmoins3 = pObject.getAnneeNmoins3();
+				final Integer mjaNmoins3 = pObject.getMjaNmoins3();
+				final String typeComptageNmoins3 = pObject.getTypeComptageNmoins3();
+				final String modeCalculNmoins3 = pObject.getModeCalculNmoins3();
+				final String pcPLNmoins3 = pObject.getPcPLNmoins3();
+				final String evaluationPLNmoins3 = pObject.getEvaluationPLNmoins3();
+				final String pcNuitAnnuelNmoins3 = pObject.getPcNuitAnnuelNmoins3();
+				final String indiceFiabiliteMjaNmoins3 = pObject.getIndiceFiabiliteMjaNmoins3();
+				final LocalDate anneeNmoins4 = pObject.getAnneeNmoins4();
+				final Integer mjaNmoins4 = pObject.getMjaNmoins4();
+				final String typeComptageNmoins4 = pObject.getTypeComptageNmoins4();
+				final String modeCalculNmoins4 = pObject.getModeCalculNmoins4();
+				final String pcPLNmoins4 = pObject.getPcPLNmoins4();
+				final String evaluationPLNmoins4 = pObject.getEvaluationPLNmoins4();
+				final String pcNuitAnnuelNmoins4 = pObject.getPcNuitAnnuelNmoins4();
+				final String indiceFiabiliteMjaNmoins4 = pObject.getIndiceFiabiliteMjaNmoins4();
+				final LocalDate anneeNmoins5 = pObject.getAnneeNmoins5();
+				final Integer mjaNmoins5 = pObject.getMjaNmoins5();
+				final String typeComptageNmoins5 = pObject.getTypeComptageNmoins5();
+				final String modeCalculNmoins5 = pObject.getModeCalculNmoins5();
+				final String pcPLNmoins5 = pObject.getPcPLNmoins5();
+				final String evaluationPLNmoins5 = pObject.getEvaluationPLNmoins5();
+				final String pcNuitAnnuelNmoins5 = pObject.getPcNuitAnnuelNmoins5();
+				final String indiceFiabiliteMjaNmoins5 = pObject.getIndiceFiabiliteMjaNmoins5();
+				final Integer mjmNmoins1mois01 = pObject.getMjmNmoins1mois01();
+				final String pcNuitNmoins1mois01 = pObject.getPcNuitNmoins1mois01();
+				final Integer mjmNmoins1mois02 = pObject.getMjmNmoins1mois02();
+				final String pcNuitNmoins1mois02 = pObject.getPcNuitNmoins1mois02();
+				final Integer mjmNmoins1mois03 = pObject.getMjmNmoins1mois03();
+				final String pcNuitNmoins1mois03 = pObject.getPcNuitNmoins1mois03();
+				final Integer mjmNmoins1mois04 = pObject.getMjmNmoins1mois04();
+				final String pcNuitNmoins1mois04 = pObject.getPcNuitNmoins1mois04();
+				final Integer mjmNmoins1mois05 = pObject.getMjmNmoins1mois05();
+				final String pcNuitNmoins1mois05 = pObject.getPcNuitNmoins1mois05();
+				final Integer mjmNmoins1mois06 = pObject.getMjmNmoins1mois06();
+				final String pcNuitNmoins1mois06 = pObject.getPcNuitNmoins1mois06();
+				final Integer mjmNmoins1mois07 = pObject.getMjmNmoins1mois07();
+				final String pcNuitNmoins1mois07 = pObject.getPcNuitNmoins1mois07();
+				final Integer mjmNmoins1mois08 = pObject.getMjmNmoins1mois08();
+				final String pcNuitNmoins1mois08 = pObject.getPcNuitNmoins1mois08();
+				final Integer mjmNmoins1mois09 = pObject.getMjmNmoins1mois09();
+				final String pcNuitNmoins1mois09 = pObject.getPcNuitNmoins1mois09();
+				final Integer mjmNmoins1mois10 = pObject.getMjmNmoins1mois10();
+				final String pcNuitNmoins1mois10 = pObject.getPcNuitNmoins1mois10();
+				final Integer mjmNmoins1mois11 = pObject.getMjmNmoins1mois11();
+				final String pcNuitNmoins1mois11 = pObject.getPcNuitNmoins1mois11();
+				final Integer mjmNmoins1mois12 = pObject.getMjmNmoins1mois12();
+				final String pcNuitNmoins1mois12 = pObject.getPcNuitNmoins1mois12();
+				final String zoneLibre4 = pObject.getZoneLibre4();
+
 				
 				// ****************************************************
 				/* convertit les types de l'Objet métier en String du DTO. */
 				
+				String idString = null;
+
+				try {
+					idString = String.valueOf(id);
+				} catch (Exception e) {
+					idString = null;
+				}
+
+				final String numDepartementString = numDepartement;
+				final String numSectionString = numSection;
+				final String sensString = sens;
+				final String natureString = nature;
+				final String classeString = classe;
+				
+				String anneeTraitementString = null;
+
+				try {
+					anneeTraitementString 
+						= fournirAnneeDeuxChiffresAPartirDate(
+								anneeTraitement);
+				} catch (Exception e) {
+					anneeTraitementString = null;
+				}
+
+				final String zoneLibre1String = zoneLibre1;
+				final String numRouteString = numRoute;
+				final String indiceNumRouteString = indiceNumRoute;
+				final String indiceLettreRouteString = indiceLettreRoute;
+				final String categorieAdminRouteString = categorieAdminRoute;
+				final String typeComptageString = typeComptage;
+				final String classementRouteString = classementRoute;
+				final String classeLargeurChausseeUString = classeLargeurChausseeU;
+				final String classeLargeurChausseesSString = classeLargeurChausseesS;
+				final String typeReseauString = typeReseau;
+				final String pRoupKString = pRoupK;
+				final String lieuDitOrigineString = lieuDitOrigine;
+				
+				String prOrigineString = null;
+
+				try {
+					
+					final String prOrigineStringIncomplet 
+						= String.valueOf(prOrigine);
+					
+					prOrigineString 
+						= completerAvecZerosAGauche(
+								prOrigineStringIncomplet, fournirLongueurChamp(19));
+					
+				} catch (Exception e) {
+					prOrigineString = null;
+				}
+
+				
+				String absOrigineString = null;
+
+				try {
+					
+					final String absOrigineStringIncomplet 
+						= String.valueOf(absOrigine);
+					
+					absOrigineString 
+						= completerAvecZerosAGauche(
+							absOrigineStringIncomplet, fournirLongueurChamp(20));
+					
+				} catch (Exception e) {
+					absOrigineString = null;
+				}
+
+				final String lieuDitExtremiteString = lieuDitExtremite;
+				
+				String prExtremiteString = null;
+
+				try {
+					
+					final String prExtremiteStringIncomplet 
+						= String.valueOf(prExtremite);
+				
+					prExtremiteString 
+						= completerAvecZerosAGauche(
+							prExtremiteStringIncomplet, fournirLongueurChamp(22));
+					
+				} catch (Exception e) {
+					prExtremiteString = null;
+				}
+
+				
+				String absExtremiteString = null;
+
+				try {
+					
+					final String absExtremiteStringIncomplet 
+						= String.valueOf(absExtremite);
+					
+					absExtremiteString 
+						= completerAvecZerosAGauche(
+							absExtremiteStringIncomplet, fournirLongueurChamp(23));
+					
+				} catch (Exception e) {
+					absExtremiteString = null;
+				}
+
+				final String lieuDitComptageString = lieuDitComptage;
+				
+				String prComptageString = null;
+
+				try {
+					
+					final String prComptageStringIncomplet 
+						= String.valueOf(prComptage);
+				
+					prComptageString 
+						= completerAvecZerosAGauche(
+							prComptageStringIncomplet, fournirLongueurChamp(25));
+					
+				} catch (Exception e) {
+					prComptageString = null;
+				}
+
+				
+				String absComptageString = null;
+
+				try {
+					
+					final String absComptageStringIncomplet 
+						= String.valueOf(absComptage);
+					
+					absComptageString 
+						= completerAvecZerosAGauche(
+							absComptageStringIncomplet, fournirLongueurChamp(26));
+					
+				} catch (Exception e) {
+					absComptageString = null;
+				}
+
+				
+				String longueurSectionString = null;
+
+				try {
+					
+					final String longueurSectionStringIncomplet 
+						= String.valueOf(longueurSection);
+					
+					longueurSectionString 
+						= completerAvecZerosAGauche(
+								longueurSectionStringIncomplet, fournirLongueurChamp(27));
+					
+				} catch (Exception e) {
+					longueurSectionString = null;
+				}
+
+				
+				String longueurRaseCampagneString = null;
+
+				try {
+					
+					final String longueurRaseCampagneStringIncomplet 
+						= String.valueOf(longueurRaseCampagne);
+					
+					longueurRaseCampagneString 
+						= completerAvecZerosAGauche(
+								longueurRaseCampagneStringIncomplet, fournirLongueurChamp(28));
+				} catch (Exception e) {
+					longueurRaseCampagneString = null;
+				}
+
+				final String numDepartementRattachementString = numDepartementRattachement;
+				final String numSectionRattachementString = numSectionRattachement;
+				final String sensRattachementString = sensRattachement;
+				final String numDepartementLimitropheString = numDepartementLimitrophe;
+				final String numSectionLimitropheString = numSectionLimitrophe;
+				final String sensLimitropheString = sensLimitrophe;
+				final String moisSectionnementString = moisSectionnement;
+				final String anneeSectionnementString = anneeSectionnement;
+				
+				final String zoneLibre2String = zoneLibre2;
+				
+				String mjaNString = null;
+
+				try {
+					
+					final String mjaNStringIncomplet = String.valueOf(mjaN);
+					
+					mjaNString 
+						= completerAvecZerosAGauche(
+								mjaNStringIncomplet, fournirLongueurChamp(38));
+					
+				} catch (Exception e) {
+					mjaNString = null;
+				}
+
+				final String modeCalculNString = modeCalculN;
+				final String pcPLNString = pcPLN;
+				final String evaluationPLNString = evaluationPLN;
+				final String pcNuitAnnuelNString = pcNuitAnnuelN;
+				final String indiceFiabiliteMjaNString = indiceFiabiliteMjaN;
+				
+				String mjmNmois01String = null;
+
+				try {
+					
+					final String mjmNmois01StringIncomplet 
+						= String.valueOf(mjmNmois01);
+					
+					mjmNmois01String 
+						= completerAvecZerosAGauche(
+								mjmNmois01StringIncomplet, fournirLongueurChamp(44));
+					
+				} catch (Exception e) {
+					mjmNmois01String = null;
+				}
+
+				final String pcNuitNmois01String = pcNuitNmois01;
+				
+				String mjmNmois02String = null;
+
+				try {
+					
+					final String mjmNmois02StringIncomplet 
+						= String.valueOf(mjmNmois02);
+					
+					mjmNmois02String 
+						= completerAvecZerosAGauche(
+								mjmNmois02StringIncomplet, fournirLongueurChamp(46));
+					
+				} catch (Exception e) {
+					mjmNmois02String = null;
+				}
+
+				final String pcNuitNmois02String = pcNuitNmois02;
+				
+				String mjmNmois03String = null;
+
+				try {
+					
+					final String mjmNmois03StringIncomplet 
+						= String.valueOf(mjmNmois03);
+					
+					mjmNmois03String 
+						= completerAvecZerosAGauche(
+								mjmNmois03StringIncomplet, fournirLongueurChamp(48));
+
+				} catch (Exception e) {
+					mjmNmois03String = null;
+				}
+
+				final String pcNuitNmois03String = pcNuitNmois03;
+				
+				String mjmNmois04String = null;
+
+				try {
+					
+					final String mjmNmois04StringIncomplet 
+						= String.valueOf(mjmNmois04);
+					
+					mjmNmois04String 
+						= completerAvecZerosAGauche(
+								mjmNmois04StringIncomplet, fournirLongueurChamp(50));
+
+				} catch (Exception e) {
+					mjmNmois04String = null;
+				}
+
+				final String pcNuitNmois04String = pcNuitNmois04;
+				
+				String mjmNmois05String = null;
+
+				try {
+					
+					final String mjmNmois05StringIncomplet 
+						= String.valueOf(mjmNmois05);
+					
+					mjmNmois05String 
+						= completerAvecZerosAGauche(
+								mjmNmois05StringIncomplet, fournirLongueurChamp(52));
+
+				} catch (Exception e) {
+					mjmNmois05String = null;
+				}
+
+				final String pcNuitNmois05String = pcNuitNmois05;
+				
+				String mjmNmois06String = null;
+
+				try {
+					
+					final String mjmNmois06StringIncomplet 
+						= String.valueOf(mjmNmois06);
+					
+					mjmNmois06String 
+						= completerAvecZerosAGauche(
+								mjmNmois06StringIncomplet, fournirLongueurChamp(54));
+
+				} catch (Exception e) {
+					mjmNmois06String = null;
+				}
+
+				final String pcNuitNmois06String = pcNuitNmois06;
+				
+				String mjmNmois07String = null;
+
+				try {
+					
+					final String mjmNmois07StringIncomplet 
+						= String.valueOf(mjmNmois07);
+					
+					mjmNmois07String 
+						= completerAvecZerosAGauche(
+								mjmNmois07StringIncomplet, fournirLongueurChamp(56));
+
+				} catch (Exception e) {
+					mjmNmois07String = null;
+				}
+
+				final String pcNuitNmois07String = pcNuitNmois07;
+				
+				String mjmNmois08String = null;
+
+				try {
+					
+					final String mjmNmois08StringIncomplet 
+						= String.valueOf(mjmNmois08);
+					
+					mjmNmois08String 
+						= completerAvecZerosAGauche(
+								mjmNmois08StringIncomplet, fournirLongueurChamp(58));
+
+				} catch (Exception e) {
+					mjmNmois08String = null;
+				}
+
+				final String pcNuitNmois08String = pcNuitNmois08;
+				
+				String mjmNmois09String = null;
+
+				try {
+					
+					final String mjmNmois09StringIncomplet 
+						= String.valueOf(mjmNmois09);
+					
+					mjmNmois09String 
+						= completerAvecZerosAGauche(
+								mjmNmois09StringIncomplet, fournirLongueurChamp(60));
+
+				} catch (Exception e) {
+					mjmNmois09String = null;
+				}
+
+				final String pcNuitNmois09String = pcNuitNmois09;
+				
+				String mjmNmois10String = null;
+
+				try {
+					
+					final String mjmNmois10StringIncomplet 
+						= String.valueOf(mjmNmois10);
+					
+					mjmNmois10String 
+						= completerAvecZerosAGauche(
+								mjmNmois10StringIncomplet, fournirLongueurChamp(62));
+
+				} catch (Exception e) {
+					mjmNmois10String = null;
+				}
+
+				final String pcNuitNmois10String = pcNuitNmois10;
+				
+				String mjmNmois11String = null;
+
+				try {
+					
+					final String mjmNmois11StringIncomplet 
+						= String.valueOf(mjmNmois11);
+					
+					mjmNmois11String 
+						= completerAvecZerosAGauche(
+								mjmNmois11StringIncomplet, fournirLongueurChamp(64));
+
+				} catch (Exception e) {
+					mjmNmois11String = null;
+				}
+
+				final String pcNuitNmois11String = pcNuitNmois11;
+				
+				String mjmNmois12String = null;
+
+				try {
+					
+					final String mjmNmois12StringIncomplet 
+						= String.valueOf(mjmNmois12);
+					
+					mjmNmois12String 
+						= completerAvecZerosAGauche(
+								mjmNmois12StringIncomplet, fournirLongueurChamp(66));
+
+				} catch (Exception e) {
+					mjmNmois12String = null;
+				}
+
+				final String pcNuitNmois12String = pcNuitNmois12;
+				
+				final String zoneLibre3String = zoneLibre3;
+				
+				String anneeNmoins1String = null;
+
+				try {
+					anneeNmoins1String 
+						= fournirAnneeDeuxChiffresAPartirDate(anneeNmoins1);
+				} catch (Exception e) {
+					anneeNmoins1String = null;
+				}
+
+				
+				String mjaNmoins1String = null;
+
+				try {
+					
+					final String mjaNmoins1StringIncomplet 
+						= String.valueOf(mjaNmoins1);
+					
+					mjaNmoins1String 
+						= completerAvecZerosAGauche(
+								mjaNmoins1StringIncomplet, fournirLongueurChamp(70));
+					
+				} catch (Exception e) {
+					mjaNmoins1String = null;
+				}
+
+				final String typeComptageNmoins1String = typeComptageNmoins1;
+				final String modeCalculNmoins1String = modeCalculNmoins1;
+				final String pcPLNmoins1String = pcPLNmoins1;
+				final String evaluationPLNmoins1String = evaluationPLNmoins1;
+				final String pcNuitAnnuelNmoins1String = pcNuitAnnuelNmoins1;
+				final String indiceFiabiliteMjaNmoins1String = indiceFiabiliteMjaNmoins1;
+				
+				String anneeNmoins2String = null;
+
+				try {
+					anneeNmoins2String 
+						= fournirAnneeDeuxChiffresAPartirDate(anneeNmoins2);
+				} catch (Exception e) {
+					anneeNmoins2String = null;
+				}
+
+				
+				String mjaNmoins2String = null;
+
+				try {
+					
+					final String mjaNmoins2StringIncomplet 
+						= String.valueOf(mjaNmoins2);
+					
+					mjaNmoins2String 
+						= completerAvecZerosAGauche(
+								mjaNmoins2StringIncomplet, fournirLongueurChamp(78));
+
+				} catch (Exception e) {
+					mjaNmoins2String = null;
+				}
+
+				final String typeComptageNmoins2String = typeComptageNmoins2;
+				final String modeCalculNmoins2String = modeCalculNmoins2;
+				final String pcPLNmoins2String = pcPLNmoins2;
+				final String evaluationPLNmoins2String = evaluationPLNmoins2;
+				final String pcNuitAnnuelNmoins2String = pcNuitAnnuelNmoins2;
+				final String indiceFiabiliteMjaNmoins2String = indiceFiabiliteMjaNmoins2;
+				
+				String anneeNmoins3String = null;
+
+				try {
+					anneeNmoins3String 
+						= fournirAnneeDeuxChiffresAPartirDate(anneeNmoins3);
+				} catch (Exception e) {
+					anneeNmoins3String = null;
+				}
+
+				
+				String mjaNmoins3String = null;
+
+				try {
+					
+					final String mjaNmoins3StringIncomplet 
+						= String.valueOf(mjaNmoins3);
+					
+					mjaNmoins3String 
+						= completerAvecZerosAGauche(
+								mjaNmoins3StringIncomplet, fournirLongueurChamp(86));
+
+				} catch (Exception e) {
+					mjaNmoins3String = null;
+				}
+
+				final String typeComptageNmoins3String = typeComptageNmoins3;
+				final String modeCalculNmoins3String = modeCalculNmoins3;
+				final String pcPLNmoins3String = pcPLNmoins3;
+				final String evaluationPLNmoins3String = evaluationPLNmoins3;
+				final String pcNuitAnnuelNmoins3String = pcNuitAnnuelNmoins3;
+				final String indiceFiabiliteMjaNmoins3String = indiceFiabiliteMjaNmoins3;
+				
+				String anneeNmoins4String = null;
+
+				try {
+					anneeNmoins4String 
+						= fournirAnneeDeuxChiffresAPartirDate(anneeNmoins4);
+				} catch (Exception e) {
+					anneeNmoins4String = null;
+				}
+
+				
+				String mjaNmoins4String = null;
+
+				try {
+					
+					final String mjaNmoins4StringIncomplet 
+						= String.valueOf(mjaNmoins4);
+					
+					mjaNmoins4String 
+						= completerAvecZerosAGauche(
+								mjaNmoins4StringIncomplet, fournirLongueurChamp(94));
+
+				} catch (Exception e) {
+					mjaNmoins4String = null;
+				}
+
+				final String typeComptageNmoins4String = typeComptageNmoins4;
+				final String modeCalculNmoins4String = modeCalculNmoins4;
+				final String pcPLNmoins4String = pcPLNmoins4;
+				final String evaluationPLNmoins4String = evaluationPLNmoins4;
+				final String pcNuitAnnuelNmoins4String = pcNuitAnnuelNmoins4;
+				final String indiceFiabiliteMjaNmoins4String = indiceFiabiliteMjaNmoins4;
+				
+				String anneeNmoins5String = null;
+
+				try {
+					anneeNmoins5String 
+						= fournirAnneeDeuxChiffresAPartirDate(anneeNmoins5);
+				} catch (Exception e) {
+					anneeNmoins5String = null;
+				}
+
+				
+				String mjaNmoins5String = null;
+
+				try {
+					
+					final String mjaNmoins5StringIncomplet 
+						= String.valueOf(mjaNmoins5);
+					
+					mjaNmoins5String 
+						= completerAvecZerosAGauche(
+								mjaNmoins5StringIncomplet, fournirLongueurChamp(102));
+
+				} catch (Exception e) {
+					mjaNmoins5String = null;
+				}
+
+				final String typeComptageNmoins5String = typeComptageNmoins5;
+				final String modeCalculNmoins5String = modeCalculNmoins5;
+				final String pcPLNmoins5String = pcPLNmoins5;
+				final String evaluationPLNmoins5String = evaluationPLNmoins5;
+				final String pcNuitAnnuelNmoins5String = pcNuitAnnuelNmoins5;
+				final String indiceFiabiliteMjaNmoins5String = indiceFiabiliteMjaNmoins5;
+				
+				String mjmNmoins1mois01String = null;
+
+				try {
+					
+					final String mjmNmoins1mois01StringIncomplet 
+						= String.valueOf(mjmNmoins1mois01);
+					
+					mjmNmoins1mois01String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois01StringIncomplet, fournirLongueurChamp(109));
+					
+				} catch (Exception e) {
+					mjmNmoins1mois01String = null;
+				}
+
+				final String pcNuitNmoins1mois01String = pcNuitNmoins1mois01;
+				
+				String mjmNmoins1mois02String = null;
+
+				try {
+					
+					final String mjmNmoins1mois02StringIncomplet 
+						= String.valueOf(mjmNmoins1mois02);
+					
+					mjmNmoins1mois02String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois02StringIncomplet, fournirLongueurChamp(111));
+
+				} catch (Exception e) {
+					mjmNmoins1mois02String = null;
+				}
+
+				final String pcNuitNmoins1mois02String = pcNuitNmoins1mois02;
+				
+				String mjmNmoins1mois03String = null;
+
+				try {
+					
+					final String mjmNmoins1mois03StringIncomplet 
+						= String.valueOf(mjmNmoins1mois03);
+					
+					mjmNmoins1mois03String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois03StringIncomplet, fournirLongueurChamp(113));
+
+				} catch (Exception e) {
+					mjmNmoins1mois03String = null;
+				}
+
+				final String pcNuitNmoins1mois03String = pcNuitNmoins1mois03;
+				
+				String mjmNmoins1mois04String = null;
+
+				try {
+					
+					final String mjmNmoins1mois04StringIncomplet 
+						= String.valueOf(mjmNmoins1mois04);
+					
+					mjmNmoins1mois04String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois04StringIncomplet, fournirLongueurChamp(115));
+
+				} catch (Exception e) {
+					mjmNmoins1mois04String = null;
+				}
+
+				final String pcNuitNmoins1mois04String = pcNuitNmoins1mois04;
+				
+				String mjmNmoins1mois05String = null;
+
+				try {
+					
+					final String mjmNmoins1mois05StringIncomplet 
+						= String.valueOf(mjmNmoins1mois05);
+					
+					mjmNmoins1mois05String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois05StringIncomplet, fournirLongueurChamp(117));
+
+				} catch (Exception e) {
+					mjmNmoins1mois05String = null;
+				}
+
+				final String pcNuitNmoins1mois05String = pcNuitNmoins1mois05;
+				
+				String mjmNmoins1mois06String = null;
+
+				try {
+					
+					final String mjmNmoins1mois06StringIncomplet 
+						= String.valueOf(mjmNmoins1mois06);
+					
+					mjmNmoins1mois06String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois06StringIncomplet, fournirLongueurChamp(119));
+
+				} catch (Exception e) {
+					mjmNmoins1mois06String = null;
+				}
+
+				final String pcNuitNmoins1mois06String = pcNuitNmoins1mois06;
+				
+				String mjmNmoins1mois07String = null;
+
+				try {
+					
+					final String mjmNmoins1mois07StringIncomplet 
+						= String.valueOf(mjmNmoins1mois07);
+					
+					mjmNmoins1mois07String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois07StringIncomplet, fournirLongueurChamp(121));
+
+				} catch (Exception e) {
+					mjmNmoins1mois07String = null;
+				}
+
+				final String pcNuitNmoins1mois07String = pcNuitNmoins1mois07;
+				
+				String mjmNmoins1mois08String = null;
+
+				try {
+					
+					final String mjmNmoins1mois08StringIncomplet 
+						= String.valueOf(mjmNmoins1mois08);
+					
+					mjmNmoins1mois08String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois08StringIncomplet, fournirLongueurChamp(123));
+
+				} catch (Exception e) {
+					mjmNmoins1mois08String = null;
+				}
+
+				final String pcNuitNmoins1mois08String = pcNuitNmoins1mois08;
+				
+				String mjmNmoins1mois09String = null;
+
+				try {
+					
+					final String mjmNmoins1mois09StringIncomplet 
+						= String.valueOf(mjmNmoins1mois09);
+					
+					mjmNmoins1mois09String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois09StringIncomplet, fournirLongueurChamp(125));
+
+				} catch (Exception e) {
+					mjmNmoins1mois09String = null;
+				}
+
+				final String pcNuitNmoins1mois09String = pcNuitNmoins1mois09;
+				
+				String mjmNmoins1mois10String = null;
+
+				try {
+					
+					final String mjmNmoins1mois10StringIncomplet 
+						= String.valueOf(mjmNmoins1mois10);
+					
+					mjmNmoins1mois10String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois10StringIncomplet, fournirLongueurChamp(127));
+
+				} catch (Exception e) {
+					mjmNmoins1mois10String = null;
+				}
+
+				final String pcNuitNmoins1mois10String = pcNuitNmoins1mois10;
+				
+				String mjmNmoins1mois11String = null;
+
+				try {
+					
+					final String mjmNmoins1mois11StringIncomplet 
+						= String.valueOf(mjmNmoins1mois11);
+					
+					mjmNmoins1mois11String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois11StringIncomplet, fournirLongueurChamp(129));
+
+				} catch (Exception e) {
+					mjmNmoins1mois11String = null;
+				}
+
+				final String pcNuitNmoins1mois11String = pcNuitNmoins1mois11;
+				
+				String mjmNmoins1mois12String = null;
+
+				try {
+					
+					final String mjmNmoins1mois12StringIncomplet 
+						= String.valueOf(mjmNmoins1mois12);
+					
+					mjmNmoins1mois12String 
+						= completerAvecZerosAGauche(
+								mjmNmoins1mois12StringIncomplet, fournirLongueurChamp(131));
+
+				} catch (Exception e) {
+					mjmNmoins1mois12String = null;
+				}
+
+				final String pcNuitNmoins1mois12String = pcNuitNmoins1mois12;
+				
+				final String zoneLibre4String = zoneLibre4;
+
+				
 				// ****************************************************
 				/* injecte les valeurs String dans un DTO. */
 				dto = new SectionHitDTO();
+
+				dto.setId(idString);
+				dto.setNumDepartement(numDepartementString);
+				dto.setNumSection(numSectionString);
+				dto.setSens(sensString);
+				dto.setNature(natureString);
+				dto.setClasse(classeString);
+				dto.setAnneeTraitement(anneeTraitementString);
+				dto.setZoneLibre1(zoneLibre1String);
+				dto.setNumRoute(numRouteString);
+				dto.setIndiceNumRoute(indiceNumRouteString);
+				dto.setIndiceLettreRoute(indiceLettreRouteString);
+				dto.setCategorieAdminRoute(categorieAdminRouteString);
+				dto.setTypeComptage(typeComptageString);
+				dto.setClassementRoute(classementRouteString);
+				dto.setClasseLargeurChausseeU(classeLargeurChausseeUString);
+				dto.setClasseLargeurChausseesS(classeLargeurChausseesSString);
+				dto.setTypeReseau(typeReseauString);
+				dto.setPRoupK(pRoupKString);
+				dto.setLieuDitOrigine(lieuDitOrigineString);
+				dto.setPrOrigine(prOrigineString);
+				dto.setAbsOrigine(absOrigineString);
+				dto.setLieuDitExtremite(lieuDitExtremiteString);
+				dto.setPrExtremite(prExtremiteString);
+				dto.setAbsExtremite(absExtremiteString);
+				dto.setLieuDitComptage(lieuDitComptageString);
+				dto.setPrComptage(prComptageString);
+				dto.setAbsComptage(absComptageString);
+				dto.setLongueurSection(longueurSectionString);
+				dto.setLongueurRaseCampagne(longueurRaseCampagneString);
+				dto.setNumDepartementRattachement(numDepartementRattachementString);
+				dto.setNumSectionRattachement(numSectionRattachementString);
+				dto.setSensRattachement(sensRattachementString);
+				dto.setNumDepartementLimitrophe(numDepartementLimitropheString);
+				dto.setNumSectionLimitrophe(numSectionLimitropheString);
+				dto.setSensLimitrophe(sensLimitropheString);
+				dto.setMoisSectionnement(moisSectionnementString);
+				dto.setAnneeSectionnement(anneeSectionnementString);
+				dto.setZoneLibre2(zoneLibre2String);
+				dto.setMjaN(mjaNString);
+				dto.setModeCalculN(modeCalculNString);
+				dto.setPcPLN(pcPLNString);
+				dto.setEvaluationPLN(evaluationPLNString);
+				dto.setPcNuitAnnuelN(pcNuitAnnuelNString);
+				dto.setIndiceFiabiliteMjaN(indiceFiabiliteMjaNString);
+				dto.setMjmNmois01(mjmNmois01String);
+				dto.setPcNuitNmois01(pcNuitNmois01String);
+				dto.setMjmNmois02(mjmNmois02String);
+				dto.setPcNuitNmois02(pcNuitNmois02String);
+				dto.setMjmNmois03(mjmNmois03String);
+				dto.setPcNuitNmois03(pcNuitNmois03String);
+				dto.setMjmNmois04(mjmNmois04String);
+				dto.setPcNuitNmois04(pcNuitNmois04String);
+				dto.setMjmNmois05(mjmNmois05String);
+				dto.setPcNuitNmois05(pcNuitNmois05String);
+				dto.setMjmNmois06(mjmNmois06String);
+				dto.setPcNuitNmois06(pcNuitNmois06String);
+				dto.setMjmNmois07(mjmNmois07String);
+				dto.setPcNuitNmois07(pcNuitNmois07String);
+				dto.setMjmNmois08(mjmNmois08String);
+				dto.setPcNuitNmois08(pcNuitNmois08String);
+				dto.setMjmNmois09(mjmNmois09String);
+				dto.setPcNuitNmois09(pcNuitNmois09String);
+				dto.setMjmNmois10(mjmNmois10String);
+				dto.setPcNuitNmois10(pcNuitNmois10String);
+				dto.setMjmNmois11(mjmNmois11String);
+				dto.setPcNuitNmois11(pcNuitNmois11String);
+				dto.setMjmNmois12(mjmNmois12String);
+				dto.setPcNuitNmois12(pcNuitNmois12String);
+				dto.setZoneLibre3(zoneLibre3String);
+				dto.setAnneeNmoins1(anneeNmoins1String);
+				dto.setMjaNmoins1(mjaNmoins1String);
+				dto.setTypeComptageNmoins1(typeComptageNmoins1String);
+				dto.setModeCalculNmoins1(modeCalculNmoins1String);
+				dto.setPcPLNmoins1(pcPLNmoins1String);
+				dto.setEvaluationPLNmoins1(evaluationPLNmoins1String);
+				dto.setPcNuitAnnuelNmoins1(pcNuitAnnuelNmoins1String);
+				dto.setIndiceFiabiliteMjaNmoins1(indiceFiabiliteMjaNmoins1String);
+				dto.setAnneeNmoins2(anneeNmoins2String);
+				dto.setMjaNmoins2(mjaNmoins2String);
+				dto.setTypeComptageNmoins2(typeComptageNmoins2String);
+				dto.setModeCalculNmoins2(modeCalculNmoins2String);
+				dto.setPcPLNmoins2(pcPLNmoins2String);
+				dto.setEvaluationPLNmoins2(evaluationPLNmoins2String);
+				dto.setPcNuitAnnuelNmoins2(pcNuitAnnuelNmoins2String);
+				dto.setIndiceFiabiliteMjaNmoins2(indiceFiabiliteMjaNmoins2String);
+				dto.setAnneeNmoins3(anneeNmoins3String);
+				dto.setMjaNmoins3(mjaNmoins3String);
+				dto.setTypeComptageNmoins3(typeComptageNmoins3String);
+				dto.setModeCalculNmoins3(modeCalculNmoins3String);
+				dto.setPcPLNmoins3(pcPLNmoins3String);
+				dto.setEvaluationPLNmoins3(evaluationPLNmoins3String);
+				dto.setPcNuitAnnuelNmoins3(pcNuitAnnuelNmoins3String);
+				dto.setIndiceFiabiliteMjaNmoins3(indiceFiabiliteMjaNmoins3String);
+				dto.setAnneeNmoins4(anneeNmoins4String);
+				dto.setMjaNmoins4(mjaNmoins4String);
+				dto.setTypeComptageNmoins4(typeComptageNmoins4String);
+				dto.setModeCalculNmoins4(modeCalculNmoins4String);
+				dto.setPcPLNmoins4(pcPLNmoins4String);
+				dto.setEvaluationPLNmoins4(evaluationPLNmoins4String);
+				dto.setPcNuitAnnuelNmoins4(pcNuitAnnuelNmoins4String);
+				dto.setIndiceFiabiliteMjaNmoins4(indiceFiabiliteMjaNmoins4String);
+				dto.setAnneeNmoins5(anneeNmoins5String);
+				dto.setMjaNmoins5(mjaNmoins5String);
+				dto.setTypeComptageNmoins5(typeComptageNmoins5String);
+				dto.setModeCalculNmoins5(modeCalculNmoins5String);
+				dto.setPcPLNmoins5(pcPLNmoins5String);
+				dto.setEvaluationPLNmoins5(evaluationPLNmoins5String);
+				dto.setPcNuitAnnuelNmoins5(pcNuitAnnuelNmoins5String);
+				dto.setIndiceFiabiliteMjaNmoins5(indiceFiabiliteMjaNmoins5String);
+				dto.setMjmNmoins1mois01(mjmNmoins1mois01String);
+				dto.setPcNuitNmoins1mois01(pcNuitNmoins1mois01String);
+				dto.setMjmNmoins1mois02(mjmNmoins1mois02String);
+				dto.setPcNuitNmoins1mois02(pcNuitNmoins1mois02String);
+				dto.setMjmNmoins1mois03(mjmNmoins1mois03String);
+				dto.setPcNuitNmoins1mois03(pcNuitNmoins1mois03String);
+				dto.setMjmNmoins1mois04(mjmNmoins1mois04String);
+				dto.setPcNuitNmoins1mois04(pcNuitNmoins1mois04String);
+				dto.setMjmNmoins1mois05(mjmNmoins1mois05String);
+				dto.setPcNuitNmoins1mois05(pcNuitNmoins1mois05String);
+				dto.setMjmNmoins1mois06(mjmNmoins1mois06String);
+				dto.setPcNuitNmoins1mois06(pcNuitNmoins1mois06String);
+				dto.setMjmNmoins1mois07(mjmNmoins1mois07String);
+				dto.setPcNuitNmoins1mois07(pcNuitNmoins1mois07String);
+				dto.setMjmNmoins1mois08(mjmNmoins1mois08String);
+				dto.setPcNuitNmoins1mois08(pcNuitNmoins1mois08String);
+				dto.setMjmNmoins1mois09(mjmNmoins1mois09String);
+				dto.setPcNuitNmoins1mois09(pcNuitNmoins1mois09String);
+				dto.setMjmNmoins1mois10(mjmNmoins1mois10String);
+				dto.setPcNuitNmoins1mois10(pcNuitNmoins1mois10String);
+				dto.setMjmNmoins1mois11(mjmNmoins1mois11String);
+				dto.setPcNuitNmoins1mois11(pcNuitNmoins1mois11String);
+				dto.setMjmNmoins1mois12(mjmNmoins1mois12String);
+				dto.setPcNuitNmoins1mois12(pcNuitNmoins1mois12String);
+				dto.setZoneLibre4(zoneLibre4String);
 				
 			}
 						
@@ -1297,7 +2335,7 @@ public final class SectionHitConvertisseurMetierDTO {
 	/**
 	 * retourne la longueur du champ de numéro d'ordre pNumeroChamp 
 	 * dans la description de fichier 
-	 * <code><b>this.descriptionFichier</b></code>.<br/>
+	 * <code><b>FactoryDescription.getImportateurHit()</b></code>.<br/>
 	 * <br/>
 	 * Par exemple : <code><b>fournirlongueurChamp(20)</b></code> 
 	 * retourne 4 pour le champ absOrigine du HIT.

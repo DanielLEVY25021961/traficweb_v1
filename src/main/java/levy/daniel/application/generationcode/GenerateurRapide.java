@@ -146,6 +146,31 @@ public final class GenerateurRapide {
 	public static final char DEUX_POINTS = ':';
 	
 	/**
+	 * " = ".<br/>
+	 */
+	public static final String EGAL_ESPACE = " = ";
+	
+	/**
+	 * "String".<br/>
+	 */
+	public static final String STRING = "String";
+	
+	/**
+	 * ';'.<br/>
+	 */
+	public static final char PV_CHAR = ';';
+	
+	/**
+	 * ' '.<br/>
+	 */
+	public static final char ESPACE_CHAR = ' ';
+	
+	/**
+	 * "try {".<br/>
+	 */
+	public static final String TRY = "try {";
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -998,8 +1023,6 @@ public final class GenerateurRapide {
 		stb.append("");
 		stb.append(NEWLINE);
 		
-		int compteur = 0;
-		
 		for (final EncapsulationChampGetterSetter champ : map.values()) {
 			
 			stb.append(TAB + TAB + TAB);
@@ -1010,7 +1033,6 @@ public final class GenerateurRapide {
 			stb.append("();");
 			stb.append(NEWLINE);
 						
-			compteur++;
 		}
 
 		return stb.toString();
@@ -1050,40 +1072,47 @@ public final class GenerateurRapide {
 		stb.append("");
 		stb.append(NEWLINE);
 		
-		int compteur = 0;
-		
 		for (final EncapsulationTypeChamp champ : map.values()) {
 			
 			stb.append(TAB + TAB + TAB);
-			stb.append(champ.getTypeString());
-			stb.append(" ");
-			stb.append(champ.getNomChamp());
-			stb.append(" = ");
-			
-			if (champ.getTypeString().equals("String")) {
+						
+			if (champ.getTypeString().equals(STRING)) {
+				stb.append("final ");
+				stb.append(champ.getTypeString());
+				stb.append(ESPACE_CHAR);
+				stb.append(champ.getNomChamp());
+				stb.append(EGAL_ESPACE);
 				stb.append(champ.getNomChamp());
 				stb.append("String;");
 			} else {
+				
+				stb.append(NEWLINE);
+				stb.append(TAB + TAB + TAB);
+				stb.append(champ.getTypeString());
+				stb.append(ESPACE_CHAR);
+				stb.append(champ.getNomChamp());
+				stb.append(EGAL_ESPACE);
 				stb.append("null;");
 				stb.append(NEWLINE);
 				stb.append(NEWLINE);
+				
 				stb.append(TAB + TAB + TAB);
 				stb.append("if (!StringUtils.isBlank(");
 				stb.append(champ.getNomChamp());
-				stb.append("String");
+				stb.append(STRING);
 				stb.append(")) {");
 				stb.append(NEWLINE);
 				
 				stb.append(TAB + TAB + TAB + TAB);
-				stb.append("try {");
+				stb.append(TRY);
 				stb.append(NEWLINE);
 				stb.append(TAB + TAB + TAB + TAB + TAB);
 				stb.append(champ.getNomChamp());
-				stb.append(" = ");
+				stb.append(EGAL_ESPACE);
 				stb.append(champ.getTypeString());
 				stb.append(".valueOf(");
 				stb.append(champ.getNomChamp());
-				stb.append("String");
+				stb.append(STRING);
 				stb.append(");");
 				stb.append(NEWLINE);
 				
@@ -1096,17 +1125,16 @@ public final class GenerateurRapide {
 				stb.append(NEWLINE);
 				
 				stb.append(TAB + TAB + TAB + TAB);
-				stb.append("}");
+				stb.append('}');
 				stb.append(NEWLINE);
 				
 				stb.append(TAB + TAB + TAB);
-				stb.append("}");
+				stb.append('}');
 				stb.append(NEWLINE);
 			}
 			
 			stb.append(NEWLINE);
 						
-			compteur++;
 		}
 
 		return stb.toString();
@@ -1146,19 +1174,214 @@ public final class GenerateurRapide {
 		stb.append("");
 		stb.append(NEWLINE);
 		
-		int compteur = 0;
-		
 		for (final EncapsulationTypeChamp champ : map.values()) {
 			
 			stb.append(TAB + TAB + TAB);
 			stb.append("objet.");
 			stb.append(champ.getNomSetter());
-			stb.append("(");
+			stb.append('(');
 			stb.append(champ.getNomChamp());
 			stb.append(");");
 			stb.append(NEWLINE);
 									
-			compteur++;
+		}
+
+		return stb.toString();
+		
+	} // Fin de genererAlimenterValeursTypeesDansDTO().____________________
+
+
+	
+	/**
+	 * génère le bloc de code à insérer dans la récupération des valeurs 
+	 * typées de l'OBJET METIER
+	 * de la méthode convertirObjetMetierEnDTO(OBJET METIER) 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER dont on veut récupérer les valeurs.<br/>
+	 * 
+	 * @return   : String : 
+	 * code à insérer dans la récupération des valeurs de l'OBJET METIER 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererRecupererValeursTypeesDansOBJET(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			stb.append(TAB + TAB + TAB);
+			stb.append("final ");
+			stb.append(champ.getTypeString());
+			stb.append(ESPACE_CHAR);
+			stb.append(champ.getNomChamp());
+			stb.append(" = pObject.");
+			stb.append(champ.getNomGetter());
+			stb.append("();");
+			stb.append(NEWLINE);
+						
+		}
+
+		return stb.toString();
+		
+	} // Fin de genererRecupererValeursTypeesDansOBJET().__________________
+
+
+	
+	/**
+	 * génère le bloc de code à insérer dans la conversion des valeurs 
+	 * typées de l'OBJET METIER en valeurs STRING du DTO
+	 * de la méthode convertirObjetMetierEnDTO(OBJET METIER)
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER pour lequel on veut convertir les valeurs typées 
+	 * en String du DTO.<br/>
+	 * 
+	 * @return   : String : 
+	 * code à insérer dans la conversion des valeurs de l'OBJET METIER 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererConvertirValeursTypeeDansOBJET(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			stb.append(TAB + TAB + TAB);
+						
+			if (champ.getTypeString().equals(STRING)) {
+				
+				stb.append("final String ");
+				stb.append(champ.getNomChamp());
+				stb.append(STRING);
+				stb.append(EGAL_ESPACE);
+				stb.append(champ.getNomChamp());
+				stb.append(PV_CHAR);
+				
+			} else {
+				
+				stb.append(NEWLINE);
+				stb.append(TAB + TAB + TAB);
+				stb.append(STRING);
+				stb.append(ESPACE_CHAR);
+				stb.append(champ.getNomChamp());
+				stb.append(STRING);
+				stb.append(EGAL_ESPACE);
+				stb.append("null;");
+				stb.append(NEWLINE);
+				
+				stb.append(NEWLINE);				
+				stb.append(TAB + TAB + TAB);
+				stb.append(TRY);
+				stb.append(NEWLINE);
+				
+				stb.append(TAB + TAB + TAB + TAB);
+				stb.append(champ.getNomChamp());
+				stb.append(STRING);
+				stb.append(EGAL_ESPACE);
+				stb.append("String.valueOf(");
+				stb.append(champ.getNomChamp());
+				stb.append(");");
+				stb.append(NEWLINE);
+				
+				stb.append(TAB + TAB + TAB);
+				stb.append("} catch (Exception e) {");
+				stb.append(NEWLINE);
+				
+				stb.append(TAB + TAB + TAB + TAB);
+				stb.append(champ.getNomChamp());
+				stb.append(STRING);
+				stb.append(" = null;");
+				stb.append(NEWLINE);
+				
+				stb.append(TAB + TAB + TAB);
+				stb.append('}');
+				stb.append(NEWLINE);
+				
+			}
+			
+			stb.append(NEWLINE);
+						
+		}
+
+		return stb.toString();
+		
+	} // Fin de genererConvertirValeursTypeeDansOBJET().___________________
+
+
+	
+	/**
+	 * génère le bloc de code à insérer dans l'alimentation des valeurs 
+	 * String du DTO
+	 * de la méthode convertirObjetMetierEnDTO(OBJET METIER)
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER que l'on veut alimenter.<br/>
+	 * 
+	 * @return  : String : 
+	 * code à insérer dans l'alimentation d'un OBJET METIER 
+	 * dans un ConvertisseurMetierDTO.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererAlimenterValeursStringDansOBJET(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			stb.append(TAB + TAB + TAB);
+			stb.append("dto.");
+			stb.append(champ.getNomSetter());
+			stb.append('(');
+			stb.append(champ.getNomChamp());
+			stb.append(STRING);
+			stb.append(");");
+			stb.append(NEWLINE);
+									
 		}
 
 		return stb.toString();
@@ -1961,7 +2184,13 @@ public final class GenerateurRapide {
 		
 //		System.out.println(genererConvertirValeursStringDansDTO(classe));
 		
-		System.out.println(genererAlimenterValeursTypeesDansDTO(classe));
+//		System.out.println(genererAlimenterValeursTypeesDansDTO(classe));
+		
+//		System.out.println(genererRecupererValeursTypeesDansOBJET(classe));
+		
+//		System.out.println(genererConvertirValeursTypeeDansOBJET(classe));
+		
+		System.out.println(genererAlimenterValeursStringDansOBJET(classe));
 		
     } // Fin de main(...)._________________________________________________
 
