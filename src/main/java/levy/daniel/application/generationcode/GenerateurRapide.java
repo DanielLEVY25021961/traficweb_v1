@@ -2122,7 +2122,9 @@ public final class GenerateurRapide {
 		
 //		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO");
 		
-		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.sections.impl.SectionHit");
+//		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.sections.impl.SectionHit");
+		
+		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit");
 		
 //		List<Method> listeGetters = findGetters(classe);
 //		System.out.println(afficherListeMethod(listeGetters));
@@ -2176,7 +2178,7 @@ public final class GenerateurRapide {
 		
 //		System.out.println(genererMethodeFournirEnTeteColonne(classe));
 		
-//		System.out.println(genererMethodeFournirValeurColonne(classe));
+		System.out.println(genererMethodeFournirValeurColonne(classe));
 		
 //		System.out.println(genererMethodeFournirDTO(classe));
 		
@@ -2190,7 +2192,7 @@ public final class GenerateurRapide {
 		
 //		System.out.println(genererConvertirValeursTypeeDansOBJET(classe));
 		
-		System.out.println(genererAlimenterValeursStringDansOBJET(classe));
+//		System.out.println(genererAlimenterValeursStringDansOBJET(classe));
 		
     } // Fin de main(...)._________________________________________________
 

@@ -77,14 +77,14 @@ public class SectionHit implements ISectionHit {
 	public static final String NULL = "null";
 	
 	/**
-	 * Importateur de la description du fichier HIT.
-	 */
-	private final transient IImportateurDescription descriptionFichier;
-	
-	/**
 	 * "unused".<br/>
 	 */
 	public static final String UNUSED = "unused";
+	
+	/**
+	 * Importateur de la description du fichier HIT.
+	 */
+	private final transient IImportateurDescription descriptionFichier;
 	
 	/**
 	 * id en base sous forme de Long.<br/>
@@ -1545,9 +1545,13 @@ public class SectionHit implements ISectionHit {
 		}
 
 		int compareAnneeTraitement = 0;
-		int compareDepartement = 0;
+		int compareNumDepartement = 0;
+		int compareNumRoute = 0;
+		int compareIndiceNumRoute = 0;
+		int compareIndiceLettreRoute = 0;
 		int compareCategorieAdminRoute = 0;
-		int compareNumeroRoute = 0;
+		int comparePrOrigine = 0;
+		int compareAbsOrigine = 0;
 		
 		/* anneeTraitement. */
 		if (this.getAnneeTraitement() == null) {
@@ -1568,8 +1572,8 @@ public class SectionHit implements ISectionHit {
 				return compareAnneeTraitement;
 			}
 		}
-				
-		/* departement. */
+		
+		/* numDepartement. */
 		if (this.getNumDepartement() == null) {
 			if (pObjet.getNumDepartement() != null) {
 				return +1;
@@ -1580,12 +1584,72 @@ public class SectionHit implements ISectionHit {
 				return -1;
 			}
 			
-			compareDepartement 
+			compareNumDepartement 
 			= this.getNumDepartement()
 				.compareToIgnoreCase(pObjet.getNumDepartement());
 		
-			if (compareDepartement != 0) {
-				return compareDepartement;
+			if (compareNumDepartement != 0) {
+				return compareNumDepartement;
+			}
+		}
+		
+		/* numeroRoute. */
+		if (this.getNumRoute() == null) {
+			if (pObjet.getNumRoute() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getNumRoute() == null) {
+				return -1;
+			}
+			
+			compareNumRoute 
+			= this.getNumRoute()
+				.compareToIgnoreCase(pObjet.getNumRoute());
+		
+			if (compareNumRoute != 0) {
+				return compareNumRoute;
+			}
+		}
+		
+		/* indiceNumRoute. */
+		if (this.getIndiceNumRoute() == null) {
+			if (pObjet.getIndiceNumRoute() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getIndiceNumRoute() == null) {
+				return -1;
+			}
+			
+			compareIndiceNumRoute 
+			= this.getIndiceNumRoute()
+				.compareToIgnoreCase(pObjet.getIndiceNumRoute());
+		
+			if (compareIndiceNumRoute != 0) {
+				return compareIndiceNumRoute;
+			}
+		}
+		
+		/* indiceLettreRoute. */
+		if (this.getIndiceLettreRoute() == null) {
+			if (pObjet.getIndiceLettreRoute() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getIndiceLettreRoute() == null) {
+				return -1;
+			}
+			
+			compareIndiceLettreRoute 
+			= this.getIndiceLettreRoute()
+				.compareToIgnoreCase(pObjet.getIndiceLettreRoute());
+		
+			if (compareIndiceLettreRoute != 0) {
+				return compareIndiceLettreRoute;
 			}
 		}
 		
@@ -1609,24 +1673,44 @@ public class SectionHit implements ISectionHit {
 			}
 		}
 		
-		/* numRoute. */
-		if (this.getNumRoute() == null) {
-			if (pObjet.getNumRoute() != null) {
+		/* prOrigine. */
+		if (this.getPrOrigine() == null) {
+			if (pObjet.getPrOrigine() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getPrOrigine() == null) {
+				return -1;
+			}
+			
+			comparePrOrigine 
+			= this.getPrOrigine()
+				.compareTo(pObjet.getPrOrigine());
+		
+			if (comparePrOrigine != 0) {
+				return comparePrOrigine;
+			}
+		}
+		
+		/* absOrigine. */
+		if (this.getAbsOrigine() == null) {
+			if (pObjet.getAbsOrigine() != null) {
 				return +1;
 			}
 			
 			return 0;
 		}
 		
-		if (pObjet.getNumRoute() == null) {
+		if (pObjet.getAbsOrigine() == null) {
 			return -1;
 		}
 		
-		compareNumeroRoute 
-			= this.getNumRoute()
-				.compareToIgnoreCase(pObjet.getNumRoute());
+		compareAbsOrigine 
+			= this.getAbsOrigine()
+				.compareTo(pObjet.getAbsOrigine());
 		
-		return compareNumeroRoute;
+		return compareAbsOrigine;
 
 	} // Fin de compareTo(...).____________________________________________
 

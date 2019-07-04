@@ -196,6 +196,10 @@ public class SectionHitConvertisseurMetierDTOTest {
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
 				, dto.getNumDepartement()
 					, objet.getNumDepartement());
+		
+		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+				, objetMetier
+					, objet);
 	
 	} // Fin de testConvertirDTOEnObjetMetier().___________________________
 	
@@ -236,6 +240,10 @@ public class SectionHitConvertisseurMetierDTOTest {
 		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
 				, objetMetier.getNumDepartement()
 					, dtoLocal.getNumDepartement());
+		
+		assertEquals(DOIT_RETOURNER_BONNE_VALEUR
+				, dto
+					, dtoLocal);
 	
 	} // Fin de testConvertirObjetMetierEnDTO().___________________________
 	

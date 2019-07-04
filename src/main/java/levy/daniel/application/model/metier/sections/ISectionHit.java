@@ -28,7 +28,7 @@ import levy.daniel.application.model.metier.IExportateurJTable;
  */
 public interface ISectionHit extends Comparable<ISectionHit>
 									, Serializable, Cloneable
-										, IExportateurCsv, IExportateurJTable{
+										, IExportateurCsv, IExportateurJTable {
 
 	
 	
@@ -49,7 +49,21 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	
 	/**
-	 * {@inheritDoc}
+	 * {@inheritDoc}<br/>
+	 * <br/>
+	 * <b>comparaison en fonction de :
+	 * <ol>
+	 * <li>anneeTraitement</li>
+	 * <li>numDepartement</li>
+	 * <li>numRoute</li>
+	 * <li>indiceNumRoute</li>
+	 * <li>indiceLettreRoute</li>
+	 * <li>categorieAdminRoute</li>
+	 * <li>prOrigine</li>
+	 * <li>absOrigine</li>
+	 * </ol>
+	 * pour un ISectionHit</b><br/>
+	 * <br/>
 	 */
 	@Override
 	int compareTo(ISectionHit pObjet);

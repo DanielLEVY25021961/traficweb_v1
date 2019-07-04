@@ -26,7 +26,8 @@ public interface IExportateurCsv {
 
 
 	/**
-	 * Fournit l'<b>en-tête</b> des <b>lignes csv</b> de l'Objet métier.<br/>
+	 * Fournit l'<b>en-tête</b> des <b>lignes csv</b> de l'Objet métier 
+	 * avec un séparateur POINT-VIRGULE ';'.<br/>
 	 * <ul>
 	 * <li>
 	 * Pourrait être static dans l'absolu, 
@@ -43,7 +44,8 @@ public interface IExportateurCsv {
 
 
 	/**
-	 * Fournit l'Objet métier sous forme de <b>ligne Csv</b>.<br/>
+	 * Fournit l'Objet métier sous forme de <b>ligne Csv</b> 
+	 * avec un séparateur POINT-VIRGULE ';'.<br/>
 	 * <ul>
 	 * <li>Java remplace automatiquement les valeurs null par 
 	 * <b>"null"</b> comme dans "Robert;null" avec un nom null pour un 
