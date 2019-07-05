@@ -57,14 +57,14 @@ public class SectionHitTest {
 		= "Classe SectionHit";
 	
 	/**
-	 * " - ".
-	 */
-	public static final String MOINS_ESPACE = " - ";
-	
-	/**
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>
 	 */
 	public static final Boolean AFFICHAGE_GENERAL = true;
+	
+	/**
+	 * " - ".
+	 */
+	public static final String MOINS_ESPACE = " - ";
 
 	/**
 	 * "unused".
@@ -146,11 +146,6 @@ public class SectionHitTest {
 	 */
 	public static final Path PATH_ABSOLU_REPERTOIRE_TEMP 
 		= PATH_ABSOLU_PRESENT_PROJET.resolve("temp");
-
-	/**
-	 * new SectionHit().
-	 */
-	public static ISectionHit sectionHit;
 
 	/**
 	 * DTO a tester.
@@ -508,8 +503,6 @@ public class SectionHitTest {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		
-		sectionHit = new SectionHit();
-				
 		final Path fichierDonneesPath 
 			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("HITDIRA2017.txt");
 		final File fichierDonnees = fichierDonneesPath.toFile();

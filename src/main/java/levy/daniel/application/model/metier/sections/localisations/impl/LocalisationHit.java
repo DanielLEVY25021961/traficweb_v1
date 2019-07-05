@@ -928,7 +928,9 @@ public class LocalisationHit implements ILocalisationHit {
 		switch (pI) {
 
 		case 0:
-			valeur = this.getId();
+			if (this.getId() != null) {
+				valeur = String.valueOf(this.getId());
+			}			
 			break;
 
 		case 1:
@@ -956,11 +958,15 @@ public class LocalisationHit implements ILocalisationHit {
 			break;
 
 		case 7:
-			valeur = this.getPrOrigine();
+			if (this.getPrOrigine() != null) {
+				valeur = String.valueOf(this.getPrOrigine());
+			}			
 			break;
 
 		case 8:
-			valeur = this.getAbsOrigine();
+			if (this.getAbsOrigine() != null) {
+				valeur = String.valueOf(this.getAbsOrigine());
+			}			
 			break;
 
 		case 9:
@@ -968,11 +974,15 @@ public class LocalisationHit implements ILocalisationHit {
 			break;
 
 		case 10:
-			valeur = this.getPrExtremite();
+			if (this.getPrExtremite() != null) {
+				valeur = String.valueOf(this.getPrExtremite());
+			}			
 			break;
 
 		case 11:
-			valeur = this.getAbsExtremite();
+			if (this.getAbsExtremite() != null) {
+				valeur = String.valueOf(this.getAbsExtremite());
+			}			
 			break;
 
 		case 12:
@@ -980,11 +990,15 @@ public class LocalisationHit implements ILocalisationHit {
 			break;
 
 		case 13:
-			valeur = this.getPrComptage();
+			if (this.getPrComptage() != null) {
+				valeur = String.valueOf(this.getPrComptage());
+			}			
 			break;
 
 		case 14:
-			valeur = this.getAbsComptage();
+			if (this.getAbsComptage() != null) {
+				valeur = String.valueOf(this.getAbsComptage());
+			}			
 			break;
 
 		default:
