@@ -24,6 +24,7 @@ import org.junit.Test;
 import levy.daniel.application.model.dto.metier.sections.ISectionHitDTO;
 import levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO;
 import levy.daniel.application.model.metier.sections.ISectionHit;
+import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl.ImporteurHit;
 
 /**
@@ -492,7 +493,38 @@ public class SectionHitTest {
 		}
 		
 	} // Fin de testFournirValeurColonne().________________________________
-
+	
+	
+	
+	/**
+	 * teste la bonne construction de la LocalisationHit 
+	 * lors de l'instanciation d'une sectionHit.<br/>
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testLocalisation() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitTest - méthode testLocalisation() ********** ");
+		}
+		
+		final ILocalisationHit localisation = objetMetier.getLocalisation();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(localisation.toString());
+		}
+		
+		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, localisation);
+		
+	} // Fin de testLocalisation().________________________________________
+	
 
 	
 	/**

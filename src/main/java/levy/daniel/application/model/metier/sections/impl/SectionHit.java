@@ -12,6 +12,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.metier.sections.ISectionHit;
+import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
+import levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.IImportateurDescription;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.factorydescription.FactoryDescription;
@@ -845,6 +847,11 @@ public class SectionHit implements ISectionHit {
 	 */
 	private String zoneLibre4;
 
+	/**
+	 * Localisation de la section.
+	 */
+	private ILocalisationHit localisation = new LocalisationHit();
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -4974,7 +4981,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setNumDepartement(
 			final String pNumDepartement) {
+		
 		this.numDepartement = pNumDepartement;
+						
+		if (this.localisation != null) {
+			this.localisation.setNumDepartement(this.numDepartement);
+		}
+
 	} // Fin de setNumDepartement(...).____________________________________
 
 
@@ -5121,7 +5134,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setNumRoute(
 			final String pNumRoute) {
+		
 		this.numRoute = pNumRoute;
+		
+		if (this.localisation != null) {
+			this.localisation.setNumRoute(this.numRoute);
+		}
+				
 	} // Fin de setNumRoute(...).__________________________________________
 
 
@@ -5142,7 +5161,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setIndiceNumRoute(
 			final String pIndiceNumRoute) {
+		
 		this.indiceNumRoute = pIndiceNumRoute;
+		
+		if (this.localisation != null) {
+		 this.localisation.setIndiceNumRoute(this.indiceNumRoute);
+		}
+		
 	} // Fin de setIndiceNumRoute(...).____________________________________
 
 
@@ -5163,7 +5188,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setIndiceLettreRoute(
 			final String pIndiceLettreRoute) {
+		
 		this.indiceLettreRoute = pIndiceLettreRoute;
+		
+		if (this.localisation != null) {
+		 this.localisation.setIndiceLettreRoute(this.indiceLettreRoute);
+		}
+
 	} // Fin de setIndiceLettreRoute(...)._________________________________
 
 
@@ -5184,7 +5215,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setCategorieAdminRoute(
 			final String pCategorieAdminRoute) {
+		
 		this.categorieAdminRoute = pCategorieAdminRoute;
+				
+		if (this.localisation != null) {
+		 this.localisation.setCategorieAdminRoute(this.categorieAdminRoute);
+		}
+
 	} // Fin de setCategorieAdminRoute(...)._______________________________
 
 
@@ -5331,7 +5368,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setLieuDitOrigine(
 			final String pLieuDitOrigine) {
+		
 		this.lieuDitOrigine = pLieuDitOrigine;
+				
+		if (this.localisation != null) {
+			this.localisation.setLieuDitOrigine(this.lieuDitOrigine);
+		}
+
 	} // Fin de setLieuDitOrigine(...).____________________________________
 
 
@@ -5352,7 +5395,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setPrOrigine(
 			final Integer pPrOrigine) {
+		
 		this.prOrigine = pPrOrigine;
+				
+		if (this.localisation != null) {
+			this.localisation.setPrOrigine(this.prOrigine);
+		}
+
 	} // Fin de setPrOrigine(...)._________________________________________
 
 
@@ -5373,7 +5422,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setAbsOrigine(
 			final Integer pAbsOrigine) {
+		
 		this.absOrigine = pAbsOrigine;
+				
+		if (this.localisation != null) {
+			this.localisation.setAbsOrigine(this.absOrigine);
+		}
+
 	} // Fin de setAbsOrigine(...).________________________________________
 
 	
@@ -5394,7 +5449,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setLieuDitExtremite(
 			final String pLieuDitExtremite) {
+		
 		this.lieuDitExtremite = pLieuDitExtremite;
+				
+		if (this.localisation != null) {
+			this.localisation.setLieuDitExtremite(this.lieuDitExtremite);
+		}
+
 	} // Fin de setLieuDitExtremite(...).__________________________________
 
 
@@ -5415,7 +5476,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setPrExtremite(
 			final Integer pPrExtremite) {
+		
 		this.prExtremite = pPrExtremite;
+				
+		if (this.localisation != null) {
+			this.localisation.setPrExtremite(this.prExtremite);
+		}
+
 	} // Fin de setPrExtremite(...)._______________________________________
 
 
@@ -5436,7 +5503,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setAbsExtremite(
 			final Integer pAbsExtremite) {
+		
 		this.absExtremite = pAbsExtremite;
+		
+		if (this.localisation != null) {
+			this.localisation.setAbsExtremite(this.absExtremite);
+		}
+
 	} // Fin de setAbsExtremite(...).______________________________________
 
 	
@@ -5457,7 +5530,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setLieuDitComptage(
 			final String pLieuDitComptage) {
+		
 		this.lieuDitComptage = pLieuDitComptage;
+		
+		if (this.localisation != null) {
+			this.localisation.setLieuDitComptage(this.lieuDitComptage);
+		}
+
 	} // Fin de setLieuDitComptage(...).___________________________________
 
 
@@ -5478,7 +5557,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setPrComptage(
 			final Integer pPrComptage) {
+		
 		this.prComptage = pPrComptage;
+		
+		if (this.localisation != null) {
+			this.localisation.setPrComptage(this.prComptage);
+		}
+
 	} // Fin de setPrComptage(...).________________________________________
 
 
@@ -5499,7 +5584,13 @@ public class SectionHit implements ISectionHit {
 	@Override
 	public final void setAbsComptage(
 			final Integer pAbsComptage) {
+		
 		this.absComptage = pAbsComptage;
+		
+		if (this.localisation != null) {
+			this.localisation.setAbsComptage(this.absComptage);
+		}
+
 	} // Fin de setAbsComptage(...)._______________________________________
 
 
@@ -7749,5 +7840,26 @@ public class SectionHit implements ISectionHit {
 		this.zoneLibre4 = pZoneLibre4;
 	} // Fin de setZoneLibre4(...).________________________________________
 
+
 	
-	} // FIN DE LA CLASSE SectionHit.--------------------------------------------
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final ILocalisationHit getLocalisation() {
+		return this.localisation;
+	} // Fin de getLocalisation()._________________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void setLocalisation(final ILocalisationHit pLocalisation) {
+		this.localisation = pLocalisation;
+	} // Fin de setLocalisation(...).______________________________________
+
+	
+	
+} // FIN DE LA CLASSE SectionHit.--------------------------------------------

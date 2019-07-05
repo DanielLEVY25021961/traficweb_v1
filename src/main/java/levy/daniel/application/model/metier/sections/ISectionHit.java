@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 import levy.daniel.application.model.metier.IExportateurCsv;
 import levy.daniel.application.model.metier.IExportateurJTable;
+import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
 
 /**
  * INTERFACE ISectionHit :<br/>
@@ -3071,8 +3072,26 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* valeur à passer à this.zoneLibre4.<br/>
 	*/
 	void setZoneLibre4(String pZoneLibre4);
-	
-	
 
+
+	
+	/**
+	 * Getter de la Localisation de la section.
+	 *
+	 * @return this.localisation : ILocalisationHit.<br/>
+	 */
+	ILocalisationHit getLocalisation();
+
+
+	
+	/**
+	* Setter de la Localisation de la section.
+	*
+	* @param pLocalisation : ILocalisationHit : 
+	* valeur à passer à this.localisation.<br/>
+	*/
+	void setLocalisation(ILocalisationHit pLocalisation);
+	
+	
 
 } // FIN DE L'INTERFACE ISectionHit.-----------------------------------------
