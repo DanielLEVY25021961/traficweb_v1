@@ -1,4 +1,4 @@
-package levy.daniel.application.model.metier.sections.localisations.impl;
+package levy.daniel.application.model.dto.metier.sections.localisations.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -20,14 +20,17 @@ import org.junit.Test;
 
 import levy.daniel.application.model.dto.metier.sections.ISectionHitDTO;
 import levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO;
+import levy.daniel.application.model.dto.metier.sections.localisations.ILocalisationHitDTO;
+import levy.daniel.application.model.dto.metier.sections.localisations.LocalisationHitConvertisseurMetierDTO;
 import levy.daniel.application.model.metier.sections.ISectionHit;
 import levy.daniel.application.model.metier.sections.impl.SectionHit;
 import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
+import levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit;
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl.ImporteurHit;
 
 /**
- * CLASSE LocalisationHitTest :<br/>
- * Test JUnit de la classe {@link LocalisationHit}.<br/>
+ * CLASSE LocalisationHitDTOTest :<br/>
+ * Test JUnit de la classe {@link LocalisationHitDTO}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -40,12 +43,12 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * <br/>
  *
  *
- * @author daniel.levy Lévy
+ * @author dan Lévy
  * @version 1.0
- * @since 5 juil. 2019
+ * @since 6 juil. 2019
  *
  */
-public class LocalisationHitTest {
+public class LocalisationHitDTOTest {
 
 	// ************************ATTRIBUTS************************************/
 	
@@ -73,17 +76,37 @@ public class LocalisationHitTest {
 	 * "comptage1".
 	 */
 	public static final String LIEU_DIT_COMPTAGE_1 = "comptage1";
+
+	/**
+	 * "7".
+	 */
+	public static final String PR_DEBUT_SEPT = "7";
+
+	/**
+	 * "152".
+	 */
+	public static final String ABS_ORIGINE_152 = "152";
+
+	/**
+	 * "777".
+	 */
+	public static final String ABS_EXTREMITE_777 = "777";
+	
+	/**
+	 * "200".
+	 */
+	public static final String ABS_COMPTAGE_200 = "200";
 	
 	/**
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>
 	 */
 	public static final Boolean AFFICHAGE_GENERAL = true;
-	
+
 	/**
 	 * " - ".
 	 */
 	public static final String MOINS_ESPACE = " - ";
-
+	
 	/**
 	 * "unused".
 	 */
@@ -195,6 +218,11 @@ public class LocalisationHitTest {
 	 * ILocalisationHit.<br/>
 	 */
 	public static ILocalisationHit localisation;
+	
+	/**
+	 * ILocalisationHitDTO.
+	 */
+	public static ILocalisationHitDTO localisationDTO;
 
 	/**
 	 * SectionHit sens1.
@@ -225,113 +253,132 @@ public class LocalisationHitTest {
 	 * ILocalisationHit sens2.<br/>
 	 */
 	public static ILocalisationHit localisationChaunay3;
+		
+	/**
+	 * ILocalisationHitDTO sens1.<br/>
+	 */
+	public static ILocalisationHitDTO localisationChaunay1DTO;
+	
+	/**
+	 * ILocalisationHitDTO sens2.<br/>
+	 */
+	public static ILocalisationHitDTO localisationChaunay2DTO;
+	
+	/**
+	 * ILocalisationHitDTO sens2.<br/>
+	 */
+	public static ILocalisationHitDTO localisationChaunay3DTO;
+
+	
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().
 	 */
-	public static transient ILocalisationHit objet1; 
+	public static transient ILocalisationHitDTO objet1; 
 	
 	/**
 	 * objet1MemeInstance doit être la même instance que objet1.<br/>
 	 */
-	public static transient ILocalisationHit objet1MemeInstance;
+	public static transient ILocalisationHitDTO objet1MemeInstance;
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().
 	 */
-	public static transient ILocalisationHit objet2EqualsObj1;
+	public static transient ILocalisationHitDTO objet2EqualsObj1;
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().
 	 */
-	public static transient ILocalisationHit objet3EqualsObj1;
+	public static transient ILocalisationHitDTO objet3EqualsObj1;
 	
 	/**
 	 * objetNull1 et objetNull2 doivent être instanciés 
 	 * avec le constructeur d'arité nulle ou avoir 
 	 * tous les attributs aux valeurs par défaut.
 	 */
-	public static transient ILocalisationHit objetNull1;
+	public static transient ILocalisationHitDTO objetNull1;
 	
 	/**
 	 * objetNull1 et objetNull2 doivent être instanciés 
 	 * avec le constructeur d'arité nulle ou avoir 
 	 * tous les attributs aux valeurs par défaut.
 	 */
-	public static transient ILocalisationHit objetNull2;
+	public static transient ILocalisationHitDTO objetNull2;
 	
 	/**
 	 * objet1AvecNull et objet2EqualsObjet1AvecNull 
 	 * doivent être equals() et avoir certains attributs à null.
 	 */
-	public static transient ILocalisationHit objet1AvecNull;
+	public static transient ILocalisationHitDTO objet1AvecNull;
 	
 	/**
 	 * objet1AvecNull et objet2EqualsObjet1AvecNull 
 	 * doivent être equals() et avoir certains attributs à null.
 	 */
-	public static transient ILocalisationHit objet2EqualsObjet1AvecNull;
+	public static transient ILocalisationHitDTO objet2EqualsObjet1AvecNull;
 	
 	/**
 	 * objetDiff1 doit être différent de objetDiff2
 	 */
-	public static transient ILocalisationHit objetDiff1;
+	public static transient ILocalisationHitDTO objetDiff1;
 	
 	/**
 	 * objetDiff2 doit être différent de objetDiff1
 	 */
-	public static transient ILocalisationHit objetDiff2;
+	public static transient ILocalisationHitDTO objetDiff2;
 	
 	/**
 	 * objetDiff1AvecNull doit être différent de objetDiff2AvecNull.<br/>
 	 * objetDiff1AvecNull et objetDiff2AvecNull doivent avoir des attributs null.
 	 */
-	public static transient ILocalisationHit objetDiff1AvecNull;
+	public static transient ILocalisationHitDTO objetDiff1AvecNull;
 	
 	/**
 	 * objetDiff1AvecNull doit être différent de objetDiff2AvecNull.<br/>
 	 * objetDiff1AvecNull et objetDiff2AvecNull doivent avoir des attributs null.
 	 */
-	public static transient ILocalisationHit objetDiff2AvecNull;
+	public static transient ILocalisationHitDTO objetDiff2AvecNull;
 	
 	/**
 	 * objetCompAvant doit être AVANT objetCompApres.
 	 */
-	public static transient ILocalisationHit objetCompAvant;
+	public static transient ILocalisationHitDTO objetCompAvant;
 	
 	/**
 	 * objetCompApres doit être APRES objetCompAvant.
 	 */
-	public static transient ILocalisationHit objetCompApres;
+	public static transient ILocalisationHitDTO objetCompApres;
 	
 	/**
 	 * clone de objetNull1.<br/>
 	 */
-	public static transient ILocalisationHit objetNullClone1;
+	public static transient ILocalisationHitDTO objetNullClone1;
 	
 	/**
 	 * clone de objet1.<br/>
 	 */
-	public static transient ILocalisationHit objetClone1;
+	public static transient ILocalisationHitDTO objetClone1;
 
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
-	private static final Log LOG = LogFactory.getLog(LocalisationHitTest.class);
+	private static final Log LOG 
+		= LogFactory.getLog(LocalisationHitDTOTest.class);
+	
 
 	// *************************METHODES************************************/
-		
+			
 		
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public LocalisationHitTest() {
+	public LocalisationHitDTOTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
-
+	
 	
 	/**
 	 * Teste la méthode <b>equals(Object pObject)</b> :
@@ -366,7 +413,7 @@ public class LocalisationHitTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 		System.out.println("********** CLASSE LocalisationHitTest - méthode testEquals() ********** ");
 		}
-
+	
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
@@ -410,7 +457,7 @@ public class LocalisationHitTest {
 		assertEquals("objet1.hashCode().equals(objet2EqualsObj1.hashCode()) : "
 				, objet1.hashCode()
 					, objet2EqualsObj1.hashCode());
-
+	
 				
 		/* garantit que les null sont bien gérés dans equals(...). */
 		/* AFFICHAGE A LA CONSOLE. */
@@ -425,7 +472,7 @@ public class LocalisationHitTest {
 			System.out.println("objetNull1.equals(objetNull2) : " + objetNull1.equals(objetNull2));
 			System.out.println("objetNull1.hashCode().equals(objetNull2.hashCode()) : " + (objetNull1.hashCode() == objetNull2.hashCode()));
 		}
-
+	
 		assertEquals("objetNull1.equals(objetNull2) : "
 				, objetNull1
 					, objetNull2);
@@ -433,7 +480,7 @@ public class LocalisationHitTest {
 				, objetNull1.hashCode()
 					, objetNull2.hashCode());
 		
-
+	
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -447,7 +494,7 @@ public class LocalisationHitTest {
 			System.out.println("objet1AvecNull.equals(objet2EqualsObjet1AvecNull) : " + objet1AvecNull.equals(objet2EqualsObjet1AvecNull));
 			System.out.println("objet1AvecNull.hashCode() == objet2EqualsObjet1AvecNull.hashCode()" + (objet1AvecNull.hashCode() == objet2EqualsObjet1AvecNull.hashCode()));
 		}
-
+	
 		assertEquals("objet1AvecNull.equals(objet2EqualsObjet1AvecNull) : "
 				, objet1AvecNull
 					, objet2EqualsObjet1AvecNull);
@@ -455,8 +502,8 @@ public class LocalisationHitTest {
 				+ ".equals(objet2EqualsObjet1AvecNull.hashCode()) : "
 				, objet1AvecNull.hashCode()
 					, objet2EqualsObjet1AvecNull.hashCode());
-
-
+	
+	
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
@@ -469,7 +516,7 @@ public class LocalisationHitTest {
 		/* garantit que x.equals(null) retourne false (avec x non null). */
 		assertNotNull("objet1 pas equals(null) : "
 				, objet1);
-
+	
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -482,7 +529,7 @@ public class LocalisationHitTest {
 			System.out.println();
 			System.out.println("objet1.equals(objet2EqualsObj1) : " + objet1.equals(objet2EqualsObj1));
 		}
-
+	
 		
 		/* garantit le bon fonctionnement de equals() 
 		 * en cas d'égalité métier. */
@@ -490,7 +537,7 @@ public class LocalisationHitTest {
 				, objet1
 					, objet2EqualsObj1);
 		
-
+	
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
@@ -534,9 +581,9 @@ public class LocalisationHitTest {
 				, objetDiff1AvecNull.hashCode() == objetDiff2AvecNull.hashCode());
 				
 	} // Fin de testEquals().______________________________________________
-
-
-
+	
+	
+	
 	/**
 	 * Teste la méthode <b>compareTo(...)</b> :
 	 * <ul>
@@ -562,12 +609,12 @@ public class LocalisationHitTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 		System.out.println("********** CLASSE LocalisationHitTest - méthode testCompareTo() ********** ");
 		}
-
+	
 		
 		/* garantit que compareTo(memeInstance) retourne 0. */		
 		final int compareMemeInstance 
 			= objet1.compareTo(objet1MemeInstance);
-
+	
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
@@ -581,11 +628,11 @@ public class LocalisationHitTest {
 		
 		assertTrue("compareTo(memeInstance) doit retourner 0 : "
 				, compareMemeInstance == 0);
-
+	
 		
 		/* garantit que compareTo(null) retourne -1. */
 		final int compareToNull = objet1.compareTo(null);
-
+	
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
@@ -598,13 +645,13 @@ public class LocalisationHitTest {
 		
 		assertTrue("compareTo(null) doit retourner négatif : "
 				, compareToNull < 0);
-
+	
 		
 		/* garantit le contrat Java Contrat Java : 
 		 * x.equals(y) ---> x.compareTo(y) == 0. */		
 		final int compareToEquals 
 			= objet2EqualsObj1.compareTo(objet3EqualsObj1);
-
+	
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
@@ -615,7 +662,7 @@ public class LocalisationHitTest {
 			System.out.println("COMPARETO(2 objets equals)  (objet2EqualsObj1.compareTo(objet3EqualsObj1)) : " 
 					+ compareToEquals);
 		}
-
+	
 		assertTrue("Instance.compareTo(equalsInstance) doit retourner 0 : "
 				, compareToEquals == 0);
 		assertTrue("loc10.hashCode() == loc11.hashCode() : "
@@ -644,7 +691,7 @@ public class LocalisationHitTest {
 		assertTrue("locNull10.hashCode() == locNull11.hashCode() : "
 				, objetNull1.hashCode() == objetNull2.hashCode());
 		
-
+	
 		
 		/* garantit le bon fonctionnement (bon ordre) de compareTo(). */		
 		final int compare 
@@ -666,7 +713,7 @@ public class LocalisationHitTest {
 		
 	} // Fin de testCompareTo().___________________________________________
 	
-
+	
 	
 	/**
 	 * Teste la méthode <b>clone()</b> :
@@ -690,7 +737,7 @@ public class LocalisationHitTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println("********** CLASSE LocalisationHitTest - méthode testClone() ********** ");
 		}
-
+	
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -778,7 +825,7 @@ public class LocalisationHitTest {
 		
 		/* garantit que les null sont bien gérés dans toString(). */
 		assertEquals("objetNull1.toString() retourne une chaine : "
-				, "LocalisationHit [id=null, numRoute=null, indiceNumRoute=null, indiceLettreRoute=null, categorieAdminRoute=null, numDepartement=null, lieuDitOrigine=null, prOrigine=null, absOrigine=null, lieuDitExtremite=null, prExtremite=null, absExtremite=null, lieuDitComptage=null, prComptage=null, absComptage=null]"
+				, "LocalisationHitDTO [id=null, numRoute=null, indiceNumRoute=null, indiceLettreRoute=null, categorieAdminRoute=null, numDepartement=null, lieuDitOrigine=null, prOrigine=null, absOrigine=null, lieuDitExtremite=null, prExtremite=null, absExtremite=null, lieuDitComptage=null, prComptage=null, absComptage=null]"
 						, objetNull1.toString());
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -789,7 +836,7 @@ public class LocalisationHitTest {
 		
 		/* garantit le bon affichage de toString(). */
 		assertEquals("affichage : "
-				, "LocalisationHit [id=null, numRoute=0010, indiceNumRoute=0, indiceLettreRoute= , categorieAdminRoute=4, numDepartement=860, lieuDitOrigine=CHAUNAY EX RN 10    , prOrigine=100, absOrigine=110, lieuDitExtremite=DEPARTEMENT 79      , prExtremite=107, absExtremite=118, lieuDitComptage=CHAUNAY             , prComptage=106, absComptage=430]"
+				, "LocalisationHitDTO [id=null, numRoute=0010, indiceNumRoute=0, indiceLettreRoute= , categorieAdminRoute=4, numDepartement=860, lieuDitOrigine=CHAUNAY EX RN 10    , prOrigine=100, absOrigine=0110, lieuDitExtremite=DEPARTEMENT 79      , prExtremite=107, absExtremite=0118, lieuDitComptage=CHAUNAY             , prComptage=106, absComptage=0430]"
 						, objet1.toString());
 				
 	} // Fin de testToString().____________________________________________
@@ -1113,80 +1160,85 @@ public class LocalisationHitTest {
 		localisationChaunay2 = new LocalisationHit(fichierImporteMap.get(2));
 		localisationChaunay3 = new LocalisationHit(fichierImporteMap.get(3));
 		
-		objet1 = localisationChaunay1;
-		objet1MemeInstance = objet1;
-		objet2EqualsObj1 = localisationChaunay2;
-		objet3EqualsObj1 = localisationChaunay3;
+		localisationChaunay1DTO = LocalisationHitConvertisseurMetierDTO.convertirObjetMetierEnDTO(localisationChaunay1);
+		localisationChaunay2DTO = LocalisationHitConvertisseurMetierDTO.convertirObjetMetierEnDTO(localisationChaunay2);
+		localisationChaunay3DTO = LocalisationHitConvertisseurMetierDTO.convertirObjetMetierEnDTO(localisationChaunay3);
 		
-		objetNull1 = new LocalisationHit(null
+		
+		objet1 = localisationChaunay1DTO;
+		objet1MemeInstance = objet1;
+		objet2EqualsObj1 = localisationChaunay2DTO;
+		objet3EqualsObj1 = localisationChaunay3DTO;
+		
+		objetNull1 = new LocalisationHitDTO(null
 				, null, null, null, null
 				, null, null, null, null
 				, null, null, null
 				, null, null, null);
 		
-		objetNull2 = new LocalisationHit();
+		objetNull2 = new LocalisationHitDTO();
 		
-		objet1AvecNull = new LocalisationHit(null
+		objet1AvecNull = new LocalisationHitDTO(null
 				, "0020", null, null, "1"
 				, NUM_DEPT_73
-				, LIEU_DIT_ORIGINE_1, 7, 152
-				, LIEU_DIT_EXTREMITE_1, 7, 777
-				, LIEU_DIT_COMPTAGE_1, 7, 200);
+				, LIEU_DIT_ORIGINE_1, PR_DEBUT_SEPT, ABS_ORIGINE_152
+				, LIEU_DIT_EXTREMITE_1, PR_DEBUT_SEPT, ABS_EXTREMITE_777
+				, LIEU_DIT_COMPTAGE_1, PR_DEBUT_SEPT, ABS_COMPTAGE_200);
 		
-		objet2EqualsObjet1AvecNull = new LocalisationHit(null
+		objet2EqualsObjet1AvecNull = new LocalisationHitDTO(null
 				, "0020", null, null, "1"
 				, NUM_DEPT_73
-				, "Origine2", 7, 152
-				, "Extremite2", 7, 777
-				, "comptage2", 7, 207);
+				, "Origine2", PR_DEBUT_SEPT, ABS_ORIGINE_152
+				, "Extremite2", PR_DEBUT_SEPT, ABS_EXTREMITE_777
+				, "comptage2", PR_DEBUT_SEPT, "207");
 		
-		objetDiff1 = new LocalisationHit(null
+		objetDiff1 = new LocalisationHitDTO(null
 				, "0086", "", "", "1"
 				, NUM_DEPT_73
-				, LIEU_DIT_ORIGINE_1, 7, 152
-				, LIEU_DIT_EXTREMITE_1, 7, 777
-				, LIEU_DIT_COMPTAGE_1, 7, 200);
+				, LIEU_DIT_ORIGINE_1, PR_DEBUT_SEPT, ABS_ORIGINE_152
+				, LIEU_DIT_EXTREMITE_1, PR_DEBUT_SEPT, ABS_EXTREMITE_777
+				, LIEU_DIT_COMPTAGE_1, PR_DEBUT_SEPT, ABS_COMPTAGE_200);
 		
-		objetDiff2 = new LocalisationHit(null
+		objetDiff2 = new LocalisationHitDTO(null
 				, NUM_ROUTE_0006, "", "", "1"
 				, NUM_DEPT_73
-				, LIEU_DIT_ORIGINE_1, 7, 152
-				, LIEU_DIT_EXTREMITE_1, 7, 777
-				, LIEU_DIT_COMPTAGE_1, 7, 200); 
+				, LIEU_DIT_ORIGINE_1, PR_DEBUT_SEPT, ABS_ORIGINE_152
+				, LIEU_DIT_EXTREMITE_1, PR_DEBUT_SEPT, ABS_EXTREMITE_777
+				, LIEU_DIT_COMPTAGE_1, PR_DEBUT_SEPT, ABS_COMPTAGE_200); 
 		
-		objetDiff1AvecNull = new LocalisationHit(null
+		objetDiff1AvecNull = new LocalisationHitDTO(null
 				, "0086", null, null, "1"
 				, NUM_DEPT_73
-				, LIEU_DIT_ORIGINE_1, null, 152
-				, LIEU_DIT_EXTREMITE_1, 7, 777
-				, LIEU_DIT_COMPTAGE_1, 7, 200);
+				, LIEU_DIT_ORIGINE_1, null, ABS_ORIGINE_152
+				, LIEU_DIT_EXTREMITE_1, PR_DEBUT_SEPT, ABS_EXTREMITE_777
+				, LIEU_DIT_COMPTAGE_1, PR_DEBUT_SEPT, ABS_COMPTAGE_200);
 		
-		objetDiff2AvecNull = new LocalisationHit(null
+		objetDiff2AvecNull = new LocalisationHitDTO(null
 				, NUM_ROUTE_0006, null, null, "1"
 				, NUM_DEPT_73
-				, LIEU_DIT_ORIGINE_1, 7, 152
+				, LIEU_DIT_ORIGINE_1, PR_DEBUT_SEPT, ABS_ORIGINE_152
 				, LIEU_DIT_EXTREMITE_1, null, null
-				, LIEU_DIT_COMPTAGE_1, 7, 200); 
+				, LIEU_DIT_COMPTAGE_1, PR_DEBUT_SEPT, ABS_COMPTAGE_200); 
 		
-		objetCompAvant = new LocalisationHit(
+		objetCompAvant = new LocalisationHitDTO(
 				null
 				, NUM_ROUTE_0006, "", "", "1", NUM_DEPT_73
-				, "", 7, 0
-				, "", 8, 0
+				, "", PR_DEBUT_SEPT, "0"
+				, "", "8", "0"
 				, "", null, null);
 		
-		objetCompApres = new LocalisationHit(
+		objetCompApres = new LocalisationHitDTO(
 				null
 				, NUM_ROUTE_0006, "", "", "1", NUM_DEPT_73
-				, "", 8, 0
-				, "", 9, 0
+				, "", "8", "0"
+				, "", "9", "0"
 				, "", null, null);
 		
 		objetNullClone1 = objetNull1.clone();
 		objetClone1 = objet1.clone();
 		
 	} // Fin de beforeClass()._____________________________________________
+
 	
-	
-	
-} // FIN DE LA CLASSE LocalisationHitTest.-----------------------------------
+
+} // FIN DE LA CLASSE LocalisationHitDTOTest.--------------------------------

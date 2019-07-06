@@ -1,18 +1,15 @@
-package levy.daniel.application.model.metier.sections.localisations.impl;
+package levy.daniel.application.model.dto.metier.sections.localisations.impl;
 
 import java.util.Objects;
 import java.util.SortedMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
+import levy.daniel.application.model.dto.metier.sections.localisations.ILocalisationHitDTO;
 
 /**
- * CLASSE LocalisationHit :<br/>
+ * CLASSE LocalisationHitDTO :<br/>
  * .<br/>
  * <br/>
  *
@@ -28,10 +25,11 @@ import levy.daniel.application.model.metier.sections.localisations.ILocalisation
  *
  * @author dan Lévy
  * @version 1.0
- * @since 4 juil. 2019
+ * @since 6 juil. 2019
  *
  */
-public class LocalisationHit implements ILocalisationHit {
+public class LocalisationHitDTO implements ILocalisationHitDTO {
+
 
 	// ************************ATTRIBUTS************************************/
 
@@ -41,10 +39,10 @@ public class LocalisationHit implements ILocalisationHit {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * "Classe LocalisationHit".
+	 * "Classe LocalisationHitDTO".
 	 */
-	public static final String CLASSE_LOCALISATION_HIT 
-		= "Classe LocalisationHit";
+	public static final String CLASSE_LOCALISATION_HIT_DTO 
+		= "Classe LocalisationHitDTO";
 	
 	/**
 	 * ';'.<br/>
@@ -72,9 +70,9 @@ public class LocalisationHit implements ILocalisationHit {
 	public static final String UNUSED = "unused";
 		
 	/**
-	 * id en base sous forme de Long.<br/>
+	 * id en base (sous forme de String).<br/>
 	 */
-	private Long id;
+	private String id;
 	
 	/**
 	 * numero de la route.
@@ -107,14 +105,14 @@ public class LocalisationHit implements ILocalisationHit {
 	private String lieuDitOrigine;
 	
 	/**
-	 * PR Origine.
+	 * PR Origine (sous forme de String).
 	 */
-	private Integer prOrigine;
+	private String prOrigine;
 	
 	/**
-	 * abscisse du point origine.
+	 * abscisse du point origine (sous forme de String).
 	 */
-	private Integer absOrigine;
+	private String absOrigine;
 	
 	/**
 	 * libellé du lieu-dit extremité.
@@ -122,14 +120,14 @@ public class LocalisationHit implements ILocalisationHit {
 	private String lieuDitExtremite;
 	
 	/**
-	 * PR Extremité.
+	 * PR Extremité (sous forme de String).
 	 */
-	private Integer prExtremite;
+	private String prExtremite;
 	
 	/**
-	 * abscisse du point extremité.
+	 * abscisse du point extremité (sous forme de String).
 	 */
-	private Integer absExtremite;
+	private String absExtremite;
 	
 	/**
 	 * libellé du lieu-dit du point de comptage.
@@ -137,14 +135,14 @@ public class LocalisationHit implements ILocalisationHit {
 	private String lieuDitComptage;
 	
 	/**
-	 * PR du point de comptage.
+	 * PR du point de comptage (sous forme de String).
 	 */
-	private Integer prComptage;
+	private String prComptage;
 	
 	/**
-	 * abscisse du point de comptage.
+	 * abscisse du point de comptage (sous forme de String).
 	 */
-	private Integer absComptage;
+	private String absComptage;
 
 
 	/**
@@ -152,16 +150,14 @@ public class LocalisationHit implements ILocalisationHit {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
-	private static final Log LOG = LogFactory.getLog(LocalisationHit.class);
-
-	// *************************METHODES************************************/
+	private static final Log LOG = LogFactory.getLog(LocalisationHitDTO.class);
 	
-
+	// *************************METHODES************************************/
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public LocalisationHit() {
+	public LocalisationHitDTO() {
 		
 		this(null
 				, null, null, null, null, null
@@ -183,28 +179,28 @@ public class LocalisationHit implements ILocalisationHit {
 	 * catégorie administrative de la route.
 	 * @param pNumDepartement : String : numéro de département.
 	 * @param pLieuDitOrigine : String : libellé du lieu-dit origine.
-	 * @param pPrOrigine : Integer : PR Origine.
-	 * @param pAbsOrigine : Integer : abscisse du point origine.
+	 * @param pPrOrigine : String : PR Origine.
+	 * @param pAbsOrigine : String : abscisse du point origine.
 	 * @param pLieuDitExtremite : String : libellé du lieu-dit extremité.
-	 * @param pPrExtremite : Integer : PR Extremité.
-	 * @param pAbsExtremite : Integer : abscisse du point extremité.
+	 * @param pPrExtremite : String : PR Extremité.
+	 * @param pAbsExtremite : String : abscisse du point extremité.
 	 * @param pLieuDitComptage : String : 
 	 * libellé du lieu-dit du point de comptage.
-	 * @param pPrComptage : Integer : PR du point de comptage.
-	 * @param pAbsComptage : Integer : abscisse du point de comptage.
+	 * @param pPrComptage : String : PR du point de comptage.
+	 * @param pAbsComptage : String : abscisse du point de comptage.
 	 */
-	public LocalisationHit(
+	public LocalisationHitDTO(
 			final String pNumRoute
 			, final String pIndiceNumRoute
 			, final String pIndiceLettreRoute
 			, final String pCategorieAdminRoute
 			, final String pNumDepartement
-			, final String pLieuDitOrigine, final Integer pPrOrigine
-			, final Integer pAbsOrigine
-			, final String pLieuDitExtremite, final Integer pPrExtremite
-			, final Integer pAbsExtremite
-			, final String pLieuDitComptage, final Integer pPrComptage
-			, final Integer pAbsComptage) {
+			, final String pLieuDitOrigine, final String pPrOrigine
+			, final String pAbsOrigine
+			, final String pLieuDitExtremite, final String pPrExtremite
+			, final String pAbsExtremite
+			, final String pLieuDitComptage, final String pPrComptage
+			, final String pAbsComptage) {
 		
 		this(null
 				, pNumRoute
@@ -221,7 +217,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 /**
 	 * CONSTRUCTEUR COMPLET BASE.<br/>
 	 * 
-	 * @param pId : Long :ID en base
+	 * @param pId : String :ID en base
 	 * @param pNumRoute : String : numero de la route.
 	 * @param pIndiceNumRoute : String : indice numérique de la route.
 	 * @param pIndiceLettreRoute : String : indice lettre de la route.
@@ -229,29 +225,29 @@ public class LocalisationHit implements ILocalisationHit {
 	 * catégorie administrative de la route.
 	 * @param pNumDepartement : String : numéro de département.
 	 * @param pLieuDitOrigine : String : libellé du lieu-dit origine.
-	 * @param pPrOrigine : Integer : PR Origine.
-	 * @param pAbsOrigine : Integer : abscisse du point origine.
+	 * @param pPrOrigine : String : PR Origine.
+	 * @param pAbsOrigine : String : abscisse du point origine.
 	 * @param pLieuDitExtremite : String : libellé du lieu-dit extremité.
-	 * @param pPrExtremite : Integer : PR Extremité.
-	 * @param pAbsExtremite : Integer : abscisse du point extremité.
+	 * @param pPrExtremite : String : PR Extremité.
+	 * @param pAbsExtremite : String : abscisse du point extremité.
 	 * @param pLieuDitComptage : String : 
 	 * libellé du lieu-dit du point de comptage.
-	 * @param pPrComptage : Integer : PR du point de comptage.
-	 * @param pAbsComptage : Integer : abscisse du point de comptage.
+	 * @param pPrComptage : String : PR du point de comptage.
+	 * @param pAbsComptage : String : abscisse du point de comptage.
 	 */
-	public LocalisationHit(
-			final Long pId
+	public LocalisationHitDTO(
+			final String pId
 			, final String pNumRoute
 			, final String pIndiceNumRoute
 			, final String pIndiceLettreRoute
 			, final String pCategorieAdminRoute
 			, final String pNumDepartement
-			, final String pLieuDitOrigine, final Integer pPrOrigine
-			, final Integer pAbsOrigine
-			, final String pLieuDitExtremite, final Integer pPrExtremite
-			, final Integer pAbsExtremite
-			, final String pLieuDitComptage, final Integer pPrComptage
-			, final Integer pAbsComptage) {
+			, final String pLieuDitOrigine, final String pPrOrigine
+			, final String pAbsOrigine
+			, final String pLieuDitExtremite, final String pPrExtremite
+			, final String pAbsExtremite
+			, final String pLieuDitComptage, final String pPrComptage
+			, final String pAbsComptage) {
 		
 		super();
 		
@@ -289,8 +285,9 @@ public class LocalisationHit implements ILocalisationHit {
 	 * 
 	 * @throws Exception 
 	 */
-	public LocalisationHit(final SortedMap<Integer, String> pDescriptionLigne) 
-			throws Exception {
+	public LocalisationHitDTO(
+			final SortedMap<Integer, String> pDescriptionLigne) 
+												throws Exception {
 		
 		super();
 		
@@ -299,7 +296,7 @@ public class LocalisationHit implements ILocalisationHit {
 		if (pDescriptionLigne == null) {
 			
 			final String message 
-				= "Impossible d'instancier un LocalisationHit à partir "
+				= "Impossible d'instancier un LocalisationHitDTO à partir "
 						+ "d'une SortedMap<Integer, String> "
 						+ "pDescriptionLigne null";
 			
@@ -317,76 +314,19 @@ public class LocalisationHit implements ILocalisationHit {
 		this.setCategorieAdminRoute(pDescriptionLigne.get(11));
 		this.setNumDepartement(pDescriptionLigne.get(1));
 		this.setLieuDitOrigine(pDescriptionLigne.get(18));
-		this.setPrOrigine(this.fournirInteger(pDescriptionLigne.get(19)));
-		this.setAbsOrigine(this.fournirInteger(pDescriptionLigne.get(20)));
+		this.setPrOrigine(pDescriptionLigne.get(19));
+		this.setAbsOrigine(pDescriptionLigne.get(20));
 		this.setLieuDitExtremite(pDescriptionLigne.get(21));
-		this.setPrExtremite(this.fournirInteger(pDescriptionLigne.get(22)));
-		this.setAbsExtremite(this.fournirInteger(pDescriptionLigne.get(23)));
+		this.setPrExtremite(pDescriptionLigne.get(22));
+		this.setAbsExtremite(pDescriptionLigne.get(23));
 		this.setLieuDitComptage(pDescriptionLigne.get(24));
-		this.setPrComptage(this.fournirInteger(pDescriptionLigne.get(25)));
-		this.setAbsComptage(this.fournirInteger(pDescriptionLigne.get(26)));
+		this.setPrComptage(pDescriptionLigne.get(25));
+		this.setAbsComptage(pDescriptionLigne.get(26));
 
 	} // Fin de CONSTRUCTEUR CONVERTISSEUR.________________________________
 
 	
 	
-	/**
-	 * retourne un Integer à partir de la chaine fournie dans pString.<br/>
-	 * <br/>
-	 * - retire d'éventuels espaces avant et/ou après la valeur entière.<br/>
-	 * - retourne null si pString est blank.<br/>
-	 * - LOG.fatal et retourne null si pString n'est pas homogène 
-	 * à un entier.<br/>
-	 * <br/>
-	 *
-	 * @param pString : String : String homogène à un Integer.
-	 * 
-	 * @return : Integer.<br/>
-	 */
-	private Integer fournirInteger(final String pString) {
-		
-		/* retourne null si pString est blank. */
-		if (StringUtils.isBlank(pString)) {
-			return null;
-		}
-		
-		Integer resultat = null;
-		
-		final String motifInteger = "\\s*(\\d+)\\s*";
-		final Pattern patternInteger 
-			= Pattern.compile(motifInteger); 
-		final Matcher matcher = patternInteger.matcher(pString);
-		
-		/* retourne null si pString n'est pas homogène 
-		 * à un entier. */
-		if (!matcher.matches()) {
-			
-			final String message 
-				= CLASSE_LOCALISATION_HIT
-				+ MOINS_ESPACE
-				+ "méthode fournirInteger(String)"
-				+ MOINS_ESPACE 
-				+ "pString passé en paramètre n'est pas homogène à un entier : " 
-				+ pString;
-			
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message);
-			}
-			
-			return null;
-		}
-
-		/* retire d'éventuels espaces avant et/ou après la valeur entière. */
-		final String valeur = matcher.group(1);
-		
-		resultat = Integer.valueOf(valeur);
-		
-		return resultat;
-		
-	} // Fin de fournirInteger(...)._______________________________________
-
-	
-		
 	/**
 	 * {@inheritDoc}
 	 */
@@ -419,11 +359,11 @@ public class LocalisationHit implements ILocalisationHit {
 			return false;
 		}
 		
-		if (!(pObjet instanceof ILocalisationHit)) {
+		if (!(pObjet instanceof ILocalisationHitDTO)) {
 			return false;
 		}
 		
-		final ILocalisationHit other = (ILocalisationHit) pObjet;
+		final ILocalisationHitDTO other = (ILocalisationHitDTO) pObjet;
 
 		return Objects
 			.equals(this.getNumRoute(), other.getNumRoute())
@@ -438,13 +378,13 @@ public class LocalisationHit implements ILocalisationHit {
 
 	} // Fin de equals(...)._______________________________________________
 
-
-
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int compareTo(final ILocalisationHit pObjet) {
+	public final int compareTo(final ILocalisationHitDTO pObjet) {
 		
 		if (this == pObjet) {
 			return 0;
@@ -575,7 +515,7 @@ public class LocalisationHit implements ILocalisationHit {
 			
 			comparePrOrigine 
 			= this.getPrOrigine()
-				.compareTo(pObjet.getPrOrigine());
+				.compareToIgnoreCase(pObjet.getPrOrigine());
 		
 			if (comparePrOrigine != 0) {
 				return comparePrOrigine;
@@ -597,7 +537,7 @@ public class LocalisationHit implements ILocalisationHit {
 		
 		compareAbsOrigine 
 			= this.getAbsOrigine()
-				.compareTo(pObjet.getAbsOrigine());
+				.compareToIgnoreCase(pObjet.getAbsOrigine());
 		
 		return compareAbsOrigine;
 
@@ -609,10 +549,11 @@ public class LocalisationHit implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final ILocalisationHit clone() throws CloneNotSupportedException {
+	public final  ILocalisationHitDTO clone() 
+						throws CloneNotSupportedException {
 		
-		final ILocalisationHit clone 
-			= (ILocalisationHit) super.clone();
+		final ILocalisationHitDTO clone 
+			= (ILocalisationHitDTO) super.clone();
 		
 		clone.setId(this.getId());
 		clone.setNumRoute(this.getNumRoute());
@@ -630,7 +571,7 @@ public class LocalisationHit implements ILocalisationHit {
 		clone.setPrComptage(this.getPrComptage());
 		clone.setAbsComptage(this.getAbsComptage());
 		
-		return (LocalisationHit) clone;
+		return (LocalisationHitDTO) clone;
 		
 	} // Fin de clone().___________________________________________________
 
@@ -644,7 +585,7 @@ public class LocalisationHit implements ILocalisationHit {
 
 		final StringBuilder stb = new StringBuilder();
 
-		stb.append("LocalisationHit [");
+		stb.append("LocalisationHitDTO [");
 
 		stb.append("id=");
 		if (this.getId() != null) {
@@ -927,10 +868,8 @@ public class LocalisationHit implements ILocalisationHit {
 
 		switch (pI) {
 
-		case 0:
-			if (this.getId() != null) {
-				valeur = String.valueOf(this.getId());
-			}			
+		case 0:			
+			valeur = this.getId();						
 			break;
 
 		case 1:
@@ -958,15 +897,11 @@ public class LocalisationHit implements ILocalisationHit {
 			break;
 
 		case 7:
-			if (this.getPrOrigine() != null) {
-				valeur = String.valueOf(this.getPrOrigine());
-			}			
+			valeur = this.getPrOrigine();			
 			break;
 
 		case 8:
-			if (this.getAbsOrigine() != null) {
-				valeur = String.valueOf(this.getAbsOrigine());
-			}			
+			valeur = this.getAbsOrigine();			
 			break;
 
 		case 9:
@@ -974,15 +909,11 @@ public class LocalisationHit implements ILocalisationHit {
 			break;
 
 		case 10:
-			if (this.getPrExtremite() != null) {
-				valeur = String.valueOf(this.getPrExtremite());
-			}			
+			valeur = this.getPrExtremite();			
 			break;
 
 		case 11:
-			if (this.getAbsExtremite() != null) {
-				valeur = String.valueOf(this.getAbsExtremite());
-			}			
+			valeur = this.getAbsExtremite();			
 			break;
 
 		case 12:
@@ -990,15 +921,11 @@ public class LocalisationHit implements ILocalisationHit {
 			break;
 
 		case 13:
-			if (this.getPrComptage() != null) {
-				valeur = String.valueOf(this.getPrComptage());
-			}			
+			valeur = this.getPrComptage();		
 			break;
 
 		case 14:
-			if (this.getAbsComptage() != null) {
-				valeur = String.valueOf(this.getAbsComptage());
-			}			
+			valeur = this.getAbsComptage();			
 			break;
 
 		default:
@@ -1017,7 +944,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Long getId() {	
+	public final String getId() {	
 		return this.id;
 	} // Fin de getId().___________________________________________________
 
@@ -1028,7 +955,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 */
 	@Override
 	public final void setId(
-			final Long pId) {	
+			final String pId) {	
 		this.id = pId;
 	} // Fin de setId(...).________________________________________________
 
@@ -1164,7 +1091,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Integer getPrOrigine() {
+	public final String getPrOrigine() {
 		return this.prOrigine;
 	} // Fin de getPrOrigine().____________________________________________
 
@@ -1175,7 +1102,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 */
 	@Override
 	public final void setPrOrigine(
-			final Integer pPrOrigine) {
+			final String pPrOrigine) {
 		this.prOrigine = pPrOrigine;
 	} // Fin de setPrOrigine(...)._________________________________________
 
@@ -1185,7 +1112,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Integer getAbsOrigine() {
+	public final String getAbsOrigine() {
 		return this.absOrigine;
 	} // Fin de getAbsOrigine().___________________________________________
 
@@ -1196,7 +1123,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 */
 	@Override
 	public final void setAbsOrigine(
-			final Integer pAbsOrigine) {
+			final String pAbsOrigine) {
 		this.absOrigine = pAbsOrigine;
 	} // Fin de setAbsOrigine(...).________________________________________
 
@@ -1227,7 +1154,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Integer getPrExtremite() {
+	public final String getPrExtremite() {
 		return this.prExtremite;
 	} // Fin de getPrExtremite().__________________________________________
 
@@ -1238,7 +1165,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 */
 	@Override
 	public final void setPrExtremite(
-			final Integer pPrExtremite) {
+			final String pPrExtremite) {
 		this.prExtremite = pPrExtremite;
 	} // Fin de setPrExtremite(...)._______________________________________
 
@@ -1248,7 +1175,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Integer getAbsExtremite() {
+	public final String getAbsExtremite() {
 		return this.absExtremite;
 	} // Fin de getAbsExtremite()._________________________________________
 
@@ -1259,7 +1186,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 */
 	@Override
 	public final void setAbsExtremite(
-			final Integer pAbsExtremite) {
+			final String pAbsExtremite) {
 		this.absExtremite = pAbsExtremite;
 	} // Fin de setAbsExtremite(...).______________________________________
 
@@ -1290,7 +1217,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Integer getPrComptage() {
+	public final String getPrComptage() {
 		return this.prComptage;
 	} // Fin de getPrComptage().___________________________________________
 
@@ -1301,7 +1228,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 */
 	@Override
 	public final void setPrComptage(
-			final Integer pPrComptage) {
+			final String pPrComptage) {
 		this.prComptage = pPrComptage;
 	} // Fin de setPrComptage(...).________________________________________
 
@@ -1311,7 +1238,7 @@ public class LocalisationHit implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Integer getAbsComptage() {
+	public final String getAbsComptage() {
 		return this.absComptage;
 	} // Fin de getAbsComptage().__________________________________________
 
@@ -1322,10 +1249,10 @@ public class LocalisationHit implements ILocalisationHit {
 	 */
 	@Override
 	public final void setAbsComptage(
-			final Integer pAbsComptage) {
+			final String pAbsComptage) {
 		this.absComptage = pAbsComptage;
 	} // Fin de setAbsComptage(...)._______________________________________
 
 
 
-} // FIN DE LA CLASSE LocalisationHit.---------------------------------------
+} // FIN DE LA CLASSE LocalisationHitDTO.------------------------------------

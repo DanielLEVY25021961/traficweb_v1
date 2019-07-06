@@ -1,14 +1,14 @@
-package levy.daniel.application.model.metier.sections.localisations;
+package levy.daniel.application.model.dto.metier.sections.localisations;
 
 import java.io.Serializable;
 
+import levy.daniel.application.model.dto.metier.sections.localisations.impl.LocalisationHitDTO;
 import levy.daniel.application.model.metier.IExportateurCsv;
 import levy.daniel.application.model.metier.IExportateurJTable;
-import levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit;
 
 /**
- * INTERFACE ILocalisationHit :<br/>
- * Interface factorisant les comportements des {@link LocalisationHit}.<br/>
+ * INTERFACE ILocalisationHitDTO :<br/>
+ * Interface factorisant les comportements des {@link LocalisationHitDTO}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -23,13 +23,13 @@ import levy.daniel.application.model.metier.sections.localisations.impl.Localisa
  *
  * @author dan Lévy
  * @version 1.0
- * @since 4 juil. 2019
+ * @since 6 juil. 2019
  *
  */
-public interface ILocalisationHit 
-					extends Comparable<ILocalisationHit>
-								, Serializable, Cloneable
-									, IExportateurCsv, IExportateurJTable {
+public interface ILocalisationHitDTO 
+					extends Comparable<ILocalisationHitDTO>
+									, Serializable, Cloneable
+										, IExportateurCsv, IExportateurJTable {
 
 	
 	
@@ -62,22 +62,22 @@ public interface ILocalisationHit
 	 * <li>prOrigine</li>
 	 * <li>absOrigine</li>
 	 * </ol>
-	 * pour un ILocalisationHit</b><br/>
+	 * pour un ILocalisationHitDTO</b><br/>
 	 * <br/>
 	 */
 	@Override
-	int compareTo(ILocalisationHit pObjet);
+	int compareTo(ILocalisationHitDTO pObjet);
 
 
 
 	/**
 	 * clone.<br/>
 	 *
-	 * @return ILocalisationHit
+	 * @return ILocalisationHitDTO
 	 * 
 	 * @throws CloneNotSupportedException
 	 */
-	ILocalisationHit clone() throws CloneNotSupportedException;
+	ILocalisationHitDTO clone() throws CloneNotSupportedException;
 
 
 
@@ -91,7 +91,7 @@ public interface ILocalisationHit
 
 	/**
 	 * {@inheritDoc}
-	 * <b>enTete CSV pour un ILocalisationHit</b> :<br/>
+	 * <b>enTete CSV pour un ILocalisationHitDTO</b> :<br/>
 	 * "id;
 	 * numRoute;indiceNumRoute;indiceLettreRoute;categorieAdminRoute;
 	 * numDepartement;
@@ -107,7 +107,7 @@ public interface ILocalisationHit
 
 	/**
 	 * {@inheritDoc}
-	 * <b>enTete CSV pour un ILocalisationHit</b> :<br/>
+	 * <b>enTete CSV pour un ILocalisationHitDTO</b> :<br/>
 	 * "id;
 	 * numRoute;indiceNumRoute;indiceLettreRoute;categorieAdminRoute;
 	 * numDepartement;
@@ -123,7 +123,7 @@ public interface ILocalisationHit
 
 	/**
 	 * {@inheritDoc}
-	 * <b>enTete CSV pour un ILocalisationHit</b> :<br/>
+	 * <b>enTete CSV pour un ILocalisationHitDTO</b> :<br/>
 	 * "id;
 	 * numRoute;indiceNumRoute;indiceLettreRoute;categorieAdminRoute;
 	 * numDepartement;
@@ -139,7 +139,7 @@ public interface ILocalisationHit
 
 	/**
 	 * {@inheritDoc}
-	 * <b>enTete CSV pour un ILocalisationHit</b> :<br/>
+	 * <b>enTete CSV pour un ILocalisationHitDTO</b> :<br/>
 	 * "id;
 	 * numRoute;indiceNumRoute;indiceLettreRoute;categorieAdminRoute;
 	 * numDepartement;
@@ -154,21 +154,21 @@ public interface ILocalisationHit
 	
 	
 	/**
-	 * Getter de l'ID en base (sous forme de Long).<br/>
+	 * Getter de l'ID en base (sous forme de String).<br/>
 	 *
-	 * @return this.id : Long.<br/>
+	 * @return this.id : String.<br/>
 	 */
-	Long getId();
+	String getId();
 
 	
 	
 	/**
-	* Setter de l'ID en base (sous forme de Long).<br/>
+	* Setter de l'ID en base (sous forme de String).<br/>
 	*
-	* @param pId : Long : 
+	* @param pId : String : 
 	* valeur à passer à this.id.<br/>
 	*/
-	void setId(Long pId);
+	void setId(String pId);
 
 
 	
@@ -287,40 +287,40 @@ public interface ILocalisationHit
 
 	
 	/**
-	 * Getter du PR Origine.
+	 * Getter du PR Origine (sous forme de String).
 	 *
-	 * @return this.prOrigine : Integer.<br/>
+	 * @return this.prOrigine : String.<br/>
 	 */
-	Integer getPrOrigine();
+	String getPrOrigine();
 
 	
 	
 	/**
-	* Setter du PR Origine.
+	* Setter du PR Origine (sousforme de String).
 	*
-	* @param pPrOrigine : Integer : 
+	* @param pPrOrigine : String : 
 	* valeur à passer à this.prOrigine.<br/>
 	*/
-	void setPrOrigine(Integer pPrOrigine);
+	void setPrOrigine(String pPrOrigine);
 
 
 	
 	/**
-	 * Getter de l'abscisse du point origine.
+	 * Getter de l'abscisse du point origine (sous forme de String).
 	 *
-	 * @return this.absOrigine : Integer.<br/>
+	 * @return this.absOrigine : String.<br/>
 	 */
-	Integer getAbsOrigine();
+	String getAbsOrigine();
 
 	
 	
 	/**
-	* Setter de l'abscisse du point origine.
+	* Setter de l'abscisse du point origine (sous forme de String).
 	*
-	* @param pAbsOrigine : Integer : 
+	* @param pAbsOrigine : String : 
 	* valeur à passer à this.absOrigine.<br/>
 	*/
-	void setAbsOrigine(Integer pAbsOrigine);
+	void setAbsOrigine(String pAbsOrigine);
 
 	
 	
@@ -344,40 +344,40 @@ public interface ILocalisationHit
 
 	
 	/**
-	 * Getter du PR Extremité.
+	 * Getter du PR Extremité (sous forme de String).
 	 *
-	 * @return this.prExtremite : Integer.<br/>
+	 * @return this.prExtremite : String.<br/>
 	 */
-	Integer getPrExtremite();
+	String getPrExtremite();
 
 	
 	
 	/**
-	* Setter du PR Extremité.
+	* Setter du PR Extremité (sous forme de String).
 	*
-	* @param pPrExtremite : Integer : 
+	* @param pPrExtremite : String : 
 	* valeur à passer à this.prExtremite.<br/>
 	*/
-	void setPrExtremite(Integer pPrExtremite);
+	void setPrExtremite(String pPrExtremite);
 
 
 	
 	/**
-	 * Getter de l'abscisse du point extremité.
+	 * Getter de l'abscisse du point extremité (sous forme de String).
 	 *
-	 * @return this.absExtremite : Integer.<br/>
+	 * @return this.absExtremite : String.<br/>
 	 */
-	Integer getAbsExtremite();
+	String getAbsExtremite();
 
 	
 	
 	/**
-	* Setter de l'abscisse du point extremité.
+	* Setter de l'abscisse du point extremité (sous forme de String).
 	*
-	* @param pAbsExtremite : Integer : 
+	* @param pAbsExtremite : String : 
 	* valeur à passer à this.absExtremite.<br/>
 	*/
-	void setAbsExtremite(Integer pAbsExtremite);
+	void setAbsExtremite(String pAbsExtremite);
 
 	
 	
@@ -401,41 +401,41 @@ public interface ILocalisationHit
 
 	
 	/**
-	 * Getter du PR du point de comptage.
+	 * Getter du PR du point de comptage (sous forme de String).
 	 *
-	 * @return this.prComptage : Integer.<br/>
+	 * @return this.prComptage : String.<br/>
 	 */
-	Integer getPrComptage();
+	String getPrComptage();
 
 	
 	
 	/**
-	* Setter du PR du point de comptage.
+	* Setter du PR du point de comptage (sous forme de String).
 	*
-	* @param pPrComptage : Integer : 
+	* @param pPrComptage : String : 
 	* valeur à passer à this.prComptage.<br/>
 	*/
-	void setPrComptage(Integer pPrComptage);
+	void setPrComptage(String pPrComptage);
 
 
 	
 	/**
-	 * Getter de l'abscisse du point de comptage.
+	 * Getter de l'abscisse du point de comptage (sous forme de String).
 	 *
-	 * @return this.absComptage : Integer.<br/>
+	 * @return this.absComptage : String.<br/>
 	 */
-	Integer getAbsComptage();
+	String getAbsComptage();
 
 	
 	
 	/**
-	* Setter de l'abscisse du point de comptage.
+	* Setter de l'abscisse du point de comptage (sous forme de String).
 	*
-	* @param pAbsComptage : Integer : 
+	* @param pAbsComptage : String : 
 	* valeur à passer à this.absComptage.<br/>
 	*/
-	void setAbsComptage(Integer pAbsComptage);
+	void setAbsComptage(String pAbsComptage);
 	
 	
 
-} // FIN DE L'INTERFACE ILocalisationHit.------------------------------------
+} // FIN DE L'INTERFACE ILocalisationHitDTO.---------------------------------
