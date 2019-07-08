@@ -13,8 +13,10 @@ import javax.persistence.Query;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Repository;
 
 import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
+import levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
 import levy.daniel.application.model.persistence.metier.sections.localisations.ILocalisationHitDAO;
 import levy.daniel.application.model.persistence.metier.sections.localisations.LocalisationHitConvertisseurMetierEntity;
@@ -22,7 +24,55 @@ import levy.daniel.application.model.persistence.metier.sections.localisations.e
 
 /**
  * CLASSE LocalisationHitDAOJPASpring :<br/>
- * .<br/>
+ * DAO (Data Access Object) JPA avec SPRING <i>CONCRET</i> 
+ * pour les {@link LocalisationHit}.<br/>
+ *  
+ * <p>
+ * <span style="text-decoration: underline;">CONCEPT 
+ * CONCERNE PAR CE DAO</span>
+ * </p>
+ * 
+ * <p>
+ * <b>{@link ILocalisationHit}</b> modélise un <i>concept</i> 
+ * de <b>Localisation</b> pour les SECTIONS DE TRAFIC HIT.
+ * </p>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">DESCRIPTION DE 
+ * DAO</span>
+ * </p>
+ * <ul>
+ * <li>DAO <b>CONCRET</b> pour les <b>{@link ILocalisationHit}</b>.</li>
+ * <li>
+ * Implémente l'interface <b>ILocalisationHitDAO</b>.
+ * </li>
+ * <li>
+ * DAO pour serializer des ENTITIES JPA {@link LocalisationHitEntityJPA} 
+ * lors de l'utilisation de Java Persistence API (JPA)
+ * pour la persistence dans un contexte SPRING.
+ * </li>
+ * </ul>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">IMPLEMENTATION DES DAO</span>
+ * </p>
+ * <ul>
+ * <li>
+ * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_LocalisationHit_DAO_JpaSpring.png" 
+ * alt="implémentation des DAOs LocalisationHit JPA SPRING" border="1" align="center" />
+ * </li>
+ * </ul>
+ * 
+ * <p>
+ * <span style="text-decoration: underline;">UTILISATION DES DAO</span>
+ * </p>
+ * <ul>
+ * <li>
+ * <img src="../../../../../../../../../../../../javadoc/images/utilisation_LocalisationHit_DAO_JpaSpring.png" 
+ * alt="utilisation des DAOs LocalisationHit JPA SPRING" border="1" align="center" />
+ * </li>
+ * </ul>
+ * 
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -40,6 +90,7 @@ import levy.daniel.application.model.persistence.metier.sections.localisations.e
  * @since 8 juil. 2019
  *
  */
+@Repository(value="LocalisationHitDAOJPASpring")
 public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 
 	// ************************ATTRIBUTS************************************/
@@ -186,6 +237,151 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 		return true;
 		
 	} // Fin de champsObligatoiresRemplis(...).____________________________
+
+
+	
+	/**
+	 * retourne la requete JPQL paramétrée pour la méthode 
+	 * <code><b>retrieve(OBJET METIER pObject)</b></code> 
+	 * en tenant compte de la getion des paramètres null.<br/>
+	 * <br/>
+	 *
+	 * @param pObject : ILocalisationHit : OBJET METIER
+	 * 
+	 * @return javax.persistence.Query
+	 * 
+	 * @throws Exception
+	 */
+	private Query fournirRequeteParametree(
+			final ILocalisationHit pObject) throws Exception {
+		
+		/* REQUETE HQL PARMETREE. */
+		String requeteString = null;
+		
+		Query requete = null;
+		
+		if (pObject.getIndiceNumRoute() != null && pObject.getIndiceLettreRoute() != null) {
+			
+			requeteString 
+				= SELECT_OBJET
+				+ "where localisationHit.numRoute = :pNumRoute "
+				+ "and localisationHit.indiceNumRoute = :pIndiceNumRoute "
+				+ "and localisationHit.indiceLettreRoute = :pIndiceLettreRoute "
+				+ "and localisationHit.categorieAdminRoute = :pCategorieAdminRoute "
+				+ "and localisationHit.numDepartement = :pNumDepartement "
+				+ "and localisationHit.prOrigine = :pPrOrigine "
+				+ "and localisationHit.absOrigine = :pAbsOrigine "
+				+ "and localisationHit.prExtremite = :pPrExtremite "
+				+ "and localisationHit.absExtremite = :pAbsExtremite";
+			
+			/* Construction de la requête HQL. */
+			requete 
+				= this.entityManager.createQuery(requeteString);
+			
+			/* Passage des paramètres de la requête HQL. */
+			requete.setParameter("pNumRoute", pObject.getNumRoute());
+			requete.setParameter("pIndiceNumRoute", pObject.getIndiceNumRoute());
+			requete.setParameter("pIndiceLettreRoute", pObject.getIndiceLettreRoute());
+			requete.setParameter("pCategorieAdminRoute", pObject.getCategorieAdminRoute());
+			requete.setParameter("pNumDepartement", pObject.getNumDepartement());
+			requete.setParameter("pPrOrigine", pObject.getPrOrigine());
+			requete.setParameter("pAbsOrigine", pObject.getAbsOrigine());
+			requete.setParameter("pPrExtremite", pObject.getPrExtremite());
+			requete.setParameter("pAbsExtremite", pObject.getAbsExtremite());
+
+
+		} else if (pObject.getIndiceNumRoute() == null && pObject.getIndiceLettreRoute() != null) {
+			
+			requeteString 
+				= SELECT_OBJET
+				+ "where localisationHit.numRoute = :pNumRoute "
+				+ "and localisationHit.indiceNumRoute IS NULL "
+				+ "and localisationHit.indiceLettreRoute = :pIndiceLettreRoute "
+				+ "and localisationHit.categorieAdminRoute = :pCategorieAdminRoute "
+				+ "and localisationHit.numDepartement = :pNumDepartement "
+				+ "and localisationHit.prOrigine = :pPrOrigine "
+				+ "and localisationHit.absOrigine = :pAbsOrigine "
+				+ "and localisationHit.prExtremite = :pPrExtremite "
+				+ "and localisationHit.absExtremite = :pAbsExtremite";
+			
+			/* Construction de la requête HQL. */
+			requete 
+				= this.entityManager.createQuery(requeteString);
+			
+			/* Passage des paramètres de la requête HQL. */
+			requete.setParameter("pNumRoute", pObject.getNumRoute());
+			requete.setParameter("pIndiceLettreRoute", pObject.getIndiceLettreRoute());
+			requete.setParameter("pCategorieAdminRoute", pObject.getCategorieAdminRoute());
+			requete.setParameter("pNumDepartement", pObject.getNumDepartement());
+			requete.setParameter("pPrOrigine", pObject.getPrOrigine());
+			requete.setParameter("pAbsOrigine", pObject.getAbsOrigine());
+			requete.setParameter("pPrExtremite", pObject.getPrExtremite());
+			requete.setParameter("pAbsExtremite", pObject.getAbsExtremite());
+
+			
+		} else if (pObject.getIndiceNumRoute() != null && pObject.getIndiceLettreRoute() == null) {
+			
+			requeteString 
+				= SELECT_OBJET
+				+ "where localisationHit.numRoute = :pNumRoute "
+				+ "and localisationHit.indiceNumRoute = :pIndiceNumRoute "
+				+ "and localisationHit.indiceLettreRoute IS NULL "
+				+ "and localisationHit.categorieAdminRoute = :pCategorieAdminRoute "
+				+ "and localisationHit.numDepartement = :pNumDepartement "
+				+ "and localisationHit.prOrigine = :pPrOrigine "
+				+ "and localisationHit.absOrigine = :pAbsOrigine "
+				+ "and localisationHit.prExtremite = :pPrExtremite "
+				+ "and localisationHit.absExtremite = :pAbsExtremite";
+			
+			
+			/* Construction de la requête HQL. */
+			requete 
+				= this.entityManager.createQuery(requeteString);
+			
+			/* Passage des paramètres de la requête HQL. */
+			requete.setParameter("pNumRoute", pObject.getNumRoute());
+			requete.setParameter("pIndiceNumRoute", pObject.getIndiceNumRoute());
+			requete.setParameter("pCategorieAdminRoute", pObject.getCategorieAdminRoute());
+			requete.setParameter("pNumDepartement", pObject.getNumDepartement());
+			requete.setParameter("pPrOrigine", pObject.getPrOrigine());
+			requete.setParameter("pAbsOrigine", pObject.getAbsOrigine());
+			requete.setParameter("pPrExtremite", pObject.getPrExtremite());
+			requete.setParameter("pAbsExtremite", pObject.getAbsExtremite());
+
+			
+		} else if (pObject.getIndiceNumRoute() == null && pObject.getIndiceLettreRoute() == null) {
+			
+			requeteString 
+				= SELECT_OBJET
+				+ "where localisationHit.numRoute = :pNumRoute "
+				+ "and localisationHit.indiceNumRoute IS NULL "
+				+ "and localisationHit.indiceLettreRoute IS NULL "
+				+ "and localisationHit.categorieAdminRoute = :pCategorieAdminRoute "
+				+ "and localisationHit.numDepartement = :pNumDepartement "
+				+ "and localisationHit.prOrigine = :pPrOrigine "
+				+ "and localisationHit.absOrigine = :pAbsOrigine "
+				+ "and localisationHit.prExtremite = :pPrExtremite "
+				+ "and localisationHit.absExtremite = :pAbsExtremite";
+			
+			
+			/* Construction de la requête HQL. */
+			requete 
+				= this.entityManager.createQuery(requeteString);
+			
+			/* Passage des paramètres de la requête HQL. */
+			requete.setParameter("pNumRoute", pObject.getNumRoute());
+			requete.setParameter("pCategorieAdminRoute", pObject.getCategorieAdminRoute());
+			requete.setParameter("pNumDepartement", pObject.getNumDepartement());
+			requete.setParameter("pPrOrigine", pObject.getPrOrigine());
+			requete.setParameter("pAbsOrigine", pObject.getAbsOrigine());
+			requete.setParameter("pPrExtremite", pObject.getPrExtremite());
+			requete.setParameter("pAbsExtremite", pObject.getAbsExtremite());
+		
+		}
+
+		return requete;
+		
+	} // Fin de fournirRequeteParametree(...)._____________________________
 	
 	
 
@@ -696,33 +892,12 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 		ILocalisationHit objetResultat = null;		
 		LocalisationHitEntityJPA entity = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-			= SELECT_OBJET
-				+ "where localisationHit.numRoute = :pNumRoute "
-				+ "and localisationHit.indiceNumRoute = :pIndiceNumRoute "
-				+ "and localisationHit.indiceLettreRoute = :pIndiceLettreRoute "
-				+ "and localisationHit.categorieAdminRoute = :pCategorieAdminRoute "
-				+ "and localisationHit.numDepartement = :pNumDepartement "
-				+ "and localisationHit.prOrigine = :pPrOrigine "
-				+ "and localisationHit.absOrigine = :pAbsOrigine "
-				+ "and localisationHit.prExtremite = :pPrExtremite "
-				+ "and localisationHit.absExtremite = :pAbsExtremite";
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteParametree(pObject);
 		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
-		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pNumRoute", pObject.getNumRoute());
-		requete.setParameter("pIndiceNumRoute", pObject.getIndiceNumRoute());
-		requete.setParameter("pIndiceLettreRoute", pObject.getIndiceLettreRoute());
-		requete.setParameter("pCategorieAdminRoute", pObject.getCategorieAdminRoute());
-		requete.setParameter("pNumDepartement", pObject.getNumDepartement());
-		requete.setParameter("pPrOrigine", pObject.getPrOrigine());
-		requete.setParameter("pAbsOrigine", pObject.getAbsOrigine());
-		requete.setParameter("pPrExtremite", pObject.getPrExtremite());
-		requete.setParameter("pAbsExtremite", pObject.getAbsExtremite());
+		if (requete == null) {
+			return null;
+		}
 		
 		try {
 			
@@ -845,33 +1020,13 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 		ILocalisationHit objetResultat = null;		
 		LocalisationHitEntityJPA entity = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-		= SELECT_OBJET
-			+ "where localisationHit.numRoute = :pNumRoute "
-			+ "and localisationHit.indiceNumRoute = :pIndiceNumRoute "
-			+ "and localisationHit.indiceLettreRoute = :pIndiceLettreRoute "
-			+ "and localisationHit.categorieAdminRoute = :pCategorieAdminRoute "
-			+ "and localisationHit.numDepartement = :pNumDepartement "
-			+ "and localisationHit.prOrigine = :pPrOrigine "
-			+ "and localisationHit.absOrigine = :pAbsOrigine "
-			+ "and localisationHit.prExtremite = :pPrExtremite "
-			+ "and localisationHit.absExtremite = :pAbsExtremite";
 		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteParametree(pObject);
 		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pNumRoute", pObject.getNumRoute());
-		requete.setParameter("pIndiceNumRoute", pObject.getIndiceNumRoute());
-		requete.setParameter("pIndiceLettreRoute", pObject.getIndiceLettreRoute());
-		requete.setParameter("pCategorieAdminRoute", pObject.getCategorieAdminRoute());
-		requete.setParameter("pNumDepartement", pObject.getNumDepartement());
-		requete.setParameter("pPrOrigine", pObject.getPrOrigine());
-		requete.setParameter("pAbsOrigine", pObject.getAbsOrigine());
-		requete.setParameter("pPrExtremite", pObject.getPrExtremite());
-		requete.setParameter("pAbsExtremite", pObject.getAbsExtremite());
+		if (requete == null) {
+			return null;
+		}
 		
 		try {
 			
@@ -1814,36 +1969,15 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 		boolean resultat = false;		
 		ILocalisationHit objetResultat = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-		= SELECT_OBJET
-			+ "where localisationHit.numRoute = :pNumRoute "
-			+ "and localisationHit.indiceNumRoute = :pIndiceNumRoute "
-			+ "and localisationHit.indiceLettreRoute = :pIndiceLettreRoute "
-			+ "and localisationHit.categorieAdminRoute = :pCategorieAdminRoute "
-			+ "and localisationHit.numDepartement = :pNumDepartement "
-			+ "and localisationHit.prOrigine = :pPrOrigine "
-			+ "and localisationHit.absOrigine = :pAbsOrigine "
-			+ "and localisationHit.prExtremite = :pPrExtremite "
-			+ "and localisationHit.absExtremite = :pAbsExtremite";
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteParametree(pObject);
 		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
-		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pNumRoute", pObject.getNumRoute());
-		requete.setParameter("pIndiceNumRoute", pObject.getIndiceNumRoute());
-		requete.setParameter("pIndiceLettreRoute", pObject.getIndiceLettreRoute());
-		requete.setParameter("pCategorieAdminRoute", pObject.getCategorieAdminRoute());
-		requete.setParameter("pNumDepartement", pObject.getNumDepartement());
-		requete.setParameter("pPrOrigine", pObject.getPrOrigine());
-		requete.setParameter("pAbsOrigine", pObject.getAbsOrigine());
-		requete.setParameter("pPrExtremite", pObject.getPrExtremite());
-		requete.setParameter("pAbsExtremite", pObject.getAbsExtremite());
+		if (requete == null) {
+			return false;
+		}
 		
 		try {
-			
+						
 			/* Execution de la requete HQL. */
 			objetResultat 
 			= (ILocalisationHit) requete.getSingleResult();

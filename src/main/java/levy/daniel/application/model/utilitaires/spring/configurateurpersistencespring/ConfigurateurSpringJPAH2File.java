@@ -141,12 +141,11 @@ public class ConfigurateurSpringJPAH2File {
 		
 		final List<String> managedClassNames = new LinkedList<String>();
 		
-		managedClassNames.add(
-				"levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa.UtilisateurCerbereEntityJPA");
-		managedClassNames.add(
-				"levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA");
-		managedClassNames.add(
-				"levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA");
+		// AJOUT DES ENTITIES A MAPPER **************************
+		managedClassNames.add("levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa.UtilisateurCerbereEntityJPA");
+		managedClassNames.add("levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA");
+		managedClassNames.add("levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA");
+		managedClassNames.add("levy.daniel.application.model.persistence.metier.sections.localisations.entities.jpa.LocalisationHitEntityJPA");
 		
 		final MyMutablePersistenceUnitInfo 
 			mutablePersistenceUnitInfo 

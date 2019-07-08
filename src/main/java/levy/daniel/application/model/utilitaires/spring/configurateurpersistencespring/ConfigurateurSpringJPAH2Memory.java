@@ -152,6 +152,7 @@ public class ConfigurateurSpringJPAH2Memory {
 		managedClassNames.add("levy.daniel.application.model.persistence.metier.utilisateur.entities.jpa.UtilisateurCerbereEntityJPA");
 		managedClassNames.add("levy.daniel.application.model.persistence.metier.anneegestion.entities.jpa.AnneeGestionEntityJPA");
 		managedClassNames.add("levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA");
+		managedClassNames.add("levy.daniel.application.model.persistence.metier.sections.localisations.entities.jpa.LocalisationHitEntityJPA");
 		
 		final MyMutablePersistenceUnitInfo 
 			mutablePersistenceUnitInfo 
