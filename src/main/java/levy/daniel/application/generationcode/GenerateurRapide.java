@@ -1387,6 +1387,249 @@ public final class GenerateurRapide {
 		return stb.toString();
 		
 	} // Fin de genererAlimenterValeursTypeesDansDTO().____________________
+
+	
+	
+	/**
+	 * génère le bloc de code à insérer dans 
+	 * la méthode creerObjetMetierAPartirEntityJPA(ENTITYJPA)
+	 * dans un ConvertisseurMetierEntity.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER relatif à l'ENTITYJPA.<br/>
+	 * 
+	 * @return  : String : 
+	 * code à insérer dans la méthode 
+	 * creerObjetMetierAPartirEntityJPA(ENTITYJPA)
+	 * dans un ConvertisseurMetierEntity.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererCreerObjetMetierAPartirEntityJPA(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+				
+		stb.append(TAB + TAB + TAB);
+		stb.append("if (pEntityJPA != null) {");
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			stb.append(TAB + TAB + TAB + TAB);
+			stb.append("objet.");
+			stb.append(champ.getNomSetter());
+			stb.append('(');
+			stb.append("pEntityJPA.");
+			stb.append(champ.getNomGetter());
+			stb.append('(');
+			stb.append("));");
+			stb.append(NEWLINE);
+									
+		}
+
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB);
+		stb.append('}');
+		
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB);
+		stb.append("return objet;");
+		
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		return stb.toString();
+				
+	} // Fin de genererCreerObjetMetierAPartirEntityJPA(...).______________
+
+	
+	
+	/**
+	 * génère le bloc de code à insérer dans 
+	 * la méthode convertirEntityJPAEnObjetMetier(ENTITYJPA)
+	 * dans un ConvertisseurMetierEntity.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER relatif à l'ENTITYJPA.<br/>
+	 * 
+	 * @return  : String : 
+	 * code à insérer dans la méthode 
+	 * convertirEntityJPAEnObjetMetier(ENTITYJPA)
+	 * dans un ConvertisseurMetierEntity.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererConvertirEntityJPAEnObjetMetier(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+
+		int nombreChamps = map.size();
+		int compteur = 0;
+		
+		stb.append("");
+		stb.append(NEWLINE);
+				
+		stb.append(TAB + TAB + TAB);
+		stb.append("if (pEntityJPA != null) {");
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB + TAB);
+		stb.append("/* récupère les valeurs dans l'Entity. */");
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB + TAB);
+		stb.append("/* injecte les valeurs typées dans un OBJET METIER. */");
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB +TAB + TAB + TAB);
+		stb.append("objet");
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB +TAB + TAB + TAB + TAB);
+		stb.append(EGAL_ESPACE);
+		stb.append("new");
+		stb.append(ESPACE_CHAR);
+		stb.append(pClass.getSimpleName());
+		stb.append('(');
+		stb.append(NEWLINE);
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			compteur++;
+			
+			stb.append(TAB + TAB + TAB + TAB + TAB + TAB + TAB);
+			
+			if (compteur > 1) {
+				stb.append(", ");
+			}
+			
+			stb.append("pEntityJPA.");
+			stb.append(champ.getNomGetter());
+			stb.append('(');
+			stb.append(')');
+			
+			if (compteur < nombreChamps) {
+				stb.append(NEWLINE);
+			} else {
+				stb.append(");");
+			}
+			
+									
+		}
+		
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB);
+		stb.append('}');
+		
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB);
+		stb.append("return objet;");
+		
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		return stb.toString();
+				
+	} // Fin de genererConvertirEntityJPAEnObjetMetier(...)._______________
+
+	
+	
+	/**
+	 * génère le bloc de code à insérer dans 
+	 * la méthode creerEntityJPA(OBJET METIER)
+	 * dans un ConvertisseurMetierEntity.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER relatif à l'ENTITYJPA.<br/>
+	 * 
+	 * @return  : String : 
+	 * code à insérer dans la méthode 
+	 * creerEntityJPA(ENTITYJPA)
+	 * dans un ConvertisseurMetierEntity.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererCreerEntityJPA(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+				
+		stb.append(TAB + TAB + TAB);
+		stb.append("if (pEntityJPA != null) {");
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			stb.append(TAB + TAB + TAB + TAB);
+			stb.append("objet.");
+			stb.append(champ.getNomSetter());
+			stb.append('(');
+			stb.append("pEntityJPA.");
+			stb.append(champ.getNomGetter());
+			stb.append('(');
+			stb.append("));");
+			stb.append(NEWLINE);
+									
+		}
+
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB);
+		stb.append('}');
+		
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB);
+		stb.append("return objet;");
+		
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+		
+		return stb.toString();
+				
+	} // Fin de genererCreerObjetMetierAPartirEntityJPA(...).______________
 	
 	
 	
@@ -2178,7 +2421,7 @@ public final class GenerateurRapide {
 		
 //		System.out.println(genererMethodeFournirEnTeteColonne(classe));
 		
-		System.out.println(genererMethodeFournirValeurColonne(classe));
+//		System.out.println(genererMethodeFournirValeurColonne(classe));
 		
 //		System.out.println(genererMethodeFournirDTO(classe));
 		
@@ -2193,6 +2436,10 @@ public final class GenerateurRapide {
 //		System.out.println(genererConvertirValeursTypeeDansOBJET(classe));
 		
 //		System.out.println(genererAlimenterValeursStringDansOBJET(classe));
+		
+//		System.out.println(genererCreerObjetMetierAPartirEntityJPA(classe));
+		
+		System.out.println(genererConvertirEntityJPAEnObjetMetier(classe));
 		
     } // Fin de main(...)._________________________________________________
 
