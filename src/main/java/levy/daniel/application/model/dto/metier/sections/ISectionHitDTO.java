@@ -3,6 +3,7 @@ package levy.daniel.application.model.dto.metier.sections;
 import java.io.Serializable;
 
 import levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO;
+import levy.daniel.application.model.dto.metier.sections.localisations.ILocalisationHitDTO;
 import levy.daniel.application.model.metier.IExportateurCsv;
 import levy.daniel.application.model.metier.IExportateurJTable;
 
@@ -3052,6 +3053,27 @@ public interface ISectionHitDTO extends Comparable<ISectionHitDTO>
 	* valeur à passer à this.zoneLibre4.<br/>
 	*/
 	void setZoneLibre4(String pZoneLibre4);
+
+
+	
+	/**
+	 * Getter du DTO de la Localisation de la section.<br/>
+	 * COMPOSANT.<br/>
+	 *
+	 * @return this.localisationDTO : ILocalisationHitDTO.<br/>
+	 */
+	ILocalisationHitDTO getLocalisationDTO();
+
+
+	
+	/**
+	* Setter du DTO de la Localisation de la section.<br/>
+	* COMPOSANT.<br/>
+	*
+	* @param pLocalisationDTO : ILocalisationHitDTO : 
+	* valeur à passer à this.localisationDTO.<br/>
+	*/
+	void setLocalisationDTO(ILocalisationHitDTO pLocalisationDTO);
 	
 	
 

@@ -848,7 +848,8 @@ public class SectionHit implements ISectionHit {
 	private String zoneLibre4;
 
 	/**
-	 * Localisation de la section.
+	 * Localisation de la section.<br/>
+	 * COMPOSANT.<br/>
 	 */
 	private ILocalisationHit localisation = new LocalisationHit();
 	
@@ -1311,12 +1312,58 @@ public class SectionHit implements ISectionHit {
 			
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			final String message 
+				= CLASSE_SECTION_HIT 
+				+ MOINS_ESPACE 
+				+ "Méthode fournirLongueurChamp(int pNumeroChamp)"
+				+ MOINS_ESPACE
+				+ "Impossible d'obtenir la description du champ d'ordre "
+				+ pNumeroChamp;
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message, e);
+			}
+			
+			throw new RuntimeException(message, e);
 		}
 
 		return longueurChamp;
 		
 	} // Fin de fournirLongueurChamp(...)._________________________________
+	
+
+	
+	/**
+	 * alimente les attributs de la présente classe 
+	 * concernés par le COMPOSANT METIER
+	 * avec les mêmes attributs contenus dans le COMPOSANT METIER.<br/>
+	 * <br/>
+	 *
+	 * @param pObject : ILocalisationHit : COMPOSANT METIER.<br/>
+	 */
+	private void alimenterAttributsLocalisation(
+			final ILocalisationHit pObject) {
+		
+		if (pObject == null) {
+			return;
+		}
+		
+		this.setNumRoute(pObject.getNumRoute());
+		this.setIndiceNumRoute(pObject.getIndiceNumRoute());
+		this.setIndiceLettreRoute(pObject.getIndiceLettreRoute());
+		this.setCategorieAdminRoute(pObject.getCategorieAdminRoute());
+		this.setNumDepartement(pObject.getNumDepartement());
+		this.setLieuDitOrigine(pObject.getLieuDitOrigine());
+		this.setPrOrigine(pObject.getPrOrigine());
+		this.setAbsOrigine(pObject.getAbsOrigine());
+		this.setLieuDitExtremite(pObject.getLieuDitExtremite());
+		this.setPrExtremite(pObject.getPrExtremite());
+		this.setAbsExtremite(pObject.getAbsExtremite());
+		this.setLieuDitComptage(pObject.getLieuDitComptage());
+		this.setPrComptage(pObject.getPrComptage());
+		this.setAbsComptage(pObject.getAbsComptage());
+		
+	} // Fin de alimenterAttributsLocalisation(...)._______________________
 	
 	
 	
@@ -5165,7 +5212,7 @@ public class SectionHit implements ISectionHit {
 		this.indiceNumRoute = pIndiceNumRoute;
 		
 		if (this.localisation != null) {
-		 this.localisation.setIndiceNumRoute(this.indiceNumRoute);
+			this.localisation.setIndiceNumRoute(this.indiceNumRoute);
 		}
 		
 	} // Fin de setIndiceNumRoute(...).____________________________________
@@ -5192,7 +5239,7 @@ public class SectionHit implements ISectionHit {
 		this.indiceLettreRoute = pIndiceLettreRoute;
 		
 		if (this.localisation != null) {
-		 this.localisation.setIndiceLettreRoute(this.indiceLettreRoute);
+			this.localisation.setIndiceLettreRoute(this.indiceLettreRoute);
 		}
 
 	} // Fin de setIndiceLettreRoute(...)._________________________________
@@ -5219,7 +5266,7 @@ public class SectionHit implements ISectionHit {
 		this.categorieAdminRoute = pCategorieAdminRoute;
 				
 		if (this.localisation != null) {
-		 this.localisation.setCategorieAdminRoute(this.categorieAdminRoute);
+			this.localisation.setCategorieAdminRoute(this.categorieAdminRoute);
 		}
 
 	} // Fin de setCategorieAdminRoute(...)._______________________________
@@ -7857,7 +7904,13 @@ public class SectionHit implements ISectionHit {
 	 */
 	@Override
 	public final void setLocalisation(final ILocalisationHit pLocalisation) {
+		
 		this.localisation = pLocalisation;
+		
+		/* alimente automatiquement les attributs de la présente classe 
+		 * avec les attributs correspondants du COMPOSANT. */
+		this.alimenterAttributsLocalisation(this.localisation);
+		
 	} // Fin de setLocalisation(...).______________________________________
 
 	

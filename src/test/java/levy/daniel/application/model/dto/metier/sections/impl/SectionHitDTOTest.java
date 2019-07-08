@@ -16,6 +16,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import levy.daniel.application.model.dto.metier.sections.ISectionHitDTO;
+import levy.daniel.application.model.dto.metier.sections.localisations.ILocalisationHitDTO;
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl.ImporteurHit;
 
 /**
@@ -134,6 +135,11 @@ public class SectionHitDTOTest {
 	public static  ISectionHitDTO dto;
 	
 	/**
+	 * Localisation (COMPOSANT) du DTO.
+	 */
+	public static ILocalisationHitDTO localisationDTO;
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -181,6 +187,7 @@ public class SectionHitDTOTest {
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
 				System.out.println(toStringASCII);
+				System.out.println("localisationDTO : " + localisationDTO.toString());
 			}
 			
 			/* garantit que toStringASCII() ne retourne pas null. */
@@ -488,6 +495,10 @@ public class SectionHitDTOTest {
 		dto = fichierMapDTO.get(1);
 		
 		assertEquals("doivent être égaux : ", dto, dtoMap);
+		
+		localisationDTO = dto.getLocalisationDTO();
+		
+		assertNotNull("Le composant ne doit pas être null : ", localisationDTO);
 		
 	} // Fin de beforeClass()._____________________________________________
 

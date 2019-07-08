@@ -386,7 +386,7 @@ public class LocalisationHit implements ILocalisationHit {
 	} // Fin de fournirInteger(...)._______________________________________
 
 	
-		
+			
 	/**
 	 * {@inheritDoc}
 	 */

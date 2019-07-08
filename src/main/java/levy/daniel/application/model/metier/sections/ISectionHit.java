@@ -3076,7 +3076,8 @@ public interface ISectionHit extends Comparable<ISectionHit>
 
 	
 	/**
-	 * Getter de la Localisation de la section.
+	 * Getter de la Localisation de la section.<br/>
+	 * COMPOSANT.<br/>
 	 *
 	 * @return this.localisation : ILocalisationHit.<br/>
 	 */
@@ -3085,7 +3086,12 @@ public interface ISectionHit extends Comparable<ISectionHit>
 
 	
 	/**
-	* Setter de la Localisation de la section.
+	* Setter de la Localisation de la section.<br/>
+	* COMPOSANT.
+	* <ul>
+	* <li>alimente automatiquement les attributs de la présente classe 
+	* avec les attributs correspondants du COMPOSANT.</li>
+	* </ul>
 	*
 	* @param pLocalisation : ILocalisationHit : 
 	* valeur à passer à this.localisation.<br/>

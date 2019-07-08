@@ -1,17 +1,39 @@
-package levy.daniel.application.model.dto.metier.sections.impl;
+package levy.daniel.application.model.persistence.metier.sections.entities.jpa;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.SortedMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
+
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.dto.metier.sections.ISectionHitDTO;
-import levy.daniel.application.model.dto.metier.sections.localisations.ILocalisationHitDTO;
-import levy.daniel.application.model.dto.metier.sections.localisations.impl.LocalisationHitDTO;
+import levy.daniel.application.model.metier.sections.ISectionHit;
+import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
+import levy.daniel.application.model.persistence.metier.sections.localisations.entities.jpa.LocalisationHitEntityJPA;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.IImportateurDescription;
+import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.factorydescription.FactoryDescription;
 
 /**
- * CLASSE SectionHitDTO :<br/>
+ * CLASSE SectionHitEntityJPA :<br/>
  * .<br/>
  * <br/>
  *
@@ -19,18 +41,87 @@ import levy.daniel.application.model.dto.metier.sections.localisations.impl.Loca
  *<br/>
  * 
  * - Mots-clé :<br/>
+ * parser une Date, parser une LocalDate, fournir une année à 2 chiffres,<br/>
+ * fournir une annee à 2 chiffres, afficher une date sur deux chiffres, <br/>
+ * afficher une date sur deux caractères,<br/>
+ * Regex, REGEX, Regex 2 chiffres, Regex annee sur deux chiffres, <br/>
+ * motif Regex année sur 2 chiffres, <br/>
  * <br/>
  *
  * - Dépendances :<br/>
  * <br/>
  *
  *
- * @author daniel.levy Lévy
+ * @author dan Lévy
  * @version 1.0
- * @since 7 juin 2019
+ * @since 29 juin 2019
  *
  */
-public class SectionHitDTO implements ISectionHitDTO {
+@Entity
+@Table(name="SECTIONHITS", schema="PUBLIC"
+, uniqueConstraints=@UniqueConstraint(name="UNICITE_EQUALS"
+, columnNames={"ID_LOCALISATION_HIT", "NUMSECTION", "SENS", "NATURE"
+		, "CLASSE"
+		, "ANNEETRAITEMENT"
+		, "ZONELIBRE1"
+		, "TYPECOMPTAGE", "CLASSEMENTROUTE"
+		, "CLASSELARGEURCHAUSSEEU", "CLASSELARGEURCHAUSSEESS"
+		, "TYPERESEAU", "PROUPK"
+		, "LONGUEURSECTION", "LONGUEURRASECAMPAGNE"
+		, "NUMDEPARTEMENTRATTACHEMENT", "NUMSECTIONRATTACHEMENT", "SENSRATTACHEMENT"
+		, "NUMDEPARTEMENTLIMITROPHE", "NUMSECTIONLIMITROPHE", "SENSLIMITROPHE"
+		, "MOISSECTIONNEMENT", "ANNEESECTIONNEMENT"
+		, "ZONELIBRE2"
+		, "MJAN", "MODECALCULN", "PCPLN", "EVALUATIONPLN", "PCNUITANNUELN", "INDICEFIABILITEMJAN"
+		, "MJMNMOIS01", "PCNUITNMOIS01"
+		, "MJMNMOIS02", "PCNUITNMOIS02"
+		, "MJMNMOIS03", "PCNUITNMOIS03"
+		, "MJMNMOIS04", "PCNUITNMOIS04"
+		, "MJMNMOIS05", "PCNUITNMOIS05"
+		, "MJMNMOIS06", "PCNUITNMOIS06"
+		, "MJMNMOIS07", "PCNUITNMOIS07"
+		, "MJMNMOIS08", "PCNUITNMOIS08"
+		, "MJMNMOIS09", "PCNUITNMOIS09"
+		, "MJMNMOIS10", "PCNUITNMOIS10"
+		, "MJMNMOIS11", "PCNUITNMOIS11"
+		, "MJMNMOIS12", "PCNUITNMOIS12"
+		, "ZONELIBRE3"
+		, "ANNEENMOINS1"
+		, "MJANMOINS1", "TYPECOMPTAGENMOINS1", "MODECALCULNMOINS1"
+		, "PCPLNMOINS1", "EVALUATIONPLNMOINS1", "PCNUITANNUELNMOINS1"
+		, "INDICEFIABILITEMJANMOINS1"
+		, "ANNEENMOINS2"
+		, "MJANMOINS2", "TYPECOMPTAGENMOINS2", "MODECALCULNMOINS2"
+		, "PCPLNMOINS2", "EVALUATIONPLNMOINS2", "PCNUITANNUELNMOINS2"
+		, "INDICEFIABILITEMJANMOINS2"
+		, "ANNEENMOINS3"
+		, "MJANMOINS3", "TYPECOMPTAGENMOINS3", "MODECALCULNMOINS3"
+		, "PCPLNMOINS3", "EVALUATIONPLNMOINS3", "PCNUITANNUELNMOINS3"
+		, "INDICEFIABILITEMJANMOINS3"
+		, "ANNEENMOINS4"
+		, "MJANMOINS4", "TYPECOMPTAGENMOINS4", "MODECALCULNMOINS4"
+		, "PCPLNMOINS4", "EVALUATIONPLNMOINS4", "PCNUITANNUELNMOINS4"
+		, "INDICEFIABILITEMJANMOINS4"
+		, "ANNEENMOINS5"
+		, "MJANMOINS5", "TYPECOMPTAGENMOINS5", "MODECALCULNMOINS5"
+		, "PCPLNMOINS5", "EVALUATIONPLNMOINS5", "PCNUITANNUELNMOINS5"
+		, "INDICEFIABILITEMJANMOINS5"
+		, "MJMNMOINS1MOIS01", "PCNUITNMOINS1MOIS01"
+		, "MJMNMOINS1MOIS02", "PCNUITNMOINS1MOIS02"
+		, "MJMNMOINS1MOIS03", "PCNUITNMOINS1MOIS03"
+		, "MJMNMOINS1MOIS04", "PCNUITNMOINS1MOIS04"
+		, "MJMNMOINS1MOIS05", "PCNUITNMOINS1MOIS05"
+		, "MJMNMOINS1MOIS06", "PCNUITNMOINS1MOIS06"
+		, "MJMNMOINS1MOIS07", "PCNUITNMOINS1MOIS07"
+		, "MJMNMOINS1MOIS08", "PCNUITNMOINS1MOIS08"
+		, "MJMNMOINS1MOIS09", "PCNUITNMOINS1MOIS09"
+		, "MJMNMOINS1MOIS10", "PCNUITNMOINS1MOIS10"
+		, "MJMNMOINS1MOIS11", "PCNUITNMOINS1MOIS11"
+		, "MJMNMOINS1MOIS12", "PCNUITNMOINS1MOIS12"
+		, "ZONELIBRE4"})
+, indexes={@Index(name="INDEX_ID_LOCALISATION_HIT_ANNEETRAITEMENT_SENS"
+, columnList="ID_LOCALISATION_HIT, ANNEETRAITEMENT, SENS")})
+public class SectionHitEntityJPA implements ISectionHit {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -38,6 +129,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * serialVersionUID.<br/>
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * "Classe SectionHitEntityJPA".
+	 */
+	public static final String CLASSE_SECTION_HIT 
+		= "Classe SectionHitEntityJPA";
 	
 	/**
 	 * ';'.<br/>
@@ -50,6 +147,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	public static final String VIRGULE_ESPACE = ", ";
 	
 	/**
+	 * " - ".
+	 */
+	public static final String MOINS_ESPACE = " - ";
+	
+	/**
 	 * "null".<br/>
 	 */
 	public static final String NULL = "null";
@@ -60,9 +162,14 @@ public class SectionHitDTO implements ISectionHitDTO {
 	public static final String UNUSED = "unused";
 	
 	/**
-	 * id en base sous forme de String.<br/>
+	 * Importateur de la description du fichier HIT.
 	 */
-	private String id;
+	private final transient IImportateurDescription descriptionFichier;
+	
+	/**
+	 * id en base sous forme de Long.<br/>
+	 */
+	private Long id;
 	
 	/**
 	 * numéro de département.<br/>
@@ -92,7 +199,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * année de traitement.<br/>
 	 */
-	private String anneeTraitement;
+	private LocalDate anneeTraitement;
 	
 	/**
 	 * zone libre 1.<br/>
@@ -157,12 +264,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * PR Origine.
 	 */
-	private String prOrigine;
+	private Integer prOrigine;
 	
 	/**
 	 * abscisse du point origine.
 	 */
-	private String absOrigine;
+	private Integer absOrigine;
 	
 	/**
 	 * libellé du lieu-dit extremité.
@@ -172,12 +279,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * PR Extremité.
 	 */
-	private String prExtremite;
+	private Integer prExtremite;
 	
 	/**
 	 * abscisse du point extremité.
 	 */
-	private String absExtremite;
+	private Integer absExtremite;
 	
 	/**
 	 * libellé du lieu-dit du point de comptage.
@@ -187,22 +294,22 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * PR du point de comptage.
 	 */
-	private String prComptage;
+	private Integer prComptage;
 	
 	/**
 	 * abscisse du point de comptage.
 	 */
-	private String absComptage;
+	private Integer absComptage;
 	
 	/**
 	 * longueur de la section en mètres.
 	 */
-	private String longueurSection;
+	private Integer longueurSection;
 	
 	/**
 	 * longueur en rase campagne en mètres.
 	 */
-	private String longueurRaseCampagne;
+	private Integer longueurRaseCampagne;
 	
 	/**
 	 * numéro de département de la section de Rattachement.
@@ -252,7 +359,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * trafic moyen journalier annuel de l'année de traitement N.
 	 */
-	private String mjaN;
+	private Integer mjaN;
 	
 	/**
 	 * mode de calcul des trafics de l'année de traitement N.
@@ -285,7 +392,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de janvier (01) de l'année de traitement N.
 	 */
-	private String mjmNmois01;
+	private Integer mjmNmois01;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -297,7 +404,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de février (02) de l'année de traitement N.
 	 */
-	private String mjmNmois02;
+	private Integer mjmNmois02;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -309,7 +416,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de mars (03) de l'année de traitement N.
 	 */
-	private String mjmNmois03;
+	private Integer mjmNmois03;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -321,7 +428,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de avril (04) de l'année de traitement N.
 	 */
-	private String mjmNmois04;
+	private Integer mjmNmois04;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -333,7 +440,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de mai (05) de l'année de traitement N.
 	 */
-	private String mjmNmois05;
+	private Integer mjmNmois05;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -345,7 +452,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de juin (06) de l'année de traitement N.
 	 */
-	private String mjmNmois06;
+	private Integer mjmNmois06;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -357,7 +464,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de juillet (07) de l'année de traitement N.
 	 */
-	private String mjmNmois07;
+	private Integer mjmNmois07;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -369,7 +476,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de août (08) de l'année de traitement N.
 	 */
-	private String mjmNmois08;
+	private Integer mjmNmois08;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -381,7 +488,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de septembre (09) de l'année de traitement N.
 	 */
-	private String mjmNmois09;
+	private Integer mjmNmois09;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -393,7 +500,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de octobre (10) de l'année de traitement N.
 	 */
-	private String mjmNmois10;
+	private Integer mjmNmois10;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -405,7 +512,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de novembre (11) de l'année de traitement N.
 	 */
-	private String mjmNmois11;
+	private Integer mjmNmois11;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -417,7 +524,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de décembre (12) de l'année de traitement N.
 	 */
-	private String mjmNmois12;
+	private Integer mjmNmois12;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel
@@ -433,12 +540,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * année n-1.
 	 */
-	private String anneeNmoins1;
+	private LocalDate anneeNmoins1;
 	
 	/**
 	 * trafic moyen journalier annuel de l'année n-1.
 	 */
-	private String mjaNmoins1;
+	private Integer mjaNmoins1;
 	
 	/**
 	 * type de comptage de l'année n-1.
@@ -476,12 +583,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * année n-2.
 	 */
-	private String anneeNmoins2;
+	private LocalDate anneeNmoins2;
 	
 	/**
 	 * trafic moyen journalier annuel de l'année n-2.
 	 */
-	private String mjaNmoins2;
+	private Integer mjaNmoins2;
 	
 	/**
 	 * type de comptage de l'année n-2.
@@ -519,12 +626,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * année n-3.
 	 */
-	private String anneeNmoins3;
+	private LocalDate anneeNmoins3;
 	
 	/**
 	 * trafic moyen journalier annuel de l'année n-3.
 	 */
-	private String mjaNmoins3;
+	private Integer mjaNmoins3;
 	
 	/**
 	 * type de comptage de l'année n-3.
@@ -562,12 +669,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * année n-4.
 	 */
-	private String anneeNmoins4;
+	private LocalDate anneeNmoins4;
 	
 	/**
 	 * trafic moyen journalier annuel de l'année n-4.
 	 */
-	private String mjaNmoins4;
+	private Integer mjaNmoins4;
 	
 	/**
 	 * type de comptage de l'année n-4.
@@ -605,12 +712,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * année n-5.
 	 */
-	private String anneeNmoins5;
+	private LocalDate anneeNmoins5;
 	
 	/**
 	 * trafic moyen journalier annuel de l'année n-5.
 	 */
-	private String mjaNmoins5;
+	private Integer mjaNmoins5;
 	
 	/**
 	 * type de comptage de l'année n-5.
@@ -650,7 +757,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de janvier (01) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois01;
+	private Integer mjmNmoins1mois01;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -664,7 +771,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de février (02) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois02;
+	private Integer mjmNmoins1mois02;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -678,7 +785,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de mars (03) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois03;
+	private Integer mjmNmoins1mois03;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -692,7 +799,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de avril (04) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois04;
+	private Integer mjmNmoins1mois04;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -706,7 +813,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de mai (05) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois05;
+	private Integer mjmNmoins1mois05;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -720,7 +827,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de juin (06) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois06;
+	private Integer mjmNmoins1mois06;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -734,7 +841,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de juillet (07) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois07;
+	private Integer mjmNmoins1mois07;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -748,7 +855,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de août (08) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois08;
+	private Integer mjmNmoins1mois08;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -762,7 +869,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de septembre (09) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois09;
+	private Integer mjmNmoins1mois09;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -776,7 +883,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de octobre (10) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois10;
+	private Integer mjmNmoins1mois10;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -790,7 +897,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de novembre (11) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois11;
+	private Integer mjmNmoins1mois11;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -804,7 +911,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * du mois de décembre (12) 
 	 * de l'année précédent l'année de traitement N.
 	 */
-	private String mjmNmoins1mois12;
+	private Integer mjmNmoins1mois12;
 	
 	/**
 	 * pourcentage de trafic de nuit tous véhicules mensuel 
@@ -817,19 +924,19 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * zone libre 4.
 	 */
 	private String zoneLibre4;
-	
+
 	/**
-	 * DTO de la Localisation de la section.<br/>
+	 * Localisation de la section.<br/>
 	 * COMPOSANT.<br/>
 	 */
-	private ILocalisationHitDTO localisationDTO = new LocalisationHitDTO();
-
+	private ILocalisationHit localisation = new LocalisationHitEntityJPA();
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
-	private static final Log LOG = LogFactory.getLog(SectionHitDTO.class);
+	private static final Log LOG = LogFactory.getLog(SectionHitEntityJPA.class);
 
 	
 	// *************************METHODES************************************/
@@ -837,34 +944,51 @@ public class SectionHitDTO implements ISectionHitDTO {
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.
+	 * <ul>
+	 * <li>alimente <code><b>this.descriptionFichier</b></code>.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
 	 */
-	public SectionHitDTO() {
+	public SectionHitEntityJPA() throws Exception {
+		
 		super();
+		
+		/* alimente this.descriptionFichier. */
+		FactoryDescription.getDecriptionHitMap();		
+		this.descriptionFichier = FactoryDescription.getImportateurHit();
+		
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
 	
 		
 	 /**
 	 * CONSTRUCTEUR CONVERTISSEUR.<br/>
-	 * Instancie un DTO à partir d'une SortedMap&lt;Integer, String&gt; 
+	 * Instancie un OBJET METIER à partir d'une SortedMap&lt;Integer, String&gt; 
 	 * description de ligne d'un fichier HIT.<br/>
-	 * <br/>
+	 * <ul>
+	 * <li>alimente <code><b>this.descriptionFichier</b></code>.</li>
+	 * </ul>
 	 * - LOG.fatal et jette une RunTimeException 
 	 * si pDescriptionLigne == null.<br/>
 	 * </br/>
 	 * 
 	 * 
 	 * @param pDescriptionLigne : SortedMap&lt;Integer, String&gt;
+	 * 
+	 * @throws Exception 
 	 */
-	public SectionHitDTO(final SortedMap<Integer, String> pDescriptionLigne) {
+	public SectionHitEntityJPA(final SortedMap<Integer, String> pDescriptionLigne) 
+			throws Exception {
 		
 		super();
 		
-		/* LOG.fatal et jette une RunTimeException si pDescriptionLigne == null. */
+		/* LOG.fatal et jette une RunTimeException 
+		 * si pDescriptionLigne == null. */
 		if (pDescriptionLigne == null) {
 			
 			final String message 
-				= "Impossible d'instancier un SectionHitDTO à partir "
+				= "Impossible d'instancier un SectionHitEntityJPA à partir "
 						+ "d'une SortedMap<Integer, String> "
 						+ "pDescriptionLigne null";
 			
@@ -874,6 +998,10 @@ public class SectionHitDTO implements ISectionHitDTO {
 			
 			throw new RuntimeException(message);
 		}
+		
+		/* alimente this.descriptionFichier. */
+		FactoryDescription.getDecriptionHitMap();		
+		this.descriptionFichier = FactoryDescription.getImportateurHit();
 
 		this.setId(null);
 		this.setNumDepartement(pDescriptionLigne.get(1));
@@ -881,7 +1009,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		this.setSens(pDescriptionLigne.get(3));
 		this.setNature(pDescriptionLigne.get(4));
 		this.setClasse(pDescriptionLigne.get(5));
-		this.setAnneeTraitement(pDescriptionLigne.get(6));
+		this.setAnneeTraitement(
+				this.fournirDateAvecAnneeSurDeuxChiffres(
+						pDescriptionLigne.get(6)));
 		this.setZoneLibre1(pDescriptionLigne.get(7));
 		this.setNumRoute(pDescriptionLigne.get(8));
 		this.setIndiceNumRoute(pDescriptionLigne.get(9));
@@ -894,16 +1024,18 @@ public class SectionHitDTO implements ISectionHitDTO {
 		this.setTypeReseau(pDescriptionLigne.get(16));
 		this.setPRoupK(pDescriptionLigne.get(17));
 		this.setLieuDitOrigine(pDescriptionLigne.get(18));
-		this.setPrOrigine(pDescriptionLigne.get(19));
-		this.setAbsOrigine(pDescriptionLigne.get(20));
+		this.setPrOrigine(this.fournirInteger(pDescriptionLigne.get(19)));
+		this.setAbsOrigine(this.fournirInteger(pDescriptionLigne.get(20)));
 		this.setLieuDitExtremite(pDescriptionLigne.get(21));
-		this.setPrExtremite(pDescriptionLigne.get(22));
-		this.setAbsExtremite(pDescriptionLigne.get(23));
+		this.setPrExtremite(this.fournirInteger(pDescriptionLigne.get(22)));
+		this.setAbsExtremite(this.fournirInteger(pDescriptionLigne.get(23)));
 		this.setLieuDitComptage(pDescriptionLigne.get(24));
-		this.setPrComptage(pDescriptionLigne.get(25));
-		this.setAbsComptage(pDescriptionLigne.get(26));
-		this.setLongueurSection(pDescriptionLigne.get(27));
-		this.setLongueurRaseCampagne(pDescriptionLigne.get(28));
+		this.setPrComptage(this.fournirInteger(pDescriptionLigne.get(25)));
+		this.setAbsComptage(this.fournirInteger(pDescriptionLigne.get(26)));
+		this.setLongueurSection(
+				this.fournirInteger(pDescriptionLigne.get(27)));
+		this.setLongueurRaseCampagne(
+				this.fournirInteger(pDescriptionLigne.get(28)));
 		this.setNumDepartementRattachement(pDescriptionLigne.get(29));
 		this.setNumSectionRattachement(pDescriptionLigne.get(30));
 		this.setSensRattachement(pDescriptionLigne.get(31));
@@ -913,117 +1045,382 @@ public class SectionHitDTO implements ISectionHitDTO {
 		this.setMoisSectionnement(pDescriptionLigne.get(35));
 		this.setAnneeSectionnement(pDescriptionLigne.get(36));
 		this.setZoneLibre2(pDescriptionLigne.get(37));
-		this.setMjaN(pDescriptionLigne.get(38));
+		this.setMjaN(this.fournirInteger(pDescriptionLigne.get(38)));
 		this.setModeCalculN(pDescriptionLigne.get(39));
 		this.setPcPLN(pDescriptionLigne.get(40));
 		this.setEvaluationPLN(pDescriptionLigne.get(41));
 		this.setPcNuitAnnuelN(pDescriptionLigne.get(42));
 		this.setIndiceFiabiliteMjaN(pDescriptionLigne.get(43));
-		this.setMjmNmois01(pDescriptionLigne.get(44));
+		this.setMjmNmois01(this.fournirInteger(pDescriptionLigne.get(44)));
 		this.setPcNuitNmois01(pDescriptionLigne.get(45));
-		this.setMjmNmois02(pDescriptionLigne.get(46));
+		this.setMjmNmois02(this.fournirInteger(pDescriptionLigne.get(46)));
 		this.setPcNuitNmois02(pDescriptionLigne.get(47));
-		this.setMjmNmois03(pDescriptionLigne.get(48));
+		this.setMjmNmois03(this.fournirInteger(pDescriptionLigne.get(48)));
 		this.setPcNuitNmois03(pDescriptionLigne.get(49));
-		this.setMjmNmois04(pDescriptionLigne.get(50));
+		this.setMjmNmois04(this.fournirInteger(pDescriptionLigne.get(50)));
 		this.setPcNuitNmois04(pDescriptionLigne.get(51));
-		this.setMjmNmois05(pDescriptionLigne.get(52));
+		this.setMjmNmois05(this.fournirInteger(pDescriptionLigne.get(52)));
 		this.setPcNuitNmois05(pDescriptionLigne.get(53));
-		this.setMjmNmois06(pDescriptionLigne.get(54));
+		this.setMjmNmois06(this.fournirInteger(pDescriptionLigne.get(54)));
 		this.setPcNuitNmois06(pDescriptionLigne.get(55));
-		this.setMjmNmois07(pDescriptionLigne.get(56));
+		this.setMjmNmois07(this.fournirInteger(pDescriptionLigne.get(56)));
 		this.setPcNuitNmois07(pDescriptionLigne.get(57));
-		this.setMjmNmois08(pDescriptionLigne.get(58));
+		this.setMjmNmois08(this.fournirInteger(pDescriptionLigne.get(58)));
 		this.setPcNuitNmois08(pDescriptionLigne.get(59));
-		this.setMjmNmois09(pDescriptionLigne.get(60));
+		this.setMjmNmois09(this.fournirInteger(pDescriptionLigne.get(60)));
 		this.setPcNuitNmois09(pDescriptionLigne.get(61));
-		this.setMjmNmois10(pDescriptionLigne.get(62));
+		this.setMjmNmois10(this.fournirInteger(pDescriptionLigne.get(62)));
 		this.setPcNuitNmois10(pDescriptionLigne.get(63));
-		this.setMjmNmois11(pDescriptionLigne.get(64));
+		this.setMjmNmois11(this.fournirInteger(pDescriptionLigne.get(64)));
 		this.setPcNuitNmois11(pDescriptionLigne.get(65));
-		this.setMjmNmois12(pDescriptionLigne.get(66));
+		this.setMjmNmois12(this.fournirInteger(pDescriptionLigne.get(66)));
 		this.setPcNuitNmois12(pDescriptionLigne.get(67));
 		this.setZoneLibre3(pDescriptionLigne.get(68));
-		this.setAnneeNmoins1(pDescriptionLigne.get(69));
-		this.setMjaNmoins1(pDescriptionLigne.get(70));
+		this.setAnneeNmoins1(
+				this.fournirDateAvecAnneeSurDeuxChiffres(
+						pDescriptionLigne.get(69)));
+		this.setMjaNmoins1(this.fournirInteger(pDescriptionLigne.get(70)));
 		this.setTypeComptageNmoins1(pDescriptionLigne.get(71));
 		this.setModeCalculNmoins1(pDescriptionLigne.get(72));
 		this.setPcPLNmoins1(pDescriptionLigne.get(73));
 		this.setEvaluationPLNmoins1(pDescriptionLigne.get(74));
 		this.setPcNuitAnnuelNmoins1(pDescriptionLigne.get(75));
 		this.setIndiceFiabiliteMjaNmoins1(pDescriptionLigne.get(76));
-		this.setAnneeNmoins2(pDescriptionLigne.get(77));
-		this.setMjaNmoins2(pDescriptionLigne.get(78));
+		this.setAnneeNmoins2(
+				this.fournirDateAvecAnneeSurDeuxChiffres(
+						pDescriptionLigne.get(77)));
+		this.setMjaNmoins2(this.fournirInteger(pDescriptionLigne.get(78)));
 		this.setTypeComptageNmoins2(pDescriptionLigne.get(79));
 		this.setModeCalculNmoins2(pDescriptionLigne.get(80));
 		this.setPcPLNmoins2(pDescriptionLigne.get(81));
 		this.setEvaluationPLNmoins2(pDescriptionLigne.get(82));
 		this.setPcNuitAnnuelNmoins2(pDescriptionLigne.get(83));
 		this.setIndiceFiabiliteMjaNmoins2(pDescriptionLigne.get(84));
-		this.setAnneeNmoins3(pDescriptionLigne.get(85));
-		this.setMjaNmoins3(pDescriptionLigne.get(86));
+		this.setAnneeNmoins3(
+				this.fournirDateAvecAnneeSurDeuxChiffres(
+						pDescriptionLigne.get(85)));
+		this.setMjaNmoins3(this.fournirInteger(pDescriptionLigne.get(86)));
 		this.setTypeComptageNmoins3(pDescriptionLigne.get(87));
 		this.setModeCalculNmoins3(pDescriptionLigne.get(88));
 		this.setPcPLNmoins3(pDescriptionLigne.get(89));
 		this.setEvaluationPLNmoins3(pDescriptionLigne.get(90));
 		this.setPcNuitAnnuelNmoins3(pDescriptionLigne.get(91));
 		this.setIndiceFiabiliteMjaNmoins3(pDescriptionLigne.get(92));
-		this.setAnneeNmoins4(pDescriptionLigne.get(93));
-		this.setMjaNmoins4(pDescriptionLigne.get(94));
+		this.setAnneeNmoins4(
+				this.fournirDateAvecAnneeSurDeuxChiffres(
+						pDescriptionLigne.get(93)));
+		this.setMjaNmoins4(this.fournirInteger(pDescriptionLigne.get(94)));
 		this.setTypeComptageNmoins4(pDescriptionLigne.get(95));
 		this.setModeCalculNmoins4(pDescriptionLigne.get(96));
 		this.setPcPLNmoins4(pDescriptionLigne.get(97));
 		this.setEvaluationPLNmoins4(pDescriptionLigne.get(98));
 		this.setPcNuitAnnuelNmoins4(pDescriptionLigne.get(99));
 		this.setIndiceFiabiliteMjaNmoins4(pDescriptionLigne.get(100));
-		this.setAnneeNmoins5(pDescriptionLigne.get(101));
-		this.setMjaNmoins5(pDescriptionLigne.get(102));
+		this.setAnneeNmoins5(
+				this.fournirDateAvecAnneeSurDeuxChiffres(
+						pDescriptionLigne.get(101)));
+		this.setMjaNmoins5(this.fournirInteger(pDescriptionLigne.get(102)));
 		this.setTypeComptageNmoins5(pDescriptionLigne.get(103));
 		this.setModeCalculNmoins5(pDescriptionLigne.get(104));
 		this.setPcPLNmoins5(pDescriptionLigne.get(105));
 		this.setEvaluationPLNmoins5(pDescriptionLigne.get(106));
 		this.setPcNuitAnnuelNmoins5(pDescriptionLigne.get(107));
 		this.setIndiceFiabiliteMjaNmoins5(pDescriptionLigne.get(108));
-		this.setMjmNmoins1mois01(pDescriptionLigne.get(109));
+		this.setMjmNmoins1mois01(this.fournirInteger(pDescriptionLigne.get(109)));
 		this.setPcNuitNmoins1mois01(pDescriptionLigne.get(110));
-		this.setMjmNmoins1mois02(pDescriptionLigne.get(111));
+		this.setMjmNmoins1mois02(this.fournirInteger(pDescriptionLigne.get(111)));
 		this.setPcNuitNmoins1mois02(pDescriptionLigne.get(112));
-		this.setMjmNmoins1mois03(pDescriptionLigne.get(113));
+		this.setMjmNmoins1mois03(this.fournirInteger(pDescriptionLigne.get(113)));
 		this.setPcNuitNmoins1mois03(pDescriptionLigne.get(114));
-		this.setMjmNmoins1mois04(pDescriptionLigne.get(115));
+		this.setMjmNmoins1mois04(this.fournirInteger(pDescriptionLigne.get(115)));
 		this.setPcNuitNmoins1mois04(pDescriptionLigne.get(116));
-		this.setMjmNmoins1mois05(pDescriptionLigne.get(117));
+		this.setMjmNmoins1mois05(this.fournirInteger(pDescriptionLigne.get(117)));
 		this.setPcNuitNmoins1mois05(pDescriptionLigne.get(118));
-		this.setMjmNmoins1mois06(pDescriptionLigne.get(119));
+		this.setMjmNmoins1mois06(this.fournirInteger(pDescriptionLigne.get(119)));
 		this.setPcNuitNmoins1mois06(pDescriptionLigne.get(120));
-		this.setMjmNmoins1mois07(pDescriptionLigne.get(121));
+		this.setMjmNmoins1mois07(this.fournirInteger(pDescriptionLigne.get(121)));
 		this.setPcNuitNmoins1mois07(pDescriptionLigne.get(122));
-		this.setMjmNmoins1mois08(pDescriptionLigne.get(123));
+		this.setMjmNmoins1mois08(this.fournirInteger(pDescriptionLigne.get(123)));
 		this.setPcNuitNmoins1mois08(pDescriptionLigne.get(124));
-		this.setMjmNmoins1mois09(pDescriptionLigne.get(125));
+		this.setMjmNmoins1mois09(this.fournirInteger(pDescriptionLigne.get(125)));
 		this.setPcNuitNmoins1mois09(pDescriptionLigne.get(126));
-		this.setMjmNmoins1mois10(pDescriptionLigne.get(127));
+		this.setMjmNmoins1mois10(this.fournirInteger(pDescriptionLigne.get(127)));
 		this.setPcNuitNmoins1mois10(pDescriptionLigne.get(128));
-		this.setMjmNmoins1mois11(pDescriptionLigne.get(129));
+		this.setMjmNmoins1mois11(this.fournirInteger(pDescriptionLigne.get(129)));
 		this.setPcNuitNmoins1mois11(pDescriptionLigne.get(130));
-		this.setMjmNmoins1mois12(pDescriptionLigne.get(131));
+		this.setMjmNmoins1mois12(this.fournirInteger(pDescriptionLigne.get(131)));
 		this.setPcNuitNmoins1mois12(pDescriptionLigne.get(132));
 		this.setZoneLibre4(pDescriptionLigne.get(133));
 
 	} // Fin de CONSTRUCTEUR CONVERTISSEUR.________________________________
+
+	
+	
+	/**
+	 * retourne une LocalDate positionnée au 1er Janvier 20AA 
+	 * ou AA est l'année sur deux chiffres fournie dans pString.<br/>
+	 * <br/>
+	 * - retourne null si pString est blank.<br/>
+	 * - LOG.fatal et retourne null si pString n'est pas homogène 
+	 * à une année sur deux chiffres.<br/>
+	 * <br/>
+	 *
+	 * @param pString : String : année sur deux chiffres comme "19" pour 2019.
+	 * 
+	 * @return : LocalDate : 1er Janvier 20AA.<br/>
+	 */
+	private LocalDate fournirDateAvecAnneeSurDeuxChiffres(
+			final String pString) {
+		
+		/* retourne null si pString est blank. */
+		if (StringUtils.isBlank(pString)) {
+			return null;
+		}
+		
+		LocalDate resultat = null;
+		
+		final String motifAnneeSurDeuxChiffres = "\\d\\d";
+		final Pattern patternAnneeSurDeuxChiffres 
+			= Pattern.compile(motifAnneeSurDeuxChiffres); 
+		final Matcher matcher = patternAnneeSurDeuxChiffres.matcher(pString);
+		
+		/* retourne null si pString n'est pas homogène 
+		 * à une année sur deux chiffres. */
+		if (!matcher.matches()) {
+			
+			final String message 
+				= CLASSE_SECTION_HIT 
+				+ MOINS_ESPACE
+				+ "méthode fournirDateAvecAnneeSurDeuxChiffres(String)"
+				+ MOINS_ESPACE 
+				+ "pString passé en paramètre n'est pas homogène à une année sur deux chiffres : " 
+				+ pString;
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			return null;
+		}
+		
+		final String anneeString = "20" + pString;
+		
+		final Integer annee = Integer.valueOf(anneeString);
+		
+		resultat = LocalDate.of(annee, 1, 1);
+		
+		return resultat;
+		
+	} // Fin de fournirDateAvecAnneeSurDeuxChiffres(...).__________________
+
+	
+	
+	/**
+	 * retourne un Integer à partir de la chaine fournie dans pString.<br/>
+	 * <br/>
+	 * - retire d'éventuels espaces avant et/ou après la valeur entière.<br/>
+	 * - retourne null si pString est blank.<br/>
+	 * - LOG.fatal et retourne null si pString n'est pas homogène 
+	 * à un entier.<br/>
+	 * <br/>
+	 *
+	 * @param pString : String : String homogène à un Integer.
+	 * 
+	 * @return : Integer.<br/>
+	 */
+	private Integer fournirInteger(final String pString) {
+		
+		/* retourne null si pString est blank. */
+		if (StringUtils.isBlank(pString)) {
+			return null;
+		}
+		
+		Integer resultat = null;
+		
+		final String motifInteger = "\\s*(\\d+)\\s*";
+		final Pattern patternInteger 
+			= Pattern.compile(motifInteger); 
+		final Matcher matcher = patternInteger.matcher(pString);
+		
+		/* retourne null si pString n'est pas homogène 
+		 * à un entier. */
+		if (!matcher.matches()) {
+			
+			final String message 
+				= CLASSE_SECTION_HIT
+				+ MOINS_ESPACE
+				+ "méthode fournirInteger(String)"
+				+ MOINS_ESPACE 
+				+ "pString passé en paramètre n'est pas homogène à un entier : " 
+				+ pString;
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message);
+			}
+			
+			return null;
+		}
+
+		/* retire d'éventuels espaces avant et/ou après la valeur entière. */
+		final String valeur = matcher.group(1);
+		
+		resultat = Integer.valueOf(valeur);
+		
+		return resultat;
+		
+	} // Fin de fournirInteger(...)._______________________________________
+
+	
+	
+	/**
+	 * retourne sous forme de String les deux derniers chiffres 
+	 * de l'année d'une LocalDate.<br/>
+	 * Par exemple : "19" pour 2019.<br/>
+	 * <br/>
+	 *
+	 * @param pDate : LocalDate.
+	 * 
+	 * @return : String : 
+	 * deux derniers chiffres de l'année de la LocalDate.<br/>
+	 */
+	private String fournirAnneeDeuxChiffresAPartirDate(final LocalDate pDate) {
+		
+		/* retourne null si pDate == null. */
+		if (pDate == null) {
+			return null;
+		}
+		
+		String resultat = null;
+		
+		final String motifFormatAnneeSurDeuxChiffres = "yy";
+		
+		final DateTimeFormatter formatterAnneeSurDeuxChiffres 
+			= DateTimeFormatter.ofPattern(motifFormatAnneeSurDeuxChiffres);
+		
+		resultat = pDate.format(formatterAnneeSurDeuxChiffres);
+		
+		return resultat;
+		
+	} // Fin de fournirAnneeDeuxChiffresAPartirDate(...).__________________
+
+
+	
+	/**
+	 * <b>retourne la chaine de caractères pString complétée 
+	 * avec des zéros à gauche pour atteindre pTaille</b>.<br/>
+	 * <ul>
+	 * <li>Par exemple : retourne "0025" 
+	 * si pString == "25" et pTaille == 4.</li>
+	 * <li>retourne pString inchangée si sa longueur >= pTaille.</li>
+	 * </ul>
+	 * - retourne null si pTaille == 0.<br/>
+	 * - retourne null si pString == null.<br/>
+	 * <br/>
+	 *
+	 * @param pString : String : 
+	 * chaine de caractères à compléter avec des zéros à gauche.
+	 * @param pTaille : 
+	 * taille finale de la chaine complétée avec des zéros à gauche.
+	 * 
+	 * @return : String : 
+	 * chaine de caractère pString complétée avec des zéros à gauche 
+	 * pour atteindre pTaille.<br/>
+	 */
+	private String completerAvecZerosAGauche(
+			final String pString, final int pTaille) {
+		
+		/* retourne null si pTaille == 0. */
+		if (pTaille == 0) {
+			return null;
+		}
+		
+		/* retourne null si pString == null. */
+		if (pString == null) {
+			return null;
+		}
+		
+		final int tailleString = pString.length();
+		
+		/* retourne pString inchangée si sa longueur >= pTaille. */
+		if (tailleString >= pTaille) {
+			return pString;
+		}
+		
+		String resultat = null;
+		
+		final int nombreZeros = pTaille - tailleString;
+		
+		resultat = pString;
+		
+		for (int i = 0; i < nombreZeros; i++) {
+			resultat = "0" + resultat;
+		}
+		
+		return resultat;
+		
+	} // Fin de completerAvecZerosAGauche(...).____________________________
+	
+
+	
+	/**
+	 * retourne la longueur du champ de numéro d'ordre pNumeroChamp 
+	 * dans la description de fichier 
+	 * <code><b>this.descriptionFichier</b></code>.<br/>
+	 * <br/>
+	 * Par exemple : <code><b>fournirlongueurChamp(20)</b></code> 
+	 * retourne 4 pour le champ absOrigine du HIT.
+	 *
+	 * @param pNumeroChamp : int : numéro d'ordre du champ dans la description.
+	 * 
+	 * @return : int : 
+	 * longueur du champ d'ordre pNumeroChamp dans la description du fichier.
+	 */
+	private int fournirLongueurChamp(final int pNumeroChamp) {
+		
+		DescriptionChampHit description = null;
+		int longueurChamp = 0;
+		
+		try {
+			
+			description 
+			= (DescriptionChampHit) 
+				this.descriptionFichier.getDescriptionChamp(pNumeroChamp);
+			
+			longueurChamp = description.getLongueur();
+			
+		} catch (Exception e) {
+
+			final String message 
+				= CLASSE_SECTION_HIT 
+				+ MOINS_ESPACE 
+				+ "Méthode fournirLongueurChamp(int pNumeroChamp)"
+				+ MOINS_ESPACE
+				+ "Impossible d'obtenir la description du champ d'ordre "
+				+ pNumeroChamp;
+			
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(message, e);
+			}
+			
+			throw new RuntimeException(message, e);
+		}
+
+		return longueurChamp;
+		
+	} // Fin de fournirLongueurChamp(...)._________________________________
 	
 
 	
 	/**
 	 * alimente les attributs de la présente classe 
-	 * concernés par le COMPOSANT METIER DTO
-	 * avec les mêmes attributs contenus dans le COMPOSANT METIER DTO.<br/>
+	 * concernés par le COMPOSANT METIER
+	 * avec les mêmes attributs contenus dans le COMPOSANT METIER.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ILocalisationHitDTO : COMPOSANT METIER DTO.<br/>
+	 * @param pObject : ILocalisationHit : COMPOSANT METIER.<br/>
 	 */
 	private void alimenterAttributsLocalisation(
-			final ILocalisationHitDTO pObject) {
+			final ILocalisationHit pObject) {
 		
 		if (pObject == null) {
 			return;
@@ -1047,7 +1444,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	} // Fin de alimenterAttributsLocalisation(...)._______________________
 	
 	
-		
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -1119,11 +1516,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 		if (pObjet == null) {
 			return false;
 		}
-		if (!(pObjet instanceof ISectionHitDTO)) {
+		if (!(pObjet instanceof ISectionHit)) {
 			return false;
 		}
 		
-		final ISectionHitDTO other = (ISectionHitDTO) pObjet;
+		final ISectionHit other = (ISectionHit) pObjet;
 
 		return Objects
 			.equals(this.getNumDepartement(), other.getNumDepartement())
@@ -1269,7 +1666,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final int compareTo(
-			final ISectionHitDTO pObjet) {
+			final ISectionHit pObjet) {
 		
 		if (this == pObjet) {
 			return 0;
@@ -1280,9 +1677,13 @@ public class SectionHitDTO implements ISectionHitDTO {
 		}
 
 		int compareAnneeTraitement = 0;
-		int compareDepartement = 0;
+		int compareNumDepartement = 0;
+		int compareNumRoute = 0;
+		int compareIndiceNumRoute = 0;
+		int compareIndiceLettreRoute = 0;
 		int compareCategorieAdminRoute = 0;
-		int compareNumeroRoute = 0;
+		int comparePrOrigine = 0;
+		int compareAbsOrigine = 0;
 		
 		/* anneeTraitement. */
 		if (this.getAnneeTraitement() == null) {
@@ -1297,14 +1698,14 @@ public class SectionHitDTO implements ISectionHitDTO {
 			
 			compareAnneeTraitement 
 			= this.getAnneeTraitement()
-				.compareToIgnoreCase(pObjet.getAnneeTraitement());
+				.compareTo(pObjet.getAnneeTraitement());
 		
 			if (compareAnneeTraitement != 0) {
 				return compareAnneeTraitement;
 			}
 		}
-				
-		/* departement. */
+		
+		/* numDepartement. */
 		if (this.getNumDepartement() == null) {
 			if (pObjet.getNumDepartement() != null) {
 				return +1;
@@ -1315,12 +1716,72 @@ public class SectionHitDTO implements ISectionHitDTO {
 				return -1;
 			}
 			
-			compareDepartement 
+			compareNumDepartement 
 			= this.getNumDepartement()
 				.compareToIgnoreCase(pObjet.getNumDepartement());
 		
-			if (compareDepartement != 0) {
-				return compareDepartement;
+			if (compareNumDepartement != 0) {
+				return compareNumDepartement;
+			}
+		}
+		
+		/* numeroRoute. */
+		if (this.getNumRoute() == null) {
+			if (pObjet.getNumRoute() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getNumRoute() == null) {
+				return -1;
+			}
+			
+			compareNumRoute 
+			= this.getNumRoute()
+				.compareToIgnoreCase(pObjet.getNumRoute());
+		
+			if (compareNumRoute != 0) {
+				return compareNumRoute;
+			}
+		}
+		
+		/* indiceNumRoute. */
+		if (this.getIndiceNumRoute() == null) {
+			if (pObjet.getIndiceNumRoute() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getIndiceNumRoute() == null) {
+				return -1;
+			}
+			
+			compareIndiceNumRoute 
+			= this.getIndiceNumRoute()
+				.compareToIgnoreCase(pObjet.getIndiceNumRoute());
+		
+			if (compareIndiceNumRoute != 0) {
+				return compareIndiceNumRoute;
+			}
+		}
+		
+		/* indiceLettreRoute. */
+		if (this.getIndiceLettreRoute() == null) {
+			if (pObjet.getIndiceLettreRoute() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getIndiceLettreRoute() == null) {
+				return -1;
+			}
+			
+			compareIndiceLettreRoute 
+			= this.getIndiceLettreRoute()
+				.compareToIgnoreCase(pObjet.getIndiceLettreRoute());
+		
+			if (compareIndiceLettreRoute != 0) {
+				return compareIndiceLettreRoute;
 			}
 		}
 		
@@ -1344,24 +1805,44 @@ public class SectionHitDTO implements ISectionHitDTO {
 			}
 		}
 		
-		/* numRoute. */
-		if (this.getNumRoute() == null) {
-			if (pObjet.getNumRoute() != null) {
+		/* prOrigine. */
+		if (this.getPrOrigine() == null) {
+			if (pObjet.getPrOrigine() != null) {
+				return +1;
+			}
+		} else {
+			
+			if (pObjet.getPrOrigine() == null) {
+				return -1;
+			}
+			
+			comparePrOrigine 
+			= this.getPrOrigine()
+				.compareTo(pObjet.getPrOrigine());
+		
+			if (comparePrOrigine != 0) {
+				return comparePrOrigine;
+			}
+		}
+		
+		/* absOrigine. */
+		if (this.getAbsOrigine() == null) {
+			if (pObjet.getAbsOrigine() != null) {
 				return +1;
 			}
 			
 			return 0;
 		}
 		
-		if (pObjet.getNumRoute() == null) {
+		if (pObjet.getAbsOrigine() == null) {
 			return -1;
 		}
 		
-		compareNumeroRoute 
-			= this.getNumRoute()
-				.compareToIgnoreCase(pObjet.getNumRoute());
+		compareAbsOrigine 
+			= this.getAbsOrigine()
+				.compareTo(pObjet.getAbsOrigine());
 		
-		return compareNumeroRoute;
+		return compareAbsOrigine;
 
 	} // Fin de compareTo(...).____________________________________________
 
@@ -1371,10 +1852,10 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final ISectionHitDTO clone() throws CloneNotSupportedException {
+	public final ISectionHit clone() throws CloneNotSupportedException {
 		
-		final ISectionHitDTO clone 
-			= (ISectionHitDTO) super.clone();
+		final ISectionHit clone 
+			= (ISectionHit) super.clone();
 				
 		clone.setId(this.getId());
 		clone.setNumDepartement(this.getNumDepartement());
@@ -1511,7 +1992,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 		clone.setPcNuitNmoins1mois12(this.getPcNuitNmoins1mois12());
 		clone.setZoneLibre4(this.getZoneLibre4());
 	
-		return (SectionHitDTO) clone;
+		return (SectionHitEntityJPA) clone;
 
 	} // Fin de clone().___________________________________________________
 
@@ -1525,11 +2006,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		final StringBuilder stb = new StringBuilder();
 
-		stb.append("SectionHitDTO [");
+		stb.append("SectionHitEntityJPA [");
 
 		stb.append("id=");
 		if (this.getId() != null) {
-			stb.append(this.getId());
+			stb.append(Long.valueOf(this.getId()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1577,7 +2058,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("anneeTraitement=");
 		if (this.getAnneeTraitement() != null) {
-			stb.append(this.getAnneeTraitement());
+			stb.append(
+					this.fournirAnneeDeuxChiffresAPartirDate(
+							this.getAnneeTraitement()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1681,7 +2164,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("prOrigine=");
 		if (this.getPrOrigine() != null) {
-			stb.append(this.getPrOrigine());
+			stb.append(String.valueOf(this.getPrOrigine()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1689,7 +2172,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("absOrigine=");
 		if (this.getAbsOrigine() != null) {
-			stb.append(this.getAbsOrigine());
+			stb.append(String.valueOf(this.getAbsOrigine()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1705,7 +2188,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("prExtremite=");
 		if (this.getPrExtremite() != null) {
-			stb.append(this.getPrExtremite());
+			stb.append(String.valueOf(this.getPrExtremite()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1713,7 +2196,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("absExtremite=");
 		if (this.getAbsExtremite() != null) {
-			stb.append(this.getAbsExtremite());
+			stb.append(String.valueOf(this.getAbsExtremite()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1729,7 +2212,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("prComptage=");
 		if (this.getPrComptage() != null) {
-			stb.append(this.getPrComptage());
+			stb.append(String.valueOf(this.getPrComptage()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1737,7 +2220,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("absComptage=");
 		if (this.getAbsComptage() != null) {
-			stb.append(this.getAbsComptage());
+			stb.append(String.valueOf(this.getAbsComptage()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1745,7 +2228,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("longueurSection=");
 		if (this.getLongueurSection() != null) {
-			stb.append(this.getLongueurSection());
+			stb.append(String.valueOf(this.getLongueurSection()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1753,7 +2236,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("longueurRaseCampagne=");
 		if (this.getLongueurRaseCampagne() != null) {
-			stb.append(this.getLongueurRaseCampagne());
+			stb.append(String.valueOf(this.getLongueurRaseCampagne()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1833,7 +2316,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjaN=");
 		if (this.getMjaN() != null) {
-			stb.append(this.getMjaN());
+			stb.append(String.valueOf(this.getMjaN()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1881,7 +2364,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois01=");
 		if (this.getMjmNmois01() != null) {
-			stb.append(this.getMjmNmois01());
+			stb.append(String.valueOf(this.getMjmNmois01()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1897,7 +2380,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois02=");
 		if (this.getMjmNmois02() != null) {
-			stb.append(this.getMjmNmois02());
+			stb.append(String.valueOf(this.getMjmNmois02()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1913,7 +2396,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois03=");
 		if (this.getMjmNmois03() != null) {
-			stb.append(this.getMjmNmois03());
+			stb.append(String.valueOf(this.getMjmNmois03()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1929,7 +2412,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois04=");
 		if (this.getMjmNmois04() != null) {
-			stb.append(this.getMjmNmois04());
+			stb.append(String.valueOf(this.getMjmNmois04()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1945,7 +2428,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois05=");
 		if (this.getMjmNmois05() != null) {
-			stb.append(this.getMjmNmois05());
+			stb.append(String.valueOf(this.getMjmNmois05()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1961,7 +2444,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois06=");
 		if (this.getMjmNmois06() != null) {
-			stb.append(this.getMjmNmois06());
+			stb.append(String.valueOf(this.getMjmNmois06()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1977,7 +2460,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois07=");
 		if (this.getMjmNmois07() != null) {
-			stb.append(this.getMjmNmois07());
+			stb.append(String.valueOf(this.getMjmNmois07()));
 		} else {
 			stb.append(NULL);
 		}
@@ -1993,7 +2476,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois08=");
 		if (this.getMjmNmois08() != null) {
-			stb.append(this.getMjmNmois08());
+			stb.append(String.valueOf(this.getMjmNmois08()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2009,7 +2492,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois09=");
 		if (this.getMjmNmois09() != null) {
-			stb.append(this.getMjmNmois09());
+			stb.append(String.valueOf(this.getMjmNmois09()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2025,7 +2508,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois10=");
 		if (this.getMjmNmois10() != null) {
-			stb.append(this.getMjmNmois10());
+			stb.append(String.valueOf(this.getMjmNmois10()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2041,7 +2524,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois11=");
 		if (this.getMjmNmois11() != null) {
-			stb.append(this.getMjmNmois11());
+			stb.append(String.valueOf(this.getMjmNmois11()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2057,7 +2540,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmois12=");
 		if (this.getMjmNmois12() != null) {
-			stb.append(this.getMjmNmois12());
+			stb.append(String.valueOf(this.getMjmNmois12()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2081,7 +2564,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("anneeNmoins1=");
 		if (this.getAnneeNmoins1() != null) {
-			stb.append(this.getAnneeNmoins1());
+			stb.append(
+					this.fournirAnneeDeuxChiffresAPartirDate(
+							this.getAnneeNmoins1()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2089,7 +2574,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjaNmoins1=");
 		if (this.getMjaNmoins1() != null) {
-			stb.append(this.getMjaNmoins1());
+			stb.append(String.valueOf(this.getMjaNmoins1()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2145,7 +2630,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("anneeNmoins2=");
 		if (this.getAnneeNmoins2() != null) {
-			stb.append(this.getAnneeNmoins2());
+			stb.append(
+					this.fournirAnneeDeuxChiffresAPartirDate(
+							this.getAnneeNmoins2()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2153,7 +2640,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjaNmoins2=");
 		if (this.getMjaNmoins2() != null) {
-			stb.append(this.getMjaNmoins2());
+			stb.append(String.valueOf(this.getMjaNmoins2()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2209,7 +2696,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("anneeNmoins3=");
 		if (this.getAnneeNmoins3() != null) {
-			stb.append(this.getAnneeNmoins3());
+			stb.append(
+					this.fournirAnneeDeuxChiffresAPartirDate(
+							this.getAnneeNmoins3()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2217,7 +2706,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjaNmoins3=");
 		if (this.getMjaNmoins3() != null) {
-			stb.append(this.getMjaNmoins3());
+			stb.append(String.valueOf(this.getMjaNmoins3()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2273,7 +2762,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("anneeNmoins4=");
 		if (this.getAnneeNmoins4() != null) {
-			stb.append(this.getAnneeNmoins4());
+			stb.append(
+					this.fournirAnneeDeuxChiffresAPartirDate(
+							this.getAnneeNmoins4()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2281,7 +2772,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjaNmoins4=");
 		if (this.getMjaNmoins4() != null) {
-			stb.append(this.getMjaNmoins4());
+			stb.append(String.valueOf(this.getMjaNmoins4()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2337,7 +2828,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("anneeNmoins5=");
 		if (this.getAnneeNmoins5() != null) {
-			stb.append(this.getAnneeNmoins5());
+			stb.append(
+					this.fournirAnneeDeuxChiffresAPartirDate(
+							this.getAnneeNmoins5()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2345,7 +2838,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjaNmoins5=");
 		if (this.getMjaNmoins5() != null) {
-			stb.append(this.getMjaNmoins5());
+			stb.append(String.valueOf(this.getMjaNmoins5()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2401,7 +2894,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois01=");
 		if (this.getMjmNmoins1mois01() != null) {
-			stb.append(this.getMjmNmoins1mois01());
+			stb.append(String.valueOf(this.getMjmNmoins1mois01()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2417,7 +2910,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois02=");
 		if (this.getMjmNmoins1mois02() != null) {
-			stb.append(this.getMjmNmoins1mois02());
+			stb.append(String.valueOf(this.getMjmNmoins1mois02()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2433,7 +2926,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois03=");
 		if (this.getMjmNmoins1mois03() != null) {
-			stb.append(this.getMjmNmoins1mois03());
+			stb.append(String.valueOf(this.getMjmNmoins1mois03()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2449,7 +2942,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois04=");
 		if (this.getMjmNmoins1mois04() != null) {
-			stb.append(this.getMjmNmoins1mois04());
+			stb.append(String.valueOf(this.getMjmNmoins1mois04()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2457,7 +2950,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("pcNuitNmoins1mois04=");
 		if (this.getPcNuitNmoins1mois04() != null) {
-			stb.append(this.getPcNuitNmoins1mois04());
+			stb.append(String.valueOf(this.getPcNuitNmoins1mois04()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2465,7 +2958,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois05=");
 		if (this.getMjmNmoins1mois05() != null) {
-			stb.append(this.getMjmNmoins1mois05());
+			stb.append(String.valueOf(this.getMjmNmoins1mois05()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2481,7 +2974,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois06=");
 		if (this.getMjmNmoins1mois06() != null) {
-			stb.append(this.getMjmNmoins1mois06());
+			stb.append(String.valueOf(this.getMjmNmoins1mois06()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2497,7 +2990,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois07=");
 		if (this.getMjmNmoins1mois07() != null) {
-			stb.append(this.getMjmNmoins1mois07());
+			stb.append(String.valueOf(this.getMjmNmoins1mois07()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2513,7 +3006,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois08=");
 		if (this.getMjmNmoins1mois08() != null) {
-			stb.append(this.getMjmNmoins1mois08());
+			stb.append(String.valueOf(this.getMjmNmoins1mois08()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2529,7 +3022,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois09=");
 		if (this.getMjmNmoins1mois09() != null) {
-			stb.append(this.getMjmNmoins1mois09());
+			stb.append(String.valueOf(this.getMjmNmoins1mois09()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2545,7 +3038,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois10=");
 		if (this.getMjmNmoins1mois10() != null) {
-			stb.append(this.getMjmNmoins1mois10());
+			stb.append(String.valueOf(this.getMjmNmoins1mois10()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2561,7 +3054,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois11=");
 		if (this.getMjmNmoins1mois11() != null) {
-			stb.append(this.getMjmNmoins1mois11());
+			stb.append(String.valueOf(this.getMjmNmoins1mois11()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2577,7 +3070,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		stb.append("mjmNmoins1mois12=");
 		if (this.getMjmNmoins1mois12() != null) {
-			stb.append(this.getMjmNmoins1mois12());
+			stb.append(String.valueOf(this.getMjmNmoins1mois12()));
 		} else {
 			stb.append(NULL);
 		}
@@ -2619,7 +3112,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(this.getSens());
 		stb.append(this.getNature());
 		stb.append(this.getClasse());
-		stb.append(this.getAnneeTraitement());
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeTraitement()));
 		stb.append(this.getZoneLibre1());
 		stb.append(this.getNumRoute());
 		stb.append(this.getIndiceNumRoute());
@@ -2632,16 +3127,59 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(this.getTypeReseau());
 		stb.append(this.getPRoupK());
 		stb.append(this.getLieuDitOrigine());
-		stb.append(this.getPrOrigine());
-		stb.append(this.getAbsOrigine());
+		
+		final String prOrigineString = String.valueOf(this.getPrOrigine());
+		final String prOrigineComplete 
+			= this.completerAvecZerosAGauche(
+					prOrigineString, this.fournirLongueurChamp(19));		
+		stb.append(prOrigineComplete);
+		
+		final String absOrigineString = String.valueOf(this.getAbsOrigine()); 
+		final String absOrigineComplete 
+			= this.completerAvecZerosAGauche(
+					absOrigineString, this.fournirLongueurChamp(20));
+		stb.append(absOrigineComplete);
+		
 		stb.append(this.getLieuDitExtremite());
-		stb.append(this.getPrExtremite());
-		stb.append(this.getAbsExtremite());
+		
+		final String prExtremiteString = String.valueOf(this.getPrExtremite());
+		final String prExtremiteComplete 
+			= this.completerAvecZerosAGauche(
+					prExtremiteString, this.fournirLongueurChamp(22));
+		stb.append(prExtremiteComplete);
+		
+		final String absExtremiteString = String.valueOf(this.getAbsExtremite());
+		final String absExtremiteComplete 
+			= this.completerAvecZerosAGauche(
+					absExtremiteString, this.fournirLongueurChamp(23));
+		stb.append(absExtremiteComplete);
+		
 		stb.append(this.getLieuDitComptage());
-		stb.append(this.getPrComptage());
-		stb.append(this.getAbsComptage());
-		stb.append(this.getLongueurSection());
-		stb.append(this.getLongueurRaseCampagne());
+		
+		final String prComptageString = String.valueOf(this.getPrComptage());
+		final String prComptageComplete 
+			= this.completerAvecZerosAGauche(
+					prComptageString, this.fournirLongueurChamp(25));
+		stb.append(prComptageComplete);
+		
+		final String absComptageString = String.valueOf(this.getAbsComptage());
+		final String absComptageComplete 
+			= this.completerAvecZerosAGauche(
+					absComptageString, this.fournirLongueurChamp(26));
+		stb.append(absComptageComplete);
+
+		final String longueurSectionString = String.valueOf(this.getLongueurSection());
+		final String longueurSectionComplete 
+			= this.completerAvecZerosAGauche(
+					longueurSectionString, this.fournirLongueurChamp(27));
+		stb.append(longueurSectionComplete);
+		
+		final String longueurRaseCampagneString = String.valueOf(this.getLongueurRaseCampagne());
+		final String longueurRaseCampagneComplete 
+			= this.completerAvecZerosAGauche(
+					longueurRaseCampagneString, this.fournirLongueurChamp(28));
+		stb.append(longueurRaseCampagneComplete);
+		
 		stb.append(this.getNumDepartementRattachement());
 		stb.append(this.getNumSectionRattachement());
 		stb.append(this.getSensRattachement());
@@ -2651,101 +3189,310 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(this.getMoisSectionnement());
 		stb.append(this.getAnneeSectionnement());
 		stb.append(this.getZoneLibre2());
-		stb.append(this.getMjaN());
+		
+		final String mjaNString = String.valueOf(this.getMjaN());
+		final String mjaNStringComplete 
+			= this.completerAvecZerosAGauche(
+					mjaNString, this.fournirLongueurChamp(38));
+		stb.append(mjaNStringComplete);
+		
 		stb.append(this.getModeCalculN());
 		stb.append(this.getPcPLN());
 		stb.append(this.getEvaluationPLN());
 		stb.append(this.getPcNuitAnnuelN());
 		stb.append(this.getIndiceFiabiliteMjaN());
-		stb.append(this.getMjmNmois01());
+		
+		final String mjmNmois01String = String.valueOf(this.getMjmNmois01());
+		final String mjmNmois01Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois01String, this.fournirLongueurChamp(44));
+		stb.append(mjmNmois01Complete);
+		
 		stb.append(this.getPcNuitNmois01());
-		stb.append(this.getMjmNmois02());
+		
+		final String mjmNmois02String = String.valueOf(this.getMjmNmois02());
+		final String mjmNmois02Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois02String, this.fournirLongueurChamp(46));
+		stb.append(mjmNmois02Complete);
+
 		stb.append(this.getPcNuitNmois02());
-		stb.append(this.getMjmNmois03());
+		
+		final String mjmNmois03String = String.valueOf(this.getMjmNmois03());
+		final String mjmNmois03Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois03String, this.fournirLongueurChamp(48));
+		stb.append(mjmNmois03Complete);
+
 		stb.append(this.getPcNuitNmois03());
-		stb.append(this.getMjmNmois04());
+		
+		final String mjmNmois04String = String.valueOf(this.getMjmNmois04());
+		final String mjmNmois04Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois04String, this.fournirLongueurChamp(50));
+		stb.append(mjmNmois04Complete);
+
 		stb.append(this.getPcNuitNmois04());
-		stb.append(this.getMjmNmois05());
+		
+		final String mjmNmois05String = String.valueOf(this.getMjmNmois05());
+		final String mjmNmois05Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois05String, this.fournirLongueurChamp(52));
+		stb.append(mjmNmois05Complete);
+
 		stb.append(this.getPcNuitNmois05());
-		stb.append(this.getMjmNmois06());
+		
+		final String mjmNmois06String = String.valueOf(this.getMjmNmois06());
+		final String mjmNmois06Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois06String, this.fournirLongueurChamp(54));
+		stb.append(mjmNmois06Complete);
+
 		stb.append(this.getPcNuitNmois06());
-		stb.append(this.getMjmNmois07());
+		
+		final String mjmNmois07String = String.valueOf(this.getMjmNmois07());
+		final String mjmNmois07Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois07String, this.fournirLongueurChamp(56));
+		stb.append(mjmNmois07Complete);
+
 		stb.append(this.getPcNuitNmois07());
-		stb.append(this.getMjmNmois08());
+		
+		final String mjmNmois08String = String.valueOf(this.getMjmNmois08());
+		final String mjmNmois08Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois08String, this.fournirLongueurChamp(58));
+		stb.append(mjmNmois08Complete);
+
 		stb.append(this.getPcNuitNmois08());
-		stb.append(this.getMjmNmois09());
+		
+		final String mjmNmois09String = String.valueOf(this.getMjmNmois09());
+		final String mjmNmois09Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois09String, this.fournirLongueurChamp(60));
+		stb.append(mjmNmois09Complete);
+
 		stb.append(this.getPcNuitNmois09());
-		stb.append(this.getMjmNmois10());
+		
+		final String mjmNmois10String = String.valueOf(this.getMjmNmois10());
+		final String mjmNmois10Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois10String, this.fournirLongueurChamp(62));
+		stb.append(mjmNmois10Complete);
+
 		stb.append(this.getPcNuitNmois10());
-		stb.append(this.getMjmNmois11());
+		
+		final String mjmNmois11String = String.valueOf(this.getMjmNmois11());
+		final String mjmNmois11Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois11String, this.fournirLongueurChamp(64));
+		stb.append(mjmNmois11Complete);
+
 		stb.append(this.getPcNuitNmois11());
-		stb.append(this.getMjmNmois12());
+		
+		final String mjmNmois12String = String.valueOf(this.getMjmNmois12());
+		final String mjmNmois12Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmois12String, this.fournirLongueurChamp(66));
+		stb.append(mjmNmois12Complete);
+
 		stb.append(this.getPcNuitNmois12());
+		
 		stb.append(this.getZoneLibre3());
-		stb.append(this.getAnneeNmoins1());
-		stb.append(this.getMjaNmoins1());
+		
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins1()));
+		
+		final String mjaNmoins1String = String.valueOf(this.getMjaNmoins1());
+		final String mjaNmoins1Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins1String, this.fournirLongueurChamp(70));
+		stb.append(mjaNmoins1Complete);
+		
 		stb.append(this.getTypeComptageNmoins1());
 		stb.append(this.getModeCalculNmoins1());
 		stb.append(this.getPcPLNmoins1());
 		stb.append(this.getEvaluationPLNmoins1());
 		stb.append(this.getPcNuitAnnuelNmoins1());
 		stb.append(this.getIndiceFiabiliteMjaNmoins1());
-		stb.append(this.getAnneeNmoins2());
-		stb.append(this.getMjaNmoins2());
+		
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins2()));
+		
+		final String mjaNmoins2String = String.valueOf(this.getMjaNmoins2());
+		final String mjaNmoins2Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins2String, this.fournirLongueurChamp(78));
+		stb.append(mjaNmoins2Complete);
+
 		stb.append(this.getTypeComptageNmoins2());
 		stb.append(this.getModeCalculNmoins2());
 		stb.append(this.getPcPLNmoins2());
 		stb.append(this.getEvaluationPLNmoins2());
 		stb.append(this.getPcNuitAnnuelNmoins2());
 		stb.append(this.getIndiceFiabiliteMjaNmoins2());
-		stb.append(this.getAnneeNmoins3());
-		stb.append(this.getMjaNmoins3());
+		
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins3()));
+		
+		final String mjaNmoins3String = String.valueOf(this.getMjaNmoins3());
+		final String mjaNmoins3Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins3String, this.fournirLongueurChamp(86));
+		stb.append(mjaNmoins3Complete);
+
 		stb.append(this.getTypeComptageNmoins3());
 		stb.append(this.getModeCalculNmoins3());
 		stb.append(this.getPcPLNmoins3());
 		stb.append(this.getEvaluationPLNmoins3());
 		stb.append(this.getPcNuitAnnuelNmoins3());
 		stb.append(this.getIndiceFiabiliteMjaNmoins3());
-		stb.append(this.getAnneeNmoins4());
-		stb.append(this.getMjaNmoins4());
+		
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins4()));
+		
+		final String mjaNmoins4String = String.valueOf(this.getMjaNmoins4());
+		final String mjaNmoins4Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins4String, this.fournirLongueurChamp(94));
+		stb.append(mjaNmoins4Complete);
+
 		stb.append(this.getTypeComptageNmoins4());
 		stb.append(this.getModeCalculNmoins4());
 		stb.append(this.getPcPLNmoins4());
 		stb.append(this.getEvaluationPLNmoins4());
 		stb.append(this.getPcNuitAnnuelNmoins4());
 		stb.append(this.getIndiceFiabiliteMjaNmoins4());
-		stb.append(this.getAnneeNmoins5());
-		stb.append(this.getMjaNmoins5());
+		
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins5()));
+		
+		final String mjaNmoins5String = String.valueOf(this.getMjaNmoins5());
+		final String mjaNmoins5Complete 
+			= this.completerAvecZerosAGauche(
+					mjaNmoins5String, this.fournirLongueurChamp(102));
+		stb.append(mjaNmoins5Complete);
+
 		stb.append(this.getTypeComptageNmoins5());
 		stb.append(this.getModeCalculNmoins5());
 		stb.append(this.getPcPLNmoins5());
 		stb.append(this.getEvaluationPLNmoins5());
 		stb.append(this.getPcNuitAnnuelNmoins5());
 		stb.append(this.getIndiceFiabiliteMjaNmoins5());
-		stb.append(this.getMjmNmoins1mois01());
+		
+		final String mjmNmoins1mois01String 
+			= String.valueOf(this.getMjmNmoins1mois01());
+		final String mjmNmoins1mois01Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois01String, this.fournirLongueurChamp(109));
+		stb.append(mjmNmoins1mois01Complete);
+		
 		stb.append(this.getPcNuitNmoins1mois01());
-		stb.append(this.getMjmNmoins1mois02());
+		
+		final String mjmNmoins1mois02String 
+			= String.valueOf(this.getMjmNmoins1mois02());
+		final String mjmNmoins1mois02Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois02String, this.fournirLongueurChamp(111));
+		stb.append(mjmNmoins1mois02Complete);
+
 		stb.append(this.getPcNuitNmoins1mois02());
-		stb.append(this.getMjmNmoins1mois03());
+		
+		final String mjmNmoins1mois03String 
+			= String.valueOf(this.getMjmNmoins1mois03());
+		final String mjmNmoins1mois03Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois03String, this.fournirLongueurChamp(113));
+		stb.append(mjmNmoins1mois03Complete);
+
 		stb.append(this.getPcNuitNmoins1mois03());
-		stb.append(this.getMjmNmoins1mois04());
+		
+		final String mjmNmoins1mois04String 
+			= String.valueOf(this.getMjmNmoins1mois04());
+		final String mjmNmoins1mois04Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois04String, this.fournirLongueurChamp(115));
+		stb.append(mjmNmoins1mois04Complete);
+
 		stb.append(this.getPcNuitNmoins1mois04());
-		stb.append(this.getMjmNmoins1mois05());
+		
+		final String mjmNmoins1mois05String 
+			= String.valueOf(this.getMjmNmoins1mois05());
+		final String mjmNmoins1mois05Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois05String, this.fournirLongueurChamp(117));
+		stb.append(mjmNmoins1mois05Complete);
+
 		stb.append(this.getPcNuitNmoins1mois05());
-		stb.append(this.getMjmNmoins1mois06());
+		
+		final String mjmNmoins1mois06String 
+			= String.valueOf(this.getMjmNmoins1mois06());
+		final String mjmNmoins1mois06Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois06String, this.fournirLongueurChamp(119));
+		stb.append(mjmNmoins1mois06Complete);
+
 		stb.append(this.getPcNuitNmoins1mois06());
-		stb.append(this.getMjmNmoins1mois07());
+		
+		final String mjmNmoins1mois07String 
+			= String.valueOf(this.getMjmNmoins1mois07());
+		final String mjmNmoins1mois07Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois07String, this.fournirLongueurChamp(121));
+		stb.append(mjmNmoins1mois07Complete);
+
 		stb.append(this.getPcNuitNmoins1mois07());
-		stb.append(this.getMjmNmoins1mois08());
+		
+		final String mjmNmoins1mois08String 
+			= String.valueOf(this.getMjmNmoins1mois08());
+		final String mjmNmoins1mois08Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois08String, this.fournirLongueurChamp(123));
+		stb.append(mjmNmoins1mois08Complete);
+
 		stb.append(this.getPcNuitNmoins1mois08());
-		stb.append(this.getMjmNmoins1mois09());
+		
+		final String mjmNmoins1mois09String 
+			= String.valueOf(this.getMjmNmoins1mois09());
+		final String mjmNmoins1mois09Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois09String, this.fournirLongueurChamp(125));
+		stb.append(mjmNmoins1mois09Complete);
+
 		stb.append(this.getPcNuitNmoins1mois09());
-		stb.append(this.getMjmNmoins1mois10());
+		
+		final String mjmNmoins1mois10String 
+			= String.valueOf(this.getMjmNmoins1mois10());
+		final String mjmNmoins1mois10Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois10String, this.fournirLongueurChamp(127));
+		stb.append(mjmNmoins1mois10Complete);
+
 		stb.append(this.getPcNuitNmoins1mois10());
-		stb.append(this.getMjmNmoins1mois11());
+		
+		final String mjmNmoins1mois11String 
+			= String.valueOf(this.getMjmNmoins1mois11());
+		final String mjmNmoins1mois11Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois11String, this.fournirLongueurChamp(129));
+		stb.append(mjmNmoins1mois11Complete);
+
 		stb.append(this.getPcNuitNmoins1mois11());
-		stb.append(this.getMjmNmoins1mois12());
+		
+		final String mjmNmoins1mois12String 
+			= String.valueOf(this.getMjmNmoins1mois12());
+		final String mjmNmoins1mois12Complete 
+			= this.completerAvecZerosAGauche(
+					mjmNmoins1mois12String, this.fournirLongueurChamp(131));
+		stb.append(mjmNmoins1mois12Complete);
+
 		stb.append(this.getPcNuitNmoins1mois12());
+		
 		stb.append(this.getZoneLibre4());
 
 		return stb.toString();
@@ -2821,7 +3568,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 
 		final StringBuilder stb = new StringBuilder();
 
-		stb.append(this.getId());
+		stb.append(String.valueOf(this.getId()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getNumDepartement());
 		stb.append(POINT_VIRGULE);
@@ -2833,7 +3580,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getClasse());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAnneeTraitement());
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeTraitement()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getZoneLibre1());
 		stb.append(POINT_VIRGULE);
@@ -2859,25 +3608,25 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getLieuDitOrigine());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getPrOrigine());
+		stb.append(String.valueOf(this.getPrOrigine()));
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAbsOrigine());
+		stb.append(String.valueOf(this.getAbsOrigine()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getLieuDitExtremite());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getPrExtremite());
+		stb.append(String.valueOf(this.getPrExtremite()));
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAbsExtremite());
+		stb.append(String.valueOf(this.getAbsExtremite()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getLieuDitComptage());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getPrComptage());
+		stb.append(String.valueOf(this.getPrComptage()));
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAbsComptage());
+		stb.append(String.valueOf(this.getAbsComptage()));
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getLongueurSection());
+		stb.append(String.valueOf(this.getLongueurSection()));
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getLongueurRaseCampagne());
+		stb.append(String.valueOf(this.getLongueurRaseCampagne()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getNumDepartementRattachement());
 		stb.append(POINT_VIRGULE);
@@ -2959,7 +3708,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getZoneLibre3());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAnneeNmoins1());
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins1()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getMjaNmoins1());
 		stb.append(POINT_VIRGULE);
@@ -2975,7 +3726,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getIndiceFiabiliteMjaNmoins1());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAnneeNmoins2());
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins2()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getMjaNmoins2());
 		stb.append(POINT_VIRGULE);
@@ -2991,7 +3744,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getIndiceFiabiliteMjaNmoins2());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAnneeNmoins3());
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins3()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getMjaNmoins3());
 		stb.append(POINT_VIRGULE);
@@ -3007,7 +3762,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getIndiceFiabiliteMjaNmoins3());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAnneeNmoins4());
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins4()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getMjaNmoins4());
 		stb.append(POINT_VIRGULE);
@@ -3023,7 +3780,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getIndiceFiabiliteMjaNmoins4());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getAnneeNmoins5());
+		stb.append(
+				this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins5()));
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getMjaNmoins5());
 		stb.append(POINT_VIRGULE);
@@ -3667,7 +4426,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 		switch (pI) {
 
 		case 0:
-			valeur = this.getId();
+			if (this.getId() != null) {
+				valeur = String.valueOf(this.getId());
+			}			
 			break;
 
 		case 1:
@@ -3691,7 +4452,10 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 6:
-			valeur = this.getAnneeTraitement();
+			if (this.getAnneeTraitement() != null) {
+				valeur = this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeTraitement());
+			}			
 			break;
 
 		case 7:
@@ -3743,11 +4507,15 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 19:
-			valeur = this.getPrOrigine();
+			if (this.getPrOrigine() != null) {
+				valeur = String.valueOf(this.getPrOrigine());
+			}			
 			break;
 
 		case 20:
-			valeur = this.getAbsOrigine();
+			if (this.getAbsOrigine() != null) {
+				valeur = String.valueOf(this.getAbsOrigine());
+			}			
 			break;
 
 		case 21:
@@ -3755,11 +4523,15 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 22:
-			valeur = this.getPrExtremite();
+			if (this.getPrExtremite() != null) {
+				valeur = String.valueOf(this.getPrExtremite());
+			}			
 			break;
 
 		case 23:
-			valeur = this.getAbsExtremite();
+			if (this.getAbsExtremite() != null) {
+				valeur = String.valueOf(this.getAbsExtremite());
+			}			
 			break;
 
 		case 24:
@@ -3767,19 +4539,27 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 25:
-			valeur = this.getPrComptage();
+			if (this.getPrComptage() != null) {
+				valeur = String.valueOf(this.getPrComptage());
+			}			
 			break;
 
 		case 26:
-			valeur = this.getAbsComptage();
+			if (this.getAbsComptage() != null) {
+				valeur = String.valueOf(this.getAbsComptage());
+			}			
 			break;
 
 		case 27:
-			valeur = this.getLongueurSection();
+			if (this.getLongueurSection() != null) {
+				valeur = String.valueOf(this.getLongueurSection());
+			}			
 			break;
 
 		case 28:
-			valeur = this.getLongueurRaseCampagne();
+			if (this.getLongueurRaseCampagne() != null) {
+				valeur = String.valueOf(this.getLongueurRaseCampagne());
+			}			
 			break;
 
 		case 29:
@@ -3819,7 +4599,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 38:
-			valeur = this.getMjaN();
+			if (this.getMjaN() != null) {
+				valeur = String.valueOf(this.getMjaN());
+			}			
 			break;
 
 		case 39:
@@ -3843,7 +4625,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 44:
-			valeur = this.getMjmNmois01();
+			if (this.getMjmNmois01() != null) {
+				valeur = String.valueOf(this.getMjmNmois01());
+			}			
 			break;
 
 		case 45:
@@ -3851,7 +4635,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 46:
-			valeur = this.getMjmNmois02();
+			if (this.getMjmNmois02() != null) {
+				valeur = String.valueOf(this.getMjmNmois02());
+			}
 			break;
 
 		case 47:
@@ -3859,7 +4645,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 48:
-			valeur = this.getMjmNmois03();
+			if (this.getMjmNmois03() != null) {
+				valeur = String.valueOf(this.getMjmNmois03());
+			}
 			break;
 
 		case 49:
@@ -3867,7 +4655,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 50:
-			valeur = this.getMjmNmois04();
+			if (this.getMjmNmois04() != null) {
+				valeur = String.valueOf(this.getMjmNmois04());
+			}
 			break;
 
 		case 51:
@@ -3875,7 +4665,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 52:
-			valeur = this.getMjmNmois05();
+			if (this.getMjmNmois05() != null) {
+				valeur = String.valueOf(this.getMjmNmois05());
+			}
 			break;
 
 		case 53:
@@ -3883,7 +4675,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 54:
-			valeur = this.getMjmNmois06();
+			if (this.getMjmNmois06() != null) {
+				valeur = String.valueOf(this.getMjmNmois06());
+			}
 			break;
 
 		case 55:
@@ -3891,7 +4685,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 56:
-			valeur = this.getMjmNmois07();
+			if (this.getMjmNmois07() != null) {
+				valeur = String.valueOf(this.getMjmNmois07());
+			}
 			break;
 
 		case 57:
@@ -3899,7 +4695,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 58:
-			valeur = this.getMjmNmois08();
+			if (this.getMjmNmois08() != null) {
+				valeur = String.valueOf(this.getMjmNmois08());
+			}
 			break;
 
 		case 59:
@@ -3907,7 +4705,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 60:
-			valeur = this.getMjmNmois09();
+			if (this.getMjmNmois09() != null) {
+				valeur = String.valueOf(this.getMjmNmois09());
+			}
 			break;
 
 		case 61:
@@ -3915,7 +4715,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 62:
-			valeur = this.getMjmNmois10();
+			if (this.getMjmNmois10() != null) {
+				valeur = String.valueOf(this.getMjmNmois10());
+			}
 			break;
 
 		case 63:
@@ -3923,7 +4725,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 64:
-			valeur = this.getMjmNmois11();
+			if (this.getMjmNmois11() != null) {
+				valeur = String.valueOf(this.getMjmNmois11());
+			}
 			break;
 
 		case 65:
@@ -3931,7 +4735,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 66:
-			valeur = this.getMjmNmois12();
+			if (this.getMjmNmois12() != null) {
+				valeur = String.valueOf(this.getMjmNmois12());
+			}
 			break;
 
 		case 67:
@@ -3943,11 +4749,16 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 69:
-			valeur = this.getAnneeNmoins1();
+			if (this.getAnneeNmoins1() != null) {
+				valeur = this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins1());
+			}			
 			break;
 
 		case 70:
-			valeur = this.getMjaNmoins1();
+			if (this.getMjaNmoins1() != null) {
+				valeur = String.valueOf(this.getMjaNmoins1());
+			}
 			break;
 
 		case 71:
@@ -3975,11 +4786,16 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 77:
-			valeur = this.getAnneeNmoins2();
+			if (this.getAnneeNmoins2() != null) {
+				valeur = this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins2());
+			}			
 			break;
 
 		case 78:
-			valeur = this.getMjaNmoins2();
+			if (this.getMjaNmoins2() != null) {
+				valeur = String.valueOf(this.getMjaNmoins2());
+			}
 			break;
 
 		case 79:
@@ -4007,11 +4823,16 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 85:
-			valeur = this.getAnneeNmoins3();
+			if (this.getAnneeNmoins3() != null) {
+				valeur = this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins3());
+			}			
 			break;
 
 		case 86:
-			valeur = this.getMjaNmoins3();
+			if (this.getMjaNmoins3() != null) {
+				valeur = String.valueOf(this.getMjaNmoins3());
+			}
 			break;
 
 		case 87:
@@ -4039,11 +4860,16 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 93:
-			valeur = this.getAnneeNmoins4();
+			if (this.getAnneeNmoins4() != null) {
+				valeur = this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins4());
+			}			
 			break;
 
 		case 94:
-			valeur = this.getMjaNmoins4();
+			if (this.getMjaNmoins4() != null) {
+				valeur = String.valueOf(this.getMjaNmoins4());
+			}
 			break;
 
 		case 95:
@@ -4071,11 +4897,16 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 101:
-			valeur = this.getAnneeNmoins5();
+			if (this.getAnneeNmoins5() != null) {
+				valeur = this.fournirAnneeDeuxChiffresAPartirDate(
+						this.getAnneeNmoins5());
+			}			
 			break;
 
 		case 102:
-			valeur = this.getMjaNmoins5();
+			if (this.getMjaNmoins5() != null) {
+				valeur = String.valueOf(this.getMjaNmoins5());
+			}
 			break;
 
 		case 103:
@@ -4103,7 +4934,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 109:
-			valeur = this.getMjmNmoins1mois01();
+			if (this.getMjmNmoins1mois01() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois01());
+			}			
 			break;
 
 		case 110:
@@ -4111,7 +4944,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 111:
-			valeur = this.getMjmNmoins1mois02();
+			if (this.getMjmNmoins1mois02() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois02());
+			}			
 			break;
 
 		case 112:
@@ -4119,7 +4954,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 113:
-			valeur = this.getMjmNmoins1mois03();
+			if (this.getMjmNmoins1mois03() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois03());
+			}			
 			break;
 
 		case 114:
@@ -4127,7 +4964,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 115:
-			valeur = this.getMjmNmoins1mois04();
+			if (this.getMjmNmoins1mois04() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois04());
+			}			
 			break;
 
 		case 116:
@@ -4135,7 +4974,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 117:
-			valeur = this.getMjmNmoins1mois05();
+			if (this.getMjmNmoins1mois05() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois05());
+			}			
 			break;
 
 		case 118:
@@ -4143,7 +4984,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 119:
-			valeur = this.getMjmNmoins1mois06();
+			if (this.getMjmNmoins1mois06() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois06());
+			}			
 			break;
 
 		case 120:
@@ -4151,7 +4994,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 121:
-			valeur = this.getMjmNmoins1mois07();
+			if (this.getMjmNmoins1mois07() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois07());
+			}			
 			break;
 
 		case 122:
@@ -4159,7 +5004,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 123:
-			valeur = this.getMjmNmoins1mois08();
+			if (this.getMjmNmoins1mois08() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois08());
+			}			
 			break;
 
 		case 124:
@@ -4167,7 +5014,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 125:
-			valeur = this.getMjmNmoins1mois09();
+			if (this.getMjmNmoins1mois09() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois09());
+			}			
 			break;
 
 		case 126:
@@ -4175,7 +5024,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 127:
-			valeur = this.getMjmNmoins1mois10();
+			if (this.getMjmNmoins1mois10() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois10());
+			}			
 			break;
 
 		case 128:
@@ -4183,7 +5034,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 129:
-			valeur = this.getMjmNmoins1mois11();
+			if (this.getMjmNmoins1mois11() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois11());
+			}			
 			break;
 
 		case 130:
@@ -4191,7 +5044,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			break;
 
 		case 131:
-			valeur = this.getMjmNmoins1mois12();
+			if (this.getMjmNmoins1mois12() != null) {
+				valeur = String.valueOf(this.getMjmNmoins1mois12());
+			}			
 			break;
 
 		case 132:
@@ -4217,8 +5072,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID")
 	@Override
-	public final String getId() {	
+	public final Long getId() {	
 		return this.id;
 	} // Fin de getId().___________________________________________________
 
@@ -4229,7 +5087,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setId(
-			final String pId) {	
+			final Long pId) {	
 		this.id = pId;
 	} // Fin de setId(...).________________________________________________
 
@@ -4238,6 +5096,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
 	public final String getNumDepartement() {
 		return this.numDepartement;
@@ -4254,8 +5113,8 @@ public class SectionHitDTO implements ISectionHitDTO {
 		
 		this.numDepartement = pNumDepartement;
 						
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setNumDepartement(this.numDepartement);
+		if (this.localisation != null) {
+			this.localisation.setNumDepartement(this.numDepartement);
 		}
 
 	} // Fin de setNumDepartement(...).____________________________________
@@ -4265,6 +5124,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="NUMSECTION"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getNumSection() {
 		return this.numSection;
@@ -4286,6 +5148,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="SENS"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getSens() {
 		return this.sens;
@@ -4307,6 +5172,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="NATURE"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getNature() {
 		return this.nature;
@@ -4328,6 +5196,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="CLASSE"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getClasse() {
 		return this.classe;
@@ -4349,8 +5220,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ANNEETRAITEMENT"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getAnneeTraitement() {
+	public final LocalDate getAnneeTraitement() {
 		return this.anneeTraitement;
 	} // Fin de getAnneeTraitement().______________________________________
 
@@ -4361,7 +5235,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setAnneeTraitement(
-			final String pAnneeTraitement) {
+			final LocalDate pAnneeTraitement) {
 		this.anneeTraitement = pAnneeTraitement;
 	} // Fin de setAnneeTraitement(...).___________________________________
 
@@ -4370,6 +5244,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ZONELIBRE1"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getZoneLibre1() {
 		return this.zoneLibre1;
@@ -4391,6 +5268,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
 	public final String getNumRoute() {
 		return this.numRoute;
@@ -4407,10 +5285,10 @@ public class SectionHitDTO implements ISectionHitDTO {
 		
 		this.numRoute = pNumRoute;
 		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setNumRoute(this.numRoute);
+		if (this.localisation != null) {
+			this.localisation.setNumRoute(this.numRoute);
 		}
-
+				
 	} // Fin de setNumRoute(...).__________________________________________
 
 
@@ -4418,6 +5296,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
 	public final String getIndiceNumRoute() {
 		return this.indiceNumRoute;
@@ -4434,10 +5313,10 @@ public class SectionHitDTO implements ISectionHitDTO {
 		
 		this.indiceNumRoute = pIndiceNumRoute;
 		
-		if (this.localisationDTO != null) {
-			 this.localisationDTO.setIndiceNumRoute(this.indiceNumRoute);
+		if (this.localisation != null) {
+			this.localisation.setIndiceNumRoute(this.indiceNumRoute);
 		}
-
+		
 	} // Fin de setIndiceNumRoute(...).____________________________________
 
 
@@ -4445,6 +5324,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
 	public final String getIndiceLettreRoute() {
 		return this.indiceLettreRoute;
@@ -4461,8 +5341,8 @@ public class SectionHitDTO implements ISectionHitDTO {
 		
 		this.indiceLettreRoute = pIndiceLettreRoute;
 		
-		if (this.localisationDTO != null) {
-			 this.localisationDTO.setIndiceLettreRoute(this.indiceLettreRoute);
+		if (this.localisation != null) {
+			this.localisation.setIndiceLettreRoute(this.indiceLettreRoute);
 		}
 
 	} // Fin de setIndiceLettreRoute(...)._________________________________
@@ -4472,6 +5352,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
 	public final String getCategorieAdminRoute() {
 		return this.categorieAdminRoute;
@@ -4487,9 +5368,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			final String pCategorieAdminRoute) {
 		
 		this.categorieAdminRoute = pCategorieAdminRoute;
-		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setCategorieAdminRoute(this.categorieAdminRoute);
+				
+		if (this.localisation != null) {
+			this.localisation.setCategorieAdminRoute(this.categorieAdminRoute);
 		}
 
 	} // Fin de setCategorieAdminRoute(...)._______________________________
@@ -4499,6 +5380,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="TYPECOMPTAGE"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getTypeComptage() {
 		return this.typeComptage;
@@ -4520,6 +5404,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="CLASSEMENTROUTE"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getClassementRoute() {
 		return this.classementRoute;
@@ -4541,6 +5428,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="CLASSELARGEURCHAUSSEEU"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getClasseLargeurChausseeU() {
 		return this.classeLargeurChausseeU;
@@ -4562,6 +5452,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="CLASSELARGEURCHAUSSEESS"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getClasseLargeurChausseesS() {
 		return this.classeLargeurChausseesS;
@@ -4583,6 +5476,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="TYPERESEAU"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getTypeReseau() {
 		return this.typeReseau;
@@ -4604,6 +5500,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PROUPK"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPRoupK() {
 		return this.pRoupK;
@@ -4625,6 +5524,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
 	public final String getLieuDitOrigine() {
 		return this.lieuDitOrigine;
@@ -4640,9 +5540,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 			final String pLieuDitOrigine) {
 		
 		this.lieuDitOrigine = pLieuDitOrigine;
-		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setLieuDitOrigine(this.lieuDitOrigine);
+				
+		if (this.localisation != null) {
+			this.localisation.setLieuDitOrigine(this.lieuDitOrigine);
 		}
 
 	} // Fin de setLieuDitOrigine(...).____________________________________
@@ -4652,8 +5552,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
-	public final String getPrOrigine() {
+	public final Integer getPrOrigine() {
 		return this.prOrigine;
 	} // Fin de getPrOrigine().____________________________________________
 
@@ -4664,14 +5565,14 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setPrOrigine(
-			final String pPrOrigine) {
+			final Integer pPrOrigine) {
 		
 		this.prOrigine = pPrOrigine;
-		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setPrOrigine(this.prOrigine);
+				
+		if (this.localisation != null) {
+			this.localisation.setPrOrigine(this.prOrigine);
 		}
-		
+
 	} // Fin de setPrOrigine(...)._________________________________________
 
 
@@ -4679,8 +5580,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
-	public final String getAbsOrigine() {
+	public final Integer getAbsOrigine() {
 		return this.absOrigine;
 	} // Fin de getAbsOrigine().___________________________________________
 
@@ -4691,12 +5593,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setAbsOrigine(
-			final String pAbsOrigine) {
+			final Integer pAbsOrigine) {
 		
 		this.absOrigine = pAbsOrigine;
 				
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setAbsOrigine(this.absOrigine);
+		if (this.localisation != null) {
+			this.localisation.setAbsOrigine(this.absOrigine);
 		}
 
 	} // Fin de setAbsOrigine(...).________________________________________
@@ -4706,6 +5608,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
 	public final String getLieuDitExtremite() {
 		return this.lieuDitExtremite;
@@ -4720,10 +5623,10 @@ public class SectionHitDTO implements ISectionHitDTO {
 	public final void setLieuDitExtremite(
 			final String pLieuDitExtremite) {
 		
-		this.lieuDitExtremite = pLieuDitExtremite;	
-		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setLieuDitExtremite(this.lieuDitExtremite);
+		this.lieuDitExtremite = pLieuDitExtremite;
+				
+		if (this.localisation != null) {
+			this.localisation.setLieuDitExtremite(this.lieuDitExtremite);
 		}
 
 	} // Fin de setLieuDitExtremite(...).__________________________________
@@ -4733,8 +5636,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
-	public final String getPrExtremite() {
+	public final Integer getPrExtremite() {
 		return this.prExtremite;
 	} // Fin de getPrExtremite().__________________________________________
 
@@ -4745,12 +5649,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setPrExtremite(
-			final String pPrExtremite) {
+			final Integer pPrExtremite) {
 		
 		this.prExtremite = pPrExtremite;
-		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setPrExtremite(this.prExtremite);
+				
+		if (this.localisation != null) {
+			this.localisation.setPrExtremite(this.prExtremite);
 		}
 
 	} // Fin de setPrExtremite(...)._______________________________________
@@ -4760,8 +5664,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
-	public final String getAbsExtremite() {
+	public final Integer getAbsExtremite() {
 		return this.absExtremite;
 	} // Fin de getAbsExtremite()._________________________________________
 
@@ -4772,12 +5677,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setAbsExtremite(
-			final String pAbsExtremite) {
+			final Integer pAbsExtremite) {
 		
-		this.absExtremite = pAbsExtremite;	
+		this.absExtremite = pAbsExtremite;
 		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setAbsExtremite(this.absExtremite);
+		if (this.localisation != null) {
+			this.localisation.setAbsExtremite(this.absExtremite);
 		}
 
 	} // Fin de setAbsExtremite(...).______________________________________
@@ -4787,6 +5692,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
 	public final String getLieuDitComptage() {
 		return this.lieuDitComptage;
@@ -4803,8 +5709,8 @@ public class SectionHitDTO implements ISectionHitDTO {
 		
 		this.lieuDitComptage = pLieuDitComptage;
 		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setLieuDitComptage(this.lieuDitComptage);
+		if (this.localisation != null) {
+			this.localisation.setLieuDitComptage(this.lieuDitComptage);
 		}
 
 	} // Fin de setLieuDitComptage(...).___________________________________
@@ -4814,8 +5720,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
-	public final String getPrComptage() {
+	public final Integer getPrComptage() {
 		return this.prComptage;
 	} // Fin de getPrComptage().___________________________________________
 
@@ -4826,12 +5733,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setPrComptage(
-			final String pPrComptage) {
+			final Integer pPrComptage) {
 		
 		this.prComptage = pPrComptage;
 		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setPrComptage(this.prComptage);
+		if (this.localisation != null) {
+			this.localisation.setPrComptage(this.prComptage);
 		}
 
 	} // Fin de setPrComptage(...).________________________________________
@@ -4841,8 +5748,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transient
 	@Override
-	public final String getAbsComptage() {
+	public final Integer getAbsComptage() {
 		return this.absComptage;
 	} // Fin de getAbsComptage().__________________________________________
 
@@ -4853,12 +5761,12 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setAbsComptage(
-			final String pAbsComptage) {
+			final Integer pAbsComptage) {
 		
 		this.absComptage = pAbsComptage;
 		
-		if (this.localisationDTO != null) {
-			this.localisationDTO.setAbsComptage(this.absComptage);
+		if (this.localisation != null) {
+			this.localisation.setAbsComptage(this.absComptage);
 		}
 
 	} // Fin de setAbsComptage(...)._______________________________________
@@ -4868,8 +5776,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="LONGUEURSECTION"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getLongueurSection() {
+	public final Integer getLongueurSection() {
 		return this.longueurSection;
 	} // Fin de getLongueurSection().______________________________________
 
@@ -4880,7 +5791,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setLongueurSection(
-			final String pLongueurSection) {
+			final Integer pLongueurSection) {
 		this.longueurSection = pLongueurSection;
 	} // Fin de setLongueurSection(...).___________________________________
 
@@ -4889,8 +5800,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="LONGUEURRASECAMPAGNE"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getLongueurRaseCampagne() {
+	public final Integer getLongueurRaseCampagne() {
 		return this.longueurRaseCampagne;
 	} // Fin de getLongueurRaseCampagne()._________________________________
 
@@ -4901,7 +5815,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setLongueurRaseCampagne(
-			final String pLongueurRaseCampagne) {
+			final Integer pLongueurRaseCampagne) {
 		this.longueurRaseCampagne = pLongueurRaseCampagne;
 	} // Fin de setLongueurRaseCampagne(...).______________________________
 
@@ -4910,6 +5824,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="NUMDEPARTEMENTRATTACHEMENT"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getNumDepartementRattachement() {
 		return this.numDepartementRattachement;
@@ -4931,6 +5848,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="NUMSECTIONRATTACHEMENT"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getNumSectionRattachement() {
 		return this.numSectionRattachement;
@@ -4952,6 +5872,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="SENSRATTACHEMENT"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getSensRattachement() {
 		return this.sensRattachement;
@@ -4973,6 +5896,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="NUMDEPARTEMENTLIMITROPHE"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getNumDepartementLimitrophe() {
 		return this.numDepartementLimitrophe;
@@ -4994,6 +5920,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="NUMSECTIONLIMITROPHE"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getNumSectionLimitrophe() {
 		return this.numSectionLimitrophe;
@@ -5015,6 +5944,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="SENSLIMITROPHE"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getSensLimitrophe() {
 		return this.sensLimitrophe;
@@ -5036,6 +5968,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MOISSECTIONNEMENT"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getMoisSectionnement() {
 		return this.moisSectionnement;
@@ -5057,6 +5992,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ANNEESECTIONNEMENT"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getAnneeSectionnement() {
 		return this.anneeSectionnement;
@@ -5078,6 +6016,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ZONELIBRE2"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getZoneLibre2() {
 		return this.zoneLibre2;
@@ -5099,8 +6040,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJAN"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjaN() {
+	public final Integer getMjaN() {
 		return this.mjaN;
 	} // Fin de getMjaN()._________________________________________________
 
@@ -5111,7 +6055,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjaN(
-			final String pMjaN) {
+			final Integer pMjaN) {
 		this.mjaN = pMjaN;
 	} // Fin de setMjaN(...).______________________________________________
 
@@ -5120,6 +6064,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MODECALCULN"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getModeCalculN() {
 		return this.modeCalculN;
@@ -5141,6 +6088,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCPLN"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcPLN() {
 		return this.pcPLN;
@@ -5162,6 +6112,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="EVALUATIONPLN"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getEvaluationPLN() {
 		return this.evaluationPLN;
@@ -5183,6 +6136,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITANNUELN"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitAnnuelN() {
 		return this.pcNuitAnnuelN;
@@ -5204,6 +6160,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="INDICEFIABILITEMJAN"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getIndiceFiabiliteMjaN() {
 		return this.indiceFiabiliteMjaN;
@@ -5225,8 +6184,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS01"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois01() {
+	public final Integer getMjmNmois01() {
 		return this.mjmNmois01;
 	} // Fin de getMjmNmois01().___________________________________________
 
@@ -5237,7 +6199,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois01(
-			final String pMjmNmois01) {
+			final Integer pMjmNmois01) {
 		this.mjmNmois01 = pMjmNmois01;
 	} // Fin de setMjmNmois01(...).________________________________________
 
@@ -5246,6 +6208,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS01"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois01() {
 		return this.pcNuitNmois01;
@@ -5267,8 +6232,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS02"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois02() {
+	public final Integer getMjmNmois02() {
 		return this.mjmNmois02;
 	} // Fin de getMjmNmois02().___________________________________________
 
@@ -5279,7 +6247,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois02(
-			final String pMjmNmois02) {
+			final Integer pMjmNmois02) {
 		this.mjmNmois02 = pMjmNmois02;
 	} // Fin de setMjmNmois02(...).________________________________________
 
@@ -5288,6 +6256,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS02"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois02() {
 		return this.pcNuitNmois02;
@@ -5309,8 +6280,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS03"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois03() {
+	public final Integer getMjmNmois03() {
 		return this.mjmNmois03;
 	} // Fin de getMjmNmois03().___________________________________________
 
@@ -5321,7 +6295,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois03(
-			final String pMjmNmois03) {
+			final Integer pMjmNmois03) {
 		this.mjmNmois03 = pMjmNmois03;
 	} // Fin de setMjmNmois03(...).________________________________________
 
@@ -5330,6 +6304,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS03"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois03() {
 		return this.pcNuitNmois03;
@@ -5351,8 +6328,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS04"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois04() {
+	public final Integer getMjmNmois04() {
 		return this.mjmNmois04;
 	} // Fin de getMjmNmois04().___________________________________________
 
@@ -5363,7 +6343,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois04(
-			final String pMjmNmois04) {
+			final Integer pMjmNmois04) {
 		this.mjmNmois04 = pMjmNmois04;
 	} // Fin de setMjmNmois04(...).________________________________________
 
@@ -5372,6 +6352,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS04"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois04() {
 		return this.pcNuitNmois04;
@@ -5393,8 +6376,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS05"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois05() {
+	public final Integer getMjmNmois05() {
 		return this.mjmNmois05;
 	} // Fin de getMjmNmois05().___________________________________________
 
@@ -5405,7 +6391,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois05(
-			final String pMjmNmois05) {
+			final Integer pMjmNmois05) {
 		this.mjmNmois05 = pMjmNmois05;
 	} // Fin de setMjmNmois05(...).________________________________________
 
@@ -5414,6 +6400,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS05"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois05() {
 		return this.pcNuitNmois05;
@@ -5435,8 +6424,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS06"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois06() {
+	public final Integer getMjmNmois06() {
 		return this.mjmNmois06;
 	} // Fin de getMjmNmois06().___________________________________________
 
@@ -5447,7 +6439,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois06(
-			final String pMjmNmois06) {
+			final Integer pMjmNmois06) {
 		this.mjmNmois06 = pMjmNmois06;
 	} // Fin de setMjmNmois06(...).________________________________________
 
@@ -5456,6 +6448,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS06"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois06() {
 		return this.pcNuitNmois06;
@@ -5477,8 +6472,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS07"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois07() {
+	public final Integer getMjmNmois07() {
 		return this.mjmNmois07;
 	} // Fin de getMjmNmois07().___________________________________________
 
@@ -5489,7 +6487,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois07(
-			final String pMjmNmois07) {
+			final Integer pMjmNmois07) {
 		this.mjmNmois07 = pMjmNmois07;
 	} // Fin de setMjmNmois07(...).________________________________________
 
@@ -5498,6 +6496,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS07"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois07() {
 		return this.pcNuitNmois07;
@@ -5519,8 +6520,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS08"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois08() {
+	public final Integer getMjmNmois08() {
 		return this.mjmNmois08;
 	} // Fin de getMjmNmois08().___________________________________________
 
@@ -5531,7 +6535,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois08(
-			final String pMjmNmois08) {
+			final Integer pMjmNmois08) {
 		this.mjmNmois08 = pMjmNmois08;
 	} // Fin de setMjmNmois08(...).________________________________________
 
@@ -5540,6 +6544,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS08"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois08() {
 		return this.pcNuitNmois08;
@@ -5561,8 +6568,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS09"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois09() {
+	public final Integer getMjmNmois09() {
 		return this.mjmNmois09;
 	} // Fin de getMjmNmois09().___________________________________________
 
@@ -5573,7 +6583,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois09(
-			final String pMjmNmois09) {
+			final Integer pMjmNmois09) {
 		this.mjmNmois09 = pMjmNmois09;
 	} // Fin de setMjmNmois09(...).________________________________________
 
@@ -5582,6 +6592,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS09"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois09() {
 		return this.pcNuitNmois09;
@@ -5603,8 +6616,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS10"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois10() {
+	public final Integer getMjmNmois10() {
 		return this.mjmNmois10;
 	} // Fin de getMjmNmois10().___________________________________________
 
@@ -5615,7 +6631,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois10(
-			final String pMjmNmois10) {
+			final Integer pMjmNmois10) {
 		this.mjmNmois10 = pMjmNmois10;
 	} // Fin de setMjmNmois10(...).________________________________________
 
@@ -5624,6 +6640,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS10"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois10() {
 		return this.pcNuitNmois10;
@@ -5645,8 +6664,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS11"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois11() {
+	public final Integer getMjmNmois11() {
 		return this.mjmNmois11;
 	} // Fin de getMjmNmois11().___________________________________________
 
@@ -5657,7 +6679,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois11(
-			final String pMjmNmois11) {
+			final Integer pMjmNmois11) {
 		this.mjmNmois11 = pMjmNmois11;
 	} // Fin de setMjmNmois11(...).________________________________________
 
@@ -5666,6 +6688,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS11"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois11() {
 		return this.pcNuitNmois11;
@@ -5687,8 +6712,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOIS12"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmois12() {
+	public final Integer getMjmNmois12() {
 		return this.mjmNmois12;
 	} // Fin de getMjmNmois12().___________________________________________
 
@@ -5699,7 +6727,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmois12(
-			final String pMjmNmois12) {
+			final Integer pMjmNmois12) {
 		this.mjmNmois12 = pMjmNmois12;
 	} // Fin de setMjmNmois12(...).________________________________________
 
@@ -5708,6 +6736,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOIS12"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmois12() {
 		return this.pcNuitNmois12;
@@ -5729,6 +6760,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ZONELIBRE3"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getZoneLibre3() {
 		return this.zoneLibre3;
@@ -5750,8 +6784,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ANNEENMOINS1"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getAnneeNmoins1() {
+	public final LocalDate getAnneeNmoins1() {
 		return this.anneeNmoins1;
 	} // Fin de getAnneeNmoins1()._________________________________________
 	
@@ -5762,7 +6799,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setAnneeNmoins1(
-			final String pAnneeNmoins1) {
+			final LocalDate pAnneeNmoins1) {
 		this.anneeNmoins1 = pAnneeNmoins1;
 	} // Fin de setAnneeNmoins1(...).______________________________________
 
@@ -5771,8 +6808,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJANMOINS1"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjaNmoins1() {
+	public final Integer getMjaNmoins1() {
 		return this.mjaNmoins1;
 	} // Fin de getMjaNmoins1().___________________________________________
 
@@ -5783,7 +6823,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjaNmoins1(
-			final String pMjaNmoins1) {
+			final Integer pMjaNmoins1) {
 		this.mjaNmoins1 = pMjaNmoins1;
 	} // Fin de setMjaNmoins1(...).________________________________________
 
@@ -5792,6 +6832,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="TYPECOMPTAGENMOINS1"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getTypeComptageNmoins1() {
 		return this.typeComptageNmoins1;
@@ -5813,6 +6856,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MODECALCULNMOINS1"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getModeCalculNmoins1() {
 		return this.modeCalculNmoins1;
@@ -5834,6 +6880,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCPLNMOINS1"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcPLNmoins1() {
 		return this.pcPLNmoins1;
@@ -5855,6 +6904,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="EVALUATIONPLNMOINS1"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getEvaluationPLNmoins1() {
 		return this.evaluationPLNmoins1;
@@ -5876,6 +6928,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITANNUELNMOINS1"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitAnnuelNmoins1() {
 		return this.pcNuitAnnuelNmoins1;
@@ -5897,6 +6952,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="INDICEFIABILITEMJANMOINS1"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getIndiceFiabiliteMjaNmoins1() {
 		return this.indiceFiabiliteMjaNmoins1;
@@ -5918,8 +6976,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ANNEENMOINS2"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getAnneeNmoins2() {
+	public final LocalDate getAnneeNmoins2() {
 		return this.anneeNmoins2;
 	} // Fin de getAnneeNmoins2()._________________________________________
 	
@@ -5930,7 +6991,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setAnneeNmoins2(
-			final String pAnneeNmoins2) {
+			final LocalDate pAnneeNmoins2) {
 		this.anneeNmoins2 = pAnneeNmoins2;
 	} // Fin de setAnneeNmoins2(...).______________________________________
 
@@ -5939,8 +7000,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJANMOINS2"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjaNmoins2() {
+	public final Integer getMjaNmoins2() {
 		return this.mjaNmoins2;
 	} // Fin de getMjaNmoins2().___________________________________________
 
@@ -5951,7 +7015,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjaNmoins2(
-			final String pMjaNmoins2) {
+			final Integer pMjaNmoins2) {
 		this.mjaNmoins2 = pMjaNmoins2;
 	} // Fin de setMjaNmoins2(...).________________________________________
 
@@ -5960,6 +7024,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="TYPECOMPTAGENMOINS2"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getTypeComptageNmoins2() {
 		return this.typeComptageNmoins2;
@@ -5981,6 +7048,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MODECALCULNMOINS2"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getModeCalculNmoins2() {
 		return this.modeCalculNmoins2;
@@ -6002,6 +7072,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCPLNMOINS2"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcPLNmoins2() {
 		return this.pcPLNmoins2;
@@ -6023,6 +7096,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="EVALUATIONPLNMOINS2"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getEvaluationPLNmoins2() {
 		return this.evaluationPLNmoins2;
@@ -6044,6 +7120,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITANNUELNMOINS2"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitAnnuelNmoins2() {
 		return this.pcNuitAnnuelNmoins2;
@@ -6065,6 +7144,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="INDICEFIABILITEMJANMOINS2"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getIndiceFiabiliteMjaNmoins2() {
 		return this.indiceFiabiliteMjaNmoins2;
@@ -6086,8 +7168,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ANNEENMOINS3"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getAnneeNmoins3() {
+	public final LocalDate getAnneeNmoins3() {
 		return this.anneeNmoins3;
 	} // Fin de getAnneeNmoins3()._________________________________________
 	
@@ -6098,7 +7183,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setAnneeNmoins3(
-			final String pAnneeNmoins3) {
+			final LocalDate pAnneeNmoins3) {
 		this.anneeNmoins3 = pAnneeNmoins3;
 	} // Fin de setAnneeNmoins3(...).______________________________________
 
@@ -6107,8 +7192,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJANMOINS3"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjaNmoins3() {
+	public final Integer getMjaNmoins3() {
 		return this.mjaNmoins3;
 	} // Fin de getMjaNmoins3().___________________________________________
 
@@ -6119,7 +7207,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjaNmoins3(
-			final String pMjaNmoins3) {
+			final Integer pMjaNmoins3) {
 		this.mjaNmoins3 = pMjaNmoins3;
 	} // Fin de setMjaNmoins3(...).________________________________________
 
@@ -6128,6 +7216,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="TYPECOMPTAGENMOINS3"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getTypeComptageNmoins3() {
 		return this.typeComptageNmoins3;
@@ -6149,6 +7240,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MODECALCULNMOINS3"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getModeCalculNmoins3() {
 		return this.modeCalculNmoins3;
@@ -6170,6 +7264,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCPLNMOINS3"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcPLNmoins3() {
 		return this.pcPLNmoins3;
@@ -6191,6 +7288,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="EVALUATIONPLNMOINS3"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getEvaluationPLNmoins3() {
 		return this.evaluationPLNmoins3;
@@ -6212,6 +7312,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITANNUELNMOINS3"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitAnnuelNmoins3() {
 		return this.pcNuitAnnuelNmoins3;
@@ -6233,6 +7336,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="INDICEFIABILITEMJANMOINS3"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getIndiceFiabiliteMjaNmoins3() {
 		return this.indiceFiabiliteMjaNmoins3;
@@ -6254,8 +7360,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ANNEENMOINS4"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)	
 	@Override
-	public final String getAnneeNmoins4() {
+	public final LocalDate getAnneeNmoins4() {
 		return this.anneeNmoins4;
 	} // Fin de getAnneeNmoins4()._________________________________________
 	
@@ -6266,7 +7375,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setAnneeNmoins4(
-			final String pAnneeNmoins4) {
+			final LocalDate pAnneeNmoins4) {
 		this.anneeNmoins4 = pAnneeNmoins4;
 	} // Fin de setAnneeNmoins4(...).______________________________________
 
@@ -6275,8 +7384,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJANMOINS4"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjaNmoins4() {
+	public final Integer getMjaNmoins4() {
 		return this.mjaNmoins4;
 	} // Fin de getMjaNmoins4().___________________________________________
 
@@ -6287,7 +7399,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjaNmoins4(
-			final String pMjaNmoins4) {
+			final Integer pMjaNmoins4) {
 		this.mjaNmoins4 = pMjaNmoins4;
 	} // Fin de setMjaNmoins4(...).________________________________________
 
@@ -6296,6 +7408,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="TYPECOMPTAGENMOINS4"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getTypeComptageNmoins4() {
 		return this.typeComptageNmoins4;
@@ -6317,6 +7432,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MODECALCULNMOINS4"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getModeCalculNmoins4() {
 		return this.modeCalculNmoins4;
@@ -6338,6 +7456,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCPLNMOINS4"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcPLNmoins4() {
 		return this.pcPLNmoins4;
@@ -6359,6 +7480,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="EVALUATIONPLNMOINS4"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getEvaluationPLNmoins4() {
 		return this.evaluationPLNmoins4;
@@ -6380,6 +7504,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITANNUELNMOINS4"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitAnnuelNmoins4() {
 		return this.pcNuitAnnuelNmoins4;
@@ -6401,6 +7528,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="INDICEFIABILITEMJANMOINS4"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getIndiceFiabiliteMjaNmoins4() {
 		return this.indiceFiabiliteMjaNmoins4;
@@ -6422,8 +7552,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ANNEENMOINS5"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)	
 	@Override
-	public final String getAnneeNmoins5() {
+	public final LocalDate getAnneeNmoins5() {
 		return this.anneeNmoins5;
 	} // Fin de getAnneeNmoins5()._________________________________________
 	
@@ -6434,7 +7567,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setAnneeNmoins5(
-			final String pAnneeNmoins5) {
+			final LocalDate pAnneeNmoins5) {
 		this.anneeNmoins5 = pAnneeNmoins5;
 	} // Fin de setAnneeNmoins5(...).______________________________________
 
@@ -6443,8 +7576,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJANMOINS5"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjaNmoins5() {
+	public final Integer getMjaNmoins5() {
 		return this.mjaNmoins5;
 	} // Fin de getMjaNmoins5().___________________________________________
 
@@ -6455,7 +7591,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjaNmoins5(
-			final String pMjaNmoins5) {
+			final Integer pMjaNmoins5) {
 		this.mjaNmoins5 = pMjaNmoins5;
 	} // Fin de setMjaNmoins5(...).________________________________________
 
@@ -6464,6 +7600,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="TYPECOMPTAGENMOINS5"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getTypeComptageNmoins5() {
 		return this.typeComptageNmoins5;
@@ -6485,6 +7624,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MODECALCULNMOINS5"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getModeCalculNmoins5() {
 		return this.modeCalculNmoins5;
@@ -6506,6 +7648,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCPLNMOINS5"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcPLNmoins5() {
 		return this.pcPLNmoins5;
@@ -6527,6 +7672,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="EVALUATIONPLNMOINS5"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getEvaluationPLNmoins5() {
 		return this.evaluationPLNmoins5;
@@ -6548,6 +7696,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITANNUELNMOINS5"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitAnnuelNmoins5() {
 		return this.pcNuitAnnuelNmoins5;
@@ -6569,6 +7720,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="INDICEFIABILITEMJANMOINS5"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getIndiceFiabiliteMjaNmoins5() {
 		return this.indiceFiabiliteMjaNmoins5;
@@ -6590,8 +7744,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS01"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois01() {
+	public final Integer getMjmNmoins1mois01() {
 		return this.mjmNmoins1mois01;
 	} // Fin de getMjmNmoins1mois01()._____________________________________
 
@@ -6602,7 +7759,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois01(
-			final String pMjmNmoins1mois01) {
+			final Integer pMjmNmoins1mois01) {
 		this.mjmNmoins1mois01 = pMjmNmoins1mois01;
 	} // Fin de setMjmNmoins1mois01(...).__________________________________
 
@@ -6611,6 +7768,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS01"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois01() {
 		return this.pcNuitNmoins1mois01;
@@ -6632,8 +7792,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS02"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois02() {
+	public final Integer getMjmNmoins1mois02() {
 		return this.mjmNmoins1mois02;
 	} // Fin de getMjmNmoins1mois02()._____________________________________
 
@@ -6644,7 +7807,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois02(
-			final String pMjmNmoins1mois02) {
+			final Integer pMjmNmoins1mois02) {
 		this.mjmNmoins1mois02 = pMjmNmoins1mois02;
 	} // Fin de setMjmNmoins1mois02(...).__________________________________
 
@@ -6653,6 +7816,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS02"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois02() {
 		return this.pcNuitNmoins1mois02;
@@ -6674,8 +7840,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS03"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois03() {
+	public final Integer getMjmNmoins1mois03() {
 		return this.mjmNmoins1mois03;
 	} // Fin de getMjmNmoins1mois03()._____________________________________
 
@@ -6686,7 +7855,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois03(
-			final String pMjmNmoins1mois03) {
+			final Integer pMjmNmoins1mois03) {
 		this.mjmNmoins1mois03 = pMjmNmoins1mois03;
 	} // Fin de setMjmNmoins1mois03(...).__________________________________
 
@@ -6695,6 +7864,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS03"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois03() {
 		return this.pcNuitNmoins1mois03;
@@ -6716,8 +7888,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS04"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois04() {
+	public final Integer getMjmNmoins1mois04() {
 		return this.mjmNmoins1mois04;
 	} // Fin de getMjmNmoins1mois04()._____________________________________
 
@@ -6728,7 +7903,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois04(
-			final String pMjmNmoins1mois04) {
+			final Integer pMjmNmoins1mois04) {
 		this.mjmNmoins1mois04 = pMjmNmoins1mois04;
 	} // Fin de setMjmNmoins1mois04(...).__________________________________
 
@@ -6737,6 +7912,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS04"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois04() {
 		return this.pcNuitNmoins1mois04;
@@ -6758,8 +7936,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS05"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois05() {
+	public final Integer getMjmNmoins1mois05() {
 		return this.mjmNmoins1mois05;
 	} // Fin de getMjmNmoins1mois05()._____________________________________
 
@@ -6770,7 +7951,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois05(
-			final String pMjmNmoins1mois05) {
+			final Integer pMjmNmoins1mois05) {
 		this.mjmNmoins1mois05 = pMjmNmoins1mois05;
 	} // Fin de setMjmNmoins1mois05(...).__________________________________
 
@@ -6779,6 +7960,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS05"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois05() {
 		return this.pcNuitNmoins1mois05;
@@ -6800,8 +7984,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS06"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois06() {
+	public final Integer getMjmNmoins1mois06() {
 		return this.mjmNmoins1mois06;
 	} // Fin de getMjmNmoins1mois06()._____________________________________
 
@@ -6812,7 +7999,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois06(
-			final String pMjmNmoins1mois06) {
+			final Integer pMjmNmoins1mois06) {
 		this.mjmNmoins1mois06 = pMjmNmoins1mois06;
 	} // Fin de setMjmNmoins1mois06(...).__________________________________
 
@@ -6821,6 +8008,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS06"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois06() {
 		return this.pcNuitNmoins1mois06;
@@ -6842,8 +8032,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS07"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois07() {
+	public final Integer getMjmNmoins1mois07() {
 		return this.mjmNmoins1mois07;
 	} // Fin de getMjmNmoins1mois07()._____________________________________
 
@@ -6854,7 +8047,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois07(
-			final String pMjmNmoins1mois07) {
+			final Integer pMjmNmoins1mois07) {
 		this.mjmNmoins1mois07 = pMjmNmoins1mois07;
 	} // Fin de setMjmNmoins1mois07(...).__________________________________
 
@@ -6863,6 +8056,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS07"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois07() {
 		return this.pcNuitNmoins1mois07;
@@ -6884,8 +8080,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS08"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois08() {
+	public final Integer getMjmNmoins1mois08() {
 		return this.mjmNmoins1mois08;
 	} // Fin de getMjmNmoins1mois08()._____________________________________
 
@@ -6896,7 +8095,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois08(
-			final String pMjmNmoins1mois08) {
+			final Integer pMjmNmoins1mois08) {
 		this.mjmNmoins1mois08 = pMjmNmoins1mois08;
 	} // Fin de setMjmNmoins1mois08(...).__________________________________
 
@@ -6905,6 +8104,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS08"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois08() {
 		return this.pcNuitNmoins1mois08;
@@ -6926,8 +8128,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS09"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois09() {
+	public final Integer getMjmNmoins1mois09() {
 		return this.mjmNmoins1mois09;
 	} // Fin de getMjmNmoins1mois09()._____________________________________
 
@@ -6938,7 +8143,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois09(
-			final String pMjmNmoins1mois09) {
+			final Integer pMjmNmoins1mois09) {
 		this.mjmNmoins1mois09 = pMjmNmoins1mois09;
 	} // Fin de setMjmNmoins1mois09(...).__________________________________
 
@@ -6947,6 +8152,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS09"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois09() {
 		return this.pcNuitNmoins1mois09;
@@ -6968,8 +8176,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS10"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois10() {
+	public final Integer getMjmNmoins1mois10() {
 		return this.mjmNmoins1mois10;
 	} // Fin de getMjmNmoins1mois10()._____________________________________
 
@@ -6980,7 +8191,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois10(
-			final String pMjmNmoins1mois10) {
+			final Integer pMjmNmoins1mois10) {
 		this.mjmNmoins1mois10 = pMjmNmoins1mois10;
 	} // Fin de setMjmNmoins1mois10(...).__________________________________
 
@@ -6989,6 +8200,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS10"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois10() {
 		return this.pcNuitNmoins1mois10;
@@ -7010,8 +8224,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS11"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois11() {
+	public final Integer getMjmNmoins1mois11() {
 		return this.mjmNmoins1mois11;
 	} // Fin de getMjmNmoins1mois11()._____________________________________
 
@@ -7022,7 +8239,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois11(
-			final String pMjmNmoins1mois11) {
+			final Integer pMjmNmoins1mois11) {
 		this.mjmNmoins1mois11 = pMjmNmoins1mois11;
 	} // Fin de setMjmNmoins1mois11(...).__________________________________
 
@@ -7031,6 +8248,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS11"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois11() {
 		return this.pcNuitNmoins1mois11;
@@ -7052,8 +8272,11 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="MJMNMOINS1MOIS12"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
-	public final String getMjmNmoins1mois12() {
+	public final Integer getMjmNmoins1mois12() {
 		return this.mjmNmoins1mois12;
 	} // Fin de getMjmNmoins1mois12()._____________________________________
 
@@ -7064,7 +8287,7 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 */
 	@Override
 	public final void setMjmNmoins1mois12(
-			final String pMjmNmoins1mois12) {
+			final Integer pMjmNmoins1mois12) {
 		this.mjmNmoins1mois12 = pMjmNmoins1mois12;
 	} // Fin de setMjmNmoins1mois12(...).__________________________________
 
@@ -7073,6 +8296,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="PCNUITNMOINS1MOIS12"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getPcNuitNmoins1mois12() {
 		return this.pcNuitNmoins1mois12;
@@ -7094,6 +8320,9 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name="ZONELIBRE4"
+			, unique = false, updatable = true
+			, insertable = true, nullable = true)
 	@Override
 	public final String getZoneLibre4() {
 		return this.zoneLibre4;
@@ -7115,10 +8344,16 @@ public class SectionHitDTO implements ISectionHitDTO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@ManyToOne(targetEntity = LocalisationHitEntityJPA.class
+			, fetch = FetchType.EAGER)	
+			@JoinColumn(name = "ID_LOCALISATION_HIT", referencedColumnName = "ID"
+			, foreignKey = @ForeignKey(name = "FK_SECTIONHIT_LOCALISATIONHIT")
+			, insertable = true, updatable = true
+			, nullable = false, unique = false)			
 	@Override
-	public final ILocalisationHitDTO getLocalisationDTO() {
-		return this.localisationDTO;
-	} // Fin de getLocalisationDTO().______________________________________
+	public final ILocalisationHit getLocalisation() {
+		return this.localisation;
+	} // Fin de getLocalisation()._________________________________________
 
 
 	
@@ -7126,15 +8361,16 @@ public class SectionHitDTO implements ISectionHitDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLocalisationDTO(
-			final ILocalisationHitDTO pLocalisationDTO) {
+	public final void setLocalisation(final ILocalisationHit pLocalisation) {
 		
-		this.localisationDTO = pLocalisationDTO;
+		this.localisation = pLocalisation;
 		
-		this.alimenterAttributsLocalisation(this.localisationDTO);
+		/* alimente automatiquement les attributs de la présente classe 
+		 * avec les attributs correspondants du COMPOSANT. */
+		this.alimenterAttributsLocalisation(this.localisation);
 		
-	} // Fin de setLocalisationDTO(...).___________________________________
+	} // Fin de setLocalisation(...).______________________________________
 
 	
 	
-} // FIN DE LA CLASSE SectionHitDTO.-----------------------------------------
+} // FIN DE LA CLASSE SectionHitEntityJPA.--------------------------------------------
