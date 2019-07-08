@@ -1488,7 +1488,7 @@ public final class GenerateurRapide {
 			return null;
 		}
 
-		int nombreChamps = map.size();
+		final int nombreChamps = map.size();
 		int compteur = 0;
 		
 		stb.append("");
@@ -1595,17 +1595,17 @@ public final class GenerateurRapide {
 		stb.append(NEWLINE);
 				
 		stb.append(TAB + TAB + TAB);
-		stb.append("if (pEntityJPA != null) {");
+		stb.append("if (pObject != null) {");
 		stb.append(NEWLINE);
 		stb.append(NEWLINE);
 		
 		for (final EncapsulationTypeChamp champ : map.values()) {
 			
 			stb.append(TAB + TAB + TAB + TAB);
-			stb.append("objet.");
+			stb.append("entityJPA.");
 			stb.append(champ.getNomSetter());
 			stb.append('(');
-			stb.append("pEntityJPA.");
+			stb.append("pObject.");
 			stb.append(champ.getNomGetter());
 			stb.append('(');
 			stb.append("));");
@@ -1622,14 +1622,14 @@ public final class GenerateurRapide {
 		stb.append(NEWLINE);
 		
 		stb.append(TAB + TAB + TAB);
-		stb.append("return objet;");
+		stb.append("return entityJPA;");
 		
 		stb.append(NEWLINE);
 		stb.append(NEWLINE);
 		
 		return stb.toString();
 				
-	} // Fin de genererCreerObjetMetierAPartirEntityJPA(...).______________
+	} // Fin de genererCreerEntityJPA(...).________________________________
 	
 	
 	
@@ -2439,7 +2439,9 @@ public final class GenerateurRapide {
 		
 //		System.out.println(genererCreerObjetMetierAPartirEntityJPA(classe));
 		
-		System.out.println(genererConvertirEntityJPAEnObjetMetier(classe));
+//		System.out.println(genererConvertirEntityJPAEnObjetMetier(classe));
+		
+		System.out.println(genererCreerEntityJPA(classe));
 		
     } // Fin de main(...)._________________________________________________
 

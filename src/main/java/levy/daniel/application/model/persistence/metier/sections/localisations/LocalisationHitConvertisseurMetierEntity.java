@@ -2,16 +2,13 @@ package levy.daniel.application.model.persistence.metier.sections.localisations;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
 import levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit;
-import levy.daniel.application.model.persistence.metier.anneegestion.AnneeGestionConvertisseurMetierEntity;
 import levy.daniel.application.model.persistence.metier.sections.localisations.entities.jpa.LocalisationHitEntityJPA;
-import levy.daniel.application.model.persistence.metier.utilisateur.UtilisateurCerbereConvertisseurMetierEntity;
 
 /**
  * CLASSE LocalisationHitConvertisseurMetierEntity :<br/>
@@ -33,9 +30,14 @@ import levy.daniel.application.model.persistence.metier.utilisateur.UtilisateurC
  * @since 6 juil. 2019
  *
  */
-public class LocalisationHitConvertisseurMetierEntity {
+public final class LocalisationHitConvertisseurMetierEntity {
 
 	// ************************ATTRIBUTS************************************/
+
+	/**
+	 * "line.separator".<br/>
+	 */
+	public static final String LINE_SEPARATOR = "line.separator";
 
 	/**
 	 * LOG : Log : 
@@ -219,24 +221,31 @@ public class LocalisationHitConvertisseurMetierEntity {
 		
 		synchronized (LocalisationHitConvertisseurMetierEntity.class) {
 			
-			final LocalisationHitEntityJPA entity 
+			final LocalisationHitEntityJPA entityJPA 
 				= new LocalisationHitEntityJPA();
-			
+
 			if (pObject != null) {
-				
-				entity.setId(pObject.getId());
-				entity.setDateLocalisationHit(pObject.getDateLocalisationHit());
-				entity.setUtilisateur(pObject.getUtilisateur());
-				entity.setGestionnaire(pObject.getGestionnaire());
-				entity.setTypeFichier(pObject.getTypeFichier());
-				entity.setNomFichierTeleverse(pObject.getNomFichierTeleverse());
-				entity.setFichierStockeServeur(pObject.getFichierStockeServeur());
-				entity.setAnneeGestion(pObject.getAnneeGestion());
-				
+
+				entityJPA.setId(pObject.getId());
+				entityJPA.setNumRoute(pObject.getNumRoute());
+				entityJPA.setIndiceNumRoute(pObject.getIndiceNumRoute());
+				entityJPA.setIndiceLettreRoute(pObject.getIndiceLettreRoute());
+				entityJPA.setCategorieAdminRoute(pObject.getCategorieAdminRoute());
+				entityJPA.setNumDepartement(pObject.getNumDepartement());
+				entityJPA.setLieuDitOrigine(pObject.getLieuDitOrigine());
+				entityJPA.setPrOrigine(pObject.getPrOrigine());
+				entityJPA.setAbsOrigine(pObject.getAbsOrigine());
+				entityJPA.setLieuDitExtremite(pObject.getLieuDitExtremite());
+				entityJPA.setPrExtremite(pObject.getPrExtremite());
+				entityJPA.setAbsExtremite(pObject.getAbsExtremite());
+				entityJPA.setLieuDitComptage(pObject.getLieuDitComptage());
+				entityJPA.setPrComptage(pObject.getPrComptage());
+				entityJPA.setAbsComptage(pObject.getAbsComptage());
+
 			}
+
+			return entityJPA;
 			
-			return entity;
-					
 		} // Fin de synchronized.______________________
 		
 	} // Fin de creerEntityJPA(...)._______________________________________
@@ -268,14 +277,20 @@ public class LocalisationHitConvertisseurMetierEntity {
 				resultat 
 					= new LocalisationHitEntityJPA(
 							pObject.getId()
-							, pObject.getDateLocalisationHit()
-							, UtilisateurCerbereConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(pObject.getUtilisateur()) 
-							, pObject.getGestionnaire()
-							, pObject.getTypeFichier()
-							, pObject.getNomFichierTeleverse()
-							, pObject.getFichierStockeServeur()
-							, AnneeGestionConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(pObject.getAnneeGestion()));
-				
+							, pObject.getNumRoute()
+							, pObject.getIndiceNumRoute()
+							, pObject.getIndiceLettreRoute()
+							, pObject.getCategorieAdminRoute()
+							, pObject.getNumDepartement()
+							, pObject.getLieuDitOrigine()
+							, pObject.getPrOrigine()
+							, pObject.getAbsOrigine()
+							, pObject.getLieuDitExtremite()
+							, pObject.getPrExtremite()
+							, pObject.getAbsExtremite()
+							, pObject.getLieuDitComptage()
+							, pObject.getPrComptage()
+							, pObject.getAbsComptage());				
 			}
 						
 			return resultat;
@@ -367,17 +382,7 @@ public class LocalisationHitConvertisseurMetierEntity {
 			if (entity != null) {
 				
 				final String stringformatee 
-					= String.format(
-							Locale.getDefault()
-								, FORMAT_TELEVERSEMENT
-								, entity.getId()
-								, formaterLocalDateTimeEnString(entity.getDateLocalisationHit())
-								, entity.getUtilisateur().getNom()
-								, entity.getGestionnaire().getNomCourt()
-								, entity.getTypeFichier().getNomCourt()
-								, entity.getNomFichierTeleverse()
-								, entity.getFichierStockeServeur().getAbsolutePath()
-								, entity.getAnneeGestion().getAnneeGestion());
+					= entity.toString();
 				
 				stb.append(stringformatee);
 				
@@ -429,17 +434,7 @@ public class LocalisationHitConvertisseurMetierEntity {
 			if (objet != null) {
 				
 				final String stringformatee 
-					= String.format(
-							Locale.getDefault()
-								, FORMAT_TELEVERSEMENT
-								, objet.getId()
-								, formaterLocalDateTimeEnString(objet.getDateLocalisationHit())
-								, objet.getUtilisateur().getNom()
-								, objet.getGestionnaire().getNomCourt()
-								, objet.getTypeFichier().getNomCourt()
-								, objet.getNomFichierTeleverse()
-								, objet.getFichierStockeServeur().getAbsolutePath()
-								, objet.getAnneeGestion().getAnneeGestion());
+					= objet.toString();
 				
 				stb.append(stringformatee);
 				
