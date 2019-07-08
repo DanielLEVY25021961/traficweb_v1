@@ -38,6 +38,46 @@ import levy.daniel.application.model.persistence.metier.sections.localisations.e
 public class LocalisationHitConvertisseurMetierEntityTest {
 
 	// ************************ATTRIBUTS************************************/
+
+	/**
+	 * "0086".
+	 */
+	public static final String NUM_ROUTE_86 = "0086";
+	
+	/**
+	 * "2".
+	 */
+	public static final String INDICE_NUM_ROUTE_2 = "2";
+	
+	/**
+	 * "b".
+	 */
+	public static final String INDICE_LETTRE_ROUTE_B = "b";
+	
+	/**
+	 * "4".
+	 */
+	public static final String CATEGORIE_ADMIN_ROUTE_4 = "4";
+	
+	/**
+	 * "730".
+	 */
+	public static final String DEPT_73 = "730";
+	
+	/**
+	 * "lieu_dit_origine".
+	 */
+	public static final String LIEU_DIT_ORIGINE = "lieu_dit_origine";
+	
+	/**
+	 * "lieu_dit_extremite".
+	 */
+	public static final String LIEU_DIT_EXTREMITE = "lieu_dit_extremite";
+	
+	/**
+	 * "lieu_dit_comptage".
+	 */
+	public static final String LIEU_DIT_COMPTAGE = "lieu_dit_comptage";
 	
 	/**
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>
@@ -116,11 +156,12 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		/* valeur existante. */
 		final LocalisationHitEntityJPA entity 
 			= new LocalisationHitEntityJPA(7L
-					, "0086", "2", "b", "4"
-					, "730"
-					, "lieu_dit_origine", 3, 200
-					, "lieu_dit_extremite", 7, 400
-					, "lieu_dit_comptage", 5, 600);
+					, NUM_ROUTE_86, INDICE_NUM_ROUTE_2, INDICE_LETTRE_ROUTE_B
+					, CATEGORIE_ADMIN_ROUTE_4
+					, DEPT_73
+					, LIEU_DIT_ORIGINE, 3, 200
+					, LIEU_DIT_EXTREMITE, 7, 400
+					, LIEU_DIT_COMPTAGE, 5, 600);
 		
 		final ILocalisationHit objet 
 			= LocalisationHitConvertisseurMetierEntity
@@ -191,11 +232,12 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		/* valeur existante. */
 		final LocalisationHitEntityJPA entity 
 			= new LocalisationHitEntityJPA(7L
-							, "0086", "2", "b", "4"
-							, "730"
-							, "lieu_dit_origine", 3, 200
-							, "lieu_dit_extremite", 7, 400
-							, "lieu_dit_comptage", 5, 600);
+							, NUM_ROUTE_86, INDICE_NUM_ROUTE_2
+							, INDICE_LETTRE_ROUTE_B, CATEGORIE_ADMIN_ROUTE_4
+							, DEPT_73
+							, LIEU_DIT_ORIGINE, 3, 200
+							, LIEU_DIT_EXTREMITE, 7, 400
+							, LIEU_DIT_COMPTAGE, 5, 600);
 		
 		final ILocalisationHit objet 
 			= LocalisationHitConvertisseurMetierEntity
@@ -366,11 +408,12 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		/* valeur existante. */
 		final ILocalisationHit objet 
 			= new LocalisationHit(7L
-					, "0086", "2", "b", "4"
-					, "730"
-					, "lieu_dit_origine", 3, 200
-					, "lieu_dit_extremite", 7, 400
-					, "lieu_dit_comptage", 5, 600);
+					, NUM_ROUTE_86, INDICE_NUM_ROUTE_2
+					, INDICE_LETTRE_ROUTE_B, CATEGORIE_ADMIN_ROUTE_4
+					, DEPT_73
+					, LIEU_DIT_ORIGINE, 3, 200
+					, LIEU_DIT_EXTREMITE, 7, 400
+					, LIEU_DIT_COMPTAGE, 5, 600);
 		
 		final LocalisationHitEntityJPA entity 
 			= LocalisationHitConvertisseurMetierEntity
@@ -441,11 +484,12 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		/* valeur existante. */
 		final ILocalisationHit objet 
 			= new LocalisationHit(7L
-					, "0086", "2", "b", "4"
-					, "730"
-					, "lieu_dit_origine", 3, 200
-					, "lieu_dit_extremite", 7, 400
-					, "lieu_dit_comptage", 5, 600);
+					, NUM_ROUTE_86, INDICE_NUM_ROUTE_2
+					, INDICE_LETTRE_ROUTE_B, CATEGORIE_ADMIN_ROUTE_4
+					, DEPT_73
+					, LIEU_DIT_ORIGINE, 3, 200
+					, LIEU_DIT_EXTREMITE, 7, 400
+					, LIEU_DIT_COMPTAGE, 5, 600);
 		
 		final LocalisationHitEntityJPA entity 
 			= LocalisationHitConvertisseurMetierEntity
