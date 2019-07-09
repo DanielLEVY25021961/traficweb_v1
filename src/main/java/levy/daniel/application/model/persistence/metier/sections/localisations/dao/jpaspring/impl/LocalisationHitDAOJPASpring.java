@@ -274,11 +274,11 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 				+ "and localisationHit.prExtremite = :pPrExtremite "
 				+ "and localisationHit.absExtremite = :pAbsExtremite";
 			
-			/* Construction de la requête HQL. */
+			/* Construction de la requête JPQL. */
 			requete 
 				= this.entityManager.createQuery(requeteString);
 			
-			/* Passage des paramètres de la requête HQL. */
+			/* Passage des paramètres de la requête JPQL. */
 			requete.setParameter("pNumRoute", pObject.getNumRoute());
 			requete.setParameter("pIndiceNumRoute", pObject.getIndiceNumRoute());
 			requete.setParameter("pIndiceLettreRoute", pObject.getIndiceLettreRoute());

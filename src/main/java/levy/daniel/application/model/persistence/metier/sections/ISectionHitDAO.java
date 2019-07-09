@@ -1,11 +1,11 @@
-package levy.daniel.application.model.persistence.metier.sections.localisations;
+package levy.daniel.application.model.persistence.metier.sections;
 
 import java.util.List;
 
-import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
+import levy.daniel.application.model.metier.sections.ISectionHit;
 
 /**
- * INTERFACE ILocalisationHitDAO :<br/>
+ * INTERFACE ISectionHitDAO :<br/>
  * .<br/>
  * <br/>
  *
@@ -19,12 +19,12 @@ import levy.daniel.application.model.metier.sections.localisations.ILocalisation
  * <br/>
  *
  *
- * @author dan Lévy
+ * @author daniel.levy Lévy
  * @version 1.0
- * @since 8 juil. 2019
+ * @since 9 juil. 2019
  *
  */
-public interface ILocalisationHitDAO {
+public interface ISectionHitDAO {
 
 
 	
@@ -43,15 +43,15 @@ public interface ILocalisationHitDAO {
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ILocalisationHit : 
+	 * @param pObject : ISectionHit : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
-	 * @return ILocalisationHit : 
+	 * @return ISectionHit : 
 	 * l'objet métier persisté dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	ILocalisationHit create(ILocalisationHit pObject) throws Exception;
+	ISectionHit create(ISectionHit pObject) throws Exception;
 	
 	
 	
@@ -78,7 +78,7 @@ public interface ILocalisationHitDAO {
 	 * 
 	 * @throws Exception
 	 */
-	ILocalisationHit createOrRetrieve(ILocalisationHit pEntity) 
+	ISectionHit createOrRetrieve(ISectionHit pEntity) 
 															throws Exception;
 	
 	
@@ -95,12 +95,12 @@ public interface ILocalisationHitDAO {
 	 * - ne fait rien si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ILocalisationHit : 
+	 * @param pObject : ISectionHit : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	void persist(ILocalisationHit pObject) throws Exception;
+	void persist(ISectionHit pObject) throws Exception;
 	
 	
 
@@ -117,7 +117,7 @@ public interface ILocalisationHitDAO {
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ILocalisationHit : 
+	 * @param pObject : ISectionHit : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
 	 * @return : Long : 
@@ -126,7 +126,7 @@ public interface ILocalisationHitDAO {
 	 * 
 	 * @throws Exception
 	 */
-	Long createReturnId(ILocalisationHit pObject) throws Exception;
+	Long createReturnId(ISectionHit pObject) throws Exception;
 	
 	
 
@@ -148,15 +148,15 @@ public interface ILocalisationHitDAO {
 	 * - retourne null si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;ILocalisationHit&gt; : 
+	 * @param pList : Iterable&lt;ISectionHit&gt; : 
 	 * itérable d'objets métier à persister dans le stockage.<br/>
 	 * 
-	 * @return Iterable&lt;ILocalisationHit&gt; : 
+	 * @return Iterable&lt;ISectionHit&gt; : 
 	 * itérable d'objets métier persistés dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	Iterable<ILocalisationHit> saveIterable(Iterable<ILocalisationHit> pList) 
+	Iterable<ISectionHit> saveIterable(Iterable<ISectionHit> pList) 
 				throws Exception;
 	
 	
@@ -176,15 +176,15 @@ public interface ILocalisationHitDAO {
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ILocalisationHit : 
+	 * @param pObject : ISectionHit : 
 	 * objet métier à rechercher.<br/>
 	 * 
-	 * @return : ILocalisationHit : 
+	 * @return : ISectionHit : 
 	 * objet métier recherché.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	ILocalisationHit retrieve(ILocalisationHit pObject) throws Exception;
+	ISectionHit retrieve(ISectionHit pObject) throws Exception;
 	
 	
 
@@ -205,11 +205,11 @@ public interface ILocalisationHitDAO {
 	 * index (0-based) ou identifiant en base 
 	 * de l'objet métier à rechercher.<br/>
 	 * 
-	 * @return : ILocalisationHit : objet métier recherché.<br/>
+	 * @return : ISectionHit : objet métier recherché.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	ILocalisationHit findById(Long pId) throws Exception;
+	ISectionHit findById(Long pId) throws Exception;
 	
 
 	
@@ -223,7 +223,7 @@ public interface ILocalisationHitDAO {
 	 * <li>retourne null si l'objet n' existe pas dans le stockage.</li>
 	 * </ul>
 	 *
-	 * @param pObject : ILocalisationHit : 
+	 * @param pObject : ISectionHit : 
 	 * objet métier dont on recherche l'identifiant.<br/>
 	 *  
 	 * @return Long : 
@@ -231,7 +231,7 @@ public interface ILocalisationHitDAO {
 	 * 
 	 * @throws Exception
 	 */
-	Long retrieveId(ILocalisationHit pObject) throws Exception;
+	Long retrieveId(ISectionHit pObject) throws Exception;
 	
 	
 	
@@ -248,13 +248,13 @@ public interface ILocalisationHitDAO {
 	 * de JOKERS pour voir si elle est contenue dans 
 	 * un des attributs du equals().<br/>
 	 * 
-	 * @return List&lt;ILocalisationHit&gt; : 
+	 * @return List&lt;ISectionHit&gt; : 
 	 * liste des objets métier dont au moins 1 des attributs 
 	 * de equals contient pString.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	List<ILocalisationHit> rechercherRapide(
+	List<ISectionHit> rechercherRapide(
 			String pString) throws Exception;
 	
 	
@@ -264,12 +264,12 @@ public interface ILocalisationHitDAO {
 	 * persistés dans le stockage</b>.<br/>
 	 * - peut retourner null si le stockage ne peut être lu.<br/>
 	 *
-	 * @return : List&lt;ILocalisationHit&gt; : 
+	 * @return : List&lt;ISectionHit&gt; : 
 	 * liste de tous les objets métier persistés dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	List<ILocalisationHit> findAll() throws Exception;
+	List<ISectionHit> findAll() throws Exception;
 	
 	
 
@@ -289,20 +289,20 @@ public interface ILocalisationHitDAO {
 	 * @param pMaxResult : int : 
 	 * nombre maximum d'objets métier à retourner.<br/>
 	 * 
-	 * @return : List&lt;ILocalisationHit&gt; : 
+	 * @return : List&lt;ISectionHit&gt; : 
 	 * liste des pMax objets métier persistés dans le stockage 
 	 * à partir de pStartPosition (0-based).<br/>
 	 * 
 	 * @throws Exception
 	 */
-	List<ILocalisationHit> findAllMax(
+	List<ISectionHit> findAllMax(
 			int pStartPosition, int pMaxResult) throws Exception;
 	
 	
 
 	/**
 	 * <b>retourne une Collection iterable d'Objets métier 
-	 * (List&lt;ILocalisationHit&gt;) dont les IDs appartiennent 
+	 * (List&lt;ISectionHit&gt;) dont les IDs appartiennent 
 	 * à la Collection itérable d'IDs passée en paramètre.</b>
 	 * <ul>
 	 * <li>retourne une liste <b>vide</b> (pas null) 
@@ -316,12 +316,12 @@ public interface ILocalisationHitDAO {
 	 *
 	 * @param pIds : Iterable&lt;Long&gt;.<br/>
 	 * 
-	 * @return Iterable&lt;ILocalisationHit&gt; : 
-	 * List&lt;ILocalisationHit&gt;.<br/>
+	 * @return Iterable&lt;ISectionHit&gt; : 
+	 * List&lt;ISectionHit&gt;.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	Iterable<ILocalisationHit> findAllIterable(Iterable<Long> pIds) throws Exception;
+	Iterable<ISectionHit> findAllIterable(Iterable<Long> pIds) throws Exception;
 
 
 
@@ -358,16 +358,16 @@ public interface ILocalisationHitDAO {
 	 * this.dao.<b>update(objet1Persistant)</b>;</code><br/>
 	 * <br/>
 	 *
-	 * @param pObject : ILocalisationHit : 
+	 * @param pObject : ISectionHit : 
 	 * objet métier comportant les modifications 
 	 * à appliquer à l'objet persistant.<br/>
 	 * 
-	 * @return : ILocalisationHit : 
+	 * @return : ISectionHit : 
 	 * objet métier persistant modifié dans le stockage.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	ILocalisationHit update(ILocalisationHit pObject) throws Exception;
+	ISectionHit update(ISectionHit pObject) throws Exception;
 	
 	
 
@@ -396,15 +396,15 @@ public interface ILocalisationHitDAO {
 	 *
 	 * @param pId : Long : 
 	 * index (0-based) de l'objet métier à modifier.<br/>
-	 * @param pObjectModifie : ILocalisationHit : 
+	 * @param pObjectModifie : ISectionHit : 
 	 * Objet métier contenant les modifications 
 	 * à apporter à l'objet persistant dans le stockage.<br/>
 	 * 
-	 * @return ILocalisationHit : objet métier persistant modifié.<br/>
+	 * @return ISectionHit : objet métier persistant modifié.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	ILocalisationHit updateById(Long pId, ILocalisationHit pObjectModifie) throws Exception;
+	ISectionHit updateById(Long pId, ISectionHit pObjectModifie) throws Exception;
 
 
 
@@ -420,14 +420,14 @@ public interface ILocalisationHitDAO {
 	 * - retourne false si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ILocalisationHit : objet métier à détruire.<br/>
+	 * @param pObject : ISectionHit : objet métier à détruire.<br/>
 	 * 
 	 * @return : boolean : 
 	 * true si l'objet métier a été détruit.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean delete(ILocalisationHit pObject) throws Exception;
+	boolean delete(ISectionHit pObject) throws Exception;
 	
 	
 
@@ -503,12 +503,12 @@ public interface ILocalisationHitDAO {
 	 * - ne fait rien si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;ILocalisationHit&gt; : 
+	 * @param pList : Iterable&lt;ISectionHit&gt; : 
 	 * itérable d'objets à retirer du stockage.<br/>
 	 *  
 	 * @throws Exception
 	 */
-	void deleteIterable(Iterable<ILocalisationHit> pList) throws Exception;
+	void deleteIterable(Iterable<ISectionHit> pList) throws Exception;
 	
 	
 
@@ -523,14 +523,14 @@ public interface ILocalisationHitDAO {
 	 * - retourne false si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;ILocalisationHit&gt; : 
+	 * @param pList : Iterable&lt;ISectionHit&gt; : 
 	 * itérable d'objets àretirer du stockage?<br/>
 	 * 
 	 * @return : boolean : true si le retrait a bien été effectué.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean deleteIterableBoolean(Iterable<ILocalisationHit> pList) throws Exception;
+	boolean deleteIterableBoolean(Iterable<ISectionHit> pList) throws Exception;
 
 
 
@@ -545,14 +545,14 @@ public interface ILocalisationHitDAO {
 	 * - retourne false si l'Objet métier pObject n'existe pas en base.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ILocalisationHit : objet métier à rechercher.<br/>
+	 * @param pObject : ISectionHit : objet métier à rechercher.<br/>
 	 * 
 	 * @return boolean : 
 	 * true si l'objet métier pObject existe dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean exists(ILocalisationHit pObject) throws Exception;
+	boolean exists(ISectionHit pObject) throws Exception;
 	
 	
 
@@ -615,11 +615,11 @@ public interface ILocalisationHitDAO {
 	 * <br/>
 	 * retourne null si pList == null.<br/>
 	 *
-	 * @param pList : List&lt;ILocalisationHit&gt;.<br/>
+	 * @param pList : List&lt;ISectionHit&gt;.<br/>
 	 * 
 	 * @return : String.<br/>
 	 */
-	String afficherListeObjetsMetier(List<ILocalisationHit> pList);
+	String afficherListeObjetsMetier(List<ISectionHit> pList);
 	
 	
 	
@@ -635,4 +635,4 @@ public interface ILocalisationHitDAO {
 	
 		
 	
-} // FIN DE L'INTERFACE ILocalisationHitDAO.---------------------------------
+} // FIN DE L'INTERFACE ISectionHitDAO.--------------------------------------

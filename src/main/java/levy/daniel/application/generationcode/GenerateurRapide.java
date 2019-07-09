@@ -166,6 +166,11 @@ public final class GenerateurRapide {
 	public static final char ESPACE_CHAR = ' ';
 	
 	/**
+	 * '.'.<br/>
+	 */
+	public static final char POINT_CHAR = '.';
+	
+	/**
 	 * "try {".<br/>
 	 */
 	public static final String TRY = "try {";
@@ -1631,6 +1636,254 @@ public final class GenerateurRapide {
 				
 	} // Fin de genererCreerEntityJPA(...).________________________________
 	
+
+	
+	/**
+	 * génère le code de la méthode 
+	 * fournirRequeteParametree(OBJET METIER) dans un DAO.<br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER relatif au DAO.<br/>
+	 * 
+	 * @return  : String : 
+	 * code à insérer dans la méthode 
+	 * fournirRequeteParametree(OBJET METIER)
+	 * dans un DAO.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererFournirRequeteParametree(
+			final Class<?> pClass) throws IOException {
+		
+		final String operande = decapitaliserNomClasse(pClass);
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+				
+		stb.append(TAB + TAB);
+		stb.append("requeteString");
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB);
+		stb.append("= SELECT_OBJET");
+		stb.append(NEWLINE);
+		
+		int compteurBoucle = 0;
+		final int nombreChamps = map.size();
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			compteurBoucle++;
+			
+			if (champ.getNomChamp().equals("id")) {
+				continue;
+			}
+						
+			if (compteurBoucle == 1) {
+				
+				stb.append(TAB + TAB + TAB);
+				stb.append("+ \"where ");
+				stb.append(operande);
+				stb.append(POINT_CHAR);
+				stb.append(champ.getNomChamp());
+				stb.append(" == :");
+				stb.append(fournirParametre(champ.getNomChamp()));
+				stb.append(" \"");
+				stb.append(NEWLINE);
+				
+			} else if (compteurBoucle > 1 && compteurBoucle < nombreChamps) {
+				
+				stb.append(TAB + TAB + TAB);
+				stb.append("+ \"and ");
+				stb.append(operande);
+				stb.append(POINT_CHAR);
+				stb.append(champ.getNomChamp());
+				stb.append(" == :");
+				stb.append(fournirParametre(champ.getNomChamp()));
+				stb.append(" \"");
+				stb.append(NEWLINE);
+				
+			} else if (compteurBoucle == nombreChamps) {
+				
+				stb.append(TAB + TAB + TAB);
+				stb.append("+ \"and ");
+				stb.append(operande);
+				stb.append(POINT_CHAR);
+				stb.append(champ.getNomChamp());
+				stb.append(" == :");
+				stb.append(fournirParametre(champ.getNomChamp()));
+				stb.append('\"');
+				stb.append(';');
+				stb.append(NEWLINE);
+
+			}
+						
+		}
+
+		stb.append(NEWLINE);
+		stb.append(NEWLINE);
+
+		stb.append(TAB + TAB);
+		stb.append("/* Construction de la requête HQL. */");
+		stb.append(NEWLINE);
+
+		stb.append(TAB + TAB);
+		stb.append("requete");
+		stb.append(NEWLINE);
+
+		stb.append(TAB + TAB + TAB);
+		stb.append("= this.entityManager.createQuery(requeteString);");
+		stb.append(NEWLINE);
+
+		stb.append(NEWLINE);
+
+		stb.append(TAB + TAB);
+		stb.append("/* Passage des paramètres de la requête JPQL. */");
+		stb.append(NEWLINE);
+
+		for (final EncapsulationTypeChamp champ : map.values()) {
+						
+			if (champ.getNomChamp().equals("id")) {
+				continue;
+			}
+			
+			stb.append(TAB + TAB + TAB);
+			stb.append("requete.setParameter(\"");
+			stb.append(fournirParametre(champ.getNomChamp()));
+			stb.append("\", pObject.");
+			stb.append(champ.getNomGetter());
+			stb.append("());");
+			stb.append(NEWLINE);			
+		}
+		
+		return stb.toString();
+		
+	} // Fin de genererFournirRequeteParametree(...).______________________
+	
+	
+
+	/**
+	 * génère le code de la méthode 
+	 * updateById(Long pId, OBJET METIER) dans un DAO.<br/>
+	 *
+	 * @param pClass : java.lang.Class : 
+	 * OBJET METIER relatif au DAO.<br/>
+	 * 
+	 * @return : String : code de la méthode 
+	 * updateById(Long pId, OBJET METIER) dans un DAO.<br/>
+	 * 
+	 * @throws IOException
+	 */
+	public static String genererUpdateById(
+			final Class<?> pClass) throws IOException {
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Map<String, EncapsulationTypeChamp> map 
+			= fournirMapEncapsulationTypeChamp(pClass);
+		
+		if (map == null) {
+			return null;
+		}
+		
+		stb.append("");
+		stb.append(NEWLINE);
+		
+		stb.append(TAB + TAB + TAB);
+		stb.append("/* applique les modifications. */");
+		stb.append(NEWLINE);
+		
+		for (final EncapsulationTypeChamp champ : map.values()) {
+			
+			if (champ.getNomChamp().equals("id")) {
+				continue;
+			}
+			
+			stb.append(TAB + TAB + TAB);
+			stb.append("objetAModifier.");
+			stb.append(champ.getNomSetter());
+			stb.append('(');
+			stb.append("pObjectModifie.");
+			stb.append(champ.getNomGetter());
+			stb.append("());");
+			stb.append(NEWLINE);			
+		}
+		
+		return stb.toString();
+				
+	} // Fin de genererUpdateById(...).____________________________________
+	
+	
+	
+	/**
+	 * retourne le nom simple de pClasse 
+	 * avec la première lettre passée en minuscule.<br/>
+	 * <ul>
+	 * <li>Par exemple decapitaliserNomClasse(SectionHit) retourne "sectionHit"</li>
+	 * </ul>
+	 * - retourne null si pClass == null.<br/>
+	 * <br/>
+	 *
+	 * @param pClass : java.lang.Class<?>
+	 * 
+	 * @return : String : Nom simple de la classe pClass décapitalisé.<br/>
+	 */
+	private static String decapitaliserNomClasse(final Class<?> pClass) {
+		
+		/* retourne null si pClass == null. */
+		if (pClass == null) {
+			return null;
+		}
+		
+		final String nomSimpleClasse = pClass.getSimpleName();
+		
+		String resultat = null;
+		
+		resultat = StringUtils.uncapitalize(nomSimpleClasse);
+		
+		return resultat;
+		
+	} // Fin de decapitaliserNomClasse(...)._______________________________
+	
+	
+	
+	/**
+	 * fournit un paramètre à partir du nom d'un champ pString.<br/>
+	 * <ul>
+	 * <li>Par exemple, fournirParametre(numDepartement) 
+	 * retourne "pNumDepartement"</li>
+	 * </ul>
+	 * - ne fait rien si pString  est blank.<br/>
+	 * <br/>
+	 *
+	 * @param pString : String : nom du champ.
+	 * 
+	 * @return : String : paramètre issu du nom du champ.<br/>
+	 */
+	private static String fournirParametre(final String pString) {
+		
+		/* ne fait rien si pString  est blank. */
+		if (StringUtils.isBlank(pString)) {
+			return null;
+		}
+		
+		final String nomChampCapitalise = StringUtils.capitalize(pString);
+		
+		final String resultat = "p" + nomChampCapitalise;
+		
+		return resultat;
+		
+	} // Fin de fournirParametre(...)._____________________________________
+	
 	
 	
 	/**
@@ -2441,7 +2694,11 @@ public final class GenerateurRapide {
 		
 //		System.out.println(genererConvertirEntityJPAEnObjetMetier(classe));
 		
-		System.out.println(genererCreerEntityJPA(classe));
+//		System.out.println(genererCreerEntityJPA(classe));
+		
+//		System.out.println(genererFournirRequeteParametree(classe));
+		
+		System.out.println(genererUpdateById(classe));
 		
     } // Fin de main(...)._________________________________________________
 
