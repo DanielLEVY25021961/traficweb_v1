@@ -1,23 +1,33 @@
-package levy.daniel.application.model.persistence.metier.sections.localisations;
+package levy.daniel.application.model.persistence.metier.sections;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.nio.charset.Charset;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import levy.daniel.application.model.metier.sections.ISectionHit;
+import levy.daniel.application.model.metier.sections.impl.SectionHit;
 import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
-import levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit;
+import levy.daniel.application.model.persistence.metier.sections.entities.jpa.SectionHitEntityJPA;
 import levy.daniel.application.model.persistence.metier.sections.localisations.entities.jpa.LocalisationHitEntityJPA;
+import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl.ImporteurHit;
 
 /**
- * CLASSE LocalisationHitConvertisseurMetierEntityTest :<br/>
- * Test JUnit de la classe {@link LocalisationHitConvertisseurMetierEntity}.<br/>
+ * CLASSE SectionHitConvertisseurMetierEntityTest :<br/>
+ * Test JUnit de la classe {@link SectionHitConvertisseurMetierEntity}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -32,52 +42,12 @@ import levy.daniel.application.model.persistence.metier.sections.localisations.e
  *
  * @author daniel.levy Lévy
  * @version 1.0
- * @since 8 juil. 2019
+ * @since 9 juil. 2019
  *
  */
-public class LocalisationHitConvertisseurMetierEntityTest {
+public class SectionHitConvertisseurMetierEntityTest {
 
 	// ************************ATTRIBUTS************************************/
-
-	/**
-	 * "0086".
-	 */
-	public static final String NUM_ROUTE_86 = "0086";
-	
-	/**
-	 * "2".
-	 */
-	public static final String INDICE_NUM_ROUTE_2 = "2";
-	
-	/**
-	 * "b".
-	 */
-	public static final String INDICE_LETTRE_ROUTE_B = "b";
-	
-	/**
-	 * "4".
-	 */
-	public static final String CATEGORIE_ADMIN_ROUTE_4 = "4";
-	
-	/**
-	 * "730".
-	 */
-	public static final String DEPT_73 = "730";
-	
-	/**
-	 * "lieu_dit_origine".
-	 */
-	public static final String LIEU_DIT_ORIGINE = "lieu_dit_origine";
-	
-	/**
-	 * "lieu_dit_extremite".
-	 */
-	public static final String LIEU_DIT_EXTREMITE = "lieu_dit_extremite";
-	
-	/**
-	 * "lieu_dit_comptage".
-	 */
-	public static final String LIEU_DIT_COMPTAGE = "lieu_dit_comptage";
 	
 	/**
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>
@@ -90,19 +60,124 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 	public static final String UNUSED = "unused";
 
 	/**
+	 * "doit retourner null : ".
+	 */
+	public static final String DOIT_RETOURNER_NULL 
+		= "doit retourner null : ";
+	
+	/**
+	 * "ne doit pas retourner null : ".
+	 */
+	public static final String NE_DOIT_PAS_RETOURNER_NULL 
+		= "ne doit pas retourner null : ";
+
+	/**
+	 * "doit retourner la bonne valeur : ".<br/>
+	 */
+	public static final String DOIT_RETOURNER_BONNE_VALEUR 
+		= "doit retourner la bonne valeur : ";
+
+	/**
+	 * "Doit retourner la même instance : ".
+	 */
+	public static final String DOIT_RETOURNER_MEME_INSTANCE 
+		= "Doit retourner la même instance : ";
+
+	/**
+	 * "doit retourner invalide : ".
+	 */
+	public static final String DOIT_RETOURNER_INVALIDE 
+		= "doit retourner invalide : ";
+	
+	/**
+	 * Paths.get(".").toAbsolutePath().normalize().<br/>
+	 */
+	public static final Path PATH_ABSOLU_PRESENT_PROJET 
+		= Paths.get(".").toAbsolutePath().normalize();
+	
+	/**
+	 * path <b>relatif</b> (par rapport au présent projet ECLIPSE) 
+	 * des ressources des tests JUnit dans le présent projet ECLIPSE.<br/>
+	 * Paths.get("src/test/resources")
+	 */
+	public static final Path SRC_TEST_RESOURCES_PATH_RELATIF 
+		= Paths.get("src/test/resources");
+
+	/**
+	 * Path absolu vers les ressources de test.<br/>
+	 */
+	public static final Path PATH_ABSOLU_TEST_RESOURCES 
+		= PATH_ABSOLU_PRESENT_PROJET
+			.resolve(SRC_TEST_RESOURCES_PATH_RELATIF)
+				.toAbsolutePath().normalize();
+	
+	 /**
+	 * Path absolu vers les nomenclatures de test.<br/>
+	 */
+	public static final Path PATH_ABSOLU_TEST_NOMENCLATURES 
+		= PATH_ABSOLU_TEST_RESOURCES
+			.resolve("ressources/Nomenclatures")
+				.toAbsolutePath().normalize();
+	
+	 /**
+	 * Path absolu vers les jeux d'essai de test.<br/>
+	 * src/test/resources/jeux_essai
+	 */
+	public static final Path PATH_ABSOLU_TEST_JEUX_ESSAI 
+		= PATH_ABSOLU_TEST_RESOURCES
+			.resolve("jeux_essai")
+				.toAbsolutePath().normalize();
+	
+	/**
+	 * Path absolu vers le répertoire 'temp' sous le présent projet.
+	 */
+	public static final Path PATH_ABSOLU_REPERTOIRE_TEMP 
+		= PATH_ABSOLU_PRESENT_PROJET.resolve("temp");
+
+	/**
+	 * ENTITY JPA a tester.
+	 */
+	public static ISectionHit entityJPA;
+	
+	/**
+	 * SectionHitEntityJPA.<br/>
+	 */
+	public static SectionHitEntityJPA entity1;
+	
+	/**
+	 * SectionHitEntityJPA.<br/>
+	 */
+	public static SectionHitEntityJPA entity3;
+
+	/**
+	 * OBJET METIER a tester.
+	 */
+	public static ISectionHit objetMetier;
+	
+	/**
+	 * SectionHit.<br/>
+	 */
+	public static SectionHit objet1;
+	
+	/**
+	 * SectionHit.<br/>
+	 */
+	public static SectionHit objet3;
+
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(LocalisationHitConvertisseurMetierEntityTest.class);
+		= LogFactory.getLog(SectionHitConvertisseurMetierEntityTest.class);
 
 	// *************************METHODES************************************/
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public LocalisationHitConvertisseurMetierEntityTest() {
+	public SectionHitConvertisseurMetierEntityTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -117,10 +192,12 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 	 * <li>garantit que creerObjetMetierAPartirEntityJPA(entity) 
 	 * retourne un objet métier correspondant.</li>
 	 * </ul>
+	 * 
+	 * @throws Exception 
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
-	public void testCreerObjetMetierAPartirEntityJPA() {
+	public void testCreerObjetMetierAPartirEntityJPA() throws Exception {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
@@ -129,14 +206,14 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE LocalisationHitConvertisseurMetierEntityTest - méthode testCreerObjetMetierAPartirEntityJPA() ********** ");
+		System.out.println("********** CLASSE SectionHitConvertisseurMetierEntityTest - méthode testCreerObjetMetierAPartirEntityJPA() ********** ");
 		}
 
 		/* valeur null. */
-		final LocalisationHitEntityJPA entityNull = null;
+		final SectionHitEntityJPA entityNull = null;
 		
-		final ILocalisationHit objetNull 
-			= LocalisationHitConvertisseurMetierEntity
+		final ISectionHit objetNull 
+			= SectionHitConvertisseurMetierEntity
 				.creerObjetMetierAPartirEntityJPA(entityNull);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -150,27 +227,18 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		assertEquals("creerObjetMetierAPartirEntityJPA(entityNull) "
 				+ "doit retourner un objet instancié par "
 				+ "le constructeur d'arité nulle : "
-				, new LocalisationHit(), objetNull);
+				, new SectionHit(), objetNull);
 		
 		
 		/* valeur existante. */
-		final LocalisationHitEntityJPA entity 
-			= new LocalisationHitEntityJPA(7L
-					, NUM_ROUTE_86, INDICE_NUM_ROUTE_2, INDICE_LETTRE_ROUTE_B
-					, CATEGORIE_ADMIN_ROUTE_4
-					, DEPT_73
-					, LIEU_DIT_ORIGINE, 3, 200
-					, LIEU_DIT_EXTREMITE, 7, 400
-					, LIEU_DIT_COMPTAGE, 5, 600);
-		
-		final ILocalisationHit objet 
-			= LocalisationHitConvertisseurMetierEntity
-				.creerObjetMetierAPartirEntityJPA(entity);
+		final ISectionHit objet 
+			= SectionHitConvertisseurMetierEntity
+				.creerObjetMetierAPartirEntityJPA((SectionHitEntityJPA) entityJPA);
 				
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
-			System.out.println(entity.toString());
+			System.out.println(entityJPA.toString());
 			System.out.println(objet.toString());
 		}
 		
@@ -178,7 +246,7 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		 * retourne un objet métier correspondant. */
 		assertEquals(
 				"l'objet doit correspondre à l'entité : "
-					, entity
+					, entityJPA
 						, objet);
 		
 	} // Fin de testCreerObjetMetierAPartirEntityJPA().____________________
@@ -194,10 +262,12 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 	 * <li>garantit que convertirEntityJPAEnObjetMetier(entity) 
 	 * retourne un objet métier correspondant.</li>
 	 * </ul>
+	 * 
+	 * @throws Exception 
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
-	public void testConvertirEntityJPAEnObjetMetier() {
+	public void testConvertirEntityJPAEnObjetMetier() throws Exception {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
@@ -206,14 +276,14 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE LocalisationHitConvertisseurMetierEntityTest - méthode testConvertirEntityJPAEnObjetMetier() ********** ");
+		System.out.println("********** CLASSE SectionHitConvertisseurMetierEntityTest - méthode testConvertirEntityJPAEnObjetMetier() ********** ");
 		}
 
 		/* valeur null. */
-		final LocalisationHitEntityJPA entityNull = null;
+		final SectionHitEntityJPA entityNull = null;
 		
-		final ILocalisationHit objetNull 
-			= LocalisationHitConvertisseurMetierEntity
+		final ISectionHit objetNull 
+			= SectionHitConvertisseurMetierEntity
 				.convertirEntityJPAEnObjetMetier(entityNull);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -230,23 +300,14 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		
 		
 		/* valeur existante. */
-		final LocalisationHitEntityJPA entity 
-			= new LocalisationHitEntityJPA(7L
-							, NUM_ROUTE_86, INDICE_NUM_ROUTE_2
-							, INDICE_LETTRE_ROUTE_B, CATEGORIE_ADMIN_ROUTE_4
-							, DEPT_73
-							, LIEU_DIT_ORIGINE, 3, 200
-							, LIEU_DIT_EXTREMITE, 7, 400
-							, LIEU_DIT_COMPTAGE, 5, 600);
-		
-		final ILocalisationHit objet 
-			= LocalisationHitConvertisseurMetierEntity
-			.convertirEntityJPAEnObjetMetier(entity);
+		final ISectionHit objet 
+			= SectionHitConvertisseurMetierEntity
+			.convertirEntityJPAEnObjetMetier((SectionHitEntityJPA) entityJPA);
 				
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
-			System.out.println(entity.toString());
+			System.out.println(entityJPA.toString());
 			System.out.println(objet.toString());
 		}
 		
@@ -254,7 +315,7 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		 * retourne un objet métier correspondant. */
 		assertEquals(
 				"l'objet doit correspondre à l'entité : "
-					, entity
+					, entityJPA
 						, objet);
 
 	} // Fin de testConvertirEntityJPAEnObjetMetier()._____________________
@@ -271,10 +332,12 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 	 * <li>garantit que convertirListEntitiesJPAEnModel(listEntities) 
 	 * retourne la liste d'objets métier correspondants.</li>
 	 * </ul>
+	 * 
+	 * @throws Exception 
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
-	public void testConvertirListEntitiesJPAEnModel() {
+	public void testConvertirListEntitiesJPAEnModel() throws Exception {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
@@ -283,13 +346,15 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE LocalisationHitConvertisseurMetierEntityTest - méthode testConvertirListEntitiesJPAEnModel() ********** ");
+		System.out.println("********** CLASSE SectionHitConvertisseurMetierEntityTest - méthode testConvertirListEntitiesJPAEnModel() ********** ");
 		}
 
 		/* valeur null. */
-		final List<LocalisationHitEntityJPA> listEntitiesNull = null;
+		final List<SectionHitEntityJPA> listEntitiesNull = null;
 		
-		final List<ILocalisationHit> listObjetsNull = LocalisationHitConvertisseurMetierEntity.convertirListEntitiesJPAEnModel(listEntitiesNull);
+		final List<ISectionHit> listObjetsNull 
+			= SectionHitConvertisseurMetierEntity
+			.convertirListEntitiesJPAEnModel(listEntitiesNull);
 		
 		/* garantit que convertirListEntitiesJPAEnModel(listEntitiesNull) 
 		 * retourne null. */
@@ -299,34 +364,18 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 
 		
 		/* valeur existante. */
-		final List<LocalisationHitEntityJPA> listEntities 
-			= new ArrayList<LocalisationHitEntityJPA>();
-		
-		final LocalisationHitEntityJPA entity1 
-			= new LocalisationHitEntityJPA(3L
-							, "0006", "", "", "1"
-							, "740"
-							, "lieu_dit_origine_1", 3, 200
-							, "lieu_dit_extremite_1", 7, 400
-							, "lieu_dit_comptage_1", 5, 600);
-		
-		final LocalisationHitEntityJPA entity2 = null;
-		
-		final LocalisationHitEntityJPA entity3 
-			= new LocalisationHitEntityJPA(6L
-					, "0286", null, null, "1"
-					, "440"
-					, "lieu_dit_origine_2", 3, 200
-					, "lieu_dit_extremite_2", 7, 400
-					, "lieu_dit_comptage_2", 5, 600);
+		final List<SectionHitEntityJPA> listEntities 
+			= new ArrayList<SectionHitEntityJPA>();
 		
 		
+		final SectionHitEntityJPA entity2 = null;
+				
 		listEntities.add(entity1);
 		listEntities.add(entity2);
 		listEntities.add(entity3);
 		
-		final List<ILocalisationHit> listObjets 
-			= LocalisationHitConvertisseurMetierEntity
+		final List<ISectionHit> listObjets 
+			= SectionHitConvertisseurMetierEntity
 				.convertirListEntitiesJPAEnModel(listEntities);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -340,7 +389,7 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 			System.out.println(this.afficherFormateListEntities(listEntities));
 			System.out.println();
 			System.out.println("LISTE D'OBJETS METIER : ");
-			System.out.println(LocalisationHitConvertisseurMetierEntity.afficherFormateListObjets(listObjets));
+			System.out.println(SectionHitConvertisseurMetierEntity.afficherFormateListObjets(listObjets));
 		}
 		
 		/* garantit que convertirListEntitiesJPAEnModel(listEntities) 
@@ -368,27 +417,30 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 	 * retourne une entity avec toutes les valeurs à null.</li>
 	 * <li>garantit que creerEntityJPA(objet) 
 	 * retourne une entity correspondante.</li>
+	 * <li>garantit que la Localisation de l'ENTITY obtenue par Conversion 
+	 * de l'OBJET METIER est bien une instance d'ENTITY.</li>
 	 * </ul>
+	 * @throws Exception 
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
-	public void testCreerEntityJPA() {
+	public void testCreerEntityJPA() throws Exception {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE LocalisationHitConvertisseurMetierEntityTest - méthode testCreerEntityJPA() ********** ");
+		System.out.println("********** CLASSE SectionHitConvertisseurMetierEntityTest - méthode testCreerEntityJPA() ********** ");
 		}
 
 		/* valeur null. */
-		final ILocalisationHit objetNull = null;
+		final ISectionHit objetNull = null;
 		
-		final LocalisationHitEntityJPA entityNull 
-			= LocalisationHitConvertisseurMetierEntity
+		final SectionHitEntityJPA entityNull 
+			= SectionHitConvertisseurMetierEntity
 			.creerEntityJPA(objetNull);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -402,36 +454,35 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		assertEquals("creerEntityJPA(entityNull) "
 				+ "doit retourner un entity instancié par "
 				+ "le constructeur d'arité nulle : "
-				, new LocalisationHitEntityJPA(), entityNull);
+				, new SectionHitEntityJPA(), entityNull);
 		
 		
 		/* valeur existante. */
-		final ILocalisationHit objet 
-			= new LocalisationHit(7L
-					, NUM_ROUTE_86, INDICE_NUM_ROUTE_2
-					, INDICE_LETTRE_ROUTE_B, CATEGORIE_ADMIN_ROUTE_4
-					, DEPT_73
-					, LIEU_DIT_ORIGINE, 3, 200
-					, LIEU_DIT_EXTREMITE, 7, 400
-					, LIEU_DIT_COMPTAGE, 5, 600);
+		final SectionHitEntityJPA entity 
+			= SectionHitConvertisseurMetierEntity
+			.creerEntityJPA(objetMetier);
 		
-		final LocalisationHitEntityJPA entity 
-			= LocalisationHitConvertisseurMetierEntity
-			.creerEntityJPA(objet);
+		final ILocalisationHit localisation = entity.getLocalisation();
 				
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
-			System.out.println(objet.toString());
+			System.out.println(objetMetier.toString());
 			System.out.println(entity.toString());
+			System.out.println(localisation.toString());
 		}
 		
 		/* garantit que creerEntityJPA(objet) 
 		 * retourne un entity correspondant. */
 		assertEquals(
 				"l'entité doit correspondre à l'objet : "
-					, objet
+					, objetMetier
 						, entity);
+		
+		/* garantit que la Localisation de l'ENTITY obtenue par 
+		 * Conversion de l'OBJET METIER est bien une instance d'ENTITY. */
+		assertTrue("Instance d'Entity JPA : "
+				, localisation instanceof LocalisationHitEntityJPA);
 		
 	} // Fin de testCreerEntityJPA().______________________________________
 
@@ -446,10 +497,12 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 	 * <li>garantit que convertirObjetMetierEnEntityJPA(objet) 
 	 * retourne un entity correspondant.</li>
 	 * </ul>
+	 * 
+	 * @throws Exception 
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
-	public void testConvertirObjetMetierEnEntityJPA() {
+	public void testConvertirObjetMetierEnEntityJPA() throws Exception {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
@@ -458,14 +511,14 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE LocalisationHitConvertisseurMetierEntityTest - méthode testConvertirObjetMetierEnEntityJPA() ********** ");
+		System.out.println("********** CLASSE SectionHitConvertisseurMetierEntityTest - méthode testConvertirObjetMetierEnEntityJPA() ********** ");
 		}
 
 		/* valeur null. */
-		final ILocalisationHit objetNull = null;
+		final ISectionHit objetNull = null;
 		
-		final LocalisationHitEntityJPA entityNull 
-			= LocalisationHitConvertisseurMetierEntity
+		final SectionHitEntityJPA entityNull 
+			= SectionHitConvertisseurMetierEntity
 			.convertirObjetMetierEnEntityJPA(objetNull);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -482,23 +535,14 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		
 		
 		/* valeur existante. */
-		final ILocalisationHit objet 
-			= new LocalisationHit(7L
-					, NUM_ROUTE_86, INDICE_NUM_ROUTE_2
-					, INDICE_LETTRE_ROUTE_B, CATEGORIE_ADMIN_ROUTE_4
-					, DEPT_73
-					, LIEU_DIT_ORIGINE, 3, 200
-					, LIEU_DIT_EXTREMITE, 7, 400
-					, LIEU_DIT_COMPTAGE, 5, 600);
-		
-		final LocalisationHitEntityJPA entity 
-			= LocalisationHitConvertisseurMetierEntity
-			.convertirObjetMetierEnEntityJPA(objet);
+		final SectionHitEntityJPA entity 
+			= SectionHitConvertisseurMetierEntity
+			.convertirObjetMetierEnEntityJPA(objetMetier);
 				
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
-			System.out.println(objet.toString());
+			System.out.println(objetMetier.toString());
 			System.out.println(entity.toString());			
 		}
 		
@@ -506,7 +550,7 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		 * retourne un objet métier correspondant. */
 		assertEquals(
 				"l'objet doit correspondre à l'entité : "
-					, objet
+					, objetMetier
 						, entity);
 
 	} // Fin de testConvertirObjetMetierEnEntityJPA()._____________________
@@ -523,10 +567,12 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 	 * <li>garantit que convertirListModelEnEntitiesJPA(listObjets) 
 	 * retourne la liste d'entities correspondants.</li>
 	 * </ul>
+	 * 
+	 * @throws Exception 
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
-	public void testConvertirListModelEnEntitiesJPA() {
+	public void testConvertirListModelEnEntitiesJPA() throws Exception {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
@@ -535,14 +581,14 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE LocalisationHitConvertisseurMetierEntityTest - méthode testConvertirListModelEnEntitiesJPA() ********** ");
+		System.out.println("********** CLASSE SectionHitConvertisseurMetierEntityTest - méthode testConvertirListModelEnEntitiesJPA() ********** ");
 		}
 
 		/* valeur null. */
-		final List<ILocalisationHit> listObjetsNull = null;
+		final List<ISectionHit> listObjetsNull = null;
 		
-		final List<LocalisationHitEntityJPA> listEntitiesNull 
-			= LocalisationHitConvertisseurMetierEntity
+		final List<SectionHitEntityJPA> listEntitiesNull 
+			= SectionHitConvertisseurMetierEntity
 				.convertirListModelEnEntitiesJPA(listObjetsNull);
 		
 		/* garantit que convertirListModelEnEntitiesJPA(listObjetsNull) 
@@ -553,34 +599,17 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 
 		
 		/* valeur existante. */
-		final List<ILocalisationHit> listObjets 
-			= new ArrayList<ILocalisationHit>();
-		
-		final ILocalisationHit objet1 
-			= new LocalisationHit(3L
-					, "0006", "", "", "1"
-					, "740"
-					, "lieu_dit_origine_1", 3, 200
-					, "lieu_dit_extremite_1", 7, 400
-					, "lieu_dit_comptage_1", 5, 600);
-		
-		final ILocalisationHit objet2 = null;
-		
-		final ILocalisationHit objet3 
-			= new LocalisationHit(6L
-					, "0286", null, null, "1"
-					, "440"
-					, "lieu_dit_origine_2", 3, 200
-					, "lieu_dit_extremite_2", 7, 400
-					, "lieu_dit_comptage_2", 5, 600);
-		
-		
+		final List<ISectionHit> listObjets 
+			= new ArrayList<ISectionHit>();
+				
+		final ISectionHit objet2 = null;
+				
 		listObjets.add(objet1);
 		listObjets.add(objet2);
 		listObjets.add(objet3);
 		
-		final List<LocalisationHitEntityJPA> listEntities 
-			= LocalisationHitConvertisseurMetierEntity
+		final List<SectionHitEntityJPA> listEntities 
+			= SectionHitConvertisseurMetierEntity
 				.convertirListModelEnEntitiesJPA(listObjets);
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -591,7 +620,7 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 			System.out.println("TAILLE DE LA lISTE D'ENTITIES : " + listEntities.size());
 			System.out.println();
 			System.out.println("LISTE D'OBJETS METIER : ");
-			System.out.println(LocalisationHitConvertisseurMetierEntity.afficherFormateListObjets(listObjets));
+			System.out.println(SectionHitConvertisseurMetierEntity.afficherFormateListObjets(listObjets));
 			System.out.println();
 			System.out.println("LISTE D'ENTITES : ");
 			System.out.println(this.afficherFormateListEntities(listEntities));			
@@ -615,6 +644,47 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 
 	
 	/**
+	 * Exécuté avant tout test de la méthode.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	@BeforeClass
+	public static void beforeClass() throws Exception {
+		
+		final Path fichierDonneesPath 
+			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("HITDIRA2017.txt");
+		final File fichierDonnees = fichierDonneesPath.toFile();
+		final Charset charsetAnsi = Charset.forName("Windows-1252");
+		
+		// OBJET A TESTER.
+		final ImporteurHit importeurHIT = new ImporteurHit();
+		
+		final Map<Integer, ISectionHit> fichierMapObjet 
+			= importeurHIT.importerObjet(fichierDonnees, charsetAnsi);
+		
+		final SortedMap<Integer, SortedMap<Integer, String>> fichierImporteMap 
+			= importeurHIT.getFichierImporteMap();
+		
+		final SortedMap<Integer, String> ligneMap = fichierImporteMap.get(1);
+		final ISectionHit objetMap = new SectionHit(ligneMap);
+		
+		objetMetier = fichierMapObjet.get(1);
+		objet1 = new SectionHit(fichierImporteMap.get(15));
+		objet3 = new SectionHit(fichierImporteMap.get(17));
+		
+		entityJPA = new SectionHitEntityJPA(ligneMap);
+		entity1 = new SectionHitEntityJPA(fichierImporteMap.get(5));
+		entity3 = new SectionHitEntityJPA(fichierImporteMap.get(8));
+				
+		assertEquals("doivent être égaux : ", objetMetier, objetMap);
+		
+		assertEquals("doivent être égaux : ", objetMetier, entityJPA);
+		
+	} // Fin de beforeClass()._____________________________________________
+	
+
+	
+	/**
 	 * <b>retourne une String pour affichage formaté 
 	 * (FORMAT_UTILISATEURCERBERE) 
 	 * d'une liste d'entities</b>.<br/>
@@ -629,13 +699,13 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 	 * passée en paramètre.<br/>
 	 * <br/>
 	 *
-	 * @param pList : List&lt;LocalisationHitEntityJPA&gt; : 
+	 * @param pList : List&lt;SectionHitEntityJPA&gt; : 
 	 * liste d'Entities.<br/>
 	 * 
 	 * @return : String : affichage.<br/>
 	 */
 	private String afficherFormateListEntities(
-			final List<LocalisationHitEntityJPA> pList) {
+			final List<SectionHitEntityJPA> pList) {
 		
 		/* retourne null si pList == null. */
 		if (pList == null) {
@@ -644,7 +714,7 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		
 		final StringBuilder stb = new StringBuilder();
 		
-		for (final ILocalisationHit entity : pList) {
+		for (final ISectionHit entity : pList) {
 			
 			/* n'affiche pas une Entity null 
 			 * dans la liste passée en paramètre. */
@@ -664,6 +734,6 @@ public class LocalisationHitConvertisseurMetierEntityTest {
 		
 	} //Fin de afficherFormateListEntities(...).___________________________
 
+		
 	
-	
-} // FIN DE LA CLASSE LocalisationHitConvertisseurMetierEntityTest.----------
+} // FIN DE LA CLASSE SectionHitConvertisseurMetierEntityTest.---------------

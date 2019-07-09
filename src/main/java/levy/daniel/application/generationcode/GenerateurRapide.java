@@ -2365,9 +2365,9 @@ public final class GenerateurRapide {
 		
 //		final Class<?> classe = Class.forName("levy.daniel.application.model.dto.metier.sections.impl.SectionHitDTO");
 		
-//		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.sections.impl.SectionHit");
+		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.sections.impl.SectionHit");
 		
-		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit");
+//		final Class<?> classe = Class.forName("levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit");
 		
 //		List<Method> listeGetters = findGetters(classe);
 //		System.out.println(afficherListeMethod(listeGetters));
