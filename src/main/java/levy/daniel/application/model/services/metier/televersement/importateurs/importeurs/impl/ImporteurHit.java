@@ -594,7 +594,7 @@ public class ImporteurHit extends AbstractImporteurAscii {
 		objet.setClasseLargeurChausseeU(pDescriptionLigne.get(14));
 		objet.setClasseLargeurChausseesS(pDescriptionLigne.get(15));
 		objet.setTypeReseau(pDescriptionLigne.get(16));
-		objet.setPRoupK(pDescriptionLigne.get(17));
+		objet.setpRoupK(pDescriptionLigne.get(17));
 		objet.setLieuDitOrigine(pDescriptionLigne.get(18));
 		objet.setPrOrigine(
 				this.fournirInteger(pDescriptionLigne.get(19)));

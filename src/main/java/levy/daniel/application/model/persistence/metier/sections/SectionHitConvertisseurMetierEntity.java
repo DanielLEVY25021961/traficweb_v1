@@ -100,7 +100,7 @@ public final class SectionHitConvertisseurMetierEntity {
 				objet.setClasseLargeurChausseeU(pEntityJPA.getClasseLargeurChausseeU());
 				objet.setClasseLargeurChausseesS(pEntityJPA.getClasseLargeurChausseesS());
 				objet.setTypeReseau(pEntityJPA.getTypeReseau());
-				objet.setPRoupK(pEntityJPA.getPRoupK());
+				objet.setpRoupK(pEntityJPA.getpRoupK());
 				objet.setLieuDitOrigine(pEntityJPA.getLieuDitOrigine());
 				objet.setPrOrigine(pEntityJPA.getPrOrigine());
 				objet.setAbsOrigine(pEntityJPA.getAbsOrigine());
@@ -274,7 +274,7 @@ public final class SectionHitConvertisseurMetierEntity {
 				objet.setClasseLargeurChausseeU(pEntityJPA.getClasseLargeurChausseeU());
 				objet.setClasseLargeurChausseesS(pEntityJPA.getClasseLargeurChausseesS());
 				objet.setTypeReseau(pEntityJPA.getTypeReseau());
-				objet.setPRoupK(pEntityJPA.getPRoupK());
+				objet.setpRoupK(pEntityJPA.getpRoupK());
 				objet.setLieuDitOrigine(pEntityJPA.getLieuDitOrigine());
 				objet.setPrOrigine(pEntityJPA.getPrOrigine());
 				objet.setAbsOrigine(pEntityJPA.getAbsOrigine());
@@ -493,7 +493,7 @@ public final class SectionHitConvertisseurMetierEntity {
 				entityJPA.setClasseLargeurChausseeU(pObject.getClasseLargeurChausseeU());
 				entityJPA.setClasseLargeurChausseesS(pObject.getClasseLargeurChausseesS());
 				entityJPA.setTypeReseau(pObject.getTypeReseau());
-				entityJPA.setPRoupK(pObject.getPRoupK());
+				entityJPA.setpRoupK(pObject.getpRoupK());
 				entityJPA.setLieuDitOrigine(pObject.getLieuDitOrigine());
 				entityJPA.setPrOrigine(pObject.getPrOrigine());
 				entityJPA.setAbsOrigine(pObject.getAbsOrigine());
@@ -665,7 +665,7 @@ public final class SectionHitConvertisseurMetierEntity {
 				entityJPA.setClasseLargeurChausseeU(pObject.getClasseLargeurChausseeU());
 				entityJPA.setClasseLargeurChausseesS(pObject.getClasseLargeurChausseesS());
 				entityJPA.setTypeReseau(pObject.getTypeReseau());
-				entityJPA.setPRoupK(pObject.getPRoupK());
+				entityJPA.setpRoupK(pObject.getpRoupK());
 				entityJPA.setLieuDitOrigine(pObject.getLieuDitOrigine());
 				entityJPA.setPrOrigine(pObject.getPrOrigine());
 				entityJPA.setAbsOrigine(pObject.getAbsOrigine());

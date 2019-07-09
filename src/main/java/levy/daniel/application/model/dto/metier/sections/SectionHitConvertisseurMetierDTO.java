@@ -855,7 +855,7 @@ public final class SectionHitConvertisseurMetierDTO {
 				objet.setClasseLargeurChausseeU(classeLargeurChausseeU);
 				objet.setClasseLargeurChausseesS(classeLargeurChausseesS);
 				objet.setTypeReseau(typeReseau);
-				objet.setPRoupK(pRoupK);
+				objet.setpRoupK(pRoupK);
 				objet.setLieuDitOrigine(lieuDitOrigine);
 				objet.setPrOrigine(prOrigine);
 				objet.setAbsOrigine(absOrigine);
@@ -1026,7 +1026,7 @@ public final class SectionHitConvertisseurMetierDTO {
 				final String classeLargeurChausseeU = pObject.getClasseLargeurChausseeU();
 				final String classeLargeurChausseesS = pObject.getClasseLargeurChausseesS();
 				final String typeReseau = pObject.getTypeReseau();
-				final String pRoupK = pObject.getPRoupK();
+				final String pRoupK = pObject.getpRoupK();
 				final String lieuDitOrigine = pObject.getLieuDitOrigine();
 				final Integer prOrigine = pObject.getPrOrigine();
 				final Integer absOrigine = pObject.getAbsOrigine();

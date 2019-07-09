@@ -944,7 +944,7 @@ public class SectionHit implements ISectionHit {
 		this.setClasseLargeurChausseeU(pDescriptionLigne.get(14));
 		this.setClasseLargeurChausseesS(pDescriptionLigne.get(15));
 		this.setTypeReseau(pDescriptionLigne.get(16));
-		this.setPRoupK(pDescriptionLigne.get(17));
+		this.setpRoupK(pDescriptionLigne.get(17));
 		this.setLieuDitOrigine(pDescriptionLigne.get(18));
 		this.setPrOrigine(this.fournirInteger(pDescriptionLigne.get(19)));
 		this.setAbsOrigine(this.fournirInteger(pDescriptionLigne.get(20)));
@@ -1379,7 +1379,7 @@ public class SectionHit implements ISectionHit {
 			, this.getAnneeTraitement(), this.getZoneLibre1(), this.getNumRoute()
 			, this.getIndiceNumRoute(), this.getIndiceLettreRoute(), this.getCategorieAdminRoute()
 			, this.getTypeComptage(), this.getClassementRoute(), this.getClasseLargeurChausseeU()
-			, this.getClasseLargeurChausseesS(), this.getTypeReseau(), this.getPRoupK()
+			, this.getClasseLargeurChausseesS(), this.getTypeReseau(), this.getpRoupK()
 			, this.getLieuDitOrigine(), this.getPrOrigine(), this.getAbsOrigine()
 			, this.getLieuDitExtremite(), this.getPrExtremite(), this.getAbsExtremite()
 			, this.getLieuDitComptage(), this.getPrComptage(), this.getAbsComptage()
@@ -1461,7 +1461,7 @@ public class SectionHit implements ISectionHit {
 			&& Objects.equals(this.getClasseLargeurChausseeU(), other.getClasseLargeurChausseeU())
 			&& Objects.equals(this.getClasseLargeurChausseesS(), other.getClasseLargeurChausseesS())
 			&& Objects.equals(this.getTypeReseau(), other.getTypeReseau())
-			&& Objects.equals(this.getPRoupK(), other.getPRoupK())
+			&& Objects.equals(this.getpRoupK(), other.getpRoupK())
 			&& Objects.equals(this.getLieuDitOrigine(), other.getLieuDitOrigine())
 			&& Objects.equals(this.getPrOrigine(), other.getPrOrigine())
 			&& Objects.equals(this.getAbsOrigine(), other.getAbsOrigine())
@@ -1796,7 +1796,7 @@ public class SectionHit implements ISectionHit {
 		clone.setClasseLargeurChausseeU(this.getClasseLargeurChausseeU());
 		clone.setClasseLargeurChausseesS(this.getClasseLargeurChausseesS());
 		clone.setTypeReseau(this.getTypeReseau());
-		clone.setPRoupK(this.getPRoupK());
+		clone.setpRoupK(this.getpRoupK());
 		clone.setLieuDitOrigine(this.getLieuDitOrigine());
 		clone.setPrOrigine(this.getPrOrigine());
 		clone.setAbsOrigine(this.getAbsOrigine());
@@ -2069,8 +2069,8 @@ public class SectionHit implements ISectionHit {
 		stb.append(VIRGULE_ESPACE);
 
 		stb.append("pRoupK=");
-		if (this.getPRoupK() != null) {
-			stb.append(this.getPRoupK());
+		if (this.getpRoupK() != null) {
+			stb.append(this.getpRoupK());
 		} else {
 			stb.append(NULL);
 		}
@@ -3047,7 +3047,7 @@ public class SectionHit implements ISectionHit {
 		stb.append(this.getClasseLargeurChausseeU());
 		stb.append(this.getClasseLargeurChausseesS());
 		stb.append(this.getTypeReseau());
-		stb.append(this.getPRoupK());
+		stb.append(this.getpRoupK());
 		stb.append(this.getLieuDitOrigine());
 		
 		final String prOrigineString = String.valueOf(this.getPrOrigine());
@@ -3526,7 +3526,7 @@ public class SectionHit implements ISectionHit {
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getTypeReseau());
 		stb.append(POINT_VIRGULE);
-		stb.append(this.getPRoupK());
+		stb.append(this.getpRoupK());
 		stb.append(POINT_VIRGULE);
 		stb.append(this.getLieuDitOrigine());
 		stb.append(POINT_VIRGULE);
@@ -4421,7 +4421,7 @@ public class SectionHit implements ISectionHit {
 			break;
 
 		case 17:
-			valeur = this.getPRoupK();
+			valeur = this.getpRoupK();
 			break;
 
 		case 18:
@@ -5382,7 +5382,7 @@ public class SectionHit implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getPRoupK() {
+	public final String getpRoupK() {
 		return this.pRoupK;
 	} // Fin de getPRoupK()._______________________________________________
 
@@ -5392,7 +5392,7 @@ public class SectionHit implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPRoupK(
+	public final void setpRoupK(
 			final String pPRoupK) {
 		this.pRoupK = pPRoupK;
 	} // Fin de setPRoupK(...).____________________________________________

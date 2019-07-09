@@ -14,6 +14,8 @@ import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisate
 import levy.daniel.application.controllers.desktop.metier.utilisateur.impl.UtilisateurCerbereController;
 import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
 import levy.daniel.application.model.persistence.metier.anneegestion.dao.jpaspring.impl.AnneeGestionDAOJPASpring;
+import levy.daniel.application.model.persistence.metier.sections.ISectionHitDAO;
+import levy.daniel.application.model.persistence.metier.sections.dao.jpaspring.impl.SectionHitDAOJPASpring;
 import levy.daniel.application.model.persistence.metier.sections.localisations.ILocalisationHitDAO;
 import levy.daniel.application.model.persistence.metier.sections.localisations.dao.jpaspring.impl.LocalisationHitDAOJPASpring;
 import levy.daniel.application.model.persistence.metier.televersement.ITeleversementDAO;
@@ -242,6 +244,30 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2File {
 	public ILocalisationHitDAO localisationHitDAOJPASpring() {
 		return new LocalisationHitDAOJPASpring();
 	} // Fin de localisationHitDAOJPASpring()._____________________________
+
+	
+	
+	/**
+	 * <b>configure un bean pour le DAO SectionHitDAOJPASpring 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "SectionHitDAOJPASpring" 
+	 * (au lieu de "sectionHitDAOJPASpring" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au DAO 
+	 * (via l'annotation Repository).
+	 *  Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du DAO</li>
+	 * </ul>
+	 *
+	 * @return : SectionHitDAOJPASpring : 
+	 * ILocalisationHitDAO.<br/>
+	 */
+	@Bean(value = "SectionHitDAOJPASpring")
+	public ISectionHitDAO sectionHitDAOJPASpring() {
+		return new SectionHitDAOJPASpring();
+	} // Fin de sectionHitDAOJPASpring().__________________________________
 
 	
 	

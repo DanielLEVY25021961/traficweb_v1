@@ -677,7 +677,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 *
 	 * @return this.pRoupK : String.<br/>
 	 */
-	String getPRoupK();
+	String getpRoupK();
 
 
 	
@@ -687,7 +687,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* @param pPRoupK : String : 
 	* valeur à passer à this.pRoupK.<br/>
 	*/
-	void setPRoupK(String pPRoupK);
+	void setpRoupK(String pPRoupK);
 
 	
 	
