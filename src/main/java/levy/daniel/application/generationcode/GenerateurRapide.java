@@ -1688,7 +1688,7 @@ public final class GenerateurRapide {
 				continue;
 			}
 						
-			if (compteurBoucle == 1) {
+			if (compteurBoucle == 2) {
 				
 				stb.append(TAB + TAB + TAB);
 				stb.append("+ \"where ");
@@ -1700,7 +1700,7 @@ public final class GenerateurRapide {
 				stb.append(" \"");
 				stb.append(NEWLINE);
 				
-			} else if (compteurBoucle > 1 && compteurBoucle < nombreChamps) {
+			} else if (compteurBoucle > 2 && compteurBoucle < nombreChamps) {
 				
 				stb.append(TAB + TAB + TAB);
 				stb.append("+ \"and ");
