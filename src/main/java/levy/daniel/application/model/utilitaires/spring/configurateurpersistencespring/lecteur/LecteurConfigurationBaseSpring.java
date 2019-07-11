@@ -10,6 +10,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.core.env.Environment;
 
+import levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur.lecteurjpadatasourcespring.ILecteurJPADataSourceSpring;
+import levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur.lecteurjpadatasourcespring.impl.LecteurJPADataSourceSpring;
+
 /**
  * CLASSE LecteurConfigurationBaseSpring :<br/>
  * .<br/>
@@ -160,7 +163,7 @@ public class LecteurConfigurationBaseSpring {
 	 * <b>Lecteur SPRING spécialisé dans la lecture des valeurs JPA 
 	 * d'une DataSource [URL, Driver, Login, Password]</b>.<br/>
 	 */
-	private transient LecteurJPADataSourceSpring lecteurJPADataSourceSpring;
+	private transient ILecteurJPADataSourceSpring lecteurJPADataSourceSpring;
 	
 	/**
 	 * URL de la BASE.
@@ -1138,7 +1141,7 @@ public class LecteurConfigurationBaseSpring {
 	 * @return this.lecteurJPADataSourceSpring : 
 	 * LecteurJPADataSourceSpring.<br/>
 	 */
-	public final LecteurJPADataSourceSpring getLecteurJPADataSourceSpring() {
+	public final ILecteurJPADataSourceSpring getLecteurJPADataSourceSpring() {
 		return this.lecteurJPADataSourceSpring;
 	} // Fin de getLecteurJPADataSourceSpring().___________________________
 

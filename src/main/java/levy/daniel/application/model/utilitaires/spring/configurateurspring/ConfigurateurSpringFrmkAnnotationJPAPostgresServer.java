@@ -75,7 +75,7 @@ import levy.daniel.application.model.services.metier.utilisateurs.impl.Utilisate
  *
  */
 @Configuration(value="ConfigurateurSpringFrmkAnnotationJPAPostgresServer")
-@Import(value={levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2File.class})
+@Import(value={levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAPostgresServer.class})
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 @ComponentScans({@ComponentScan("levy.daniel.application")})

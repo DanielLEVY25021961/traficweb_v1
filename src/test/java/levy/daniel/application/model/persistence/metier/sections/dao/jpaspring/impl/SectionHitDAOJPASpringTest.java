@@ -8551,9 +8551,6 @@ public class SectionHitDAOJPASpringTest {
 		final SortedMap<Integer, SortedMap<Integer, String>> fichierImporteMap 
 			= importeurHIT.getFichierImporteMap();
 		
-		final SortedMap<Integer, String> ligneMap = fichierImporteMap.get(1);
-		final ISectionHit objetMap = new SectionHit(ligneMap);
-		
 		objetRemplirStockage1 = fichierMapObjet.get(1);
 		objetRemplirStockage2 = new SectionHit(fichierImporteMap.get(2));
 		objetRemplirStockage3 = new SectionHit(fichierImporteMap.get(3));

@@ -1,4 +1,4 @@
-package levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur;
+package levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur.lecteurjpadatasourcespring.impl;
 
 import java.util.Locale;
 
@@ -9,6 +9,7 @@ import org.springframework.core.env.Environment;
 import levy.daniel.application.IConstantesApplicatives;
 import levy.daniel.application.model.utilitaires.normalizerurlbase.NormalizerUrlBase;
 import levy.daniel.application.model.utilitaires.normalizerurlbase.UrlEncapsulation;
+import levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur.lecteurjpadatasourcespring.ILecteurJPADataSourceSpring;
 
 /**
  * CLASSE LecteurJPADataSourceSpring :<br/>
@@ -30,7 +31,7 @@ import levy.daniel.application.model.utilitaires.normalizerurlbase.UrlEncapsulat
  * @since 30 janv. 2019
  *
  */
-public class LecteurJPADataSourceSpring {
+public class LecteurJPADataSourceSpring implements ILecteurJPADataSourceSpring {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -256,9 +257,7 @@ public class LecteurJPADataSourceSpring {
 
 	
 	/**
-	 * <b>fournit une String pour l'affichage</b>.<br/>
-	 *
-	 * @return : String : affichage.<br/>
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String toString() {
@@ -529,20 +528,9 @@ public class LecteurJPADataSourceSpring {
 	
 	
 	/**
-	 * Getter de l'URL de la BASE.
-	 * <ul>
-	 * <li>clé : 
-	 * <code>javax.persistence.jdbc.connexion.url</code> 
-	 * dans le fichier properties SPRING</li>
-	 * <li>clé : property nommée <code>javax.persistence.jdbc.url</code> 
-	 * dans un persistence.xml préconisé par JPA</li>
-	 * <li>clé : <code>javax.persistence.jdbc.url</code> 
-	 * dans un EntityManagerFactory créé par le 
-	 * PersistenceProvider HIBERNATE</li>
-	 * </ul>
-	 *
-	 * @return this.url : String.<br/>
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getUrl() {
 		return this.url;
 	} // Fin de getUrl().__________________________________________________
@@ -550,20 +538,9 @@ public class LecteurJPADataSourceSpring {
 
 	
 	/**
-	 * Getter du DRIVER JDBC de la BASE (sous forme de String).
-	 * <ul>
-	 * <li>clé : 
-	 * <code>javax.persistence.jdbc.driver</code> 
-	 * dans le fichier properties SPRING</li>
-	 * <li>clé : property nommée <code>javax.persistence.jdbc.driver</code> 
-	 * dans un persistence.xml préconisé par JPA</li>
-	 * <li>clé : <code>javax.persistence.jdbc.driver</code> 
-	 * dans un EntityManagerFactory créé par le 
-	 * PersistenceProvider HIBERNATE</li>
-	 * </ul>
-	 *
-	 * @return this.driver : String.<br/>
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getDriver() {
 		return this.driver;
 	} // Fin de getDriver()._______________________________________________
@@ -571,20 +548,9 @@ public class LecteurJPADataSourceSpring {
 
 	
 	/**
-	 * Getter du LOGIN de la BASE.
-	 * <ul>
-	 * <li>clé : 
-	 * <code>javax.persistence.jdbc.connection.username</code> 
-	 * dans le fichier properties SPRING</li>
-	 * <li>clé : property nommée <code>javax.persistence.jdbc.user</code> 
-	 * dans un persistence.xml préconisé par JPA</li>
-	 * <li>clé : <code>javax.persistence.jdbc.user</code> 
-	 * dans un EntityManagerFactory créé par le 
-	 * PersistenceProvider HIBERNATE</li>
-	 * </ul>
-	 *
-	 * @return this.userName : String.<br/>
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getUserName() {
 		return this.userName;
 	} // Fin de getUserName()._____________________________________________
@@ -593,20 +559,9 @@ public class LecteurJPADataSourceSpring {
 
 	
 	/**
-	 * Getter du MOT DE PASSE de la BASE.
-	 * <ul>
-	 * <li>clé : 
-	 * <code>javax.persistence.jdbc.connection.password</code> 
-	 * dans le fichier properties SPRING</li>
-	 * <li>clé : property nommée <code>javax.persistence.jdbc.password</code> 
-	 * dans un persistence.xml préconisé par JPA</li>
-	 * <li>clé : <code>javax.persistence.jdbc.password</code> 
-	 * dans un EntityManagerFactory créé par le 
-	 * PersistenceProvider HIBERNATE</li>
-	 * </ul>
-	 *
-	 * @return this.password : String.<br/>
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getPassword() {
 		return this.password;
 	} // Fin de getPassword()._____________________________________________
@@ -614,15 +569,9 @@ public class LecteurJPADataSourceSpring {
 
 
 	/**
-	 * Getter du <b>lecteur SPRING du fichier properties 
-	 * de configuration de la base</b>.
-	 * <ul>
-	 * <li>org.springframework.core.env.Environment</li>
-	 * </ul>
-	 *
-	 * @return this.environmentSpring : 
-	 * org.springframework.core.env.Environment.<br/>
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final Environment getEnvironmentSpring() {
 		return this.environmentSpring;
 	} // Fin de getEnvironmentSpring().____________________________________
@@ -630,18 +579,9 @@ public class LecteurJPADataSourceSpring {
 
 	
 	/**
-	* Setter du <b>lecteur SPRING du fichier properties 
-	 * de configuration de la base</b>.
-	 * <ul>
-	 * <li>org.springframework.core.env.Environment</li>
-	 * <li>alimente tous les attributs de la classe 
-	 * via this.lireProperties()</li>
-	 * </ul>
-	*
-	* @param pEnvironmentSpring : 
-	* org.springframework.core.env.Environment. : 
-	* valeur à passer à this.environmentSpring.<br/>
-	*/
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final void setEnvironmentSpring(
 			final Environment pEnvironmentSpring) {
 		

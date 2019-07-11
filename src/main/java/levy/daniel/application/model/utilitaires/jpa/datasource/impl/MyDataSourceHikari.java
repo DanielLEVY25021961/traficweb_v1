@@ -22,14 +22,14 @@ import levy.daniel.application.model.utilitaires.spring.configurateurpersistence
  * <p>
  * <b>WRAPPER de javax.sql.DataSource</b> permettant de : <br/>
  * <ul>
- * <li><b>instancier une Datasource avec POOL DE CONNEXION</b> 
- * (par exemple <code>com.zaxxer.hikari.HikariDataSource</code> 
+ * <li><b>instancier une Datasource HIKARI_DATASOURCE avec POOL DE CONNEXION</b> 
+ * (<code>com.zaxxer.hikari.HikariDataSource</code> 
  * pour le POOL HikariCP)
  * héritant de javax.sql.DataSource en lui passant un  
  * <b>fichier de configuration de base SPRING</b> 
  * encapsulé dans un {@link LecteurConfigurationBaseSpring}.</li>
- * <li><b>instancier une Datasource avec POOL DE CONNEXION</b> 
- * (par exemple <code>com.zaxxer.hikari.HikariDataSource</code> 
+ * <li><b>instancier une Datasource HIKARI_DATASOURCE avec POOL DE CONNEXION</b> 
+ * (<code>com.zaxxer.hikari.HikariDataSource</code> 
  * pour le POOL HikariCP) en lui <b>passant tous ses attributs</b>.</li>
  * <li><b>WRAPPER une <code>javax.sql.DataSource</code></b> 
  * dans <code>this.dataSource</code> de la présente classe 
@@ -41,7 +41,7 @@ import levy.daniel.application.model.utilitaires.spring.configurateurpersistence
  * en fonction du POOL DE CONNEXION utilisé (HikariCP, DBCP2, BoneCP
  * , Tomcat JDBC, HikariCP, ...).</li>
  * <li><b>retourner la Datasource typée avec POOL DE CONNEXION</b> 
- * (par exemple <code>com.zaxxer.hikari.HikariDataSource</code> 
+ * (<code>com.zaxxer.hikari.HikariDataSource</code> 
  * pour le POOL HikariCP) encapsulée dans la présente classe</li>
  * </ul>
  * </p>
@@ -65,7 +65,7 @@ import levy.daniel.application.model.utilitaires.spring.configurateurpersistence
 public class MyDataSourceHikari implements IMyDataSource {
 
 	// ************************ATTRIBUTS************************************/
-
+	
 	/**
 	 * URL de la BASE (JPA).
 	 * <ul>
@@ -286,7 +286,7 @@ public class MyDataSourceHikari implements IMyDataSource {
 	    }
 		
 		final HikariConfig config = new HikariConfig();
-        
+		
 		config.setJdbcUrl(this.url);
 		config.setDriverClassName(this.driver);
 		config.setUsername(this.userName);
@@ -340,21 +340,7 @@ public class MyDataSourceHikari implements IMyDataSource {
 		
 		/* ne fait rien si this.dataSource est null. */
 		if (this.dataSource != null) {
-			
-//			this.dataSource.setDataSourceClassName("com.zaxxer.hikari.HikariDataSource");
-			
-			/* url. */
-//			this.dataSource.setJdbcUrl(this.url);
-			
-			/* driver. */			
-//			this.dataSource.setDriverClassName(this.driver);
-			
-			/* userName. */
-//			this.dataSource.setUsername(this.userName);
-			
-			/* password. */
-//			this.dataSource.setPassword(this.password);
-			
+						
 			/* poolMinSize. */
 			this.dataSource.setMinimumIdle(
 					this.fournirIntPoolMinSize(
