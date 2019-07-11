@@ -44,7 +44,7 @@
  * (utilisé ensuite pour instancier un <code>EntityManagerFactory</code>)</b>.
  * </p>
  * <p>
- * <img src="../../../../../../../../../../..//javadoc/images/model/utilitaires/spring/configurateurpersistencespring/lecteur/fonctionnement_lecteurconfigurationbase.png" 
+ * <img src="../../../../../../../../../../../javadoc/images/model/utilitaires/spring/configurateurpersistencespring/lecteur/fonctionnement_lecteurconfigurationbase.png" 
  * alt="fonctionnement des lecteurs de configuration de BD SPRING" border="1" align="center" />
  * </p>
  * 
@@ -54,9 +54,9 @@
  * </span></b>
  * </p>
  * <p>
- * <img src="../../../../../../../../../../..//javadoc/images/model/utilitaires/spring/configurateurpersistencespring/lecteur/diagramme_classes_lecteurconfigurationbase_haut.png" 
+ * <img src="../../../../../../../../../../../javadoc/images/model/utilitaires/spring/configurateurpersistencespring/lecteur/diagramme_classes_lecteurconfigurationbase_haut.png" 
  * alt="diagramme de classes des lecteurs de configuration de BD SPRING (haut)" border="1" align="center" />
- * <img src="../../../../../../../../../../..//javadoc/images/model/utilitaires/spring/configurateurpersistencespring/lecteur/diagramme_classes_lecteurconfigurationbase_bas.png" 
+ * <img src="../../../../../../../../../../../javadoc/images/model/utilitaires/spring/configurateurpersistencespring/lecteur/diagramme_classes_lecteurconfigurationbase_bas.png" 
  * alt="diagramme de classes des lecteurs de configuration de BD SPRING (bas)" border="1" align="center" />
  * </p>
  * 
