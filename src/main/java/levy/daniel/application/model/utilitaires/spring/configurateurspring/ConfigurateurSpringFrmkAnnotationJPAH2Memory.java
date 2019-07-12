@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
@@ -70,6 +71,7 @@ import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpasprin
  * @since 13 janv. 2019
  *
  */
+@Profile("PROFIL_TEST_H2_MEMORY")
 @Configuration(value="ConfigurateurSpringFrmkAnnotationJPAH2Memory")
 @Import({levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2Memory.class})
 @EnableAspectJAutoProxy

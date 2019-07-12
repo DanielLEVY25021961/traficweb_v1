@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,6 +47,7 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
  * @since 11 juil. 2019
  *
  */
+@ActiveProfiles("PROFIL_PROD_POSTGRES_SERVER")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
@@ -59,6 +61,22 @@ public class LecteurJPADataSourceSpringTest {
 	 */
 	public static final String CLASSE_LECTEURJPA_DATASOURCE_SPRING_TEST 
 		= "Classe LecteurJPADataSourceSpringTest";
+	
+	/**
+	 * "PROFIL_TEST_H2_FILE".
+	 */
+	public static final String PROFIL_TEST_H2_FILE = "PROFIL_TEST_H2_FILE";
+	
+	/**
+	 * "PROFIL_TEST_H2_MEMORY".
+	 */
+	public static final String PROFIL_TEST_H2_MEMORY = "PROFIL_TEST_H2_MEMORY";
+
+	/**
+	 * "PROFIL_PROD_POSTGRES_SERVER".
+	 */
+	public static final String PROFIL_PROD_POSTGRES_SERVER 
+		= "PROFIL_PROD_POSTGRES_SERVER";
 	
 	/**
 	 * Contexte SPRING injecté par SPRING dès que 

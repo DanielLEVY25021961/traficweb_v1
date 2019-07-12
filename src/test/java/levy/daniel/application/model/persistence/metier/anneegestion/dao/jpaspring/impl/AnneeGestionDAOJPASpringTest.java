@@ -29,6 +29,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -71,6 +72,7 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
  * @since 20 juin 2019
  *
  */
+@ActiveProfiles("PROFIL_TEST_H2_MEMORY")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
@@ -86,9 +88,27 @@ public class AnneeGestionDAOJPASpringTest {
 		= "Classe AnneeGestionDAOJPASpringTest";
 	
 	/**
+	 * "PROFIL_TEST_H2_FILE".
+	 */
+	public static final String PROFIL_TEST_H2_FILE = "PROFIL_TEST_H2_FILE";
+	
+	/**
+	 * "PROFIL_TEST_H2_MEMORY".
+	 */
+	public static final String PROFIL_TEST_H2_MEMORY = "PROFIL_TEST_H2_MEMORY";
+
+	/**
+	 * "PROFIL_PROD_POSTGRES_SERVER".
+	 */
+	public static final String PROFIL_PROD_POSTGRES_SERVER 
+		= "PROFIL_PROD_POSTGRES_SERVER";
+	
+	/**
 	 * Contexte SPRING injecté par SPRING dès que 
 	 * la configuration est terminée.<br/>
 	 * <ul>
+	 * <li>instancie le <code><b>contexteSpring</b></code> 
+	 * STATIC la première fois.</li>
 	 * <li><b>injecté via son SETTER</b>.</li>
 	 * <li>injecté <i>après</i> avantTests() (BeforeClass) 
 	 * et après le Constructeur du Test.</li>
@@ -8352,6 +8372,8 @@ public class AnneeGestionDAOJPASpringTest {
 	* Setter du Contexte SPRING injecté par SPRING dès que 
 	* la configuration est terminée.<br/>
 	* <ul>
+	* <li>instancie le <code><b>contexteSpring</b></code> 
+	* STATIC la première fois.</li>
 	* <li><b>injecté via son SETTER</b>.</li>
 	* <li>injecté <i>après</i> avantTests() (BeforeClass) 
 	* et après le Constructeur du Test.</li>

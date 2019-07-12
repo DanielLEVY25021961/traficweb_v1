@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.core.env.Environment;
@@ -66,6 +67,7 @@ import levy.daniel.application.model.utilitaires.spring.configurateurpersistence
  * @since 27 janv. 2019
  *
  */
+@Profile("PROFIL_PROD_POSTGRES_SERVER")
 @Configuration(value="ConfigurateurSpringJPAPostgresServer")
 @PropertySources({@PropertySource("classpath:configurations_bases_jpa/configuration_POSTGRES_Server.properties")})
 @EnableTransactionManagement

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
@@ -74,6 +75,7 @@ import levy.daniel.application.model.services.metier.utilisateurs.impl.Utilisate
  * @since 13 janv. 2019
  *
  */
+@Profile("PROFIL_TEST_H2_FILE")
 @Configuration(value="ConfigurateurSpringFrmkAnnotationJPAH2File")
 @Import(value={levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2File.class})
 @EnableAspectJAutoProxy
