@@ -254,7 +254,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	/**
 	 * type de localisation (PR ou PK).
 	 */
-	private String pRoupK;
+	private String pRoupK; // NOPMD by daniel.levy on 12/07/19 15:42
 	
 	/**
 	 * libellé du lieu-dit origine.

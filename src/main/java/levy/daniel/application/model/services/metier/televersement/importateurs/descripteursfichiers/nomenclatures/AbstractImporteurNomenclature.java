@@ -328,9 +328,9 @@ public abstract class AbstractImporteurNomenclature implements
 		this.clesPossiblesSet = new HashSet<Integer>();
 		
 		/* Ouverture des flux. */
-		final FileInputStream fis =  new FileInputStream(this.nomenclature);
-		final InputStreamReader isr = new InputStreamReader(fis, charset);
-		final BufferedReader bfr = new BufferedReader(isr);
+		final FileInputStream fis =  new FileInputStream(this.nomenclature); // NOPMD by daniel.levy on 12/07/19 15:46
+		final InputStreamReader isr = new InputStreamReader(fis, charset); // NOPMD by daniel.levy on 12/07/19 15:46
+		final BufferedReader bfr = new BufferedReader(isr); // NOPMD by daniel.levy on 12/07/19 15:46
 		
 		String ligneLue = null;
 		
@@ -434,9 +434,9 @@ public abstract class AbstractImporteurNomenclature implements
 		boolean resultat = true;
 		
 		/* Ouverture des flux. */
-		final FileInputStream fis =  new FileInputStream(pNomenclature);
-		final InputStreamReader isr = new InputStreamReader(fis, charset);
-		final BufferedReader bfr = new BufferedReader(isr);
+		final FileInputStream fis =  new FileInputStream(pNomenclature); // NOPMD by daniel.levy on 12/07/19 15:46
+		final InputStreamReader isr = new InputStreamReader(fis, charset); // NOPMD by daniel.levy on 12/07/19 15:46
+		final BufferedReader bfr = new BufferedReader(isr); // NOPMD by daniel.levy on 12/07/19 15:46
 		
 		String ligneLue = null;
 		
@@ -865,9 +865,9 @@ public abstract class AbstractImporteurNomenclature implements
 						
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
 		/* ECRITURE AVEC charset. */
-		final FileOutputStream fos = new FileOutputStream(fileGenere);
-		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset);
-		final BufferedWriter bfw = new BufferedWriter(osw);
+		final FileOutputStream fos = new FileOutputStream(fileGenere); // NOPMD by daniel.levy on 12/07/19 15:46
+		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset); // NOPMD by daniel.levy on 12/07/19 15:46
+		final BufferedWriter bfw = new BufferedWriter(osw); // NOPMD by daniel.levy on 12/07/19 15:46
 		
 		/* Ajoute le BOM-UTF8 au début du fichier généré 
 		 * si charset vaut Charset-UTF8. */
