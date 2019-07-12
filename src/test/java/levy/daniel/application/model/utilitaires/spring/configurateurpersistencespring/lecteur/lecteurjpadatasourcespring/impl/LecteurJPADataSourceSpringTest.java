@@ -1,8 +1,5 @@
 package levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur.lecteurjpadatasourcespring.impl;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
 import javax.persistence.EntityManagerFactory;
 
 import org.apache.commons.logging.Log;
@@ -20,8 +17,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.zaxxer.hikari.HikariDataSource;
 
 import levy.daniel.application.model.utilitaires.spring.afficheurcontexte.AfficheurContexteSpring;
 import levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur.lecteurjpadatasourcespring.ILecteurJPADataSourceSpring;
@@ -47,7 +42,7 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
  * @since 11 juil. 2019
  *
  */
-@ActiveProfiles("PROFIL_PROD_POSTGRES_SERVER")
+@ActiveProfiles("PROFIL_TEST_H2_MEMORY")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
@@ -158,46 +153,6 @@ public class LecteurJPADataSourceSpringTest {
 //		System.out.println("CONTEXTE SPRING : " + contexteSpring);
 		
 	} // Fin du CONSTRUCTEUR D'ARITE NULLE.________________________________
-	
-
-	
-	/**
-	 * .<br/>
-	 * 
-	 * @throws SQLException 
-	 */
-	@SuppressWarnings(UNUSED)
-	@Test
-	public void testConnexion() throws SQLException {
-				
-		// **********************************
-		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
-		// **********************************
-		
-		/* AFFICHAGE A LA CONSOLE. */
-		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE LecteurJPADataSourceSpringTest - méthode testConnexion() ********** ");
-		}
-		
-		final HikariDataSource dataSource = new HikariDataSource();
-		dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/base-traficweb_v1");
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("postgres");
-		
-		final Connection connexion = dataSource.getConnection();
-		
-		if (AFFICHAGE_GENERAL && affichage) {
-			
-			if (connexion != null) {
-				System.out.println(connexion);
-			}
-			
-		}
-		
-		dataSource.close();
-		
-	} // Fin de testConnexion().___________________________________________
 	
 	
 	
