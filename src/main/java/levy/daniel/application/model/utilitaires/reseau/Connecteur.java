@@ -203,8 +203,6 @@ public final class Connecteur {
     			resultat = resultat + line + NEWLINE;
     		}
     		
-    		return resultat;
-    		
         } catch (Exception finalE) {
         	
 			throw new IOException(finalE);
@@ -224,6 +222,8 @@ public final class Connecteur {
 			}
 			
 		}
+        
+        return resultat;
 						
 	} // Fin de rechercherGetHTTP(...).____________________________________
 
@@ -363,8 +363,8 @@ public final class Connecteur {
 			final String... args) throws IOException {
 		
 		// SI PROXY
-		System.setProperty("http.proxyHost", "10.77.32.65");
-		System.setProperty("http.proxyPort", "8080");
+//		System.setProperty("http.proxyHost", "10.77.32.65");
+//		System.setProperty("http.proxyPort", "8080");
 		
 		// SI PAS PROXY
 //		System.setProperty("http.proxyHost", "");
