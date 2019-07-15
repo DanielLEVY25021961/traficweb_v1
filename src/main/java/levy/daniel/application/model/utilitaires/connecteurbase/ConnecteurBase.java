@@ -98,7 +98,7 @@ public class ConnecteurBase {
 	 */
 	public Boolean connecterABaseHikariDataSource() {
 		
-		final HikariDataSource dataSource = new HikariDataSource(); 
+		final HikariDataSource dataSource = new HikariDataSource();  // NOPMD by daniel.levy on 15/07/19 09:34
 		
 		dataSource.setJdbcUrl(this.jdbcUrl);
 		dataSource.setUsername(this.username);
@@ -107,7 +107,7 @@ public class ConnecteurBase {
 		try {
 			
 			dataSource.getConnection();
-
+			
 			return true;
 			
 		} catch (SQLException e) {

@@ -327,9 +327,9 @@ public abstract class AbstractImporteurLexique implements
 		this.clesPossiblesSet = new HashSet<String>();
 		
 		/* Ouverture des flux. */
-		final FileInputStream fis =  new FileInputStream(this.lexique); 
-		final InputStreamReader isr = new InputStreamReader(fis, charset); 
-		final BufferedReader bfr = new BufferedReader(isr); 
+		final FileInputStream fis =  new FileInputStream(this.lexique);  // NOPMD by daniel.levy on 15/07/19 09:30
+		final InputStreamReader isr = new InputStreamReader(fis, charset);  // NOPMD by daniel.levy on 15/07/19 09:30
+		final BufferedReader bfr = new BufferedReader(isr);  // NOPMD by daniel.levy on 15/07/19 09:30
 		
 		String ligneLue = null;
 		
@@ -442,9 +442,9 @@ public abstract class AbstractImporteurLexique implements
 		boolean resultat = true;
 		
 		/* Ouverture des flux. */
-		final FileInputStream fis =  new FileInputStream(pLexique); 
-		final InputStreamReader isr = new InputStreamReader(fis, charset); 
-		final BufferedReader bfr = new BufferedReader(isr); 
+		final FileInputStream fis =  new FileInputStream(pLexique);  // NOPMD by daniel.levy on 15/07/19 09:30
+		final InputStreamReader isr = new InputStreamReader(fis, charset);  // NOPMD by daniel.levy on 15/07/19 09:30
+		final BufferedReader bfr = new BufferedReader(isr);  // NOPMD by daniel.levy on 15/07/19 09:30
 		
 		String ligneLue = null;
 		
@@ -859,9 +859,9 @@ public abstract class AbstractImporteurLexique implements
 						
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
 		/* ECRITURE AVEC charset. */
-		final FileOutputStream fos = new FileOutputStream(fileGenere); 
-		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset); 
-		final BufferedWriter bfw = new BufferedWriter(osw); 
+		final FileOutputStream fos = new FileOutputStream(fileGenere);  // NOPMD by daniel.levy on 15/07/19 09:30
+		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset);  // NOPMD by daniel.levy on 15/07/19 09:30
+		final BufferedWriter bfw = new BufferedWriter(osw);  // NOPMD by daniel.levy on 15/07/19 09:30
 		
 		/* Ajoute le BOM-UTF8 au début du fichier généré 
 		 * si charset vaut Charset-UTF8. */

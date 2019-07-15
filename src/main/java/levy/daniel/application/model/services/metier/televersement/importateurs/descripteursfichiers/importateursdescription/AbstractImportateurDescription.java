@@ -1197,9 +1197,9 @@ public abstract class AbstractImportateurDescription implements
 		
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
 		/* ECRITURE AVEC charset. */
-		final FileOutputStream fos = new FileOutputStream(fileGenere); 
-		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset); 
-		final BufferedWriter bfw = new BufferedWriter(osw); 
+		final FileOutputStream fos = new FileOutputStream(fileGenere);  // NOPMD by daniel.levy on 15/07/19 09:28
+		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset);  // NOPMD by daniel.levy on 15/07/19 09:28
+		final BufferedWriter bfw = new BufferedWriter(osw);  // NOPMD by daniel.levy on 15/07/19 09:29
 		
 		/* Ajoute le BOM-UTF8 au début du fichier généré 
 		 * si charset vaut Charset-UTF8. */
@@ -1250,11 +1250,11 @@ public abstract class AbstractImportateurDescription implements
 		/* ECRITURE SUR DISQUE. */
 		bfw.flush();
 		
-		/* FERMETURE DES FLUX. */
-		bfw.close();
-		osw.close();
-		fos.close();
-		
+		/* FERMETURE DES FLUX. */		
+			bfw.close();
+			osw.close();
+			fos.close();
+				
 		return fileGenere;
 
 	} // Fin de genererDescriptionCsvFile(

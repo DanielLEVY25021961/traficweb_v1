@@ -104,6 +104,8 @@ public class Browser extends JFrame {
 	public Browser(
 			final String pTitle
 				, final String pContent) {
+		
+		super();
 
 		// On initialise notre fenêtre JFrame
 		this.setSize(new Dimension(WIDTH, HEIGHT));
@@ -273,7 +275,7 @@ public class Browser extends JFrame {
 		/**
 		 * contenu du JFXPanel.
 		 */
-		private String content;
+		private final String content;
 		
 		
 
@@ -326,6 +328,17 @@ public class Browser extends JFrame {
 		} // Fin de initFX(...).___________________________________________
 		
 		
+				
+		/**
+		 * Getter du contenu du JFXPanel.
+		 *
+		 * @return this.content : String.<br/>
+		 */
+		public final String getContent() {
+			return this.content;
+		} // Fin de getContent().__________________________________________
+
+
 
 		/**
 		 * passe le contenu pContent au WebEbgine du Browser.<br/>

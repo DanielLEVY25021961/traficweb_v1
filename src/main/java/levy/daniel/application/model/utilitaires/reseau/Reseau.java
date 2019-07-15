@@ -6,6 +6,7 @@ import java.net.SocketException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.Enumeration;
+import java.util.Scanner;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
@@ -31,7 +32,7 @@ import org.apache.commons.logging.LogFactory;
  * @since 13 juil. 2019
  *
  */
-public class Reseau {
+public final class Reseau {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -48,6 +49,16 @@ public class Reseau {
 	private static final Log LOG = LogFactory.getLog(Reseau.class);
 
 	// *************************METHODES************************************/
+	
+	
+	 /**
+	 * CONSTRUCTEUR D'ARITE NULLE.
+	 */
+	private Reseau() {
+		super();
+	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
+	
+	
 	
 	/**
 	 * Point d'entrée de l'application.<br/>
@@ -85,8 +96,10 @@ public class Reseau {
 //		final String total = "192.168.1.199/10";
 //		calculerPrefixeAdresseMasque(total);
 		
-		final URL url1 = new URL("http://www.google.fr:80");
-		expliciterURL(url1);
+//		final URL url1 = new URL("http://www.google.fr:80");
+//		expliciterURL(url1);
+		
+		rechercherAdresseIpDansConsole();
 		
 	} // Fin de main(...)._________________________________________________
 
@@ -151,7 +164,7 @@ public class Reseau {
 			
 			final String tokenEnString = tokens[i];
 			
-			Integer tokenEnInteger = Integer.valueOf(tokenEnString);
+			final Integer tokenEnInteger = Integer.valueOf(tokenEnString);
 			
 			Byte tokenEnByte = null;
 			
@@ -195,6 +208,100 @@ public class Reseau {
 		
 	} // Fin de connaitreAdresseIPparNomServeur(...).______________________
 
+	
+	
+	/**
+	 * Ouvre un Scanner (Console) permettant de tester 
+	 * des adresses IP ou des noms de domaine.<br/>
+	 * <ul>
+	 * <li>utilise <code><b>lookup(String pHost)</b></code></li>
+	 * <li>retourne le nom de domaine du serveur si pHost est une adresse IP.</li>
+	 * <li>retourne l'adresse IP du serveur si pHost est un nom de domaine.</li>
+	 * <li>retourne parfois l'adresse IP à la place du nom de domaine 
+	 * si celui-ci n'est pas renseigné sur le serveur pHost.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	public static void rechercherAdresseIpDansConsole() throws Exception {
+
+		final Scanner scanner = new Scanner(System.in);
+
+		try {
+			
+			while (true) {
+				
+				System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
+				System.out.println("Saisissez dans la console une adresse IPV4 ou un nom de domaine (ou tapez 'fin' dans la console pour arrêter le programme) : ");
+				System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
+
+				/* lit la saisie utilisateur au clavier. */
+				final String hote = scanner.nextLine();
+
+				if (hote.equalsIgnoreCase("fin")) {
+					break;
+				}
+
+				final String resultat = lookup(hote);
+				System.out.println("Voici le résultat trouvé : " + resultat);
+				System.out.println();
+			}
+
+			System.out.println("Fin du programme");
+			
+		} catch (Exception finalE) {
+
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal("Impossible de lire le scanner", finalE);
+			}
+			
+		} finally {
+			scanner.close();
+		}
+		
+	} // Fin de rechercherAdresseIpDansConsole()._______________________
+
+	
+	
+	/**
+	 * retourne l'adresse IP ou le nom de domaine d'un serveur pHost.
+	 * <ul>
+	 * <li>retourne le nom de domaine du serveur si pHost est une adresse IP.</li>
+	 * <li>retourne l'adresse IP du serveur si pHost est un nom de domaine.</li>
+	 * <li>retourne parfois l'adresse IP à la place du nom de domaine 
+	 * si celui-ci n'est pas renseigné sur le serveur pHost.</li>
+	 * </ul>
+	 *
+	 * @param pHost : String : 
+	 * nom de l'hôte (serveur) sous forme d'adresse IP ou de nom de domaine
+	 * 
+	 * @return : String : adresse IP ou nom de domaine.<br/>
+	 */
+	public static String lookup(
+			final String pHost) {
+		
+		String result = "";
+
+		try {
+			
+			// Il s'agit d'un nom de domaine et non d'une adresse IPV4
+			if (pHost.matches("[a-zA-Z\\.]+")) {
+				result = InetAddress.getByName(pHost).getHostAddress();
+			}
+			
+			// IP V4
+			else {
+				result = InetAddress.getByName(pHost).getHostName();
+			}
+			
+		} catch (UnknownHostException e) {
+			return "Erreur : impossible de trouver une correspondance pour l'entrée " + pHost;
+		}
+		
+		return result;
+
+	} // Fin de lookup(...)._______________________________________________
+	
 	
 	
 	/**
@@ -273,9 +380,10 @@ public class Reseau {
 			final String pString) {
 		
         
-        String[] parties = pString.split("/");
-        String ip = parties[0];
+        final String[] parties = pString.split("/");
+        final String ip = parties[0];
         int prefixe;
+        
         if (parties.length < 2) {
             prefixe = 0;
         } else {
@@ -284,38 +392,39 @@ public class Reseau {
         System.out.println("Addresse =\t" + ip+"\nPrefixe =\t" + prefixe);
        
         //convertir le masque entier en un tableau de 32bits
-        int masque = 0xffffffff << (32 - prefixe);
-        int valeur = masque;
+        final int masque = 0xffffffff << (32 - prefixe);
+        final int valeur = masque;
         byte[] bytesMasque = new byte[]{
                 (byte) (valeur >>> 24), (byte) (valeur >> 16 & 0xff), (byte) (valeur >> 8 & 0xff), (byte) (valeur & 0xff) };
 
         try {
               //masque
-              InetAddress netAddr = InetAddress.getByAddress(bytesMasque);
+              final InetAddress netAddr = InetAddress.getByAddress(bytesMasque);
               System.out.println("Masque =\t" + netAddr.getHostAddress());
                      
          /*************************
           * Adresse réseau
           */
          //Convertir l'pString IP en long
-         long ipl = ipToLong(ip);
+         final long ipl = ipToLong(ip);
              
          //Convertir l'IP en un tableau de 32bits
-         byte[] bytesIp = new byte[]{
+         final byte[] bytesIp = new byte[]{
           (byte) ((ipl >> 24) & 0xFF),
          (byte) ((ipl >> 16) & 0xFF),
           (byte) ((ipl >> 8) & 0xFF),
           (byte) (ipl & 0xFF)};
         
          //Le ET logique entre l'pString IP et le masque
-         byte[] bytesReseau = new byte[]{
+         final byte[] bytesReseau = new byte[]{
                  (byte) (bytesIp[0] & bytesMasque[0]),
                  (byte) (bytesIp[1] & bytesMasque[1]),
                  (byte) (bytesIp[2] & bytesMasque[2]),
                  (byte) (bytesIp[3] & bytesMasque[3]),
          };
+         
          //pString réseau obtenue
-         InetAddress adrReseau = InetAddress.getByAddress(bytesReseau);
+         final InetAddress adrReseau = InetAddress.getByAddress(bytesReseau);
          System.out.println("Adresse réseau =\t"+adrReseau.getHostAddress());
         
          /********************************
@@ -329,16 +438,18 @@ public class Reseau {
                  (byte) (~bytesMasque[2] & 0xff),
                  (byte) (~bytesMasque[3] & 0xff),
          };
+         
          System.out.println("Masque inverse (Wildcard) =\t"+InetAddress.getByAddress(bytesMasque).getHostAddress());
         
-         byte[] bytesBroadcast = new byte[]{
+         final byte[] bytesBroadcast = new byte[]{
                  (byte) (bytesReseau[0] | bytesMasque[0]),
                  (byte) (bytesReseau[1] | bytesMasque[1]),
                  (byte) (bytesReseau[2] | bytesMasque[2]),
                  (byte) (bytesReseau[3] | bytesMasque[3]),
          };
+         
          //pString Broadcast obtenue
-         InetAddress adrbroadcast = InetAddress.getByAddress(bytesBroadcast);
+         final InetAddress adrbroadcast = InetAddress.getByAddress(bytesBroadcast);
          System.out.println("Adresse de diffusion (Broadcast) =\t"+adrbroadcast.getHostAddress());
         
           } catch (UnknownHostException e) {
@@ -359,11 +470,12 @@ public class Reseau {
     public static long ipToLong(
     		final String ipAddress) { 
     	
-             long result = 0;   
-             String[] ipAddressInArray = ipAddress.split("\\.");
+             long result = 0; 
+             
+             final String[] ipAddressInArray = ipAddress.split("\\.");
 
              for (int i = 3; i >= 0; i--) {
-                  long ip = Long.parseLong(ipAddressInArray[3 - i]);
+                  final long ip = Long.parseLong(ipAddressInArray[3 - i]);
                   result |= ip << (i * 8);
              }
              

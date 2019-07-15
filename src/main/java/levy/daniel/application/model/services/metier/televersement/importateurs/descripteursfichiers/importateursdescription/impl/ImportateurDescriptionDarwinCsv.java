@@ -374,9 +374,9 @@ public class ImportateurDescriptionDarwinCsv extends
 		final Pattern patternCsv = Pattern.compile(SEP_PV);
 		
 		/* OUVERTURE DES FLUX. */
-		final FileInputStream fis = new FileInputStream(fileDescription); 
-		final InputStreamReader isr = new InputStreamReader(fis, charset); 
-		final BufferedReader bfr = new BufferedReader(isr); 
+		final FileInputStream fis = new FileInputStream(fileDescription);  // NOPMD by daniel.levy on 15/07/19 09:27
+		final InputStreamReader isr = new InputStreamReader(fis, charset);  // NOPMD by daniel.levy on 15/07/19 09:27
+		final BufferedReader bfr = new BufferedReader(isr);  // NOPMD by daniel.levy on 15/07/19 09:27
 		
 		String ligneLue = null;
 		
