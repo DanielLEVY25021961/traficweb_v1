@@ -98,7 +98,7 @@ public class ConnecteurBase {
 	 */
 	public Boolean connecterABaseHikariDataSource() {
 		
-		final HikariDataSource dataSource = new HikariDataSource(); // NOPMD by daniel.levy on 12/07/19 15:54
+		final HikariDataSource dataSource = new HikariDataSource(); 
 		
 		dataSource.setJdbcUrl(this.jdbcUrl);
 		dataSource.setUsername(this.username);

@@ -176,7 +176,7 @@ public class SectionHit implements ISectionHit {
 	/**
 	 * type de localisation (PR ou PK).
 	 */
-	private String pRoupK; // NOPMD by daniel.levy on 12/07/19 15:41
+	private String pRoupK; 
 	
 	/**
 	 * libellé du lieu-dit origine.

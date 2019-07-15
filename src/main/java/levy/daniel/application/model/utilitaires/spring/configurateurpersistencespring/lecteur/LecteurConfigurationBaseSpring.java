@@ -878,6 +878,7 @@ public class LecteurConfigurationBaseSpring {
 		// DATASOURCE
 		this.lecteurJPADataSourceSpring 
 			= new LecteurJPADataSourceSpring(this.environmentSpring);
+		
 		/* URL. */
 		this.url = this.lecteurJPADataSourceSpring.getUrl();
 		

@@ -72,8 +72,9 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
  * @since 20 juin 2019
  *
  */
-//@ActiveProfiles("PROFIL_PROD_POSTGRES_SERVER")
 @ActiveProfiles("PROFIL_TEST_H2_MEMORY")
+//@ActiveProfiles("PROFIL_TEST_H2_FILE")
+//@ActiveProfiles("PROFIL_PROD_POSTGRES_SERVER")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional

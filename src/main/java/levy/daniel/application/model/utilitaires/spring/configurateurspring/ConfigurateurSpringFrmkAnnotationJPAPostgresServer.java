@@ -31,7 +31,7 @@ import levy.daniel.application.model.services.metier.utilisateurs.impl.Utilisate
  *  Classe <b>annotée Configuration</b> chargée de configurer 
  * le Contexte SPRING FRAMEWORK.<br/>
  * <ul>
- * <li>instancie les Beans (Controllers, Services, DAOs, ...).</li>
+ * <li><b>instancie les Beans SPRING</b> (Controllers, Services, DAOs, ...).</li>
  * <li>délègue la configuration de la persistence 
  * à une classe de configuration dédiée via le mécanisme d'import.</li>
  * <li><b>PERSISTENCE : Base POSTGRESQL en MODE SERVER</b>.</li>

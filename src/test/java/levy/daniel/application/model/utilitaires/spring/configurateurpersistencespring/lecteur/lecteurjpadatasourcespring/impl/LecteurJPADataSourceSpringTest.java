@@ -16,11 +16,10 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import levy.daniel.application.model.utilitaires.spring.afficheurcontexte.AfficheurContexteSpring;
 import levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.lecteur.lecteurjpadatasourcespring.ILecteurJPADataSourceSpring;
-import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAPostgresServer;
+import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2File;
 
 /**
  * CLASSE LecteurJPADataSourceSpringTest :<br/>
@@ -42,11 +41,13 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
  * @since 11 juil. 2019
  *
  */
-@ActiveProfiles("PROFIL_TEST_H2_MEMORY")
+//@ActiveProfiles("PROFIL_TEST_H2_MEMORY")
+@ActiveProfiles("PROFIL_TEST_H2_FILE")
+//@ActiveProfiles("PROFIL_PROD_POSTGRES_SERVER")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RunWith(SpringJUnit4ClassRunner.class)
-@Transactional
-@ContextConfiguration(classes= {ConfigurateurSpringFrmkAnnotationJPAPostgresServer.class})
+//@Transactional
+@ContextConfiguration(classes= {ConfigurateurSpringFrmkAnnotationJPAH2File.class})
 public class LecteurJPADataSourceSpringTest {
 
 	// ************************ATTRIBUTS************************************/
@@ -157,7 +158,15 @@ public class LecteurJPADataSourceSpringTest {
 	
 	
 	/**
-	 * .<br/>
+	 * Teste le LecteurJPADataSourceSpring.<br/>
+	 * <ul>
+	 * <li><b>ATTENTION, mettre 
+	 * <code>spring.jpa.properties.hibernate.ddl-auto=create</code> 
+	 * dans <code>src/main/resources/configurations_bases_jpa/
+	 * configuration_XXX.properties</code> lors de la première utilisation 
+	 * pour permettre la création de la base</b><br/>
+	 * Sinon la CONFIGURATION DE SPRING PLANTE.</li>
+	 * </ul>
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
@@ -179,6 +188,7 @@ public class LecteurJPADataSourceSpringTest {
 		System.out.println(lecteurDataSource.toString());
 		
 	} // Fin de testLecteurJPADataSourceSpring().__________________________
+
 
 	
 	/**
@@ -269,6 +279,11 @@ public class LecteurJPADataSourceSpringTest {
 	@Autowired
 	public final void setEnvironmentInjectable(
 			final Environment pEnvironmentInjectable) {
+		
+//		System.out.println();
+//		System.out.println("****************INJECTION DE L'ENVIRONMENT DANS LE SETTER setEnvironmentInjectable(...)**************");
+//		System.out.println(pEnvironmentInjectable);
+//		System.out.println();
 		
 		this.environmentInjectable = pEnvironmentInjectable;
 		

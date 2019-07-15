@@ -804,8 +804,8 @@ public abstract class AbstractImporteur implements IImporteur {
 				
 		int compteur = 0;
 		
-		final FileReader fr = new FileReader(pFile); // NOPMD by daniel.levy on 12/07/19 15:47
-		final BufferedReader bfr= new BufferedReader(fr); // NOPMD by daniel.levy on 12/07/19 15:47
+		final FileReader fr = new FileReader(pFile); 
+		final BufferedReader bfr= new BufferedReader(fr); 
 				
 		while (bfr.readLine() != null) {
 			compteur++;
@@ -1168,9 +1168,9 @@ public abstract class AbstractImporteur implements IImporteur {
 
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
 		/* ECRITURE EN UTF-8. */
-		final FileOutputStream fos = new FileOutputStream(fileGenere); // NOPMD by daniel.levy on 12/07/19 15:47
-		final OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8"); // NOPMD by daniel.levy on 12/07/19 15:46
-		final BufferedWriter bfw = new BufferedWriter(osw); // NOPMD by daniel.levy on 12/07/19 15:46
+		final FileOutputStream fos = new FileOutputStream(fileGenere); 
+		final OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8"); 
+		final BufferedWriter bfw = new BufferedWriter(osw); 
 				
 		/* Ajout éventuel de la ligne d'en-têtes. */
 		if (pAvecLigneEntetes) {
@@ -1375,9 +1375,9 @@ public abstract class AbstractImporteur implements IImporteur {
 
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
 		/* ECRITURE EN pCharset. */
-		final FileOutputStream fos = new FileOutputStream(fileGenere); // NOPMD by daniel.levy on 12/07/19 15:47
-		final OutputStreamWriter osw = new OutputStreamWriter(fos, pCharset); // NOPMD by daniel.levy on 12/07/19 15:47
-		final BufferedWriter bfw = new BufferedWriter(osw); // NOPMD by daniel.levy on 12/07/19 15:46
+		final FileOutputStream fos = new FileOutputStream(fileGenere); 
+		final OutputStreamWriter osw = new OutputStreamWriter(fos, pCharset); 
+		final BufferedWriter bfw = new BufferedWriter(osw); 
 				
 		/* Ajout éventuel de la ligne d'en-têtes. */
 		if (pAvecLigneEntetes) {
@@ -1684,9 +1684,9 @@ public abstract class AbstractImporteur implements IImporteur {
 
 		/* OUVERTURE DES FLUX EN ECRITURE VERS LE FICHIER A GENERER. */
 		/* ECRITURE EN pCharset. */
-		final FileOutputStream fos = new FileOutputStream(fileGenere); // NOPMD by daniel.levy on 12/07/19 15:47
-		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset); // NOPMD by daniel.levy on 12/07/19 15:47
-		final BufferedWriter bfw = new BufferedWriter(osw); // NOPMD by daniel.levy on 12/07/19 15:47
+		final FileOutputStream fos = new FileOutputStream(fileGenere); 
+		final OutputStreamWriter osw = new OutputStreamWriter(fos, charset); 
+		final BufferedWriter bfw = new BufferedWriter(osw); 
 
 		
 		/* Ajout éventuel de la ligne d'en-têtes. */

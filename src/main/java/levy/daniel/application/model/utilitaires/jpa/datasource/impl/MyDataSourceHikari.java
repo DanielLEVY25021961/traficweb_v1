@@ -292,7 +292,12 @@ public class MyDataSourceHikari implements IMyDataSource {
 		config.setUsername(this.userName);
 		config.setPassword(this.password);
 		
-        config.setAutoCommit(false);
+		config.setAllowPoolSuspension(false);
+
+		config.setAutoCommit(true);
+
+		config.setConnectionTimeout(1000L);
+		     
         config.addDataSourceProperty("cachePrepStmts", "true");
         config.addDataSourceProperty("prepStmtCacheSize", "250");
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
@@ -356,7 +361,7 @@ public class MyDataSourceHikari implements IMyDataSource {
 			this.dataSource.setIdleTimeout(
 					this.fournirIntPoolTimeOut(
 							this.poolTimeOut));
-			
+						
 		}
 		
 	} // Fin de alimenterDataSource()._____________________________________

@@ -258,7 +258,7 @@ public class UtilisateurCerbereValideurService
 		final ErreursMaps erreursMap 
 			= new ErreursMaps();
 		
-		boolean valide = false; // NOPMD by daniel.levy on 12/07/19 15:47
+		boolean valide = false; 
 		
 		/* CIVILITE. */
 		/* VALIDATIONS pour chaque attribut. */
