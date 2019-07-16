@@ -1,14 +1,20 @@
 package levy.daniel.application.model.utilitaires.reseau;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.UnknownHostException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.StringTokenizer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -37,10 +43,11 @@ public class ConnecteurFTP {
 
 	// ************************ATTRIBUTS************************************/
 
+
 	/**
-	 * Boolean determinant si les méthodes loggent dans la console.<br/>
+	 * "\r\n".
 	 */
-	private static final boolean DEBUG = true;
+	public static final String CARRIAGE_RETURN = "\r\n";
 	
 	/**
 	 * Login du serveur FTP.
@@ -64,6 +71,18 @@ public class ConnecteurFTP {
 	private int port;
 	
 	/**
+	 * adresse IP du serveur FTP pour l'échange des données 
+	 * (CANAL DES DONNEES).
+	 */
+	private String dataIP;
+
+	/**
+	 * port utilisé par le serveur FTP pour échanger les données 
+	 * (CANAL des DONNEES).
+	 */
+	private int dataPort;
+	
+	/**
 	 * Proxy éventuellement présent sur le trajet du présent client FTP.
 	 */
 	private Proxy proxy;
@@ -80,11 +99,81 @@ public class ConnecteurFTP {
 	private Socket socketCanalServeur;
 	
 	/**
+	 * InputStream pour la lecture dee réponses SERVEUR du Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de la lecture d'une réponse du Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
+	 */
+	private transient InputStream inputStreamCanalServeur = null;
+	
+	/**
+	 * BufferedInputStream pour la lecture dee réponses SERVEUR du Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de la lecture d'une réponse du Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
+	 */
+	private transient BufferedInputStream bufferedInputStreamCanalServeur = null;
+
+	/**
+	 * OutputStream pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
+	 */
+	private transient OutputStream outputStreamCanalServeur = null;
+		
+	/**
+	 * OutputStreamWriter pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
+	 */
+	private transient OutputStreamWriter outputStreamWriterCanalServeur = null;
+	
+	/**
+	 * BufferedWriter pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
+	 */
+	private transient BufferedWriter bufferedWriterCanalServeur = null;
+	
+	/**
 	 * Socket de connexion au serveur FTP 
 	 * (CANAL DE DONNEES our échanger des données avec le serveur FTP).
 	 */
 	private Socket socketCanalDonnees;
+	
+	/**
+	 * InputStream pour la lecture dee réponses SERVEUR du Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de la lecture d'une réponse du Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
+	 */
+	private transient InputStream inputStreamCanalDonnees = null;
+	
+	/**
+	 * BufferedInputStream pour la lecture dee réponses SERVEUR du Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de la lecture d'une réponse du Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
+	 */
+	private transient BufferedInputStream bufferedInputStreamCanalDonnees = null;
 
+	/**
+	 * OutputStream pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
+	 */
+	private transient OutputStream outputStreamCanalDonnees = null;
+		
+	/**
+	 * OutputStreamWriter pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
+	 */
+	private transient OutputStreamWriter outputStreamWriterCanalDonnees = null;
+	
+	/**
+	 * BufferedWriter pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
+	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
+	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
+	 */
+	private transient BufferedWriter bufferedWriterCanalDonnees = null;
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -155,7 +244,11 @@ public class ConnecteurFTP {
 		final Proxy proxy 
 			= connecteurFTP.creerProxy(adresseIpProxy, portProxy, typeProxy);
 		
-		connecteurFTP.connecterViaProxy(proxy);
+//		connecteurFTP.connecterViaProxy(proxy);
+		
+		connecteurFTP.connecterDirectement();
+		
+		connecteurFTP.commandLIST();
 		
 	} // Fin de main(...)._________________________________________________
 
@@ -212,45 +305,65 @@ public class ConnecteurFTP {
 		int stream = 0;
 		
 		final byte[] bytes = new byte[4096];
+					
+		this.inputStreamCanalServeur = this.socketCanalServeur.getInputStream();
+		this.bufferedInputStreamCanalServeur 
+			= new BufferedInputStream(this.inputStreamCanalServeur);
 		
-		InputStream inputStream = null;
-		BufferedInputStream bufferedInputStream = null;
+		stream = this.bufferedInputStreamCanalServeur.read(bytes);
 		
-		try {
+		response = new String(bytes, 0, stream);
 			
-			inputStream = this.socketCanalServeur.getInputStream();
-			bufferedInputStream = new BufferedInputStream(inputStream);
-			
-			stream = bufferedInputStream.read(bytes);
-			
-			response = new String(bytes, 0, stream);
-
-			if (DEBUG) {
-				LOG.debug(response);
-			}
-							
-		} catch (Exception e) { // NOPMD by daniel.levy on 16/07/19 11:58
-			
-			throw new Exception(e);
-			
-		} finally {
-			
-			if (inputStream != null) {
-				inputStream.close();
-			}
-			
-			if (bufferedInputStream != null) {
-				bufferedInputStream.close();
-			}
-			
-		}
-		
 		return response;
 		
 	} // Fin de readReponseFTPCanalServeur().______________________________
 		
-	
 
+	
+	/**
+	 * envoie une commande (USER, LIST, PWD, ...) 
+	 * au serveur FTP (via le CANAL SERVEUR).
+	 * <ul>
+	 * <li>encode la commande en pCharset.</li>
+	 * <li>choisit automatiquement Charset-UTF-8 si pCharset == null.</li>
+	 * </ul>
+	 *
+	 * @param pCommand : String : commande à transmettre au serveur FTP.
+	 * @param pCharset : Charset : 
+	 * Charset utilisé pour la rédaction de la commande.
+	 * 
+	 * @throws Exception
+	 */
+	private void sendCommandFTPCanalServeur(
+			final String pCommand
+			, final Charset pCharset) throws Exception {
+
+		final String commande = pCommand + CARRIAGE_RETURN;
+
+		Charset charset = null;
+
+		if (pCharset == null) {
+			charset = StandardCharsets.UTF_8;
+		} else {
+			charset = pCharset;
+		}
+
+		if (this.socketCanalServeur != null) {
+
+			this.outputStreamCanalServeur = this.socketCanalServeur.getOutputStream();
+			this.outputStreamWriterCanalServeur 
+				= new OutputStreamWriter(this.outputStreamCanalServeur, charset);
+			this.bufferedWriterCanalServeur = new BufferedWriter(this.outputStreamWriterCanalServeur);
+
+			this.bufferedWriterCanalServeur.write(commande);
+			this.bufferedWriterCanalServeur.flush();
+			
+		}
+
+	} // Fin de sendCommandFTPCanalServeur(...).___________________________	 
+	 
+
+	
 	/**
 	 * .<br/>
 	 * : void :  .<br/>
@@ -261,13 +374,42 @@ public class ConnecteurFTP {
 
 		final String adresseServeurFTP = this.fournirIpAPartirHote(this.hostFTP);
 
+		// CONNEXION VIA LE CANAL SERVEUR
 		this.socketCanalServeur = new Socket(adresseServeurFTP, this.port);
 
 		final String responseServeurFTP = this.readReponseFTPCanalServeur();
 
+		System.out.println(responseServeurFTP);
+
 		if (!responseServeurFTP.startsWith("220")) {
 			throw new IOException(
 					"Erreur de connexion au FTP : \n" + responseServeurFTP);
+		}
+
+		// ENVOI DE LA COMMANDE USER
+		final String commandUSER = "USER " + this.user;
+		this.sendCommandFTPCanalServeur(commandUSER, null);
+
+		final String responseUSER = this.readReponseFTPCanalServeur();
+		
+		System.out.println(responseUSER);
+		
+		if (!responseUSER.startsWith("331")) {
+			throw new IOException(
+					"Erreur de connexion avec le compte utilisateur : \n" + responseUSER);
+		}
+
+		// ENVOI DE LA COMMANDE PASS
+		final String commandPASS = "PASS " + this.password;
+		this.sendCommandFTPCanalServeur(commandPASS, null);
+
+		final String responsePASS = this.readReponseFTPCanalServeur();
+		
+		System.out.println(responsePASS);
+		
+		if (!responsePASS.startsWith("230")) {
+			throw new IOException(
+					"Erreur de connexion avec le compte utilisateur : \n" + responsePASS);
 		}
 
 	} // Fin de connecterDirectement().____________________________________
@@ -303,6 +445,366 @@ public class ConnecteurFTP {
 		
 	} // Fin de connecterViaProxy(...).____________________________________
 	
+	
+	
+	/**
+	 * ferme la connexion au serveur FTP.
+	 * <ul>
+	 * <li>envoie la commande "QUIT" au serveur FTP (CANAL SERVEUR)</li>
+	 * <li>ferme la SOCKET <code><b>this.socketCanalServeur</b></code></li>
+	 * <li>ferme <code><b>this.inputStreamCanalServeur</b></code></li>
+	 * <li>ferme <code><b>this.bufferedInputStreamCanalServeur</b></code></li>
+	 * <li>ferme <code><b>this.outputStreamCanalServeur</b></code></li>
+	 * <li>ferme <code><b>this.outputStreamWriterCanalServeur</b></code></li>
+	 * <li>ferme <code><b>this.bufferedWriterCanalServeur</b></code></li>
+	 * <li>ferme la SOCKET <code><b>this.socketCanalDonnees</b></code></li>
+	 * <li>ferme <code><b>this.inputStreamCanalDonnees</b></code></li>
+	 * <li>ferme <code><b>this.bufferedInputStreamCanalDonnees</b></code></li>
+	 * <li>ferme <code><b>this.outputStreamCanalDonnees</b></code></li>
+	 * <li>ferme <code><b>this.outputStreamWriterCanalDonnees</b></code></li>
+	 * <li>ferme <code><b>this.bufferedWriterCanalDonnees</b></code></li>
+	 * </ul>
+	 * @throws Exception 
+	 */
+	public void quit() throws Exception {
+
+		try {
+
+			this.sendCommandFTPCanalServeur("QUIT", null);
+
+		} catch (IOException e) {
+
+			throw new Exception(e);
+
+		} finally {
+
+			if (this.socketCanalServeur != null) {
+				try {
+					this.socketCanalServeur.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.socketCanalServeur = null;
+				}
+			}
+			
+			if (this.inputStreamCanalServeur != null) {
+				try {
+					this.inputStreamCanalServeur.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.inputStreamCanalServeur = null;
+				}
+			}
+			
+			if (this.bufferedInputStreamCanalServeur != null) {
+				try {
+					this.bufferedInputStreamCanalServeur.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.bufferedInputStreamCanalServeur = null;
+				}
+			}
+			
+			if (this.outputStreamCanalServeur != null) {
+				try {
+					this.outputStreamCanalServeur.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.outputStreamCanalServeur = null;
+				}
+			}
+			
+			if (this.outputStreamWriterCanalServeur != null) {
+				try {
+					this.outputStreamWriterCanalServeur.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.outputStreamWriterCanalServeur = null;
+				}
+			}
+			
+			if (this.bufferedWriterCanalServeur != null) {
+				try {
+					this.bufferedWriterCanalServeur.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.bufferedWriterCanalServeur = null;
+				}
+			}
+
+			if (this.socketCanalDonnees != null) {
+				try {
+					this.socketCanalDonnees.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.socketCanalDonnees = null;
+				}
+			}
+			
+			if (this.inputStreamCanalDonnees != null) {
+				try {
+					this.inputStreamCanalDonnees.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.inputStreamCanalDonnees = null;
+				}
+			}
+			
+			if (this.bufferedInputStreamCanalDonnees != null) {
+				try {
+					this.bufferedInputStreamCanalDonnees.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.bufferedInputStreamCanalDonnees = null;
+				}
+			}
+			
+			if (this.outputStreamCanalDonnees != null) {
+				try {
+					this.outputStreamCanalDonnees.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.outputStreamCanalDonnees = null;
+				}
+			}
+			
+			if (this.outputStreamWriterCanalDonnees != null) {
+				try {
+					this.outputStreamWriterCanalDonnees.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.outputStreamWriterCanalDonnees = null;
+				}
+			}
+			
+			if (this.bufferedWriterCanalDonnees != null) {
+				try {
+					this.bufferedWriterCanalDonnees.close();
+				} catch (IOException e) {
+					throw new Exception(e);
+				} finally {
+					this.bufferedWriterCanalDonnees = null;
+				}
+			}
+			
+		}
+		
+	} // Fin de quit().____________________________________________________
+
+	
+	
+	/**
+	 * initialise le mode passif du Serveur FTP 
+	 * ce qui permet de pouvoir communiquer
+	 * avec le canal dédié aux données (CANAL des DONNEES).
+	 * <ul>
+	 * <li>envoie au Serveur FTP la commande "PASV".</li>
+	 * <li>décortique la réponse du serveur FTP (CANAL SERVEUR)</li>
+	 * <li>déduit l'IP pour les données <code><b>this.dataIP</b></code></li>
+	 * <li>déduit le port pour les données <code><b>this.dataPort</b></code></li>
+	 * </ul>
+	 * 
+	 * @throws Exception
+	 */
+	private void enterPassiveMode() throws Exception {
+
+		this.sendCommandFTPCanalServeur("PASV", null);
+
+		final String response = this.readReponseFTPCanalServeur();
+
+		String ip = null;
+		int portLocal = -1;
+
+		// On décortique ici la réponse retournée par le serveur pour récupérer
+		// l'adresse IP et le port à utiliser pour le canal data
+		final int debut = response.indexOf('(');
+		final int fin = response.indexOf(')', debut + 1);
+
+		if (debut > 0) {
+
+			String dataLink = response.substring(debut + 1, fin);
+			StringTokenizer tokenizer = new StringTokenizer(dataLink, ",");
+			try {
+				// L'adresse IP est séparée par des virgules
+				// on les remplace donc par des points...
+				ip = tokenizer.nextToken() + "." + tokenizer.nextToken() + "." + tokenizer.nextToken() + "."
+						+ tokenizer.nextToken();
+
+				// Le port est un entier de type int
+				// mais cet entier est découpé en deux
+				// la première partie correspond aux 4 premiers bits de l'octet
+				// la deuxième au 4 derniers
+				// Il faut donc multiplier le premier nombre par 256 et l'additionner au second
+				// pour avoir le numéro de ports défini par le serveur
+				portLocal = Integer.parseInt(tokenizer.nextToken()) * 256 + Integer.parseInt(tokenizer.nextToken());
+
+				this.dataIP = ip;
+				this.dataPort = portLocal;
+
+			} catch (Exception e) {
+				throw new IOException("SimpleFTP received bad data link information: " + response);
+			}
+		}
+
+	} // Fin de enterPassiveMode().
+
+
+	
+	/**
+	 * Méthode initialisant les flux de communications
+	 * 
+	 * @throws UnknownHostException
+	 * @throws IOException
+	 */
+	private void createDataSocket() throws Exception {
+
+		this.socketCanalDonnees = new Socket(this.dataIP, this.dataPort);
+
+		this.inputStreamCanalDonnees 
+			= this.socketCanalDonnees.getInputStream();
+		this.bufferedInputStreamCanalDonnees 
+			= new BufferedInputStream(this.inputStreamCanalDonnees);
+
+		this.outputStreamCanalDonnees 
+			= this.socketCanalDonnees.getOutputStream();
+		this.outputStreamWriterCanalDonnees 
+			= new OutputStreamWriter(this.outputStreamCanalDonnees);
+		this.bufferedWriterCanalDonnees 
+			= new BufferedWriter(this.outputStreamWriterCanalDonnees);
+		
+	} // Fin de createDataSocket().________________________________________
+
+	
+	
+	/**
+	 * Méthode permettant de lire les réponses du FTP 
+	 * (VIA LE CANAL DE DONNEES)
+	 * 
+	 * @return String
+	 * 
+	 * @throws Exception
+	 */
+	private String readCanalDonnees() throws Exception {
+
+		String response = "";
+		
+		final byte[] bytes = new byte[1024];
+		int stream;
+
+		while ((stream = this.bufferedInputStreamCanalDonnees.read(bytes)) != -1) {
+			response += new String(bytes, 0, stream);
+		}
+
+		System.out.println(response);
+		
+		return response;
+		
+	} // Fiin de readCanalDonnees()._______________________________________
+
+	
+	
+	/**
+	 * Retourne l'endroit où nous nous trouvons dur le FTP
+	 * 
+	 * @return String
+	 * 
+	 * @throws Exception 
+	 */
+	public String commandPWD() throws Exception {
+		
+		// On envoie la commande
+		final String commande = "PWD";
+		
+		this.sendCommandFTPCanalServeur(commande, null);
+		
+		// On lit la réponse
+		final String reponse = this.readReponseFTPCanalServeur();
+		
+		System.out.println(reponse);
+		
+		return reponse;
+		
+	} // Fin de commandPWD().______________________________________________
+
+	
+	
+	/**
+	 * Permet de changer de répertoire (Change Working Directory)
+	 *
+	 * @param pDir : String : répertoire cible
+	 * 
+	 * @return String
+	 * 
+	 * @throws Exception
+	 */
+	public String commandCWD(
+			final String pDir) throws Exception {
+		
+		final String commande = "CWD " + pDir;
+		
+		// On envoie la commande
+		this.sendCommandFTPCanalServeur(commande, null);
+		
+		// On lit la réponse
+		final String reponse = this.readReponseFTPCanalServeur();
+		
+		System.out.println(reponse);
+		
+		return reponse;
+		
+	} // Fin de commandCWD(...).___________________________________________
+
+	
+	
+	/**
+	 * liste les répertoires.<br/>
+	 * <br/>
+	 *
+	 * @return String
+	 * 
+	 * @throws Exception
+	 */
+	public String commandLIST() throws Exception {
+
+		final String commande = "TYPE ASCII";
+		
+		// On envoie la commande
+		this.sendCommandFTPCanalServeur(commande, null);
+		
+		// On lit la réponse
+		final String response = this.readReponseFTPCanalServeur();
+		
+		System.out.println(response);
+
+		// Passe le serveur en mode passif pour faire transiter des données.
+		this.enterPassiveMode();
+		
+		// instancie une communication via le CANAL de DONNEES
+		this.createDataSocket();
+		
+		final String commandeDonnees = "LIST";
+		
+		this.sendCommandFTPCanalServeur(commandeDonnees, null);
+
+		final String reponseCanalDonnees = this.readCanalDonnees();
+		
+		System.out.println(reponseCanalDonnees);
+		
+		return reponseCanalDonnees;
+		
+	} // Fin de commandLIST()._____________________________________________	
+
 	
 	
 	/**
@@ -437,7 +939,59 @@ public class ConnecteurFTP {
 	} // Fin de setPort(...).______________________________________________
 
 
+		
+	/**
+	 * Getter de l'adresse IP du serveur FTP pour l'échange des données 
+	 * (CANAL DES DONNEES).
+	 *
+	 * @return this.dataIP : String.<br/>
+	 */
+	public final String getDataIP() {
+		return this.dataIP;
+	} // Fin de getDataIP()._______________________________________________
+
+
 	
+	/**
+	* Setter de l'adresse IP du serveur FTP pour l'échange des données 
+	* (CANAL DES DONNEES).
+	*
+	* @param pDataIP : String : 
+	* valeur à passer à this.dataIP.<br/>
+	*/
+	public final void setDataIP(
+			final String pDataIP) {
+		this.dataIP = pDataIP;
+	} // Fin de setDataIP(...).____________________________________________
+
+
+	
+	/**
+	 * Getter du port utilisé par le serveur FTP pour échanger les données 
+	 * (CANAL des DONNEES).
+	 *
+	 * @return this.dataPort : int.<br/>
+	 */
+	public final int getDataPort() {
+		return this.dataPort;
+	} // Fin de getDataPort()._____________________________________________
+
+
+	
+	/**
+	* Setter du port utilisé par le serveur FTP pour échanger les données 
+	* (CANAL des DONNEES).
+	*
+	* @param pDataPort : int : 
+	* valeur à passer à this.dataPort.<br/>
+	*/
+	public final void setDataPort(
+			final int pDataPort) {
+		this.dataPort = pDataPort;
+	} // Fin de setDataPort(...).__________________________________________
+
+
+
 	/**
 	 * Getter du Proxy éventuellement présent 
 	 * sur le trajet du présent client FTP.
