@@ -10,6 +10,7 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.logging.Log;
@@ -60,8 +61,45 @@ public final class SocketClient {
 	private SocketClient() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
-	
 
+	
+	
+	/**
+	 * retourne une adresse IP à partir d'un nom de domaine 
+	 * ou d'une adresse IP d'un serveur à contacter.<br/>
+	 * Par exemple : retourne "151.101.122.217" 
+	 * que l'on saisisse "www.lemonde.fr" ou "151.101.122.217" en paramètre.
+	 *
+	 * @param pAdresseIpSite : String : 
+	 * adresse IP ou nom de domaine d'un serveur
+	 * 
+	 * @return : String : adresse IP du serveur.
+	 * 
+	 * @throws UnknownHostException
+	 */
+	private static String fournirIpAPartirHote(
+			final String pAdresseIpSite) 
+								throws UnknownHostException {
+				
+		String adresseIpDistante = null;
+		
+		// Il s'agit d'un nom de domaine et non d'une adresse IPV4
+		if (pAdresseIpSite.matches("[a-zA-Z\\.]+")) {
+			
+			adresseIpDistante 
+				= InetAddress.getByName(pAdresseIpSite).getHostAddress();
+			
+		}		
+		// IP V4
+		else {
+			adresseIpDistante = pAdresseIpSite;
+		}
+		
+		return adresseIpDistante;
+
+	} // Fin de fournirIpAPartirHote(...)._________________________________
+
+	
 	
 	/**
 	 * crée une abstraction d'un PROXY présent sur le réseau.
@@ -117,16 +155,7 @@ public final class SocketClient {
 			final String pAdresseIpSite
 				, final int pPortProtocole) throws Exception {
 		
-		String adresseIpDistante = null;
-		
-		// Il s'agit d'un nom de domaine et non d'une adresse IPV4
-		if (pAdresseIpSite.matches("[a-zA-Z\\.]+")) {
-			adresseIpDistante = InetAddress.getByName(pAdresseIpSite).getHostAddress();
-		}		
-		// IP V4
-		else {
-			adresseIpDistante = pAdresseIpSite;
-		}
+		final String adresseIpDistante = fournirIpAPartirHote(pAdresseIpSite);
 		
 		Socket socketClient = null;
 		
@@ -136,7 +165,7 @@ public final class SocketClient {
 			
 			afficherSocketClientEtDistant(pAdresseIpSite, adresseIpDistante, socketClient);
 			
-		} catch (Exception e){
+		} catch (Exception e){ // NOPMD by daniel.levy on 16/07/19 10:04
 			
 			throw new Exception(e);
 			
@@ -213,11 +242,10 @@ public final class SocketClient {
 			}
 			
 			/* AFFICHE LA REPONSE DU SERVEUR DISTANT DANS UN BROWSER. */
-			final Browser browser 
-				= new Browser(
+			new Browser(
 						socketClient.getInetAddress().getHostName(), content); 
 
-		} catch (Exception e){
+		} catch (Exception e){ // NOPMD by daniel.levy on 16/07/19 10:04
 			
 			throw new Exception(e);
 			
@@ -225,6 +253,22 @@ public final class SocketClient {
 			
 			if (socketClient != null) {
 				socketClient.close();
+			}
+			
+			if (outputStream != null) {
+				outputStream.close();
+			}
+			
+			if (bufferedOutputStream != null) {
+				bufferedOutputStream.close();
+			}
+
+			if (inputSream != null) {
+				inputSream.close();
+			}
+
+			if (bufferedInputStream != null) {
+				bufferedInputStream.close();
 			}
 			
 		}
