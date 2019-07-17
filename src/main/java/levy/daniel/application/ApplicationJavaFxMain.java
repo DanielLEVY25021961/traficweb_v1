@@ -2,7 +2,6 @@ package levy.daniel.application;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javafx.application.Application;
@@ -35,11 +34,28 @@ import levy.daniel.application.vues.desktop.metier.utilisateur.UtilisateurCerber
 public class ApplicationJavaFxMain extends Application {
 
 	// ************************ATTRIBUTS************************************/
+	
+	/**
+	 * "PROFIL_TEST_H2_FILE".
+	 */
+	public static final String PROFIL_TEST_H2_FILE = "PROFIL_TEST_H2_FILE";
+	
+	/**
+	 * "PROFIL_TEST_H2_MEMORY".
+	 */
+	public static final String PROFIL_TEST_H2_MEMORY = "PROFIL_TEST_H2_MEMORY";
+
+	/**
+	 * "PROFIL_PROD_POSTGRES_SERVER".
+	 */
+	public static final String PROFIL_PROD_POSTGRES_SERVER 
+		= "PROFIL_PROD_POSTGRES_SERVER";
 
 	/**
 	 * contexte SPRING.<br/>
 	 */
-	private static transient ApplicationContext context;
+//	private static transient ApplicationContext context;
+	private static transient AnnotationConfigApplicationContext context;
 	
 
 	/**
@@ -108,9 +124,16 @@ public class ApplicationJavaFxMain extends Application {
 	 */
 	private static void instancierContexteSpring() {
 		
-		context = new AnnotationConfigApplicationContext(
-				ConfigurateurSpringFrmkAnnotationJPAH2File.class);
+		// INSTANCIATION DU CONTEXTE SPRING. 
+		context = new AnnotationConfigApplicationContext();
 		
+		context.getEnvironment().setActiveProfiles("PROFIL_TEST_H2_FILE");
+		
+		context.register(ConfigurateurSpringFrmkAnnotationJPAH2File.class);
+		
+		context.refresh();
+		
+		// RECUPERATION DES BEANS.
 		utilisateurCerbereController 
 			= (IUtilisateurCerbereController) 
 				context.getBean("UtilisateurCerbereController");

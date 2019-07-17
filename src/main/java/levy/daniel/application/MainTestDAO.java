@@ -10,7 +10,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
@@ -44,19 +43,31 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
  * @since 17 juil. 2019
  *
  */
-//@Profile("PROFIL_PROD_POSTGRES_SERVER")
-//@EnableAspectJAutoProxy
-//@EnableTransactionManagement
-//@ComponentScans({@ComponentScan("levy.daniel.application")})
-//@Transactional
 public final class MainTestDAO {
 
 	// ************************ATTRIBUTS************************************/
+	
+	/**
+	 * "PROFIL_TEST_H2_FILE".
+	 */
+	public static final String PROFIL_TEST_H2_FILE = "PROFIL_TEST_H2_FILE";
+	
+	/**
+	 * "PROFIL_TEST_H2_MEMORY".
+	 */
+	public static final String PROFIL_TEST_H2_MEMORY = "PROFIL_TEST_H2_MEMORY";
+
+	/**
+	 * "PROFIL_PROD_POSTGRES_SERVER".
+	 */
+	public static final String PROFIL_PROD_POSTGRES_SERVER 
+		= "PROFIL_PROD_POSTGRES_SERVER";
 
 	/**
 	 * contexte SPRING.<br/>
 	 */
-	private static transient ApplicationContext context;
+//	private static transient ApplicationContext context;
+	private static transient AnnotationConfigApplicationContext context;
 	
 	/**
 	 * DAO pour l'objet métier.<br/>
@@ -189,8 +200,12 @@ public final class MainTestDAO {
 			System.out.println("********* LE SERVEUR DE BASE DE DONNEES REPOND BIEN ****************");
 		}
 		
-		context = new AnnotationConfigApplicationContext(
-				ConfigurateurSpringFrmkAnnotationJPAPostgresServer.class);
+		// INSTANCIATION DU CONTEXTE SPRING. 
+		context = new AnnotationConfigApplicationContext();		
+		context.getEnvironment().setActiveProfiles("PROFIL_PROD_POSTGRES_SERVER");		
+		context.register(ConfigurateurSpringFrmkAnnotationJPAPostgresServer.class);		
+		context.refresh();
+
 		
 		if (context == null) {
 			
@@ -214,18 +229,19 @@ public final class MainTestDAO {
 		System.out.println("**** BEANS DANS LE CONTEXTE SPRING *****");
 		System.out.println(afficherBeans);
 		System.out.println();
-		
-//		utilisateurCerbereDAO 
-//		= (IUtilisateurCerbereDAO) 
-//			context.getBean("UtilisateurCerbereDAOJPASpring");
-//	
-//		utilisateurCerbereService 
-//		= (IUtilisateurCerbereService) 
-//			context.getBean("UtilisateurCerbereService");
-//	
-//		utilisateurCerbereController 
-//			= (IUtilisateurCerbereController) 
-//				context.getBean("UtilisateurCerbereController");
+
+		// RECUPERATION DES BEANS.
+		utilisateurCerbereDAO 
+		= (IUtilisateurCerbereDAO) 
+			context.getBean("UtilisateurCerbereDAOJPASpring");
+	
+		utilisateurCerbereService 
+		= (IUtilisateurCerbereService) 
+			context.getBean("UtilisateurCerbereService");
+	
+		utilisateurCerbereController 
+			= (IUtilisateurCerbereController) 
+				context.getBean("UtilisateurCerbereController");
 		
 	} // Fin de instancierContexteSpring().________________________________
 	
