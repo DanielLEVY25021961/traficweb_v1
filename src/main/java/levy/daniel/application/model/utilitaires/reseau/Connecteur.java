@@ -371,23 +371,24 @@ public final class Connecteur {
 		
 //		final String siteWeb = "http://search.oracle.com//search/search";
 		final String siteWeb = "http://www.google.fr:80";
+//		final String siteWeb = "jdbc:postgresql://localhost:5432";
         final URL url = new URL(siteWeb);
         connecter(url, StandardCharsets.ISO_8859_1);
         String result = "";
         
       //Et nous faisons une recherche sur ce même site
-//        result 
-//        	= rechercherGetHTTP(siteWeb, "java", StandardCharsets.ISO_8859_1);
-        
-        //Nous mettons à jour notre page
-//        browser.setContent(result);
-        
-        //Et nous faisons une recherche sur ce même site
         result 
-        	= rechercherGetHTTP(siteWeb, "java.net package & RMI", StandardCharsets.ISO_8859_1);
+        	= rechercherGetHTTP(siteWeb, "java", StandardCharsets.ISO_8859_1);
         
         //Nous mettons à jour notre page
         browser.setContent(result);
+        
+        //Et nous faisons une recherche sur ce même site
+//        result 
+//        	= rechercherGetHTTP(siteWeb, "java.net package & RMI", StandardCharsets.ISO_8859_1);
+        
+        //Nous mettons à jour notre page
+//        browser.setContent(result);
 
 	} // Fin de main(...)._________________________________________________
 

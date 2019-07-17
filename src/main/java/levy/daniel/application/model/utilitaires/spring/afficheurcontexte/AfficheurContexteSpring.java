@@ -25,6 +25,8 @@ import org.springframework.context.support.GenericApplicationContext;
  *<br/>
  * 
  * - Mots-clé :<br/>
+ * afficher contexte SPRING, afficher contexte spring
+ * , afficher contexte Spring,
  * <br/>
  *
  * - Dépendances :<br/>
@@ -198,7 +200,7 @@ public final class AfficheurContexteSpring {
 	
 	
 	/**
-	 * .<br/>
+	 * affiche les BEANS SPRING contenus dans le contexte pContextSpring.<br/>
 	 * <br/>
 	 * - retourne null si pContextSpring == null.<br/>
 	 * - retourne null si le tableau de BEANS 

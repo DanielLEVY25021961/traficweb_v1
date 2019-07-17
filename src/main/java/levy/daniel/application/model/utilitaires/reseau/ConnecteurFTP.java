@@ -50,6 +50,11 @@ public class ConnecteurFTP {
 	public static final String CARRIAGE_RETURN = "\r\n";
 	
 	/**
+	 * "."
+	 */
+	public static final String POINT = ".";
+	
+	/**
 	 * Login du serveur FTP.
 	 */
 	private String user;
@@ -103,35 +108,35 @@ public class ConnecteurFTP {
 	 * Ne doit pas être fermé lors de la lecture d'une réponse du Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
 	 */
-	private transient InputStream inputStreamCanalServeur = null;
+	private transient InputStream inputStreamCanalServeur;
 	
 	/**
 	 * BufferedInputStream pour la lecture dee réponses SERVEUR du Serveur FTP.<br/>
 	 * Ne doit pas être fermé lors de la lecture d'une réponse du Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
 	 */
-	private transient BufferedInputStream bufferedInputStreamCanalServeur = null;
+	private transient BufferedInputStream bufferedInputStreamCanalServeur;
 
 	/**
 	 * OutputStream pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
 	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
 	 */
-	private transient OutputStream outputStreamCanalServeur = null;
+	private transient OutputStream outputStreamCanalServeur;
 		
 	/**
 	 * OutputStreamWriter pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
 	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
 	 */
-	private transient OutputStreamWriter outputStreamWriterCanalServeur = null;
+	private transient OutputStreamWriter outputStreamWriterCanalServeur;
 	
 	/**
 	 * BufferedWriter pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
 	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalServeur.
 	 */
-	private transient BufferedWriter bufferedWriterCanalServeur = null;
+	private transient BufferedWriter bufferedWriterCanalServeur;
 	
 	/**
 	 * Socket de connexion au serveur FTP 
@@ -144,35 +149,35 @@ public class ConnecteurFTP {
 	 * Ne doit pas être fermé lors de la lecture d'une réponse du Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
 	 */
-	private transient InputStream inputStreamCanalDonnees = null;
+	private transient InputStream inputStreamCanalDonnees;
 	
 	/**
 	 * BufferedInputStream pour la lecture dee réponses SERVEUR du Serveur FTP.<br/>
 	 * Ne doit pas être fermé lors de la lecture d'une réponse du Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
 	 */
-	private transient BufferedInputStream bufferedInputStreamCanalDonnees = null;
+	private transient BufferedInputStream bufferedInputStreamCanalDonnees;
 
 	/**
 	 * OutputStream pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
 	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
 	 */
-	private transient OutputStream outputStreamCanalDonnees = null;
+	private transient OutputStream outputStreamCanalDonnees;
 		
 	/**
 	 * OutputStreamWriter pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
 	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
 	 */
-	private transient OutputStreamWriter outputStreamWriterCanalDonnees = null;
+	private transient OutputStreamWriter outputStreamWriterCanalDonnees;
 	
 	/**
 	 * BufferedWriter pour l'envoi des commandes SERVEUR au Serveur FTP.<br/>
 	 * Ne doit pas être fermé lors de l'envoi d'une commande au Serveur FTP 
 	 * dans le CANAL SERVEUR car cela fermerait également la socketCanalDonnees.
 	 */
-	private transient BufferedWriter bufferedWriterCanalDonnees = null;
+	private transient BufferedWriter bufferedWriterCanalDonnees;
 	
 	/**
 	 * LOG : Log : 
@@ -241,7 +246,7 @@ public class ConnecteurFTP {
 		final ConnecteurFTP connecteurFTP 
 			= new ConnecteurFTP(user, password, hostFTP, portFTP);
 		
-		final Proxy proxy 
+		final Proxy proxy  // NOPMD by daniel.levy on 17/07/19 09:20
 			= connecteurFTP.creerProxy(adresseIpProxy, portProxy, typeProxy);
 		
 //		connecteurFTP.connecterViaProxy(proxy);
@@ -633,12 +638,19 @@ public class ConnecteurFTP {
 
 		if (debut > 0) {
 
-			String dataLink = response.substring(debut + 1, fin);
-			StringTokenizer tokenizer = new StringTokenizer(dataLink, ",");
+			final String dataLink = response.substring(debut + 1, fin);
+			final StringTokenizer tokenizer 
+				= new StringTokenizer(dataLink, ",");
+			
 			try {
 				// L'adresse IP est séparée par des virgules
 				// on les remplace donc par des points...
-				ip = tokenizer.nextToken() + "." + tokenizer.nextToken() + "." + tokenizer.nextToken() + "."
+				ip = tokenizer.nextToken() 
+						+ POINT 
+						+ tokenizer.nextToken() 
+						+ POINT 
+						+ tokenizer.nextToken() 
+						+ POINT
 						+ tokenizer.nextToken();
 
 				// Le port est un entier de type int
@@ -647,7 +659,10 @@ public class ConnecteurFTP {
 				// la deuxième au 4 derniers
 				// Il faut donc multiplier le premier nombre par 256 et l'additionner au second
 				// pour avoir le numéro de ports défini par le serveur
-				portLocal = Integer.parseInt(tokenizer.nextToken()) * 256 + Integer.parseInt(tokenizer.nextToken());
+				portLocal 
+					= Integer.parseInt(
+							tokenizer.nextToken()) * 256 
+							+ Integer.parseInt(tokenizer.nextToken());
 
 				this.dataIP = ip;
 				this.dataPort = portLocal;
