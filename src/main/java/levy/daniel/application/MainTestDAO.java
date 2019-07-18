@@ -98,23 +98,49 @@ public final class MainTestDAO {
 	private static transient ISectionHitDAO sectionHitDAOJPASpring;
 
 	/**
-	 * URL DE CONNEXION à la base de données.<br/>
+	 * URL DE CONNEXION à la base de données POSTGRES.<br/>
 	 * "jdbc:postgresql://localhost:5432/base-traficweb_v1"
 	 */
-	public static final String JDBC_URL 
+	public static final String JDBC_URL_POSTGRES 
 		= "jdbc:postgresql://localhost:5432/base-traficweb_v1";
 	
 	/**
-	 * Login de connexion à la base.<br/>
+	 * Login de connexion à la base POSTGRES.<br/>
 	 * "postgres"
 	 */
-	public static final String USERNAME = "postgres";
+	public static final String USERNAME_POSTGRES = "postgres";
 	
 	/**
-	 * Mot de passe de connexion à la base.<br/>
+	 * Mot de passe de connexion à la base POSTGRES.<br/>
 	 * "postgres"
 	 */
-	public static final String PASSWORD = "postgres";
+	public static final String PASSWORD_POSTGRES = "postgres";
+
+	/**
+	 * URL DE CONNEXION à la base de données H2 en MODE FILE.<br/>
+	 * "jdbc:h2:file:./data/base-traficweb_v1-h2/base-traficweb_v1"
+	 */
+	public static final String JDBC_URL_H2_FILE 
+		= "jdbc:h2:file:./data/base-traficweb_v1-h2/base-traficweb_v1";
+	
+	/**
+	 * URL DE CONNEXION à la base de données H2 en MODE MEMORY.<br/>
+	 * "jdbc:h2:mem:base-traficweb_v1"
+	 */
+	public static final String JDBC_URL_H2_MEMORY 
+		= "jdbc:h2:mem:base-traficweb_v1";	
+	
+	/**
+	 * Login de connexion à la base H2 (MODE FILE ou MEMORY).<br/>
+	 * "sa"
+	 */
+	public static final String USERNAME_H2 = "sa";
+	
+	/**
+	 * Mot de passe de connexion à la base H2 (MODE FILE ou MEMORY).<br/>
+	 * "sa"
+	 */
+	public static final String PASSWORD_H2 = "sa";
 	
 	/**
 	 * Paths.get(".").toAbsolutePath().normalize().<br/>
@@ -188,47 +214,16 @@ public final class MainTestDAO {
 	private static void instancierContexteSpring() {
 		
 		// VERIFICATION DE LA CONNEXION A LA BASE
-		final ConnecteurBase connecteurBase 
-			= new ConnecteurBase(JDBC_URL, USERNAME, PASSWORD);
-		
-		final boolean connecte 
-			= connecteurBase.connecterABaseHikariDataSource();
-		
-		if (!connecte) {
-			System.out.println("LE SERVEUR DE BASE DE DONNEES NE REPOND PAS");
-		} else {
-			System.out.println("********* LE SERVEUR DE BASE DE DONNEES REPOND BIEN ****************");
-		}
+		verifierConnexionBase();
 		
 		// INSTANCIATION DU CONTEXTE SPRING. 
 		context = new AnnotationConfigApplicationContext();		
 		context.getEnvironment().setActiveProfiles("PROFIL_PROD_POSTGRES_SERVER");		
 		context.register(ConfigurateurSpringFrmkAnnotationJPAPostgresServer.class);		
 		context.refresh();
-
 		
-		if (context == null) {
-			
-			System.out.println();
-			System.out.println("**** LE CONTEXTE SPRING EST NULL *****");
-			System.out.println();
-			
-		} else {
-			
-			System.out.println();
-			System.out.println("**** LE CONTEXTE SPRING N'EST PAS NULL *****");
-			System.out.println();
-		}
-		
-		final String afficherBeans 
-			= AfficheurContexteSpring
-				.afficherContenuContexteSpring(
-						(GenericApplicationContext) context);
-		
-		System.out.println();
-		System.out.println("**** BEANS DANS LE CONTEXTE SPRING *****");
-		System.out.println(afficherBeans);
-		System.out.println();
+		// AFFICHAGE DU CONTEXTE SPRING
+		afficherInfosContexte();
 
 		// RECUPERATION DES BEANS.
 		utilisateurCerbereDAO 
@@ -244,6 +239,55 @@ public final class MainTestDAO {
 				context.getBean("UtilisateurCerbereController");
 		
 	} // Fin de instancierContexteSpring().________________________________
+
+	
+	
+	/**
+	 * vérifie la connexion à la base et affiche un message à la console.
+	 */
+	private static void verifierConnexionBase() {
+
+		final ConnecteurBase connecteurBase 
+			= new ConnecteurBase(
+					JDBC_URL_POSTGRES
+						, USERNAME_POSTGRES
+							, PASSWORD_POSTGRES);
+
+		final boolean connecte = connecteurBase.connecterABaseHikariDataSource();
+
+		if (!connecte) {
+			System.out.println("LE SERVEUR DE BASE DE DONNEES NE REPOND PAS");
+		} else {
+			System.out.println("********* LE SERVEUR DE BASE DE DONNEES REPOND BIEN ****************");
+		}
+
+	} // Fin de verifierConnexionBase().___________________________________
+	
+
+	
+	/**
+	 * affiche des informations sur le contexte SPRING.
+	 * <ul>
+	 * <li>affiche les Beans contenus dans le contexte SPRING.</li>
+	 * <li></li>
+	 * <li></li>
+	 * </ul>
+	 */
+	private static void afficherInfosContexte() {
+
+		final String afficherBeans 
+			= AfficheurContexteSpring
+				.afficherContenuContexteSpring(
+						(GenericApplicationContext) context);
+
+		System.out.println();
+		System.out.println("**** INFOS SUR LE CONTEXTE SPRING *****");
+		System.out.println();
+		System.out.println("**** BEANS DANS LE CONTEXTE SPRING *****");
+		System.out.println(afficherBeans);
+		System.out.println();
+		
+	} // Fin de afficherInfosContexte().___________________________________
 	
 	
 	
