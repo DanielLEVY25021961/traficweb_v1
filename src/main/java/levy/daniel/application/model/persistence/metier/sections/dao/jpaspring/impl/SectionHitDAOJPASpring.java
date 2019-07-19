@@ -16,6 +16,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import levy.daniel.application.model.metier.sections.ISectionHit;
 import levy.daniel.application.model.metier.sections.impl.SectionHit;
@@ -174,8 +175,6 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 	 * DAO ILocalisationHitDAO.<br/>
 	 * injecté par Spring.
 	 */
-	@Autowired(required=true)
-    @Qualifier("LocalisationHitDAOJPASpring")
 	private transient ILocalisationHitDAO localisationHitDAO;
 
 	/**
@@ -568,6 +567,7 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transactional
 	@Override
 	public ISectionHit create(
 			final ISectionHit pObject) throws Exception {
@@ -689,6 +689,7 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transactional
 	@Override
 	public ISectionHit createOrRetrieve(
 			final ISectionHit pEntity) throws Exception {
@@ -2516,6 +2517,34 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 	public List<String> getMessagesErrorUtilisateurList() {
 		return this.messagesErrorUtilisateurList;
 	} // Fin de getMessagesErrorUtilisateurList()._________________________
+
+
+	
+	/**
+	 * Getter de DAO ILocalisationHitDAO.<br/>
+	 * injecté par Spring.
+	 *
+	 * @return this.localisationHitDAO : ILocalisationHitDAO.<br/>
+	 */
+	public final ILocalisationHitDAO getLocalisationHitDAO() {
+		return this.localisationHitDAO;
+	} // Fin de getLocalisationHitDAO().___________________________________
+
+
+	
+	/**
+	* Setter de DAO ILocalisationHitDAO.<br/>
+	* injecté par Spring.
+	*
+	* @param pLocalisationHitDAO : ILocalisationHitDAO : 
+	* valeur à passer à this.localisationHitDAO.<br/>
+	*/
+	@Autowired(required=true)
+    @Qualifier("LocalisationHitDAOJPASpring")
+	public final void setLocalisationHitDAO(
+			final ILocalisationHitDAO pLocalisationHitDAO) {
+		this.localisationHitDAO = pLocalisationHitDAO;
+	} // Fin de setLocalisationHitDAO(...).________________________________
 
 
 	

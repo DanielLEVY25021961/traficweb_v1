@@ -4,14 +4,13 @@ import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.GenericApplicationContext;
 
 import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
 import levy.daniel.application.model.metier.sections.ISectionHit;
@@ -20,8 +19,7 @@ import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateur
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl.ImporteurHit;
 import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
 import levy.daniel.application.model.utilitaires.connecteurbase.ConnecteurBase;
-import levy.daniel.application.model.utilitaires.spring.afficheurcontexte.AfficheurContexteSpring;
-import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAPostgresServer;
+import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2File;
 
 /**
  * CLASSE MainTestDAO :<br/>
@@ -93,8 +91,8 @@ public final class MainTestDAO {
 	/**
 	 * ISectionHitDAO.<br/>
 	 */
-	@Autowired(required = true)
-	@Qualifier("SectionHitDAOJPASpring")
+//	@Autowired(required = true)
+//	@Qualifier("SectionHitDAOJPASpring")
 	private static transient ISectionHitDAO sectionHitDAOJPASpring;
 
 	/**
@@ -186,6 +184,13 @@ public final class MainTestDAO {
 	 */
 	public static final Path PATH_ABSOLU_REPERTOIRE_TEMP 
 		= PATH_ABSOLU_PRESENT_PROJET.resolve("temp");
+	
+	/**
+	 * NEWLINE : String :<br/>
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
 
 	/**
 	 * LOG : Log : 
@@ -218,8 +223,8 @@ public final class MainTestDAO {
 		
 		// INSTANCIATION DU CONTEXTE SPRING. 
 		context = new AnnotationConfigApplicationContext();		
-		context.getEnvironment().setActiveProfiles("PROFIL_PROD_POSTGRES_SERVER");		
-		context.register(ConfigurateurSpringFrmkAnnotationJPAPostgresServer.class);		
+		context.getEnvironment().setActiveProfiles("PROFIL_TEST_H2_FILE");		
+		context.register(ConfigurateurSpringFrmkAnnotationJPAH2File.class);
 		context.refresh();
 		
 		// AFFICHAGE DU CONTEXTE SPRING
@@ -238,6 +243,10 @@ public final class MainTestDAO {
 			= (IUtilisateurCerbereController) 
 				context.getBean("UtilisateurCerbereController");
 		
+		sectionHitDAOJPASpring 
+			= (ISectionHitDAO) 
+				context.getBean("SectionHitDAOJPASpring");
+		
 	} // Fin de instancierContexteSpring().________________________________
 
 	
@@ -247,11 +256,17 @@ public final class MainTestDAO {
 	 */
 	private static void verifierConnexionBase() {
 
+//		final ConnecteurBase connecteurBase 
+//			= new ConnecteurBase(
+//					JDBC_URL_POSTGRES
+//						, USERNAME_POSTGRES
+//							, PASSWORD_POSTGRES);
+		
 		final ConnecteurBase connecteurBase 
-			= new ConnecteurBase(
-					JDBC_URL_POSTGRES
-						, USERNAME_POSTGRES
-							, PASSWORD_POSTGRES);
+		= new ConnecteurBase(
+				JDBC_URL_H2_FILE
+					, USERNAME_H2
+						, PASSWORD_H2);
 
 		final boolean connecte = connecteurBase.connecterABaseHikariDataSource();
 
@@ -275,10 +290,19 @@ public final class MainTestDAO {
 	 */
 	private static void afficherInfosContexte() {
 
-		final String afficherBeans 
-			= AfficheurContexteSpring
-				.afficherContenuContexteSpring(
-						(GenericApplicationContext) context);
+		final String[] tableauBeans = context.getBeanDefinitionNames();
+		
+		String afficherBeans = "";
+		final int tailleTableau = tableauBeans.length;
+		
+		if (tailleTableau == 0) {
+			afficherBeans = "********* LE CONTENEUR DE BEANS CONTEXT EST VIDE *********** ";
+		} else {
+			
+			for (int i = 0; i < tailleTableau; i++) {
+				afficherBeans += tableauBeans[i] + NEWLINE;
+			}
+		}
 
 		System.out.println();
 		System.out.println("**** INFOS SUR LE CONTEXTE SPRING *****");
@@ -320,7 +344,19 @@ public final class MainTestDAO {
 		final Map<Integer, ISectionHit> fichierMapObjet 
 			= importeurHIT.importerObjet(fichierDonnees, charsetAnsi);
 		
-		sectionHitDAOJPASpring.saveIterable(fichierMapObjet.values());
+		final Collection<ISectionHit> collectionSections 
+			= fichierMapObjet.values();
+		
+		final Iterator<ISectionHit> ite = collectionSections.iterator();
+		
+		while (ite.hasNext()) {
+			
+			final ISectionHit sectionHit = ite.next();
+			sectionHitDAOJPASpring.create(sectionHit);
+			
+		}
+		
+//		sectionHitDAOJPASpring.saveIterable(collectionSections);
 
 	} // Fin de main(...)._________________________________________________
 
@@ -343,8 +379,8 @@ public final class MainTestDAO {
 	* @param pUtilisateurCerbereDAO : IUtilisateurCerbereDAO : 
 	* valeur à passer à this.utilisateurCerbereDAO.<br/>
 	*/
-	@Autowired(required = true)
-	@Qualifier("UtilisateurCerbereDAOJPASpring")
+//	@Autowired(required = true)
+//	@Qualifier("UtilisateurCerbereDAOJPASpring")
 	public static void setUtilisateurCerbereDAO(
 			final IUtilisateurCerbereDAO pUtilisateurCerbereDAO) {
 		
@@ -373,8 +409,8 @@ public final class MainTestDAO {
 	* @param pUtilisateurCerbereService : IUtilisateurCerbereService : 
 	* valeur à passer à this.utilisateurCerbereService.<br/>
 	*/
-	@Autowired(required = true)
-	@Qualifier("UtilisateurCerbereService")
+//	@Autowired(required = true)
+//	@Qualifier("UtilisateurCerbereService")
 	public static void setUtilisateurCerbereService(
 			final IUtilisateurCerbereService pUtilisateurCerbereService) {
 		

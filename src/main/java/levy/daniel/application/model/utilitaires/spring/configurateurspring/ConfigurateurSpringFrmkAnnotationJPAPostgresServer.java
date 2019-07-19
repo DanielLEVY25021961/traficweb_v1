@@ -3,8 +3,6 @@ package levy.daniel.application.model.utilitaires.spring.configurateurspring;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
@@ -25,6 +23,10 @@ import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateur
 import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpaspring.impl.UtilisateurCerbereDAOJPASpring;
 import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
 import levy.daniel.application.model.services.metier.utilisateurs.impl.UtilisateurCerbereService;
+import levy.daniel.application.model.services.transformeurs.metier.utilisateurs.IUtilisateurCerbereTransformeurService;
+import levy.daniel.application.model.services.transformeurs.metier.utilisateurs.impl.UtilisateurCerbereTransformeurService;
+import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUtilisateurCerbereValideurService;
+import levy.daniel.application.model.services.valideurs.metier.utilisateurs.impl.UtilisateurCerbereValideurService;
 
 /**
  * CLASSE ConfigurateurSpringFrmkAnnotationJPAPostgresServer :<br/>
@@ -80,7 +82,7 @@ import levy.daniel.application.model.services.metier.utilisateurs.impl.Utilisate
 @Import(value={levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAPostgresServer.class})
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
-@ComponentScans({@ComponentScan("levy.daniel.application")})
+//@ComponentScans({@ComponentScan("levy.daniel.application")})
 public class ConfigurateurSpringFrmkAnnotationJPAPostgresServer {
 
 	// ************************ATTRIBUTS************************************/
@@ -154,6 +156,54 @@ public class ConfigurateurSpringFrmkAnnotationJPAPostgresServer {
 
 	
 	/**
+	 * <b>configure un bean pour le SERVICE UtilisateurCerbereValideurService 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "UtilisateurCerbereValideurService" 
+	 * (au lieu de "utilisateurCerbereValideurService" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au SERVICE 
+	 * (via l'annotation Service).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du CONTROLLER</li>
+	 * </ul>
+	 *
+	 * @return : UtilisateurCerbereValideurService : 
+	 * IUtilisateurCerbereValideurService :  .<br/>
+	 */
+	@Bean(value = "UtilisateurCerbereValideurService")
+	public IUtilisateurCerbereValideurService utilisateurCerbereValideurService() {
+		return new UtilisateurCerbereValideurService();
+	} // Fin de utilisateurCerbereValideurService()._______________________
+
+
+	
+	/**
+	 * <b>configure un bean pour le SERVICE UtilisateurCerbereTransformeurService 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "UtilisateurCerbereTransformeurService" 
+	 * (au lieu de "utilisateurCerbereTransformeurService" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au SERVICE 
+	 * (via l'annotation Service).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du CONTROLLER</li>
+	 * </ul>
+	 *
+	 * @return : UtilisateurCerbereTransformeurService : 
+	 * IUtilisateurCerbereTransformeurService :  .<br/>
+	 */
+	@Bean(value = "UtilisateurCerbereTransformeurService")
+	public IUtilisateurCerbereTransformeurService utilisateurCerbereTransformeurService() {
+		return new UtilisateurCerbereTransformeurService();
+	} // Fin de utilisateurCerbereTransformeurService().____________________
+
+
+	
+	/**
 	 * <b>configure un bean pour le CONTROLLER utilisateurCerbereController 
 	 * et l'injecte dans le contexte SPRING</b>.<br/>
 	 * <ul>
@@ -174,7 +224,7 @@ public class ConfigurateurSpringFrmkAnnotationJPAPostgresServer {
 	public IUtilisateurCerbereController utilisateurCerbereController() {
 		return new UtilisateurCerbereController();
 	} // Fin de utilisateurCerbereController().____________________________
-
+	
 	
 	
 	/**

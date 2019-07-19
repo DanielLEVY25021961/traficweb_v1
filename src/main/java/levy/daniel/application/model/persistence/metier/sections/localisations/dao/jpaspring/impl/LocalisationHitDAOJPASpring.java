@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
 import levy.daniel.application.model.metier.sections.localisations.impl.LocalisationHit;
@@ -391,6 +392,7 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transactional
 	@Override
 	public ILocalisationHit create(
 			final ILocalisationHit pObject) throws Exception {
@@ -496,6 +498,7 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transactional
 	@Override
 	public ILocalisationHit createOrRetrieve(
 			final ILocalisationHit pEntity) throws Exception {

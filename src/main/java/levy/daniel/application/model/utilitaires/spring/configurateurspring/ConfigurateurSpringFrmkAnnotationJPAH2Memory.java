@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import levy.daniel.application.controllers.desktop.metier.utilisateur.IUtilisateurCerbereController;
+import levy.daniel.application.controllers.desktop.metier.utilisateur.impl.UtilisateurCerbereController;
 import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
 import levy.daniel.application.model.persistence.metier.anneegestion.dao.jpaspring.impl.AnneeGestionDAOJPASpring;
 import levy.daniel.application.model.persistence.metier.sections.ISectionHitDAO;
@@ -21,6 +23,12 @@ import levy.daniel.application.model.persistence.metier.televersement.ITeleverse
 import levy.daniel.application.model.persistence.metier.televersement.dao.jpaspring.impl.TeleversementDAOJPASpring;
 import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
 import levy.daniel.application.model.persistence.metier.utilisateur.dao.jpaspring.impl.UtilisateurCerbereDAOJPASpring;
+import levy.daniel.application.model.services.metier.utilisateurs.IUtilisateurCerbereService;
+import levy.daniel.application.model.services.metier.utilisateurs.impl.UtilisateurCerbereService;
+import levy.daniel.application.model.services.transformeurs.metier.utilisateurs.IUtilisateurCerbereTransformeurService;
+import levy.daniel.application.model.services.transformeurs.metier.utilisateurs.impl.UtilisateurCerbereTransformeurService;
+import levy.daniel.application.model.services.valideurs.metier.utilisateurs.IUtilisateurCerbereValideurService;
+import levy.daniel.application.model.services.valideurs.metier.utilisateurs.impl.UtilisateurCerbereValideurService;
 
 /**
  * CLASSE ConfigurateurSpringFrmkAnnotationJPAH2Memory :<br/>
@@ -102,7 +110,7 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2Memory {
 	
 	
 	/**
-	 * <b>configure un bean pour le DAO UtilisateurCerbereDAOJPASpring 
+	 * <b>configure un bean pour le DAO utilisateurCerbereDAOJPASpring 
 	 * et l'injecte dans le contexte SPRING</b>.<br/>
 	 * <ul>
 	 * <li>nomme le bean "UtilisateurCerbereDAOJPASpring" 
@@ -110,8 +118,8 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2Memory {
 	 * du nom de la méthode) dans le contexte SPRING
 	 * grâce au paramètre value.</li>
 	 * <li>le nom choisi correspond au nom donné au DAO 
-	 * (via l'annotation Repository).
-	 *  Ce nom pourra être utilisé comme Qualifier 
+	 * (via l'annotation Repository).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
 	 *  lors de l'injection du DAO</li>
 	 * </ul>
 	 *
@@ -123,6 +131,102 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2Memory {
 		return new UtilisateurCerbereDAOJPASpring();
 	} // Fin de utilisateurCerbereDAOJPASpring().__________________________
 
+
+	
+	/**
+	 * <b>configure un bean pour le SERVICE utilisateurCerbereService 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "UtilisateurCerbereService" 
+	 * (au lieu de "utilisateurCerbereService" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au SERVICE 
+	 * (via l'annotation Service).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du SERVICE</li>
+	 * </ul>
+	 *
+	 * @return : UtilisateurCerbereService : 
+	 * IUtilisateurCerbereService.<br/>
+	 */
+	@Bean(value = "UtilisateurCerbereService")
+	public IUtilisateurCerbereService utilisateurCerbereService() {
+		return new UtilisateurCerbereService();
+	} // Fin de utilisateurCerbereService()._______________________________
+
+
+	
+	/**
+	 * <b>configure un bean pour le SERVICE UtilisateurCerbereValideurService 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "UtilisateurCerbereValideurService" 
+	 * (au lieu de "utilisateurCerbereValideurService" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au SERVICE 
+	 * (via l'annotation Service).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du CONTROLLER</li>
+	 * </ul>
+	 *
+	 * @return : UtilisateurCerbereValideurService : 
+	 * IUtilisateurCerbereValideurService :  .<br/>
+	 */
+	@Bean(value = "UtilisateurCerbereValideurService")
+	public IUtilisateurCerbereValideurService utilisateurCerbereValideurService() {
+		return new UtilisateurCerbereValideurService();
+	} // Fin de utilisateurCerbereValideurService()._______________________
+
+
+	
+	/**
+	 * <b>configure un bean pour le SERVICE UtilisateurCerbereTransformeurService 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "UtilisateurCerbereTransformeurService" 
+	 * (au lieu de "utilisateurCerbereTransformeurService" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au SERVICE 
+	 * (via l'annotation Service).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du CONTROLLER</li>
+	 * </ul>
+	 *
+	 * @return : UtilisateurCerbereTransformeurService : 
+	 * IUtilisateurCerbereTransformeurService :  .<br/>
+	 */
+	@Bean(value = "UtilisateurCerbereTransformeurService")
+	public IUtilisateurCerbereTransformeurService utilisateurCerbereTransformeurService() {
+		return new UtilisateurCerbereTransformeurService();
+	} // Fin de utilisateurCerbereTransformeurService().____________________
+
+
+	
+	/**
+	 * <b>configure un bean pour le CONTROLLER utilisateurCerbereController 
+	 * et l'injecte dans le contexte SPRING</b>.<br/>
+	 * <ul>
+	 * <li>nomme le bean "UtilisateurCerbereController" 
+	 * (au lieu de "utilisateurCerbereController" provenant 
+	 * du nom de la méthode) dans le contexte SPRING
+	 * grâce au paramètre value.</li>
+	 * <li>le nom choisi correspond au nom donné au CONTROLLER 
+	 * (via l'annotation Controller).</li>
+	 *  <li>Ce nom pourra être utilisé comme Qualifier 
+	 *  lors de l'injection du CONTROLLER</li>
+	 * </ul>
+	 *
+	 * @return : UtilisateurCerbereController : 
+	 * IUtilisateurCerbereController.<br/>
+	 */
+	@Bean(value = "UtilisateurCerbereController")
+	public IUtilisateurCerbereController utilisateurCerbereController() {
+		return new UtilisateurCerbereController();
+	} // Fin de utilisateurCerbereController().____________________________
+	
 	
 	
 	/**
@@ -218,7 +322,4 @@ public class ConfigurateurSpringFrmkAnnotationJPAH2Memory {
 	public ISectionHitDAO sectionHitDAOJPASpring() {
 		return new SectionHitDAOJPASpring();
 	} // Fin de sectionHitDAOJPASpring().__________________________________
-
-		
-	
 } // FIN DE LA CLASSE ConfigurateurSpringFrmkAnnotationJPAH2Memory.-----------
