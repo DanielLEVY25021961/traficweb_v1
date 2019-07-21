@@ -253,7 +253,7 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	 * 
 	 * @throws Exception
 	 */
-	private Query fournirRequeteParametree(
+	private Query fournirRequeteEgaliteMetier(
 			final ILocalisationHit pObject) throws Exception {
 		
 		/* REQUETE HQL PARMETREE. */
@@ -263,17 +263,30 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 		
 		if (pObject.getIndiceNumRoute() != null && pObject.getIndiceLettreRoute() != null) {
 			
+//			requeteString 
+//				= SELECT_OBJET
+//				+ "where localisationHit.numRoute = :pNumRoute "
+//				+ "and localisationHit.indiceNumRoute = :pIndiceNumRoute "
+//				+ "and localisationHit.indiceLettreRoute = :pIndiceLettreRoute "
+//				+ "and localisationHit.categorieAdminRoute = :pCategorieAdminRoute "
+//				+ "and localisationHit.numDepartement = :pNumDepartement "
+//				+ "and localisationHit.prOrigine = :pPrOrigine "
+//				+ "and localisationHit.absOrigine = :pAbsOrigine "
+//				+ "and localisationHit.prExtremite = :pPrExtremite "
+//				+ "and localisationHit.absExtremite = :pAbsExtremite";
+			
 			requeteString 
-				= SELECT_OBJET
-				+ "where localisationHit.numRoute = :pNumRoute "
-				+ "and localisationHit.indiceNumRoute = :pIndiceNumRoute "
-				+ "and localisationHit.indiceLettreRoute = :pIndiceLettreRoute "
-				+ "and localisationHit.categorieAdminRoute = :pCategorieAdminRoute "
-				+ "and localisationHit.numDepartement = :pNumDepartement "
-				+ "and localisationHit.prOrigine = :pPrOrigine "
-				+ "and localisationHit.absOrigine = :pAbsOrigine "
-				+ "and localisationHit.prExtremite = :pPrExtremite "
-				+ "and localisationHit.absExtremite = :pAbsExtremite";
+			= SELECT_OBJET
+			+ "where ((localisationHit.numRoute IS NULL and :pNumRoute IS NULL) OR (localisationHit.numRoute = :pNumRoute)) "
+			+ "and ((localisationHit.indiceNumRoute IS NULL and :pIndiceNumRoute IS NULL) OR (localisationHit.indiceNumRoute = :pIndiceNumRoute)) "
+			+ "and ((localisationHit.indiceLettreRoute IS NULL and :pIndiceLettreRoute IS NULL) OR (localisationHit.indiceLettreRoute = :pIndiceLettreRoute)) "
+			+ "and ((localisationHit.categorieAdminRoute IS NULL and :pCategorieAdminRoute IS NULL) OR (localisationHit.categorieAdminRoute = :pCategorieAdminRoute)) "
+			+ "and ((localisationHit.numDepartement IS NULL and :pNumDepartement IS NULL) OR (localisationHit.numDepartement = :pNumDepartement)) "
+			+ "and ((localisationHit.prOrigine IS NULL and :pPrOrigine IS NULL) OR (localisationHit.prOrigine = :pPrOrigine)) "
+			+ "and ((localisationHit.absOrigine IS NULL and :pAbsOrigine IS NULL) OR (localisationHit.absOrigine = :pAbsOrigine)) "
+			+ "and ((localisationHit.prExtremite IS NULL and :pPrExtremite IS NULL) OR (localisationHit.prExtremite = :pPrExtremite)) "
+			+ "and ((localisationHit.absExtremite IS NULL and :pAbsExtremite IS NULL) OR (localisationHit.absExtremite = :pAbsExtremite))";
+
 			
 			/* Construction de la requête JPQL. */
 			requete 
@@ -382,7 +395,7 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 
 		return requete;
 		
-	} // Fin de fournirRequeteParametree(...)._____________________________
+	} // Fin de fournirRequeteEgaliteMetier(...).__________________________
 	
 	
 
@@ -392,15 +405,25 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Transactional
 	@Override
 	public ILocalisationHit create(
 			final ILocalisationHit pObject) throws Exception {
 
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+
 		/* instancie une nouvelle liste à chaque appel de la méthode. */
 		this.messagesErrorUtilisateurList = new ArrayList<String>();
+
 		
-		/* retourne null si pObject == null. */
+		/* NULL : retourne null si pObject == null. */
 		if (pObject == null) {
 			
 			/* ajout d'une explication dans le rapport utilisateur. */
@@ -408,23 +431,10 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			
 			return null;
 			
-		} // Fin de null._____________________________________
+		} // Fin de NULL._____________________________________
 		
 		
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
-			
-			final String message = DOUBLON + pObject.toString();
-			
-			/* ajout d'une explication dans le rapport utilisateur. */
-			this.messagesErrorUtilisateurList.add(message);
-			
-			return null;
-			
-		} // Fin de DOUBLON.___________________________________
-		
-		
-		/* retourne null si les attributs obligatoires 
+		/* CHAMPS OBLIGATOIRES : retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pObject)) {
 			
@@ -437,23 +447,21 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			
 		} // Fin de CHAMPS OBLIGATOIRES.______________________________
 		
+		
+		/* DOUBLON : retourne null si pObject est un doublon. */
+		if (this.exists(pObject)) {
+			
+			final String message = DOUBLON + pObject.toString();
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(message);
+			
+			return null;
+			
+		} // Fin de DOUBLON.___________________________________
+		
 
 		ILocalisationHit persistentObject = null;
-
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return null;
-		}
-
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
-			return null;
-		}
 
 		try {
 			
@@ -503,10 +511,20 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	public ILocalisationHit createOrRetrieve(
 			final ILocalisationHit pEntity) throws Exception {
 
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+
 		/* instancie une nouvelle liste à chaque appel de la méthode. */
 		this.messagesErrorUtilisateurList = new ArrayList<String>();
 		
-		/* retourne null si pObject == null. */
+		/* NULL : retourne null si pObject == null. */
 		if (pEntity == null) {
 			
 			/* ajout d'une explication dans le rapport utilisateur. */
@@ -514,20 +532,10 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			
 			return null;
 			
-		} // Fin de null._____________________________________
+		} // Fin de NULL._____________________________________
 		
 		
-		/* retourne l'objet déjà persisté si pObject est un doublon. */
-		if (this.exists(pEntity)) {
-			
-			return LocalisationHitConvertisseurMetierEntity
-					.convertirObjetMetierEnEntityJPA(
-							this.retrieve(pEntity));
-			
-		} // Fin de DOUBLON.___________________________________
-		
-		
-		/* retourne null si les attributs obligatoires 
+		/* CHAMPS OBLIGATOIRES : retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pEntity)) {
 			
@@ -540,23 +548,18 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			
 		} // Fin de CHAMPS OBLIGATOIRES.______________________________
 		
+		
+		/* DOUBLON : retourne l'objet déjà persisté si pObject est un doublon. */
+		if (this.exists(pEntity)) {
+			
+			return LocalisationHitConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(
+							this.retrieve(pEntity));
+			
+		} // Fin de DOUBLON.___________________________________
+		
 
 		ILocalisationHit persistentObject = null;
-
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return null;
-		}
-
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pEntity)) {
-			return null;
-		}
 
 		try {
 			
@@ -591,7 +594,7 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			this.gestionnaireException
 				.gererException(
 						CLASSE_LOCALISATIONHITDAO_JPA_SPRING
-							, "méthode create(object)", e);
+							, "méthode createOrRetrieve(object)", e);
 
 		}
 
@@ -609,8 +612,24 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	public void persist(
 			final ILocalisationHit pObject) throws Exception {
 		
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return;
+		}
+		
 		/* ne fait rien si pObject == null. */
 		if (pObject == null) {
+			return;
+		}
+		
+		/* ne fait rien si les attributs obligatoires 
+		 * de pObject ne sont pas remplis.*/
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return;
 		}
 		
@@ -622,23 +641,7 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 		if (this.existsId(pObject.getId())) {
 			return;
 		}
-		
-		/* ne fait rien si les attributs obligatoires 
-		 * de pObject ne sont pas remplis.*/
-		if (!this.champsObligatoiresRemplis(pObject)) {
-			return;
-		}
 
-		
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return;
-		}
 
 		/* conversion de l'OBJET METIER en ENTITY. */
 		final LocalisationHitEntityJPA entity = 
@@ -678,13 +681,18 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	public Long createReturnId(
 			final ILocalisationHit pObject) throws Exception {
 		
-		/* retourne null si pObject == null. */
-		if (pObject == null) {
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
 			return null;
 		}
 		
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
+		/* retourne null si pObject == null. */
+		if (pObject == null) {
 			return null;
 		}
 		
@@ -694,13 +702,8 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			return null;
 		}
 		
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
+		/* retourne null si pObject est un doublon. */
+		if (this.exists(pObject)) {
 			return null;
 		}
 		
@@ -758,11 +761,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			final Iterable<ILocalisationHit> pList) 
 					throws Exception {
 
-		/* retourne null si pList == null. */
-		if (pList == null) {
-			return null;
-		}
-
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 
@@ -770,6 +768,11 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return null;
+		}
+
+		/* retourne null si pList == null. */
+		if (pList == null) {
 			return null;
 		}
 		
@@ -877,11 +880,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	public ILocalisationHit retrieve(
 			final ILocalisationHit pObject) throws Exception {
 
-		/* return null si pObject == null. */
-		if (pObject == null) {
-			return null;
-		}
-
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 
@@ -892,11 +890,16 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			return null;
 		}
 
+		/* return null si pObject == null. */
+		if (pObject == null) {
+			return null;
+		}
+
 		ILocalisationHit objetResultat = null;		
 		LocalisationHitEntityJPA entity = null;
 		
 		/* récupération de la requête paramétrée. */
-		final Query requete = this.fournirRequeteParametree(pObject);
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
 		if (requete == null) {
 			return null;
@@ -948,11 +951,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	@Override
 	public ILocalisationHit findById(
 			final Long pId) throws Exception {
-		
-		/* retourne null si pId == null. */
-		if (pId == null) {
-			return null;
-		}
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -961,6 +959,11 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return null;
+		}
+		
+		/* retourne null si pId == null. */
+		if (pId == null) {
 			return null;
 		}
 
@@ -1005,11 +1008,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	public Long retrieveId(
 			final ILocalisationHit pObject) throws Exception {
 		
-		/* return null si pObject == null. */
-		if (pObject == null) {
-			return null;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -1020,12 +1018,17 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			return null;
 		}
 		
+		/* return null si pObject == null. */
+		if (pObject == null) {
+			return null;
+		}
+		
 		ILocalisationHit objetResultat = null;		
 		LocalisationHitEntityJPA entity = null;
 		
 		
 		/* récupération de la requête paramétrée. */
-		final Query requete = this.fournirRequeteParametree(pObject);
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
 		if (requete == null) {
 			return null;
@@ -1225,11 +1228,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	public List<ILocalisationHit> findAllMax(
 			final int pStartPosition
 				, final int pMaxResult) throws Exception {
-
-		/* retourne null si pId est en dehors des index de stockage. */
-		if (pStartPosition > this.count() - 1) {
-			return null;
-		}
 		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1238,6 +1236,11 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return null;
+		}
+
+		/* retourne null si pId est en dehors des index de stockage. */
+		if (pStartPosition > this.count() - 1) {
 			return null;
 		}
 		
@@ -1329,6 +1332,16 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	@Override
 	public ILocalisationHit update(
 			final ILocalisationHit pObject) throws Exception {
+
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+						
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
 		
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
@@ -1341,24 +1354,14 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			return pObject;
 		}
 		
-		/* retourne null si pObject créerait un doublon. */
-		if (this.exists(pObject)) {
-			return null;
-		}
-		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pObject)) {
 			return null;
 		}
-
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-						
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
+		
+		/* retourne null si pObject créerait un doublon. */
+		if (this.exists(pObject)) {
 			return null;
 		}
 				
@@ -1410,6 +1413,16 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			final Long pId, final ILocalisationHit pObjectModifie) 
 												throws Exception {
 		
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+						
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+		
 		/* retourne null si pId == null. */
 		if (pId == null) {
 			return null;
@@ -1425,30 +1438,20 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			return null;
 		}
 		
-		/* retourne null si l'objet modifie pObjectModifie 
-		 * créerait un doublon dans le stockage. */
-		if (this.exists(pObjectModifie)) {
-			return null;
-		}
-		
 		/* retourne null si les attributs obligatoires 
 		 * de pObjectModifie ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pObjectModifie)) {
 			return null;
 		}
 		
-		/* récupère l'objet à modifier par sons index. */
-		final ILocalisationHit objetAModifier = this.findById(pId);
-		
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-						
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
+		/* retourne null si l'objet modifie pObjectModifie 
+		 * créerait un doublon dans le stockage. */
+		if (this.exists(pObjectModifie)) {
 			return null;
 		}
+		
+		/* récupère l'objet à modifier par sons index. */
+		final ILocalisationHit objetAModifier = this.findById(pId);
 				
 		ILocalisationHit persistentObject = null;
 		
@@ -1519,6 +1522,16 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	@Override
 	public boolean delete(
 			final ILocalisationHit pObject) throws Exception {
+				
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+						
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return false;
+		}
 		
 		/* retourne false si pObject == null. */
 		if (pObject == null) {
@@ -1531,16 +1544,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 		
 		/* retourne false si pObject n'est pas persisté. */
 		if (persistanceInstance == null) {
-			return false;
-		}
-				
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-						
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
 			return false;
 		}
 				
@@ -1589,16 +1592,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	public void deleteById(
 			final Long pId) throws Exception {
 		
-		/* ne fait rien si pId == null. */
-		if (pId == null) {
-			return;
-		}
-		
-		/* ne fait rien si pId est hors indexes. */
-		if (this.findById(pId) == null) {
-			return;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -1606,6 +1599,16 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return;
+		}
+		
+		/* ne fait rien si pId == null. */
+		if (pId == null) {
+			return;
+		}
+		
+		/* ne fait rien si pId est hors indexes. */
+		if (this.findById(pId) == null) {
 			return;
 		}
 						
@@ -1646,16 +1649,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	public boolean deleteByIdBoolean(
 			final Long pId) throws Exception {
 		
-		/* retourne false si pId == null. */
-		if (pId == null) {
-			return false;
-		}
-		
-		/* retourne false si pId est hors indexes. */
-		if (this.findById(pId) == null) {
-			return false;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -1663,6 +1656,16 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return false;
+		}
+		
+		/* retourne false si pId == null. */
+		if (pId == null) {
+			return false;
+		}
+		
+		/* retourne false si pId est hors indexes. */
+		if (this.findById(pId) == null) {
 			return false;
 		}
 				
@@ -1811,11 +1814,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	@Override
 	public void deleteIterable(
 			final Iterable<ILocalisationHit> pList) throws Exception {
-		
-		/* ne fait rien si pList == null. */
-		if (pList == null) {
-			return;
-		}
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1824,6 +1822,11 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return;
+		}
+		
+		/* ne fait rien si pList == null. */
+		if (pList == null) {
 			return;
 		}
 		
@@ -1877,11 +1880,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	@Override
 	public boolean deleteIterableBoolean(
 			final Iterable<ILocalisationHit> pList) throws Exception {
-		
-		/* retourne false si pList == null. */
-		if (pList == null) {
-			return false;
-		}
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1890,6 +1888,11 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return false;
+		}
+		
+		/* retourne false si pList == null. */
+		if (pList == null) {
 			return false;
 		}
 
@@ -1954,11 +1957,6 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 	public boolean exists(
 			final ILocalisationHit pObject) throws Exception {
 		
-		/* retourne false si pObject == null. */
-		if (pObject == null) {
-			return false;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -1968,16 +1966,22 @@ public class LocalisationHitDAOJPASpring implements ILocalisationHitDAO {
 			}
 			return false;
 		}
+		
+		/* retourne false si pObject == null. */
+		if (pObject == null) {
+			return false;
+		}
 
 		boolean resultat = false;		
 		ILocalisationHit objetResultat = null;
 		
 		/* récupération de la requête paramétrée. */
-		final Query requete = this.fournirRequeteParametree(pObject);
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
 		if (requete == null) {
 			return false;
 		}
+		
 		
 		try {
 						

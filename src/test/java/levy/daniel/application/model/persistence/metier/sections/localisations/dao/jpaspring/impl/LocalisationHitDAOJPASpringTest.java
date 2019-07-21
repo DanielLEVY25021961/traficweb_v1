@@ -1273,7 +1273,7 @@ public class LocalisationHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
-	@Rollback(value = VALEUR_ROLLBACK)
+	@Rollback(value = false)
 	public void testCreate() throws Exception {
 				
 		// **********************************

@@ -266,6 +266,53 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		return true;
 		
 	} // Fin de champsObligatoiresRemplis(...).____________________________
+
+
+	
+	/**
+	 * retourne la requete JPQL paramétrée pour la méthode 
+	 * <code><b>retrieve(OBJET METIER pObject)</b></code> 
+	 * en tenant compte de la getion des paramètres null.<br/>
+	 * <br/>
+	 *
+	 * @param pObject : ITeleversement : OBJET METIER
+	 * 
+	 * @return javax.persistence.Query
+	 * 
+	 * @throws Exception
+	 */
+	private Query fournirRequeteEgaliteMetier(
+			final ITeleversement pObject) throws Exception {
+		
+		/* REQUETE HQL PARMETREE. */
+		String requeteString = null;
+		
+		Query requete = null;
+		
+		/* REQUETE HQL PARMETREE. */
+		requeteString 
+			= SELECT_OBJET
+				+ "where televersement.dateTeleversement = :pDateTeleversement "
+				+ "and televersement.utilisateur = :pUtilisateur "
+				+ "and televersement.nomFichierTeleverse = :pNomFichierTeleverse";
+		
+		/* Construction de la requête HQL. */
+		requete 
+			= this.entityManager.createQuery(requeteString);
+		
+		// RECUPERATION DES COMPOSANTS EN BASE.
+		final IUtilisateurCerbere utilisateurCerberePersistant 
+			= this.utilisateurCerbereDAO.createOrRetrieve(
+					pObject.getUtilisateur());
+		
+		/* Passage des paramètres de la requête HQL. */
+		requete.setParameter("pDateTeleversement", pObject.getDateTeleversement());
+		requete.setParameter("pUtilisateur", utilisateurCerberePersistant);
+		requete.setParameter("pNomFichierTeleverse", pObject.getNomFichierTeleverse());
+		
+		return requete;
+				
+	} // Fin de fournirRequeteEgaliteMetier(...).__________________________
 	
 	
 	
@@ -279,10 +326,20 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	public ITeleversement create(
 			final ITeleversement pObject) throws Exception {
 
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+
 		/* instancie une nouvelle liste à chaque appel de la méthode. */
 		this.messagesErrorUtilisateurList = new ArrayList<String>();
 		
-		/* retourne null si pObject == null. */
+		/* NULL : retourne null si pObject == null. */
 		if (pObject == null) {
 			
 			/* ajout d'une explication dans le rapport utilisateur. */
@@ -290,23 +347,10 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			
 			return null;
 			
-		} // Fin de null._____________________________________
+		} // Fin de NULL._____________________________________
 		
 		
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
-			
-			final String message = DOUBLON + pObject.toString();
-			
-			/* ajout d'une explication dans le rapport utilisateur. */
-			this.messagesErrorUtilisateurList.add(message);
-			
-			return null;
-			
-		} // Fin de DOUBLON.___________________________________
-		
-		
-		/* retourne null si les attributs obligatoires 
+		/* CHAMPS OBLIGATOIRES : retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pObject)) {
 			
@@ -319,18 +363,21 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			
 		} // Fin de CHAMPS OBLIGATOIRES.______________________________
 		
+		
+		/* DOUBLON : retourne null si pObject est un doublon. */
+		if (this.exists(pObject)) {
+			
+			final String message = DOUBLON + pObject.toString();
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(message);
+			
+			return null;
+			
+		} // Fin de DOUBLON.___________________________________
+		
 
 		ITeleversement persistentObject = null;
-
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return null;
-		}
 
 		try {
 						
@@ -762,26 +809,8 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		ITeleversement objetResultat = null;		
 		TeleversementEntityJPA entity = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-			= SELECT_OBJET
-				+ "where televersement.dateTeleversement = :pDateTeleversement "
-				+ "and televersement.utilisateur = :pUtilisateur "
-				+ "and televersement.nomFichierTeleverse = :pNomFichierTeleverse";
-		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
-		
-		// RECUPERATION DES COMPOSANTS EN BASE.
-		final IUtilisateurCerbere utilisateurCerberePersistant 
-			= this.utilisateurCerbereDAO.createOrRetrieve(
-					pObject.getUtilisateur());
-		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pDateTeleversement", pObject.getDateTeleversement());
-		requete.setParameter("pUtilisateur", utilisateurCerberePersistant);
-		requete.setParameter("pNomFichierTeleverse", pObject.getNomFichierTeleverse());
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
 		try {
 			
@@ -904,26 +933,8 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		ITeleversement objetResultat = null;		
 		TeleversementEntityJPA entity = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-		= SELECT_OBJET
-			+ "where televersement.dateTeleversement = :pDateTeleversement "
-			+ "and televersement.utilisateur = :pUtilisateur "
-			+ "and televersement.nomFichierTeleverse = :pNomFichierTeleverse";
-		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
-		
-		// RECUPERATION DES COMPOSANTS EN BASE.
-		final IUtilisateurCerbere utilisateurCerberePersistant 
-			= this.utilisateurCerbereDAO.createOrRetrieve(
-					pObject.getUtilisateur());
-		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pDateTeleversement", pObject.getDateTeleversement());
-		requete.setParameter("pUtilisateur", utilisateurCerberePersistant);
-		requete.setParameter("pNomFichierTeleverse", pObject.getNomFichierTeleverse());
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
 		try {
 			
@@ -1884,26 +1895,8 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		boolean resultat = false;		
 		ITeleversement objetResultat = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-		= SELECT_OBJET
-			+ "where televersement.dateTeleversement = :pDateTeleversement "
-			+ "and televersement.utilisateur = :pUtilisateur "
-			+ "and televersement.nomFichierTeleverse = :pNomFichierTeleverse";
-		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
-		
-		// RECUPERATION DES COMPOSANTS EN BASE.
-		final IUtilisateurCerbere utilisateurCerberePersistant 
-			= this.utilisateurCerbereDAO.createOrRetrieve(
-					pObject.getUtilisateur());
-		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pDateTeleversement", pObject.getDateTeleversement());
-		requete.setParameter("pUtilisateur", utilisateurCerberePersistant);
-		requete.setParameter("pNomFichierTeleverse", pObject.getNomFichierTeleverse());
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
 		try {
 			

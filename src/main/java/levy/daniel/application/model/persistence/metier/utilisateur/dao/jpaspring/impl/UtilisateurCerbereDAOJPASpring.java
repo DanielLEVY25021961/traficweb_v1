@@ -231,6 +231,51 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		return true;
 		
 	} // Fin de champsObligatoiresRemplis(...).____________________________
+
+
+	
+	/**
+	 * retourne la requete JPQL paramétrée pour la méthode 
+	 * <code><b>retrieve(OBJET METIER pObject)</b></code> 
+	 * en tenant compte de la getion des paramètres null.<br/>
+	 * <br/>
+	 *
+	 * @param pObject : ITeleversement : OBJET METIER
+	 * 
+	 * @return javax.persistence.Query
+	 * 
+	 * @throws Exception
+	 */
+	private Query fournirRequeteEgaliteMetier(
+			final IUtilisateurCerbere pObject) throws Exception {
+		
+		/* REQUETE HQL PARMETREE. */
+		String requeteString = null;
+		
+		Query requete = null;
+		
+		
+		/* REQUETE HQL PARMETREE. */
+		requeteString 
+			= SELECT_OBJET
+				+ "where utilisateurCerbere.prenom = :pPrenom "
+				+ "and utilisateurCerbere.nom = :pNom "
+				+ "and utilisateurCerbere.email = :pEmail "
+				+ "and utilisateurCerbere.unite = :pUnite";
+		
+		/* Construction de la requête HQL. */
+		requete 
+			= this.entityManager.createQuery(requeteString);
+		
+		/* Passage des paramètres de la requête HQL. */
+		requete.setParameter("pPrenom", pObject.getPrenom());
+		requete.setParameter("pNom", pObject.getNom());
+		requete.setParameter("pEmail", pObject.getEmail());
+		requete.setParameter("pUnite", pObject.getUnite());
+		
+		return requete;
+				
+	} // Fin de fournirRequeteEgaliteMetier(...).__________________________
 	
 	
 
@@ -244,10 +289,20 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 	public IUtilisateurCerbere create(
 			final IUtilisateurCerbere pObject) throws Exception {
 
-		/* instancie une nouvelle liste à chaque appel de la méthode. */
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+
+		/* NULL : instancie une nouvelle liste à chaque appel de la méthode. */
 		this.messagesErrorUtilisateurList = new ArrayList<String>();
 		
-		/* retourne null si pObject == null. */
+		/* NULL : retourne null si pObject == null. */
 		if (pObject == null) {
 			
 			/* ajout d'une explication dans le rapport utilisateur. */
@@ -255,23 +310,10 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 			
 			return null;
 			
-		} // Fin de null._____________________________________
+		} // Fin de NULL._____________________________________
 		
 		
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
-			
-			final String message = DOUBLON + pObject.toString();
-			
-			/* ajout d'une explication dans le rapport utilisateur. */
-			this.messagesErrorUtilisateurList.add(message);
-			
-			return null;
-			
-		} // Fin de DOUBLON.___________________________________
-		
-		
-		/* retourne null si les attributs obligatoires 
+		/* CHAMPS OBLIGATOIRES : retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pObject)) {
 			
@@ -284,23 +326,21 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 			
 		} // Fin de CHAMPS OBLIGATOIRES.______________________________
 		
+		
+		/* DOUBLON : retourne null si pObject est un doublon. */
+		if (this.exists(pObject)) {
+			
+			final String message = DOUBLON + pObject.toString();
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(message);
+			
+			return null;
+			
+		} // Fin de DOUBLON.___________________________________
+		
 
 		IUtilisateurCerbere persistentObject = null;
-
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return null;
-		}
-
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
-			return null;
-		}
 
 		try {
 			
@@ -740,24 +780,9 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 
 		IUtilisateurCerbere objetResultat = null;		
 		UtilisateurCerbereEntityJPA entity = null;
-		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-			= SELECT_OBJET
-				+ "where utilisateurCerbere.prenom = :pPrenom "
-				+ "and utilisateurCerbere.nom = :pNom "
-				+ "and utilisateurCerbere.email = :pEmail "
-				+ "and utilisateurCerbere.unite = :pUnite";
-		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
-		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pPrenom", pObject.getPrenom());
-		requete.setParameter("pNom", pObject.getNom());
-		requete.setParameter("pEmail", pObject.getEmail());
-		requete.setParameter("pUnite", pObject.getUnite());
+
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
 		try {
 			
@@ -880,23 +905,8 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		IUtilisateurCerbere objetResultat = null;		
 		UtilisateurCerbereEntityJPA entity = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-			= SELECT_OBJET
-					+ "where utilisateurCerbere.prenom = :pPrenom "
-					+ "and utilisateurCerbere.nom = :pNom "
-					+ "and utilisateurCerbere.email = :pEmail "
-					+ "and utilisateurCerbere.unite = :pUnite";
-		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
-		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pPrenom", pObject.getPrenom());
-		requete.setParameter("pNom", pObject.getNom());
-		requete.setParameter("pEmail", pObject.getEmail());
-		requete.setParameter("pUnite", pObject.getUnite());
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
 		try {
 			
@@ -1834,23 +1844,8 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		boolean resultat = false;		
 		IUtilisateurCerbere objetResultat = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-			= SELECT_OBJET
-					+ "where utilisateurCerbere.prenom = :pPrenom "
-					+ "and utilisateurCerbere.nom = :pNom "
-					+ "and utilisateurCerbere.email = :pEmail "
-					+ "and utilisateurCerbere.unite = :pUnite";
-		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
-		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pPrenom", pObject.getPrenom());
-		requete.setParameter("pNom", pObject.getNom());
-		requete.setParameter("pEmail", pObject.getEmail());
-		requete.setParameter("pUnite", pObject.getUnite());
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
 		try {
 			

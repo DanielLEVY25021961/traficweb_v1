@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -27,6 +28,7 @@ import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.metier.sections.ISectionHit;
 import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
+import levy.daniel.application.model.persistence.converters.LocalDateAttributeConverter;
 import levy.daniel.application.model.persistence.metier.sections.localisations.entities.jpa.LocalisationHitEntityJPA;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.IImportateurDescription;
@@ -5220,6 +5222,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Convert(converter = LocalDateAttributeConverter.class)
 	@Column(name="ANNEETRAITEMENT"
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)

@@ -214,6 +214,41 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		return true;
 		
 	} // Fin de champsObligatoiresRemplis(...).____________________________
+
+
+	
+	/**
+	 * retourne la requete JPQL paramétrée pour la méthode 
+	 * <code><b>retrieve(OBJET METIER pObject)</b></code> 
+	 * en tenant compte de la getion des paramètres null.<br/>
+	 * <br/>
+	 *
+	 * @param pObject : IAnneeGestion : OBJET METIER
+	 * 
+	 * @return javax.persistence.Query
+	 * 
+	 * @throws Exception
+	 */
+	private Query fournirRequeteEgaliteMetier(
+			final IAnneeGestion pObject) throws Exception {
+		
+		/* REQUETE HQL PARMETREE. */
+		String requeteString = null;
+		
+		Query requete = null;
+		
+		requeteString = SELECT_OBJET 
+					+ "where anneeGestion.anneeGestion = :pAnneeGestion";
+		
+		/* Construction de la requête HQL. */
+		requete = this.entityManager.createQuery(requeteString);
+		
+		/* Passage des paramètres de la requête HQL. */
+		requete.setParameter("pAnneeGestion", pObject.getAnneeGestion());
+		
+		return requete;
+				
+	} // Fin de fournirRequeteEgaliteMetier(...).__________________________
 	
 	
 
@@ -227,10 +262,21 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public IAnneeGestion create(
 			final IAnneeGestion pObject) throws Exception {
 
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+
 		/* instancie une nouvelle liste à chaque appel de la méthode. */
 		this.messagesErrorUtilisateurList = new ArrayList<String>();
+
 		
-		/* retourne null si pObject == null. */
+		/* NULL : retourne null si pObject == null. */
 		if (pObject == null) {
 			
 			/* ajout d'une explication dans le rapport utilisateur. */
@@ -241,20 +287,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		} // Fin de null._____________________________________
 		
 		
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
-			
-			final String message = DOUBLON + pObject.toString();
-			
-			/* ajout d'une explication dans le rapport utilisateur. */
-			this.messagesErrorUtilisateurList.add(message);
-			
-			return null;
-			
-		} // Fin de DOUBLON.___________________________________
-		
-		
-		/* retourne null si les attributs obligatoires 
+		/* CHAMPS OBLIGATOIRES : retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pObject)) {
 			
@@ -267,23 +300,21 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			
 		} // Fin de CHAMPS OBLIGATOIRES.______________________________
 		
+		
+		/* DOUBLON : retourne null si pObject est un doublon. */
+		if (this.exists(pObject)) {
+			
+			final String message = DOUBLON + pObject.toString();
+			
+			/* ajout d'une explication dans le rapport utilisateur. */
+			this.messagesErrorUtilisateurList.add(message);
+			
+			return null;
+			
+		} // Fin de DOUBLON.___________________________________
+		
 
 		IAnneeGestion persistentObject = null;
-
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return null;
-		}
-
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
-			return null;
-		}
 
 		try {
 			
@@ -331,10 +362,21 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public IAnneeGestion createOrRetrieve(
 			final IAnneeGestion pEntity) throws Exception {
 
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+
 		/* instancie une nouvelle liste à chaque appel de la méthode. */
 		this.messagesErrorUtilisateurList = new ArrayList<String>();
+
 		
-		/* retourne null si pObject == null. */
+		/* NULL : retourne null si pObject == null. */
 		if (pEntity == null) {
 			
 			/* ajout d'une explication dans le rapport utilisateur. */
@@ -345,17 +387,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		} // Fin de null._____________________________________
 		
 		
-		/* retourne l'objet déjà persisté si pObject est un doublon. */
-		if (this.exists(pEntity)) {
-			
-			return AnneeGestionConvertisseurMetierEntity
-					.convertirObjetMetierEnEntityJPA(
-							this.retrieve(pEntity));
-			
-		} // Fin de DOUBLON.___________________________________
-		
-		
-		/* retourne null si les attributs obligatoires 
+		/* CHAMPS OBLIGATOIRES : retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pEntity)) {
 			
@@ -368,18 +400,18 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			
 		} // Fin de CHAMPS OBLIGATOIRES.______________________________
 		
+		
+		/* DOUBLON : retourne l'objet déjà persisté si pObject est un doublon. */
+		if (this.exists(pEntity)) {
+			
+			return AnneeGestionConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(
+							this.retrieve(pEntity));
+			
+		} // Fin de DOUBLON.___________________________________
+		
 
 		IAnneeGestion persistentObject = null;
-
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return null;
-		}
 
 		try {
 			
@@ -414,7 +446,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			this.gestionnaireException
 				.gererException(
 						CLASSE_ANNEEGESTIONDAO_JPA_SPRING
-							, "méthode create(object)", e);
+							, "méthode createOrRetrieve(object)", e);
 
 		}
 
@@ -432,8 +464,24 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public void persist(
 			final IAnneeGestion pObject) throws Exception {
 		
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return;
+		}
+		
 		/* ne fait rien si pObject == null. */
 		if (pObject == null) {
+			return;
+		}
+		
+		/* ne fait rien si les attributs obligatoires 
+		 * de pObject ne sont pas remplis.*/
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return;
 		}
 		
@@ -445,23 +493,7 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		if (this.existsId(pObject.getId())) {
 			return;
 		}
-		
-		/* ne fait rien si les attributs obligatoires 
-		 * de pObject ne sont pas remplis.*/
-		if (!this.champsObligatoiresRemplis(pObject)) {
-			return;
-		}
 
-		
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return;
-		}
 
 		/* conversion de l'OBJET METIER en ENTITY. */
 		final AnneeGestionEntityJPA entity = 
@@ -501,13 +533,18 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public Long createReturnId(
 			final IAnneeGestion pObject) throws Exception {
 		
-		/* retourne null si pObject == null. */
-		if (pObject == null) {
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
 			return null;
 		}
 		
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
+		/* retourne null si pObject == null. */
+		if (pObject == null) {
 			return null;
 		}
 		
@@ -517,13 +554,8 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			return null;
 		}
 		
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
+		/* retourne null si pObject est un doublon. */
+		if (this.exists(pObject)) {
 			return null;
 		}
 		
@@ -581,11 +613,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			final Iterable<IAnneeGestion> pList) 
 					throws Exception {
 
-		/* retourne null si pList == null. */
-		if (pList == null) {
-			return null;
-		}
-
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 
@@ -593,6 +620,11 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return null;
+		}
+
+		/* retourne null si pList == null. */
+		if (pList == null) {
 			return null;
 		}
 		
@@ -699,11 +731,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public IAnneeGestion retrieve(
 			final IAnneeGestion pObject) throws Exception {
 
-		/* return null si pObject == null. */
-		if (pObject == null) {
-			return null;
-		}
-
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 
@@ -714,20 +741,21 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			return null;
 		}
 
+		/* return null si pObject == null. */
+		if (pObject == null) {
+			return null;
+		}
+
 		IAnneeGestion objetResultat = null;		
 		AnneeGestionEntityJPA entity = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-			= SELECT_OBJET
-				+ "where anneeGestion.anneeGestion = :pAnneeGestion";
 		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pAnneeGestion", pObject.getAnneeGestion());
+		if (requete == null) {
+			return null;
+		}
 		
 		try {
 			
@@ -775,11 +803,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	@Override
 	public IAnneeGestion findById(
 			final Long pId) throws Exception {
-		
-		/* retourne null si pId == null. */
-		if (pId == null) {
-			return null;
-		}
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -788,6 +811,11 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return null;
+		}
+		
+		/* retourne null si pId == null. */
+		if (pId == null) {
 			return null;
 		}
 
@@ -832,11 +860,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public Long retrieveId(
 			final IAnneeGestion pObject) throws Exception {
 		
-		/* return null si pObject == null. */
-		if (pObject == null) {
-			return null;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -847,20 +870,21 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			return null;
 		}
 		
+		/* return null si pObject == null. */
+		if (pObject == null) {
+			return null;
+		}
+		
 		IAnneeGestion objetResultat = null;		
 		AnneeGestionEntityJPA entity = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-			= SELECT_OBJET
-					+ "where anneeGestion.anneeGestion = :pAnneeGestion";
 		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pAnneeGestion", pObject.getAnneeGestion());
+		if (requete == null) {
+			return null;
+		}
 		
 		try {
 			
@@ -1053,11 +1077,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public List<IAnneeGestion> findAllMax(
 			final int pStartPosition
 				, final int pMaxResult) throws Exception {
-
-		/* retourne null si pId est en dehors des index de stockage. */
-		if (pStartPosition > this.count() - 1) {
-			return null;
-		}
 		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1066,6 +1085,11 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return null;
+		}
+
+		/* retourne null si pId est en dehors des index de stockage. */
+		if (pStartPosition > this.count() - 1) {
 			return null;
 		}
 		
@@ -1157,6 +1181,16 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	@Override
 	public IAnneeGestion update(
 			final IAnneeGestion pObject) throws Exception {
+
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+						
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
 		
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
@@ -1169,24 +1203,14 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			return pObject;
 		}
 		
-		/* retourne null si pObject créerait un doublon. */
-		if (this.exists(pObject)) {
-			return null;
-		}
-		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pObject)) {
 			return null;
 		}
-
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-						
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
+		
+		/* retourne null si pObject créerait un doublon. */
+		if (this.exists(pObject)) {
 			return null;
 		}
 				
@@ -1238,6 +1262,16 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			final Long pId, final IAnneeGestion pObjectModifie) 
 												throws Exception {
 		
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+						
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+		
 		/* retourne null si pId == null. */
 		if (pId == null) {
 			return null;
@@ -1253,30 +1287,20 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			return null;
 		}
 		
-		/* retourne null si l'objet modifie pObjectModifie 
-		 * créerait un doublon dans le stockage. */
-		if (this.exists(pObjectModifie)) {
-			return null;
-		}
-		
 		/* retourne null si les attributs obligatoires 
 		 * de pObjectModifie ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pObjectModifie)) {
 			return null;
 		}
 		
-		/* récupère l'objet à modifier par sons index. */
-		final IAnneeGestion objetAModifier = this.findById(pId);
-		
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-						
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
+		/* retourne null si l'objet modifie pObjectModifie 
+		 * créerait un doublon dans le stockage. */
+		if (this.exists(pObjectModifie)) {
 			return null;
 		}
+		
+		/* récupère l'objet à modifier par sons index. */
+		final IAnneeGestion objetAModifier = this.findById(pId);
 				
 		IAnneeGestion persistentObject = null;
 		
@@ -1333,6 +1357,16 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	@Override
 	public boolean delete(
 			final IAnneeGestion pObject) throws Exception {
+				
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+						
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return false;
+		}
 		
 		/* retourne false si pObject == null. */
 		if (pObject == null) {
@@ -1345,16 +1379,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 		
 		/* retourne false si pObject n'est pas persisté. */
 		if (persistanceInstance == null) {
-			return false;
-		}
-				
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-						
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
 			return false;
 		}
 				
@@ -1403,16 +1427,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public void deleteById(
 			final Long pId) throws Exception {
 		
-		/* ne fait rien si pId == null. */
-		if (pId == null) {
-			return;
-		}
-		
-		/* ne fait rien si pId est hors indexes. */
-		if (this.findById(pId) == null) {
-			return;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -1420,6 +1434,16 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return;
+		}
+		
+		/* ne fait rien si pId == null. */
+		if (pId == null) {
+			return;
+		}
+		
+		/* ne fait rien si pId est hors indexes. */
+		if (this.findById(pId) == null) {
 			return;
 		}
 						
@@ -1460,16 +1484,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public boolean deleteByIdBoolean(
 			final Long pId) throws Exception {
 		
-		/* retourne false si pId == null. */
-		if (pId == null) {
-			return false;
-		}
-		
-		/* retourne false si pId est hors indexes. */
-		if (this.findById(pId) == null) {
-			return false;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -1477,6 +1491,16 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return false;
+		}
+		
+		/* retourne false si pId == null. */
+		if (pId == null) {
+			return false;
+		}
+		
+		/* retourne false si pId est hors indexes. */
+		if (this.findById(pId) == null) {
 			return false;
 		}
 				
@@ -1625,11 +1649,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	@Override
 	public void deleteIterable(
 			final Iterable<IAnneeGestion> pList) throws Exception {
-		
-		/* ne fait rien si pList == null. */
-		if (pList == null) {
-			return;
-		}
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1638,6 +1657,11 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return;
+		}
+		
+		/* ne fait rien si pList == null. */
+		if (pList == null) {
 			return;
 		}
 		
@@ -1691,11 +1715,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	@Override
 	public boolean deleteIterableBoolean(
 			final Iterable<IAnneeGestion> pList) throws Exception {
-		
-		/* retourne false si pList == null. */
-		if (pList == null) {
-			return false;
-		}
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1704,6 +1723,11 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
+			return false;
+		}
+		
+		/* retourne false si pList == null. */
+		if (pList == null) {
 			return false;
 		}
 
@@ -1768,11 +1792,6 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 	public boolean exists(
 			final IAnneeGestion pObject) throws Exception {
 		
-		/* retourne false si pObject == null. */
-		if (pObject == null) {
-			return false;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -1782,21 +1801,22 @@ public class AnneeGestionDAOJPASpring implements IAnneeGestionDAO {
 			}
 			return false;
 		}
+		
+		/* retourne false si pObject == null. */
+		if (pObject == null) {
+			return false;
+		}
 
 		boolean resultat = false;		
 		IAnneeGestion objetResultat = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		final String requeteString 
-			= SELECT_OBJET
-					+ "where anneeGestion.anneeGestion = :pAnneeGestion";
 		
-		/* Construction de la requête HQL. */
-		final Query requete 
-			= this.entityManager.createQuery(requeteString);
+		/* récupération de la requête paramétrée. */
+		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pAnneeGestion", pObject.getAnneeGestion());
+		if (requete == null) {
+			return false;
+		}
 		
 		try {
 			

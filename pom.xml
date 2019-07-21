@@ -85,7 +85,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<aspectjrt.version>1.9.2</aspectjrt.version>
 
 		<!--                Version d'HIBERNATE                         -->
-		<hibernate.version>5.4.1.Final</hibernate.version>
+		<hibernate.version>5.4.3.Final</hibernate.version>
 		<!--           Version hibernate-jpa-2.1-api                    -->
 		<hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version>
 		<!--            Version validation-api                          -->
@@ -111,7 +111,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<javax.servlet.jsp-api.version>2.3.3</javax.servlet.jsp-api.version>
 
 		<!--                Version Driver BD Postgresql                -->
-		<postgresql.version>42.2.5</postgresql.version>
+		<postgresql.version>42.2.6</postgresql.version>
 		<!--                  Version Driver BD MySQL                   -->
 		<mysql-connector-java.version>8.0.13</mysql-connector-java.version>
 		<!--                    Version de BD HSQLDB                    -->
@@ -410,8 +410,15 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		
 		
 		<!-- ================================= -->
-		<!--    dépendances pour ???       	   -->
-		<!-- ================================= -->		
+		<!--    dépendances pour JPA       	   -->
+		<!-- ================================= -->
+		<!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+		<dependency>
+		    <groupId>javax.persistence</groupId>
+		    <artifactId>javax.persistence-api</artifactId>
+		    <version>2.2</version>
+		</dependency>
+				
 		<!-- https://mvnrepository.com/artifact/javax.interceptor/javax.interceptor-api -->
 		<dependency>
 		    <groupId>javax.interceptor</groupId>
@@ -640,7 +647,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <version>${hibernate.version}</version>
 		    <scope>compile</scope>
 		</dependency>
-
+		
 		<!-- ====================================================== -->
 		<!--        DEPENDANCES POUR Pool de connexion  			-->
 		<!-- ====================================================== -->
@@ -683,6 +690,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <version>${postgresql.version}</version>
 		    <scope>compile</scope>
 		</dependency>
+		
 		<!-- MySQL -->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>

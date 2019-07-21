@@ -46,7 +46,7 @@ import levy.daniel.application.model.persistence.daoexceptions.AbstractDaoExcept
 import levy.daniel.application.model.persistence.metier.sections.ISectionHitDAO;
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl.ImporteurHit;
 import levy.daniel.application.model.utilitaires.spring.afficheurcontexte.AfficheurContexteSpring;
-import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2Memory;
+import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAPostgresServer;
 
 /**
  * CLASSE SectionHitDAOJPASpringTest :<br/>
@@ -68,13 +68,13 @@ import levy.daniel.application.model.utilitaires.spring.configurateurspring.Conf
  * @since 9 juil. 2019
  *
  */
-@ActiveProfiles("PROFIL_TEST_H2_MEMORY")
+//@ActiveProfiles("PROFIL_TEST_H2_MEMORY")
 //@ActiveProfiles("PROFIL_TEST_H2_FILE")
-//@ActiveProfiles("PROFIL_PROD_POSTGRES_SERVER")
+@ActiveProfiles("PROFIL_PROD_POSTGRES_SERVER")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
-@ContextConfiguration(classes= {ConfigurateurSpringFrmkAnnotationJPAH2Memory.class})
+@ContextConfiguration(classes= {ConfigurateurSpringFrmkAnnotationJPAPostgresServer.class})
 public class SectionHitDAOJPASpringTest {
 
 	// ************************ATTRIBUTS************************************/
