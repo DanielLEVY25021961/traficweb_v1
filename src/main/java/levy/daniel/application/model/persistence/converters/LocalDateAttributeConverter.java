@@ -66,7 +66,7 @@ public class LocalDateAttributeConverter
 			return null;
 		}
 		
-		Date dateSql = Date.valueOf(pLocalDate);
+		final Date dateSql = Date.valueOf(pLocalDate);
 		
 		return dateSql;
 		

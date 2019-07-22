@@ -1,8 +1,5 @@
 package levy.daniel.application.model.persistence.metier.sections.dao.jpaspring.impl;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -260,9 +257,6 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 		
 	} // Fin de champsObligatoiresRemplis(...).____________________________
 
-	  private static Timestamp localToTimeStamp(LocalDate date){
-	      return Timestamp.from(date.atStartOfDay().toInstant(ZoneOffset.UTC));
-	  }
 
 	
 	/**

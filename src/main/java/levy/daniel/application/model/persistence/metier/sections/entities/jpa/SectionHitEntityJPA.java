@@ -8,7 +8,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -28,7 +27,6 @@ import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.metier.sections.ISectionHit;
 import levy.daniel.application.model.metier.sections.localisations.ILocalisationHit;
-import levy.daniel.application.model.persistence.converters.LocalDateAttributeConverter;
 import levy.daniel.application.model.persistence.metier.sections.localisations.entities.jpa.LocalisationHitEntityJPA;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.descripteurschamps.impl.DescriptionChampHit;
 import levy.daniel.application.model.services.metier.televersement.importateurs.descripteursfichiers.importateursdescription.IImportateurDescription;
@@ -61,66 +59,23 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  */
 @Entity
 @Table(name="SECTIONHITS", schema="PUBLIC"
-, uniqueConstraints=@UniqueConstraint(name="UNICITE_EQUALS"
+, uniqueConstraints=@UniqueConstraint(name="UNICITE_EQUALS_SECTIONHITS"
 , columnNames={"ID_LOCALISATION_HIT", "NUMSECTION", "SENS", "NATURE"
 		, "CLASSE"
 		, "ANNEETRAITEMENT"
-		, "ZONELIBRE1"
-		, "TYPECOMPTAGE", "CLASSEMENTROUTE"
-		, "CLASSELARGEURCHAUSSEEU", "CLASSELARGEURCHAUSSEESS"
-		, "TYPERESEAU", "PROUPK"
-		, "LONGUEURSECTION", "LONGUEURRASECAMPAGNE"
-		, "NUMDEPARTEMENTRATTACHEMENT", "NUMSECTIONRATTACHEMENT", "SENSRATTACHEMENT"
-		, "NUMDEPARTEMENTLIMITROPHE", "NUMSECTIONLIMITROPHE", "SENSLIMITROPHE"
-		, "MOISSECTIONNEMENT", "ANNEESECTIONNEMENT"
-		, "ZONELIBRE2"
-		, "MJAN", "MODECALCULN", "PCPLN", "EVALUATIONPLN", "PCNUITANNUELN", "INDICEFIABILITEMJAN"
-		, "MJMNMOIS01", "PCNUITNMOIS01"
-		, "MJMNMOIS02", "PCNUITNMOIS02"
-		, "MJMNMOIS03", "PCNUITNMOIS03"
-		, "MJMNMOIS04", "PCNUITNMOIS04"
-		, "MJMNMOIS05", "PCNUITNMOIS05"
-		, "MJMNMOIS06", "PCNUITNMOIS06"
-		, "MJMNMOIS07", "PCNUITNMOIS07"
-		, "MJMNMOIS08", "PCNUITNMOIS08"
-		, "MJMNMOIS09", "PCNUITNMOIS09"
-		, "MJMNMOIS10", "PCNUITNMOIS10"
-		, "MJMNMOIS11", "PCNUITNMOIS11"
-		, "MJMNMOIS12", "PCNUITNMOIS12"
-		, "ZONELIBRE3"
-		, "ANNEENMOINS1"
-		, "MJANMOINS1", "TYPECOMPTAGENMOINS1", "MODECALCULNMOINS1"
-		, "PCPLNMOINS1", "EVALUATIONPLNMOINS1", "PCNUITANNUELNMOINS1"
-		, "INDICEFIABILITEMJANMOINS1"
-		, "ANNEENMOINS2"
-		, "MJANMOINS2", "TYPECOMPTAGENMOINS2", "MODECALCULNMOINS2"
-		, "PCPLNMOINS2", "EVALUATIONPLNMOINS2", "PCNUITANNUELNMOINS2"
-		, "INDICEFIABILITEMJANMOINS2"
-		, "ANNEENMOINS3"
-		, "MJANMOINS3", "TYPECOMPTAGENMOINS3", "MODECALCULNMOINS3"
-		, "PCPLNMOINS3", "EVALUATIONPLNMOINS3", "PCNUITANNUELNMOINS3"
-		, "INDICEFIABILITEMJANMOINS3"
-		, "ANNEENMOINS4"
-		, "MJANMOINS4", "TYPECOMPTAGENMOINS4", "MODECALCULNMOINS4"
-		, "PCPLNMOINS4", "EVALUATIONPLNMOINS4", "PCNUITANNUELNMOINS4"
-		, "INDICEFIABILITEMJANMOINS4"
-		, "ANNEENMOINS5"
-		, "MJANMOINS5", "TYPECOMPTAGENMOINS5", "MODECALCULNMOINS5"
-		, "PCPLNMOINS5", "EVALUATIONPLNMOINS5", "PCNUITANNUELNMOINS5"
-		, "INDICEFIABILITEMJANMOINS5"
-		, "MJMNMOINS1MOIS01", "PCNUITNMOINS1MOIS01"
-		, "MJMNMOINS1MOIS02", "PCNUITNMOINS1MOIS02"
-		, "MJMNMOINS1MOIS03", "PCNUITNMOINS1MOIS03"
-		, "MJMNMOINS1MOIS04", "PCNUITNMOINS1MOIS04"
-		, "MJMNMOINS1MOIS05", "PCNUITNMOINS1MOIS05"
-		, "MJMNMOINS1MOIS06", "PCNUITNMOINS1MOIS06"
-		, "MJMNMOINS1MOIS07", "PCNUITNMOINS1MOIS07"
-		, "MJMNMOINS1MOIS08", "PCNUITNMOINS1MOIS08"
-		, "MJMNMOINS1MOIS09", "PCNUITNMOINS1MOIS09"
-		, "MJMNMOINS1MOIS10", "PCNUITNMOINS1MOIS10"
-		, "MJMNMOINS1MOIS11", "PCNUITNMOINS1MOIS11"
-		, "MJMNMOINS1MOIS12", "PCNUITNMOINS1MOIS12"
-		, "ZONELIBRE4"})
+		, "MJAN", "PCPLN", "PCNUITANNUELN"
+		, "MJMNMOIS01"
+		, "MJMNMOIS02"
+		, "MJMNMOIS03"
+		, "MJMNMOIS04"
+		, "MJMNMOIS05"
+		, "MJMNMOIS06"
+		, "MJMNMOIS07"
+		, "MJMNMOIS08"
+		, "MJMNMOIS09"
+		, "MJMNMOIS10"
+		, "MJMNMOIS11"
+		, "MJMNMOIS12"})
 , indexes={@Index(name="INDEX_ID_LOCALISATION_HIT_ANNEETRAITEMENT_SENS"
 , columnList="ID_LOCALISATION_HIT, ANNEETRAITEMENT, SENS")})
 public class SectionHitEntityJPA implements ISectionHit {
@@ -5222,7 +5177,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Convert(converter = LocalDateAttributeConverter.class)
+//	@Convert(converter = LocalDateAttributeConverter.class)
 	@Column(name="ANNEETRAITEMENT"
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
