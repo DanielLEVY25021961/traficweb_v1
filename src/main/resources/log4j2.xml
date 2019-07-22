@@ -86,15 +86,15 @@
 	    </Logger>
 	    
 	    <!-- Log everything in hibernate -->
-	    <Logger name="org.hibernate" level="fatal" additivity="false">
-<!-- 	    <Logger name="org.hibernate" level="fatal" additivity="false"> -->
+<!--	    <Logger name="org.hibernate" level="fatal" additivity="false"> -->
+ 	    <Logger name="org.hibernate" level="info" additivity="false"> 
 	      <AppenderRef ref="Console" />
 	      <AppenderRef ref="RollingFile" />
 	    </Logger>
 	
 	    <!-- Log SQL statements -->
-<!-- 	    <Logger name="org.hibernate.SQL" level="debug" additivity="false"> -->
-	    <Logger name="org.hibernate.SQL" level="fatal" additivity="false">
+	    <Logger name="org.hibernate.SQL" level="debug" additivity="false">
+<!-- 	    <Logger name="org.hibernate.SQL" level="fatal" additivity="false"> -->
 	      <AppenderRef ref="Console" />
 <!-- 	      <AppenderRef ref="File" /> -->
 	    </Logger>

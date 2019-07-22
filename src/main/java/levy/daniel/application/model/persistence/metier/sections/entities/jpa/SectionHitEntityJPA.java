@@ -5078,7 +5078,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	@Override
-	public final Long getId() {	
+	public Long getId() {	
 		return this.id;
 	} // Fin de getId().___________________________________________________
 
@@ -5088,7 +5088,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setId(
+	public void setId(
 			final Long pId) {	
 		this.id = pId;
 	} // Fin de setId(...).________________________________________________
@@ -5100,7 +5100,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final String getNumDepartement() {
+	public String getNumDepartement() {
 		return this.numDepartement;
 	} // Fin de getNumDepartement()._______________________________________
 	
@@ -5110,7 +5110,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNumDepartement(
+	public void setNumDepartement(
 			final String pNumDepartement) {
 		
 		this.numDepartement = pNumDepartement;
@@ -5130,7 +5130,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getNumSection() {
+	public String getNumSection() {
 		return this.numSection;
 	} // Fin de getNumSection().___________________________________________
 
@@ -5140,7 +5140,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNumSection(
+	public void setNumSection(
 			final String pNumSection) {
 		this.numSection = pNumSection;
 	} // Fin de setNumSection(...).________________________________________
@@ -5154,7 +5154,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getSens() {
+	public String getSens() {
 		return this.sens;
 	} // Fin de getSens()._________________________________________________
 
@@ -5164,7 +5164,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setSens(
+	public void setSens(
 			final String pSens) {
 		this.sens = pSens;
 	} // Fin de setSens(...).______________________________________________
@@ -5178,7 +5178,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getNature() {
+	public String getNature() {
 		return this.nature;
 	} // Fin de getNature()._______________________________________________
 
@@ -5188,7 +5188,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNature(
+	public void setNature(
 			final String pNature) {
 		this.nature = pNature;
 	} // Fin de setNature(...).____________________________________________
@@ -5202,7 +5202,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getClasse() {
+	public String getClasse() {
 		return this.classe;
 	} // Fin de getClasse()._______________________________________________
 
@@ -5212,7 +5212,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setClasse(
+	public void setClasse(
 			final String pClasse) {
 		this.classe = pClasse;
 	} // Fin de setClasse(...).____________________________________________
@@ -5227,7 +5227,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final LocalDate getAnneeTraitement() {
+	public LocalDate getAnneeTraitement() {
 		return this.anneeTraitement;
 	} // Fin de getAnneeTraitement().______________________________________
 
@@ -5237,7 +5237,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAnneeTraitement(
+	public void setAnneeTraitement(
 			final LocalDate pAnneeTraitement) {
 		this.anneeTraitement = pAnneeTraitement;
 	} // Fin de setAnneeTraitement(...).___________________________________
@@ -5251,7 +5251,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getZoneLibre1() {
+	public String getZoneLibre1() {
 		return this.zoneLibre1;
 	} // Fin de getZoneLibre1().___________________________________________
 
@@ -5261,7 +5261,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setZoneLibre1(
+	public void setZoneLibre1(
 			final String pZoneLibre1) {
 		this.zoneLibre1 = pZoneLibre1;
 	} // Fin de setZoneLibre1(...).________________________________________
@@ -5273,7 +5273,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final String getNumRoute() {
+	public String getNumRoute() {
 		return this.numRoute;
 	} // Fin de getNumRoute()._____________________________________________
 
@@ -5283,7 +5283,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNumRoute(
+	public void setNumRoute(
 			final String pNumRoute) {
 		
 		this.numRoute = pNumRoute;
@@ -5301,7 +5301,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final String getIndiceNumRoute() {
+	public String getIndiceNumRoute() {
 		return this.indiceNumRoute;
 	} // Fin de getIndiceNumRoute()._______________________________________
 
@@ -5311,7 +5311,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceNumRoute(
+	public void setIndiceNumRoute(
 			final String pIndiceNumRoute) {
 		
 		this.indiceNumRoute = pIndiceNumRoute;
@@ -5329,7 +5329,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final String getIndiceLettreRoute() {
+	public String getIndiceLettreRoute() {
 		return this.indiceLettreRoute;
 	} // Fin de getIndiceLettreRoute().____________________________________
 
@@ -5339,7 +5339,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceLettreRoute(
+	public void setIndiceLettreRoute(
 			final String pIndiceLettreRoute) {
 		
 		this.indiceLettreRoute = pIndiceLettreRoute;
@@ -5357,7 +5357,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final String getCategorieAdminRoute() {
+	public String getCategorieAdminRoute() {
 		return this.categorieAdminRoute;
 	} // Fin de getCategorieAdminRoute().__________________________________
 
@@ -5367,7 +5367,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setCategorieAdminRoute(
+	public void setCategorieAdminRoute(
 			final String pCategorieAdminRoute) {
 		
 		this.categorieAdminRoute = pCategorieAdminRoute;
@@ -5387,7 +5387,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getTypeComptage() {
+	public String getTypeComptage() {
 		return this.typeComptage;
 	} // Fin de getTypeComptage()._________________________________________
 
@@ -5397,7 +5397,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setTypeComptage(
+	public void setTypeComptage(
 			final String pTypeComptage) {
 		this.typeComptage = pTypeComptage;
 	} // Fin de setTypeComptage(...).______________________________________
@@ -5411,7 +5411,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getClassementRoute() {
+	public String getClassementRoute() {
 		return this.classementRoute;
 	} // Fin de getClassementRoute().______________________________________
 
@@ -5421,7 +5421,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setClassementRoute(
+	public void setClassementRoute(
 			final String pClassementRoute) {
 		this.classementRoute = pClassementRoute;
 	} // Fin de setClassementRoute(...).___________________________________
@@ -5435,7 +5435,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getClasseLargeurChausseeU() {
+	public String getClasseLargeurChausseeU() {
 		return this.classeLargeurChausseeU;
 	} // Fin de getClasseLargeurChausseeU()._______________________________
 
@@ -5445,7 +5445,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setClasseLargeurChausseeU(
+	public void setClasseLargeurChausseeU(
 			final String pClasseLargeurChausseeU) {
 		this.classeLargeurChausseeU = pClasseLargeurChausseeU;
 	} // Fin de setClasseLargeurChausseeU(...).____________________________
@@ -5459,7 +5459,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getClasseLargeurChausseesS() {
+	public String getClasseLargeurChausseesS() {
 		return this.classeLargeurChausseesS;
 	} // Fin de getClasseLargeurChausseesS().______________________________
 
@@ -5469,7 +5469,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setClasseLargeurChausseesS(
+	public void setClasseLargeurChausseesS(
 			final String pClasseLargeurChausseesS) {
 		this.classeLargeurChausseesS = pClasseLargeurChausseesS;
 	} // Fin de setClasseLargeurChausseesS(...).___________________________
@@ -5483,7 +5483,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getTypeReseau() {
+	public String getTypeReseau() {
 		return this.typeReseau;
 	} // Fin de getTypeReseau().___________________________________________
 
@@ -5493,7 +5493,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setTypeReseau(
+	public void setTypeReseau(
 			final String pTypeReseau) {
 		this.typeReseau = pTypeReseau;
 	} // Fin de setTypeReseau(...).________________________________________
@@ -5507,7 +5507,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getpRoupK() {
+	public String getpRoupK() {
 		return this.pRoupK;
 	} // Fin de getPRoupK()._______________________________________________
 
@@ -5517,7 +5517,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setpRoupK(
+	public void setpRoupK(
 			final String pPRoupK) {
 		this.pRoupK = pPRoupK;
 	} // Fin de setPRoupK(...).____________________________________________
@@ -5529,7 +5529,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final String getLieuDitOrigine() {
+	public String getLieuDitOrigine() {
 		return this.lieuDitOrigine;
 	} // Fin de getLieuDitOrigine()._______________________________________
 
@@ -5539,7 +5539,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLieuDitOrigine(
+	public void setLieuDitOrigine(
 			final String pLieuDitOrigine) {
 		
 		this.lieuDitOrigine = pLieuDitOrigine;
@@ -5557,7 +5557,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final Integer getPrOrigine() {
+	public Integer getPrOrigine() {
 		return this.prOrigine;
 	} // Fin de getPrOrigine().____________________________________________
 
@@ -5567,7 +5567,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPrOrigine(
+	public void setPrOrigine(
 			final Integer pPrOrigine) {
 		
 		this.prOrigine = pPrOrigine;
@@ -5585,7 +5585,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final Integer getAbsOrigine() {
+	public Integer getAbsOrigine() {
 		return this.absOrigine;
 	} // Fin de getAbsOrigine().___________________________________________
 
@@ -5595,7 +5595,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAbsOrigine(
+	public void setAbsOrigine(
 			final Integer pAbsOrigine) {
 		
 		this.absOrigine = pAbsOrigine;
@@ -5613,7 +5613,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final String getLieuDitExtremite() {
+	public String getLieuDitExtremite() {
 		return this.lieuDitExtremite;
 	} // Fin de getLieuDitExtremite()._____________________________________
 
@@ -5623,7 +5623,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLieuDitExtremite(
+	public void setLieuDitExtremite(
 			final String pLieuDitExtremite) {
 		
 		this.lieuDitExtremite = pLieuDitExtremite;
@@ -5641,7 +5641,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final Integer getPrExtremite() {
+	public Integer getPrExtremite() {
 		return this.prExtremite;
 	} // Fin de getPrExtremite().__________________________________________
 
@@ -5651,7 +5651,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPrExtremite(
+	public void setPrExtremite(
 			final Integer pPrExtremite) {
 		
 		this.prExtremite = pPrExtremite;
@@ -5669,7 +5669,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final Integer getAbsExtremite() {
+	public Integer getAbsExtremite() {
 		return this.absExtremite;
 	} // Fin de getAbsExtremite()._________________________________________
 
@@ -5679,7 +5679,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAbsExtremite(
+	public void setAbsExtremite(
 			final Integer pAbsExtremite) {
 		
 		this.absExtremite = pAbsExtremite;
@@ -5697,7 +5697,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final String getLieuDitComptage() {
+	public String getLieuDitComptage() {
 		return this.lieuDitComptage;
 	} // Fin de getLieuDitComptage().______________________________________
 
@@ -5707,7 +5707,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLieuDitComptage(
+	public void setLieuDitComptage(
 			final String pLieuDitComptage) {
 		
 		this.lieuDitComptage = pLieuDitComptage;
@@ -5725,7 +5725,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final Integer getPrComptage() {
+	public Integer getPrComptage() {
 		return this.prComptage;
 	} // Fin de getPrComptage().___________________________________________
 
@@ -5735,7 +5735,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPrComptage(
+	public void setPrComptage(
 			final Integer pPrComptage) {
 		
 		this.prComptage = pPrComptage;
@@ -5753,7 +5753,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 */
 	@Transient
 	@Override
-	public final Integer getAbsComptage() {
+	public Integer getAbsComptage() {
 		return this.absComptage;
 	} // Fin de getAbsComptage().__________________________________________
 
@@ -5763,7 +5763,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAbsComptage(
+	public void setAbsComptage(
 			final Integer pAbsComptage) {
 		
 		this.absComptage = pAbsComptage;
@@ -5783,7 +5783,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getLongueurSection() {
+	public Integer getLongueurSection() {
 		return this.longueurSection;
 	} // Fin de getLongueurSection().______________________________________
 
@@ -5793,7 +5793,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLongueurSection(
+	public void setLongueurSection(
 			final Integer pLongueurSection) {
 		this.longueurSection = pLongueurSection;
 	} // Fin de setLongueurSection(...).___________________________________
@@ -5807,7 +5807,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getLongueurRaseCampagne() {
+	public Integer getLongueurRaseCampagne() {
 		return this.longueurRaseCampagne;
 	} // Fin de getLongueurRaseCampagne()._________________________________
 
@@ -5817,7 +5817,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLongueurRaseCampagne(
+	public void setLongueurRaseCampagne(
 			final Integer pLongueurRaseCampagne) {
 		this.longueurRaseCampagne = pLongueurRaseCampagne;
 	} // Fin de setLongueurRaseCampagne(...).______________________________
@@ -5831,7 +5831,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getNumDepartementRattachement() {
+	public String getNumDepartementRattachement() {
 		return this.numDepartementRattachement;
 	} // Fin de getNumDepartementRattachement().___________________________
 
@@ -5841,7 +5841,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNumDepartementRattachement(
+	public void setNumDepartementRattachement(
 			final String pNumDepartementRattachement) {
 		this.numDepartementRattachement = pNumDepartementRattachement;
 	} // Fin de setNumDepartementRattachement(...).________________________
@@ -5855,7 +5855,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getNumSectionRattachement() {
+	public String getNumSectionRattachement() {
 		return this.numSectionRattachement;
 	} // Fin de getNumSectionRattachement()._______________________________
 
@@ -5865,7 +5865,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNumSectionRattachement(
+	public void setNumSectionRattachement(
 			final String pNumSectionRattachement) {
 		this.numSectionRattachement = pNumSectionRattachement;
 	} // Fin de setNumSectionRattachement(...).____________________________
@@ -5879,7 +5879,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getSensRattachement() {
+	public String getSensRattachement() {
 		return this.sensRattachement;
 	} // Fin de getSensRattachement()._____________________________________
 
@@ -5889,7 +5889,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setSensRattachement(
+	public void setSensRattachement(
 			final String pSensRattachement) {
 		this.sensRattachement = pSensRattachement;
 	} // Fin de setSensRattachement(...).__________________________________
@@ -5903,7 +5903,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getNumDepartementLimitrophe() {
+	public String getNumDepartementLimitrophe() {
 		return this.numDepartementLimitrophe;
 	} // Fin de getNumDepartementLimitrophe()._____________________________
 
@@ -5913,7 +5913,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNumDepartementLimitrophe(
+	public void setNumDepartementLimitrophe(
 			final String pNumDepartementLimitrophe) {
 		this.numDepartementLimitrophe = pNumDepartementLimitrophe;
 	} // Fin de setNumDepartementLimitrophe(...).__________________________
@@ -5927,7 +5927,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getNumSectionLimitrophe() {
+	public String getNumSectionLimitrophe() {
 		return this.numSectionLimitrophe;
 	} // Fin de getNumSectionLimitrophe()._________________________________
 
@@ -5937,7 +5937,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNumSectionLimitrophe(
+	public void setNumSectionLimitrophe(
 			final String pNumSectionLimitrophe) {
 		this.numSectionLimitrophe = pNumSectionLimitrophe;
 	} // Fin de setNumSectionLimitrophe(...).______________________________
@@ -5951,7 +5951,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getSensLimitrophe() {
+	public String getSensLimitrophe() {
 		return this.sensLimitrophe;
 	} // Fin de getSensLimitrophe()._______________________________________
 
@@ -5961,7 +5961,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setSensLimitrophe(
+	public void setSensLimitrophe(
 			final String pSensLimitrophe) {
 		this.sensLimitrophe = pSensLimitrophe;
 	} // Fin de setSensLimitrophe(...).____________________________________
@@ -5975,7 +5975,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getMoisSectionnement() {
+	public String getMoisSectionnement() {
 		return this.moisSectionnement;
 	} // Fin de getMoisSectionnement().____________________________________
 
@@ -5985,7 +5985,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMoisSectionnement(
+	public void setMoisSectionnement(
 			final String pMoisSectionnement) {
 		this.moisSectionnement = pMoisSectionnement;
 	} // Fin de setMoisSectionnement(...)._________________________________
@@ -5999,7 +5999,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getAnneeSectionnement() {
+	public String getAnneeSectionnement() {
 		return this.anneeSectionnement;
 	} // Fin de getAnneeSectionnement().___________________________________
 
@@ -6009,7 +6009,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAnneeSectionnement(
+	public void setAnneeSectionnement(
 			final String pAnneeSectionnement) {
 		this.anneeSectionnement = pAnneeSectionnement;
 	} // Fin de setAnneeSectionnement(...).________________________________
@@ -6023,7 +6023,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getZoneLibre2() {
+	public String getZoneLibre2() {
 		return this.zoneLibre2;
 	} // Fin de getZoneLibre2().___________________________________________
 
@@ -6033,7 +6033,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setZoneLibre2(
+	public void setZoneLibre2(
 			final String pZoneLibre2) {
 		this.zoneLibre2 = pZoneLibre2;
 	} // Fin de setZoneLibre2(...).________________________________________
@@ -6047,7 +6047,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjaN() {
+	public Integer getMjaN() {
 		return this.mjaN;
 	} // Fin de getMjaN()._________________________________________________
 
@@ -6057,7 +6057,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjaN(
+	public void setMjaN(
 			final Integer pMjaN) {
 		this.mjaN = pMjaN;
 	} // Fin de setMjaN(...).______________________________________________
@@ -6071,7 +6071,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getModeCalculN() {
+	public String getModeCalculN() {
 		return this.modeCalculN;
 	} // Fin de getModeCalculN().__________________________________________
 
@@ -6081,7 +6081,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setModeCalculN(
+	public void setModeCalculN(
 			final String pModeCalculN) {
 		this.modeCalculN = pModeCalculN;
 	} // Fin de setModeCalculN(...)._______________________________________
@@ -6095,7 +6095,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcPLN() {
+	public String getPcPLN() {
 		return this.pcPLN;
 	} // Fin de getPcPLN().________________________________________________
 
@@ -6105,7 +6105,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcPLN(
+	public void setPcPLN(
 			final String pPcPLN) {
 		this.pcPLN = pPcPLN;
 	} // Fin de setPcPLN(...)._____________________________________________
@@ -6119,7 +6119,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getEvaluationPLN() {
+	public String getEvaluationPLN() {
 		return this.evaluationPLN;
 	} // Fin de getEvaluationPLN().________________________________________
 
@@ -6129,7 +6129,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setEvaluationPLN(
+	public void setEvaluationPLN(
 			final String pEvaluationPLN) {
 		this.evaluationPLN = pEvaluationPLN;
 	} // Fin de setEvaluationPLN(...)._____________________________________
@@ -6143,7 +6143,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitAnnuelN() {
+	public String getPcNuitAnnuelN() {
 		return this.pcNuitAnnuelN;
 	} // Fin de getPcNuitAnnuelN().________________________________________
 
@@ -6153,7 +6153,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitAnnuelN(
+	public void setPcNuitAnnuelN(
 			final String pPcNuitAnnuelN) {
 		this.pcNuitAnnuelN = pPcNuitAnnuelN;
 	} // Fin de setPcNuitAnnuelN(...)._____________________________________
@@ -6167,7 +6167,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getIndiceFiabiliteMjaN() {
+	public String getIndiceFiabiliteMjaN() {
 		return this.indiceFiabiliteMjaN;
 	} // Fin de getIndiceFiabiliteMjaN().__________________________________
 
@@ -6177,7 +6177,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceFiabiliteMjaN(
+	public void setIndiceFiabiliteMjaN(
 			final String pIndiceFiabiliteMjaN) {
 		this.indiceFiabiliteMjaN = pIndiceFiabiliteMjaN;
 	} // Fin de setIndiceFiabiliteMjaN(...)._______________________________
@@ -6191,7 +6191,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois01() {
+	public Integer getMjmNmois01() {
 		return this.mjmNmois01;
 	} // Fin de getMjmNmois01().___________________________________________
 
@@ -6201,7 +6201,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois01(
+	public void setMjmNmois01(
 			final Integer pMjmNmois01) {
 		this.mjmNmois01 = pMjmNmois01;
 	} // Fin de setMjmNmois01(...).________________________________________
@@ -6215,7 +6215,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois01() {
+	public String getPcNuitNmois01() {
 		return this.pcNuitNmois01;
 	} // Fin de getPcNuitNmois01().________________________________________
 
@@ -6225,7 +6225,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois01(
+	public void setPcNuitNmois01(
 			final String pPcNuitNmois01) {
 		this.pcNuitNmois01 = pPcNuitNmois01;
 	} // Fin de setPcNuitNmois01(...)._____________________________________
@@ -6239,7 +6239,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois02() {
+	public Integer getMjmNmois02() {
 		return this.mjmNmois02;
 	} // Fin de getMjmNmois02().___________________________________________
 
@@ -6249,7 +6249,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois02(
+	public void setMjmNmois02(
 			final Integer pMjmNmois02) {
 		this.mjmNmois02 = pMjmNmois02;
 	} // Fin de setMjmNmois02(...).________________________________________
@@ -6263,7 +6263,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois02() {
+	public String getPcNuitNmois02() {
 		return this.pcNuitNmois02;
 	} // Fin de getPcNuitNmois02().________________________________________
 
@@ -6273,7 +6273,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois02(
+	public void setPcNuitNmois02(
 			final String pPcNuitNmois02) {
 		this.pcNuitNmois02 = pPcNuitNmois02;
 	} // Fin de setPcNuitNmois02(...)._____________________________________
@@ -6287,7 +6287,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois03() {
+	public Integer getMjmNmois03() {
 		return this.mjmNmois03;
 	} // Fin de getMjmNmois03().___________________________________________
 
@@ -6297,7 +6297,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois03(
+	public void setMjmNmois03(
 			final Integer pMjmNmois03) {
 		this.mjmNmois03 = pMjmNmois03;
 	} // Fin de setMjmNmois03(...).________________________________________
@@ -6311,7 +6311,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois03() {
+	public String getPcNuitNmois03() {
 		return this.pcNuitNmois03;
 	} // Fin de getPcNuitNmois03().________________________________________
 
@@ -6321,7 +6321,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois03(
+	public void setPcNuitNmois03(
 			final String pPcNuitNmois03) {
 		this.pcNuitNmois03 = pPcNuitNmois03;
 	} // Fin de setPcNuitNmois03(...)._____________________________________
@@ -6335,7 +6335,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois04() {
+	public Integer getMjmNmois04() {
 		return this.mjmNmois04;
 	} // Fin de getMjmNmois04().___________________________________________
 
@@ -6345,7 +6345,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois04(
+	public void setMjmNmois04(
 			final Integer pMjmNmois04) {
 		this.mjmNmois04 = pMjmNmois04;
 	} // Fin de setMjmNmois04(...).________________________________________
@@ -6359,7 +6359,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois04() {
+	public String getPcNuitNmois04() {
 		return this.pcNuitNmois04;
 	} // Fin de getPcNuitNmois04().________________________________________
 
@@ -6369,7 +6369,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois04(
+	public void setPcNuitNmois04(
 			final String pPcNuitNmois04) {
 		this.pcNuitNmois04 = pPcNuitNmois04;
 	} // Fin de setPcNuitNmois04(...)._____________________________________
@@ -6383,7 +6383,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois05() {
+	public Integer getMjmNmois05() {
 		return this.mjmNmois05;
 	} // Fin de getMjmNmois05().___________________________________________
 
@@ -6393,7 +6393,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois05(
+	public void setMjmNmois05(
 			final Integer pMjmNmois05) {
 		this.mjmNmois05 = pMjmNmois05;
 	} // Fin de setMjmNmois05(...).________________________________________
@@ -6407,7 +6407,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois05() {
+	public String getPcNuitNmois05() {
 		return this.pcNuitNmois05;
 	} // Fin de getPcNuitNmois05().________________________________________
 
@@ -6417,7 +6417,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois05(
+	public void setPcNuitNmois05(
 			final String pPcNuitNmois05) {
 		this.pcNuitNmois05 = pPcNuitNmois05;
 	} // Fin de setPcNuitNmois05(...)._____________________________________
@@ -6431,7 +6431,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois06() {
+	public Integer getMjmNmois06() {
 		return this.mjmNmois06;
 	} // Fin de getMjmNmois06().___________________________________________
 
@@ -6441,7 +6441,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois06(
+	public void setMjmNmois06(
 			final Integer pMjmNmois06) {
 		this.mjmNmois06 = pMjmNmois06;
 	} // Fin de setMjmNmois06(...).________________________________________
@@ -6455,7 +6455,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois06() {
+	public String getPcNuitNmois06() {
 		return this.pcNuitNmois06;
 	} // Fin de getPcNuitNmois06().________________________________________
 
@@ -6465,7 +6465,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois06(
+	public void setPcNuitNmois06(
 			final String pPcNuitNmois06) {
 		this.pcNuitNmois06 = pPcNuitNmois06;
 	} // Fin de setPcNuitNmois06(...)._____________________________________
@@ -6479,7 +6479,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois07() {
+	public Integer getMjmNmois07() {
 		return this.mjmNmois07;
 	} // Fin de getMjmNmois07().___________________________________________
 
@@ -6489,7 +6489,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois07(
+	public void setMjmNmois07(
 			final Integer pMjmNmois07) {
 		this.mjmNmois07 = pMjmNmois07;
 	} // Fin de setMjmNmois07(...).________________________________________
@@ -6503,7 +6503,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois07() {
+	public String getPcNuitNmois07() {
 		return this.pcNuitNmois07;
 	} // Fin de getPcNuitNmois07().________________________________________
 
@@ -6513,7 +6513,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois07(
+	public void setPcNuitNmois07(
 			final String pPcNuitNmois07) {
 		this.pcNuitNmois07 = pPcNuitNmois07;
 	} // Fin de setPcNuitNmois07(...)._____________________________________
@@ -6527,7 +6527,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois08() {
+	public Integer getMjmNmois08() {
 		return this.mjmNmois08;
 	} // Fin de getMjmNmois08().___________________________________________
 
@@ -6537,7 +6537,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois08(
+	public void setMjmNmois08(
 			final Integer pMjmNmois08) {
 		this.mjmNmois08 = pMjmNmois08;
 	} // Fin de setMjmNmois08(...).________________________________________
@@ -6551,7 +6551,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois08() {
+	public String getPcNuitNmois08() {
 		return this.pcNuitNmois08;
 	} // Fin de getPcNuitNmois08().________________________________________
 
@@ -6561,7 +6561,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois08(
+	public void setPcNuitNmois08(
 			final String pPcNuitNmois08) {
 		this.pcNuitNmois08 = pPcNuitNmois08;
 	} // Fin de setPcNuitNmois08(...)._____________________________________
@@ -6575,7 +6575,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois09() {
+	public Integer getMjmNmois09() {
 		return this.mjmNmois09;
 	} // Fin de getMjmNmois09().___________________________________________
 
@@ -6585,7 +6585,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois09(
+	public void setMjmNmois09(
 			final Integer pMjmNmois09) {
 		this.mjmNmois09 = pMjmNmois09;
 	} // Fin de setMjmNmois09(...).________________________________________
@@ -6599,7 +6599,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois09() {
+	public String getPcNuitNmois09() {
 		return this.pcNuitNmois09;
 	} // Fin de getPcNuitNmois09().________________________________________
 
@@ -6609,7 +6609,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois09(
+	public void setPcNuitNmois09(
 			final String pPcNuitNmois09) {
 		this.pcNuitNmois09 = pPcNuitNmois09;
 	} // Fin de setPcNuitNmois09(...)._____________________________________
@@ -6623,7 +6623,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois10() {
+	public Integer getMjmNmois10() {
 		return this.mjmNmois10;
 	} // Fin de getMjmNmois10().___________________________________________
 
@@ -6633,7 +6633,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois10(
+	public void setMjmNmois10(
 			final Integer pMjmNmois10) {
 		this.mjmNmois10 = pMjmNmois10;
 	} // Fin de setMjmNmois10(...).________________________________________
@@ -6647,7 +6647,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois10() {
+	public String getPcNuitNmois10() {
 		return this.pcNuitNmois10;
 	} // Fin de getPcNuitNmois10().________________________________________
 
@@ -6657,7 +6657,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois10(
+	public void setPcNuitNmois10(
 			final String pPcNuitNmois10) {
 		this.pcNuitNmois10 = pPcNuitNmois10;
 	} // Fin de setPcNuitNmois10(...)._____________________________________
@@ -6671,7 +6671,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois11() {
+	public Integer getMjmNmois11() {
 		return this.mjmNmois11;
 	} // Fin de getMjmNmois11().___________________________________________
 
@@ -6681,7 +6681,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois11(
+	public void setMjmNmois11(
 			final Integer pMjmNmois11) {
 		this.mjmNmois11 = pMjmNmois11;
 	} // Fin de setMjmNmois11(...).________________________________________
@@ -6695,7 +6695,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois11() {
+	public String getPcNuitNmois11() {
 		return this.pcNuitNmois11;
 	} // Fin de getPcNuitNmois11().________________________________________
 
@@ -6705,7 +6705,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois11(
+	public void setPcNuitNmois11(
 			final String pPcNuitNmois11) {
 		this.pcNuitNmois11 = pPcNuitNmois11;
 	} // Fin de setPcNuitNmois11(...)._____________________________________
@@ -6719,7 +6719,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmois12() {
+	public Integer getMjmNmois12() {
 		return this.mjmNmois12;
 	} // Fin de getMjmNmois12().___________________________________________
 
@@ -6729,7 +6729,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmois12(
+	public void setMjmNmois12(
 			final Integer pMjmNmois12) {
 		this.mjmNmois12 = pMjmNmois12;
 	} // Fin de setMjmNmois12(...).________________________________________
@@ -6743,7 +6743,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmois12() {
+	public String getPcNuitNmois12() {
 		return this.pcNuitNmois12;
 	} // Fin de getPcNuitNmois12().________________________________________
 
@@ -6753,7 +6753,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmois12(
+	public void setPcNuitNmois12(
 			final String pPcNuitNmois12) {
 		this.pcNuitNmois12 = pPcNuitNmois12;
 	} // Fin de setPcNuitNmois12(...)._____________________________________
@@ -6767,7 +6767,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getZoneLibre3() {
+	public String getZoneLibre3() {
 		return this.zoneLibre3;
 	} // Fin de getZoneLibre3().___________________________________________
 
@@ -6777,7 +6777,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setZoneLibre3(
+	public void setZoneLibre3(
 			final String pZoneLibre3) {
 		this.zoneLibre3 = pZoneLibre3;
 	} // Fin de setZoneLibre3(...).________________________________________
@@ -6791,7 +6791,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final LocalDate getAnneeNmoins1() {
+	public LocalDate getAnneeNmoins1() {
 		return this.anneeNmoins1;
 	} // Fin de getAnneeNmoins1()._________________________________________
 	
@@ -6801,7 +6801,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAnneeNmoins1(
+	public void setAnneeNmoins1(
 			final LocalDate pAnneeNmoins1) {
 		this.anneeNmoins1 = pAnneeNmoins1;
 	} // Fin de setAnneeNmoins1(...).______________________________________
@@ -6815,7 +6815,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjaNmoins1() {
+	public Integer getMjaNmoins1() {
 		return this.mjaNmoins1;
 	} // Fin de getMjaNmoins1().___________________________________________
 
@@ -6825,7 +6825,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjaNmoins1(
+	public void setMjaNmoins1(
 			final Integer pMjaNmoins1) {
 		this.mjaNmoins1 = pMjaNmoins1;
 	} // Fin de setMjaNmoins1(...).________________________________________
@@ -6839,7 +6839,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getTypeComptageNmoins1() {
+	public String getTypeComptageNmoins1() {
 		return this.typeComptageNmoins1;
 	} // Fin de getTypeComptageNmoins1().__________________________________
 
@@ -6849,7 +6849,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setTypeComptageNmoins1(
+	public void setTypeComptageNmoins1(
 			final String pTypeComptageNmoins1) {
 		this.typeComptageNmoins1 = pTypeComptageNmoins1;
 	} // Fin de setTypeComptageNmoins1(...)._______________________________
@@ -6863,7 +6863,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getModeCalculNmoins1() {
+	public String getModeCalculNmoins1() {
 		return this.modeCalculNmoins1;
 	} // Fin de getModeCalculNmoins1().____________________________________
 
@@ -6873,7 +6873,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setModeCalculNmoins1(
+	public void setModeCalculNmoins1(
 			final String pModeCalculNmoins1) {
 		this.modeCalculNmoins1 = pModeCalculNmoins1;
 	} // Fin de setModeCalculNmoins1(...)._________________________________
@@ -6887,7 +6887,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcPLNmoins1() {
+	public String getPcPLNmoins1() {
 		return this.pcPLNmoins1;
 	} // Fin de getPcPLNmoins1().__________________________________________
 
@@ -6897,7 +6897,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcPLNmoins1(
+	public void setPcPLNmoins1(
 			final String pPcPLNmoins1) {
 		this.pcPLNmoins1 = pPcPLNmoins1;
 	} // Fin de setPcPLNmoins1(...)._______________________________________
@@ -6911,7 +6911,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getEvaluationPLNmoins1() {
+	public String getEvaluationPLNmoins1() {
 		return this.evaluationPLNmoins1;
 	} // Fin de getEvaluationPLNmoins1().__________________________________
 
@@ -6921,7 +6921,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setEvaluationPLNmoins1(
+	public void setEvaluationPLNmoins1(
 			final String pEvaluationPLNmoins1) {
 		this.evaluationPLNmoins1 = pEvaluationPLNmoins1;
 	} // Fin de setEvaluationPLNmoins1(...)._______________________________
@@ -6935,7 +6935,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitAnnuelNmoins1() {
+	public String getPcNuitAnnuelNmoins1() {
 		return this.pcNuitAnnuelNmoins1;
 	} // Fin de getPcNuitAnnuelNmoins1().__________________________________
 
@@ -6945,7 +6945,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitAnnuelNmoins1(
+	public void setPcNuitAnnuelNmoins1(
 			final String pPcNuitAnnuelNmoins1) {
 		this.pcNuitAnnuelNmoins1 = pPcNuitAnnuelNmoins1;
 	} // Fiin de setPcNuitAnnuelNmoins1(...).______________________________
@@ -6959,7 +6959,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getIndiceFiabiliteMjaNmoins1() {
+	public String getIndiceFiabiliteMjaNmoins1() {
 		return this.indiceFiabiliteMjaNmoins1;
 	} // Fin de getIndiceFiabiliteMjaNmoins1().____________________________
 
@@ -6969,7 +6969,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceFiabiliteMjaNmoins1(
+	public void setIndiceFiabiliteMjaNmoins1(
 			final String pIndiceFiabiliteMjaNmoins1) {
 		this.indiceFiabiliteMjaNmoins1 = pIndiceFiabiliteMjaNmoins1;
 	} // Fin de setIndiceFiabiliteMjaNmoins1(...)._________________________
@@ -6983,7 +6983,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final LocalDate getAnneeNmoins2() {
+	public LocalDate getAnneeNmoins2() {
 		return this.anneeNmoins2;
 	} // Fin de getAnneeNmoins2()._________________________________________
 	
@@ -6993,7 +6993,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAnneeNmoins2(
+	public void setAnneeNmoins2(
 			final LocalDate pAnneeNmoins2) {
 		this.anneeNmoins2 = pAnneeNmoins2;
 	} // Fin de setAnneeNmoins2(...).______________________________________
@@ -7007,7 +7007,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjaNmoins2() {
+	public Integer getMjaNmoins2() {
 		return this.mjaNmoins2;
 	} // Fin de getMjaNmoins2().___________________________________________
 
@@ -7017,7 +7017,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjaNmoins2(
+	public void setMjaNmoins2(
 			final Integer pMjaNmoins2) {
 		this.mjaNmoins2 = pMjaNmoins2;
 	} // Fin de setMjaNmoins2(...).________________________________________
@@ -7031,7 +7031,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getTypeComptageNmoins2() {
+	public String getTypeComptageNmoins2() {
 		return this.typeComptageNmoins2;
 	} // Fin de getTypeComptageNmoins2().__________________________________
 
@@ -7041,7 +7041,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setTypeComptageNmoins2(
+	public void setTypeComptageNmoins2(
 			final String pTypeComptageNmoins2) {
 		this.typeComptageNmoins2 = pTypeComptageNmoins2;
 	} // Fin de setTypeComptageNmoins2(...)._______________________________
@@ -7055,7 +7055,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getModeCalculNmoins2() {
+	public String getModeCalculNmoins2() {
 		return this.modeCalculNmoins2;
 	} // Fin de getModeCalculNmoins2().____________________________________
 
@@ -7065,7 +7065,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setModeCalculNmoins2(
+	public void setModeCalculNmoins2(
 			final String pModeCalculNmoins2) {
 		this.modeCalculNmoins2 = pModeCalculNmoins2;
 	} // Fin de setModeCalculNmoins2(...)._________________________________
@@ -7079,7 +7079,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcPLNmoins2() {
+	public String getPcPLNmoins2() {
 		return this.pcPLNmoins2;
 	} // Fin de getPcPLNmoins2().__________________________________________
 
@@ -7089,7 +7089,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcPLNmoins2(
+	public void setPcPLNmoins2(
 			final String pPcPLNmoins2) {
 		this.pcPLNmoins2 = pPcPLNmoins2;
 	} // Fin de setPcPLNmoins2(...)._______________________________________
@@ -7103,7 +7103,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getEvaluationPLNmoins2() {
+	public String getEvaluationPLNmoins2() {
 		return this.evaluationPLNmoins2;
 	} // Fin de getEvaluationPLNmoins2().__________________________________
 
@@ -7113,7 +7113,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setEvaluationPLNmoins2(
+	public void setEvaluationPLNmoins2(
 			final String pEvaluationPLNmoins2) {
 		this.evaluationPLNmoins2 = pEvaluationPLNmoins2;
 	} // Fin de setEvaluationPLNmoins2(...)._______________________________
@@ -7127,7 +7127,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitAnnuelNmoins2() {
+	public String getPcNuitAnnuelNmoins2() {
 		return this.pcNuitAnnuelNmoins2;
 	} // Fin de getPcNuitAnnuelNmoins2().__________________________________
 
@@ -7137,7 +7137,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitAnnuelNmoins2(
+	public void setPcNuitAnnuelNmoins2(
 			final String pPcNuitAnnuelNmoins2) {
 		this.pcNuitAnnuelNmoins2 = pPcNuitAnnuelNmoins2;
 	} // Fiin de setPcNuitAnnuelNmoins2(...).______________________________
@@ -7151,7 +7151,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getIndiceFiabiliteMjaNmoins2() {
+	public String getIndiceFiabiliteMjaNmoins2() {
 		return this.indiceFiabiliteMjaNmoins2;
 	} // Fin de getIndiceFiabiliteMjaNmoins2().____________________________
 
@@ -7161,7 +7161,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceFiabiliteMjaNmoins2(
+	public void setIndiceFiabiliteMjaNmoins2(
 			final String pIndiceFiabiliteMjaNmoins2) {
 		this.indiceFiabiliteMjaNmoins2 = pIndiceFiabiliteMjaNmoins2;
 	} // Fin de setIndiceFiabiliteMjaNmoins2(...)._________________________
@@ -7175,7 +7175,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final LocalDate getAnneeNmoins3() {
+	public LocalDate getAnneeNmoins3() {
 		return this.anneeNmoins3;
 	} // Fin de getAnneeNmoins3()._________________________________________
 	
@@ -7185,7 +7185,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAnneeNmoins3(
+	public void setAnneeNmoins3(
 			final LocalDate pAnneeNmoins3) {
 		this.anneeNmoins3 = pAnneeNmoins3;
 	} // Fin de setAnneeNmoins3(...).______________________________________
@@ -7199,7 +7199,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjaNmoins3() {
+	public Integer getMjaNmoins3() {
 		return this.mjaNmoins3;
 	} // Fin de getMjaNmoins3().___________________________________________
 
@@ -7209,7 +7209,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjaNmoins3(
+	public void setMjaNmoins3(
 			final Integer pMjaNmoins3) {
 		this.mjaNmoins3 = pMjaNmoins3;
 	} // Fin de setMjaNmoins3(...).________________________________________
@@ -7223,7 +7223,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getTypeComptageNmoins3() {
+	public String getTypeComptageNmoins3() {
 		return this.typeComptageNmoins3;
 	} // Fin de getTypeComptageNmoins3().__________________________________
 
@@ -7233,7 +7233,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setTypeComptageNmoins3(
+	public void setTypeComptageNmoins3(
 			final String pTypeComptageNmoins3) {
 		this.typeComptageNmoins3 = pTypeComptageNmoins3;
 	} // Fin de setTypeComptageNmoins3(...)._______________________________
@@ -7247,7 +7247,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getModeCalculNmoins3() {
+	public String getModeCalculNmoins3() {
 		return this.modeCalculNmoins3;
 	} // Fin de getModeCalculNmoins3().____________________________________
 
@@ -7257,7 +7257,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setModeCalculNmoins3(
+	public void setModeCalculNmoins3(
 			final String pModeCalculNmoins3) {
 		this.modeCalculNmoins3 = pModeCalculNmoins3;
 	} // Fin de setModeCalculNmoins3(...)._________________________________
@@ -7271,7 +7271,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcPLNmoins3() {
+	public String getPcPLNmoins3() {
 		return this.pcPLNmoins3;
 	} // Fin de getPcPLNmoins3().__________________________________________
 
@@ -7281,7 +7281,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcPLNmoins3(
+	public void setPcPLNmoins3(
 			final String pPcPLNmoins3) {
 		this.pcPLNmoins3 = pPcPLNmoins3;
 	} // Fin de setPcPLNmoins3(...)._______________________________________
@@ -7295,7 +7295,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getEvaluationPLNmoins3() {
+	public String getEvaluationPLNmoins3() {
 		return this.evaluationPLNmoins3;
 	} // Fin de getEvaluationPLNmoins3().__________________________________
 
@@ -7305,7 +7305,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setEvaluationPLNmoins3(
+	public void setEvaluationPLNmoins3(
 			final String pEvaluationPLNmoins3) {
 		this.evaluationPLNmoins3 = pEvaluationPLNmoins3;
 	} // Fin de setEvaluationPLNmoins3(...)._______________________________
@@ -7319,7 +7319,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitAnnuelNmoins3() {
+	public String getPcNuitAnnuelNmoins3() {
 		return this.pcNuitAnnuelNmoins3;
 	} // Fin de getPcNuitAnnuelNmoins3().__________________________________
 
@@ -7329,7 +7329,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitAnnuelNmoins3(
+	public void setPcNuitAnnuelNmoins3(
 			final String pPcNuitAnnuelNmoins3) {
 		this.pcNuitAnnuelNmoins3 = pPcNuitAnnuelNmoins3;
 	} // Fiin de setPcNuitAnnuelNmoins3(...).______________________________
@@ -7343,7 +7343,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getIndiceFiabiliteMjaNmoins3() {
+	public String getIndiceFiabiliteMjaNmoins3() {
 		return this.indiceFiabiliteMjaNmoins3;
 	} // Fin de getIndiceFiabiliteMjaNmoins3().____________________________
 
@@ -7353,7 +7353,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceFiabiliteMjaNmoins3(
+	public void setIndiceFiabiliteMjaNmoins3(
 			final String pIndiceFiabiliteMjaNmoins3) {
 		this.indiceFiabiliteMjaNmoins3 = pIndiceFiabiliteMjaNmoins3;
 	} // Fin de setIndiceFiabiliteMjaNmoins3(...)._________________________
@@ -7367,7 +7367,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)	
 	@Override
-	public final LocalDate getAnneeNmoins4() {
+	public LocalDate getAnneeNmoins4() {
 		return this.anneeNmoins4;
 	} // Fin de getAnneeNmoins4()._________________________________________
 	
@@ -7377,7 +7377,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAnneeNmoins4(
+	public void setAnneeNmoins4(
 			final LocalDate pAnneeNmoins4) {
 		this.anneeNmoins4 = pAnneeNmoins4;
 	} // Fin de setAnneeNmoins4(...).______________________________________
@@ -7391,7 +7391,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjaNmoins4() {
+	public Integer getMjaNmoins4() {
 		return this.mjaNmoins4;
 	} // Fin de getMjaNmoins4().___________________________________________
 
@@ -7401,7 +7401,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjaNmoins4(
+	public void setMjaNmoins4(
 			final Integer pMjaNmoins4) {
 		this.mjaNmoins4 = pMjaNmoins4;
 	} // Fin de setMjaNmoins4(...).________________________________________
@@ -7415,7 +7415,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getTypeComptageNmoins4() {
+	public String getTypeComptageNmoins4() {
 		return this.typeComptageNmoins4;
 	} // Fin de getTypeComptageNmoins4().__________________________________
 
@@ -7425,7 +7425,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setTypeComptageNmoins4(
+	public void setTypeComptageNmoins4(
 			final String pTypeComptageNmoins4) {
 		this.typeComptageNmoins4 = pTypeComptageNmoins4;
 	} // Fin de setTypeComptageNmoins4(...)._______________________________
@@ -7439,7 +7439,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getModeCalculNmoins4() {
+	public String getModeCalculNmoins4() {
 		return this.modeCalculNmoins4;
 	} // Fin de getModeCalculNmoins4().____________________________________
 
@@ -7449,7 +7449,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setModeCalculNmoins4(
+	public void setModeCalculNmoins4(
 			final String pModeCalculNmoins4) {
 		this.modeCalculNmoins4 = pModeCalculNmoins4;
 	} // Fin de setModeCalculNmoins4(...)._________________________________
@@ -7463,7 +7463,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcPLNmoins4() {
+	public String getPcPLNmoins4() {
 		return this.pcPLNmoins4;
 	} // Fin de getPcPLNmoins4().__________________________________________
 
@@ -7473,7 +7473,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcPLNmoins4(
+	public void setPcPLNmoins4(
 			final String pPcPLNmoins4) {
 		this.pcPLNmoins4 = pPcPLNmoins4;
 	} // Fin de setPcPLNmoins4(...)._______________________________________
@@ -7487,7 +7487,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getEvaluationPLNmoins4() {
+	public String getEvaluationPLNmoins4() {
 		return this.evaluationPLNmoins4;
 	} // Fin de getEvaluationPLNmoins4().__________________________________
 
@@ -7497,7 +7497,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setEvaluationPLNmoins4(
+	public void setEvaluationPLNmoins4(
 			final String pEvaluationPLNmoins4) {
 		this.evaluationPLNmoins4 = pEvaluationPLNmoins4;
 	} // Fin de setEvaluationPLNmoins4(...)._______________________________
@@ -7511,7 +7511,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitAnnuelNmoins4() {
+	public String getPcNuitAnnuelNmoins4() {
 		return this.pcNuitAnnuelNmoins4;
 	} // Fin de getPcNuitAnnuelNmoins4().__________________________________
 
@@ -7521,7 +7521,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitAnnuelNmoins4(
+	public void setPcNuitAnnuelNmoins4(
 			final String pPcNuitAnnuelNmoins4) {
 		this.pcNuitAnnuelNmoins4 = pPcNuitAnnuelNmoins4;
 	} // Fiin de setPcNuitAnnuelNmoins4(...).______________________________
@@ -7535,7 +7535,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getIndiceFiabiliteMjaNmoins4() {
+	public String getIndiceFiabiliteMjaNmoins4() {
 		return this.indiceFiabiliteMjaNmoins4;
 	} // Fin de getIndiceFiabiliteMjaNmoins4().____________________________
 
@@ -7545,7 +7545,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceFiabiliteMjaNmoins4(
+	public void setIndiceFiabiliteMjaNmoins4(
 			final String pIndiceFiabiliteMjaNmoins4) {
 		this.indiceFiabiliteMjaNmoins4 = pIndiceFiabiliteMjaNmoins4;
 	} // Fin de setIndiceFiabiliteMjaNmoins4(...)._________________________
@@ -7559,7 +7559,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)	
 	@Override
-	public final LocalDate getAnneeNmoins5() {
+	public LocalDate getAnneeNmoins5() {
 		return this.anneeNmoins5;
 	} // Fin de getAnneeNmoins5()._________________________________________
 	
@@ -7569,7 +7569,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAnneeNmoins5(
+	public void setAnneeNmoins5(
 			final LocalDate pAnneeNmoins5) {
 		this.anneeNmoins5 = pAnneeNmoins5;
 	} // Fin de setAnneeNmoins5(...).______________________________________
@@ -7583,7 +7583,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjaNmoins5() {
+	public Integer getMjaNmoins5() {
 		return this.mjaNmoins5;
 	} // Fin de getMjaNmoins5().___________________________________________
 
@@ -7593,7 +7593,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjaNmoins5(
+	public void setMjaNmoins5(
 			final Integer pMjaNmoins5) {
 		this.mjaNmoins5 = pMjaNmoins5;
 	} // Fin de setMjaNmoins5(...).________________________________________
@@ -7607,7 +7607,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getTypeComptageNmoins5() {
+	public String getTypeComptageNmoins5() {
 		return this.typeComptageNmoins5;
 	} // Fin de getTypeComptageNmoins5().__________________________________
 
@@ -7617,7 +7617,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setTypeComptageNmoins5(
+	public void setTypeComptageNmoins5(
 			final String pTypeComptageNmoins5) {
 		this.typeComptageNmoins5 = pTypeComptageNmoins5;
 	} // Fin de setTypeComptageNmoins5(...)._______________________________
@@ -7631,7 +7631,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getModeCalculNmoins5() {
+	public String getModeCalculNmoins5() {
 		return this.modeCalculNmoins5;
 	} // Fin de getModeCalculNmoins5().____________________________________
 
@@ -7641,7 +7641,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setModeCalculNmoins5(
+	public void setModeCalculNmoins5(
 			final String pModeCalculNmoins5) {
 		this.modeCalculNmoins5 = pModeCalculNmoins5;
 	} // Fin de setModeCalculNmoins5(...)._________________________________
@@ -7655,7 +7655,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcPLNmoins5() {
+	public String getPcPLNmoins5() {
 		return this.pcPLNmoins5;
 	} // Fin de getPcPLNmoins5().__________________________________________
 
@@ -7665,7 +7665,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcPLNmoins5(
+	public void setPcPLNmoins5(
 			final String pPcPLNmoins5) {
 		this.pcPLNmoins5 = pPcPLNmoins5;
 	} // Fin de setPcPLNmoins5(...)._______________________________________
@@ -7679,7 +7679,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getEvaluationPLNmoins5() {
+	public String getEvaluationPLNmoins5() {
 		return this.evaluationPLNmoins5;
 	} // Fin de getEvaluationPLNmoins5().__________________________________
 
@@ -7689,7 +7689,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setEvaluationPLNmoins5(
+	public void setEvaluationPLNmoins5(
 			final String pEvaluationPLNmoins5) {
 		this.evaluationPLNmoins5 = pEvaluationPLNmoins5;
 	} // Fin de setEvaluationPLNmoins5(...)._______________________________
@@ -7703,7 +7703,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitAnnuelNmoins5() {
+	public String getPcNuitAnnuelNmoins5() {
 		return this.pcNuitAnnuelNmoins5;
 	} // Fin de getPcNuitAnnuelNmoins5().__________________________________
 
@@ -7713,7 +7713,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitAnnuelNmoins5(
+	public void setPcNuitAnnuelNmoins5(
 			final String pPcNuitAnnuelNmoins5) {
 		this.pcNuitAnnuelNmoins5 = pPcNuitAnnuelNmoins5;
 	} // Fiin de setPcNuitAnnuelNmoins5(...).______________________________
@@ -7727,7 +7727,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getIndiceFiabiliteMjaNmoins5() {
+	public String getIndiceFiabiliteMjaNmoins5() {
 		return this.indiceFiabiliteMjaNmoins5;
 	} // Fin de getIndiceFiabiliteMjaNmoins5().____________________________
 
@@ -7737,7 +7737,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceFiabiliteMjaNmoins5(
+	public void setIndiceFiabiliteMjaNmoins5(
 			final String pIndiceFiabiliteMjaNmoins5) {
 		this.indiceFiabiliteMjaNmoins5 = pIndiceFiabiliteMjaNmoins5;
 	} // Fin de setIndiceFiabiliteMjaNmoins5(...)._________________________
@@ -7751,7 +7751,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois01() {
+	public Integer getMjmNmoins1mois01() {
 		return this.mjmNmoins1mois01;
 	} // Fin de getMjmNmoins1mois01()._____________________________________
 
@@ -7761,7 +7761,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois01(
+	public void setMjmNmoins1mois01(
 			final Integer pMjmNmoins1mois01) {
 		this.mjmNmoins1mois01 = pMjmNmoins1mois01;
 	} // Fin de setMjmNmoins1mois01(...).__________________________________
@@ -7775,7 +7775,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois01() {
+	public String getPcNuitNmoins1mois01() {
 		return this.pcNuitNmoins1mois01;
 	} // Fin de getPcNuitNmoins1mois01().__________________________________
 
@@ -7785,7 +7785,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois01(
+	public void setPcNuitNmoins1mois01(
 			final String pPcNuitNmoins1mois01) {
 		this.pcNuitNmoins1mois01 = pPcNuitNmoins1mois01;
 	} // Fin de setPcNuitNmoins1mois01(...)._______________________________
@@ -7799,7 +7799,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois02() {
+	public Integer getMjmNmoins1mois02() {
 		return this.mjmNmoins1mois02;
 	} // Fin de getMjmNmoins1mois02()._____________________________________
 
@@ -7809,7 +7809,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois02(
+	public void setMjmNmoins1mois02(
 			final Integer pMjmNmoins1mois02) {
 		this.mjmNmoins1mois02 = pMjmNmoins1mois02;
 	} // Fin de setMjmNmoins1mois02(...).__________________________________
@@ -7823,7 +7823,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois02() {
+	public String getPcNuitNmoins1mois02() {
 		return this.pcNuitNmoins1mois02;
 	} // Fin de getPcNuitNmoins1mois02().__________________________________
 
@@ -7833,7 +7833,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois02(
+	public void setPcNuitNmoins1mois02(
 			final String pPcNuitNmoins1mois02) {
 		this.pcNuitNmoins1mois02 = pPcNuitNmoins1mois02;
 	} // Fin de setPcNuitNmoins1mois02(...)._______________________________
@@ -7847,7 +7847,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois03() {
+	public Integer getMjmNmoins1mois03() {
 		return this.mjmNmoins1mois03;
 	} // Fin de getMjmNmoins1mois03()._____________________________________
 
@@ -7857,7 +7857,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois03(
+	public void setMjmNmoins1mois03(
 			final Integer pMjmNmoins1mois03) {
 		this.mjmNmoins1mois03 = pMjmNmoins1mois03;
 	} // Fin de setMjmNmoins1mois03(...).__________________________________
@@ -7871,7 +7871,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois03() {
+	public String getPcNuitNmoins1mois03() {
 		return this.pcNuitNmoins1mois03;
 	} // Fin de getPcNuitNmoins1mois03().__________________________________
 
@@ -7881,7 +7881,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois03(
+	public void setPcNuitNmoins1mois03(
 			final String pPcNuitNmoins1mois03) {
 		this.pcNuitNmoins1mois03 = pPcNuitNmoins1mois03;
 	} // Fin de setPcNuitNmoins1mois03(...)._______________________________
@@ -7895,7 +7895,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois04() {
+	public Integer getMjmNmoins1mois04() {
 		return this.mjmNmoins1mois04;
 	} // Fin de getMjmNmoins1mois04()._____________________________________
 
@@ -7905,7 +7905,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois04(
+	public void setMjmNmoins1mois04(
 			final Integer pMjmNmoins1mois04) {
 		this.mjmNmoins1mois04 = pMjmNmoins1mois04;
 	} // Fin de setMjmNmoins1mois04(...).__________________________________
@@ -7919,7 +7919,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois04() {
+	public String getPcNuitNmoins1mois04() {
 		return this.pcNuitNmoins1mois04;
 	} // Fin de getPcNuitNmoins1mois04().__________________________________
 
@@ -7929,7 +7929,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois04(
+	public void setPcNuitNmoins1mois04(
 			final String pPcNuitNmoins1mois04) {
 		this.pcNuitNmoins1mois04 = pPcNuitNmoins1mois04;
 	} // Fin de setPcNuitNmoins1mois04(...)._______________________________
@@ -7943,7 +7943,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois05() {
+	public Integer getMjmNmoins1mois05() {
 		return this.mjmNmoins1mois05;
 	} // Fin de getMjmNmoins1mois05()._____________________________________
 
@@ -7953,7 +7953,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois05(
+	public void setMjmNmoins1mois05(
 			final Integer pMjmNmoins1mois05) {
 		this.mjmNmoins1mois05 = pMjmNmoins1mois05;
 	} // Fin de setMjmNmoins1mois05(...).__________________________________
@@ -7967,7 +7967,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois05() {
+	public String getPcNuitNmoins1mois05() {
 		return this.pcNuitNmoins1mois05;
 	} // Fin de getPcNuitNmoins1mois05().__________________________________
 
@@ -7977,7 +7977,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois05(
+	public void setPcNuitNmoins1mois05(
 			final String pPcNuitNmoins1mois05) {
 		this.pcNuitNmoins1mois05 = pPcNuitNmoins1mois05;
 	} // Fin de setPcNuitNmoins1mois05(...)._______________________________
@@ -7991,7 +7991,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois06() {
+	public Integer getMjmNmoins1mois06() {
 		return this.mjmNmoins1mois06;
 	} // Fin de getMjmNmoins1mois06()._____________________________________
 
@@ -8001,7 +8001,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois06(
+	public void setMjmNmoins1mois06(
 			final Integer pMjmNmoins1mois06) {
 		this.mjmNmoins1mois06 = pMjmNmoins1mois06;
 	} // Fin de setMjmNmoins1mois06(...).__________________________________
@@ -8015,7 +8015,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois06() {
+	public String getPcNuitNmoins1mois06() {
 		return this.pcNuitNmoins1mois06;
 	} // Fin de getPcNuitNmoins1mois06().__________________________________
 
@@ -8025,7 +8025,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois06(
+	public void setPcNuitNmoins1mois06(
 			final String pPcNuitNmoins1mois06) {
 		this.pcNuitNmoins1mois06 = pPcNuitNmoins1mois06;
 	} // Fin de setPcNuitNmoins1mois06(...)._______________________________
@@ -8039,7 +8039,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois07() {
+	public Integer getMjmNmoins1mois07() {
 		return this.mjmNmoins1mois07;
 	} // Fin de getMjmNmoins1mois07()._____________________________________
 
@@ -8049,7 +8049,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois07(
+	public void setMjmNmoins1mois07(
 			final Integer pMjmNmoins1mois07) {
 		this.mjmNmoins1mois07 = pMjmNmoins1mois07;
 	} // Fin de setMjmNmoins1mois07(...).__________________________________
@@ -8063,7 +8063,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois07() {
+	public String getPcNuitNmoins1mois07() {
 		return this.pcNuitNmoins1mois07;
 	} // Fin de getPcNuitNmoins1mois07().__________________________________
 
@@ -8073,7 +8073,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois07(
+	public void setPcNuitNmoins1mois07(
 			final String pPcNuitNmoins1mois07) {
 		this.pcNuitNmoins1mois07 = pPcNuitNmoins1mois07;
 	} // Fin de setPcNuitNmoins1mois07(...)._______________________________
@@ -8087,7 +8087,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois08() {
+	public Integer getMjmNmoins1mois08() {
 		return this.mjmNmoins1mois08;
 	} // Fin de getMjmNmoins1mois08()._____________________________________
 
@@ -8097,7 +8097,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois08(
+	public void setMjmNmoins1mois08(
 			final Integer pMjmNmoins1mois08) {
 		this.mjmNmoins1mois08 = pMjmNmoins1mois08;
 	} // Fin de setMjmNmoins1mois08(...).__________________________________
@@ -8111,7 +8111,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois08() {
+	public String getPcNuitNmoins1mois08() {
 		return this.pcNuitNmoins1mois08;
 	} // Fin de getPcNuitNmoins1mois08().__________________________________
 
@@ -8121,7 +8121,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois08(
+	public void setPcNuitNmoins1mois08(
 			final String pPcNuitNmoins1mois08) {
 		this.pcNuitNmoins1mois08 = pPcNuitNmoins1mois08;
 	} // Fin de setPcNuitNmoins1mois08(...)._______________________________
@@ -8135,7 +8135,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois09() {
+	public Integer getMjmNmoins1mois09() {
 		return this.mjmNmoins1mois09;
 	} // Fin de getMjmNmoins1mois09()._____________________________________
 
@@ -8145,7 +8145,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois09(
+	public void setMjmNmoins1mois09(
 			final Integer pMjmNmoins1mois09) {
 		this.mjmNmoins1mois09 = pMjmNmoins1mois09;
 	} // Fin de setMjmNmoins1mois09(...).__________________________________
@@ -8159,7 +8159,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois09() {
+	public String getPcNuitNmoins1mois09() {
 		return this.pcNuitNmoins1mois09;
 	} // Fin de getPcNuitNmoins1mois09().__________________________________
 
@@ -8169,7 +8169,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois09(
+	public void setPcNuitNmoins1mois09(
 			final String pPcNuitNmoins1mois09) {
 		this.pcNuitNmoins1mois09 = pPcNuitNmoins1mois09;
 	} // Fin de setPcNuitNmoins1mois09(...)._______________________________
@@ -8183,7 +8183,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois10() {
+	public Integer getMjmNmoins1mois10() {
 		return this.mjmNmoins1mois10;
 	} // Fin de getMjmNmoins1mois10()._____________________________________
 
@@ -8193,7 +8193,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois10(
+	public void setMjmNmoins1mois10(
 			final Integer pMjmNmoins1mois10) {
 		this.mjmNmoins1mois10 = pMjmNmoins1mois10;
 	} // Fin de setMjmNmoins1mois10(...).__________________________________
@@ -8207,7 +8207,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois10() {
+	public String getPcNuitNmoins1mois10() {
 		return this.pcNuitNmoins1mois10;
 	} // Fin de getPcNuitNmoins1mois10().__________________________________
 
@@ -8217,7 +8217,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois10(
+	public void setPcNuitNmoins1mois10(
 			final String pPcNuitNmoins1mois10) {
 		this.pcNuitNmoins1mois10 = pPcNuitNmoins1mois10;
 	} // Fin de setPcNuitNmoins1mois10(...)._______________________________
@@ -8231,7 +8231,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois11() {
+	public Integer getMjmNmoins1mois11() {
 		return this.mjmNmoins1mois11;
 	} // Fin de getMjmNmoins1mois11()._____________________________________
 
@@ -8241,7 +8241,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois11(
+	public void setMjmNmoins1mois11(
 			final Integer pMjmNmoins1mois11) {
 		this.mjmNmoins1mois11 = pMjmNmoins1mois11;
 	} // Fin de setMjmNmoins1mois11(...).__________________________________
@@ -8255,7 +8255,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois11() {
+	public String getPcNuitNmoins1mois11() {
 		return this.pcNuitNmoins1mois11;
 	} // Fin de getPcNuitNmoins1mois11().__________________________________
 
@@ -8265,7 +8265,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois11(
+	public void setPcNuitNmoins1mois11(
 			final String pPcNuitNmoins1mois11) {
 		this.pcNuitNmoins1mois11 = pPcNuitNmoins1mois11;
 	} // Fin de setPcNuitNmoins1mois11(...)._______________________________
@@ -8279,7 +8279,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getMjmNmoins1mois12() {
+	public Integer getMjmNmoins1mois12() {
 		return this.mjmNmoins1mois12;
 	} // Fin de getMjmNmoins1mois12()._____________________________________
 
@@ -8289,7 +8289,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setMjmNmoins1mois12(
+	public void setMjmNmoins1mois12(
 			final Integer pMjmNmoins1mois12) {
 		this.mjmNmoins1mois12 = pMjmNmoins1mois12;
 	} // Fin de setMjmNmoins1mois12(...).__________________________________
@@ -8303,7 +8303,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getPcNuitNmoins1mois12() {
+	public String getPcNuitNmoins1mois12() {
 		return this.pcNuitNmoins1mois12;
 	} // Fin de getPcNuitNmoins1mois12().__________________________________
 
@@ -8313,7 +8313,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPcNuitNmoins1mois12(
+	public void setPcNuitNmoins1mois12(
 			final String pPcNuitNmoins1mois12) {
 		this.pcNuitNmoins1mois12 = pPcNuitNmoins1mois12;
 	} // Fin de setPcNuitNmoins1mois12(...)._______________________________
@@ -8327,7 +8327,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getZoneLibre4() {
+	public String getZoneLibre4() {
 		return this.zoneLibre4;
 	} // Fin de getZoneLibre4().___________________________________________
 
@@ -8337,7 +8337,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setZoneLibre4(
+	public void setZoneLibre4(
 			final String pZoneLibre4) {
 		this.zoneLibre4 = pZoneLibre4;
 	} // Fin de setZoneLibre4(...).________________________________________
@@ -8354,7 +8354,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 			, insertable = true, updatable = true
 			, nullable = false, unique = false)			
 	@Override
-	public final ILocalisationHit getLocalisation() {
+	public ILocalisationHit getLocalisation() {
 		return this.localisation;
 	} // Fin de getLocalisation()._________________________________________
 
@@ -8364,7 +8364,7 @@ public class SectionHitEntityJPA implements ISectionHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLocalisation(final ILocalisationHit pLocalisation) {
+	public void setLocalisation(final ILocalisationHit pLocalisation) {
 		
 		this.localisation = pLocalisation;
 		
@@ -8376,4 +8376,4 @@ public class SectionHitEntityJPA implements ISectionHit {
 
 	
 	
-} // FIN DE LA CLASSE SectionHitEntityJPA.--------------------------------------------
+} // FIN DE LA CLASSE SectionHitEntityJPA.-----------------------------------

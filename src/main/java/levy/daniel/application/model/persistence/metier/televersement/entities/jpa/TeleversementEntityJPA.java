@@ -809,7 +809,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	@Override
-	public final Long getId() {	
+	public Long getId() {	
 		return this.id;
 	} // Fin de getId().___________________________________________________
 
@@ -819,7 +819,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setId(
+	public void setId(
 			final Long pId) {	
 		this.id = pId;
 	} // Fin de setId(...).________________________________________________
@@ -833,7 +833,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final LocalDateTime getDateTeleversement() {
+	public LocalDateTime getDateTeleversement() {
 		return this.dateTeleversement;
 	} // Fin de getDateTeleversement().____________________________________
 
@@ -843,7 +843,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setDateTeleversement(
+	public void setDateTeleversement(
 			final LocalDateTime pDateTeleversement) {
 		this.dateTeleversement = pDateTeleversement;
 	} // Fin de setDateTeleversement(...)._________________________________
@@ -860,7 +860,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 			, insertable = true, updatable = true
 			, nullable = false, unique = false)			
 	@Override
-	public final IUtilisateurCerbere getUtilisateur() {
+	public IUtilisateurCerbere getUtilisateur() {
 		return this.utilisateur;
 	} // Fin de getUtilisateur().__________________________________________
 
@@ -870,7 +870,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setUtilisateur(
+	public void setUtilisateur(
 			final IUtilisateurCerbere pUtilisateur) {
 		this.utilisateur = pUtilisateur;
 	} // Fin de setUtilisateur(...)._______________________________________
@@ -886,7 +886,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	, insertable = true, nullable = false
 	, length = 10)
 	@Override
-	public final EnumGestionnaire getGestionnaire() {
+	public EnumGestionnaire getGestionnaire() {
 		return this.gestionnaire;
 	} // Fin de getGestionnaire()._________________________________________
 
@@ -896,7 +896,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setGestionnaire(
+	public void setGestionnaire(
 			final EnumGestionnaire pGestionnaire) {
 		this.gestionnaire = pGestionnaire;
 	} // Fin de setGestionnaire(...).______________________________________
@@ -912,7 +912,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	, insertable = true, nullable = false
 	, length = 10)
 	@Override
-	public final EnumTypeFichierDonnees getTypeFichier() {
+	public EnumTypeFichierDonnees getTypeFichier() {
 		return this.typeFichier;
 	} // Fin de getTypeFichier().__________________________________________
 
@@ -922,7 +922,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setTypeFichier(
+	public void setTypeFichier(
 			final EnumTypeFichierDonnees pTypeFichier) {
 		this.typeFichier = pTypeFichier;
 	} // Fin de setTypeFichier(...)._______________________________________
@@ -936,7 +936,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final String getNomFichierTeleverse() {
+	public String getNomFichierTeleverse() {
 		return this.nomFichierTeleverse;
 	} // Fin de getNomFichierTeleverse().__________________________________
 
@@ -946,7 +946,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNomFichierTeleverse(
+	public void setNomFichierTeleverse(
 			final String pNomFichierTeleverse) {
 		this.nomFichierTeleverse = pNomFichierTeleverse;
 	} // Fin de setNomFichierTeleverse(...)._______________________________
@@ -958,7 +958,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 */
 	@Transient
 	@Override
-	public final File getFichierStockeServeur() {
+	public File getFichierStockeServeur() {
 		return this.fichierStockeServeur;
 	} // Fin de getFichierStockeServeur()._________________________________
 
@@ -972,7 +972,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * <br/>
 	 */
 	@Override
-	public final void setFichierStockeServeur(
+	public void setFichierStockeServeur(
 			final File pFichierStockeServeur) {
 		
 		this.fichierStockeServeur = pFichierStockeServeur;
@@ -996,7 +996,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	@Column(name="FICHIERSTOCKESERVEURSTRING"
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
-	public final String getFichierStockeServeurString() {
+	public String getFichierStockeServeurString() {
 		return this.fichierStockeServeurString;
 	} // Fin de getFichierStockeServeurString().___________________________
 
@@ -1013,7 +1013,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	* @param pFichierStockeServeurString : String : 
 	* valeur à passer à this.fichierStockeServeurString.<br/>
 	*/
-	public final void setFichierStockeServeurString(
+	public void setFichierStockeServeurString(
 			final String pFichierStockeServeurString) {
 		
 		this.fichierStockeServeurString = pFichierStockeServeurString;
@@ -1037,7 +1037,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 			, insertable = true, updatable = true
 			, nullable = false, unique = false)			
 	@Override
-	public final IAnneeGestion getAnneeGestion() {
+	public IAnneeGestion getAnneeGestion() {
 		return this.anneeGestion;
 	} // Fin de getAnneeGestion()._________________________________________
 
@@ -1047,7 +1047,7 @@ public class TeleversementEntityJPA implements ITeleversement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAnneeGestion(
+	public void setAnneeGestion(
 			final IAnneeGestion pAnneeGestion) {
 		this.anneeGestion = pAnneeGestion;
 	} // Fin de setAnneeGestion(...).______________________________________

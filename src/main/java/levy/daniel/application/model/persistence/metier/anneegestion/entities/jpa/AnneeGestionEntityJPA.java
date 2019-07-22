@@ -410,7 +410,7 @@ public class AnneeGestionEntityJPA implements IAnneeGestion {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	@Override
-	public final Long getId() {	
+	public Long getId() {	
 		return this.id;
 	} // Fin de getId().___________________________________________________
 
@@ -420,7 +420,7 @@ public class AnneeGestionEntityJPA implements IAnneeGestion {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setId(
+	public void setId(
 			final Long pId) {	
 		this.id = pId;
 	} // Fin de setId(...).________________________________________________
@@ -434,7 +434,7 @@ public class AnneeGestionEntityJPA implements IAnneeGestion {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final String getAnneeGestion() {
+	public String getAnneeGestion() {
 		return this.anneeGestion;
 	} // Fin de getAnneeGestion()._________________________________________
 
@@ -444,7 +444,7 @@ public class AnneeGestionEntityJPA implements IAnneeGestion {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAnneeGestion(
+	public void setAnneeGestion(
 			final String pAnneeGestion) {
 		
 		this.anneeGestion = pAnneeGestion;

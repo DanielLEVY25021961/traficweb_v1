@@ -1036,7 +1036,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	@Override
-	public final Long getId() {	
+	public Long getId() {	
 		return this.id;
 	} // Fin de getId().___________________________________________________
 
@@ -1046,7 +1046,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setId(
+	public void setId(
 			final Long pId) {	
 		this.id = pId;
 	} // Fin de setId(...).________________________________________________
@@ -1060,7 +1060,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final String getNumRoute() {
+	public String getNumRoute() {
 		return this.numRoute;
 	} // Fin de getNumRoute()._____________________________________________
 
@@ -1070,7 +1070,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNumRoute(
+	public void setNumRoute(
 			final String pNumRoute) {
 		this.numRoute = pNumRoute;
 	} // Fin de setNumRoute(...).__________________________________________
@@ -1084,7 +1084,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getIndiceNumRoute() {
+	public String getIndiceNumRoute() {
 		return this.indiceNumRoute;
 	} // Fin de getIndiceNumRoute()._______________________________________
 
@@ -1094,7 +1094,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceNumRoute(
+	public void setIndiceNumRoute(
 			final String pIndiceNumRoute) {
 		this.indiceNumRoute = pIndiceNumRoute;
 	} // Fin de setIndiceNumRoute(...).____________________________________
@@ -1108,7 +1108,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getIndiceLettreRoute() {
+	public String getIndiceLettreRoute() {
 		return this.indiceLettreRoute;
 	} // Fin de getIndiceLettreRoute().____________________________________
 
@@ -1118,7 +1118,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setIndiceLettreRoute(
+	public void setIndiceLettreRoute(
 			final String pIndiceLettreRoute) {
 		this.indiceLettreRoute = pIndiceLettreRoute;
 	} // Fin de setIndiceLettreRoute(...)._________________________________
@@ -1132,7 +1132,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final String getCategorieAdminRoute() {
+	public String getCategorieAdminRoute() {
 		return this.categorieAdminRoute;
 	} // Fin de getCategorieAdminRoute().__________________________________
 
@@ -1142,7 +1142,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setCategorieAdminRoute(
+	public void setCategorieAdminRoute(
 			final String pCategorieAdminRoute) {
 		this.categorieAdminRoute = pCategorieAdminRoute;
 	} // Fin de setCategorieAdminRoute(...)._______________________________
@@ -1156,7 +1156,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final String getNumDepartement() {
+	public String getNumDepartement() {
 		return this.numDepartement;
 	} // Fin de getNumDepartement()._______________________________________
 	
@@ -1166,7 +1166,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setNumDepartement(
+	public void setNumDepartement(
 			final String pNumDepartement) {
 		this.numDepartement = pNumDepartement;
 	} // Fin de setNumDepartement(...).____________________________________
@@ -1180,7 +1180,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getLieuDitOrigine() {
+	public String getLieuDitOrigine() {
 		return this.lieuDitOrigine;
 	} // Fin de getLieuDitOrigine()._______________________________________
 
@@ -1190,7 +1190,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLieuDitOrigine(
+	public void setLieuDitOrigine(
 			final String pLieuDitOrigine) {
 		this.lieuDitOrigine = pLieuDitOrigine;
 	} // Fin de setLieuDitOrigine(...).____________________________________
@@ -1204,7 +1204,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final Integer getPrOrigine() {
+	public Integer getPrOrigine() {
 		return this.prOrigine;
 	} // Fin de getPrOrigine().____________________________________________
 
@@ -1214,7 +1214,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPrOrigine(
+	public void setPrOrigine(
 			final Integer pPrOrigine) {
 		this.prOrigine = pPrOrigine;
 	} // Fin de setPrOrigine(...)._________________________________________
@@ -1228,7 +1228,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final Integer getAbsOrigine() {
+	public Integer getAbsOrigine() {
 		return this.absOrigine;
 	} // Fin de getAbsOrigine().___________________________________________
 
@@ -1238,7 +1238,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAbsOrigine(
+	public void setAbsOrigine(
 			final Integer pAbsOrigine) {
 		this.absOrigine = pAbsOrigine;
 	} // Fin de setAbsOrigine(...).________________________________________
@@ -1252,7 +1252,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getLieuDitExtremite() {
+	public String getLieuDitExtremite() {
 		return this.lieuDitExtremite;
 	} // Fin de getLieuDitExtremite()._____________________________________
 
@@ -1262,7 +1262,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLieuDitExtremite(
+	public void setLieuDitExtremite(
 			final String pLieuDitExtremite) {
 		this.lieuDitExtremite = pLieuDitExtremite;
 	} // Fin de setLieuDitExtremite(...).__________________________________
@@ -1276,7 +1276,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final Integer getPrExtremite() {
+	public Integer getPrExtremite() {
 		return this.prExtremite;
 	} // Fin de getPrExtremite().__________________________________________
 
@@ -1286,7 +1286,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPrExtremite(
+	public void setPrExtremite(
 			final Integer pPrExtremite) {
 		this.prExtremite = pPrExtremite;
 	} // Fin de setPrExtremite(...)._______________________________________
@@ -1300,7 +1300,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = false)
 	@Override
-	public final Integer getAbsExtremite() {
+	public Integer getAbsExtremite() {
 		return this.absExtremite;
 	} // Fin de getAbsExtremite()._________________________________________
 
@@ -1310,7 +1310,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAbsExtremite(
+	public void setAbsExtremite(
 			final Integer pAbsExtremite) {
 		this.absExtremite = pAbsExtremite;
 	} // Fin de setAbsExtremite(...).______________________________________
@@ -1324,7 +1324,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final String getLieuDitComptage() {
+	public String getLieuDitComptage() {
 		return this.lieuDitComptage;
 	} // Fin de getLieuDitComptage().______________________________________
 
@@ -1334,7 +1334,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setLieuDitComptage(
+	public void setLieuDitComptage(
 			final String pLieuDitComptage) {
 		this.lieuDitComptage = pLieuDitComptage;
 	} // Fin de setLieuDitComptage(...).___________________________________
@@ -1348,7 +1348,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getPrComptage() {
+	public Integer getPrComptage() {
 		return this.prComptage;
 	} // Fin de getPrComptage().___________________________________________
 
@@ -1358,7 +1358,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setPrComptage(
+	public void setPrComptage(
 			final Integer pPrComptage) {
 		this.prComptage = pPrComptage;
 	} // Fin de setPrComptage(...).________________________________________
@@ -1372,7 +1372,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 			, unique = false, updatable = true
 			, insertable = true, nullable = true)
 	@Override
-	public final Integer getAbsComptage() {
+	public Integer getAbsComptage() {
 		return this.absComptage;
 	} // Fin de getAbsComptage().__________________________________________
 
@@ -1382,7 +1382,7 @@ public class LocalisationHitEntityJPA implements ILocalisationHit {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setAbsComptage(
+	public void setAbsComptage(
 			final Integer pAbsComptage) {
 		this.absComptage = pAbsComptage;
 	} // Fin de setAbsComptage(...)._______________________________________
