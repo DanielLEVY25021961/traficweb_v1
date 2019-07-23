@@ -98,7 +98,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<!--            Version du POOL DE CONNEXION dbcp2              -->
 		<commons-dbcp2.version>2.5.0</commons-dbcp2.version>
 		<!--            Version du POOL DE CONNEXION hikariCP           -->
-		<HikariCP.version>3.3.0</HikariCP.version>
+		<HikariCP.version>3.3.1</HikariCP.version>
 				
 		<!--                    Version de JSTL                         -->
 		<jstl.version>1.2</jstl.version>
@@ -120,20 +120,20 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<h2.version>1.4.197</h2.version>
 
 		<!--                Version de commons-lang3                    -->
-		<commons-lang3.version>3.8.1</commons-lang3.version>
+		<commons-lang3.version>3.9</commons-lang3.version>
 		<!--                  Version de commons-io                     -->
 		<commons-io.version>2.6</commons-io.version>
 		<!--                 Version de commons-fileupload              -->
-		<commons-fileupload.version>1.3.3</commons-fileupload.version>
+		<commons-fileupload.version>1.4</commons-fileupload.version>
 		<!--                  Version de commons-text                   -->
-		<commons-text.version>1.6</commons-text.version>
+		<commons-text.version>1.7</commons-text.version>
 		<!--                 Version de commons-logging                 -->
 		<commons-logging.version>1.2</commons-logging.version>
 
 		<!--                   Version de log4j                         -->
 		<log4j.version>1.2.17</log4j.version>
 		<!--                   Version de log4j-core                    -->
-		<log4j-core.version>2.11.1</log4j-core.version>
+		<log4j-core.version>2.12.0</log4j-core.version>
 
 		<!--                 Version logback-classic                    -->
 		<logback-classic.version>1.3.0-alpha4</logback-classic.version>
@@ -235,6 +235,16 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		   <artifactId>cerbere-bouchon</artifactId>
 		   <version>4.5.0</version>
 		</dependency>
+		
+		<!-- ========================================== -->
+		<!-- dépendances pour coloration console (LOGS) -->
+		<!-- ========================================== -->		
+		<!-- https://mvnrepository.com/artifact/org.fusesource.jansi/jansi -->
+		<dependency>
+		    <groupId>org.fusesource.jansi</groupId>
+		    <artifactId>jansi</artifactId>
+		    <version>1.18</version>
+		</dependency>
 
 
 		<!-- ================================ -->
@@ -298,12 +308,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
-		<dependency>
-		    <groupId>org.apache.logging.log4j</groupId>
-		    <artifactId>log4j-api</artifactId>
-		    <version>${log4j-core.version}</version>
-		    <scope>compile</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.logging.log4j</groupId> -->
+<!-- 		    <artifactId>log4j-api</artifactId> -->
+<!-- 		    <version>${log4j-core.version}</version> -->
+<!-- 		    <scope>compile</scope> -->
+<!-- 		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
 		<dependency>
 		    <groupId>org.apache.logging.log4j</groupId>
@@ -413,18 +423,18 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<!--    dépendances pour JPA       	   -->
 		<!-- ================================= -->
 		<!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
-		<dependency>
-		    <groupId>javax.persistence</groupId>
-		    <artifactId>javax.persistence-api</artifactId>
-		    <version>2.2</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>javax.persistence</groupId> -->
+<!-- 		    <artifactId>javax.persistence-api</artifactId> -->
+<!-- 		    <version>2.2</version> -->
+<!-- 		</dependency> -->
 				
 		<!-- https://mvnrepository.com/artifact/javax.interceptor/javax.interceptor-api -->
-		<dependency>
-		    <groupId>javax.interceptor</groupId>
-		    <artifactId>javax.interceptor-api</artifactId>
-		    <version>1.2</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>javax.interceptor</groupId> -->
+<!-- 		    <artifactId>javax.interceptor-api</artifactId> -->
+<!-- 		    <version>3.1</version> -->
+<!-- 		</dependency> -->
 
 
 		<!-- ================================= -->
@@ -453,11 +463,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<!--    dépendances pour SPRING       -->
 		<!-- ================================ -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-core</artifactId>
-		    <scope>compile</scope>
-		</dependency>		
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework</groupId> -->
+<!-- 		    <artifactId>spring-core</artifactId> -->
+<!-- 		    <scope>compile</scope> -->
+<!-- 		</dependency>		 -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
@@ -465,29 +475,29 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-beans</artifactId>
-		    <scope>compile</scope>
-		</dependency>		
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework</groupId> -->
+<!-- 		    <artifactId>spring-beans</artifactId> -->
+<!-- 		    <scope>compile</scope> -->
+<!-- 		</dependency>		 -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-aop</artifactId>
-		    <scope>compile</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework</groupId> -->
+<!-- 		    <artifactId>spring-aop</artifactId> -->
+<!-- 		    <scope>compile</scope> -->
+<!-- 		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jcl -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-jcl</artifactId>
-		    <scope>compile</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework</groupId> -->
+<!-- 		    <artifactId>spring-jcl</artifactId> -->
+<!-- 		    <scope>compile</scope> -->
+<!-- 		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-expression</artifactId>
-		    <scope>compile</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework</groupId> -->
+<!-- 		    <artifactId>spring-expression</artifactId> -->
+<!-- 		    <scope>compile</scope> -->
+<!-- 		</dependency> -->
 				
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 <!-- 		<dependency> -->
@@ -509,11 +519,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-tx</artifactId>
-		    <scope>compile</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework</groupId> -->
+<!-- 		    <artifactId>spring-tx</artifactId> -->
+<!-- 		    <scope>compile</scope> -->
+<!-- 		</dependency> -->
 		
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
 		<dependency>
@@ -615,6 +625,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
+		    <version>${hibernate.version}</version>
+		    <scope>compile</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-java8 -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-java8</artifactId>
 		    <version>${hibernate.version}</version>
 		    <scope>compile</scope>
 		</dependency>

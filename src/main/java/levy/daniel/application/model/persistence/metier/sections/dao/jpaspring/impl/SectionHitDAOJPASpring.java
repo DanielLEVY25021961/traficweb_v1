@@ -177,6 +177,7 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 	 */
 	private transient ILocalisationHitDAO localisationHitDAO;
 
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -421,7 +422,7 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 		+ "and ((sectionHit.sens IS NULL and :pSens IS NULL) OR (sectionHit.sens = :pSens)) "
 		+ "and ((sectionHit.nature IS NULL and :pNature IS NULL) OR (sectionHit.nature = :pNature)) "
 		+ "and ((sectionHit.classe IS NULL and :pClasse IS NULL) OR (sectionHit.classe = :pClasse)) "
-		+ "and ((sectionHit.anneeTraitement IS NULL and :pAnneeTraitement IS NULL) OR (sectionHit.anneeTraitement = :pAnneeTraitement)) "
+		+ "and ((sectionHit.anneeTraitement = :pAnneeTraitement)) "
 		+ "and ((sectionHit.zoneLibre1 IS NULL and :pZoneLibre1 IS NULL) OR (sectionHit.zoneLibre1 = :pZoneLibre1)) "
 		+ "and ((sectionHit.typeComptage IS NULL and :pTypeComptage IS NULL) OR (sectionHit.typeComptage = :pTypeComptage)) "
 		+ "and ((sectionHit.classementRoute IS NULL and :pClassementRoute IS NULL) OR (sectionHit.classementRoute = :pClassementRoute)) "

@@ -1229,7 +1229,6 @@ public class SectionHitDAOJPASpringTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println("********** CLASSE SectionHitDAOJPASpringTest - méthode testCreate() ********** ");
 		}
-
 		
 		/* this.dao NON INJECTE. */
 		if (this.dao == null) {
@@ -8560,6 +8559,8 @@ public class SectionHitDAOJPASpringTest {
 	 */
 	@BeforeClass
 	public static void beforeClass() throws Exception {
+		
+		System.setProperty("%log4j.skipJansi", "false");
 		
 		final Path fichierDonneesPath 
 			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("HITDIRA2017.txt");
