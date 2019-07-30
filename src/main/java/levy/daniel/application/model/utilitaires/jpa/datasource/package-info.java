@@ -1,6 +1,7 @@
 /**
  * CLASSE package-info :<br/>
- * .<br/>
+ * Ce package contient toutes les classes nécessaires pour créer 
+ * des <b>DataSource</b> utilisables par JPA.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

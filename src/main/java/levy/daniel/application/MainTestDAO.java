@@ -222,8 +222,15 @@ public final class MainTestDAO {
 		verifierConnexionBase();
 		
 		// INSTANCIATION DU CONTEXTE SPRING. 
-		context = new AnnotationConfigApplicationContext();		
-		context.getEnvironment().setActiveProfiles("PROFIL_TEST_H2_FILE");		
+		/* instanciation d'un AnnotationConfigApplicationContext. */
+		context = new AnnotationConfigApplicationContext();
+		
+		/* déclaration du profil actif. */
+		// ATTENTION : doit être AVANT la déclaration de la classe 
+		// de configuration (context.register(.Class).
+		context.getEnvironment().setActiveProfiles("PROFIL_TEST_H2_FILE");
+		
+		
 		context.register(ConfigurateurSpringFrmkAnnotationJPAH2File.class);
 		context.refresh();
 		

@@ -213,7 +213,11 @@ public class MyMutablePersistenceUnitInfo
 	private List<String> managedClassNames = new LinkedList<String>();
 
 	/**
-	 * .
+	 * liste des <b>noms qualifiés</b> des éventuels
+	 * <b>packages</b> contenant les classes Entities JPA mappées pour management 
+	 * par JPA dans un persistence.xml.<br/>
+	 * <ul>
+	 * </ul>
 	 */
 	private List<String> managedPackages = new LinkedList<String>();
 	
@@ -266,12 +270,13 @@ public class MyMutablePersistenceUnitInfo
 	private Properties properties = new Properties();
 
 	/**
-	 * version de JPA utilisée dans le persistence.xml (2.1, 3.0, ...).
+	 * version de JPA utilisée dans le persistence.xml (2.1, 2.2, 3.0, ...).
 	 */
 	private String persistenceXMLSchemaVersion;
 	
 	/**
-	 * .
+	 * nom du Package du provider de persistence (Hibernate par exemple) 
+	 * pour l'exclure des scans de recherche d'entities.
 	 */
 	@Nullable
 	private String persistenceProviderPackageName;
