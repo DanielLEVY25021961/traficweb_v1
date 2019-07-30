@@ -231,7 +231,7 @@ public final class AfficheurContexteSpring {
 			return null;
 		}
 		
-		StringBuffer stb = new StringBuffer();
+		final StringBuffer stb = new StringBuffer();
 		
 		for (int i = 0; i < beansTableau.length; i++) {
 			stb.append(beansTableau[i]);
