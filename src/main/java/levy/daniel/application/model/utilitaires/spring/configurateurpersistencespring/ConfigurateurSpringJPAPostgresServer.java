@@ -14,6 +14,8 @@ import org.hibernate.jpa.boot.spi.Bootstrap;
 import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
@@ -69,7 +71,7 @@ import levy.daniel.application.model.utilitaires.spring.configurateurpersistence
 @Configuration(value="ConfigurateurSpringJPAPostgresServer")
 @PropertySources({@PropertySource("classpath:configurations_bases_jpa/configuration_POSTGRES_Server.properties")})
 @EnableTransactionManagement
-//@ComponentScans({@ComponentScan("levy.daniel.application.model.persistence")})
+@ComponentScans({@ComponentScan("levy.daniel.application.model.persistence")})
 public class ConfigurateurSpringJPAPostgresServer {
 
 	// ************************ATTRIBUTS************************************/

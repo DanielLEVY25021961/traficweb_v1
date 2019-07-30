@@ -3,6 +3,8 @@ package levy.daniel.application.model.utilitaires.spring.configurateurspring;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
@@ -82,7 +84,7 @@ import levy.daniel.application.model.services.valideurs.metier.utilisateurs.impl
 @Import(value={levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2File.class})
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
-//@ComponentScans({@ComponentScan("levy.daniel.application")})
+@ComponentScans({@ComponentScan("levy.daniel.application")})
 public class ConfigurateurSpringFrmkAnnotationJPAH2File {
 
 	// ************************ATTRIBUTS************************************/

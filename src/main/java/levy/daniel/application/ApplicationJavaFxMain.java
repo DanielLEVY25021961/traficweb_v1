@@ -171,6 +171,49 @@ public class ApplicationJavaFxMain extends Application {
 	 * <li>appelé dans le Thread MAIN (avant le Thread Javafx).</li>
 	 * <li>récupère le CONTROLLER dans le CONTEXTE SPRING.</li>
 	 * </ul>
+	 * <ol>
+	 * <li>instancie un AnnotationConfigApplicationContext SPRING.
+	 * <br/><code><b>context = 
+	 * new AnnotationConfigApplicationContext();</b></code></li>
+	 * <li>déclare éventuellement le profil actif. (PROD, DEV, TEST, ...).
+	 * <br/><code><b>context.getEnvironment()
+	 * .setActiveProfiles("PROFIL_PROD_POSTGRES_SERVER");</b></code>
+	 * <br/>ATTENTION : Il est INDISPENSABLE de déclarer un Profile ACTIF 
+	 * si il existe plusieurs classes de Config avec différents profils 
+	 * dans le code.<br/>
+	 * ATTENTION : toujours déclarer les profils actifs AVANT 
+	 * de register les éventuelles classes de Config SPRING.</li>
+	 * <li>enregistre éventuellement les classes de <i>Config SPRING</i> 
+	 * si on veut utiliser une <b>configuration par classe Java</b>.<br/> 
+	 * La classe de Config Java doit alors être annotée avec 
+	 * <code>ComponentScans({ComponentScan("packageAScanner")})</code> 
+	 * pour scanner les BEANS SPRING.
+	 * <br/>ATTENTION : si les classes de Config SPRING 
+	 * ne sont pas register ici, leurs annotations 
+	 * <code>ComponentScan(basePackages = "packageAScanner")</code> 
+	 * seront inopérantes.
+	 * <ul>
+	 * <li>Soit on fait ici 
+	 * <code><b>context.register(classeConfig.class);</b></code> 
+	 * sur des classes de Config Spring <i>annotées avec 
+	 * "ComponentScan(basePackages = "packageAScanner")"</i> 
+	 * et on n'a pas à insérer 
+	 * <code><b>context.scan("packageAScanner");</b></code> 
+	 * dans cette présente méthode d'instanciation du CONTEXTE SPRING.</li>
+	 * <li>Soit on ne déclare ici aucune des classes de Config SPRING 
+	 * en laissant SPRING trouver seul les classe de Config à l'aide du SCAN 
+	 * mais <i>il faut déclarer dans la présente méthode les Packages 
+	 * contenant les BEANS SPRING à scanner.</i> 
+	 * <br/> en insérant dans la présente méthode : 
+	 * <code><b>context.scan("packageAScanner")</b></code></li>
+	 * </ul>
+	 * <li>précise éventuellement dans quel Package SPRING 
+	 * doit chercher les COMPONENTS 
+	 * si on utilise pas de classe de Config SPRING.
+	 * <br/>on utilise alors la <b>configuration de SPRING par annotations.</b>
+	 * <br/><code><b>context.scan(packageAScanner);</b></code></li>
+	 * <li>rafraîchit le CONTEXT SPRING.</li>
+	 * </ol>
 	 */
 	private static void instancierContexteSpring() {
 		
@@ -178,11 +221,30 @@ public class ApplicationJavaFxMain extends Application {
 		verifierConnexionBase();
 		
 		// INSTANCIATION DU CONTEXTE SPRING. 
+		/* instancie un AnnotationConfigApplicationContext. */
 		context = new AnnotationConfigApplicationContext();	
+
+		/* déclare éventuellement le profil actif. */
+		// ATTENTION : doit être AVANT la déclaration de la classe 
+		// de configuration (context.register(.Class)).
+		context.getEnvironment().setActiveProfiles("PROFIL_TEST_H2_FILE");
+//		context.getEnvironment().setActiveProfiles("PROFIL_TEST_H2_MEMORY");
+//		context.getEnvironment().setActiveProfiles("PROFIL_PROD_POSTGRES_SERVER");		
+		
+		/* enregistre éventuellement les classes de Config SPRING 
+		 * si on veut utiliser une configuration par classe Java. 
+		 * La classe de Config Java doit alors être annotée avec 
+		 * @ComponentScans({@ComponentScan("packageAScanner")}) 
+		 * pour scanner les BEANS SPRING. */
 		context.register(levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2File.class);
 //		context.register(levy.daniel.application.model.utilitaires.spring.configurateurpersistencespring.ConfigurateurSpringJPAH2File.class);
-		context.getEnvironment().setActiveProfiles("PROFIL_TEST_H2_FILE");
+
+		/* précise dans quel Package SPRING doit chercher les COMPONENTS 
+		 * si on utilise pas de classe de Config SPRING. 
+		 * on utilise alors la configuration de SPRING par annotations.*/
 //		context.scan("levy.daniel.application");
+		
+		/* rafraîchit le CONTEXT SPRING. */
 		context.refresh();
 		
 		// AFFICHAGE DU CONTEXTE SPRING
@@ -306,7 +368,7 @@ public class ApplicationJavaFxMain extends Application {
 			final IUtilisateurCerbereController pUtilisateurCerbereController) {
 		utilisateurCerbereController = pUtilisateurCerbereController;
 		
-		System.out.println("INJECTION DANS ApplicationJavaFxMain.setUtilisateurCerbereController(...)");
+		System.out.println("****************** INJECTION DANS ApplicationJavaFxMain.setUtilisateurCerbereController(...) ************* ");
 	} // Fin de setUtilisateurCerbereController(...).______________________
 
 	

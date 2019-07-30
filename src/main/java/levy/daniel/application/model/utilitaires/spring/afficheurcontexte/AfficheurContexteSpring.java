@@ -231,7 +231,15 @@ public final class AfficheurContexteSpring {
 			return null;
 		}
 		
-		return null;
+		StringBuffer stb = new StringBuffer();
+		
+		for (int i = 0; i < beansTableau.length; i++) {
+			stb.append(beansTableau[i]);
+			stb.append(SAUT_LIGNE_PLATEFORME);
+			
+		}
+		
+		return stb.toString();
 		
 	} // Fin de afficherContenuContexteSpring(...).________________________
 	
