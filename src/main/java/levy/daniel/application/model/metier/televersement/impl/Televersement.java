@@ -231,7 +231,7 @@ public class Televersement implements ITeleversement {
 	 * retourne une String de la forme 
 	 * <code>[annee-mois-jour_heure_minute_seconde]</code> 
 	 * à partir d'une LocalDateTime pDate.<br/>
-	 * Par exemple, retourne <b>2019-06-13_21_03_57</b> 
+	 * Par exemple, retourne <b>"2019-06-13_21_03_57"</b> 
 	 * pour le 13 juin 2019 à 21h 03 minutes et 57 secondes.<br/>
 	 * <br/>
 	 * - retourne null si pDate == null.<br/>
