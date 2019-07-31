@@ -19,7 +19,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.persistence.UniqueConstraint;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -59,23 +58,6 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  */
 @Entity
 @Table(name="SECTIONHITS", schema="PUBLIC"
-, uniqueConstraints=@UniqueConstraint(name="UNICITE_EQUALS_SECTIONHITS"
-, columnNames={"ID_LOCALISATION_HIT", "NUMSECTION", "SENS", "NATURE"
-		, "CLASSE"
-		, "ANNEETRAITEMENT"
-		, "MJAN", "PCPLN", "PCNUITANNUELN"
-		, "MJMNMOIS01"
-		, "MJMNMOIS02"
-		, "MJMNMOIS03"
-		, "MJMNMOIS04"
-		, "MJMNMOIS05"
-		, "MJMNMOIS06"
-		, "MJMNMOIS07"
-		, "MJMNMOIS08"
-		, "MJMNMOIS09"
-		, "MJMNMOIS10"
-		, "MJMNMOIS11"
-		, "MJMNMOIS12"})
 , indexes={@Index(name="INDEX_ID_LOCALISATION_HIT_ANNEETRAITEMENT_SENS"
 , columnList="ID_LOCALISATION_HIT, ANNEETRAITEMENT, SENS")})
 public class SectionHitEntityJPA implements ISectionHit {
@@ -5632,6 +5614,8 @@ public class SectionHitEntityJPA implements ISectionHit {
 	
 	/**
 	 * {@inheritDoc}
+	 * <br/>
+	 * passe pAbsExtremite au COMPOSANT <code><b>this.localisation</b></code>
 	 */
 	@Override
 	public void setAbsExtremite(
@@ -5660,6 +5644,8 @@ public class SectionHitEntityJPA implements ISectionHit {
 	
 	/**
 	 * {@inheritDoc}
+	 * <br/>
+	 * passe pLieuDitComptage au COMPOSANT <code><b>this.localisation</b></code>
 	 */
 	@Override
 	public void setLieuDitComptage(
@@ -5688,6 +5674,8 @@ public class SectionHitEntityJPA implements ISectionHit {
 	
 	/**
 	 * {@inheritDoc}
+	 * <br/>
+	 * passe pPrComptage au COMPOSANT <code><b>this.localisation</b></code>
 	 */
 	@Override
 	public void setPrComptage(
@@ -5716,6 +5704,8 @@ public class SectionHitEntityJPA implements ISectionHit {
 	
 	/**
 	 * {@inheritDoc}
+	 * <br/>
+	 * passe pAbsComptage au COMPOSANT <code><b>this.localisation</b></code>
 	 */
 	@Override
 	public void setAbsComptage(

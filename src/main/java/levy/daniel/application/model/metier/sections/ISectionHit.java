@@ -350,7 +350,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	
 	/**
-	 * Getter de l'ID en base (sous forme de Long).<br/>
+	 * Getter de l'ID en base (sous forme de Long).
 	 *
 	 * @return this.id : Long.<br/>
 	 */
@@ -359,26 +359,28 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	
 	/**
-	* Setter de l'ID en base (sous forme de Long).<br/>
+	* Setter de l'ID en base (sous forme de Long).
 	*
 	* @param pId : Long : 
-	* valeur à passer à this.id.<br/>
+	* valeur à passer à this.id.
 	*/
 	void setId(Long pId);
 
 
 	
 	/**
-	 * Getter du numéro de département.<br/>
+	 * Getter du numéro de département.
 	 *
-	 * @return this.numDepartement : String.<br/>
+	 * @return this.numDepartement : String.
 	 */
 	String getNumDepartement();
 	
 
 	
 	/**
-	* Setter du numéro de département.<br/>
+	* Setter du numéro de département.
+	* <br/>
+	 * passe pNumDepartement au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pNumDepartement : String : 
 	* valeur à passer à this.numDepartement.<br/>
@@ -388,114 +390,114 @@ public interface ISectionHit extends Comparable<ISectionHit>
 
 	
 	/**
-	 * Getter du numéro de section.<br/>
+	 * Getter du numéro de section.
 	 *
-	 * @return this.numSection : String.<br/>
+	 * @return this.numSection : String.
 	 */
 	String getNumSection();
 
 
 	
 	/**
-	* Setter du numéro de section.<br/>
+	* Setter du numéro de section.
 	*
 	* @param pNumSection : String : 
-	* valeur à passer à this.numSection.<br/>
+	* valeur à passer à this.numSection.
 	*/
 	void setNumSection(String pNumSection);
 
 
 	
 	/**
-	 * Getter du sens de trafic.<br/>
+	 * Getter du sens de trafic.
 	 *
-	 * @return this.sens : String.<br/>
+	 * @return this.sens : String.
 	 */
 	String getSens();
 
 
 	
 	/**
-	* Setter du sens de trafic.<br/>
+	* Setter du sens de trafic.
 	*
 	* @param pSens : String : 
-	* valeur à passer à this.sens.<br/>
+	* valeur à passer à this.sens.
 	*/
 	void setSens(String pSens);
 
 
 	
 	/**
-	 * Getter de la nature du comptage.<br/>
+	 * Getter de la nature du comptage.
 	 *
-	 * @return this.nature : String.<br/>
+	 * @return this.nature : String.
 	 */
 	String getNature();
 
 
 	
 	/**
-	* Setter de la nature du comptage.<br/>
+	* Setter de la nature du comptage.
 	*
 	* @param pNature : String : 
-	* valeur à passer à this.nature.<br/>
+	* valeur à passer à this.nature.
 	*/
 	void setNature(String pNature);
 
 
 	
 	/**
-	 * Getter de la classe du trafic.<br/>
+	 * Getter de la classe du trafic.
 	 *
-	 * @return this.classe : String.<br/>
+	 * @return this.classe : String.
 	 */
 	String getClasse();
 
 
 	
 	/**
-	* Setter de la classe du trafic.<br/>
+	* Setter de la classe du trafic.
 	*
 	* @param pClasse : String : 
-	* valeur à passer à this.classe.<br/>
+	* valeur à passer à this.classe.
 	*/
 	void setClasse(String pClasse);
 
 
 	
 	/**
-	 * Getter de l'année de traitement.<br/>
+	 * Getter de l'année de traitement.
 	 *
-	 * @return this.anneeTraitement : LocalDate.<br/>
+	 * @return this.anneeTraitement : java.time.LocalDate.
 	 */
 	LocalDate getAnneeTraitement();
 
 
 	
 	/**
-	* Setter de l'année de traitement.<br/>
+	* Setter de l'année de traitement.
 	*
-	* @param pAnneeTraitement : LocalDate : 
-	* valeur à passer à this.anneeTraitement.<br/>
+	* @param pAnneeTraitement : java.time.LocalDate : 
+	* valeur à passer à this.anneeTraitement.
 	*/
 	void setAnneeTraitement(LocalDate pAnneeTraitement);
 
 
 	
 	/**
-	 * Getter de la zone libre 1.<br/>
+	 * Getter de la zone libre 1.
 	 *
-	 * @return this.zoneLibre1 : String.<br/>
+	 * @return this.zoneLibre1 : String.
 	 */
 	String getZoneLibre1();
 
 	
 	
 	/**
-	* Setter de la zone libre 1.<br/>
+	* Setter de la zone libre 1.
 	*
 	* @param pZoneLibre1 : String : 
-	* valeur à passer à this.zoneLibre1.<br/>
+	* valeur à passer à this.zoneLibre1.
 	*/
 	void setZoneLibre1(String pZoneLibre1);
 
@@ -504,7 +506,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du numero de la route.
 	 *
-	 * @return this.numRoute : String.<br/>
+	 * @return this.numRoute : String.
 	 */
 	String getNumRoute();
 
@@ -512,9 +514,11 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	/**
 	* Setter du numero de la route.
+	* <br/>
+	* passe pNumRoute au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pNumRoute : String : 
-	* valeur à passer à this.numRoute.<br/>
+	* valeur à passer à this.numRoute.
 	*/
 	void setNumRoute(String pNumRoute);
 
@@ -523,7 +527,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'indice numérique de la route.
 	 *
-	 * @return this.indiceNumRoute : String.<br/>
+	 * @return this.indiceNumRoute : String.
 	 */
 	String getIndiceNumRoute();
 
@@ -531,9 +535,11 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	/**
 	* Setter de l'indice numérique de la route.
+	* <br/>
+	* passe pIndiceNumRoute au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pIndiceNumRoute : String : 
-	* valeur à passer à this.indiceNumRoute.<br/>
+	* valeur à passer à this.indiceNumRoute.
 	*/
 	void setIndiceNumRoute(String pIndiceNumRoute);
 
@@ -542,7 +548,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'indice lettre de la route.
 	 *
-	 * @return this.indiceLettreRoute : String.<br/>
+	 * @return this.indiceLettreRoute : String.
 	 */
 	String getIndiceLettreRoute();
 
@@ -550,9 +556,11 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	/**
 	* Setter de l'indice lettre de la route.
+	* <br/>
+	* passe pIndiceLettreRoute au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pIndiceLettreRoute : String : 
-	* valeur à passer à this.indiceLettreRoute.<br/>
+	* valeur à passer à this.indiceLettreRoute.
 	*/
 	void setIndiceLettreRoute(String pIndiceLettreRoute);
 
@@ -561,7 +569,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de la catégorie administrative de la route.
 	 *
-	 * @return this.categorieAdminRoute : String.<br/>
+	 * @return this.categorieAdminRoute : String.
 	 */
 	String getCategorieAdminRoute();
 
@@ -569,9 +577,11 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	/**
 	* Setter de la catégorie administrative de la route.
+	* <br/>
+	* passe pCategorieAdminRoute au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pCategorieAdminRoute : String : 
-	* valeur à passer à this.categorieAdminRoute.<br/>
+	* valeur à passer à this.categorieAdminRoute.
 	*/
 	void setCategorieAdminRoute(String pCategorieAdminRoute);
 
@@ -580,7 +590,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du type de comptage.
 	 *
-	 * @return this.typeComptage : String.<br/>
+	 * @return this.typeComptage : String.
 	 */
 	String getTypeComptage();
 
@@ -590,7 +600,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du type de comptage.
 	*
 	* @param pTypeComptage : String : 
-	* valeur à passer à this.typeComptage.<br/>
+	* valeur à passer à this.typeComptage.
 	*/
 	void setTypeComptage(String pTypeComptage);
 
@@ -599,7 +609,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du classement de la route (agglomération).
 	 *
-	 * @return this.classementRoute : String.<br/>
+	 * @return this.classementRoute : String.
 	 */
 	String getClassementRoute();
 
@@ -609,7 +619,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du classement de la route (agglomération).
 	*
 	* @param pClassementRoute : String : 
-	* valeur à passer à this.classementRoute.<br/>
+	* valeur à passer à this.classementRoute.
 	*/
 	void setClassementRoute(String pClassementRoute);
 
@@ -618,7 +628,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de la classe de largeur de chaussée unique.
 	 *
-	 * @return this.classeLargeurChausseeU : String.<br/>
+	 * @return this.classeLargeurChausseeU : String.
 	 */
 	String getClasseLargeurChausseeU();
 
@@ -628,7 +638,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de la classe de largeur de chaussée unique.
 	*
 	* @param pClasseLargeurChausseeU : String : 
-	* valeur à passer à this.classeLargeurChausseeU.<br/>
+	* valeur à passer à this.classeLargeurChausseeU.
 	*/
 	void setClasseLargeurChausseeU(String pClasseLargeurChausseeU);
 
@@ -637,7 +647,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de la classe de largeur de chaussées séparées.
 	 *
-	 * @return this.classeLargeurChausseesS : String.<br/>
+	 * @return this.classeLargeurChausseesS : String.
 	 */
 	String getClasseLargeurChausseesS();
 
@@ -647,7 +657,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de la classe de largeur de chaussées séparées.
 	*
 	* @param pClasseLargeurChausseesS : String : 
-	* valeur à passer à this.classeLargeurChausseesS.<br/>
+	* valeur à passer à this.classeLargeurChausseesS.
 	*/
 	void setClasseLargeurChausseesS(String pClasseLargeurChausseesS);
 
@@ -656,7 +666,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du type de réseau.
 	 *
-	 * @return this.typeReseau : String.<br/>
+	 * @return this.typeReseau : String.
 	 */
 	String getTypeReseau();
 
@@ -666,7 +676,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du type de réseau.
 	*
 	* @param pTypeReseau : String : 
-	* valeur à passer à this.typeReseau.<br/>
+	* valeur à passer à this.typeReseau.
 	*/
 	void setTypeReseau(String pTypeReseau);
 
@@ -675,7 +685,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du type de localisation (PR ou PK).
 	 *
-	 * @return this.pRoupK : String.<br/>
+	 * @return this.pRoupK : String.
 	 */
 	String getpRoupK();
 
@@ -685,7 +695,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du type de localisation (PR ou PK).
 	*
 	* @param pPRoupK : String : 
-	* valeur à passer à this.pRoupK.<br/>
+	* valeur à passer à this.pRoupK.
 	*/
 	void setpRoupK(String pPRoupK);
 
@@ -694,7 +704,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du libellé du lieu-dit origine.
 	 *
-	 * @return this.lieuDitOrigine : String.<br/>
+	 * @return this.lieuDitOrigine : String.
 	 */
 	String getLieuDitOrigine();
 
@@ -702,9 +712,11 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	/**
 	* Setter du libellé du lieu-dit origine.
+	* <br/>
+	* passe pLieuDitOrigine au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pLieuDitOrigine : String : 
-	* valeur à passer à this.lieuDitOrigine.<br/>
+	* valeur à passer à this.lieuDitOrigine.
 	*/
 	void setLieuDitOrigine(String pLieuDitOrigine);
 
@@ -713,7 +725,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du PR Origine.
 	 *
-	 * @return this.prOrigine : Integer.<br/>
+	 * @return this.prOrigine : Integer.
 	 */
 	Integer getPrOrigine();
 
@@ -721,9 +733,11 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	/**
 	* Setter du PR Origine.
+	* <br/>
+	* passe pPrOrigine au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pPrOrigine : Integer : 
-	* valeur à passer à this.prOrigine.<br/>
+	* valeur à passer à this.prOrigine.
 	*/
 	void setPrOrigine(Integer pPrOrigine);
 
@@ -732,7 +746,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'abscisse du point origine.
 	 *
-	 * @return this.absOrigine : Integer.<br/>
+	 * @return this.absOrigine : Integer.
 	 */
 	Integer getAbsOrigine();
 
@@ -740,9 +754,11 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	/**
 	* Setter de l'abscisse du point origine.
+	* <br/>
+	* passe pAbsOrigine au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pAbsOrigine : Integer : 
-	* valeur à passer à this.absOrigine.<br/>
+	* valeur à passer à this.absOrigine.
 	*/
 	void setAbsOrigine(Integer pAbsOrigine);
 
@@ -751,7 +767,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du libellé du lieu-dit extremité.
 	 *
-	 * @return this.lieuDitExtremite : String.<br/>
+	 * @return this.lieuDitExtremite : String.
 	 */
 	String getLieuDitExtremite();
 
@@ -759,9 +775,11 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	/**
 	* Setter du libellé du lieu-dit extremité.
+	* <br/>
+	* passe pLieuDitExtremite au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pLieuDitExtremite : String : 
-	* valeur à passer à this.lieuDitExtremite.<br/>
+	* valeur à passer à this.lieuDitExtremite.
 	*/
 	void setLieuDitExtremite(String pLieuDitExtremite);
 
@@ -770,7 +788,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du PR Extremité.
 	 *
-	 * @return this.prExtremite : Integer.<br/>
+	 * @return this.prExtremite : Integer.
 	 */
 	Integer getPrExtremite();
 
@@ -778,9 +796,11 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	
 	/**
 	* Setter du PR Extremité.
+	* <br/>
+	* passe pPrExtremite au COMPOSANT <code><b>this.localisation</b></code>
 	*
 	* @param pPrExtremite : Integer : 
-	* valeur à passer à this.prExtremite.<br/>
+	* valeur à passer à this.prExtremite.
 	*/
 	void setPrExtremite(Integer pPrExtremite);
 
@@ -789,7 +809,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'abscisse du point extremité.
 	 *
-	 * @return this.absExtremite : Integer.<br/>
+	 * @return this.absExtremite : Integer.
 	 */
 	Integer getAbsExtremite();
 
@@ -799,7 +819,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de l'abscisse du point extremité.
 	*
 	* @param pAbsExtremite : Integer : 
-	* valeur à passer à this.absExtremite.<br/>
+	* valeur à passer à this.absExtremite.
 	*/
 	void setAbsExtremite(Integer pAbsExtremite);
 
@@ -808,7 +828,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du libellé du lieu-dit du point de comptage.
 	 *
-	 * @return this.lieuDitComptage : String.<br/>
+	 * @return this.lieuDitComptage : String.
 	 */
 	String getLieuDitComptage();
 
@@ -818,7 +838,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du libellé du lieu-dit du point de comptage.
 	*
 	* @param pLieuDitComptage : String : 
-	* valeur à passer à this.lieuDitComptage.<br/>
+	* valeur à passer à this.lieuDitComptage.
 	*/
 	void setLieuDitComptage(String pLieuDitComptage);
 
@@ -827,7 +847,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du PR du point de comptage.
 	 *
-	 * @return this.prComptage : Integer.<br/>
+	 * @return this.prComptage : Integer.
 	 */
 	Integer getPrComptage();
 
@@ -837,7 +857,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du PR du point de comptage.
 	*
 	* @param pPrComptage : Integer : 
-	* valeur à passer à this.prComptage.<br/>
+	* valeur à passer à this.prComptage.
 	*/
 	void setPrComptage(Integer pPrComptage);
 
@@ -846,7 +866,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'abscisse du point de comptage.
 	 *
-	 * @return this.absComptage : Integer.<br/>
+	 * @return this.absComptage : Integer.
 	 */
 	Integer getAbsComptage();
 
@@ -856,7 +876,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de l'abscisse du point de comptage.
 	*
 	* @param pAbsComptage : Integer : 
-	* valeur à passer à this.absComptage.<br/>
+	* valeur à passer à this.absComptage.
 	*/
 	void setAbsComptage(Integer pAbsComptage);
 
@@ -865,7 +885,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de la longueur de la section en mètres.
 	 *
-	 * @return this.longueurSection : Integer.<br/>
+	 * @return this.longueurSection : Integer.
 	 */
 	Integer getLongueurSection();
 
@@ -875,7 +895,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de la longueur de la section en mètres.
 	*
 	* @param pLongueurSection : Integer : 
-	* valeur à passer à this.longueurSection.<br/>
+	* valeur à passer à this.longueurSection.
 	*/
 	void setLongueurSection(Integer pLongueurSection);
 
@@ -884,7 +904,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de la longueur en rase campagne en mètres.
 	 *
-	 * @return this.longueurRaseCampagne : Integer.<br/>
+	 * @return this.longueurRaseCampagne : Integer.
 	 */
 	Integer getLongueurRaseCampagne();
 
@@ -894,7 +914,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de la longueur en rase campagne en mètres.
 	*
 	* @param pLongueurRaseCampagne : Integer : 
-	* valeur à passer à this.longueurRaseCampagne.<br/>
+	* valeur à passer à this.longueurRaseCampagne.
 	*/
 	void setLongueurRaseCampagne(Integer pLongueurRaseCampagne);
 
@@ -903,7 +923,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du numéro de département de la section de Rattachement.
 	 *
-	 * @return this.numDepartementRattachement : String.<br/>
+	 * @return this.numDepartementRattachement : String.
 	 */
 	String getNumDepartementRattachement();
 
@@ -913,7 +933,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du numéro de département de la section de Rattachement.
 	*
 	* @param pNumDepartementRattachement : String : 
-	* valeur à passer à this.numDepartementRattachement.<br/>
+	* valeur à passer à this.numDepartementRattachement.
 	*/
 	void setNumDepartementRattachement(String pNumDepartementRattachement);
 
@@ -922,7 +942,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du numéro de la section de Rattachement.
 	 *
-	 * @return this.numSectionRattachement : String.<br/>
+	 * @return this.numSectionRattachement : String.
 	 */
 	String getNumSectionRattachement();
 
@@ -932,7 +952,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du numéro de la section de Rattachement.
 	*
 	* @param pNumSectionRattachement : String : 
-	* valeur à passer à this.numSectionRattachement.<br/>
+	* valeur à passer à this.numSectionRattachement.
 	*/
 	void setNumSectionRattachement(String pNumSectionRattachement);
 
@@ -941,7 +961,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du sens de la section de Rattachement.
 	 *
-	 * @return this.sensRattachement : String.<br/>
+	 * @return this.sensRattachement : String.
 	 */
 	String getSensRattachement();
 
@@ -951,7 +971,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du sens de la section de Rattachement.
 	*
 	* @param pSensRattachement : String : 
-	* valeur à passer à this.sensRattachement.<br/>
+	* valeur à passer à this.sensRattachement.
 	*/
 	void setSensRattachement(String pSensRattachement);
 
@@ -960,7 +980,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du numéro de département de la section Limitrophe.
 	 *
-	 * @return this.numDepartementLimitrophe : String.<br/>
+	 * @return this.numDepartementLimitrophe : String.
 	 */
 	String getNumDepartementLimitrophe();
 
@@ -970,7 +990,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du numéro de département de la section Limitrophe.
 	*
 	* @param pNumDepartementLimitrophe : String : 
-	* valeur à passer à this.numDepartementLimitrophe.<br/>
+	* valeur à passer à this.numDepartementLimitrophe.
 	*/
 	void setNumDepartementLimitrophe(String pNumDepartementLimitrophe);
 
@@ -979,7 +999,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du numéro de la section Limitrophe.
 	 *
-	 * @return this.numSectionLimitrophe : String.<br/>
+	 * @return this.numSectionLimitrophe : String.
 	 */
 	String getNumSectionLimitrophe();
 
@@ -989,7 +1009,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du numéro de la section Limitrophe.
 	*
 	* @param pNumSectionLimitrophe : String : 
-	* valeur à passer à this.numSectionLimitrophe.<br/>
+	* valeur à passer à this.numSectionLimitrophe.
 	*/
 	void setNumSectionLimitrophe(String pNumSectionLimitrophe);
 
@@ -998,7 +1018,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du sens de la section Limitrophe.
 	 *
-	 * @return this.sensLimitrophe : String.<br/>
+	 * @return this.sensLimitrophe : String.
 	 */
 	String getSensLimitrophe();
 
@@ -1008,7 +1028,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du sens de la section Limitrophe.
 	*
 	* @param pSensLimitrophe : String : 
-	* valeur à passer à this.sensLimitrophe.<br/>
+	* valeur à passer à this.sensLimitrophe.
 	*/
 	void setSensLimitrophe(String pSensLimitrophe);
 
@@ -1017,7 +1037,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du mois de sectionnement.
 	 *
-	 * @return this.moisSectionnement : String.<br/>
+	 * @return this.moisSectionnement : String.
 	 */
 	String getMoisSectionnement();
 
@@ -1027,7 +1047,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du mois de sectionnement.
 	*
 	* @param pMoisSectionnement : String : 
-	* valeur à passer à this.moisSectionnement.<br/>
+	* valeur à passer à this.moisSectionnement.
 	*/
 	void setMoisSectionnement(String pMoisSectionnement);
 
@@ -1036,7 +1056,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'annee de sectionnement.
 	 *
-	 * @return this.anneeSectionnement : String.<br/>
+	 * @return this.anneeSectionnement : String.
 	 */
 	String getAnneeSectionnement();
 
@@ -1046,7 +1066,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de l'annee de sectionnement.
 	*
 	* @param pAnneeSectionnement : String : 
-	* valeur à passer à this.anneeSectionnement.<br/>
+	* valeur à passer à this.anneeSectionnement.
 	*/
 	void setAnneeSectionnement(String pAnneeSectionnement);
 
@@ -1065,7 +1085,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de la zone libre 2.
 	*
 	* @param pZoneLibre2 : String : 
-	* valeur à passer à this.zoneLibre2.<br/>
+	* valeur à passer à this.zoneLibre2.
 	*/
 	void setZoneLibre2(String pZoneLibre2);
 
@@ -1074,7 +1094,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du trafic moyen journalier annuel de l'année de traitement N.
 	 *
-	 * @return this.mjaN : Integer.<br/>
+	 * @return this.mjaN : Integer.
 	 */
 	Integer getMjaN();
 
@@ -1084,7 +1104,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du trafic moyen journalier annuel de l'année de traitement N.
 	*
 	* @param pMjaN : Integer : 
-	* valeur à passer à this.mjaN.<br/>
+	* valeur à passer à this.mjaN.
 	*/
 	void setMjaN(Integer pMjaN);
 
@@ -1093,7 +1113,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du mode de calcul des trafics de l'année de traitement N.
 	 *
-	 * @return this.modeCalculN : String.<br/>
+	 * @return this.modeCalculN : String.
 	 */
 	String getModeCalculN();
 
@@ -1103,7 +1123,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du mode de calcul des trafics de l'année de traitement N.
 	*
 	* @param pModeCalculN : String : 
-	* valeur à passer à this.modeCalculN.<br/>
+	* valeur à passer à this.modeCalculN.
 	*/
 	void setModeCalculN(String pModeCalculN);
 
@@ -1113,7 +1133,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic poids lourds annuel 
 	 * de l'année de traitement N.
 	 *
-	 * @return this.pcPLN : String.<br/>
+	 * @return this.pcPLN : String.
 	 */
 	String getPcPLN();
 	
@@ -1124,7 +1144,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année de traitement N.
 	*
 	* @param pPcPLN : String : 
-	* valeur à passer à this.pcPLN.<br/>
+	* valeur à passer à this.pcPLN.
 	*/
 	void setPcPLN(String pPcPLN);
 
@@ -1134,7 +1154,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
 	 * de l'année de traitement N.
 	 *
-	 * @return this.evaluationPLN : String.<br/>
+	 * @return this.evaluationPLN : String.
 	 */
 	String getEvaluationPLN();
 
@@ -1145,7 +1165,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année de traitement N.
 	*
 	* @param pEvaluationPLN : String : 
-	* valeur à passer à this.evaluationPLN.<br/>
+	* valeur à passer à this.evaluationPLN.
 	*/
 	void setEvaluationPLN(String pEvaluationPLN);
 
@@ -1155,7 +1175,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
 	 * de l'année de traitement N.
 	 *
-	 * @return this.pcNuitAnnuelN : String.<br/>
+	 * @return this.pcNuitAnnuelN : String.
 	 */
 	String getPcNuitAnnuelN();
 
@@ -1166,7 +1186,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année de traitement N.
 	*
 	* @param pPcNuitAnnuelN : String : 
-	* valeur à passer à this.pcNuitAnnuelN.<br/>
+	* valeur à passer à this.pcNuitAnnuelN.
 	*/
 	void setPcNuitAnnuelN(String pPcNuitAnnuelN);
 
@@ -1175,7 +1195,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'indice de fiabilité de la TMJA de l'année de traitement N.
 	 *
-	 * @return this.indiceFiabiliteMjaN : String.<br/>
+	 * @return this.indiceFiabiliteMjaN : String.
 	 */
 	String getIndiceFiabiliteMjaN();
 
@@ -1185,7 +1205,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de l'indice de fiabilité de la TMJA de l'année de traitement N.
 	*
 	* @param pIndiceFiabiliteMjaN : String : 
-	* valeur à passer à this.indiceFiabiliteMjaN.<br/>
+	* valeur à passer à this.indiceFiabiliteMjaN.
 	*/
 	void setIndiceFiabiliteMjaN(String pIndiceFiabiliteMjaN);
 
@@ -1195,7 +1215,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de janvier (01) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois01 : Integer.<br/>
+	 * @return this.mjmNmois01 : Integer.
 	 */
 	Integer getMjmNmois01();
 
@@ -1206,7 +1226,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de janvier (01) de l'année de traitement N.
 	*
 	* @param pMjmNmois01 : Integer : 
-	* valeur à passer à this.mjmNmois01.<br/>
+	* valeur à passer à this.mjmNmois01.
 	*/
 	void setMjmNmois01(Integer pMjmNmois01);
 
@@ -1216,7 +1236,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de janvier (01) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois01 : String.<br/>
+	 * @return this.pcNuitNmois01 : String.
 	 */
 	String getPcNuitNmois01();
 
@@ -1227,7 +1247,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de janvier (01) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois01 : String : 
-	* valeur à passer à this.pcNuitNmois01.<br/>
+	* valeur à passer à this.pcNuitNmois01.
 	*/
 	void setPcNuitNmois01(String pPcNuitNmois01);
 
@@ -1237,7 +1257,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de février (02) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois02 : Integer.<br/>
+	 * @return this.mjmNmois02 : Integer.
 	 */
 	Integer getMjmNmois02();
 
@@ -1248,7 +1268,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de février (02) de l'année de traitement N.
 	*
 	* @param pMjmNmois02 : Integer : 
-	* valeur à passer à this.mjmNmois02.<br/>
+	* valeur à passer à this.mjmNmois02.
 	*/
 	void setMjmNmois02(Integer pMjmNmois02);
 
@@ -1258,7 +1278,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de février (02) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois02 : String.<br/>
+	 * @return this.pcNuitNmois02 : String.
 	 */
 	String getPcNuitNmois02();
 
@@ -1269,7 +1289,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de février (02) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois02 : String : 
-	* valeur à passer à this.pcNuitNmois02.<br/>
+	* valeur à passer à this.pcNuitNmois02.
 	*/
 	void setPcNuitNmois02(String pPcNuitNmois02);
 
@@ -1279,7 +1299,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de mars (03) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois03 : Integer.<br/>
+	 * @return this.mjmNmois03 : Integer.
 	 */
 	Integer getMjmNmois03();
 
@@ -1290,7 +1310,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de mars (03) de l'année de traitement N.
 	*
 	* @param pMjmNmois03 : Integer : 
-	* valeur à passer à this.mjmNmois03.<br/>
+	* valeur à passer à this.mjmNmois03.
 	*/
 	void setMjmNmois03(Integer pMjmNmois03);
 
@@ -1300,7 +1320,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de mars (03) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois03 : String.<br/>
+	 * @return this.pcNuitNmois03 : String.
 	 */
 	String getPcNuitNmois03();
 
@@ -1311,7 +1331,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de mars (03) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois03 : String : 
-	* valeur à passer à this.pcNuitNmois03.<br/>
+	* valeur à passer à this.pcNuitNmois03.
 	*/
 	void setPcNuitNmois03(String pPcNuitNmois03);
 
@@ -1321,7 +1341,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de avril (04) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois04 : Integer.<br/>
+	 * @return this.mjmNmois04 : Integer.
 	 */
 	Integer getMjmNmois04();
 
@@ -1332,7 +1352,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de avril (04) de l'année de traitement N.
 	*
 	* @param pMjmNmois04 : Integer : 
-	* valeur à passer à this.mjmNmois04.<br/>
+	* valeur à passer à this.mjmNmois04.
 	*/
 	void setMjmNmois04(Integer pMjmNmois04);
 
@@ -1342,7 +1362,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de avril (04) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois04 : String.<br/>
+	 * @return this.pcNuitNmois04 : String.
 	 */
 	String getPcNuitNmois04();
 
@@ -1353,7 +1373,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de avril (04) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois04 : String : 
-	* valeur à passer à this.pcNuitNmois04.<br/>
+	* valeur à passer à this.pcNuitNmois04.
 	*/
 	void setPcNuitNmois04(String pPcNuitNmois04);
 
@@ -1363,7 +1383,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de mai (05) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois05 : Integer.<br/>
+	 * @return this.mjmNmois05 : Integer.
 	 */
 	Integer getMjmNmois05();
 
@@ -1374,7 +1394,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de mai (05) de l'année de traitement N.
 	*
 	* @param pMjmNmois05 : Integer : 
-	* valeur à passer à this.mjmNmois05.<br/>
+	* valeur à passer à this.mjmNmois05.
 	*/
 	void setMjmNmois05(Integer pMjmNmois05);
 
@@ -1384,7 +1404,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de mai (05) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois05 : String.<br/>
+	 * @return this.pcNuitNmois05 : String.
 	 */
 	String getPcNuitNmois05();
 
@@ -1395,7 +1415,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de mai (05) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois05 : String : 
-	* valeur à passer à this.pcNuitNmois05.<br/>
+	* valeur à passer à this.pcNuitNmois05.
 	*/
 	void setPcNuitNmois05(String pPcNuitNmois05);
 
@@ -1405,7 +1425,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de juin (06) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois06 : Integer.<br/>
+	 * @return this.mjmNmois06 : Integer.
 	 */
 	Integer getMjmNmois06();
 
@@ -1416,7 +1436,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de juin (06) de l'année de traitement N.
 	*
 	* @param pMjmNmois06 : Integer : 
-	* valeur à passer à this.mjmNmois06.<br/>
+	* valeur à passer à this.mjmNmois06.
 	*/
 	void setMjmNmois06(Integer pMjmNmois06);
 
@@ -1426,7 +1446,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de juin (06) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois06 : String.<br/>
+	 * @return this.pcNuitNmois06 : String.
 	 */
 	String getPcNuitNmois06();
 
@@ -1437,7 +1457,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de juin (06) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois06 : String : 
-	* valeur à passer à this.pcNuitNmois06.<br/>
+	* valeur à passer à this.pcNuitNmois06.
 	*/
 	void setPcNuitNmois06(String pPcNuitNmois06);
 
@@ -1447,7 +1467,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de juillet (07) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois07 : Integer.<br/>
+	 * @return this.mjmNmois07 : Integer.
 	 */
 	Integer getMjmNmois07();
 
@@ -1458,7 +1478,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de juillet (07) de l'année de traitement N.
 	*
 	* @param pMjmNmois07 : Integer : 
-	* valeur à passer à this.mjmNmois07.<br/>
+	* valeur à passer à this.mjmNmois07.
 	*/
 	void setMjmNmois07(Integer pMjmNmois07);
 
@@ -1468,7 +1488,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de juillet (07) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois07 : String.<br/>
+	 * @return this.pcNuitNmois07 : String.
 	 */
 	String getPcNuitNmois07();
 
@@ -1479,7 +1499,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de juillet (07) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois07 : String : 
-	* valeur à passer à this.pcNuitNmois07.<br/>
+	* valeur à passer à this.pcNuitNmois07.
 	*/
 	void setPcNuitNmois07(String pPcNuitNmois07);
 
@@ -1489,7 +1509,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de août (08) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois08 : Integer.<br/>
+	 * @return this.mjmNmois08 : Integer.
 	 */
 	Integer getMjmNmois08();
 
@@ -1500,7 +1520,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de août (08) de l'année de traitement N.
 	*
 	* @param pMjmNmois08 : Integer : 
-	* valeur à passer à this.mjmNmois08.<br/>
+	* valeur à passer à this.mjmNmois08.
 	*/
 	void setMjmNmois08(Integer pMjmNmois08);
 
@@ -1510,7 +1530,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de août (08) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois08 : String.<br/>
+	 * @return this.pcNuitNmois08 : String.
 	 */
 	String getPcNuitNmois08();
 
@@ -1521,7 +1541,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de août (08) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois08 : String : 
-	* valeur à passer à this.pcNuitNmois08.<br/>
+	* valeur à passer à this.pcNuitNmois08.
 	*/
 	void setPcNuitNmois08(String pPcNuitNmois08);
 
@@ -1531,7 +1551,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de septembre (09) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois09 : Integer.<br/>
+	 * @return this.mjmNmois09 : Integer.
 	 */
 	Integer getMjmNmois09();
 
@@ -1542,7 +1562,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de septembre (09) de l'année de traitement N.
 	*
 	* @param pMjmNmois09 : Integer : 
-	* valeur à passer à this.mjmNmois09.<br/>
+	* valeur à passer à this.mjmNmois09.
 	*/
 	void setMjmNmois09(Integer pMjmNmois09);
 
@@ -1552,7 +1572,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de septembre (09) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois09 : String.<br/>
+	 * @return this.pcNuitNmois09 : String.
 	 */
 	String getPcNuitNmois09();
 
@@ -1563,7 +1583,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de septembre (09) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois09 : String : 
-	* valeur à passer à this.pcNuitNmois09.<br/>
+	* valeur à passer à this.pcNuitNmois09.
 	*/
 	void setPcNuitNmois09(String pPcNuitNmois09);
 
@@ -1573,7 +1593,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de octobre (10) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois10 : Integer.<br/>
+	 * @return this.mjmNmois10 : Integer.
 	 */
 	Integer getMjmNmois10();
 
@@ -1584,7 +1604,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de octobre (10) de l'année de traitement N.
 	*
 	* @param pMjmNmois10 : Integer : 
-	* valeur à passer à this.mjmNmois10.<br/>
+	* valeur à passer à this.mjmNmois10.
 	*/
 	void setMjmNmois10(Integer pMjmNmois10);
 
@@ -1594,7 +1614,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de octobre (10) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois10 : String.<br/>
+	 * @return this.pcNuitNmois10 : String.
 	 */
 	String getPcNuitNmois10();
 
@@ -1605,7 +1625,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de octobre (10) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois10 : String : 
-	* valeur à passer à this.pcNuitNmois10.<br/>
+	* valeur à passer à this.pcNuitNmois10.
 	*/
 	void setPcNuitNmois10(String pPcNuitNmois10);
 
@@ -1615,7 +1635,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de novembre (11) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois11 : Integer.<br/>
+	 * @return this.mjmNmois11 : Integer.
 	 */
 	Integer getMjmNmois11();
 
@@ -1626,7 +1646,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de novembre (11) de l'année de traitement N.
 	*
 	* @param pMjmNmois11 : Integer : 
-	* valeur à passer à this.mjmNmois11.<br/>
+	* valeur à passer à this.mjmNmois11.
 	*/
 	void setMjmNmois11(Integer pMjmNmois11);
 
@@ -1636,7 +1656,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de novembre (11) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois11 : String.<br/>
+	 * @return this.pcNuitNmois11 : String.
 	 */
 	String getPcNuitNmois11();
 
@@ -1647,7 +1667,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de novembre (11) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois11 : String : 
-	* valeur à passer à this.pcNuitNmois11.<br/>
+	* valeur à passer à this.pcNuitNmois11.
 	*/
 	void setPcNuitNmois11(String pPcNuitNmois11);
 
@@ -1657,7 +1677,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la moyenne journalière mensuelle en véhicules/jour 
 	 * du mois de décembre (12) de l'année de traitement N.
 	 *
-	 * @return this.mjmNmois12 : Integer.<br/>
+	 * @return this.mjmNmois12 : Integer.
 	 */
 	Integer getMjmNmois12();
 
@@ -1668,7 +1688,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de décembre (12) de l'année de traitement N.
 	*
 	* @param pMjmNmois12 : Integer : 
-	* valeur à passer à this.mjmNmois12.<br/>
+	* valeur à passer à this.mjmNmois12.
 	*/
 	void setMjmNmois12(Integer pMjmNmois12);
 
@@ -1678,7 +1698,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules mensuel
 	 * du mois de décembre (12) de l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmois12 : String.<br/>
+	 * @return this.pcNuitNmois12 : String.
 	 */
 	String getPcNuitNmois12();
 
@@ -1689,7 +1709,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* du mois de décembre (12) de l'année de traitement N.
 	*
 	* @param pPcNuitNmois12 : String : 
-	* valeur à passer à this.pcNuitNmois12.<br/>
+	* valeur à passer à this.pcNuitNmois12.
 	*/
 	void setPcNuitNmois12(String pPcNuitNmois12);
 
@@ -1698,7 +1718,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de la zone libre 3.
 	 *
-	 * @return this.zoneLibre3 : String.<br/>
+	 * @return this.zoneLibre3 : String.
 	 */
 	String getZoneLibre3();
 
@@ -1708,7 +1728,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de la zone libre 3.
 	*
 	* @param pZoneLibre3 : String : 
-	* valeur à passer à this.zoneLibre3.<br/>
+	* valeur à passer à this.zoneLibre3.
 	*/
 	void setZoneLibre3(String pZoneLibre3);
 
@@ -1717,7 +1737,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'année n-1.
 	 *
-	 * @return this.anneeNmoins1 : LocalDate.<br/>
+	 * @return this.anneeNmoins1 : java.time.LocalDate.
 	 */
 	LocalDate getAnneeNmoins1();
 	
@@ -1726,8 +1746,8 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	* Setter de l'année n-1.
 	*
-	* @param pAnneeNmoins1 : LocalDate : 
-	* valeur à passer à this.anneeNmoins1.<br/>
+	* @param pAnneeNmoins1 : java.time.LocalDate : 
+	* valeur à passer à this.anneeNmoins1.
 	*/
 	void setAnneeNmoins1(LocalDate pAnneeNmoins1);
 
@@ -1736,7 +1756,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du trafic moyen journalier annuel de l'année n-1.
 	 *
-	 * @return this.mjaNmoins1 : Integer.<br/>
+	 * @return this.mjaNmoins1 : Integer.
 	 */
 	Integer getMjaNmoins1();
 
@@ -1746,7 +1766,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du trafic moyen journalier annuel de l'année n-1.
 	*
 	* @param pMjaNmoins1 : Integer : 
-	* valeur à passer à this.mjaNmoins1.<br/>
+	* valeur à passer à this.mjaNmoins1.
 	*/
 	void setMjaNmoins1(Integer pMjaNmoins1);
 
@@ -1755,7 +1775,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du type de comptage de l'année n-1.
 	 *
-	 * @return this.typeComptageNmoins1 : String.<br/>
+	 * @return this.typeComptageNmoins1 : String.
 	 */
 	String getTypeComptageNmoins1();
 
@@ -1765,7 +1785,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du type de comptage de l'année n-1.
 	*
 	* @param pTypeComptageNmoins1 : String : 
-	* valeur à passer à this.typeComptageNmoins1.<br/>
+	* valeur à passer à this.typeComptageNmoins1.
 	*/
 	void setTypeComptageNmoins1(String pTypeComptageNmoins1);
 
@@ -1774,7 +1794,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du mode de calcul des trafics de l'année n-1.
 	 *
-	 * @return this.modeCalculNmoins1 : String.<br/>
+	 * @return this.modeCalculNmoins1 : String.
 	 */
 	String getModeCalculNmoins1();
 
@@ -1784,7 +1804,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du mode de calcul des trafics de l'année n-1.
 	*
 	* @param pModeCalculNmoins1 : String : 
-	* valeur à passer à this.modeCalculNmoins1.<br/>
+	* valeur à passer à this.modeCalculNmoins1.
 	*/
 	void setModeCalculNmoins1(String pModeCalculNmoins1);
 
@@ -1793,7 +1813,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-1.
 	 *
-	 * @return this.pcPLNmoins1 : String.<br/>
+	 * @return this.pcPLNmoins1 : String.
 	 */
 	String getPcPLNmoins1();
 
@@ -1803,7 +1823,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du pourcentage de trafic poids lourds annuel de l'année n-1.
 	*
 	* @param pPcPLNmoins1 : String : 
-	* valeur à passer à this.pcPLNmoins1.<br/>
+	* valeur à passer à this.pcPLNmoins1.
 	*/
 	void setPcPLNmoins1(String pPcPLNmoins1);
 
@@ -1813,7 +1833,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
 	 * de l'année n-1.
 	 *
-	 * @return this.evaluationPLNmoins1 : String.<br/>
+	 * @return this.evaluationPLNmoins1 : String.
 	 */
 	String getEvaluationPLNmoins1();
 
@@ -1824,7 +1844,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-1.
 	*
 	* @param pEvaluationPLNmoins1 : String : 
-	* valeur à passer à this.evaluationPLNmoins1.<br/>
+	* valeur à passer à this.evaluationPLNmoins1.
 	*/
 	void setEvaluationPLNmoins1(String pEvaluationPLNmoins1);
 
@@ -1834,7 +1854,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
 	 * de l'année n-1.
 	 *
-	 * @return this.pcNuitAnnuelNmoins1 : String.<br/>
+	 * @return this.pcNuitAnnuelNmoins1 : String.
 	 */
 	String getPcNuitAnnuelNmoins1();
 
@@ -1845,7 +1865,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-1.
 	*
 	* @param pPcNuitAnnuelNmoins1 : String : 
-	* valeur à passer à this.pcNuitAnnuelNmoins1.<br/>
+	* valeur à passer à this.pcNuitAnnuelNmoins1.
 	*/
 	void setPcNuitAnnuelNmoins1(String pPcNuitAnnuelNmoins1);
 
@@ -1855,7 +1875,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de l'indice de fiabilité de la TMJA 
 	 * de l'année n-1.
 	 *
-	 * @return this.indiceFiabiliteMjaNmoins1 : String.<br/>
+	 * @return this.indiceFiabiliteMjaNmoins1 : String.
 	 */
 	String getIndiceFiabiliteMjaNmoins1();
 
@@ -1866,7 +1886,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-1.
 	*
 	* @param pIndiceFiabiliteMjaNmoins1 : String : 
-	* valeur à passer à this.indiceFiabiliteMjaNmoins1.<br/>
+	* valeur à passer à this.indiceFiabiliteMjaNmoins1.
 	*/
 	void setIndiceFiabiliteMjaNmoins1(String pIndiceFiabiliteMjaNmoins1);
 
@@ -1875,7 +1895,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'année n-2.
 	 *
-	 * @return this.anneeNmoins2 : LocalDate.<br/>
+	 * @return this.anneeNmoins2 : java.time.LocalDate.
 	 */
 	LocalDate getAnneeNmoins2();
 	
@@ -1884,8 +1904,8 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	* Setter de l'année n-2.
 	*
-	* @param pAnneeNmoins2 : LocalDate : 
-	* valeur à passer à this.anneeNmoins2.<br/>
+	* @param pAnneeNmoins2 : java.time.LocalDate : 
+	* valeur à passer à this.anneeNmoins2.
 	*/
 	void setAnneeNmoins2(LocalDate pAnneeNmoins2);
 
@@ -1894,7 +1914,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du trafic moyen journalier annuel de l'année n-2.
 	 *
-	 * @return this.mjaNmoins2 : Integer.<br/>
+	 * @return this.mjaNmoins2 : Integer.
 	 */
 	Integer getMjaNmoins2();
 
@@ -1904,7 +1924,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du trafic moyen journalier annuel de l'année n-2.
 	*
 	* @param pMjaNmoins2 : Integer : 
-	* valeur à passer à this.mjaNmoins2.<br/>
+	* valeur à passer à this.mjaNmoins2.
 	*/
 	void setMjaNmoins2(Integer pMjaNmoins2);
 
@@ -1913,7 +1933,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du type de comptage de l'année n-2.
 	 *
-	 * @return this.typeComptageNmoins2 : String.<br/>
+	 * @return this.typeComptageNmoins2 : String.
 	 */
 	String getTypeComptageNmoins2();
 
@@ -1923,7 +1943,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du type de comptage de l'année n-2.
 	*
 	* @param pTypeComptageNmoins2 : String : 
-	* valeur à passer à this.typeComptageNmoins2.<br/>
+	* valeur à passer à this.typeComptageNmoins2.
 	*/
 	void setTypeComptageNmoins2(String pTypeComptageNmoins2);
 
@@ -1932,7 +1952,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du mode de calcul des trafics de l'année n-2.
 	 *
-	 * @return this.modeCalculNmoins2 : String.<br/>
+	 * @return this.modeCalculNmoins2 : String.
 	 */
 	String getModeCalculNmoins2();
 
@@ -1942,7 +1962,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du mode de calcul des trafics de l'année n-2.
 	*
 	* @param pModeCalculNmoins2 : String : 
-	* valeur à passer à this.modeCalculNmoins2.<br/>
+	* valeur à passer à this.modeCalculNmoins2.
 	*/
 	void setModeCalculNmoins2(String pModeCalculNmoins2);
 
@@ -1951,7 +1971,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-2.
 	 *
-	 * @return this.pcPLNmoins2 : String.<br/>
+	 * @return this.pcPLNmoins2 : String.
 	 */
 	String getPcPLNmoins2();
 
@@ -1961,7 +1981,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du pourcentage de trafic poids lourds annuel de l'année n-2.
 	*
 	* @param pPcPLNmoins2 : String : 
-	* valeur à passer à this.pcPLNmoins2.<br/>
+	* valeur à passer à this.pcPLNmoins2.
 	*/
 	void setPcPLNmoins2(String pPcPLNmoins2);
 
@@ -1971,7 +1991,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
 	 * de l'année n-2.
 	 *
-	 * @return this.evaluationPLNmoins2 : String.<br/>
+	 * @return this.evaluationPLNmoins2 : String.
 	 */
 	String getEvaluationPLNmoins2();
 
@@ -1982,7 +2002,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-2.
 	*
 	* @param pEvaluationPLNmoins2 : String : 
-	* valeur à passer à this.evaluationPLNmoins2.<br/>
+	* valeur à passer à this.evaluationPLNmoins2.
 	*/
 	void setEvaluationPLNmoins2(String pEvaluationPLNmoins2);
 
@@ -1992,7 +2012,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
 	 * de l'année n-2.
 	 *
-	 * @return this.pcNuitAnnuelNmoins2 : String.<br/>
+	 * @return this.pcNuitAnnuelNmoins2 : String.
 	 */
 	String getPcNuitAnnuelNmoins2();
 
@@ -2003,7 +2023,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-2.
 	*
 	* @param pPcNuitAnnuelNmoins2 : String : 
-	* valeur à passer à this.pcNuitAnnuelNmoins2.<br/>
+	* valeur à passer à this.pcNuitAnnuelNmoins2.
 	*/
 	void setPcNuitAnnuelNmoins2(String pPcNuitAnnuelNmoins2);
 
@@ -2013,7 +2033,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de l'indice de fiabilité de la TMJA 
 	 * de l'année n-2.
 	 *
-	 * @return this.indiceFiabiliteMjaNmoins2 : String.<br/>
+	 * @return this.indiceFiabiliteMjaNmoins2 : String.
 	 */
 	String getIndiceFiabiliteMjaNmoins2();
 
@@ -2024,7 +2044,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-2.
 	*
 	* @param pIndiceFiabiliteMjaNmoins2 : String : 
-	* valeur à passer à this.indiceFiabiliteMjaNmoins2.<br/>
+	* valeur à passer à this.indiceFiabiliteMjaNmoins2.
 	*/
 	void setIndiceFiabiliteMjaNmoins2(String pIndiceFiabiliteMjaNmoins2);
 
@@ -2033,7 +2053,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'année n-3.
 	 *
-	 * @return this.anneeNmoins3 : LocalDate.<br/>
+	 * @return this.anneeNmoins3 : java.time.LocalDate.
 	 */
 	LocalDate getAnneeNmoins3();
 	
@@ -2042,8 +2062,8 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	* Setter de l'année n-3.
 	*
-	* @param pAnneeNmoins3 : LocalDate : 
-	* valeur à passer à this.anneeNmoins3.<br/>
+	* @param pAnneeNmoins3 : java.time.LocalDate : 
+	* valeur à passer à this.anneeNmoins3.
 	*/
 	void setAnneeNmoins3(LocalDate pAnneeNmoins3);
 
@@ -2052,7 +2072,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du trafic moyen journalier annuel de l'année n-3.
 	 *
-	 * @return this.mjaNmoins3 : Integer.<br/>
+	 * @return this.mjaNmoins3 : Integer.
 	 */
 	Integer getMjaNmoins3();
 
@@ -2062,7 +2082,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du trafic moyen journalier annuel de l'année n-3.
 	*
 	* @param pMjaNmoins3 : Integer : 
-	* valeur à passer à this.mjaNmoins3.<br/>
+	* valeur à passer à this.mjaNmoins3.
 	*/
 	void setMjaNmoins3(Integer pMjaNmoins3);
 
@@ -2071,7 +2091,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du type de comptage de l'année n-3.
 	 *
-	 * @return this.typeComptageNmoins3 : String.<br/>
+	 * @return this.typeComptageNmoins3 : String.
 	 */
 	String getTypeComptageNmoins3();
 
@@ -2081,7 +2101,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du type de comptage de l'année n-3.
 	*
 	* @param pTypeComptageNmoins3 : String : 
-	* valeur à passer à this.typeComptageNmoins3.<br/>
+	* valeur à passer à this.typeComptageNmoins3.
 	*/
 	void setTypeComptageNmoins3(String pTypeComptageNmoins3);
 
@@ -2090,7 +2110,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du mode de calcul des trafics de l'année n-3.
 	 *
-	 * @return this.modeCalculNmoins3 : String.<br/>
+	 * @return this.modeCalculNmoins3 : String.
 	 */
 	String getModeCalculNmoins3();
 
@@ -2100,7 +2120,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du mode de calcul des trafics de l'année n-3.
 	*
 	* @param pModeCalculNmoins3 : String : 
-	* valeur à passer à this.modeCalculNmoins3.<br/>
+	* valeur à passer à this.modeCalculNmoins3.
 	*/
 	void setModeCalculNmoins3(String pModeCalculNmoins3);
 
@@ -2109,7 +2129,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-3.
 	 *
-	 * @return this.pcPLNmoins3 : String.<br/>
+	 * @return this.pcPLNmoins3 : String.
 	 */
 	String getPcPLNmoins3();
 
@@ -2119,7 +2139,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du pourcentage de trafic poids lourds annuel de l'année n-3.
 	*
 	* @param pPcPLNmoins3 : String : 
-	* valeur à passer à this.pcPLNmoins3.<br/>
+	* valeur à passer à this.pcPLNmoins3.
 	*/
 	void setPcPLNmoins3(String pPcPLNmoins3);
 
@@ -2129,7 +2149,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
 	 * de l'année n-3.
 	 *
-	 * @return this.evaluationPLNmoins3 : String.<br/>
+	 * @return this.evaluationPLNmoins3 : String.
 	 */
 	String getEvaluationPLNmoins3();
 
@@ -2140,7 +2160,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-3.
 	*
 	* @param pEvaluationPLNmoins3 : String : 
-	* valeur à passer à this.evaluationPLNmoins3.<br/>
+	* valeur à passer à this.evaluationPLNmoins3.
 	*/
 	void setEvaluationPLNmoins3(String pEvaluationPLNmoins3);
 
@@ -2150,7 +2170,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
 	 * de l'année n-3.
 	 *
-	 * @return this.pcNuitAnnuelNmoins3 : String.<br/>
+	 * @return this.pcNuitAnnuelNmoins3 : String.
 	 */
 	String getPcNuitAnnuelNmoins3();
 
@@ -2161,7 +2181,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-3.
 	*
 	* @param pPcNuitAnnuelNmoins3 : String : 
-	* valeur à passer à this.pcNuitAnnuelNmoins3.<br/>
+	* valeur à passer à this.pcNuitAnnuelNmoins3.
 	*/
 	void setPcNuitAnnuelNmoins3(String pPcNuitAnnuelNmoins3);
 
@@ -2171,7 +2191,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de l'indice de fiabilité de la TMJA 
 	 * de l'année n-3.
 	 *
-	 * @return this.indiceFiabiliteMjaNmoins3 : String.<br/>
+	 * @return this.indiceFiabiliteMjaNmoins3 : String.
 	 */
 	String getIndiceFiabiliteMjaNmoins3();
 
@@ -2182,7 +2202,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-3.
 	*
 	* @param pIndiceFiabiliteMjaNmoins3 : String : 
-	* valeur à passer à this.indiceFiabiliteMjaNmoins3.<br/>
+	* valeur à passer à this.indiceFiabiliteMjaNmoins3.
 	*/
 	void setIndiceFiabiliteMjaNmoins3(String pIndiceFiabiliteMjaNmoins3);
 
@@ -2191,7 +2211,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'année n-4.
 	 *
-	 * @return this.anneeNmoins4 : LocalDate.<br/>
+	 * @return this.anneeNmoins4 : java.time.LocalDate.
 	 */
 	LocalDate getAnneeNmoins4();
 	
@@ -2200,8 +2220,8 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	* Setter de l'année n-4.
 	*
-	* @param pAnneeNmoins4 : LocalDate : 
-	* valeur à passer à this.anneeNmoins4.<br/>
+	* @param pAnneeNmoins4 : java.time.LocalDate : 
+	* valeur à passer à this.anneeNmoins4.
 	*/
 	void setAnneeNmoins4(LocalDate pAnneeNmoins4);
 
@@ -2210,7 +2230,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du trafic moyen journalier annuel de l'année n-4.
 	 *
-	 * @return this.mjaNmoins4 : Integer.<br/>
+	 * @return this.mjaNmoins4 : Integer.
 	 */
 	Integer getMjaNmoins4();
 
@@ -2220,7 +2240,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du trafic moyen journalier annuel de l'année n-4.
 	*
 	* @param pMjaNmoins4 : Integer : 
-	* valeur à passer à this.mjaNmoins4.<br/>
+	* valeur à passer à this.mjaNmoins4.
 	*/
 	void setMjaNmoins4(Integer pMjaNmoins4);
 
@@ -2229,7 +2249,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du type de comptage de l'année n-4.
 	 *
-	 * @return this.typeComptageNmoins4 : String.<br/>
+	 * @return this.typeComptageNmoins4 : String.
 	 */
 	String getTypeComptageNmoins4();
 
@@ -2239,7 +2259,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du type de comptage de l'année n-4.
 	*
 	* @param pTypeComptageNmoins4 : String : 
-	* valeur à passer à this.typeComptageNmoins4.<br/>
+	* valeur à passer à this.typeComptageNmoins4.
 	*/
 	void setTypeComptageNmoins4(String pTypeComptageNmoins4);
 
@@ -2248,7 +2268,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du mode de calcul des trafics de l'année n-4.
 	 *
-	 * @return this.modeCalculNmoins4 : String.<br/>
+	 * @return this.modeCalculNmoins4 : String.
 	 */
 	String getModeCalculNmoins4();
 
@@ -2258,7 +2278,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du mode de calcul des trafics de l'année n-4.
 	*
 	* @param pModeCalculNmoins4 : String : 
-	* valeur à passer à this.modeCalculNmoins4.<br/>
+	* valeur à passer à this.modeCalculNmoins4.
 	*/
 	void setModeCalculNmoins4(String pModeCalculNmoins4);
 
@@ -2267,7 +2287,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-4.
 	 *
-	 * @return this.pcPLNmoins4 : String.<br/>
+	 * @return this.pcPLNmoins4 : String.
 	 */
 	String getPcPLNmoins4();
 
@@ -2277,7 +2297,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du pourcentage de trafic poids lourds annuel de l'année n-4.
 	*
 	* @param pPcPLNmoins4 : String : 
-	* valeur à passer à this.pcPLNmoins4.<br/>
+	* valeur à passer à this.pcPLNmoins4.
 	*/
 	void setPcPLNmoins4(String pPcPLNmoins4);
 
@@ -2287,7 +2307,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
 	 * de l'année n-4.
 	 *
-	 * @return this.evaluationPLNmoins4 : String.<br/>
+	 * @return this.evaluationPLNmoins4 : String.
 	 */
 	String getEvaluationPLNmoins4();
 
@@ -2298,7 +2318,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-4.
 	*
 	* @param pEvaluationPLNmoins4 : String : 
-	* valeur à passer à this.evaluationPLNmoins4.<br/>
+	* valeur à passer à this.evaluationPLNmoins4.
 	*/
 	void setEvaluationPLNmoins4(String pEvaluationPLNmoins4);
 
@@ -2308,7 +2328,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
 	 * de l'année n-4.
 	 *
-	 * @return this.pcNuitAnnuelNmoins4 : String.<br/>
+	 * @return this.pcNuitAnnuelNmoins4 : String.
 	 */
 	String getPcNuitAnnuelNmoins4();
 
@@ -2319,7 +2339,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-4.
 	*
 	* @param pPcNuitAnnuelNmoins4 : String : 
-	* valeur à passer à this.pcNuitAnnuelNmoins4.<br/>
+	* valeur à passer à this.pcNuitAnnuelNmoins4.
 	*/
 	void setPcNuitAnnuelNmoins4(String pPcNuitAnnuelNmoins4);
 
@@ -2329,7 +2349,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de l'indice de fiabilité de la TMJA 
 	 * de l'année n-4.
 	 *
-	 * @return this.indiceFiabiliteMjaNmoins4 : String.<br/>
+	 * @return this.indiceFiabiliteMjaNmoins4 : String.
 	 */
 	String getIndiceFiabiliteMjaNmoins4();
 
@@ -2340,7 +2360,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-4.
 	*
 	* @param pIndiceFiabiliteMjaNmoins4 : String : 
-	* valeur à passer à this.indiceFiabiliteMjaNmoins4.<br/>
+	* valeur à passer à this.indiceFiabiliteMjaNmoins4.
 	*/
 	void setIndiceFiabiliteMjaNmoins4(String pIndiceFiabiliteMjaNmoins4);
 
@@ -2349,7 +2369,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de l'année n-5.
 	 *
-	 * @return this.anneeNmoins5 : LocalDate.<br/>
+	 * @return this.anneeNmoins5 : java.time.LocalDate.
 	 */
 	LocalDate getAnneeNmoins5();
 	
@@ -2358,8 +2378,8 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	* Setter de l'année n-5.
 	*
-	* @param pAnneeNmoins5 : LocalDate : 
-	* valeur à passer à this.anneeNmoins5.<br/>
+	* @param pAnneeNmoins5 : java.time.LocalDate : 
+	* valeur à passer à this.anneeNmoins5.
 	*/
 	void setAnneeNmoins5(LocalDate pAnneeNmoins5);
 
@@ -2368,7 +2388,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du trafic moyen journalier annuel de l'année n-5.
 	 *
-	 * @return this.mjaNmoins5 : Integer.<br/>
+	 * @return this.mjaNmoins5 : Integer.
 	 */
 	Integer getMjaNmoins5();
 
@@ -2378,7 +2398,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du trafic moyen journalier annuel de l'année n-5.
 	*
 	* @param pMjaNmoins5 : Integer : 
-	* valeur à passer à this.mjaNmoins5.<br/>
+	* valeur à passer à this.mjaNmoins5.
 	*/
 	void setMjaNmoins5(Integer pMjaNmoins5);
 
@@ -2387,7 +2407,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du type de comptage de l'année n-5.
 	 *
-	 * @return this.typeComptageNmoins5 : String.<br/>
+	 * @return this.typeComptageNmoins5 : String.
 	 */
 	String getTypeComptageNmoins5();
 
@@ -2397,7 +2417,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du type de comptage de l'année n-5.
 	*
 	* @param pTypeComptageNmoins5 : String : 
-	* valeur à passer à this.typeComptageNmoins5.<br/>
+	* valeur à passer à this.typeComptageNmoins5.
 	*/
 	void setTypeComptageNmoins5(String pTypeComptageNmoins5);
 
@@ -2406,7 +2426,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du mode de calcul des trafics de l'année n-5.
 	 *
-	 * @return this.modeCalculNmoins5 : String.<br/>
+	 * @return this.modeCalculNmoins5 : String.
 	 */
 	String getModeCalculNmoins5();
 
@@ -2416,7 +2436,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du mode de calcul des trafics de l'année n-5.
 	*
 	* @param pModeCalculNmoins5 : String : 
-	* valeur à passer à this.modeCalculNmoins5.<br/>
+	* valeur à passer à this.modeCalculNmoins5.
 	*/
 	void setModeCalculNmoins5(String pModeCalculNmoins5);
 
@@ -2425,7 +2445,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter du pourcentage de trafic poids lourds annuel de l'année n-5.
 	 *
-	 * @return this.pcPLNmoins5 : String.<br/>
+	 * @return this.pcPLNmoins5 : String.
 	 */
 	String getPcPLNmoins5();
 
@@ -2435,7 +2455,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter du pourcentage de trafic poids lourds annuel de l'année n-5.
 	*
 	* @param pPcPLNmoins5 : String : 
-	* valeur à passer à this.pcPLNmoins5.<br/>
+	* valeur à passer à this.pcPLNmoins5.
 	*/
 	void setPcPLNmoins5(String pPcPLNmoins5);
 
@@ -2445,7 +2465,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du moyen d'évaluation du pourcentage de trafic poids lourds annuel 
 	 * de l'année n-5.
 	 *
-	 * @return this.evaluationPLNmoins5 : String.<br/>
+	 * @return this.evaluationPLNmoins5 : String.
 	 */
 	String getEvaluationPLNmoins5();
 
@@ -2456,7 +2476,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-5.
 	*
 	* @param pEvaluationPLNmoins5 : String : 
-	* valeur à passer à this.evaluationPLNmoins5.<br/>
+	* valeur à passer à this.evaluationPLNmoins5.
 	*/
 	void setEvaluationPLNmoins5(String pEvaluationPLNmoins5);
 
@@ -2466,7 +2486,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter du pourcentage de trafic de nuit tous véhicules annuel 
 	 * de l'année n-5.
 	 *
-	 * @return this.pcNuitAnnuelNmoins5 : String.<br/>
+	 * @return this.pcNuitAnnuelNmoins5 : String.
 	 */
 	String getPcNuitAnnuelNmoins5();
 
@@ -2477,7 +2497,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-5.
 	*
 	* @param pPcNuitAnnuelNmoins5 : String : 
-	* valeur à passer à this.pcNuitAnnuelNmoins5.<br/>
+	* valeur à passer à this.pcNuitAnnuelNmoins5.
 	*/
 	void setPcNuitAnnuelNmoins5(String pPcNuitAnnuelNmoins5);
 
@@ -2487,7 +2507,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de l'indice de fiabilité de la TMJA 
 	 * de l'année n-5.
 	 *
-	 * @return this.indiceFiabiliteMjaNmoins5 : String.<br/>
+	 * @return this.indiceFiabiliteMjaNmoins5 : String.
 	 */
 	String getIndiceFiabiliteMjaNmoins5();
 
@@ -2498,7 +2518,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année n-5.
 	*
 	* @param pIndiceFiabiliteMjaNmoins5 : String : 
-	* valeur à passer à this.indiceFiabiliteMjaNmoins5.<br/>
+	* valeur à passer à this.indiceFiabiliteMjaNmoins5.
 	*/
 	void setIndiceFiabiliteMjaNmoins5(String pIndiceFiabiliteMjaNmoins5);
 
@@ -2509,7 +2529,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de janvier (01) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois01 : Integer.<br/>
+	 * @return this.mjmNmoins1mois01 : Integer.
 	 */
 	Integer getMjmNmoins1mois01();
 
@@ -2521,7 +2541,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois01 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois01.<br/>
+	* valeur à passer à this.mjmNmoins1mois01.
 	*/
 	void setMjmNmoins1mois01(Integer pMjmNmoins1mois01);
 
@@ -2532,7 +2552,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de janvier (01) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois01 : String.<br/>
+	 * @return this.pcNuitNmoins1mois01 : String.
 	 */
 	String getPcNuitNmoins1mois01();
 
@@ -2544,7 +2564,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois01 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois01.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois01.
 	*/
 	void setPcNuitNmoins1mois01(String pPcNuitNmoins1mois01);
 
@@ -2555,7 +2575,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de février (02) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois02 : Integer.<br/>
+	 * @return this.mjmNmoins1mois02 : Integer.
 	 */
 	Integer getMjmNmoins1mois02();
 
@@ -2567,7 +2587,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois02 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois02.<br/>
+	* valeur à passer à this.mjmNmoins1mois02.
 	*/
 	void setMjmNmoins1mois02(Integer pMjmNmoins1mois02);
 
@@ -2578,7 +2598,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de février (02) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois02 : String.<br/>
+	 * @return this.pcNuitNmoins1mois02 : String.
 	 */
 	String getPcNuitNmoins1mois02();
 
@@ -2590,7 +2610,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois02 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois02.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois02.
 	*/
 	void setPcNuitNmoins1mois02(String pPcNuitNmoins1mois02);
 
@@ -2601,7 +2621,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de mars (03) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois03 : Integer.<br/>
+	 * @return this.mjmNmoins1mois03 : Integer.
 	 */
 	Integer getMjmNmoins1mois03();
 
@@ -2613,7 +2633,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois03 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois03.<br/>
+	* valeur à passer à this.mjmNmoins1mois03.
 	*/
 	void setMjmNmoins1mois03(Integer pMjmNmoins1mois03);
 
@@ -2624,7 +2644,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de mars (03) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois03 : String.<br/>
+	 * @return this.pcNuitNmoins1mois03 : String.
 	 */
 	String getPcNuitNmoins1mois03();
 
@@ -2636,7 +2656,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois03 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois03.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois03.
 	*/
 	void setPcNuitNmoins1mois03(String pPcNuitNmoins1mois03);
 
@@ -2647,7 +2667,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de avril (04) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois04 : Integer.<br/>
+	 * @return this.mjmNmoins1mois04 : Integer.
 	 */
 	Integer getMjmNmoins1mois04();
 
@@ -2659,7 +2679,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois04 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois04.<br/>
+	* valeur à passer à this.mjmNmoins1mois04.
 	*/
 	void setMjmNmoins1mois04(Integer pMjmNmoins1mois04);
 
@@ -2670,7 +2690,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de avril (04) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois04 : String.<br/>
+	 * @return this.pcNuitNmoins1mois04 : String.
 	 */
 	String getPcNuitNmoins1mois04();
 
@@ -2682,7 +2702,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois04 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois04.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois04.
 	*/
 	void setPcNuitNmoins1mois04(String pPcNuitNmoins1mois04);
 
@@ -2693,7 +2713,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de mai (05) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois05 : Integer.<br/>
+	 * @return this.mjmNmoins1mois05 : Integer.
 	 */
 	Integer getMjmNmoins1mois05();
 
@@ -2705,7 +2725,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois05 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois05.<br/>
+	* valeur à passer à this.mjmNmoins1mois05.
 	*/
 	void setMjmNmoins1mois05(Integer pMjmNmoins1mois05);
 
@@ -2716,7 +2736,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de mai (05) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois05 : String.<br/>
+	 * @return this.pcNuitNmoins1mois05 : String.
 	 */
 	String getPcNuitNmoins1mois05();
 
@@ -2728,7 +2748,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois05 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois05.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois05.
 	*/
 	void setPcNuitNmoins1mois05(String pPcNuitNmoins1mois05);
 
@@ -2739,7 +2759,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de juin (06) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois06 : Integer.<br/>
+	 * @return this.mjmNmoins1mois06 : Integer.
 	 */
 	Integer getMjmNmoins1mois06();
 
@@ -2751,7 +2771,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois06 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois06.<br/>
+	* valeur à passer à this.mjmNmoins1mois06.
 	*/
 	void setMjmNmoins1mois06(Integer pMjmNmoins1mois06);
 
@@ -2762,7 +2782,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de juin (06) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois06 : String.<br/>
+	 * @return this.pcNuitNmoins1mois06 : String.
 	 */
 	String getPcNuitNmoins1mois06();
 
@@ -2774,7 +2794,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois06 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois06.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois06.
 	*/
 	void setPcNuitNmoins1mois06(String pPcNuitNmoins1mois06);
 
@@ -2785,7 +2805,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de juillet (07) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois07 : Integer.<br/>
+	 * @return this.mjmNmoins1mois07 : Integer.
 	 */
 	Integer getMjmNmoins1mois07();
 
@@ -2797,7 +2817,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois07 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois07.<br/>
+	* valeur à passer à this.mjmNmoins1mois07.
 	*/
 	void setMjmNmoins1mois07(Integer pMjmNmoins1mois07);
 
@@ -2808,7 +2828,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de juillet (07) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois07 : String.<br/>
+	 * @return this.pcNuitNmoins1mois07 : String.
 	 */
 	String getPcNuitNmoins1mois07();
 
@@ -2820,7 +2840,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois07 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois07.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois07.
 	*/
 	void setPcNuitNmoins1mois07(String pPcNuitNmoins1mois07);
 
@@ -2831,7 +2851,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de août (08) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois08 : Integer.<br/>
+	 * @return this.mjmNmoins1mois08 : Integer.
 	 */
 	Integer getMjmNmoins1mois08();
 
@@ -2843,7 +2863,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois08 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois08.<br/>
+	* valeur à passer à this.mjmNmoins1mois08.
 	*/
 	void setMjmNmoins1mois08(Integer pMjmNmoins1mois08);
 
@@ -2854,7 +2874,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de août (08) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois08 : String.<br/>
+	 * @return this.pcNuitNmoins1mois08 : String.
 	 */
 	String getPcNuitNmoins1mois08();
 
@@ -2866,7 +2886,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois08 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois08.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois08.
 	*/
 	void setPcNuitNmoins1mois08(String pPcNuitNmoins1mois08);
 
@@ -2877,7 +2897,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de septembre (09) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois09 : Integer.<br/>
+	 * @return this.mjmNmoins1mois09 : Integer.
 	 */
 	Integer getMjmNmoins1mois09();
 
@@ -2889,7 +2909,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois09 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois09.<br/>
+	* valeur à passer à this.mjmNmoins1mois09.
 	*/
 	void setMjmNmoins1mois09(Integer pMjmNmoins1mois09);
 
@@ -2900,7 +2920,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de septembre (09) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois09 : String.<br/>
+	 * @return this.pcNuitNmoins1mois09 : String.
 	 */
 	String getPcNuitNmoins1mois09();
 
@@ -2912,7 +2932,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois09 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois09.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois09.
 	*/
 	void setPcNuitNmoins1mois09(String pPcNuitNmoins1mois09);
 
@@ -2923,7 +2943,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de octobre (10) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois10 : Integer.<br/>
+	 * @return this.mjmNmoins1mois10 : Integer.
 	 */
 	Integer getMjmNmoins1mois10();
 
@@ -2935,7 +2955,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois10 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois10.<br/>
+	* valeur à passer à this.mjmNmoins1mois10.
 	*/
 	void setMjmNmoins1mois10(Integer pMjmNmoins1mois10);
 
@@ -2946,7 +2966,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de octobre (10) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois10 : String.<br/>
+	 * @return this.pcNuitNmoins1mois10 : String.
 	 */
 	String getPcNuitNmoins1mois10();
 
@@ -2958,7 +2978,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois10 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois10.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois10.
 	*/
 	void setPcNuitNmoins1mois10(String pPcNuitNmoins1mois10);
 
@@ -2969,7 +2989,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de novembre (11) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois11 : Integer.<br/>
+	 * @return this.mjmNmoins1mois11 : Integer.
 	 */
 	Integer getMjmNmoins1mois11();
 
@@ -2981,7 +3001,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois11 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois11.<br/>
+	* valeur à passer à this.mjmNmoins1mois11.
 	*/
 	void setMjmNmoins1mois11(Integer pMjmNmoins1mois11);
 
@@ -2992,7 +3012,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de novembre (11) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois11 : String.<br/>
+	 * @return this.pcNuitNmoins1mois11 : String.
 	 */
 	String getPcNuitNmoins1mois11();
 
@@ -3004,7 +3024,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois11 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois11.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois11.
 	*/
 	void setPcNuitNmoins1mois11(String pPcNuitNmoins1mois11);
 
@@ -3015,7 +3035,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de décembre (12) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.mjmNmoins1mois12 : Integer.<br/>
+	 * @return this.mjmNmoins1mois12 : Integer.
 	 */
 	Integer getMjmNmoins1mois12();
 
@@ -3027,7 +3047,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pMjmNmoins1mois12 : Integer : 
-	* valeur à passer à this.mjmNmoins1mois12.<br/>
+	* valeur à passer à this.mjmNmoins1mois12.
 	*/
 	void setMjmNmoins1mois12(Integer pMjmNmoins1mois12);
 
@@ -3038,7 +3058,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * du mois de décembre (12) 
 	 * de l'année précédent l'année de traitement N.
 	 *
-	 * @return this.pcNuitNmoins1mois12 : String.<br/>
+	 * @return this.pcNuitNmoins1mois12 : String.
 	 */
 	String getPcNuitNmoins1mois12();
 
@@ -3050,7 +3070,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* de l'année précédent l'année de traitement N.
 	*
 	* @param pPcNuitNmoins1mois12 : String : 
-	* valeur à passer à this.pcNuitNmoins1mois12.<br/>
+	* valeur à passer à this.pcNuitNmoins1mois12.
 	*/
 	void setPcNuitNmoins1mois12(String pPcNuitNmoins1mois12);
 
@@ -3059,7 +3079,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	/**
 	 * Getter de la zone libre 4.
 	 *
-	 * @return this.zoneLibre4 : String.<br/>
+	 * @return this.zoneLibre4 : String.
 	 */
 	String getZoneLibre4();
 
@@ -3069,7 +3089,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	* Setter de la zone libre 4.
 	*
 	* @param pZoneLibre4 : String : 
-	* valeur à passer à this.zoneLibre4.<br/>
+	* valeur à passer à this.zoneLibre4.
 	*/
 	void setZoneLibre4(String pZoneLibre4);
 
@@ -3079,7 +3099,7 @@ public interface ISectionHit extends Comparable<ISectionHit>
 	 * Getter de la Localisation de la section.<br/>
 	 * COMPOSANT.<br/>
 	 *
-	 * @return this.localisation : ILocalisationHit.<br/>
+	 * @return this.localisation : ILocalisationHit.
 	 */
 	ILocalisationHit getLocalisation();
 

@@ -280,145 +280,10 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 		
 		Query requete = null;
 
-//		requeteString
-//			= SELECT_OBJET
-//			+ "where ((sectionHit.localisation.numDepartement IS NULL and :pNumDepartement IS NULL) OR (sectionHit.localisation.numDepartement = :pNumDepartement)) "
-//			+ "and ((sectionHit.numSection IS NULL and :pNumSection IS NULL) OR (sectionHit.numSection = :pNumSection)) "
-//			+ "and ((sectionHit.sens IS NULL and :pSens IS NULL) OR (sectionHit.sens = :pSens)) "
-//			+ "and ((sectionHit.nature IS NULL and :pNature IS NULL) OR (sectionHit.nature = :pNature)) "
-//			+ "and ((sectionHit.classe IS NULL and :pClasse IS NULL) OR (sectionHit.classe = :pClasse)) "
-//			+ "and ((sectionHit.anneeTraitement IS NULL and :pAnneeTraitement IS NULL) OR (sectionHit.anneeTraitement = :pAnneeTraitement)) "
-//			+ "and ((sectionHit.zoneLibre1 IS NULL and :pZoneLibre1 IS NULL) OR (sectionHit.zoneLibre1 = :pZoneLibre1)) "
-//			+ "and ((sectionHit.localisation.numRoute IS NULL and :pNumRoute IS NULL) OR (sectionHit.localisation.numRoute = :pNumRoute)) "
-//			+ "and ((sectionHit.localisation.indiceNumRoute IS NULL and :pIndiceNumRoute IS NULL) OR (sectionHit.localisation.indiceNumRoute = :pIndiceNumRoute)) "
-//			+ "and ((sectionHit.localisation.indiceLettreRoute IS NULL and :pIndiceLettreRoute IS NULL) OR (sectionHit.localisation.indiceLettreRoute = :pIndiceLettreRoute)) "
-//			+ "and ((sectionHit.localisation.categorieAdminRoute IS NULL and :pCategorieAdminRoute IS NULL) OR (sectionHit.localisation.categorieAdminRoute = :pCategorieAdminRoute)) "
-//			+ "and ((sectionHit.typeComptage IS NULL and :pTypeComptage IS NULL) OR (sectionHit.typeComptage = :pTypeComptage)) "
-//			+ "and ((sectionHit.classementRoute IS NULL and :pClassementRoute IS NULL) OR (sectionHit.classementRoute = :pClassementRoute)) "
-//			+ "and ((sectionHit.classeLargeurChausseeU IS NULL and :pClasseLargeurChausseeU IS NULL) OR (sectionHit.classeLargeurChausseeU = :pClasseLargeurChausseeU)) "
-//			+ "and ((sectionHit.classeLargeurChausseesS IS NULL and :pClasseLargeurChausseesS IS NULL) OR (sectionHit.classeLargeurChausseesS = :pClasseLargeurChausseesS)) "
-//			+ "and ((sectionHit.typeReseau IS NULL and :pTypeReseau IS NULL) OR (sectionHit.typeReseau = :pTypeReseau)) "
-//			+ "and ((sectionHit.pRoupK IS NULL and :pPRoupK IS NULL) OR (sectionHit.pRoupK = :pPRoupK)) "
-//			+ "and ((sectionHit.localisation.lieuDitOrigine IS NULL and :pLieuDitOrigine IS NULL) OR (sectionHit.localisation.lieuDitOrigine = :pLieuDitOrigine)) "
-//			+ "and ((sectionHit.localisation.prOrigine IS NULL and :pPrOrigine IS NULL) OR (sectionHit.localisation.prOrigine = :pPrOrigine)) "
-//			+ "and ((sectionHit.localisation.absOrigine IS NULL and :pAbsOrigine IS NULL) OR (sectionHit.localisation.absOrigine = :pAbsOrigine)) "
-//			+ "and ((sectionHit.localisation.lieuDitExtremite IS NULL and :pLieuDitExtremite IS NULL) OR (sectionHit.localisation.lieuDitExtremite = :pLieuDitExtremite)) "
-//			+ "and ((sectionHit.localisation.prExtremite IS NULL and :pPrExtremite IS NULL) OR (sectionHit.localisation.prExtremite = :pPrExtremite)) "
-//			+ "and ((sectionHit.localisation.absExtremite IS NULL and :pAbsExtremite IS NULL) OR (sectionHit.localisation.absExtremite = :pAbsExtremite)) "
-//			+ "and ((sectionHit.localisation.lieuDitComptage IS NULL and :pLieuDitComptage IS NULL) OR (sectionHit.localisation.lieuDitComptage = :pLieuDitComptage)) "
-//			+ "and ((sectionHit.localisation.prComptage IS NULL and :pPrComptage IS NULL) OR (sectionHit.localisation.prComptage = :pPrComptage)) "
-//			+ "and ((sectionHit.localisation.absComptage IS NULL and :pAbsComptage IS NULL) OR (sectionHit.localisation.absComptage = :pAbsComptage)) "
-//			+ "and ((sectionHit.longueurSection IS NULL and :pLongueurSection IS NULL) OR (sectionHit.longueurSection = :pLongueurSection)) "
-//			+ "and ((sectionHit.longueurRaseCampagne IS NULL and :pLongueurRaseCampagne IS NULL) OR (sectionHit.longueurRaseCampagne = :pLongueurRaseCampagne)) "
-//			+ "and ((sectionHit.numDepartementRattachement IS NULL and :pNumDepartementRattachement IS NULL) OR (sectionHit.numDepartementRattachement = :pNumDepartementRattachement)) "
-//			+ "and ((sectionHit.numSectionRattachement IS NULL and :pNumSectionRattachement IS NULL) OR (sectionHit.numSectionRattachement = :pNumSectionRattachement)) "
-//			+ "and ((sectionHit.sensRattachement IS NULL and :pSensRattachement IS NULL) OR (sectionHit.sensRattachement = :pSensRattachement)) "
-//			+ "and ((sectionHit.numDepartementLimitrophe IS NULL and :pNumDepartementLimitrophe IS NULL) OR (sectionHit.numDepartementLimitrophe = :pNumDepartementLimitrophe)) "
-//			+ "and ((sectionHit.numSectionLimitrophe IS NULL and :pNumSectionLimitrophe IS NULL) OR (sectionHit.numSectionLimitrophe = :pNumSectionLimitrophe)) "
-//			+ "and ((sectionHit.sensLimitrophe IS NULL and :pSensLimitrophe IS NULL) OR (sectionHit.sensLimitrophe = :pSensLimitrophe)) "
-//			+ "and ((sectionHit.moisSectionnement IS NULL and :pMoisSectionnement IS NULL) OR (sectionHit.moisSectionnement = :pMoisSectionnement)) "
-//			+ "and ((sectionHit.anneeSectionnement IS NULL and :pAnneeSectionnement IS NULL) OR (sectionHit.anneeSectionnement = :pAnneeSectionnement)) "
-//			+ "and ((sectionHit.zoneLibre2 IS NULL and :pZoneLibre2 IS NULL) OR (sectionHit.zoneLibre2 = :pZoneLibre2)) "
-//			+ "and ((sectionHit.mjaN IS NULL and :pMjaN IS NULL) OR (sectionHit.mjaN = :pMjaN)) "
-//			+ "and ((sectionHit.modeCalculN IS NULL and :pModeCalculN IS NULL) OR (sectionHit.modeCalculN = :pModeCalculN)) "
-//			+ "and ((sectionHit.pcPLN IS NULL and :pPcPLN IS NULL) OR (sectionHit.pcPLN = :pPcPLN)) "
-//			+ "and ((sectionHit.evaluationPLN IS NULL and :pEvaluationPLN IS NULL) OR (sectionHit.evaluationPLN = :pEvaluationPLN)) "
-//			+ "and ((sectionHit.pcNuitAnnuelN IS NULL and :pPcNuitAnnuelN IS NULL) OR (sectionHit.pcNuitAnnuelN = :pPcNuitAnnuelN)) "
-//			+ "and ((sectionHit.indiceFiabiliteMjaN IS NULL and :pIndiceFiabiliteMjaN IS NULL) OR (sectionHit.indiceFiabiliteMjaN = :pIndiceFiabiliteMjaN)) "
-//			+ "and ((sectionHit.mjmNmois01 IS NULL and :pMjmNmois01 IS NULL) OR (sectionHit.mjmNmois01 = :pMjmNmois01)) "
-//			+ "and ((sectionHit.pcNuitNmois01 IS NULL and :pPcNuitNmois01 IS NULL) OR (sectionHit.pcNuitNmois01 = :pPcNuitNmois01)) "
-//			+ "and ((sectionHit.mjmNmois02 IS NULL and :pMjmNmois02 IS NULL) OR (sectionHit.mjmNmois02 = :pMjmNmois02)) "
-//			+ "and ((sectionHit.pcNuitNmois02 IS NULL and :pPcNuitNmois02 IS NULL) OR (sectionHit.pcNuitNmois02 = :pPcNuitNmois02)) "
-//			+ "and ((sectionHit.mjmNmois03 IS NULL and :pMjmNmois03 IS NULL) OR (sectionHit.mjmNmois03 = :pMjmNmois03)) "
-//			+ "and ((sectionHit.pcNuitNmois03 IS NULL and :pPcNuitNmois03 IS NULL) OR (sectionHit.pcNuitNmois03 = :pPcNuitNmois03)) "
-//			+ "and ((sectionHit.mjmNmois04 IS NULL and :pMjmNmois04 IS NULL) OR (sectionHit.mjmNmois04 = :pMjmNmois04)) "
-//			+ "and ((sectionHit.pcNuitNmois04 IS NULL and :pPcNuitNmois04 IS NULL) OR (sectionHit.pcNuitNmois04 = :pPcNuitNmois04)) "
-//			+ "and ((sectionHit.mjmNmois05 IS NULL and :pMjmNmois05 IS NULL) OR (sectionHit.mjmNmois05 = :pMjmNmois05)) "
-//			+ "and ((sectionHit.pcNuitNmois05 IS NULL and :pPcNuitNmois05 IS NULL) OR (sectionHit.pcNuitNmois05 = :pPcNuitNmois05)) "
-//			+ "and ((sectionHit.mjmNmois06 IS NULL and :pMjmNmois06 IS NULL) OR (sectionHit.mjmNmois06 = :pMjmNmois06)) "
-//			+ "and ((sectionHit.pcNuitNmois06 IS NULL and :pPcNuitNmois06 IS NULL) OR (sectionHit.pcNuitNmois06 = :pPcNuitNmois06)) "
-//			+ "and ((sectionHit.mjmNmois07 IS NULL and :pMjmNmois07 IS NULL) OR (sectionHit.mjmNmois07 = :pMjmNmois07)) "
-//			+ "and ((sectionHit.pcNuitNmois07 IS NULL and :pPcNuitNmois07 IS NULL) OR (sectionHit.pcNuitNmois07 = :pPcNuitNmois07)) "
-//			+ "and ((sectionHit.mjmNmois08 IS NULL and :pMjmNmois08 IS NULL) OR (sectionHit.mjmNmois08 = :pMjmNmois08)) "
-//			+ "and ((sectionHit.pcNuitNmois08 IS NULL and :pPcNuitNmois08 IS NULL) OR (sectionHit.pcNuitNmois08 = :pPcNuitNmois08)) "
-//			+ "and ((sectionHit.mjmNmois09 IS NULL and :pMjmNmois09 IS NULL) OR (sectionHit.mjmNmois09 = :pMjmNmois09)) "
-//			+ "and ((sectionHit.pcNuitNmois09 IS NULL and :pPcNuitNmois09 IS NULL) OR (sectionHit.pcNuitNmois09 = :pPcNuitNmois09)) "
-//			+ "and ((sectionHit.mjmNmois10 IS NULL and :pMjmNmois10 IS NULL) OR (sectionHit.mjmNmois10 = :pMjmNmois10)) "
-//			+ "and ((sectionHit.pcNuitNmois10 IS NULL and :pPcNuitNmois10 IS NULL) OR (sectionHit.pcNuitNmois10 = :pPcNuitNmois10)) "
-//			+ "and ((sectionHit.mjmNmois11 IS NULL and :pMjmNmois11 IS NULL) OR (sectionHit.mjmNmois11 = :pMjmNmois11)) "
-//			+ "and ((sectionHit.pcNuitNmois11 IS NULL and :pPcNuitNmois11 IS NULL) OR (sectionHit.pcNuitNmois11 = :pPcNuitNmois11)) "
-//			+ "and ((sectionHit.mjmNmois12 IS NULL and :pMjmNmois12 IS NULL) OR (sectionHit.mjmNmois12 = :pMjmNmois12)) "
-//			+ "and ((sectionHit.pcNuitNmois12 IS NULL and :pPcNuitNmois12 IS NULL) OR (sectionHit.pcNuitNmois12 = :pPcNuitNmois12)) "
-//			+ "and ((sectionHit.zoneLibre3 IS NULL and :pZoneLibre3 IS NULL) OR (sectionHit.zoneLibre3 = :pZoneLibre3)) "
-//			+ "and ((sectionHit.anneeNmoins1 IS NULL and :pAnneeNmoins1 IS NULL) OR (sectionHit.anneeNmoins1 = :pAnneeNmoins1)) "
-//			+ "and ((sectionHit.mjaNmoins1 IS NULL and :pMjaNmoins1 IS NULL) OR (sectionHit.mjaNmoins1 = :pMjaNmoins1)) "
-//			+ "and ((sectionHit.typeComptageNmoins1 IS NULL and :pTypeComptageNmoins1 IS NULL) OR (sectionHit.typeComptageNmoins1 = :pTypeComptageNmoins1)) "
-//			+ "and ((sectionHit.modeCalculNmoins1 IS NULL and :pModeCalculNmoins1 IS NULL) OR (sectionHit.modeCalculNmoins1 = :pModeCalculNmoins1)) "
-//			+ "and ((sectionHit.pcPLNmoins1 IS NULL and :pPcPLNmoins1 IS NULL) OR (sectionHit.pcPLNmoins1 = :pPcPLNmoins1)) "
-//			+ "and ((sectionHit.evaluationPLNmoins1 IS NULL and :pEvaluationPLNmoins1 IS NULL) OR (sectionHit.evaluationPLNmoins1 = :pEvaluationPLNmoins1)) "
-//			+ "and ((sectionHit.pcNuitAnnuelNmoins1 IS NULL and :pPcNuitAnnuelNmoins1 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins1 = :pPcNuitAnnuelNmoins1)) "
-//			+ "and ((sectionHit.indiceFiabiliteMjaNmoins1 IS NULL and :pIndiceFiabiliteMjaNmoins1 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins1 = :pIndiceFiabiliteMjaNmoins1)) "
-//			+ "and ((sectionHit.anneeNmoins2 IS NULL and :pAnneeNmoins2 IS NULL) OR (sectionHit.anneeNmoins2 = :pAnneeNmoins2)) "
-//			+ "and ((sectionHit.mjaNmoins2 IS NULL and :pMjaNmoins2 IS NULL) OR (sectionHit.mjaNmoins2 = :pMjaNmoins2)) "
-//			+ "and ((sectionHit.typeComptageNmoins2 IS NULL and :pTypeComptageNmoins2 IS NULL) OR (sectionHit.typeComptageNmoins2 = :pTypeComptageNmoins2)) "
-//			+ "and ((sectionHit.modeCalculNmoins2 IS NULL and :pModeCalculNmoins2 IS NULL) OR (sectionHit.modeCalculNmoins2 = :pModeCalculNmoins2)) "
-//			+ "and ((sectionHit.pcPLNmoins2 IS NULL and :pPcPLNmoins2 IS NULL) OR (sectionHit.pcPLNmoins2 = :pPcPLNmoins2)) "
-//			+ "and ((sectionHit.evaluationPLNmoins2 IS NULL and :pEvaluationPLNmoins2 IS NULL) OR (sectionHit.evaluationPLNmoins2 = :pEvaluationPLNmoins2)) "
-//			+ "and ((sectionHit.pcNuitAnnuelNmoins2 IS NULL and :pPcNuitAnnuelNmoins2 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins2 = :pPcNuitAnnuelNmoins2)) "
-//			+ "and ((sectionHit.indiceFiabiliteMjaNmoins2 IS NULL and :pIndiceFiabiliteMjaNmoins2 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins2 = :pIndiceFiabiliteMjaNmoins2)) "
-//			+ "and ((sectionHit.anneeNmoins3 IS NULL and :pAnneeNmoins3 IS NULL) OR (sectionHit.anneeNmoins3 = :pAnneeNmoins3)) "
-//			+ "and ((sectionHit.mjaNmoins3 IS NULL and :pMjaNmoins3 IS NULL) OR (sectionHit.mjaNmoins3 = :pMjaNmoins3)) "
-//			+ "and ((sectionHit.typeComptageNmoins3 IS NULL and :pTypeComptageNmoins3 IS NULL) OR (sectionHit.typeComptageNmoins3 = :pTypeComptageNmoins3)) "
-//			+ "and ((sectionHit.modeCalculNmoins3 IS NULL and :pModeCalculNmoins3 IS NULL) OR (sectionHit.modeCalculNmoins3 = :pModeCalculNmoins3)) "
-//			+ "and ((sectionHit.pcPLNmoins3 IS NULL and :pPcPLNmoins3 IS NULL) OR (sectionHit.pcPLNmoins3 = :pPcPLNmoins3)) "
-//			+ "and ((sectionHit.evaluationPLNmoins3 IS NULL and :pEvaluationPLNmoins3 IS NULL) OR (sectionHit.evaluationPLNmoins3 = :pEvaluationPLNmoins3)) "
-//			+ "and ((sectionHit.pcNuitAnnuelNmoins3 IS NULL and :pPcNuitAnnuelNmoins3 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins3 = :pPcNuitAnnuelNmoins3)) "
-//			+ "and ((sectionHit.indiceFiabiliteMjaNmoins3 IS NULL and :pIndiceFiabiliteMjaNmoins3 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins3 = :pIndiceFiabiliteMjaNmoins3)) "
-//			+ "and ((sectionHit.anneeNmoins4 IS NULL and :pAnneeNmoins4 IS NULL) OR (sectionHit.anneeNmoins4 = :pAnneeNmoins4)) "
-//			+ "and ((sectionHit.mjaNmoins4 IS NULL and :pMjaNmoins4 IS NULL) OR (sectionHit.mjaNmoins4 = :pMjaNmoins4)) "
-//			+ "and ((sectionHit.typeComptageNmoins4 IS NULL and :pTypeComptageNmoins4 IS NULL) OR (sectionHit.typeComptageNmoins4 = :pTypeComptageNmoins4)) "
-//			+ "and ((sectionHit.modeCalculNmoins4 IS NULL and :pModeCalculNmoins4 IS NULL) OR (sectionHit.modeCalculNmoins4 = :pModeCalculNmoins4)) "
-//			+ "and ((sectionHit.pcPLNmoins4 IS NULL and :pPcPLNmoins4 IS NULL) OR (sectionHit.pcPLNmoins4 = :pPcPLNmoins4)) "
-//			+ "and ((sectionHit.evaluationPLNmoins4 IS NULL and :pEvaluationPLNmoins4 IS NULL) OR (sectionHit.evaluationPLNmoins4 = :pEvaluationPLNmoins4)) "
-//			+ "and ((sectionHit.pcNuitAnnuelNmoins4 IS NULL and :pPcNuitAnnuelNmoins4 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins4 = :pPcNuitAnnuelNmoins4)) "
-//			+ "and ((sectionHit.indiceFiabiliteMjaNmoins4 IS NULL and :pIndiceFiabiliteMjaNmoins4 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins4 = :pIndiceFiabiliteMjaNmoins4)) "
-//			+ "and ((sectionHit.anneeNmoins5 IS NULL and :pAnneeNmoins5 IS NULL) OR (sectionHit.anneeNmoins5 = :pAnneeNmoins5)) "
-//			+ "and ((sectionHit.mjaNmoins5 IS NULL and :pMjaNmoins5 IS NULL) OR (sectionHit.mjaNmoins5 = :pMjaNmoins5)) "
-//			+ "and ((sectionHit.typeComptageNmoins5 IS NULL and :pTypeComptageNmoins5 IS NULL) OR (sectionHit.typeComptageNmoins5 = :pTypeComptageNmoins5)) "
-//			+ "and ((sectionHit.modeCalculNmoins5 IS NULL and :pModeCalculNmoins5 IS NULL) OR (sectionHit.modeCalculNmoins5 = :pModeCalculNmoins5)) "
-//			+ "and ((sectionHit.pcPLNmoins5 IS NULL and :pPcPLNmoins5 IS NULL) OR (sectionHit.pcPLNmoins5 = :pPcPLNmoins5)) "
-//			+ "and ((sectionHit.evaluationPLNmoins5 IS NULL and :pEvaluationPLNmoins5 IS NULL) OR (sectionHit.evaluationPLNmoins5 = :pEvaluationPLNmoins5)) "
-//			+ "and ((sectionHit.pcNuitAnnuelNmoins5 IS NULL and :pPcNuitAnnuelNmoins5 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins5 = :pPcNuitAnnuelNmoins5)) "
-//			+ "and ((sectionHit.indiceFiabiliteMjaNmoins5 IS NULL and :pIndiceFiabiliteMjaNmoins5 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins5 = :pIndiceFiabiliteMjaNmoins5)) "
-//			+ "and ((sectionHit.mjmNmoins1mois01 IS NULL and :pMjmNmoins1mois01 IS NULL) OR (sectionHit.mjmNmoins1mois01 = :pMjmNmoins1mois01)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois01 IS NULL and :pPcNuitNmoins1mois01 IS NULL) OR (sectionHit.pcNuitNmoins1mois01 = :pPcNuitNmoins1mois01)) "
-//			+ "and ((sectionHit.mjmNmoins1mois02 IS NULL and :pMjmNmoins1mois02 IS NULL) OR (sectionHit.mjmNmoins1mois02 = :pMjmNmoins1mois02)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois02 IS NULL and :pPcNuitNmoins1mois02 IS NULL) OR (sectionHit.pcNuitNmoins1mois02 = :pPcNuitNmoins1mois02)) "
-//			+ "and ((sectionHit.mjmNmoins1mois03 IS NULL and :pMjmNmoins1mois03 IS NULL) OR (sectionHit.mjmNmoins1mois03 = :pMjmNmoins1mois03)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois03 IS NULL and :pPcNuitNmoins1mois03 IS NULL) OR (sectionHit.pcNuitNmoins1mois03 = :pPcNuitNmoins1mois03)) "
-//			+ "and ((sectionHit.mjmNmoins1mois04 IS NULL and :pMjmNmoins1mois04 IS NULL) OR (sectionHit.mjmNmoins1mois04 = :pMjmNmoins1mois04)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois04 IS NULL and :pPcNuitNmoins1mois04 IS NULL) OR (sectionHit.pcNuitNmoins1mois04 = :pPcNuitNmoins1mois04)) "
-//			+ "and ((sectionHit.mjmNmoins1mois05 IS NULL and :pMjmNmoins1mois05 IS NULL) OR (sectionHit.mjmNmoins1mois05 = :pMjmNmoins1mois05)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois05 IS NULL and :pPcNuitNmoins1mois05 IS NULL) OR (sectionHit.pcNuitNmoins1mois05 = :pPcNuitNmoins1mois05)) "
-//			+ "and ((sectionHit.mjmNmoins1mois06 IS NULL and :pMjmNmoins1mois06 IS NULL) OR (sectionHit.mjmNmoins1mois06 = :pMjmNmoins1mois06)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois06 IS NULL and :pPcNuitNmoins1mois06 IS NULL) OR (sectionHit.pcNuitNmoins1mois06 = :pPcNuitNmoins1mois06)) "
-//			+ "and ((sectionHit.mjmNmoins1mois07 IS NULL and :pMjmNmoins1mois07 IS NULL) OR (sectionHit.mjmNmoins1mois07 = :pMjmNmoins1mois07)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois07 IS NULL and :pPcNuitNmoins1mois07 IS NULL) OR (sectionHit.pcNuitNmoins1mois07 = :pPcNuitNmoins1mois07)) "
-//			+ "and ((sectionHit.mjmNmoins1mois08 IS NULL and :pMjmNmoins1mois08 IS NULL) OR (sectionHit.mjmNmoins1mois08 = :pMjmNmoins1mois08)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois08 IS NULL and :pPcNuitNmoins1mois08 IS NULL) OR (sectionHit.pcNuitNmoins1mois08 = :pPcNuitNmoins1mois08)) "
-//			+ "and ((sectionHit.mjmNmoins1mois09 IS NULL and :pMjmNmoins1mois09 IS NULL) OR (sectionHit.mjmNmoins1mois09 = :pMjmNmoins1mois09)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois09 IS NULL and :pPcNuitNmoins1mois09 IS NULL) OR (sectionHit.pcNuitNmoins1mois09 = :pPcNuitNmoins1mois09)) "
-//			+ "and ((sectionHit.mjmNmoins1mois10 IS NULL and :pMjmNmoins1mois10 IS NULL) OR (sectionHit.mjmNmoins1mois10 = :pMjmNmoins1mois10)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois10 IS NULL and :pPcNuitNmoins1mois10 IS NULL) OR (sectionHit.pcNuitNmoins1mois10 = :pPcNuitNmoins1mois10)) "
-//			+ "and ((sectionHit.mjmNmoins1mois11 IS NULL and :pMjmNmoins1mois11 IS NULL) OR (sectionHit.mjmNmoins1mois11 = :pMjmNmoins1mois11)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois11 IS NULL and :pPcNuitNmoins1mois11 IS NULL) OR (sectionHit.pcNuitNmoins1mois11 = :pPcNuitNmoins1mois11)) "
-//			+ "and ((sectionHit.mjmNmoins1mois12 IS NULL and :pMjmNmoins1mois12 IS NULL) OR (sectionHit.mjmNmoins1mois12 = :pMjmNmoins1mois12)) "
-//			+ "and ((sectionHit.pcNuitNmoins1mois12 IS NULL and :pPcNuitNmoins1mois12 IS NULL) OR (sectionHit.pcNuitNmoins1mois12 = :pPcNuitNmoins1mois12)) "
-//			+ "and ((sectionHit.zoneLibre4 IS NULL and :pZoneLibre4 IS NULL) OR (sectionHit.zoneLibre4 = :pZoneLibre4))";
-
 		requeteString
 		= SELECT_OBJET
-		+ "where ((sectionHit.numSection IS NULL and :pNumSection IS NULL) OR (sectionHit.numSection = :pNumSection)) "
+		+ "where (sectionHit.localisation.id = :pLocalisationId) "
+		+ "and ((sectionHit.numSection IS NULL and :pNumSection IS NULL) OR (sectionHit.numSection = :pNumSection)) "
 		+ "and ((sectionHit.sens IS NULL and :pSens IS NULL) OR (sectionHit.sens = :pSens)) "
 		+ "and ((sectionHit.nature IS NULL and :pNature IS NULL) OR (sectionHit.nature = :pNature)) "
 		+ "and ((sectionHit.classe IS NULL and :pClasse IS NULL) OR (sectionHit.classe = :pClasse)) "
@@ -471,214 +336,80 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 		+ "and ((sectionHit.pcNuitNmois11 IS NULL and :pPcNuitNmois11 IS NULL) OR (sectionHit.pcNuitNmois11 = :pPcNuitNmois11)) "
 		+ "and ((sectionHit.mjmNmois12 IS NULL and :pMjmNmois12 IS NULL) OR (sectionHit.mjmNmois12 = :pMjmNmois12)) "
 		+ "and ((sectionHit.pcNuitNmois12 IS NULL and :pPcNuitNmois12 IS NULL) OR (sectionHit.pcNuitNmois12 = :pPcNuitNmois12)) "
-		+ "and ((sectionHit.zoneLibre3 IS NULL and :pZoneLibre3 IS NULL) OR (sectionHit.zoneLibre3 = :pZoneLibre3)) ";
-//		+ "and ((sectionHit.anneeNmoins1 IS NULL and :pAnneeNmoins1 IS NULL) OR (sectionHit.anneeNmoins1 = :pAnneeNmoins1)) "
-//		+ "and ((sectionHit.mjaNmoins1 IS NULL and :pMjaNmoins1 IS NULL) OR (sectionHit.mjaNmoins1 = :pMjaNmoins1)) "
-//		+ "and ((sectionHit.typeComptageNmoins1 IS NULL and :pTypeComptageNmoins1 IS NULL) OR (sectionHit.typeComptageNmoins1 = :pTypeComptageNmoins1)) "
-//		+ "and ((sectionHit.modeCalculNmoins1 IS NULL and :pModeCalculNmoins1 IS NULL) OR (sectionHit.modeCalculNmoins1 = :pModeCalculNmoins1)) "
-//		+ "and ((sectionHit.pcPLNmoins1 IS NULL and :pPcPLNmoins1 IS NULL) OR (sectionHit.pcPLNmoins1 = :pPcPLNmoins1)) "
-//		+ "and ((sectionHit.evaluationPLNmoins1 IS NULL and :pEvaluationPLNmoins1 IS NULL) OR (sectionHit.evaluationPLNmoins1 = :pEvaluationPLNmoins1)) "
-//		+ "and ((sectionHit.pcNuitAnnuelNmoins1 IS NULL and :pPcNuitAnnuelNmoins1 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins1 = :pPcNuitAnnuelNmoins1)) "
-//		+ "and ((sectionHit.indiceFiabiliteMjaNmoins1 IS NULL and :pIndiceFiabiliteMjaNmoins1 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins1 = :pIndiceFiabiliteMjaNmoins1)) "
-//		+ "and ((sectionHit.anneeNmoins2 IS NULL and :pAnneeNmoins2 IS NULL) OR (sectionHit.anneeNmoins2 = :pAnneeNmoins2)) "
-//		+ "and ((sectionHit.mjaNmoins2 IS NULL and :pMjaNmoins2 IS NULL) OR (sectionHit.mjaNmoins2 = :pMjaNmoins2)) "
-//		+ "and ((sectionHit.typeComptageNmoins2 IS NULL and :pTypeComptageNmoins2 IS NULL) OR (sectionHit.typeComptageNmoins2 = :pTypeComptageNmoins2)) "
-//		+ "and ((sectionHit.modeCalculNmoins2 IS NULL and :pModeCalculNmoins2 IS NULL) OR (sectionHit.modeCalculNmoins2 = :pModeCalculNmoins2)) "
-//		+ "and ((sectionHit.pcPLNmoins2 IS NULL and :pPcPLNmoins2 IS NULL) OR (sectionHit.pcPLNmoins2 = :pPcPLNmoins2)) "
-//		+ "and ((sectionHit.evaluationPLNmoins2 IS NULL and :pEvaluationPLNmoins2 IS NULL) OR (sectionHit.evaluationPLNmoins2 = :pEvaluationPLNmoins2)) "
-//		+ "and ((sectionHit.pcNuitAnnuelNmoins2 IS NULL and :pPcNuitAnnuelNmoins2 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins2 = :pPcNuitAnnuelNmoins2)) "
-//		+ "and ((sectionHit.indiceFiabiliteMjaNmoins2 IS NULL and :pIndiceFiabiliteMjaNmoins2 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins2 = :pIndiceFiabiliteMjaNmoins2)) "
-//		+ "and ((sectionHit.anneeNmoins3 IS NULL and :pAnneeNmoins3 IS NULL) OR (sectionHit.anneeNmoins3 = :pAnneeNmoins3)) "
-//		+ "and ((sectionHit.mjaNmoins3 IS NULL and :pMjaNmoins3 IS NULL) OR (sectionHit.mjaNmoins3 = :pMjaNmoins3)) "
-//		+ "and ((sectionHit.typeComptageNmoins3 IS NULL and :pTypeComptageNmoins3 IS NULL) OR (sectionHit.typeComptageNmoins3 = :pTypeComptageNmoins3)) "
-//		+ "and ((sectionHit.modeCalculNmoins3 IS NULL and :pModeCalculNmoins3 IS NULL) OR (sectionHit.modeCalculNmoins3 = :pModeCalculNmoins3)) "
-//		+ "and ((sectionHit.pcPLNmoins3 IS NULL and :pPcPLNmoins3 IS NULL) OR (sectionHit.pcPLNmoins3 = :pPcPLNmoins3)) "
-//		+ "and ((sectionHit.evaluationPLNmoins3 IS NULL and :pEvaluationPLNmoins3 IS NULL) OR (sectionHit.evaluationPLNmoins3 = :pEvaluationPLNmoins3)) "
-//		+ "and ((sectionHit.pcNuitAnnuelNmoins3 IS NULL and :pPcNuitAnnuelNmoins3 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins3 = :pPcNuitAnnuelNmoins3)) "
-//		+ "and ((sectionHit.indiceFiabiliteMjaNmoins3 IS NULL and :pIndiceFiabiliteMjaNmoins3 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins3 = :pIndiceFiabiliteMjaNmoins3)) "
-//		+ "and ((sectionHit.anneeNmoins4 IS NULL and :pAnneeNmoins4 IS NULL) OR (sectionHit.anneeNmoins4 = :pAnneeNmoins4)) "
-//		+ "and ((sectionHit.mjaNmoins4 IS NULL and :pMjaNmoins4 IS NULL) OR (sectionHit.mjaNmoins4 = :pMjaNmoins4)) "
-//		+ "and ((sectionHit.typeComptageNmoins4 IS NULL and :pTypeComptageNmoins4 IS NULL) OR (sectionHit.typeComptageNmoins4 = :pTypeComptageNmoins4)) "
-//		+ "and ((sectionHit.modeCalculNmoins4 IS NULL and :pModeCalculNmoins4 IS NULL) OR (sectionHit.modeCalculNmoins4 = :pModeCalculNmoins4)) "
-//		+ "and ((sectionHit.pcPLNmoins4 IS NULL and :pPcPLNmoins4 IS NULL) OR (sectionHit.pcPLNmoins4 = :pPcPLNmoins4)) "
-//		+ "and ((sectionHit.evaluationPLNmoins4 IS NULL and :pEvaluationPLNmoins4 IS NULL) OR (sectionHit.evaluationPLNmoins4 = :pEvaluationPLNmoins4)) "
-//		+ "and ((sectionHit.pcNuitAnnuelNmoins4 IS NULL and :pPcNuitAnnuelNmoins4 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins4 = :pPcNuitAnnuelNmoins4)) "
-//		+ "and ((sectionHit.indiceFiabiliteMjaNmoins4 IS NULL and :pIndiceFiabiliteMjaNmoins4 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins4 = :pIndiceFiabiliteMjaNmoins4)) "
-//		+ "and ((sectionHit.anneeNmoins5 IS NULL and :pAnneeNmoins5 IS NULL) OR (sectionHit.anneeNmoins5 = :pAnneeNmoins5)) "
-//		+ "and ((sectionHit.mjaNmoins5 IS NULL and :pMjaNmoins5 IS NULL) OR (sectionHit.mjaNmoins5 = :pMjaNmoins5)) "
-//		+ "and ((sectionHit.typeComptageNmoins5 IS NULL and :pTypeComptageNmoins5 IS NULL) OR (sectionHit.typeComptageNmoins5 = :pTypeComptageNmoins5)) "
-//		+ "and ((sectionHit.modeCalculNmoins5 IS NULL and :pModeCalculNmoins5 IS NULL) OR (sectionHit.modeCalculNmoins5 = :pModeCalculNmoins5)) "
-//		+ "and ((sectionHit.pcPLNmoins5 IS NULL and :pPcPLNmoins5 IS NULL) OR (sectionHit.pcPLNmoins5 = :pPcPLNmoins5)) "
-//		+ "and ((sectionHit.evaluationPLNmoins5 IS NULL and :pEvaluationPLNmoins5 IS NULL) OR (sectionHit.evaluationPLNmoins5 = :pEvaluationPLNmoins5)) "
-//		+ "and ((sectionHit.pcNuitAnnuelNmoins5 IS NULL and :pPcNuitAnnuelNmoins5 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins5 = :pPcNuitAnnuelNmoins5)) "
-//		+ "and ((sectionHit.indiceFiabiliteMjaNmoins5 IS NULL and :pIndiceFiabiliteMjaNmoins5 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins5 = :pIndiceFiabiliteMjaNmoins5)) "
-//		+ "and ((sectionHit.mjmNmoins1mois01 IS NULL and :pMjmNmoins1mois01 IS NULL) OR (sectionHit.mjmNmoins1mois01 = :pMjmNmoins1mois01)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois01 IS NULL and :pPcNuitNmoins1mois01 IS NULL) OR (sectionHit.pcNuitNmoins1mois01 = :pPcNuitNmoins1mois01)) "
-//		+ "and ((sectionHit.mjmNmoins1mois02 IS NULL and :pMjmNmoins1mois02 IS NULL) OR (sectionHit.mjmNmoins1mois02 = :pMjmNmoins1mois02)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois02 IS NULL and :pPcNuitNmoins1mois02 IS NULL) OR (sectionHit.pcNuitNmoins1mois02 = :pPcNuitNmoins1mois02)) "
-//		+ "and ((sectionHit.mjmNmoins1mois03 IS NULL and :pMjmNmoins1mois03 IS NULL) OR (sectionHit.mjmNmoins1mois03 = :pMjmNmoins1mois03)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois03 IS NULL and :pPcNuitNmoins1mois03 IS NULL) OR (sectionHit.pcNuitNmoins1mois03 = :pPcNuitNmoins1mois03)) "
-//		+ "and ((sectionHit.mjmNmoins1mois04 IS NULL and :pMjmNmoins1mois04 IS NULL) OR (sectionHit.mjmNmoins1mois04 = :pMjmNmoins1mois04)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois04 IS NULL and :pPcNuitNmoins1mois04 IS NULL) OR (sectionHit.pcNuitNmoins1mois04 = :pPcNuitNmoins1mois04)) "
-//		+ "and ((sectionHit.mjmNmoins1mois05 IS NULL and :pMjmNmoins1mois05 IS NULL) OR (sectionHit.mjmNmoins1mois05 = :pMjmNmoins1mois05)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois05 IS NULL and :pPcNuitNmoins1mois05 IS NULL) OR (sectionHit.pcNuitNmoins1mois05 = :pPcNuitNmoins1mois05)) "
-//		+ "and ((sectionHit.mjmNmoins1mois06 IS NULL and :pMjmNmoins1mois06 IS NULL) OR (sectionHit.mjmNmoins1mois06 = :pMjmNmoins1mois06)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois06 IS NULL and :pPcNuitNmoins1mois06 IS NULL) OR (sectionHit.pcNuitNmoins1mois06 = :pPcNuitNmoins1mois06)) "
-//		+ "and ((sectionHit.mjmNmoins1mois07 IS NULL and :pMjmNmoins1mois07 IS NULL) OR (sectionHit.mjmNmoins1mois07 = :pMjmNmoins1mois07)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois07 IS NULL and :pPcNuitNmoins1mois07 IS NULL) OR (sectionHit.pcNuitNmoins1mois07 = :pPcNuitNmoins1mois07)) "
-//		+ "and ((sectionHit.mjmNmoins1mois08 IS NULL and :pMjmNmoins1mois08 IS NULL) OR (sectionHit.mjmNmoins1mois08 = :pMjmNmoins1mois08)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois08 IS NULL and :pPcNuitNmoins1mois08 IS NULL) OR (sectionHit.pcNuitNmoins1mois08 = :pPcNuitNmoins1mois08)) "
-//		+ "and ((sectionHit.mjmNmoins1mois09 IS NULL and :pMjmNmoins1mois09 IS NULL) OR (sectionHit.mjmNmoins1mois09 = :pMjmNmoins1mois09)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois09 IS NULL and :pPcNuitNmoins1mois09 IS NULL) OR (sectionHit.pcNuitNmoins1mois09 = :pPcNuitNmoins1mois09)) "
-//		+ "and ((sectionHit.mjmNmoins1mois10 IS NULL and :pMjmNmoins1mois10 IS NULL) OR (sectionHit.mjmNmoins1mois10 = :pMjmNmoins1mois10)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois10 IS NULL and :pPcNuitNmoins1mois10 IS NULL) OR (sectionHit.pcNuitNmoins1mois10 = :pPcNuitNmoins1mois10)) "
-//		+ "and ((sectionHit.mjmNmoins1mois11 IS NULL and :pMjmNmoins1mois11 IS NULL) OR (sectionHit.mjmNmoins1mois11 = :pMjmNmoins1mois11)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois11 IS NULL and :pPcNuitNmoins1mois11 IS NULL) OR (sectionHit.pcNuitNmoins1mois11 = :pPcNuitNmoins1mois11)) "
-//		+ "and ((sectionHit.mjmNmoins1mois12 IS NULL and :pMjmNmoins1mois12 IS NULL) OR (sectionHit.mjmNmoins1mois12 = :pMjmNmoins1mois12)) "
-//		+ "and ((sectionHit.pcNuitNmoins1mois12 IS NULL and :pPcNuitNmoins1mois12 IS NULL) OR (sectionHit.pcNuitNmoins1mois12 = :pPcNuitNmoins1mois12)) "
-//		+ "and ((sectionHit.zoneLibre4 IS NULL and :pZoneLibre4 IS NULL) OR (sectionHit.zoneLibre4 = :pZoneLibre4))";
+		+ "and ((sectionHit.zoneLibre3 IS NULL and :pZoneLibre3 IS NULL) OR (sectionHit.zoneLibre3 = :pZoneLibre3)) "
+		+ "and ((sectionHit.anneeNmoins1 IS NULL and CAST(:pAnneeNmoins1 AS date) IS NULL) OR (sectionHit.anneeNmoins1 = :pAnneeNmoins1)) "
+		+ "and ((sectionHit.mjaNmoins1 IS NULL and :pMjaNmoins1 IS NULL) OR (sectionHit.mjaNmoins1 = :pMjaNmoins1)) "
+		+ "and ((sectionHit.typeComptageNmoins1 IS NULL and :pTypeComptageNmoins1 IS NULL) OR (sectionHit.typeComptageNmoins1 = :pTypeComptageNmoins1)) "
+		+ "and ((sectionHit.modeCalculNmoins1 IS NULL and :pModeCalculNmoins1 IS NULL) OR (sectionHit.modeCalculNmoins1 = :pModeCalculNmoins1)) "
+		+ "and ((sectionHit.pcPLNmoins1 IS NULL and :pPcPLNmoins1 IS NULL) OR (sectionHit.pcPLNmoins1 = :pPcPLNmoins1)) "
+		+ "and ((sectionHit.evaluationPLNmoins1 IS NULL and :pEvaluationPLNmoins1 IS NULL) OR (sectionHit.evaluationPLNmoins1 = :pEvaluationPLNmoins1)) "
+		+ "and ((sectionHit.pcNuitAnnuelNmoins1 IS NULL and :pPcNuitAnnuelNmoins1 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins1 = :pPcNuitAnnuelNmoins1)) "
+		+ "and ((sectionHit.indiceFiabiliteMjaNmoins1 IS NULL and :pIndiceFiabiliteMjaNmoins1 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins1 = :pIndiceFiabiliteMjaNmoins1)) "
+		+ "and ((sectionHit.anneeNmoins2 IS NULL and CAST(:pAnneeNmoins2 AS date) IS NULL) OR (sectionHit.anneeNmoins2 = :pAnneeNmoins2)) "
+		+ "and ((sectionHit.mjaNmoins2 IS NULL and :pMjaNmoins2 IS NULL) OR (sectionHit.mjaNmoins2 = :pMjaNmoins2)) "
+		+ "and ((sectionHit.typeComptageNmoins2 IS NULL and :pTypeComptageNmoins2 IS NULL) OR (sectionHit.typeComptageNmoins2 = :pTypeComptageNmoins2)) "
+		+ "and ((sectionHit.modeCalculNmoins2 IS NULL and :pModeCalculNmoins2 IS NULL) OR (sectionHit.modeCalculNmoins2 = :pModeCalculNmoins2)) "
+		+ "and ((sectionHit.pcPLNmoins2 IS NULL and :pPcPLNmoins2 IS NULL) OR (sectionHit.pcPLNmoins2 = :pPcPLNmoins2)) "
+		+ "and ((sectionHit.evaluationPLNmoins2 IS NULL and :pEvaluationPLNmoins2 IS NULL) OR (sectionHit.evaluationPLNmoins2 = :pEvaluationPLNmoins2)) "
+		+ "and ((sectionHit.pcNuitAnnuelNmoins2 IS NULL and :pPcNuitAnnuelNmoins2 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins2 = :pPcNuitAnnuelNmoins2)) "
+		+ "and ((sectionHit.indiceFiabiliteMjaNmoins2 IS NULL and :pIndiceFiabiliteMjaNmoins2 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins2 = :pIndiceFiabiliteMjaNmoins2)) "
+		+ "and ((sectionHit.anneeNmoins3 IS NULL and CAST(:pAnneeNmoins3 AS date) IS NULL) OR (sectionHit.anneeNmoins3 = :pAnneeNmoins3)) "
+		+ "and ((sectionHit.mjaNmoins3 IS NULL and :pMjaNmoins3 IS NULL) OR (sectionHit.mjaNmoins3 = :pMjaNmoins3)) "
+		+ "and ((sectionHit.typeComptageNmoins3 IS NULL and :pTypeComptageNmoins3 IS NULL) OR (sectionHit.typeComptageNmoins3 = :pTypeComptageNmoins3)) "
+		+ "and ((sectionHit.modeCalculNmoins3 IS NULL and :pModeCalculNmoins3 IS NULL) OR (sectionHit.modeCalculNmoins3 = :pModeCalculNmoins3)) "
+		+ "and ((sectionHit.pcPLNmoins3 IS NULL and :pPcPLNmoins3 IS NULL) OR (sectionHit.pcPLNmoins3 = :pPcPLNmoins3)) "
+		+ "and ((sectionHit.evaluationPLNmoins3 IS NULL and :pEvaluationPLNmoins3 IS NULL) OR (sectionHit.evaluationPLNmoins3 = :pEvaluationPLNmoins3)) "
+		+ "and ((sectionHit.pcNuitAnnuelNmoins3 IS NULL and :pPcNuitAnnuelNmoins3 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins3 = :pPcNuitAnnuelNmoins3)) "
+		+ "and ((sectionHit.indiceFiabiliteMjaNmoins3 IS NULL and :pIndiceFiabiliteMjaNmoins3 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins3 = :pIndiceFiabiliteMjaNmoins3)) "
+		+ "and ((sectionHit.anneeNmoins4 IS NULL and CAST(:pAnneeNmoins4 AS date) IS NULL) OR (sectionHit.anneeNmoins4 = :pAnneeNmoins4)) "
+		+ "and ((sectionHit.mjaNmoins4 IS NULL and :pMjaNmoins4 IS NULL) OR (sectionHit.mjaNmoins4 = :pMjaNmoins4)) "
+		+ "and ((sectionHit.typeComptageNmoins4 IS NULL and :pTypeComptageNmoins4 IS NULL) OR (sectionHit.typeComptageNmoins4 = :pTypeComptageNmoins4)) "
+		+ "and ((sectionHit.modeCalculNmoins4 IS NULL and :pModeCalculNmoins4 IS NULL) OR (sectionHit.modeCalculNmoins4 = :pModeCalculNmoins4)) "
+		+ "and ((sectionHit.pcPLNmoins4 IS NULL and :pPcPLNmoins4 IS NULL) OR (sectionHit.pcPLNmoins4 = :pPcPLNmoins4)) "
+		+ "and ((sectionHit.evaluationPLNmoins4 IS NULL and :pEvaluationPLNmoins4 IS NULL) OR (sectionHit.evaluationPLNmoins4 = :pEvaluationPLNmoins4)) "
+		+ "and ((sectionHit.pcNuitAnnuelNmoins4 IS NULL and :pPcNuitAnnuelNmoins4 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins4 = :pPcNuitAnnuelNmoins4)) "
+		+ "and ((sectionHit.indiceFiabiliteMjaNmoins4 IS NULL and :pIndiceFiabiliteMjaNmoins4 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins4 = :pIndiceFiabiliteMjaNmoins4)) "
+		+ "and ((sectionHit.anneeNmoins5 IS NULL and CAST(:pAnneeNmoins5 AS date) IS NULL) OR (sectionHit.anneeNmoins5 = :pAnneeNmoins5)) "
+		+ "and ((sectionHit.mjaNmoins5 IS NULL and :pMjaNmoins5 IS NULL) OR (sectionHit.mjaNmoins5 = :pMjaNmoins5)) "
+		+ "and ((sectionHit.typeComptageNmoins5 IS NULL and :pTypeComptageNmoins5 IS NULL) OR (sectionHit.typeComptageNmoins5 = :pTypeComptageNmoins5)) "
+		+ "and ((sectionHit.modeCalculNmoins5 IS NULL and :pModeCalculNmoins5 IS NULL) OR (sectionHit.modeCalculNmoins5 = :pModeCalculNmoins5)) "
+		+ "and ((sectionHit.pcPLNmoins5 IS NULL and :pPcPLNmoins5 IS NULL) OR (sectionHit.pcPLNmoins5 = :pPcPLNmoins5)) "
+		+ "and ((sectionHit.evaluationPLNmoins5 IS NULL and :pEvaluationPLNmoins5 IS NULL) OR (sectionHit.evaluationPLNmoins5 = :pEvaluationPLNmoins5)) "
+		+ "and ((sectionHit.pcNuitAnnuelNmoins5 IS NULL and :pPcNuitAnnuelNmoins5 IS NULL) OR (sectionHit.pcNuitAnnuelNmoins5 = :pPcNuitAnnuelNmoins5)) "
+		+ "and ((sectionHit.indiceFiabiliteMjaNmoins5 IS NULL and :pIndiceFiabiliteMjaNmoins5 IS NULL) OR (sectionHit.indiceFiabiliteMjaNmoins5 = :pIndiceFiabiliteMjaNmoins5)) "
+		+ "and ((sectionHit.mjmNmoins1mois01 IS NULL and :pMjmNmoins1mois01 IS NULL) OR (sectionHit.mjmNmoins1mois01 = :pMjmNmoins1mois01)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois01 IS NULL and :pPcNuitNmoins1mois01 IS NULL) OR (sectionHit.pcNuitNmoins1mois01 = :pPcNuitNmoins1mois01)) "
+		+ "and ((sectionHit.mjmNmoins1mois02 IS NULL and :pMjmNmoins1mois02 IS NULL) OR (sectionHit.mjmNmoins1mois02 = :pMjmNmoins1mois02)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois02 IS NULL and :pPcNuitNmoins1mois02 IS NULL) OR (sectionHit.pcNuitNmoins1mois02 = :pPcNuitNmoins1mois02)) "
+		+ "and ((sectionHit.mjmNmoins1mois03 IS NULL and :pMjmNmoins1mois03 IS NULL) OR (sectionHit.mjmNmoins1mois03 = :pMjmNmoins1mois03)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois03 IS NULL and :pPcNuitNmoins1mois03 IS NULL) OR (sectionHit.pcNuitNmoins1mois03 = :pPcNuitNmoins1mois03)) "
+		+ "and ((sectionHit.mjmNmoins1mois04 IS NULL and :pMjmNmoins1mois04 IS NULL) OR (sectionHit.mjmNmoins1mois04 = :pMjmNmoins1mois04)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois04 IS NULL and :pPcNuitNmoins1mois04 IS NULL) OR (sectionHit.pcNuitNmoins1mois04 = :pPcNuitNmoins1mois04)) "
+		+ "and ((sectionHit.mjmNmoins1mois05 IS NULL and :pMjmNmoins1mois05 IS NULL) OR (sectionHit.mjmNmoins1mois05 = :pMjmNmoins1mois05)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois05 IS NULL and :pPcNuitNmoins1mois05 IS NULL) OR (sectionHit.pcNuitNmoins1mois05 = :pPcNuitNmoins1mois05)) "
+		+ "and ((sectionHit.mjmNmoins1mois06 IS NULL and :pMjmNmoins1mois06 IS NULL) OR (sectionHit.mjmNmoins1mois06 = :pMjmNmoins1mois06)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois06 IS NULL and :pPcNuitNmoins1mois06 IS NULL) OR (sectionHit.pcNuitNmoins1mois06 = :pPcNuitNmoins1mois06)) "
+		+ "and ((sectionHit.mjmNmoins1mois07 IS NULL and :pMjmNmoins1mois07 IS NULL) OR (sectionHit.mjmNmoins1mois07 = :pMjmNmoins1mois07)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois07 IS NULL and :pPcNuitNmoins1mois07 IS NULL) OR (sectionHit.pcNuitNmoins1mois07 = :pPcNuitNmoins1mois07)) "
+		+ "and ((sectionHit.mjmNmoins1mois08 IS NULL and :pMjmNmoins1mois08 IS NULL) OR (sectionHit.mjmNmoins1mois08 = :pMjmNmoins1mois08)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois08 IS NULL and :pPcNuitNmoins1mois08 IS NULL) OR (sectionHit.pcNuitNmoins1mois08 = :pPcNuitNmoins1mois08)) "
+		+ "and ((sectionHit.mjmNmoins1mois09 IS NULL and :pMjmNmoins1mois09 IS NULL) OR (sectionHit.mjmNmoins1mois09 = :pMjmNmoins1mois09)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois09 IS NULL and :pPcNuitNmoins1mois09 IS NULL) OR (sectionHit.pcNuitNmoins1mois09 = :pPcNuitNmoins1mois09)) "
+		+ "and ((sectionHit.mjmNmoins1mois10 IS NULL and :pMjmNmoins1mois10 IS NULL) OR (sectionHit.mjmNmoins1mois10 = :pMjmNmoins1mois10)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois10 IS NULL and :pPcNuitNmoins1mois10 IS NULL) OR (sectionHit.pcNuitNmoins1mois10 = :pPcNuitNmoins1mois10)) "
+		+ "and ((sectionHit.mjmNmoins1mois11 IS NULL and :pMjmNmoins1mois11 IS NULL) OR (sectionHit.mjmNmoins1mois11 = :pMjmNmoins1mois11)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois11 IS NULL and :pPcNuitNmoins1mois11 IS NULL) OR (sectionHit.pcNuitNmoins1mois11 = :pPcNuitNmoins1mois11)) "
+		+ "and ((sectionHit.mjmNmoins1mois12 IS NULL and :pMjmNmoins1mois12 IS NULL) OR (sectionHit.mjmNmoins1mois12 = :pMjmNmoins1mois12)) "
+		+ "and ((sectionHit.pcNuitNmoins1mois12 IS NULL and :pPcNuitNmoins1mois12 IS NULL) OR (sectionHit.pcNuitNmoins1mois12 = :pPcNuitNmoins1mois12)) "
+		+ "and ((sectionHit.zoneLibre4 IS NULL and :pZoneLibre4 IS NULL) OR (sectionHit.zoneLibre4 = :pZoneLibre4))";
 
 
 		/* Construction de la requête HQL. */
 		requete
 			= this.entityManager.createQuery(requeteString);
 
-//		/* Passage des paramètres de la requête JPQL. */
-//			requete.setParameter("pNumDepartement", pObject.getLocalisation().getNumDepartement());
-//			requete.setParameter("pNumSection", pObject.getNumSection());
-//			requete.setParameter("pSens", pObject.getSens());
-//			requete.setParameter("pNature", pObject.getNature());
-//			requete.setParameter("pClasse", pObject.getClasse());
-//			requete.setParameter("pAnneeTraitement", pObject.getAnneeTraitement());
-//			requete.setParameter("pZoneLibre1", pObject.getZoneLibre1());
-//			requete.setParameter("pNumRoute", pObject.getLocalisation().getNumRoute());
-//			requete.setParameter("pIndiceNumRoute", pObject.getLocalisation().getIndiceNumRoute());
-//			requete.setParameter("pIndiceLettreRoute", pObject.getLocalisation().getIndiceLettreRoute());
-//			requete.setParameter("pCategorieAdminRoute", pObject.getLocalisation().getCategorieAdminRoute());
-//			requete.setParameter("pTypeComptage", pObject.getTypeComptage());
-//			requete.setParameter("pClassementRoute", pObject.getClassementRoute());
-//			requete.setParameter("pClasseLargeurChausseeU", pObject.getClasseLargeurChausseeU());
-//			requete.setParameter("pClasseLargeurChausseesS", pObject.getClasseLargeurChausseesS());
-//			requete.setParameter("pTypeReseau", pObject.getTypeReseau());
-//			requete.setParameter("pPRoupK", pObject.getpRoupK());
-//			requete.setParameter("pLieuDitOrigine", pObject.getLocalisation().getLieuDitOrigine());
-//			requete.setParameter("pPrOrigine", pObject.getLocalisation().getPrOrigine());
-//			requete.setParameter("pAbsOrigine", pObject.getLocalisation().getAbsOrigine());
-//			requete.setParameter("pLieuDitExtremite", pObject.getLocalisation().getLieuDitExtremite());
-//			requete.setParameter("pPrExtremite", pObject.getLocalisation().getPrExtremite());
-//			requete.setParameter("pAbsExtremite", pObject.getLocalisation().getAbsExtremite());
-//			requete.setParameter("pLieuDitComptage", pObject.getLocalisation().getLieuDitComptage());
-//			requete.setParameter("pPrComptage", pObject.getLocalisation().getPrComptage());
-//			requete.setParameter("pAbsComptage", pObject.getLocalisation().getAbsComptage());
-//			requete.setParameter("pLongueurSection", pObject.getLongueurSection());
-//			requete.setParameter("pLongueurRaseCampagne", pObject.getLongueurRaseCampagne());
-//			requete.setParameter("pNumDepartementRattachement", pObject.getNumDepartementRattachement());
-//			requete.setParameter("pNumSectionRattachement", pObject.getNumSectionRattachement());
-//			requete.setParameter("pSensRattachement", pObject.getSensRattachement());
-//			requete.setParameter("pNumDepartementLimitrophe", pObject.getNumDepartementLimitrophe());
-//			requete.setParameter("pNumSectionLimitrophe", pObject.getNumSectionLimitrophe());
-//			requete.setParameter("pSensLimitrophe", pObject.getSensLimitrophe());
-//			requete.setParameter("pMoisSectionnement", pObject.getMoisSectionnement());
-//			requete.setParameter("pAnneeSectionnement", pObject.getAnneeSectionnement());
-//			requete.setParameter("pZoneLibre2", pObject.getZoneLibre2());
-//			requete.setParameter("pMjaN", pObject.getMjaN());
-//			requete.setParameter("pModeCalculN", pObject.getModeCalculN());
-//			requete.setParameter("pPcPLN", pObject.getPcPLN());
-//			requete.setParameter("pEvaluationPLN", pObject.getEvaluationPLN());
-//			requete.setParameter("pPcNuitAnnuelN", pObject.getPcNuitAnnuelN());
-//			requete.setParameter("pIndiceFiabiliteMjaN", pObject.getIndiceFiabiliteMjaN());
-//			requete.setParameter("pMjmNmois01", pObject.getMjmNmois01());
-//			requete.setParameter("pPcNuitNmois01", pObject.getPcNuitNmois01());
-//			requete.setParameter("pMjmNmois02", pObject.getMjmNmois02());
-//			requete.setParameter("pPcNuitNmois02", pObject.getPcNuitNmois02());
-//			requete.setParameter("pMjmNmois03", pObject.getMjmNmois03());
-//			requete.setParameter("pPcNuitNmois03", pObject.getPcNuitNmois03());
-//			requete.setParameter("pMjmNmois04", pObject.getMjmNmois04());
-//			requete.setParameter("pPcNuitNmois04", pObject.getPcNuitNmois04());
-//			requete.setParameter("pMjmNmois05", pObject.getMjmNmois05());
-//			requete.setParameter("pPcNuitNmois05", pObject.getPcNuitNmois05());
-//			requete.setParameter("pMjmNmois06", pObject.getMjmNmois06());
-//			requete.setParameter("pPcNuitNmois06", pObject.getPcNuitNmois06());
-//			requete.setParameter("pMjmNmois07", pObject.getMjmNmois07());
-//			requete.setParameter("pPcNuitNmois07", pObject.getPcNuitNmois07());
-//			requete.setParameter("pMjmNmois08", pObject.getMjmNmois08());
-//			requete.setParameter("pPcNuitNmois08", pObject.getPcNuitNmois08());
-//			requete.setParameter("pMjmNmois09", pObject.getMjmNmois09());
-//			requete.setParameter("pPcNuitNmois09", pObject.getPcNuitNmois09());
-//			requete.setParameter("pMjmNmois10", pObject.getMjmNmois10());
-//			requete.setParameter("pPcNuitNmois10", pObject.getPcNuitNmois10());
-//			requete.setParameter("pMjmNmois11", pObject.getMjmNmois11());
-//			requete.setParameter("pPcNuitNmois11", pObject.getPcNuitNmois11());
-//			requete.setParameter("pMjmNmois12", pObject.getMjmNmois12());
-//			requete.setParameter("pPcNuitNmois12", pObject.getPcNuitNmois12());
-//			requete.setParameter("pZoneLibre3", pObject.getZoneLibre3());
-//			requete.setParameter("pAnneeNmoins1", pObject.getAnneeNmoins1());
-//			requete.setParameter("pMjaNmoins1", pObject.getMjaNmoins1());
-//			requete.setParameter("pTypeComptageNmoins1", pObject.getTypeComptageNmoins1());
-//			requete.setParameter("pModeCalculNmoins1", pObject.getModeCalculNmoins1());
-//			requete.setParameter("pPcPLNmoins1", pObject.getPcPLNmoins1());
-//			requete.setParameter("pEvaluationPLNmoins1", pObject.getEvaluationPLNmoins1());
-//			requete.setParameter("pPcNuitAnnuelNmoins1", pObject.getPcNuitAnnuelNmoins1());
-//			requete.setParameter("pIndiceFiabiliteMjaNmoins1", pObject.getIndiceFiabiliteMjaNmoins1());
-//			requete.setParameter("pAnneeNmoins2", pObject.getAnneeNmoins2());
-//			requete.setParameter("pMjaNmoins2", pObject.getMjaNmoins2());
-//			requete.setParameter("pTypeComptageNmoins2", pObject.getTypeComptageNmoins2());
-//			requete.setParameter("pModeCalculNmoins2", pObject.getModeCalculNmoins2());
-//			requete.setParameter("pPcPLNmoins2", pObject.getPcPLNmoins2());
-//			requete.setParameter("pEvaluationPLNmoins2", pObject.getEvaluationPLNmoins2());
-//			requete.setParameter("pPcNuitAnnuelNmoins2", pObject.getPcNuitAnnuelNmoins2());
-//			requete.setParameter("pIndiceFiabiliteMjaNmoins2", pObject.getIndiceFiabiliteMjaNmoins2());
-//			requete.setParameter("pAnneeNmoins3", pObject.getAnneeNmoins3());
-//			requete.setParameter("pMjaNmoins3", pObject.getMjaNmoins3());
-//			requete.setParameter("pTypeComptageNmoins3", pObject.getTypeComptageNmoins3());
-//			requete.setParameter("pModeCalculNmoins3", pObject.getModeCalculNmoins3());
-//			requete.setParameter("pPcPLNmoins3", pObject.getPcPLNmoins3());
-//			requete.setParameter("pEvaluationPLNmoins3", pObject.getEvaluationPLNmoins3());
-//			requete.setParameter("pPcNuitAnnuelNmoins3", pObject.getPcNuitAnnuelNmoins3());
-//			requete.setParameter("pIndiceFiabiliteMjaNmoins3", pObject.getIndiceFiabiliteMjaNmoins3());
-//			requete.setParameter("pAnneeNmoins4", pObject.getAnneeNmoins4());
-//			requete.setParameter("pMjaNmoins4", pObject.getMjaNmoins4());
-//			requete.setParameter("pTypeComptageNmoins4", pObject.getTypeComptageNmoins4());
-//			requete.setParameter("pModeCalculNmoins4", pObject.getModeCalculNmoins4());
-//			requete.setParameter("pPcPLNmoins4", pObject.getPcPLNmoins4());
-//			requete.setParameter("pEvaluationPLNmoins4", pObject.getEvaluationPLNmoins4());
-//			requete.setParameter("pPcNuitAnnuelNmoins4", pObject.getPcNuitAnnuelNmoins4());
-//			requete.setParameter("pIndiceFiabiliteMjaNmoins4", pObject.getIndiceFiabiliteMjaNmoins4());
-//			requete.setParameter("pAnneeNmoins5", pObject.getAnneeNmoins5());
-//			requete.setParameter("pMjaNmoins5", pObject.getMjaNmoins5());
-//			requete.setParameter("pTypeComptageNmoins5", pObject.getTypeComptageNmoins5());
-//			requete.setParameter("pModeCalculNmoins5", pObject.getModeCalculNmoins5());
-//			requete.setParameter("pPcPLNmoins5", pObject.getPcPLNmoins5());
-//			requete.setParameter("pEvaluationPLNmoins5", pObject.getEvaluationPLNmoins5());
-//			requete.setParameter("pPcNuitAnnuelNmoins5", pObject.getPcNuitAnnuelNmoins5());
-//			requete.setParameter("pIndiceFiabiliteMjaNmoins5", pObject.getIndiceFiabiliteMjaNmoins5());
-//			requete.setParameter("pMjmNmoins1mois01", pObject.getMjmNmoins1mois01());
-//			requete.setParameter("pPcNuitNmoins1mois01", pObject.getPcNuitNmoins1mois01());
-//			requete.setParameter("pMjmNmoins1mois02", pObject.getMjmNmoins1mois02());
-//			requete.setParameter("pPcNuitNmoins1mois02", pObject.getPcNuitNmoins1mois02());
-//			requete.setParameter("pMjmNmoins1mois03", pObject.getMjmNmoins1mois03());
-//			requete.setParameter("pPcNuitNmoins1mois03", pObject.getPcNuitNmoins1mois03());
-//			requete.setParameter("pMjmNmoins1mois04", pObject.getMjmNmoins1mois04());
-//			requete.setParameter("pPcNuitNmoins1mois04", pObject.getPcNuitNmoins1mois04());
-//			requete.setParameter("pMjmNmoins1mois05", pObject.getMjmNmoins1mois05());
-//			requete.setParameter("pPcNuitNmoins1mois05", pObject.getPcNuitNmoins1mois05());
-//			requete.setParameter("pMjmNmoins1mois06", pObject.getMjmNmoins1mois06());
-//			requete.setParameter("pPcNuitNmoins1mois06", pObject.getPcNuitNmoins1mois06());
-//			requete.setParameter("pMjmNmoins1mois07", pObject.getMjmNmoins1mois07());
-//			requete.setParameter("pPcNuitNmoins1mois07", pObject.getPcNuitNmoins1mois07());
-//			requete.setParameter("pMjmNmoins1mois08", pObject.getMjmNmoins1mois08());
-//			requete.setParameter("pPcNuitNmoins1mois08", pObject.getPcNuitNmoins1mois08());
-//			requete.setParameter("pMjmNmoins1mois09", pObject.getMjmNmoins1mois09());
-//			requete.setParameter("pPcNuitNmoins1mois09", pObject.getPcNuitNmoins1mois09());
-//			requete.setParameter("pMjmNmoins1mois10", pObject.getMjmNmoins1mois10());
-//			requete.setParameter("pPcNuitNmoins1mois10", pObject.getPcNuitNmoins1mois10());
-//			requete.setParameter("pMjmNmoins1mois11", pObject.getMjmNmoins1mois11());
-//			requete.setParameter("pPcNuitNmoins1mois11", pObject.getPcNuitNmoins1mois11());
-//			requete.setParameter("pMjmNmoins1mois12", pObject.getMjmNmoins1mois12());
-//			requete.setParameter("pPcNuitNmoins1mois12", pObject.getPcNuitNmoins1mois12());
-//			requete.setParameter("pZoneLibre4", pObject.getZoneLibre4());
-
 		/* Passage des paramètres de la requête JPQL. */
+		requete.setParameter("pLocalisationId", pObject.getLocalisation().getId());
 		requete.setParameter("pNumSection", pObject.getNumSection());
 		requete.setParameter("pSens", pObject.getSens());
 		requete.setParameter("pNature", pObject.getNature());
@@ -733,71 +464,71 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 		requete.setParameter("pMjmNmois12", pObject.getMjmNmois12());
 		requete.setParameter("pPcNuitNmois12", pObject.getPcNuitNmois12());
 		requete.setParameter("pZoneLibre3", pObject.getZoneLibre3());
-//		requete.setParameter("pAnneeNmoins1", pObject.getAnneeNmoins1());
-//		requete.setParameter("pMjaNmoins1", pObject.getMjaNmoins1());
-//		requete.setParameter("pTypeComptageNmoins1", pObject.getTypeComptageNmoins1());
-//		requete.setParameter("pModeCalculNmoins1", pObject.getModeCalculNmoins1());
-//		requete.setParameter("pPcPLNmoins1", pObject.getPcPLNmoins1());
-//		requete.setParameter("pEvaluationPLNmoins1", pObject.getEvaluationPLNmoins1());
-//		requete.setParameter("pPcNuitAnnuelNmoins1", pObject.getPcNuitAnnuelNmoins1());
-//		requete.setParameter("pIndiceFiabiliteMjaNmoins1", pObject.getIndiceFiabiliteMjaNmoins1());
-//		requete.setParameter("pAnneeNmoins2", pObject.getAnneeNmoins2());
-//		requete.setParameter("pMjaNmoins2", pObject.getMjaNmoins2());
-//		requete.setParameter("pTypeComptageNmoins2", pObject.getTypeComptageNmoins2());
-//		requete.setParameter("pModeCalculNmoins2", pObject.getModeCalculNmoins2());
-//		requete.setParameter("pPcPLNmoins2", pObject.getPcPLNmoins2());
-//		requete.setParameter("pEvaluationPLNmoins2", pObject.getEvaluationPLNmoins2());
-//		requete.setParameter("pPcNuitAnnuelNmoins2", pObject.getPcNuitAnnuelNmoins2());
-//		requete.setParameter("pIndiceFiabiliteMjaNmoins2", pObject.getIndiceFiabiliteMjaNmoins2());
-//		requete.setParameter("pAnneeNmoins3", pObject.getAnneeNmoins3());
-//		requete.setParameter("pMjaNmoins3", pObject.getMjaNmoins3());
-//		requete.setParameter("pTypeComptageNmoins3", pObject.getTypeComptageNmoins3());
-//		requete.setParameter("pModeCalculNmoins3", pObject.getModeCalculNmoins3());
-//		requete.setParameter("pPcPLNmoins3", pObject.getPcPLNmoins3());
-//		requete.setParameter("pEvaluationPLNmoins3", pObject.getEvaluationPLNmoins3());
-//		requete.setParameter("pPcNuitAnnuelNmoins3", pObject.getPcNuitAnnuelNmoins3());
-//		requete.setParameter("pIndiceFiabiliteMjaNmoins3", pObject.getIndiceFiabiliteMjaNmoins3());
-//		requete.setParameter("pAnneeNmoins4", pObject.getAnneeNmoins4());
-//		requete.setParameter("pMjaNmoins4", pObject.getMjaNmoins4());
-//		requete.setParameter("pTypeComptageNmoins4", pObject.getTypeComptageNmoins4());
-//		requete.setParameter("pModeCalculNmoins4", pObject.getModeCalculNmoins4());
-//		requete.setParameter("pPcPLNmoins4", pObject.getPcPLNmoins4());
-//		requete.setParameter("pEvaluationPLNmoins4", pObject.getEvaluationPLNmoins4());
-//		requete.setParameter("pPcNuitAnnuelNmoins4", pObject.getPcNuitAnnuelNmoins4());
-//		requete.setParameter("pIndiceFiabiliteMjaNmoins4", pObject.getIndiceFiabiliteMjaNmoins4());
-//		requete.setParameter("pAnneeNmoins5", pObject.getAnneeNmoins5());
-//		requete.setParameter("pMjaNmoins5", pObject.getMjaNmoins5());
-//		requete.setParameter("pTypeComptageNmoins5", pObject.getTypeComptageNmoins5());
-//		requete.setParameter("pModeCalculNmoins5", pObject.getModeCalculNmoins5());
-//		requete.setParameter("pPcPLNmoins5", pObject.getPcPLNmoins5());
-//		requete.setParameter("pEvaluationPLNmoins5", pObject.getEvaluationPLNmoins5());
-//		requete.setParameter("pPcNuitAnnuelNmoins5", pObject.getPcNuitAnnuelNmoins5());
-//		requete.setParameter("pIndiceFiabiliteMjaNmoins5", pObject.getIndiceFiabiliteMjaNmoins5());
-//		requete.setParameter("pMjmNmoins1mois01", pObject.getMjmNmoins1mois01());
-//		requete.setParameter("pPcNuitNmoins1mois01", pObject.getPcNuitNmoins1mois01());
-//		requete.setParameter("pMjmNmoins1mois02", pObject.getMjmNmoins1mois02());
-//		requete.setParameter("pPcNuitNmoins1mois02", pObject.getPcNuitNmoins1mois02());
-//		requete.setParameter("pMjmNmoins1mois03", pObject.getMjmNmoins1mois03());
-//		requete.setParameter("pPcNuitNmoins1mois03", pObject.getPcNuitNmoins1mois03());
-//		requete.setParameter("pMjmNmoins1mois04", pObject.getMjmNmoins1mois04());
-//		requete.setParameter("pPcNuitNmoins1mois04", pObject.getPcNuitNmoins1mois04());
-//		requete.setParameter("pMjmNmoins1mois05", pObject.getMjmNmoins1mois05());
-//		requete.setParameter("pPcNuitNmoins1mois05", pObject.getPcNuitNmoins1mois05());
-//		requete.setParameter("pMjmNmoins1mois06", pObject.getMjmNmoins1mois06());
-//		requete.setParameter("pPcNuitNmoins1mois06", pObject.getPcNuitNmoins1mois06());
-//		requete.setParameter("pMjmNmoins1mois07", pObject.getMjmNmoins1mois07());
-//		requete.setParameter("pPcNuitNmoins1mois07", pObject.getPcNuitNmoins1mois07());
-//		requete.setParameter("pMjmNmoins1mois08", pObject.getMjmNmoins1mois08());
-//		requete.setParameter("pPcNuitNmoins1mois08", pObject.getPcNuitNmoins1mois08());
-//		requete.setParameter("pMjmNmoins1mois09", pObject.getMjmNmoins1mois09());
-//		requete.setParameter("pPcNuitNmoins1mois09", pObject.getPcNuitNmoins1mois09());
-//		requete.setParameter("pMjmNmoins1mois10", pObject.getMjmNmoins1mois10());
-//		requete.setParameter("pPcNuitNmoins1mois10", pObject.getPcNuitNmoins1mois10());
-//		requete.setParameter("pMjmNmoins1mois11", pObject.getMjmNmoins1mois11());
-//		requete.setParameter("pPcNuitNmoins1mois11", pObject.getPcNuitNmoins1mois11());
-//		requete.setParameter("pMjmNmoins1mois12", pObject.getMjmNmoins1mois12());
-//		requete.setParameter("pPcNuitNmoins1mois12", pObject.getPcNuitNmoins1mois12());
-//		requete.setParameter("pZoneLibre4", pObject.getZoneLibre4());
+		requete.setParameter("pAnneeNmoins1", pObject.getAnneeNmoins1());
+		requete.setParameter("pMjaNmoins1", pObject.getMjaNmoins1());
+		requete.setParameter("pTypeComptageNmoins1", pObject.getTypeComptageNmoins1());
+		requete.setParameter("pModeCalculNmoins1", pObject.getModeCalculNmoins1());
+		requete.setParameter("pPcPLNmoins1", pObject.getPcPLNmoins1());
+		requete.setParameter("pEvaluationPLNmoins1", pObject.getEvaluationPLNmoins1());
+		requete.setParameter("pPcNuitAnnuelNmoins1", pObject.getPcNuitAnnuelNmoins1());
+		requete.setParameter("pIndiceFiabiliteMjaNmoins1", pObject.getIndiceFiabiliteMjaNmoins1());
+		requete.setParameter("pAnneeNmoins2", pObject.getAnneeNmoins2());
+		requete.setParameter("pMjaNmoins2", pObject.getMjaNmoins2());
+		requete.setParameter("pTypeComptageNmoins2", pObject.getTypeComptageNmoins2());
+		requete.setParameter("pModeCalculNmoins2", pObject.getModeCalculNmoins2());
+		requete.setParameter("pPcPLNmoins2", pObject.getPcPLNmoins2());
+		requete.setParameter("pEvaluationPLNmoins2", pObject.getEvaluationPLNmoins2());
+		requete.setParameter("pPcNuitAnnuelNmoins2", pObject.getPcNuitAnnuelNmoins2());
+		requete.setParameter("pIndiceFiabiliteMjaNmoins2", pObject.getIndiceFiabiliteMjaNmoins2());
+		requete.setParameter("pAnneeNmoins3", pObject.getAnneeNmoins3());
+		requete.setParameter("pMjaNmoins3", pObject.getMjaNmoins3());
+		requete.setParameter("pTypeComptageNmoins3", pObject.getTypeComptageNmoins3());
+		requete.setParameter("pModeCalculNmoins3", pObject.getModeCalculNmoins3());
+		requete.setParameter("pPcPLNmoins3", pObject.getPcPLNmoins3());
+		requete.setParameter("pEvaluationPLNmoins3", pObject.getEvaluationPLNmoins3());
+		requete.setParameter("pPcNuitAnnuelNmoins3", pObject.getPcNuitAnnuelNmoins3());
+		requete.setParameter("pIndiceFiabiliteMjaNmoins3", pObject.getIndiceFiabiliteMjaNmoins3());
+		requete.setParameter("pAnneeNmoins4", pObject.getAnneeNmoins4());
+		requete.setParameter("pMjaNmoins4", pObject.getMjaNmoins4());
+		requete.setParameter("pTypeComptageNmoins4", pObject.getTypeComptageNmoins4());
+		requete.setParameter("pModeCalculNmoins4", pObject.getModeCalculNmoins4());
+		requete.setParameter("pPcPLNmoins4", pObject.getPcPLNmoins4());
+		requete.setParameter("pEvaluationPLNmoins4", pObject.getEvaluationPLNmoins4());
+		requete.setParameter("pPcNuitAnnuelNmoins4", pObject.getPcNuitAnnuelNmoins4());
+		requete.setParameter("pIndiceFiabiliteMjaNmoins4", pObject.getIndiceFiabiliteMjaNmoins4());
+		requete.setParameter("pAnneeNmoins5", pObject.getAnneeNmoins5());
+		requete.setParameter("pMjaNmoins5", pObject.getMjaNmoins5());
+		requete.setParameter("pTypeComptageNmoins5", pObject.getTypeComptageNmoins5());
+		requete.setParameter("pModeCalculNmoins5", pObject.getModeCalculNmoins5());
+		requete.setParameter("pPcPLNmoins5", pObject.getPcPLNmoins5());
+		requete.setParameter("pEvaluationPLNmoins5", pObject.getEvaluationPLNmoins5());
+		requete.setParameter("pPcNuitAnnuelNmoins5", pObject.getPcNuitAnnuelNmoins5());
+		requete.setParameter("pIndiceFiabiliteMjaNmoins5", pObject.getIndiceFiabiliteMjaNmoins5());
+		requete.setParameter("pMjmNmoins1mois01", pObject.getMjmNmoins1mois01());
+		requete.setParameter("pPcNuitNmoins1mois01", pObject.getPcNuitNmoins1mois01());
+		requete.setParameter("pMjmNmoins1mois02", pObject.getMjmNmoins1mois02());
+		requete.setParameter("pPcNuitNmoins1mois02", pObject.getPcNuitNmoins1mois02());
+		requete.setParameter("pMjmNmoins1mois03", pObject.getMjmNmoins1mois03());
+		requete.setParameter("pPcNuitNmoins1mois03", pObject.getPcNuitNmoins1mois03());
+		requete.setParameter("pMjmNmoins1mois04", pObject.getMjmNmoins1mois04());
+		requete.setParameter("pPcNuitNmoins1mois04", pObject.getPcNuitNmoins1mois04());
+		requete.setParameter("pMjmNmoins1mois05", pObject.getMjmNmoins1mois05());
+		requete.setParameter("pPcNuitNmoins1mois05", pObject.getPcNuitNmoins1mois05());
+		requete.setParameter("pMjmNmoins1mois06", pObject.getMjmNmoins1mois06());
+		requete.setParameter("pPcNuitNmoins1mois06", pObject.getPcNuitNmoins1mois06());
+		requete.setParameter("pMjmNmoins1mois07", pObject.getMjmNmoins1mois07());
+		requete.setParameter("pPcNuitNmoins1mois07", pObject.getPcNuitNmoins1mois07());
+		requete.setParameter("pMjmNmoins1mois08", pObject.getMjmNmoins1mois08());
+		requete.setParameter("pPcNuitNmoins1mois08", pObject.getPcNuitNmoins1mois08());
+		requete.setParameter("pMjmNmoins1mois09", pObject.getMjmNmoins1mois09());
+		requete.setParameter("pPcNuitNmoins1mois09", pObject.getPcNuitNmoins1mois09());
+		requete.setParameter("pMjmNmoins1mois10", pObject.getMjmNmoins1mois10());
+		requete.setParameter("pPcNuitNmoins1mois10", pObject.getPcNuitNmoins1mois10());
+		requete.setParameter("pMjmNmoins1mois11", pObject.getMjmNmoins1mois11());
+		requete.setParameter("pPcNuitNmoins1mois11", pObject.getPcNuitNmoins1mois11());
+		requete.setParameter("pMjmNmoins1mois12", pObject.getMjmNmoins1mois12());
+		requete.setParameter("pPcNuitNmoins1mois12", pObject.getPcNuitNmoins1mois12());
+		requete.setParameter("pZoneLibre4", pObject.getZoneLibre4());
 
 		return requete;
 		
@@ -822,13 +553,13 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 		
 		/* CREATION DANS LE STOCKAGE OU RECUPERATION DES ENTITY 
 		 * COMPOSANTES PERSISTES. */
-		final ILocalisationHit utilisateurEntityPersiste 
+		final ILocalisationHit localisationHitEntityPersiste 
 			= this.localisationHitDAO
 							.createOrRetrieve(localisationHitEntity);
 		
 		/* INJECTION DES ENTITY COMPOSANTES PERSISTEES 
 		 * DANS LE COMPOSITE. */
-		pEntity.setLocalisation(utilisateurEntityPersiste);
+		pEntity.setLocalisation(localisationHitEntityPersiste);
 		
 	} // Fin de stockerComposants(...).____________________________________
 	
@@ -1347,6 +1078,18 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 
 		ISectionHit objetResultat = null;		
 		SectionHitEntityJPA entity = null;
+		
+		/* RECHERCHE DES COMPOSANTS EXISTANTS. */
+		final ILocalisationHit localisationPersistante 
+			= this.localisationHitDAO.retrieve(pObject.getLocalisation());
+		
+		/* return null si le composant de pObject n'est pas persisté. */
+		if (localisationPersistante == null) {
+			return null;
+		}
+		
+		/* INJECTION DU COMPOSANT PERSISTANT DANS L'ENTITE A RECHERCHER. */
+		pObject.setLocalisation(localisationPersistante);
 		
 		/* récupération de la requête paramétrée. */
 		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
@@ -1893,7 +1636,7 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 			return null;
 		}
 		
-		/* récupère l'objet à modifier par sons index. */
+		/* récupère en BASE l'objet à modifier existant par son index. */
 		final ISectionHit objetAModifier = this.findById(pId);
 		
 		/* Cas où this.entityManager == null. */
@@ -1907,6 +1650,19 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 		}
 				
 		ISectionHit persistentObject = null;
+		
+		/* RECHERCHE DES COMPOSANTS EXISTANTS. */
+		final ILocalisationHit localisationPersistante 
+			= this.localisationHitDAO.retrieve(objetAModifier.getLocalisation());
+		
+		/* return null si le composant de pObject n'est pas persisté. */
+		if (localisationPersistante == null) {
+			return null;
+		}
+		
+		/* INJECTION DU COMPOSANT PERSISTANT DANS L'ENTITE A RECHERCHER. */
+		objetAModifier.setLocalisation(localisationPersistante);
+
 		
 		try {
 
@@ -2548,6 +2304,18 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 
 		boolean resultat = false;		
 		ISectionHit objetResultat = null;
+		
+		/* RECHERCHE DES COMPOSANTS EXISTANTS. */
+		final ILocalisationHit localisationPersistante 
+			= this.localisationHitDAO.retrieve(pObject.getLocalisation());
+		
+		/* return false si le composant de pObject n'est pas persisté. */
+		if (localisationPersistante == null) {
+			return false;
+		}
+				
+		/* INJECTION DU COMPOSANT PERSISTANT DANS L'ENTITE A RECHERCHER. */
+		pObject.setLocalisation(localisationPersistante);
 		
 		/* récupération de la requête paramétrée. */
 		final Query requete = this.fournirRequeteEgaliteMetier(pObject);

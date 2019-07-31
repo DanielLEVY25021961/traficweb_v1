@@ -5546,6 +5546,8 @@ public class SectionHit implements ISectionHit {
 	
 	/**
 	 * {@inheritDoc}
+	 * <br/>
+	 * passe pAbsExtremite au COMPOSANT <code><b>this.localisation</b></code>
 	 */
 	@Override
 	public final void setAbsExtremite(
@@ -5573,6 +5575,8 @@ public class SectionHit implements ISectionHit {
 	
 	/**
 	 * {@inheritDoc}
+	 * <br/>
+	 * passe pLieuDitComptage au COMPOSANT <code><b>this.localisation</b></code>
 	 */
 	@Override
 	public final void setLieuDitComptage(
@@ -5600,6 +5604,8 @@ public class SectionHit implements ISectionHit {
 	
 	/**
 	 * {@inheritDoc}
+	 * <br/>
+	 * passe pPrComptage au COMPOSANT <code><b>this.localisation</b></code>
 	 */
 	@Override
 	public final void setPrComptage(
@@ -5627,6 +5633,8 @@ public class SectionHit implements ISectionHit {
 	
 	/**
 	 * {@inheritDoc}
+	 * <br/>
+	 * passe pAbsComptage au COMPOSANT <code><b>this.localisation</b></code>
 	 */
 	@Override
 	public final void setAbsComptage(

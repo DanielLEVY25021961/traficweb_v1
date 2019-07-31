@@ -7572,7 +7572,7 @@ public class SectionHitDAOJPASpringTest {
 
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 
 		/* AFFICHAGE A LA CONSOLE. */
