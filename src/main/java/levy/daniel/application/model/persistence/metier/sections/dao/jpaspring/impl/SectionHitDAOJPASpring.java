@@ -1162,7 +1162,7 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 
 		ISectionHit objetTrouve = null;
 		SectionHitEntityJPA entity = null;
-
+		
 		try {
 			
 			/* ************************* */
@@ -1218,7 +1218,18 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 		
 		ISectionHit objetResultat = null;		
 		SectionHitEntityJPA entity = null;
+
+		/* RECHERCHE DES COMPOSANTS EXISTANTS. */
+		final ILocalisationHit localisationPersistante 
+			= this.localisationHitDAO.retrieve(pObject.getLocalisation());
 		
+		/* return null si le composant de pObject n'est pas persisté. */
+		if (localisationPersistante == null) {
+			return null;
+		}
+		
+		/* INJECTION DU COMPOSANT PERSISTANT DANS L'ENTITE A RECHERCHER. */
+		pObject.setLocalisation(localisationPersistante);
 		
 		/* récupération de la requête paramétrée. */
 		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
@@ -1660,39 +1671,44 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 			return null;
 		}
 		
+		/* MODIFICATION DU COMPOSANT. */
+		localisationPersistante.setNumDepartement(pObjectModifie.getNumDepartement());
+		localisationPersistante.setNumRoute(pObjectModifie.getNumRoute());
+		localisationPersistante.setIndiceNumRoute(pObjectModifie.getIndiceNumRoute());
+		localisationPersistante.setIndiceLettreRoute(pObjectModifie.getIndiceLettreRoute());
+		localisationPersistante.setCategorieAdminRoute(pObjectModifie.getCategorieAdminRoute());
+		localisationPersistante.setLieuDitOrigine(pObjectModifie.getLieuDitOrigine());
+		localisationPersistante.setPrOrigine(pObjectModifie.getPrOrigine());
+		localisationPersistante.setAbsOrigine(pObjectModifie.getAbsOrigine());
+		localisationPersistante.setLieuDitExtremite(pObjectModifie.getLieuDitExtremite());
+		localisationPersistante.setPrExtremite(pObjectModifie.getPrExtremite());
+		localisationPersistante.setAbsExtremite(pObjectModifie.getAbsExtremite());
+		localisationPersistante.setLieuDitComptage(pObjectModifie.getLieuDitComptage());
+		localisationPersistante.setPrComptage(pObjectModifie.getPrComptage());
+		localisationPersistante.setAbsComptage(pObjectModifie.getAbsComptage());
+		
+		this.localisationHitDAO.updateById(
+				localisationPersistante.getId(), localisationPersistante);
+		
 		/* INJECTION DU COMPOSANT PERSISTANT DANS L'ENTITE A RECHERCHER. */
 		objetAModifier.setLocalisation(localisationPersistante);
 
 		
 		try {
 
-			/* applique les modifications. */
-			objetAModifier.setNumDepartement(pObjectModifie.getNumDepartement());
+			/* applique les modifications sur le COMPOSITE. */
 			objetAModifier.setNumSection(pObjectModifie.getNumSection());
 			objetAModifier.setSens(pObjectModifie.getSens());
 			objetAModifier.setNature(pObjectModifie.getNature());
 			objetAModifier.setClasse(pObjectModifie.getClasse());
 			objetAModifier.setAnneeTraitement(pObjectModifie.getAnneeTraitement());
 			objetAModifier.setZoneLibre1(pObjectModifie.getZoneLibre1());
-			objetAModifier.setNumRoute(pObjectModifie.getNumRoute());
-			objetAModifier.setIndiceNumRoute(pObjectModifie.getIndiceNumRoute());
-			objetAModifier.setIndiceLettreRoute(pObjectModifie.getIndiceLettreRoute());
-			objetAModifier.setCategorieAdminRoute(pObjectModifie.getCategorieAdminRoute());
 			objetAModifier.setTypeComptage(pObjectModifie.getTypeComptage());
 			objetAModifier.setClassementRoute(pObjectModifie.getClassementRoute());
 			objetAModifier.setClasseLargeurChausseeU(pObjectModifie.getClasseLargeurChausseeU());
 			objetAModifier.setClasseLargeurChausseesS(pObjectModifie.getClasseLargeurChausseesS());
 			objetAModifier.setTypeReseau(pObjectModifie.getTypeReseau());
 			objetAModifier.setpRoupK(pObjectModifie.getpRoupK());
-			objetAModifier.setLieuDitOrigine(pObjectModifie.getLieuDitOrigine());
-			objetAModifier.setPrOrigine(pObjectModifie.getPrOrigine());
-			objetAModifier.setAbsOrigine(pObjectModifie.getAbsOrigine());
-			objetAModifier.setLieuDitExtremite(pObjectModifie.getLieuDitExtremite());
-			objetAModifier.setPrExtremite(pObjectModifie.getPrExtremite());
-			objetAModifier.setAbsExtremite(pObjectModifie.getAbsExtremite());
-			objetAModifier.setLieuDitComptage(pObjectModifie.getLieuDitComptage());
-			objetAModifier.setPrComptage(pObjectModifie.getPrComptage());
-			objetAModifier.setAbsComptage(pObjectModifie.getAbsComptage());
 			objetAModifier.setLongueurSection(pObjectModifie.getLongueurSection());
 			objetAModifier.setLongueurRaseCampagne(pObjectModifie.getLongueurRaseCampagne());
 			objetAModifier.setNumDepartementRattachement(pObjectModifie.getNumDepartementRattachement());
