@@ -123,7 +123,20 @@ public interface ITeleversementDeLotSectionsHit
 	 */
 	@Override
 	Object fournirValeurColonne(int pI);
-
+	
+	
+	
+	/**
+	 * fournit une String pour l'affichage de la 
+	 * Map&lt;Integer,ISectionHit&gt; <code><b>this.lotSections</b></code><br/>
+	 * <br/>
+	 * - retourne null si this.lotSections == null.<br/>
+	 * <br/>
+	 * 
+	 * @return : String : pour affichage.<br/>
+	 */
+	String afficherLotSections();
+	
 	
 	
 	/**

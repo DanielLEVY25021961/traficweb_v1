@@ -3,13 +3,17 @@ package levy.daniel.application.model.metier.televersementdelotsections.impl;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnaireslocale.LocaleManager;
 import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
 import levy.daniel.application.model.metier.sections.ISectionHit;
 import levy.daniel.application.model.metier.televersement.EnumTypeFichierDonnees;
@@ -56,6 +60,16 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	 * ", ".<br/>
 	 */
 	public static final String VIRGULE_ESPACE = ", ";
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+
+	/**
+	 * Saut de ligne spécifique de la plateforme.<br/>
+	 * System.getProperty("line.separator").<br/>
+	 */
+	public static final String NEWLINE = System.getProperty("line.separator");
 	
 	/**
 	 * "null".<br/>
@@ -242,65 +256,83 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 		int compareGestionnaire = 0;
 		int compareDateTeleversement = 0;
 		
-		/* anneeGestion. */
-		if (this.getTeleversement().getAnneeGestion() == null) {
-			if (pObjet.getTeleversement().getAnneeGestion() != null) {
-				return +1;
-			}
-		} else {
-			
-			if (pObjet.getTeleversement().getAnneeGestion() == null) {
-				return -1;
-			}
-			
-			compareAnneeGestion 
-				= this.getTeleversement().getAnneeGestion()
-					.compareTo(pObjet.getTeleversement().getAnneeGestion());
 		
-			if (compareAnneeGestion != 0) {
-				return compareAnneeGestion;
+		if (this.getTeleversement() != null 
+				&& pObjet.getTeleversement() != null) {
+			
+			/* anneeGestion. */
+			if (this.getTeleversement().getAnneeGestion() == null) {
+									
+				if (pObjet.getTeleversement().getAnneeGestion() != null) {
+					return +1;					
+				}
+				
+			} else {
+									
+				if (pObjet.getTeleversement().getAnneeGestion() == null) {
+					return -1;
+				}
+								
+				compareAnneeGestion 
+					= this.getTeleversement().getAnneeGestion()
+						.compareTo(pObjet.getTeleversement().getAnneeGestion());
+			
+				if (compareAnneeGestion != 0) {
+					return compareAnneeGestion;
+				}
 			}
-		}
 
-		/* gestionnaire. */
-		if (this.getTeleversement().getGestionnaire() == null) {
-			if (pObjet.getTeleversement().getGestionnaire() != null) {
-				return +1;
-			}
-		} else {
+			/* gestionnaire. */
+			if (this.getTeleversement().getGestionnaire() == null) {
+				if (pObjet.getTeleversement().getGestionnaire() != null) {
+					return +1;
+				}
+			} else {
+				
+				if (pObjet.getTeleversement().getGestionnaire() == null) {
+					return -1;
+				}
+				
+				compareGestionnaire 
+					= this.getTeleversement().getGestionnaire()
+						.compareTo(pObjet.getTeleversement().getGestionnaire());
 			
-			if (pObjet.getTeleversement().getGestionnaire() == null) {
+				if (compareGestionnaire != 0) {
+					return compareGestionnaire;
+				}
+			}
+			
+			/* dateTeleversement. */
+			if (this.getTeleversement().getDateTeleversement() == null) {
+				if (pObjet.getTeleversement().getDateTeleversement() != null) {
+					return +1;
+				}
+				
+				return 0;
+			}
+			
+			if (pObjet.getTeleversement().getDateTeleversement() == null) {
 				return -1;
 			}
 			
-			compareGestionnaire 
-				= this.getTeleversement().getGestionnaire()
-					.compareTo(pObjet.getTeleversement().getGestionnaire());
-		
-			if (compareGestionnaire != 0) {
-				return compareGestionnaire;
-			}
-		}
-		
-		/* dateTeleversement. */
-		if (this.getTeleversement().getDateTeleversement() == null) {
-			if (pObjet.getTeleversement().getDateTeleversement() != null) {
-				return +1;
-			}
+			compareDateTeleversement 
+				= this.getTeleversement().getDateTeleversement()
+					.compareTo(pObjet.getTeleversement().getDateTeleversement());
 			
-			return 0;
+			return compareDateTeleversement;
+
+		}
+			
+		if (this.getTeleversement() == null && pObjet.getTeleversement() != null) {
+			return +1;
 		}
 		
-		if (pObjet.getTeleversement().getDateTeleversement() == null) {
+		if (this.getTeleversement() != null && pObjet.getTeleversement() == null) {
 			return -1;
 		}
 		
-		compareDateTeleversement 
-			= this.getTeleversement().getDateTeleversement()
-				.compareTo(pObjet.getTeleversement().getDateTeleversement());
+		return 0;
 		
-		return compareDateTeleversement;
-
 	} // Fin de compareTo(...).____________________________________________
 
 	
@@ -316,11 +348,19 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 			= (ITeleversementDeLotSectionsHit) super.clone();
 		
 		/* CLONAGE PROFOND. */
-		final Map<Integer, ISectionHit> lotSectionsClone 
-			= new ConcurrentHashMap<>(this.getLotSections());
+		Map<Integer, ISectionHit> lotSectionsClone = null;
 		
+		if (this.getLotSections() != null) {
+			lotSectionsClone 
+				= new ConcurrentHashMap<Integer, ISectionHit>(this.getLotSections());
+		}
+				
 		clone.setId(this.getId());
-		clone.setTeleversement(this.getTeleversement().clone());
+		
+		if (this.getTeleversement() != null) {
+			clone.setTeleversement(this.getTeleversement().clone());
+		}
+		
 		clone.setLotSections(lotSectionsClone);
 		
 		return clone;
@@ -349,65 +389,98 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 
 		stb.append("dateTeleversement=");
 		
-		if (this.getTeleversement().getDateTeleversement() != null) {
-			stb.append(this.formaterLocalDateTimeEnString(
-					this.getTeleversement().getDateTeleversement()));
+		if (this.getTeleversement() != null) {
+			if (this.getTeleversement().getDateTeleversement() != null) {
+				stb.append(this.formaterLocalDateTimeEnString(
+						this.getTeleversement().getDateTeleversement()));
+			} else {
+				stb.append(NULL);
+			}
 		} else {
 			stb.append(NULL);
 		}
+		
 		stb.append(VIRGULE_ESPACE);
 
 		stb.append("utilisateur=");
-		if (this.getTeleversement().getUtilisateur() != null) {
-			stb.append(this.getTeleversement().getUtilisateur().getNom());
+		if (this.getTeleversement() != null) {
+			if (this.getTeleversement().getUtilisateur() != null) {
+				stb.append(this.getTeleversement().getUtilisateur().getNom());
+			} else {
+				stb.append(NULL);
+			}
 		} else {
 			stb.append(NULL);
 		}
+		
 		stb.append(VIRGULE_ESPACE);
 
 		stb.append("gestionnaire=");
-		if (this.getTeleversement().getGestionnaire() != null) {
-			stb.append(this.getTeleversement().getGestionnaire().getNomCourt());
+		if (this.getTeleversement() != null) {
+			if (this.getTeleversement().getGestionnaire() != null) {
+				stb.append(this.getTeleversement().getGestionnaire().getNomCourt());
+			} else {
+				stb.append(NULL);
+			}
 		} else {
 			stb.append(NULL);
 		}
+				
 		stb.append(VIRGULE_ESPACE);
 
 		stb.append("typeFichier=");
-		if (this.getTeleversement().getTypeFichier() != null) {
-			stb.append(this.getTeleversement().getTypeFichier().getNomCourt());
+		if (this.getTeleversement() != null) {
+			if (this.getTeleversement().getTypeFichier() != null) {
+				stb.append(this.getTeleversement().getTypeFichier().getNomCourt());
+			} else {
+				stb.append(NULL);
+			}
 		} else {
 			stb.append(NULL);
 		}
+		
 		stb.append(VIRGULE_ESPACE);
 
 		stb.append("nomFichierTeleverse=");
-		if (this.getTeleversement().getNomFichierTeleverse() != null) {
-			stb.append(this.getTeleversement().getNomFichierTeleverse());
+		if (this.getTeleversement() != null) {
+			if (this.getTeleversement().getNomFichierTeleverse() != null) {
+				stb.append(this.getTeleversement().getNomFichierTeleverse());
+			} else {
+				stb.append(NULL);
+			}
 		} else {
 			stb.append(NULL);
 		}
+		
 		stb.append(VIRGULE_ESPACE);
 
 		stb.append("fichierStockeServeur=");
-		if (this.getTeleversement().getFichierStockeServeur() != null) {
-			stb.append(this.getTeleversement().getFichierStockeServeur().getName());
+		if (this.getTeleversement() != null) {
+			if (this.getTeleversement().getFichierStockeServeur() != null) {
+				stb.append(this.getTeleversement().getFichierStockeServeur().getName());
+			} else {
+				stb.append(NULL);
+			}
 		} else {
 			stb.append(NULL);
 		}
+		
 		stb.append(VIRGULE_ESPACE);
 
 		stb.append("anneeGestion=");
-		if (this.getTeleversement().getAnneeGestion() != null) {
-			stb.append(this.getTeleversement().getAnneeGestion().getAnneeGestion());
+		if (this.getTeleversement() != null) {
+			if (this.getTeleversement().getAnneeGestion() != null) {
+				stb.append(this.getTeleversement().getAnneeGestion().getAnneeGestion());
+			} else {
+				stb.append(NULL);
+			}
 		} else {
 			stb.append(NULL);
 		}
-
+		
 		stb.append(']');
 
 		return stb.toString();
-
 		
 	} // Fin de toString().________________________________________________
 
@@ -436,67 +509,106 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 		stb.append(this.getId());
 		stb.append(POINT_VIRGULE);
 		
-		final LocalDateTime dateTeleversementLocal 
+		if (this.getTeleversement() != null) {
+			
+			final LocalDateTime dateTeleversementLocal 
 			= this.getTeleversement().getDateTeleversement();
 		
-		if (dateTeleversementLocal != null) {
-			stb.append(this.formaterLocalDateTimeEnString(dateTeleversementLocal));
+			if (dateTeleversementLocal != null) {
+				stb.append(this.formaterLocalDateTimeEnString(dateTeleversementLocal));
+			} else {
+				stb.append(NULL);
+			}	
 		} else {
 			stb.append(NULL);
-		}		
+		}
+			
 		stb.append(POINT_VIRGULE);
 		
-		final IUtilisateurCerbere utilisateurLocal 
+		if (this.getTeleversement() != null) {
+			
+			final IUtilisateurCerbere utilisateurLocal 
 			= this.getTeleversement().getUtilisateur();
 		
-		if (utilisateurLocal != null) {
-			stb.append(utilisateurLocal.getNom());
+			if (utilisateurLocal != null) {
+				stb.append(utilisateurLocal.getNom());
+			} else {
+				stb.append(NULL);
+			}	
 		} else {
 			stb.append(NULL);
-		}		
+		}
+			
 		stb.append(POINT_VIRGULE);
 		
-		final EnumGestionnaire gestionnaireLocal 
+		if (this.getTeleversement() != null) {
+			final EnumGestionnaire gestionnaireLocal 
 			= this.getTeleversement().getGestionnaire();
 		
-		if (gestionnaireLocal != null) {
-			stb.append(gestionnaireLocal.getNomCourt());
+			if (gestionnaireLocal != null) {
+				stb.append(gestionnaireLocal.getNomCourt());
+			} else {
+				stb.append(NULL);
+			}	
 		} else {
 			stb.append(NULL);
-		}		
+		}
+			
 		stb.append(POINT_VIRGULE);
 		
-		final EnumTypeFichierDonnees typeFichierLocal 
+		if (this.getTeleversement() != null) {
+			final EnumTypeFichierDonnees typeFichierLocal 
 			= this.getTeleversement().getTypeFichier();
 		
-		if (typeFichierLocal != null) {
-			stb.append(typeFichierLocal.getNomCourt());
+			if (typeFichierLocal != null) {
+				stb.append(typeFichierLocal.getNomCourt());
+			} else {
+				stb.append(NULL);
+			}	
 		} else {
 			stb.append(NULL);
-		}		
+		}
+			
 		stb.append(POINT_VIRGULE);
 		
-		stb.append(this.getTeleversement().getNomFichierTeleverse());
+		if (this.getTeleversement() != null) {
+			stb.append(this.getTeleversement().getNomFichierTeleverse());
+		} else {
+			stb.append(NULL);
+		}
+		
 		stb.append(POINT_VIRGULE);
 		
-		final File fichierStockeServeurLocal 
+		if (this.getTeleversement() != null) {
+			
+			final File fichierStockeServeurLocal 
 			= this.getTeleversement().getFichierStockeServeur();
-		
-		if (fichierStockeServeurLocal != null) {
-			stb.append(fichierStockeServeurLocal.getName());
+			
+			if (fichierStockeServeurLocal != null) {
+				stb.append(fichierStockeServeurLocal.getName());
+			} else {
+				stb.append(NULL);
+			}	
 		} else {
 			stb.append(NULL);
-		}		
+		}
+			
 		stb.append(POINT_VIRGULE);
 		
-		final IAnneeGestion anneeGestionLocal 
+		if (this.getTeleversement() != null) {
+			
+			final IAnneeGestion anneeGestionLocal 
 			= this.getTeleversement().getAnneeGestion();
 		
-		if (anneeGestionLocal != null) {
-			stb.append(anneeGestionLocal.getAnneeGestion());
+			if (anneeGestionLocal != null) {
+				stb.append(anneeGestionLocal.getAnneeGestion());
+			} else {
+				stb.append(NULL);
+			}	
 		} else {
 			stb.append(NULL);
-		}		
+		}
+			
 		stb.append(POINT_VIRGULE);
 
 		return stb.toString();
@@ -580,65 +692,95 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 
 		case 1:
 			
-			final LocalDateTime dateTeleversementLocal 
-				= this.getTeleversement().getDateTeleversement();
+			if (this.getTeleversement() != null) {
+				
+				final LocalDateTime dateTeleversementLocal 
+					= this.getTeleversement().getDateTeleversement();
 			
-			valeur 
-				= this.formaterLocalDateTimeEnString(dateTeleversementLocal);
+				valeur 
+					= this.formaterLocalDateTimeEnString(dateTeleversementLocal);
+			}
+			
 			break;
 
 		case 2:
 			
-			final IUtilisateurCerbere utilisateurLocal 
-				= this.getTeleversement().getUtilisateur();
+			if (this.getTeleversement() != null) {
+				
+				final IUtilisateurCerbere utilisateurLocal 
+					= this.getTeleversement().getUtilisateur();
 			
-			if (utilisateurLocal != null) {
-				valeur = utilisateurLocal.getNom();
-			}			
+				if (utilisateurLocal != null) {
+					valeur = utilisateurLocal.getNom();
+				}
+
+			}
+			
 			break;
 
 		case 3:
 			
-			final EnumGestionnaire gestionnaireLocal 
-				= this.getTeleversement().getGestionnaire();
+			if (this.getTeleversement() != null) {
+				
+				final EnumGestionnaire gestionnaireLocal 
+					= this.getTeleversement().getGestionnaire();
 			
-			if (gestionnaireLocal != null) {
-				valeur = gestionnaireLocal.getNomCourt();
-			}			
+				if (gestionnaireLocal != null) {
+					valeur = gestionnaireLocal.getNomCourt();
+				}			
+
+			}
+			
 			break;
 
 		case 4:
 			
-			final EnumTypeFichierDonnees typeFichierLocal 
-				= this.getTeleversement().getTypeFichier();
+			if (this.getTeleversement() != null) {
+				
+				final EnumTypeFichierDonnees typeFichierLocal 
+					= this.getTeleversement().getTypeFichier();
 			
-			if (typeFichierLocal != null) {
-				valeur = typeFichierLocal.getNomCourt();
-			}			
+				if (typeFichierLocal != null) {
+					valeur = typeFichierLocal.getNomCourt();
+				}	
+			}
+					
 			break;
 
 		case 5:
-			valeur = this.getTeleversement().getNomFichierTeleverse();
+			
+			if (this.getTeleversement() != null) {
+				valeur = this.getTeleversement().getNomFichierTeleverse();
+			}
+			
 			break;
 
 		case 6:
 			
-			final File fichierStockeServeurLocal 
+			if (this.getTeleversement() != null) {
+				
+				final File fichierStockeServeurLocal 
 				= this.getTeleversement().getFichierStockeServeur();
 			
-			if (fichierStockeServeurLocal != null) {
-				valeur = fichierStockeServeurLocal.getName();
-			}			
+				if (fichierStockeServeurLocal != null) {
+					valeur = fichierStockeServeurLocal.getName();
+				}	
+			}
+					
 			break;
 
 		case 7:
 			
-			final IAnneeGestion anneeGestionLocal 
+			if (this.getTeleversement() != null) {
+				
+				final IAnneeGestion anneeGestionLocal 
 				= this.getTeleversement().getAnneeGestion();
 			
-			if (anneeGestionLocal != null) {
-				valeur = anneeGestionLocal.getAnneeGestion();
-			}			
+				if (anneeGestionLocal != null) {
+					valeur = anneeGestionLocal.getAnneeGestion();
+				}	
+			}
+					
 			break;
 
 		default:
@@ -650,6 +792,64 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 		return valeur;
 
 	} // Fin de fournirValeurColonne(...)._________________________________
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String afficherLotSections() {
+		return this.afficherMapObjet(this.lotSections);
+	} // Fin de afficherLotSections()._____________________________________
+	
+
+	
+	/**
+	 * fournit une String pour l'affichage d'une 
+	 * Map&lt;Integer,ISectionHit&gt;<br/>
+	 * <br/>
+	 * - retourne null si pMap == null.<br/>
+	 * <br/>
+	 *
+	 * @param pMap : Map&lt;Integer,ISectionHit&gt;
+	 * 
+	 * @return : String : pour affichage.<br/>
+	 */
+	public final String afficherMapObjet(
+			final Map<Integer, ISectionHit> pMap) {
+		
+		/* retourne null si pMap == null. */
+		if (pMap == null) {
+			return null;
+		}
+		
+		final StringBuffer stb = new StringBuffer();
+		
+		final Set<Entry<Integer, ISectionHit>> entrySet = pMap.entrySet();
+		final Iterator<Entry<Integer, ISectionHit>> ite = entrySet.iterator();
+		
+		while (ite.hasNext()) {
+			
+			final Entry<Integer, ISectionHit> entry = ite.next();
+			
+			final Integer numeroLigne = entry.getKey();
+			final ISectionHit objet = entry.getValue();
+			
+			final String ligne 
+				= String.format(
+						LocaleManager.getLocaleApplication()
+						, "Ligne %1$-7d : %2$s"
+						, numeroLigne
+						, objet.toString());
+			
+			stb.append(ligne);
+			stb.append(NEWLINE);
+		}
+		
+		return stb.toString();
+	
+	} // Fin de afficherMapObjet(...)._____________________________________
 
 
 	
