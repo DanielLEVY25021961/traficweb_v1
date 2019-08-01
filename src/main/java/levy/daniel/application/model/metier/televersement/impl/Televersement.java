@@ -672,21 +672,21 @@ public class Televersement implements ITeleversement {
 		case 2:
 			final IUtilisateurCerbere utilisateurLocal = this.getUtilisateur();
 			if (utilisateurLocal != null) {
-				valeur = this.getUtilisateur().getNom();
+				valeur = utilisateurLocal.getNom();
 			}			
 			break;
 
 		case 3:
 			final EnumGestionnaire gestionnaireLocal = this.getGestionnaire();
 			if (gestionnaireLocal != null) {
-				valeur = this.getGestionnaire().getNomCourt();
+				valeur = gestionnaireLocal.getNomCourt();
 			}			
 			break;
 
 		case 4:
 			final EnumTypeFichierDonnees typeFichierLocal = this.getTypeFichier();
 			if (typeFichierLocal != null) {
-				valeur = this.getTypeFichier().getNomCourt();
+				valeur = typeFichierLocal.getNomCourt();
 			}			
 			break;
 
@@ -697,7 +697,7 @@ public class Televersement implements ITeleversement {
 		case 6:
 			final File fichierStockeServeurLocal = this.getFichierStockeServeur();
 			if (fichierStockeServeurLocal != null) {
-				valeur = this.getFichierStockeServeur().getName();
+				valeur = fichierStockeServeurLocal.getName();
 			}			
 			break;
 

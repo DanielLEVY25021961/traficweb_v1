@@ -292,9 +292,9 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		/* REQUETE HQL PARMETREE. */
 		requeteString 
 			= SELECT_OBJET
-				+ "where televersement.dateTeleversement = :pDateTeleversement "
-				+ "and televersement.utilisateur = :pUtilisateur "
-				+ "and televersement.nomFichierTeleverse = :pNomFichierTeleverse";
+				+ "where ((televersement.dateTeleversement IS NULL and CAST(:pDateTeleversement AS timestamp) IS NULL) OR (televersement.dateTeleversement = :pDateTeleversement)) "
+				+ "and ((televersement.utilisateur IS NULL and :pUtilisateur IS NULL) OR (televersement.utilisateur = :pUtilisateur)) "
+				+ "and ((televersement.nomFichierTeleverse IS NULL and :pNomFichierTeleverse IS NULL) OR (televersement.nomFichierTeleverse = :pNomFichierTeleverse))";
 		
 		/* Construction de la requête HQL. */
 		requete 
