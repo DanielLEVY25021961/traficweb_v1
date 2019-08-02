@@ -1233,4 +1233,5 @@ public class TeleversementDeLotSectionsHitTest {
 	} // Fin de beforeClass()._____________________________________________
 
 	
+	
 } // FIN DE LA CLASSE TeleversementDeLotSectionsHitTest.---------------------
