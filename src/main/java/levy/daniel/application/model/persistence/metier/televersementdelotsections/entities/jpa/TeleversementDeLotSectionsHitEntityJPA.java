@@ -35,6 +35,8 @@ import levy.daniel.application.model.metier.televersement.ITeleversement;
 import levy.daniel.application.model.metier.televersementdelotsections.ITeleversementDeLotSectionsHit;
 import levy.daniel.application.model.metier.utilisateur.EnumGestionnaire;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
+import levy.daniel.application.model.persistence.metier.sections.entities.jpa.SectionHitEntityJPA;
+import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
 
 /**
  * CLASSE TeleversementDeLotSectionsHitEntityJPA :<br/>
@@ -899,7 +901,7 @@ public class TeleversementDeLotSectionsHitEntityJPA
 	/**
 	 * {@inheritDoc}
 	 */
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(targetEntity = TeleversementEntityJPA.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID")
 	@Column(name="ID_TELEVERSEMENT"
 			, insertable = true, updatable = true
@@ -925,7 +927,7 @@ public class TeleversementDeLotSectionsHitEntityJPA
 	/**
 	 * {@inheritDoc}
 	 */
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(targetEntity = SectionHitEntityJPA.class, fetch = FetchType.LAZY)
 	@JoinTable(
 	name = "TELEVERSEMENTSDELOTSECTIONS_SECTIONHTS"
 	, joinColumns= {@JoinColumn(name = "FK_TELEVERSEMENT", referencedColumnName = "ID")}
