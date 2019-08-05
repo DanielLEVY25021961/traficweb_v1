@@ -56,7 +56,7 @@ import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
  * @since 1 août 2019
  *
  */
-@Entity
+@Entity(name="TeleversementDeLotSectionsHitEntityJPA")
 @Table(name="TELEVERSEMENTSDELOTSECTIONS", schema="PUBLIC"
 , uniqueConstraints=@UniqueConstraint(name="UNICITE_TELEVERSEMENT"
 , columnNames={"ID_TELEVERSEMENT"}))

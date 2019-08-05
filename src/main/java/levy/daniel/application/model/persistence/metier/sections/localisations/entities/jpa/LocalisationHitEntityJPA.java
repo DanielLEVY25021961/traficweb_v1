@@ -40,7 +40,7 @@ import levy.daniel.application.model.metier.sections.localisations.ILocalisation
  * @since 4 juil. 2019
  *
  */
-@Entity
+@Entity(name = "LocalisationHitEntityJPA")
 @Table(name="LOCALISATIONHITS", schema="PUBLIC"
 , uniqueConstraints=@UniqueConstraint(
 		name="UNICITE_EQUALS_LOCALISATIONSHITS"

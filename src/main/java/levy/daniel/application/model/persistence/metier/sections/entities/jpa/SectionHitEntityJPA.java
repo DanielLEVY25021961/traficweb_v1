@@ -56,7 +56,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * @since 29 juin 2019
  *
  */
-@Entity
+@Entity(name="SectionHitEntityJPA")
 @Table(name="SECTIONHITS", schema="PUBLIC"
 , indexes={@Index(name="INDEX_ID_LOCALISATION_HIT_ANNEETRAITEMENT_SENS"
 , columnList="ID_LOCALISATION_HIT, ANNEETRAITEMENT, SENS")})
