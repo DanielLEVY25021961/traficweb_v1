@@ -2322,7 +2322,7 @@ public final class SectionHitConvertisseurMetierDTO {
 			 * un String.valueOf(null)). */
 			if (pString.equalsIgnoreCase("null")) {
 				
-				String resultatSpace = creerChaineEspaces(pTaille);
+				final String resultatSpace = creerChaineEspaces(pTaille);
 				
 				return resultatSpace;
 			}

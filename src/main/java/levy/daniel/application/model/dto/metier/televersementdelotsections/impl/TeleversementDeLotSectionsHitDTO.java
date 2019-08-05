@@ -545,7 +545,7 @@ public class TeleversementDeLotSectionsHitDTO
 	 */
 	@Override
 	public final String fournirEnTeteCsv() {
-		return "idString;dateTeleversement;utilisateur;gestionnaire;"
+		return "id;dateTeleversement;utilisateur;gestionnaire;"
 				+ "typeFichier;nomFichierTeleverse;fichierStockeServeur;"
 				+ "anneeGestion;";
 	} // Fin de fournirEnTeteCsv().________________________________________
@@ -685,7 +685,7 @@ public class TeleversementDeLotSectionsHitDTO
 		switch (pI) {
 
 		case 0:
-			entete = "idString";
+			entete = "id";
 			break;
 
 		case 1:
