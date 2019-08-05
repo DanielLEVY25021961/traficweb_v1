@@ -111,9 +111,25 @@
 	    
 		<!-- =========================== -->
 		<!--         SPRING		 		 -->		
-		<!-- =========================== -->	    		    
-	    <Logger name="org.springframework" 
-			level="info" additivity="false">
+		<!-- =========================== -->
+		<!-- Log everything in SPRING -->	    		    
+	    <Logger name="org.springframework" level="info" additivity="false">
+	      <AppenderRef ref="Console" />
+	      <AppenderRef ref="RollingFile" />
+	    </Logger>
+
+		<!-- Log les tests JUnit exécutés sous SPRING -->
+		<!-- info permet de voir les traces des tests JUnit sous SPRING -->
+<!-- 		<Logger name="org.springframework.test.context" level="info" additivity="false"> -->
+		<Logger name="org.springframework.test.context" level="warn" additivity="false">
+	      <AppenderRef ref="Console" />
+	      <AppenderRef ref="RollingFile" />
+	    </Logger>
+
+		<!-- Log les configurations des BEANS SPRING -->
+		<!-- info permet de voir les traces des configurations des BEANS SPRING -->
+<!-- 		<Logger name="org.springframework.context.support" level="info" additivity="false"> -->
+		<Logger name="org.springframework.context.support" level="warn" additivity="false">
 	      <AppenderRef ref="Console" />
 	      <AppenderRef ref="RollingFile" />
 	    </Logger>
@@ -123,8 +139,8 @@
 		<!--         HIBERNATE 			-->		
 		<!-- =========================== -->	    
 	    <!-- Log everything in hibernate -->
-<!--	    <Logger name="org.hibernate" level="fatal" additivity="false"> -->
- 	    <Logger name="org.hibernate" level="info" additivity="false"> 
+	    <Logger name="org.hibernate" level="fatal" additivity="false">
+<!--  	    <Logger name="org.hibernate" level="info" additivity="false">  -->
 	      <AppenderRef ref="Console" />
 	      <AppenderRef ref="RollingFile" />
 	    </Logger>
@@ -162,6 +178,17 @@
 		<!--    javax.persistence 		 -->		
 		<!-- =========================== -->	    	    
 	    <Logger name="javax.persistence" level="trace" additivity="false>">
+	    	<AppenderRef ref="Console" />
+<!-- 	      <AppenderRef ref="File" /> -->	    
+	    </Logger>
+
+
+		<!-- =========================== -->
+		<!--    com.zaxxer.hikari 		 -->		
+		<!-- =========================== -->
+		<!-- info permet de voir les traces de la Base de Données HIKARI -->	    	    
+<!-- 	    <Logger name="com.zaxxer.hikari" level="info" additivity="false>"> -->
+	    <Logger name="com.zaxxer.hikari" level="warn" additivity="false>">
 	    	<AppenderRef ref="Console" />
 <!-- 	      <AppenderRef ref="File" /> -->	    
 	    </Logger>

@@ -55,12 +55,12 @@ public class TeleversementDTOTest {
 	/**
 	 * "DIRA".<br/>
 	 */
-	public static final String GESTIONNAIRE_DIRA = "DIRA";
+	public static final String GESTIONNAIRE_DIRA_STRING = "DIRA";
 	
 	/**
 	 * "HIT".<br/>
 	 */
-	public static final String TYPE_FICHIER_HIT = "HIT";
+	public static final String TYPE_FICHIER_HIT_STRING = "HIT";
 	
 	/**
 	 * "HITDIRA2018".
@@ -220,8 +220,8 @@ public class TeleversementDTOTest {
 					"1"
 					, DATE_TELEVERSEMENT_1
 						, UTILISATEUR_DIRA_1
-							, GESTIONNAIRE_DIRA
-								, TYPE_FICHIER_HIT
+							, GESTIONNAIRE_DIRA_STRING
+								, TYPE_FICHIER_HIT_STRING
 									, NOM_FICHIER_HITDIRA2018
 										, TOTO
 											, ANNEE_GESTION_2018);
@@ -239,8 +239,8 @@ public class TeleversementDTOTest {
 				"2"
 				, DATE_TELEVERSEMENT_1
 					, UTILISATEUR_DIRA_1
-						, GESTIONNAIRE_DIRA
-							, TYPE_FICHIER_HIT
+						, GESTIONNAIRE_DIRA_STRING
+							, TYPE_FICHIER_HIT_STRING
 								, NOM_FICHIER_HITDIRA2018
 									, TOTO
 										, ANNEE_GESTION_2018);
@@ -253,8 +253,8 @@ public class TeleversementDTOTest {
 				"3"
 				, DATE_TELEVERSEMENT_1
 					, UTILISATEUR_DIRA_1
-						, GESTIONNAIRE_DIRA
-							, TYPE_FICHIER_HIT
+						, GESTIONNAIRE_DIRA_STRING
+							, TYPE_FICHIER_HIT_STRING
 								, NOM_FICHIER_HITDIRA2018
 									, TITI
 										, ANNEE_GESTION_2018);
@@ -284,8 +284,8 @@ public class TeleversementDTOTest {
 				"1"
 				, DATE_TELEVERSEMENT_1
 					, UTILISATEUR_DIRA_1
-						, GESTIONNAIRE_DIRA
-							, TYPE_FICHIER_HIT
+						, GESTIONNAIRE_DIRA_STRING
+							, TYPE_FICHIER_HIT_STRING
 								, null
 									, TITI
 										, ANNEE_GESTION_2018);
@@ -299,8 +299,8 @@ public class TeleversementDTOTest {
 				"3"
 				, DATE_TELEVERSEMENT_1
 					, UTILISATEUR_DIRA_1
-						, GESTIONNAIRE_DIRA
-							, TYPE_FICHIER_HIT
+						, GESTIONNAIRE_DIRA_STRING
+							, TYPE_FICHIER_HIT_STRING
 								, null
 									, TITI
 										, ANNEE_GESTION_2018);
@@ -313,8 +313,8 @@ public class TeleversementDTOTest {
 				"3"
 				, DATE_TELEVERSEMENT_1
 					, UTILISATEUR_DIRA_1
-						, GESTIONNAIRE_DIRA
-							, TYPE_FICHIER_HIT
+						, GESTIONNAIRE_DIRA_STRING
+							, TYPE_FICHIER_HIT_STRING
 								, NOM_FICHIER_HITDIRA2018
 									, TITI
 										, ANNEE_GESTION_2018);
@@ -327,8 +327,8 @@ public class TeleversementDTOTest {
 				"3"
 				, DATE_TELEVERSEMENT_2
 					, UTILISATEUR_DIRA_1
-						,  GESTIONNAIRE_DIRA
-							, TYPE_FICHIER_HIT
+						,  GESTIONNAIRE_DIRA_STRING
+							, TYPE_FICHIER_HIT_STRING
 								, NOM_FICHIER_HITDIRA2018
 									, TITI
 										, ANNEE_GESTION_2018);
@@ -341,8 +341,8 @@ public class TeleversementDTOTest {
 				"10"
 				, DATE_TELEVERSEMENT_1
 					, UTILISATEUR_DIRA_1
-						, GESTIONNAIRE_DIRA
-							, TYPE_FICHIER_HIT
+						, GESTIONNAIRE_DIRA_STRING
+							, TYPE_FICHIER_HIT_STRING
 								, NOM_FICHIER_HITDIRA2018
 									, TOTO
 										, ANNEE_GESTION_2018);
@@ -356,7 +356,7 @@ public class TeleversementDTOTest {
 				, DATE_TELEVERSEMENT_1
 					, UTILISATEUR_DIRA_1
 						, "DIRCE"
-							, TYPE_FICHIER_HIT
+							, TYPE_FICHIER_HIT_STRING
 								, "HITDIRCE2018"
 									, TOTO
 										, ANNEE_GESTION_2018);

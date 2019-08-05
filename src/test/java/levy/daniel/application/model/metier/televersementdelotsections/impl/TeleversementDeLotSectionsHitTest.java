@@ -898,7 +898,7 @@ public class TeleversementDeLotSectionsHitTest {
 		
 		/* garantit le bon affichage de toString(). */
 		assertEquals("affichage : "
-				, "TeleversementDeLotSectionsHit [id=null, dateTeleversement=2018-06-13_08_37_43, utilisateur=nomTest, gestionnaire=DIRA, typeFichier=HIT, nomFichierTeleverse=HITDIRA2017.txt, fichierStockeServeur=HITDIRA2017.txt, anneeGestion=2017]"
+				, "TeleversementDeLotSectionsHit [id=null, dateTeleversement=2018-06-13_08_37_43, utilisateur=nomTest, gestionnaire=DIRA, typeFichier=HIT, nomFichierTeleverse=HITDIRA2017.txt, fichierStockeServeur=D:\\Donnees\\eclipse\\eclipseworkspace\\traficweb_v1\\HITDIRA2017.txt, anneeGestion=2017]"
 						, objet1.toString());
 				
 	} // Fin de testToString().____________________________________________

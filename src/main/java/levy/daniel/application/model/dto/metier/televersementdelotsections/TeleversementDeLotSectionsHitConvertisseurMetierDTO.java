@@ -131,7 +131,7 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierDTO {
 				
 				if (lotSectionsDTO != null) {
 					
-					lotSections = new ConcurrentHashMap<>();
+					lotSections = new ConcurrentHashMap<Integer, ISectionHit>();
 					
 					final Set<Entry<Integer, ISectionHitDTO>> entrySet 
 						= lotSectionsDTO.entrySet();
@@ -152,8 +152,6 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierDTO {
 						lotSections.put(key, objet);
 					}
 						
-					
-
 				}
 			
 				/* injecte les valeurs typées dans un OBJET METIER. */

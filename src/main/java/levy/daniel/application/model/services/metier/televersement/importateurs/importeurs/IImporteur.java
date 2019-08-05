@@ -343,7 +343,8 @@ public interface IImporteur
 	 * <li>SortedMap&lt;Integer, String&gt; avec :</li>
 	 * <ul>
 	 * <li>Integer : le numéro d'un champ dans une ligne.</li>
-	 * <li>String : la valeur du champ sous forme de String encodée 
+	 * <li>String : la valeur du champ sous forme de String décodée 
+	 * avec pCharset puis encodée 
 	 * avec l'encodage par défaut de la plateforme (UTF-8).</li>
 	 * </ul>
 	 * </ul>

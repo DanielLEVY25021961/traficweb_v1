@@ -92,6 +92,7 @@ public enum EnumCivilites {
 	
 	/**
 	 * Getter de l'abreviation de la civilité.<br/>
+	 * Par exemple, "Mlle" pour Mademoiselle.
 	 *
 	 * @return this.abreviation : String.<br/>
 	 */
@@ -103,6 +104,7 @@ public enum EnumCivilites {
 	
 	/**
 	 * Getter de la civilité complète.<br/>
+	 * Par exemple, "Mademoiselle".
 	 *
 	 * @return this.civilite : String.<br/>
 	 */

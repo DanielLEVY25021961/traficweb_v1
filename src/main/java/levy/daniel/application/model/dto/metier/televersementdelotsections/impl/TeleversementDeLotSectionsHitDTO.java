@@ -228,10 +228,66 @@ public class TeleversementDeLotSectionsHitDTO
 		final TeleversementDeLotSectionsHitDTO other 
 			= (TeleversementDeLotSectionsHitDTO) pObjet;
 		
+//		return Objects.equals(this.getTeleversementDTO(), other.getTeleversementDTO()) 
+//				&& Objects.equals(this.getLotSectionsDTO(), other.getLotSectionsDTO());
+
 		return Objects.equals(this.getTeleversementDTO(), other.getTeleversementDTO()) 
-				&& Objects.equals(this.getLotSectionsDTO(), other.getLotSectionsDTO());
-		
+				&& this.mapEquals(this.getLotSectionsDTO(), other.getLotSectionsDTO());
+
 	} // Fin de equals(...)._______________________________________________
+
+	
+	
+	/**
+	 * .<br/>
+	 * <br/>
+	 *
+	 * @param pMap1
+	 * @param pMap2
+	 * @return : boolean :  .<br/>
+	 */
+	public final boolean mapEquals(final Map<Integer, ISectionHitDTO> pMap1, final Map<Integer, ISectionHitDTO> pMap2) {
+		
+		if (pMap1 == null && pMap2 == null) {
+			return true;
+		} 
+		
+		if (pMap1 == null && pMap2 != null) {
+			return false;
+		}
+		
+		if (pMap1 != null && pMap2 == null) {
+			return false;
+		}
+		
+		if (pMap1 != null && pMap2 != null) {
+			
+			if (pMap1.size() != pMap2.size()) {
+				return false;
+			}
+			
+			for (final Entry<Integer, ISectionHitDTO> entry : pMap1.entrySet()) {
+				
+				final Integer key = entry.getKey();
+				
+				final ISectionHitDTO value1 = entry.getValue();
+				final ISectionHitDTO value2 = pMap2.get(key);
+				
+				if (!value1.equals(value2)) {
+					
+					System.out.println();
+					System.out.println("DIFFERENCE A LA LIGNE : " + key);
+					System.out.println(value1.toString());
+					System.out.println(value2.toString());
+					
+					return false;
+				}
+			}
+		}
+				
+		return true;
+		
+	}
 
 
 

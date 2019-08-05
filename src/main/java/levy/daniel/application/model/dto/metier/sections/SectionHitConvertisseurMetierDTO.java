@@ -459,6 +459,7 @@ public final class SectionHitConvertisseurMetierDTO {
 				Integer mjmNmois06 = null;
 
 				if (!StringUtils.isBlank(mjmNmois06String)) {
+					
 					try {
 						mjmNmois06 = Integer.valueOf(mjmNmois06String);
 					} catch (Exception e) {
@@ -1747,10 +1748,10 @@ public final class SectionHitConvertisseurMetierDTO {
 				String mjmNmoins1mois03String = null;
 
 				try {
-					
+										
 					final String mjmNmoins1mois03StringIncomplet 
 						= String.valueOf(mjmNmoins1mois03);
-					
+										
 					mjmNmoins1mois03String 
 						= completerAvecZerosAGauche(
 								mjmNmoins1mois03StringIncomplet, fournirLongueurChamp(113));
@@ -2278,6 +2279,8 @@ public final class SectionHitConvertisseurMetierDTO {
 	 * <li>Par exemple : retourne "0025" 
 	 * si pString == "25" et pTaille == 4.</li>
 	 * <li>retourne pString inchangée si sa longueur >= pTaille.</li>
+	 * <li>retourne une chaîne de caractères remplie de pTaille espaces 
+	 * si pString vaut "null" (par exemple après un String.valueOf(null)).</li>
 	 * </ul>
 	 * - retourne null si pTaille == 0.<br/>
 	 * - retourne null si pString == null.<br/>
@@ -2314,6 +2317,16 @@ public final class SectionHitConvertisseurMetierDTO {
 				return pString;
 			}
 			
+			/* retourne une chaîne de caractères remplie de pTaille espaces 
+			 * si pString vaut "null" (par exemple après 
+			 * un String.valueOf(null)). */
+			if (pString.equalsIgnoreCase("null")) {
+				
+				String resultatSpace = creerChaineEspaces(pTaille);
+				
+				return resultatSpace;
+			}
+			
 			String resultat = null;
 			
 			final int nombreZeros = pTaille - tailleString;
@@ -2329,8 +2342,38 @@ public final class SectionHitConvertisseurMetierDTO {
 		} // Fin de synchronized.__________________________________
 		
 	} // Fin de completerAvecZerosAGauche(...).____________________________
-	
 
+
+	
+	/**
+	 * retourne une chaîne de caractères remplie avec pTaille espaces.
+	 *
+	 * @param pTaille : int : nombre d'espaces.
+	 * 
+	 * @return : String : chaîne de caractères remplie avec pTaille espaces.
+	 */
+	private static String creerChaineEspaces(final int pTaille) {
+
+		synchronized (SectionHitConvertisseurMetierDTO.class) {
+			
+			/* retourne null si pTaille == 0. */
+			if (pTaille == 0) {
+				return null;
+			}
+			
+			String resultat = "";
+			
+			for (int i = 0; i < pTaille; i++) {
+				resultat = " " + resultat;
+			}
+			
+			return resultat;
+			
+		} // Fin de synchronized.__________________________________
+		
+	} // Fin de creerChaineEspaces(...).___________________________________
+	
+	
 	
 	/**
 	 * retourne la longueur du champ de numéro d'ordre pNumeroChamp 

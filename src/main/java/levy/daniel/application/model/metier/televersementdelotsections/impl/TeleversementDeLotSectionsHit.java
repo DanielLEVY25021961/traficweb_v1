@@ -236,7 +236,60 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	} // Fin de equals(...)._______________________________________________
 
 
+	
+	/**
+	 * .<br/>
+	 * <br/>
+	 *
+	 * @param pMap1
+	 * @param pMap2
+	 * @return : boolean :  .<br/>
+	 */
+	public final boolean mapEquals(final Map<Integer, ISectionHit> pMap1, final Map<Integer, ISectionHit> pMap2) {
+		
+		if (pMap1 == null && pMap2 == null) {
+			return true;
+		} 
+		
+		if (pMap1 == null && pMap2 != null) {
+			return false;
+		}
+		
+		if (pMap1 != null && pMap2 == null) {
+			return false;
+		}
+		
+		if (pMap1 != null && pMap2 != null) {
+			
+			if (pMap1.size() != pMap2.size()) {
+				return false;
+			}
+			
+			for (final Entry<Integer, ISectionHit> entry : pMap1.entrySet()) {
+				
+				final Integer key = entry.getKey();
+				
+				final ISectionHit value1 = entry.getValue();
+				final ISectionHit value2 = pMap2.get(key);
+				
+				if (!value1.equals(value2)) {
+					
+					System.out.println();
+					System.out.println("DIFFERENCE A LA LIGNE : " + key);
+					System.out.println(value1.toString());
+					System.out.println(value2.toString());
+					
+					return false;
+				}
+			}
+		}
+				
+		return true;
+		
+	}
+	
 
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -457,7 +510,7 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 		stb.append("fichierStockeServeur=");
 		if (this.getTeleversement() != null) {
 			if (this.getTeleversement().getFichierStockeServeur() != null) {
-				stb.append(this.getTeleversement().getFichierStockeServeur().getName());
+				stb.append(this.getTeleversement().getFichierStockeServeur().getAbsolutePath());
 			} else {
 				stb.append(NULL);
 			}

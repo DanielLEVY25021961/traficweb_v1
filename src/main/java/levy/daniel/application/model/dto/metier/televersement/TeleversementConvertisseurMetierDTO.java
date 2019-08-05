@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnaireslocale.LocaleManager;
 import levy.daniel.application.model.dto.metier.anneegestion.AnneeGestionConvertisseurMetierDTO;
 import levy.daniel.application.model.dto.metier.anneegestion.IAnneeGestionDTO;
 import levy.daniel.application.model.dto.metier.televersement.impl.TeleversementDTO;
@@ -33,6 +34,7 @@ import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
  *<br/>
  * 
  * - Mots-clé :<br/>
+ * DateTimeFormatter format multiple, parse multiple formats LocalDateTime<br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -118,8 +120,15 @@ public final class TeleversementConvertisseurMetierDTO {
 				
 				try {
 					
+					final DateTimeFormatter dateTimeFormatterMultiple 
+						= DateTimeFormatter.ofPattern(
+								"yyyy-MM-dd[_HH_mm_ss][ HH:mm:ss]"
+									, LocaleManager.getLocaleApplication());
+					
 					dateTeleversement 
-						= LocalDateTime.parse(dateTeleversementString);
+						= LocalDateTime.parse(
+								dateTeleversementString
+									, dateTimeFormatterMultiple);
 					
 				} catch (Exception e) {
 					dateTeleversement = null;
