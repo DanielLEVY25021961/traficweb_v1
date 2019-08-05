@@ -1,4 +1,4 @@
-package levy.daniel.application.model.metier.televersementdelotsections.impl;
+package levy.daniel.application.model.persistence.metier.televersementdelotsections.entities.jpa;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -9,6 +9,20 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.MapKeyColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -23,7 +37,7 @@ import levy.daniel.application.model.metier.utilisateur.EnumGestionnaire;
 import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
 
 /**
- * CLASSE TeleversementDeLotSectionsHit :<br/>
+ * CLASSE TeleversementDeLotSectionsHitEntityJPA :<br/>
  * .<br/>
  * <br/>
  *
@@ -42,7 +56,12 @@ import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
  * @since 1 août 2019
  *
  */
-public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSectionsHit {
+@Entity
+@Table(name="TELEVERSEMENTSDELOTSECTIONS", schema="PUBLIC"
+, uniqueConstraints=@UniqueConstraint(name="UNICITE_TELEVERSEMENT"
+, columnNames={"ID_TELEVERSEMENT"}))
+public class TeleversementDeLotSectionsHitEntityJPA 
+					implements ITeleversementDeLotSectionsHit {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -87,12 +106,12 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	private Long id;
 	
 	/**
-	 * televersement.
+	 * televersement (EntityJPA).
 	 */
 	private ITeleversement televersement;
 	
 	/**
-	 * lot de sections HIT.<br/>
+	 * lot de sections HIT (EntityJPA).<br/>
 	 */
 	private Map<Integer, ISectionHit> lotSections;
 	
@@ -102,7 +121,7 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(TeleversementDeLotSectionsHit.class);
+		= LogFactory.getLog(TeleversementDeLotSectionsHitEntityJPA.class);
 
 	
 	// *************************METHODES************************************/
@@ -111,7 +130,7 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.
 	 */
-	public TeleversementDeLotSectionsHit() {
+	public TeleversementDeLotSectionsHitEntityJPA() {
 		
 		this(null, null, null);
 		
@@ -126,7 +145,7 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	 * @param pLotSections : Map&lt;Integer, ISectionHit&gt; : 
 	 * lot de sections HIT.
 	 */
-	public TeleversementDeLotSectionsHit(
+	public TeleversementDeLotSectionsHitEntityJPA(
 			final ITeleversement pTeleversement
 					, final Map<Integer, ISectionHit> pLotSections) {
 		
@@ -144,7 +163,7 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	 * @param pLotSections : Map&lt;Integer, ISectionHit&gt; : 
 	 * lot de sections HIT.
 	 */
-	public TeleversementDeLotSectionsHit(
+	public TeleversementDeLotSectionsHitEntityJPA(
 			final Long pId
 				, final ITeleversement pTeleversement
 					, final Map<Integer, ISectionHit> pLotSections) {
@@ -223,17 +242,70 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 			return false;
 		}
 		
-		if (!(pObjet instanceof TeleversementDeLotSectionsHit)) {
+		if (!(pObjet instanceof TeleversementDeLotSectionsHitEntityJPA)) {
 			return false;
 		}
 		
-		final TeleversementDeLotSectionsHit other 
-			= (TeleversementDeLotSectionsHit) pObjet;
+		final TeleversementDeLotSectionsHitEntityJPA other 
+			= (TeleversementDeLotSectionsHitEntityJPA) pObjet;
 		
 		return Objects.equals(this.getTeleversement(), other.getTeleversement()) 
 				&& Objects.equals(this.getLotSections(), other.getLotSections());
 		
 	} // Fin de equals(...)._______________________________________________
+
+
+	
+	/**
+	 * .<br/>
+	 * <br/>
+	 *
+	 * @param pMap1
+	 * @param pMap2
+	 * @return : boolean :  .<br/>
+	 */
+	public final boolean mapEquals(final Map<Integer, ISectionHit> pMap1, final Map<Integer, ISectionHit> pMap2) {
+		
+		if (pMap1 == null && pMap2 == null) {
+			return true;
+		} 
+		
+		if (pMap1 == null && pMap2 != null) {
+			return false;
+		}
+		
+		if (pMap1 != null && pMap2 == null) {
+			return false;
+		}
+		
+		if (pMap1 != null && pMap2 != null) {
+			
+			if (pMap1.size() != pMap2.size()) {
+				return false;
+			}
+			
+			for (final Entry<Integer, ISectionHit> entry : pMap1.entrySet()) {
+				
+				final Integer key = entry.getKey();
+				
+				final ISectionHit value1 = entry.getValue();
+				final ISectionHit value2 = pMap2.get(key);
+				
+				if (!value1.equals(value2)) {
+					
+					System.out.println();
+					System.out.println("DIFFERENCE A LA LIGNE : " + key);
+					System.out.println(value1.toString());
+					System.out.println(value2.toString());
+					
+					return false;
+				}
+			}
+		}
+				
+		return true;
+		
+	}
 	
 
 	
@@ -377,7 +449,7 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 
 		final StringBuilder stb = new StringBuilder();
 
-		stb.append("TeleversementDeLotSectionsHit [");
+		stb.append("TeleversementDeLotSectionsHitEntityJPA [");
 
 		stb.append("id=");
 		if (this.getId() != null) {
@@ -856,8 +928,11 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	/**
 	 * {@inheritDoc}
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID")
 	@Override
-	public final Long getId() {	
+	public Long getId() {	
 		return this.id;
 	} // Fin de getId().___________________________________________________
 
@@ -867,7 +942,7 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setId(
+	public void setId(
 			final Long pId) {	
 		this.id = pId;
 	} // Fin de setId(...).________________________________________________
@@ -877,8 +952,13 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	/**
 	 * {@inheritDoc}
 	 */
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID")
+	@Column(name="ID_TELEVERSEMENT"
+			, insertable = true, updatable = true
+			, nullable = false, unique = false)
 	@Override
-	public final ITeleversement getTeleversement() {
+	public ITeleversement getTeleversement() {
 		return this.televersement;
 	} // Fin de getTeleversement().________________________________________
 	
@@ -888,7 +968,7 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setTeleversement(
+	public void setTeleversement(
 			final ITeleversement pTeleversement) {
 		this.televersement = pTeleversement;
 	} // Fin de setTeleversement(...)._____________________________________
@@ -898,8 +978,15 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	/**
 	 * {@inheritDoc}
 	 */
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+	name = "TELEVERSEMENTSDELOTSECTIONS_SECTIONHTS"
+	, joinColumns= {@JoinColumn(name = "FK_TELEVERSEMENT", referencedColumnName = "ID")}
+	, inverseJoinColumns = {@JoinColumn(name = "FK_SECTIONHIT", referencedColumnName = "ID")}
+	)
+	@MapKeyColumn (name = "numeroligne")
 	@Override
-	public final Map<Integer, ISectionHit> getLotSections() {
+	public Map<Integer, ISectionHit> getLotSections() {
 		return this.lotSections;
 	} // Fin de getLotSections().__________________________________________
 	
@@ -909,11 +996,11 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final  void setLotSections(
+	public void setLotSections(
 			final Map<Integer, ISectionHit> pLotSections) {
 		this.lotSections = pLotSections;
 	} // Fin de setLotSections(...)._______________________________________
 
 
 	
-} // FIN DE LA CLASSE TeleversementDeLotSectionsHit.-------------------------
+} // FIN DE LA CLASSE TeleversementDeLotSectionsHitEntityJPA.----------------

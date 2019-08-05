@@ -228,66 +228,10 @@ public class TeleversementDeLotSectionsHitDTO
 		final TeleversementDeLotSectionsHitDTO other 
 			= (TeleversementDeLotSectionsHitDTO) pObjet;
 		
-//		return Objects.equals(this.getTeleversementDTO(), other.getTeleversementDTO()) 
-//				&& Objects.equals(this.getLotSectionsDTO(), other.getLotSectionsDTO());
-
 		return Objects.equals(this.getTeleversementDTO(), other.getTeleversementDTO()) 
-				&& this.mapEquals(this.getLotSectionsDTO(), other.getLotSectionsDTO());
+				&& Objects.equals(this.getLotSectionsDTO(), other.getLotSectionsDTO());
 
 	} // Fin de equals(...)._______________________________________________
-
-	
-	
-	/**
-	 * .<br/>
-	 * <br/>
-	 *
-	 * @param pMap1
-	 * @param pMap2
-	 * @return : boolean :  .<br/>
-	 */
-	public final boolean mapEquals(final Map<Integer, ISectionHitDTO> pMap1, final Map<Integer, ISectionHitDTO> pMap2) {
-		
-		if (pMap1 == null && pMap2 == null) {
-			return true;
-		} 
-		
-		if (pMap1 == null && pMap2 != null) {
-			return false;
-		}
-		
-		if (pMap1 != null && pMap2 == null) {
-			return false;
-		}
-		
-		if (pMap1 != null && pMap2 != null) {
-			
-			if (pMap1.size() != pMap2.size()) {
-				return false;
-			}
-			
-			for (final Entry<Integer, ISectionHitDTO> entry : pMap1.entrySet()) {
-				
-				final Integer key = entry.getKey();
-				
-				final ISectionHitDTO value1 = entry.getValue();
-				final ISectionHitDTO value2 = pMap2.get(key);
-				
-				if (!value1.equals(value2)) {
-					
-					System.out.println();
-					System.out.println("DIFFERENCE A LA LIGNE : " + key);
-					System.out.println(value1.toString());
-					System.out.println(value2.toString());
-					
-					return false;
-				}
-			}
-		}
-				
-		return true;
-		
-	}
 
 
 
@@ -871,7 +815,7 @@ public class TeleversementDeLotSectionsHitDTO
 	 * 
 	 * @return : String : pour affichage.<br/>
 	 */
-	public final String afficherMapObjet(
+	private String afficherMapObjet(
 			final Map<Integer, ISectionHitDTO> pMap) {
 		
 		/* retourne null si pMap == null. */
@@ -912,7 +856,7 @@ public class TeleversementDeLotSectionsHitDTO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getIdString() {	
+	public final String getIdString() {	
 		return this.idString;
 	} // Fin de getIdString()._____________________________________________
 
@@ -922,7 +866,7 @@ public class TeleversementDeLotSectionsHitDTO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setIdString(
+	public final void setIdString(
 			final String pIdString) {	
 		this.idString = pIdString;
 	} // Fin de setIdString(...).__________________________________________
@@ -933,7 +877,7 @@ public class TeleversementDeLotSectionsHitDTO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ITeleversementDTO getTeleversementDTO() {
+	public final ITeleversementDTO getTeleversementDTO() {
 		return this.televersementDTO;
 	} // Fin de getTeleversementDTO()._____________________________________
 	
@@ -943,7 +887,7 @@ public class TeleversementDeLotSectionsHitDTO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setTeleversementDTO(
+	public final void setTeleversementDTO(
 			final ITeleversementDTO pTeleversementDTO) {
 		this.televersementDTO = pTeleversementDTO;
 	} // Fin de setTeleversementDTO(...).__________________________________
@@ -954,7 +898,7 @@ public class TeleversementDeLotSectionsHitDTO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Map<Integer, ISectionHitDTO> getLotSectionsDTO() {
+	public final Map<Integer, ISectionHitDTO> getLotSectionsDTO() {
 		return this.lotSectionsDTO;
 	} // Fin de getLotSectionsDTO()._______________________________________
 	
@@ -964,7 +908,7 @@ public class TeleversementDeLotSectionsHitDTO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setLotSectionsDTO(
+	public final void setLotSectionsDTO(
 			final Map<Integer, ISectionHitDTO> pLotSectionsDTO) {
 		this.lotSectionsDTO = pLotSectionsDTO;
 	} // Fin de setLotSectionsDTO(...).____________________________________
