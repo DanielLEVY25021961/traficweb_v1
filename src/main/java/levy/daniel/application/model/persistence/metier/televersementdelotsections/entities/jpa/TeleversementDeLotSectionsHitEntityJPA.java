@@ -242,70 +242,17 @@ public class TeleversementDeLotSectionsHitEntityJPA
 			return false;
 		}
 		
-		if (!(pObjet instanceof TeleversementDeLotSectionsHitEntityJPA)) {
+		if (!(pObjet instanceof ITeleversementDeLotSectionsHit)) {
 			return false;
 		}
 		
-		final TeleversementDeLotSectionsHitEntityJPA other 
-			= (TeleversementDeLotSectionsHitEntityJPA) pObjet;
+		final ITeleversementDeLotSectionsHit other 
+			= (ITeleversementDeLotSectionsHit) pObjet;
 		
 		return Objects.equals(this.getTeleversement(), other.getTeleversement()) 
 				&& Objects.equals(this.getLotSections(), other.getLotSections());
 		
 	} // Fin de equals(...)._______________________________________________
-
-
-	
-	/**
-	 * .<br/>
-	 * <br/>
-	 *
-	 * @param pMap1
-	 * @param pMap2
-	 * @return : boolean :  .<br/>
-	 */
-	public final boolean mapEquals(final Map<Integer, ISectionHit> pMap1, final Map<Integer, ISectionHit> pMap2) {
-		
-		if (pMap1 == null && pMap2 == null) {
-			return true;
-		} 
-		
-		if (pMap1 == null && pMap2 != null) {
-			return false;
-		}
-		
-		if (pMap1 != null && pMap2 == null) {
-			return false;
-		}
-		
-		if (pMap1 != null && pMap2 != null) {
-			
-			if (pMap1.size() != pMap2.size()) {
-				return false;
-			}
-			
-			for (final Entry<Integer, ISectionHit> entry : pMap1.entrySet()) {
-				
-				final Integer key = entry.getKey();
-				
-				final ISectionHit value1 = entry.getValue();
-				final ISectionHit value2 = pMap2.get(key);
-				
-				if (!value1.equals(value2)) {
-					
-					System.out.println();
-					System.out.println("DIFFERENCE A LA LIGNE : " + key);
-					System.out.println(value1.toString());
-					System.out.println(value2.toString());
-					
-					return false;
-				}
-			}
-		}
-				
-		return true;
-		
-	}
 	
 
 	
@@ -435,7 +382,7 @@ public class TeleversementDeLotSectionsHitEntityJPA
 		
 		clone.setLotSections(lotSectionsClone);
 		
-		return clone;
+		return (TeleversementDeLotSectionsHitEntityJPA) clone;
 		
 	} // Fin de clone().___________________________________________________
 	

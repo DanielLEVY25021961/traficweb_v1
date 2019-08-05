@@ -223,12 +223,12 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 			return false;
 		}
 		
-		if (!(pObjet instanceof TeleversementDeLotSectionsHit)) {
+		if (!(pObjet instanceof ITeleversementDeLotSectionsHit)) {
 			return false;
 		}
 		
-		final TeleversementDeLotSectionsHit other 
-			= (TeleversementDeLotSectionsHit) pObjet;
+		final ITeleversementDeLotSectionsHit other 
+			= (ITeleversementDeLotSectionsHit) pObjet;
 		
 		return Objects.equals(this.getTeleversement(), other.getTeleversement()) 
 				&& Objects.equals(this.getLotSections(), other.getLotSections());
@@ -363,7 +363,7 @@ public class TeleversementDeLotSectionsHit implements ITeleversementDeLotSection
 		
 		clone.setLotSections(lotSectionsClone);
 		
-		return clone;
+		return (TeleversementDeLotSectionsHit) clone;
 		
 	} // Fin de clone().___________________________________________________
 	
