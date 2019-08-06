@@ -1,8 +1,11 @@
-package levy.daniel.application.model.persistence.metier.televersement.dao.jpaspring.impl;
+package levy.daniel.application.model.persistence.metier.televersementdelotsections.dao.jpaspring.impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -10,7 +13,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,69 +20,21 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import levy.daniel.application.model.metier.anneegestion.IAnneeGestion;
+import levy.daniel.application.model.metier.sections.ISectionHit;
 import levy.daniel.application.model.metier.televersement.ITeleversement;
-import levy.daniel.application.model.metier.televersement.impl.Televersement;
-import levy.daniel.application.model.metier.utilisateur.IUtilisateurCerbere;
+import levy.daniel.application.model.metier.televersementdelotsections.ITeleversementDeLotSectionsHit;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
-import levy.daniel.application.model.persistence.metier.anneegestion.IAnneeGestionDAO;
+import levy.daniel.application.model.persistence.metier.sections.ISectionHitDAO;
+import levy.daniel.application.model.persistence.metier.sections.SectionHitConvertisseurMetierEntity;
+import levy.daniel.application.model.persistence.metier.sections.entities.jpa.SectionHitEntityJPA;
 import levy.daniel.application.model.persistence.metier.televersement.ITeleversementDAO;
-import levy.daniel.application.model.persistence.metier.televersement.TeleversementConvertisseurMetierEntity;
-import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
-import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateurCerbereDAO;
+import levy.daniel.application.model.persistence.metier.televersementdelotsections.ITeleversementDeLotSectionsHitDAO;
+import levy.daniel.application.model.persistence.metier.televersementdelotsections.TeleversementDeLotSectionsHitConvertisseurMetierEntity;
+import levy.daniel.application.model.persistence.metier.televersementdelotsections.entities.jpa.TeleversementDeLotSectionsHitEntityJPA;
 
 /**
- * CLASSE TeleversementDAOJPASpring :<br/>
- * DAO (Data Access Object) JPA avec SPRING <i>CONCRET</i> 
- * pour les {@link Televersement}.<br/>
- * 
- * <p>
- * <span style="text-decoration: underline;">CONCEPT 
- * CONCERNE PAR CE DAO</span>
- * </p>
- * 
- * <p>
- * <b>{@link ITeleversement}</b> modélise un <i>concept</i> 
- * de <b>Televersement</b> 
- * d'un lot de données de trafic dans l'application
- * </p>
- * 
- * <p>
- * <span style="text-decoration: underline;">DESCRIPTION DE 
- * DAO</span>
- * </p>
- * <ul>
- * <li>DAO <b>CONCRET</b> pour les <b>{@link ITeleversement}</b>.</li>
- * <li>
- * Implémente l'interface <b>ITeleversementDAO</b>.
- * </li>
- * <li>
- * DAO pour serializer des ENTITIES JPA {@link TeleversementEntityJPA} 
- * lors de l'utilisation de Java Persistence API (JPA)
- * pour la persistence dans un contexte SPRING.
- * </li>
- * </ul>
- * 
- * <p>
- * <span style="text-decoration: underline;">IMPLEMENTATION DES DAO</span>
- * </p>
- * <ul>
- * <li>
- * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_UtilisateurCerbere_DAO_JpaSpring.png" 
- * alt="implémentation des DAOs Televersement JPA SPRING" border="1" align="center" />
- * </li>
- * </ul>
- * 
- * <p>
- * <span style="text-decoration: underline;">UTILISATION DES DAO</span>
- * </p>
- * <ul>
- * <li>
- * <img src="../../../../../../../../../../../../javadoc/images/utilisation_UtilisateurCerbere_DAO_JpaSpring.png" 
- * alt="utilisation des DAOs Televersement JPA SPRING" border="1" align="center" />
- * </li>
- * </ul>
- * 
+ * CLASSE TeleversementDeLotSectionsHitDAOJPASpring :<br/>
+ * .<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -95,19 +49,19 @@ import levy.daniel.application.model.persistence.metier.utilisateur.IUtilisateur
  *
  * @author dan Lévy
  * @version 1.0
- * @since 21 juin 2019
+ * @since 5 août 2019
  *
  */
-@Repository(value="TeleversementDAOJPASpring")
-public class TeleversementDAOJPASpring implements ITeleversementDAO {
+@Repository(value="TeleversementDeLotSectionsHitDAOJPASpring")
+public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversementDeLotSectionsHitDAO {
 
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * "Classe TeleversementDAOJPASpring".<br/>
+	 * "Classe TeleversementDeLotSectionsHitDAOJPASpring".<br/>
 	 */
-	public static final String CLASSE_TELEVERSEMENTDAO_JPA_SPRING 
-		= "Classe TeleversementDAOJPASpring";
+	public static final String CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING 
+		= "Classe TeleversementDeLotSectionsHitDAOJPASpring";
 	
 	/**
 	 * " - ".
@@ -129,12 +83,12 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 
 	
 	/**
-	 * "select televersement from 
-	 * TeleversementEntityJPA as televersement ".<br/>
+	 * "select televersementDeLotSectionsHit from 
+	 * TeleversementDeLotSectionsHitEntityJPA as televersementDeLotSectionsHit ".<br/>
 	 */
 	public static final String SELECT_OBJET 
-		= "select televersement from "
-				+ "TeleversementEntityJPA as televersement ";
+		= "select televersementDeLotSectionsHit from "
+				+ "TeleversementDeLotSectionsHitEntityJPA as televersementDeLotSectionsHit ";
 	
 	/**
 	 * "STOCKAGE IMPOSSIBLE : l'Objet métier à créer est null".
@@ -150,16 +104,10 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		= "STOCKAGE IMPOSSIBLE - DOUBLON : l'objet existe déjà dans le stockage : ";
 	
 	/**
-	 * "STOCKAGE IMPOSSIBLE - les champs OBLIGATOIRES 
-	 * (dateTeleversement, utilisateur, gestionnaire, typeFichier
-	 * , nomFichierTeleverse, fichierStockeServeur, anneeGestion) 
-	 * ne sont pas remplis : ".
+	 * "STOCKAGE IMPOSSIBLE - les champs OBLIGATOIRES (televersement, lotSections) ne sont pas remplis : ".
 	 */
 	public static final String CHAMPS_OBLIGATOIRES 
-		= "STOCKAGE IMPOSSIBLE - les champs OBLIGATOIRES "
-				+ "(dateTeleversement, utilisateur, gestionnaire"
-				+ ", typeFichier, nomFichierTeleverse, fichierStockeServeur"
-				+ ", anneeGestion) ne sont pas remplis : ";
+		= "STOCKAGE IMPOSSIBLE - les champs OBLIGATOIRES (televersement, lotSections) ne sont pas remplis : ";
 	
 	/**
 	 * JPA EntityManager <b>injecté par SPRING</b>.<br/>
@@ -181,36 +129,31 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		= new ArrayList<String>(); 
 
 	/**
-	 * DAO IUtilisateurCerbereDAO.<br/>
-	 * injecté par Spring.
+	 * DAO ITeleversementDAO.<br/>
+	 * injecté par Spring via son Setter.
 	 */
-	@Autowired(required=true)
-    @Qualifier("UtilisateurCerbereDAOJPASpring")
-	private transient IUtilisateurCerbereDAO utilisateurCerbereDAO;
-
-	/**
-	 * DAO IAnneeGestionDAO.<br/>
-	 * injecté par Spring.
-	 */
-	@Autowired(required=true)
-    @Qualifier("AnneeGestionDAOJPASpring")
-	private transient IAnneeGestionDAO anneeGestionDAO;
+	private transient ITeleversementDAO televersementDAO;
 	
+	/**
+	 * DAO ISectionHitDAO.<br/>
+	 * injecté par Spring via son Setter.
+	 */
+	private transient ISectionHitDAO sectionHitDAO;
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(TeleversementDAOJPASpring.class);
-	
+		= LogFactory.getLog(TeleversementDeLotSectionsHitDAOJPASpring.class);
+
 	// *************************METHODES************************************/
-	
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public TeleversementDAOJPASpring() {
+	public TeleversementDeLotSectionsHitDAOJPASpring() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -224,51 +167,36 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * - retourne false si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ITeleversement : Objet Métier.
+	 * @param pObject : ITeleversementDeLotSectionsHit : Objet Métier.
 	 * 
 	 * @return : boolean : 
 	 * true si les champs obligatoires sont tous remplis.<br/>
 	 */
-	private boolean champsObligatoiresRemplis(final ITeleversement pObject) {
+	private boolean champsObligatoiresRemplis(
+				final ITeleversementDeLotSectionsHit pObject) {
 		
 		/* retourne false si pObject == null. */
 		if (pObject == null) {
 			return false;
 		}
 		
-		if (pObject.getDateTeleversement() == null) {
+		if (pObject.getTeleversement() == null) {
 			return false;
 		}
 		
-		if (pObject.getUtilisateur() == null) {
+		if (pObject.getLotSections() == null) {
 			return false;
 		}
 		
-		if (pObject.getGestionnaire() == null) {
+		if (pObject.getLotSections().isEmpty()) {
 			return false;
 		}
-		
-		if (pObject.getTypeFichier() == null) {
-			return false;
-		}
-		
-		if (StringUtils.isBlank(pObject.getNomFichierTeleverse())) {
-			return false;
-		}
-		
-		if (pObject.getFichierStockeServeur() == null) {
-			return false;
-		}
-		
-		if (pObject.getAnneeGestion() == null) {
-			return false;
-		}
-		
+				
 		return true;
 		
 	} // Fin de champsObligatoiresRemplis(...).____________________________
-
-
+	
+	
 	
 	/**
 	 * retourne la requete JPQL paramétrée pour la méthode 
@@ -276,43 +204,35 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * en tenant compte de la getion des paramètres null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ITeleversement : OBJET METIER
+	 * @param pObject : ITeleversementDeLotSectionsHit : OBJET METIER
 	 * 
 	 * @return javax.persistence.Query
 	 * 
 	 * @throws Exception
 	 */
 	private Query fournirRequeteEgaliteMetier(
-			final ITeleversement pObject) throws Exception {
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 		
 		/* REQUETE HQL PARMETREE. */
 		String requeteString = null;
 		
 		Query requete = null;
 		
-		/* REQUETE HQL PARMETREE. */
-		requeteString 
-			= SELECT_OBJET
-				+ "where ((televersement.dateTeleversement IS NULL and CAST(:pDateTeleversement AS timestamp) IS NULL) OR (televersement.dateTeleversement = :pDateTeleversement)) "
-				+ "and ((televersement.utilisateur IS NULL and :pUtilisateur IS NULL) OR (televersement.utilisateur = :pUtilisateur)) "
-				+ "and ((televersement.nomFichierTeleverse IS NULL and :pNomFichierTeleverse IS NULL) OR (televersement.nomFichierTeleverse = :pNomFichierTeleverse))";
-		
+		requeteString
+		= SELECT_OBJET
+		+ "where (televersementDeLotSectionsHit.televersement.id = :pTeleversementId) "
+		+ "and (televersementDeLotSectionsHit.lotSections = :pLotSections)";
+				
 		/* Construction de la requête HQL. */
-		requete 
+		requete
 			= this.entityManager.createQuery(requeteString);
 		
-		// RECUPERATION DES COMPOSANTS EN BASE.
-		final IUtilisateurCerbere utilisateurCerberePersistant 
-			= this.utilisateurCerbereDAO.createOrRetrieve(
-					pObject.getUtilisateur());
-		
-		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pDateTeleversement", pObject.getDateTeleversement());
-		requete.setParameter("pUtilisateur", utilisateurCerberePersistant);
-		requete.setParameter("pNomFichierTeleverse", pObject.getNomFichierTeleverse());
-		
+		/* Passage des paramètres de la requête JPQL. */
+		requete.setParameter("pTeleversementId", pObject.getTeleversement().getId());
+		requete.setParameter("pLotSections", pObject.getLotSections());
+
 		return requete;
-				
+		
 	} // Fin de fournirRequeteEgaliteMetier(...).__________________________
 
 	
@@ -320,39 +240,108 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	/**
 	 * persiste tous les composants transients de l'Entity JPA pEntity.
 	 *
-	 * @param pEntity : ITeleversement : ENTITYJPA.<br/>
+	 * @param pEntity : ITeleversementDeLotSectionsHit : ENTITYJPA.<br/>
 	 * 
 	 * @throws Exception 
 	 */
 	private void stockerComposants(
-			final ITeleversement pEntity) throws Exception {
+			final ITeleversementDeLotSectionsHit pEntity) throws Exception {
 		
 		/* RECUPERATION DES ENTITY COMPOSANTES TRANSIENTES 
 		 * DANS LE COMPOSITE. */
-		final IUtilisateurCerbere utilisateurEntity 
-			= pEntity.getUtilisateur();
+		final ITeleversement televersementEntity 
+			= pEntity.getTeleversement();
 		
-		final IAnneeGestion anneeGestionEntity 
-			= pEntity.getAnneeGestion();
+		final Map<Integer, ISectionHit> lotSectionsObjet 
+			= pEntity.getLotSections();
 		
 		/* CREATION DANS LE STOCKAGE OU RECUPERATION DES ENTITY 
 		 * COMPOSANTES PERSISTES. */
-		final IUtilisateurCerbere utilisateurEntityPersiste 
-			= this.utilisateurCerbereDAO
-							.createOrRetrieve(utilisateurEntity);
+		final ITeleversement televersementEntityPersiste 
+			= this.televersementDAO
+							.createOrRetrieve(televersementEntity);
 		
-		final IAnneeGestion anneeGestionEntityPersiste 
-			= this.anneeGestionDAO
-						.createOrRetrieve(anneeGestionEntity);
+		final Map<Integer, ISectionHit> lotSectionsEntityPersiste 
+			= new ConcurrentHashMap<Integer, ISectionHit>();
 		
-
+		for (final Entry<Integer, ISectionHit> entry : lotSectionsObjet.entrySet()) {
+			
+			final Integer numero = entry.getKey();
+			final ISectionHit objet = entry.getValue();
+			
+			final SectionHitEntityJPA sectionHitEntityJPA 
+				= SectionHitConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(objet);
+			
+			final ISectionHit sectionHitEntityJPAPersistent 
+				= this.sectionHitDAO.createOrRetrieve(sectionHitEntityJPA);
+			
+			lotSectionsEntityPersiste.put(numero, sectionHitEntityJPAPersistent);
+		}
+		
 		/* INJECTION DES ENTITY COMPOSANTES PERSISTEES 
 		 * DANS LE COMPOSITE. */
-		pEntity.setUtilisateur(utilisateurEntityPersiste);
-		pEntity.setAnneeGestion(anneeGestionEntityPersiste);
+		pEntity.setTeleversement(televersementEntityPersiste);
+		pEntity.setLotSections(lotSectionsEntityPersiste);
 		
 	} // Fin de stockerComposants(...).____________________________________
+
+
 	
+	/**
+	 * récupère dans le stockage les COMPOSANTS PERSISTANTS 
+	 * d'un objet métier pObject.
+	 * <ul>
+	 * <li>récupère dans le stockage les composants persistants.</li>
+	 * <li><b>injecte les composants persistants dans pObject</b>.</li>
+	 * </ul>
+	 * - ne fait rien lorsqu'un composant de pObject n'est pas persisté.<br/>
+	 * <br/>
+	 *
+	 * @param pObject : ITeleversementDeLotSectionsHit : Objet métier.
+	 * 
+	 * @throws Exception
+	 */
+	private void rechercherComposantsPersistants(
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
+
+		/* récupère dans le stockage les composants persistants. */
+		final ITeleversement televersementPersistent 
+			= this.televersementDAO.retrieve(pObject.getTeleversement());
+
+		/* ne fait rien lorsqu'un composant de pObject n'est pas persisté. */
+		if (televersementPersistent == null) {
+			return;
+		}
+
+		final Map<Integer, ISectionHit> lotSectionsObjet 
+		= pObject.getLotSections();
+
+		final Map<Integer, ISectionHit> lotSectionsEntityPersiste 
+			= new ConcurrentHashMap<Integer, ISectionHit>();
+
+		for (final Entry<Integer, ISectionHit> entry : lotSectionsObjet.entrySet()) {
+
+			final Integer numero = entry.getKey();
+			final ISectionHit objet = entry.getValue();
+
+			final SectionHitEntityJPA sectionHitEntityJPA 
+				= SectionHitConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(objet);
+
+			/* récupère dans le stockage les composants persistants. */
+			final ISectionHit sectionHitEntityJPAPersistent 
+				= this.sectionHitDAO.retrieve(sectionHitEntityJPA);
+
+			lotSectionsEntityPersiste.put(numero, sectionHitEntityJPAPersistent);
+		}
+
+		/* INJECTION DU COMPOSANT PERSISTANT DANS L'ENTITE A RECHERCHER. */
+		pObject.setTeleversement(televersementPersistent);
+		pObject.setLotSections(lotSectionsEntityPersiste);
+
+	} // Fin de rechercherComposantsPersistants(...).______________________
+
 	
 	
 	/* CREATE ************/
@@ -361,9 +350,10 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transactional
 	@Override
-	public ITeleversement create(
-			final ITeleversement pObject) throws Exception {
+	public ITeleversementDeLotSectionsHit create(
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -377,6 +367,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 
 		/* instancie une nouvelle liste à chaque appel de la méthode. */
 		this.messagesErrorUtilisateurList = new ArrayList<String>();
+
 		
 		/* NULL : retourne null si pObject == null. */
 		if (pObject == null) {
@@ -416,25 +407,25 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		} // Fin de DOUBLON.___________________________________
 		
 
-		ITeleversement persistentObject = null;
+		ITeleversementDeLotSectionsHit persistentObject = null;
 
 		try {
-						
-			/* conversion de l'OBJET METIER en ENTITY. */
-			final TeleversementEntityJPA entity 
-				= TeleversementConvertisseurMetierEntity
-						.convertirObjetMetierEnEntityJPA(pObject);
 			
+			/* conversion de l'OBJET METIER en ENTITY. */
+			final TeleversementDeLotSectionsHitEntityJPA entity 
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
+						.convertirObjetMetierEnEntityJPA(pObject);
+						
 			// SAUVEGARDE DES COMPOSANTS *******************************
 			this.stockerComposants(entity);
-			
+
 			/* ***************** */
 			/* PERSISTE en base. */
 			this.entityManager.persist(entity);
 
 			/* conversion de l'ENTITY en OBJET METIER. */
 			persistentObject 
-				= TeleversementConvertisseurMetierEntity
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirEntityJPAEnObjetMetier(entity);
 
 		}
@@ -448,7 +439,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 							, "méthode create(object)", e);
 
 		}
@@ -460,13 +451,14 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 
 
 	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Transactional
 	@Override
-	public ITeleversement createOrRetrieve(
-			final ITeleversement pEntity) throws Exception {
+	public ITeleversementDeLotSectionsHit createOrRetrieve(
+			final ITeleversementDeLotSectionsHit pEntity) throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -510,26 +502,26 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		/* DOUBLON : retourne l'objet déjà persisté si pObject est un doublon. */
 		if (this.exists(pEntity)) {
 			
-			return TeleversementConvertisseurMetierEntity
+			return TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirObjetMetierEnEntityJPA(
 							this.retrieve(pEntity));
 			
 		} // Fin de DOUBLON.___________________________________
 		
 
-		ITeleversement persistentObject = null;
+		ITeleversementDeLotSectionsHit persistentObject = null;
 
 		try {
 			
-			TeleversementEntityJPA entity = null;
+			TeleversementDeLotSectionsHitEntityJPA entity = null;
 			
 			/* conversion de l'OBJET METIER en ENTITY. */
-			if (!(pEntity instanceof TeleversementEntityJPA)) {
+			if (!(pEntity instanceof TeleversementDeLotSectionsHitEntityJPA)) {
 				entity 
-				= TeleversementConvertisseurMetierEntity
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 						.convertirObjetMetierEnEntityJPA(pEntity);
 			} else {
-				entity = (TeleversementEntityJPA) pEntity;
+				entity = (TeleversementDeLotSectionsHitEntityJPA) pEntity;
 			}
 									
 			// SAUVEGARDE DES COMPOSANTS *******************************
@@ -553,7 +545,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 							, "méthode createOrRetrieve(object)", e);
 
 		}
@@ -570,10 +562,26 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 */
 	@Override
 	public void persist(
-			final ITeleversement pObject) throws Exception {
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
+		
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return;
+		}
 		
 		/* ne fait rien si pObject == null. */
 		if (pObject == null) {
+			return;
+		}
+		
+		/* ne fait rien si les attributs obligatoires 
+		 * de pObject ne sont pas remplis.*/
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return;
 		}
 		
@@ -585,29 +593,13 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		if (this.existsId(pObject.getId())) {
 			return;
 		}
-		
-		/* ne fait rien si les attributs obligatoires 
-		 * de pObject ne sont pas remplis.*/
-		if (!this.champsObligatoiresRemplis(pObject)) {
-			return;
-		}
 
-		
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return;
-		}
 
 		/* conversion de l'OBJET METIER en ENTITY. */
-		final TeleversementEntityJPA entity = 
-				TeleversementConvertisseurMetierEntity
+		final TeleversementDeLotSectionsHitEntityJPA entity = 
+				TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirObjetMetierEnEntityJPA(pObject);
-		
+								
 		// SAUVEGARDE DES COMPOSANTS *******************************
 		this.stockerComposants(entity);
 
@@ -628,7 +620,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 							, "méthode persist(object)", e);
 
 		}
@@ -642,23 +634,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 */
 	@Override
 	public Long createReturnId(
-			final ITeleversement pObject) throws Exception {
-		
-		/* retourne null si pObject == null. */
-		if (pObject == null) {
-			return null;
-		}
-		
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pObject)) {
-			return null;
-		}
-		
-		/* retourne null si les attributs obligatoires 
-		 * de pObject ne sont pas remplis.*/
-		if (!this.champsObligatoiresRemplis(pObject)) {
-			return null;
-		}
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -670,16 +646,32 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			return null;
 		}
 		
+		/* retourne null si pObject == null. */
+		if (pObject == null) {
+			return null;
+		}
+		
+		/* retourne null si les attributs obligatoires 
+		 * de pObject ne sont pas remplis.*/
+		if (!this.champsObligatoiresRemplis(pObject)) {
+			return null;
+		}
+		
+		/* retourne null si pObject est un doublon. */
+		if (this.exists(pObject)) {
+			return null;
+		}
+		
 		
 		/* conversion de l'OBJET METIER en ENTITY. */
-		final TeleversementEntityJPA entity = 
-				TeleversementConvertisseurMetierEntity
+		final TeleversementDeLotSectionsHitEntityJPA entity = 
+				TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirObjetMetierEnEntityJPA(pObject);
-		
+				
 		// SAUVEGARDE DES COMPOSANTS *******************************
 		this.stockerComposants(entity);
 		
-		ITeleversement persistentObject = null;
+		ITeleversementDeLotSectionsHit persistentObject = null;
 		
 		try {
 			
@@ -689,7 +681,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			
 			/* conversion de l'ENTITY en OBJET METIER. */
 			persistentObject 
-				= TeleversementConvertisseurMetierEntity
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 				.convertirEntityJPAEnObjetMetier(entity);
 
 		}
@@ -703,7 +695,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 							, "méthode createReturnId(object)", e);
 
 		}
@@ -723,14 +715,9 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<ITeleversement> saveIterable(
-			final Iterable<ITeleversement> pList) 
+	public Iterable<ITeleversementDeLotSectionsHit> saveIterable(
+			final Iterable<ITeleversementDeLotSectionsHit> pList) 
 					throws Exception {
-
-		/* retourne null si pList == null. */
-		if (pList == null) {
-			return null;
-		}
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -741,33 +728,35 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			}
 			return null;
 		}
+
+		/* retourne null si pList == null. */
+		if (pList == null) {
+			return null;
+		}
 		
 		/* conversion de le liste de MODEL en liste d'ENTITIES. */
-		final List<TeleversementEntityJPA> listeEntities 
-			= TeleversementConvertisseurMetierEntity
+		final List<TeleversementDeLotSectionsHitEntityJPA> listeEntities 
+			= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 				.convertirListModelEnEntitiesJPA(pList);
 		
-		final List<ITeleversement> resultat 
-			= new ArrayList<ITeleversement>();
+		final List<ITeleversementDeLotSectionsHit> resultat 
+			= new ArrayList<ITeleversementDeLotSectionsHit>();
 
-		final Iterator<TeleversementEntityJPA> iteS 
+		final Iterator<TeleversementDeLotSectionsHitEntityJPA> iteS 
 			= listeEntities.iterator();
 
 		try {
 
 			while (iteS.hasNext()) {
 
-				final TeleversementEntityJPA entity = iteS.next();
-				
+				final TeleversementDeLotSectionsHitEntityJPA entity = iteS.next();
+
 				/* passe un null dans le lot. */
 				if (entity == null) {
 					continue;
 				}
-							
-				// SAUVEGARDE DES COMPOSANTS *******************************
-				this.stockerComposants(entity);
-				
-				// SAUVEGARDE DU COMPOSITE **********************************
+					
+					
 				/* Passe les doublons existants en base. */
 				if (!this.exists(entity)) {
 					
@@ -775,21 +764,22 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 					 * de l'objet ne sont pas remplis.*/
 					if (this.champsObligatoiresRemplis(entity)) {
 						
-						ITeleversement objectPersistant = null;
+						ITeleversementDeLotSectionsHit objectPersistant = null;
 
 						try {
+														
+							// SAUVEGARDE DES COMPOSANTS *******************************
+							this.stockerComposants(entity);
 
 							/* ***************** */
 							/* PERSISTE en base. */
-							/* ***************** */
-							/* SAUVEGARDE DU COMPOSITE en base. */
 							this.entityManager.persist(entity);
 
 							/* conversion de l'ENTITY en OBJET METIER. */
 							objectPersistant 
-								= TeleversementConvertisseurMetierEntity
+								= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 								.convertirEntityJPAEnObjetMetier(entity);
-							
+
 						} catch (Exception e) {
 
 							/* LOG. */
@@ -800,16 +790,21 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 							/* Gestion de la DAO Exception. */
 							this.gestionnaireException
 								.gererException(
-										CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+										CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 											, "Méthode saveIterable(lot)", e);
 						}
+						
+						/* ne sauvegarde pas un doublon 
+						 * présent dans le lot. */
+						if (objectPersistant != null) {
 
-						/* Ajoute à l'iterable resultat. */
-						resultat.add(objectPersistant);								
-											
+							/* Ajoute à l'iterable resultat. */
+							resultat.add(objectPersistant);								
+						}
+						
 					} // Entity avec attributs obligatoires remplis.
 					
-				} // Entity existante._________________
+				} // Entity persistante._________________
 				
 			} // Next._____________________________________
 
@@ -824,7 +819,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 							, "Méthode saveIterable(lot)", e);
 
 		}
@@ -843,13 +838,8 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ITeleversement retrieve(
-			final ITeleversement pObject) throws Exception {
-
-		/* return null si pObject == null. */
-		if (pObject == null) {
-			return null;
-		}
+	public ITeleversementDeLotSectionsHit retrieve(
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -861,21 +851,34 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			return null;
 		}
 
-		ITeleversement objetResultat = null;		
-		TeleversementEntityJPA entity = null;
+		/* return null si pObject == null. */
+		if (pObject == null) {
+			return null;
+		}
+
+		ITeleversementDeLotSectionsHit objetResultat = null;		
+		TeleversementDeLotSectionsHitEntityJPA entity = null;
+		
+		/* RECHERCHE DES COMPOSANTS EXISTANTS ET INJECTION DANS pOBJECT. */
+		this.rechercherComposantsPersistants(pObject);
 		
 		/* récupération de la requête paramétrée. */
 		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
+		
+		if (requete == null) {
+			return null;
+		}
 		
 		try {
 			
 			/* Execution de la requete HQL. */
 			entity 
-				= (TeleversementEntityJPA) requete.getSingleResult();
+				= (TeleversementDeLotSectionsHitEntityJPA) 
+							requete.getSingleResult();
 			
 			/* conversion de l'ENTITY en OBJET METIER. */
 			objetResultat 
-				= TeleversementConvertisseurMetierEntity
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirEntityJPAEnObjetMetier(entity);
 			
 		}
@@ -896,7 +899,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode retrieve(objet)", e);
 		}
 		
@@ -911,7 +914,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ITeleversement findById(
+	public ITeleversementDeLotSectionsHit findById(
 			final Long pId) throws Exception {
 		
 		/* retourne null si pId == null. */
@@ -929,20 +932,20 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			return null;
 		}
 
-		ITeleversement objetTrouve = null;
-		TeleversementEntityJPA entity = null;
-
+		ITeleversementDeLotSectionsHit objetTrouve = null;
+		TeleversementDeLotSectionsHitEntityJPA entity = null;
+		
 		try {
 			
 			/* ************************* */
 			/* récupération de l'ENTITY. */
 			entity 
 				= this.entityManager.find(
-						TeleversementEntityJPA.class, pId);
+						TeleversementDeLotSectionsHitEntityJPA.class, pId);
 			
 			/* conversion de l'ENTITY en OBJET METIER. */
 			objetTrouve 
-				= TeleversementConvertisseurMetierEntity
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirEntityJPAEnObjetMetier(entity);
 			
 		}
@@ -951,7 +954,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode findById(ID)", e);
 			
 		}
@@ -968,7 +971,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 */
 	@Override
 	public Long retrieveId(
-			final ITeleversement pObject) throws Exception {
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 		
 		/* return null si pObject == null. */
 		if (pObject == null) {
@@ -985,21 +988,28 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			return null;
 		}
 		
-		ITeleversement objetResultat = null;		
-		TeleversementEntityJPA entity = null;
+		ITeleversementDeLotSectionsHit objetResultat = null;		
+		TeleversementDeLotSectionsHitEntityJPA entity = null;
+
+		/* RECHERCHE DES COMPOSANTS EXISTANTS ET INJECTION DANS pOBJECT. */
+		this.rechercherComposantsPersistants(pObject);
 		
 		/* récupération de la requête paramétrée. */
 		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
+		
+		if (requete == null) {
+			return null;
+		}
 		
 		try {
 			
 			/* Execution de la requete HQL. */
 			entity 
-				= (TeleversementEntityJPA) requete.getSingleResult();
+				= (TeleversementDeLotSectionsHitEntityJPA) requete.getSingleResult();
 			
 			/* conversion de l'ENTITY en OBJET METIER. */
 			objetResultat 
-				= TeleversementConvertisseurMetierEntity
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirEntityJPAEnObjetMetier(entity);
 			
 		}
@@ -1020,7 +1030,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode retrieveId(objet)", e);
 		}
 		
@@ -1039,7 +1049,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<ITeleversement> rechercherRapide(
+	public List<ITeleversementDeLotSectionsHit> rechercherRapide(
 			final String pString) throws Exception {
 				
 		/* Cas où this.entityManager == null. */
@@ -1055,11 +1065,11 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		/* Création de la requête JPQL sous forme de String. */
 		final String requeteString 
 			= SELECT_OBJET 
-			+ "where televersement.dateTeleversement LIKE :pattern "
-					+ "OR televersement.utilisateur.nom LIKE :pattern "
-					+ "OR televersement.gestionnaire.nomCourt LIKE :pattern "
-					+ "OR televersement.typeFichier.nomCourt LIKE :pattern" 
-					+ "OR televersement.anneeGestion.anneeGestion LIKE :pattern";
+			+ "where televersementDeLotSectionsHit.televersement.dateTeleversement LIKE :pattern "
+					+ "OR televersementDeLotSectionsHit.televersement.utilisateur.nom LIKE :pattern "
+					+ "OR televersementDeLotSectionsHit.televersement.gestionnaire.nomCourt LIKE :pattern "
+					+ "OR televersementDeLotSectionsHit.televersement.typeFichier.nomCourt LIKE :pattern" 
+					+ "OR televersementDeLotSectionsHit.televersement.anneeGestion.anneeGestion LIKE :pattern";
 		
 		/* Construction de la requête HQL. */
 		final Query requete 
@@ -1070,9 +1080,9 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		
 		requete.setParameter("pattern", patternRecherche);
 		
-		List<TeleversementEntityJPA> resultatEntity = null;
+		List<TeleversementDeLotSectionsHitEntityJPA> resultatEntity = null;
 				
-		List<ITeleversement> resultat = null;
+		List<ITeleversementDeLotSectionsHit> resultat = null;
 		
 		try {
 			
@@ -1082,7 +1092,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			
 			/* conversion de la liste ENTITY en liste OBJET METIER. */
 			resultat 
-				= TeleversementConvertisseurMetierEntity
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirListEntitiesJPAEnModel(resultatEntity);
 			
 		}
@@ -1103,7 +1113,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode rechercherRapide(String %recherche%)", e);
 		}
 		
@@ -1122,7 +1132,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<ITeleversement> findAll() throws Exception {
+	public List<ITeleversementDeLotSectionsHit> findAll() throws Exception {
 		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1136,11 +1146,11 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "from TeleversementEntityJPA";
+			= "from TeleversementDeLotSectionsHitEntityJPA";
 		
-		List<TeleversementEntityJPA> resultatEntity = null;
+		List<TeleversementDeLotSectionsHitEntityJPA> resultatEntity = null;
 		
-		List<ITeleversement> resultat = null;
+		List<ITeleversementDeLotSectionsHit> resultat = null;
 		
 		try {
 			
@@ -1152,7 +1162,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			resultatEntity = query.getResultList();
 			
 			/* convertit la liste d'Entities en OBJETS METIER. */
-			resultat = TeleversementConvertisseurMetierEntity
+			resultat = TeleversementDeLotSectionsHitConvertisseurMetierEntity
 						.convertirListEntitiesJPAEnModel(
 								resultatEntity);
 
@@ -1167,7 +1177,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode findAll()", e);
 			
 		}
@@ -1183,7 +1193,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<ITeleversement> findAllMax(
+	public List<ITeleversementDeLotSectionsHit> findAllMax(
 			final int pStartPosition
 				, final int pMaxResult) throws Exception {
 
@@ -1204,11 +1214,11 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "from TeleversementEntityJPA";
+			= "from TeleversementDeLotSectionsHitEntityJPA";
 		
-		List<TeleversementEntityJPA> resultatEntity = null;
+		List<TeleversementDeLotSectionsHitEntityJPA> resultatEntity = null;
 		
-		List<ITeleversement> resultat = null;
+		List<ITeleversementDeLotSectionsHit> resultat = null;
 		
 		try {
 			
@@ -1223,7 +1233,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 						
 			/* convertit la liste d'Entities en OBJETS METIER. */
 			resultat 
-			= TeleversementConvertisseurMetierEntity
+			= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 				.convertirListEntitiesJPAEnModel(resultatEntity);
 
 		}
@@ -1237,7 +1247,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode findAllMax(int pStartPosition"
 								+ ", int pMaxResult)", e);
 			
@@ -1254,7 +1264,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<ITeleversement> findAllIterable(
+	public Iterable<ITeleversementDeLotSectionsHit> findAllIterable(
 			final Iterable<Long> pIds) throws Exception {
 		
 		/* retourne null si pIds == null. */
@@ -1262,12 +1272,12 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			return null;
 		}
 
-		final List<ITeleversement> resultat 
-			= new ArrayList<ITeleversement>();
+		final List<ITeleversementDeLotSectionsHit> resultat 
+			= new ArrayList<ITeleversementDeLotSectionsHit>();
 
 		for (final Long id : pIds) {
 			
-			final ITeleversement objet = this.findById(id);
+			final ITeleversementDeLotSectionsHit objet = this.findById(id);
 			
 			if (objet != null) {
 				resultat.add(objet);
@@ -1288,8 +1298,8 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ITeleversement update(
-			final ITeleversement pObject) throws Exception {
+	public ITeleversementDeLotSectionsHit update(
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 		
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
@@ -1309,7 +1319,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
-		if (!champsObligatoiresRemplis(pObject)) {
+		if (!this.champsObligatoiresRemplis(pObject)) {
 			return null;
 		}
 
@@ -1324,14 +1334,14 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		}
 				
 		/* conversion de l'OBJET METIER en ENTITY. */
-		final TeleversementEntityJPA entity = 
-				TeleversementConvertisseurMetierEntity
+		final TeleversementDeLotSectionsHitEntityJPA entity = 
+				TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirObjetMetierEnEntityJPA(pObject);
-		
+								
 		// SAUVEGARDE DES COMPOSANTS *******************************
 		this.stockerComposants(entity);
 
-		ITeleversement persistentObject = null;
+		ITeleversementDeLotSectionsHit persistentObject = null;
 		
 		try {
 			
@@ -1340,7 +1350,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 
 			/* conversion de l'ENTITY en OBJET METIER. */
 			persistentObject 
-				= TeleversementConvertisseurMetierEntity
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirEntityJPAEnObjetMetier(entity);
 			
 		}
@@ -1354,7 +1364,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode update(objet)", e);
 						
 		}
@@ -1370,10 +1380,10 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ITeleversement updateById(
-			final Long pId, final ITeleversement pObjectModifie) 
-												throws Exception {
-		
+	public ITeleversementDeLotSectionsHit updateById(
+			final Long pId, final ITeleversementDeLotSectionsHit pObjectModifie) 
+					throws Exception {
+
 		/* retourne null si pId == null. */
 		if (pId == null) {
 			return null;
@@ -1383,86 +1393,91 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		if (this.findById(pId) == null) {
 			return null;
 		}
-		
+
 		/* retourne null si pObjectModifie == null. */
 		if (pObjectModifie == null) {
 			return null;
 		}
-		
-		/* retourne null si l'objet modifie pObjectModifie 
-		 * créerait un doublon dans le stockage. */
+
+		/*
+		 * retourne null si les attributs obligatoires 
+		 * de pObjectModifie ne sont pas remplis.
+		 */
+		if (!this.champsObligatoiresRemplis(pObjectModifie)) {
+			return null;
+		}
+
+		/*
+		 * retourne null si l'objet modifie pObjectModifie 
+		 * créerait un doublon dans le stockage.
+		 */
 		if (this.exists(pObjectModifie)) {
 			return null;
 		}
-		
-		/* retourne null si les attributs obligatoires 
-		 * de pObjectModifie ne sont pas remplis.*/
-		if (!champsObligatoiresRemplis(pObjectModifie)) {
-			return null;
-		}
-		
-		/* récupère l'objet à modifier par sons index. */
-		final ITeleversement objetAModifier = this.findById(pId);
-		
+
+		/* récupère en BASE l'objet à modifier existant par son index. */
+		final ITeleversementDeLotSectionsHit objetAModifier 
+			= this.findById(pId);
+
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
-						
+
 			/* LOG. */
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
 			}
 			return null;
 		}
-				
-		ITeleversement persistentObject = null;
-		
+
+		ITeleversementDeLotSectionsHit persistentObject = null;
+
 		try {
 			
-			/* applique les modifications. */
-			objetAModifier.setDateTeleversement(pObjectModifie.getDateTeleversement());
-			objetAModifier.setUtilisateur(this.utilisateurCerbereDAO.createOrRetrieve(pObjectModifie.getUtilisateur()));
-			objetAModifier.setGestionnaire(pObjectModifie.getGestionnaire());
-			objetAModifier.setTypeFichier(pObjectModifie.getTypeFichier());
-			objetAModifier.setNomFichierTeleverse(pObjectModifie.getNomFichierTeleverse());
-			objetAModifier.setFichierStockeServeur(pObjectModifie.getFichierStockeServeur());
-			objetAModifier.setAnneeGestion(this.anneeGestionDAO.createOrRetrieve(pObjectModifie.getAnneeGestion()));
-			
+			/* RECHERCHE DES COMPOSANTS EXISTANTS 
+			 * ET INJECTION DANS objetAModifier. */
+			this.rechercherComposantsPersistants(objetAModifier);
+
+			// APPLIQUE LES MODIFICATIONS.
+			objetAModifier.setTeleversement(pObjectModifie.getTeleversement());
+			objetAModifier.setLotSections(pObjectModifie.getLotSections());
+
 			/* conversion de l'OBJET METIER en ENTITY. */
-			final TeleversementEntityJPA entity = 
-					TeleversementConvertisseurMetierEntity
-						.convertirObjetMetierEnEntityJPA(objetAModifier);
+			final TeleversementDeLotSectionsHitEntityJPA entity 
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(objetAModifier);
+
+			// SAUVEGARDE DES COMPOSANTS *******************************
+			this.stockerComposants(entity);
 
 			/* MODIFIE en base. */
 			this.entityManager.merge(entity);
-			
+
 			/* applique les modifications dans le stockage (si nécessaire). */
 			this.entityManager.flush();
-			
+
 			/* conversion de l'ENTITY en OBJET METIER. */
 			persistentObject 
-				= TeleversementConvertisseurMetierEntity
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
 					.convertirEntityJPAEnObjetMetier(entity);
-			
-		}
-		catch (Exception e) {
-			
+
+		} catch (Exception e) {
+
 			/* LOG. */
 			if (LOG.isFatalEnabled()) {
 				LOG.fatal(e.getMessage(), e);
 			}
-			
+
 			/* Gestion de la DAO Exception. */
-			this.gestionnaireException
-				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
-						, "méthode updateById(Id, Object)", e);
-						
+			this.gestionnaireException.gererException(
+					CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
+					, "méthode updateById(Id, Object)", e);
+
 		}
-				
+
 		/* retourne l'Objet persistant modifié. */
 		return persistentObject;
-		
-	} // Fin de update(...)._______________________________________________
+
+	} // Fin de updateById(...).___________________________________________
 
 
 
@@ -1474,21 +1489,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 */
 	@Override
 	public boolean delete(
-			final ITeleversement pObject) throws Exception {
-		
-		/* retourne false si pObject == null. */
-		if (pObject == null) {
-			return false;
-		}
-		
-		/* récupère l'instance persistante. */
-		final ITeleversement persistanceInstance 
-			= this.retrieve(pObject);
-		
-		/* retourne false si pObject n'est pas persisté. */
-		if (persistanceInstance == null) {
-			return false;
-		}
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 				
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1499,15 +1500,29 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			}
 			return false;
 		}
+		
+		/* retourne false si pObject == null. */
+		if (pObject == null) {
+			return false;
+		}
+		
+		/* récupère l'instance persistante. */
+		final ITeleversementDeLotSectionsHit persistanceInstance 
+			= this.retrieve(pObject);
+		
+		/* retourne false si pObject n'est pas persisté. */
+		if (persistanceInstance == null) {
+			return false;
+		}
 				
 		boolean resultat = false;
 			
 		try {
 
 			/* récupération de l'ENTITY a détruire. */
-			final TeleversementEntityJPA entity 
+			final TeleversementDeLotSectionsHitEntityJPA entity 
 				= this.entityManager.find(
-						TeleversementEntityJPA.class
+						TeleversementDeLotSectionsHitEntityJPA.class
 							, persistanceInstance.getId());
 						
 			/* ************ */
@@ -1526,7 +1541,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode delete(objet)", e);
 									
 		}
@@ -1545,16 +1560,6 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	public void deleteById(
 			final Long pId) throws Exception {
 		
-		/* ne fait rien si pId == null. */
-		if (pId == null) {
-			return;
-		}
-		
-		/* ne fait rien si pId est hors indexes. */
-		if (this.findById(pId) == null) {
-			return;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -1564,13 +1569,23 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			}
 			return;
 		}
+		
+		/* ne fait rien si pId == null. */
+		if (pId == null) {
+			return;
+		}
+		
+		/* ne fait rien si pId est hors indexes. */
+		if (this.findById(pId) == null) {
+			return;
+		}
 						
 		try {
 		
 			/* récupération de l'ENTITY a détruire. */
-			final TeleversementEntityJPA entity 
+			final TeleversementDeLotSectionsHitEntityJPA entity 
 				= this.entityManager.find(
-						TeleversementEntityJPA.class
+						TeleversementDeLotSectionsHitEntityJPA.class
 							, pId);
 						
 			/* ************ */
@@ -1587,7 +1602,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
-				.gererException(CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+				.gererException(CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode deleteById(ID)", e);
 		}
 		
@@ -1602,16 +1617,6 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	public boolean deleteByIdBoolean(
 			final Long pId) throws Exception {
 		
-		/* retourne false si pId == null. */
-		if (pId == null) {
-			return false;
-		}
-		
-		/* retourne false si pId est hors indexes. */
-		if (this.findById(pId) == null) {
-			return false;
-		}
-		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						
@@ -1621,13 +1626,23 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			}
 			return false;
 		}
+		
+		/* retourne false si pId == null. */
+		if (pId == null) {
+			return false;
+		}
+		
+		/* retourne false si pId est hors indexes. */
+		if (this.findById(pId) == null) {
+			return false;
+		}
 				
 		try {
 						
 			/* récupération de l'ENTITY a détruire. */
-			final TeleversementEntityJPA entity 
+			final TeleversementDeLotSectionsHitEntityJPA entity 
 				= this.entityManager.find(
-						TeleversementEntityJPA.class
+						TeleversementDeLotSectionsHitEntityJPA.class
 							, pId);
 			
 			/* ************ */
@@ -1646,7 +1661,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
-				.gererException(CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+				.gererException(CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode deleteByIdBoolean(ID)", e);
 		}
 		
@@ -1674,7 +1689,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "delete from TeleversementEntityJPA";
+			= "delete from TeleversementDeLotSectionsHitEntityJPA";
 
 		try {
 			
@@ -1696,7 +1711,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode deleteAll()", e);
 			
 		}
@@ -1725,7 +1740,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "delete from TeleversementEntityJPA";
+			= "delete from TeleversementDeLotSectionsHitEntityJPA";
 		
 		try {
 			
@@ -1749,7 +1764,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+						CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode deleteAllBoolean()", e);
 			
 		}
@@ -1766,12 +1781,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 */
 	@Override
 	public void deleteIterable(
-			final Iterable<ITeleversement> pList) throws Exception {
-		
-		/* ne fait rien si pList == null. */
-		if (pList == null) {
-			return;
-		}
+			final Iterable<ITeleversementDeLotSectionsHit> pList) throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1783,23 +1793,28 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			return;
 		}
 		
-		final Iterator<ITeleversement> ite = pList.iterator();
+		/* ne fait rien si pList == null. */
+		if (pList == null) {
+			return;
+		}
+		
+		final Iterator<ITeleversementDeLotSectionsHit> ite = pList.iterator();
 		
 		try {
 			
 			while (ite.hasNext()) {
 				
-				final ITeleversement objet = ite.next();
-				final ITeleversement objetPersistant = this.retrieve(objet);
+				final ITeleversementDeLotSectionsHit objet = ite.next();
+				final ITeleversementDeLotSectionsHit objetPersistant = this.retrieve(objet);
 				
 				if (objetPersistant == null) {
 					continue;
 				}
 								
 				/* récupération de l'ENTITY a détruire. */
-				final TeleversementEntityJPA entity 
+				final TeleversementDeLotSectionsHitEntityJPA entity 
 					= this.entityManager.find(
-							TeleversementEntityJPA.class
+							TeleversementDeLotSectionsHitEntityJPA.class
 								, objetPersistant.getId());
 				
 				/* ************ */
@@ -1818,7 +1833,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException.gererException(
-					CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+					CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 					, "Méthode deleteIterable(Iterable)", e);
 			
 		}
@@ -1832,12 +1847,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 */
 	@Override
 	public boolean deleteIterableBoolean(
-			final Iterable<ITeleversement> pList) throws Exception {
-		
-		/* retourne false si pList == null. */
-		if (pList == null) {
-			return false;
-		}
+			final Iterable<ITeleversementDeLotSectionsHit> pList) throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1848,26 +1858,31 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			}
 			return false;
 		}
+		
+		/* retourne false si pList == null. */
+		if (pList == null) {
+			return false;
+		}
 
 		boolean resultat = false;
 		
-		final Iterator<ITeleversement> ite = pList.iterator();
+		final Iterator<ITeleversementDeLotSectionsHit> ite = pList.iterator();
 		
 		try {
 			
 			while (ite.hasNext()) {
 				
-				final ITeleversement objet = ite.next();
-				final ITeleversement objetPersistant = this.retrieve(objet);
+				final ITeleversementDeLotSectionsHit objet = ite.next();
+				final ITeleversementDeLotSectionsHit objetPersistant = this.retrieve(objet);
 				
 				if (objetPersistant == null) {
 					continue;
 				}
 				
 				/* récupération de l'ENTITY a détruire. */
-				final TeleversementEntityJPA entity 
+				final TeleversementDeLotSectionsHitEntityJPA entity 
 					= this.entityManager.find(
-							TeleversementEntityJPA.class
+							TeleversementDeLotSectionsHitEntityJPA.class
 								, objetPersistant.getId());
 				
 				/* ************ */
@@ -1888,7 +1903,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException.gererException(
-					CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+					CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 					, "Méthode deleteIterableBoolean(Iterable)", e);
 			
 		}
@@ -1908,12 +1923,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 */
 	@Override
 	public boolean exists(
-			final ITeleversement pObject) throws Exception {
-		
-		/* retourne false si pObject == null. */
-		if (pObject == null) {
-			return false;
-		}
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1924,18 +1934,30 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			}
 			return false;
 		}
+		
+		/* retourne false si pObject == null. */
+		if (pObject == null) {
+			return false;
+		}
 
 		boolean resultat = false;		
-		ITeleversement objetResultat = null;
+		ITeleversementDeLotSectionsHit objetResultat = null;
+		
+		/* RECHERCHE DES COMPOSANTS EXISTANTS ET INJECTION DANS pOBJECT. */
+		this.rechercherComposantsPersistants(pObject);
 		
 		/* récupération de la requête paramétrée. */
 		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
 		
+		if (requete == null) {
+			return false;
+		}
+		
 		try {
-			
+						
 			/* Execution de la requete HQL. */
 			objetResultat 
-			= (ITeleversement) requete.getSingleResult();
+			= (ITeleversementDeLotSectionsHit) requete.getSingleResult();
 			
 			/* retourne true si l'objet existe en base. */
 			if (objetResultat != null) {
@@ -1951,21 +1973,14 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		}
 		catch (Exception e) {
 			
-			final String message 
-				= CLASSE_TELEVERSEMENTDAO_JPA_SPRING 
-				+ SEPARATEUR_MOINS_AERE 
-				+ "Méthode exists(objet)" 
-				+ SEPARATEUR_MOINS_AERE 
-				+ e.getMessage();
-			
 			/* LOG. */
 			if (LOG.isFatalEnabled()) {
-				LOG.fatal(message, e);
+				LOG.fatal(e.getMessage(), e);
 			}
 			
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
-				.gererException(CLASSE_TELEVERSEMENTDAO_JPA_SPRING
+				.gererException(CLASSE_TELEVERSEMENTDELOTSECTIONSHITDAO_JPA_SPRING
 						, "Méthode exists(objet)", e);
 		}
 		
@@ -2006,7 +2021,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	public Long count() throws Exception {
 		
 		/* Récupère la liste d'Objets métier de Type paramétré T. */
-		final List<ITeleversement> listObjects = this.findAll();
+		final List<ITeleversementDeLotSectionsHit> listObjects = this.findAll();
 		
 		if (listObjects != null) {
 			
@@ -2026,7 +2041,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	@Override
 	public void ecrireStockageDansConsole() throws Exception {
 		
-		final List<ITeleversement> stockageList = this.findAll();
+		final List<ITeleversementDeLotSectionsHit> stockageList = this.findAll();
 		
 		/* ne fait rien si this.findAll() retourne null. */
 		if (stockageList == null) {
@@ -2044,7 +2059,7 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 	 */
 	@Override
 	public String afficherListeObjetsMetier(
-			final List<ITeleversement> pList) {
+			final List<ITeleversementDeLotSectionsHit> pList) {
 		
 		/* retourne null si pList == null. */
 		if (pList == null) {
@@ -2053,9 +2068,9 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 		
 		final StringBuffer stb = new StringBuffer();
 		
-		for (final ITeleversement utilisateurCerbere : pList) {
+		for (final ITeleversementDeLotSectionsHit objet : pList) {
 			
-			stb.append(utilisateurCerbere.toString());
+			stb.append(objet.toString());
 			stb.append(SAUT_LIGNE_PLATEFORME);
 			
 		}
@@ -2076,4 +2091,56 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 
 
 	
-} // FIN DE LA CLASSE TeleversementDAOJPASpring.-----------------------------
+	/**
+	 * Getter de this.televersementDAO.
+	 *
+	 * @return this.televersementDAO : ITeleversementDAO.<br/>
+	 */
+	public ITeleversementDAO getTeleversementDAO() {
+		return this.televersementDAO;
+	} // Fin de getTeleversementDAO()._____________________________________
+	
+
+	
+	/**
+	* Setter de this.televersementDAO.
+	*
+	* @param pTeleversementDAO : ITeleversementDAO : 
+	* valeur à passer à this.televersementDAO.<br/>
+	*/
+	@Autowired(required=true)
+    @Qualifier("TeleversementDAOJPASpring")
+	public void setTeleversementDAO(
+			final ITeleversementDAO pTeleversementDAO) {
+		this.televersementDAO = pTeleversementDAO;
+	} // Fin de setTeleversementDAO(...).__________________________________
+
+
+	
+	/**
+	 * Getter de this.sectionHitDAO.
+	 *
+	 * @return this.sectionHitDAO : ISectionHitDAO.<br/>
+	 */
+	public ISectionHitDAO getSectionHitDAO() {
+		return this.sectionHitDAO;
+	} // Fin de getSectionHitDAO().________________________________________
+
+
+	
+	/**
+	* Setter de this.sectionHitDAO.
+	*
+	* @param pSectionHitDAO : ISectionHitDAO : 
+	* valeur à passer à this.sectionHitDAO.<br/>
+	*/
+	@Autowired(required=true)
+    @Qualifier("SectionHitDAOJPASpring")
+	public void setSectionHitDAO(
+			final ISectionHitDAO pSectionHitDAO) {
+		this.sectionHitDAO = pSectionHitDAO;
+	} // Fin de setSectionHitDAO(...)._____________________________________
+
+	
+	
+} // FIN DE LA CLASSE TeleversementDeLotSectionsHitDAOJPASpring.----------------------

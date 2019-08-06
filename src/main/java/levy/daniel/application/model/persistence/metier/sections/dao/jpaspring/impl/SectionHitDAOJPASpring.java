@@ -532,7 +532,7 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 
 		return requete;
 		
-	} // Fin de fournirRequeteParametree(...)._____________________________
+	} // Fin de fournirRequeteEgaliteMetier(...).__________________________
 
 	
 	
@@ -766,7 +766,7 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 			this.gestionnaireException
 				.gererException(
 						CLASSE_SECTIONHITDAO_JPA_SPRING
-							, "méthode create(object)", e);
+							, "méthode createOrRetrieve(object)", e);
 
 		}
 

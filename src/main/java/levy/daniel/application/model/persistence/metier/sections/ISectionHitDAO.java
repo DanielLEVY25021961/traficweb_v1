@@ -78,8 +78,7 @@ public interface ISectionHitDAO {
 	 * 
 	 * @throws Exception
 	 */
-	ISectionHit createOrRetrieve(ISectionHit pEntity) 
-															throws Exception;
+	ISectionHit createOrRetrieve(ISectionHit pEntity) throws Exception;
 	
 	
 
