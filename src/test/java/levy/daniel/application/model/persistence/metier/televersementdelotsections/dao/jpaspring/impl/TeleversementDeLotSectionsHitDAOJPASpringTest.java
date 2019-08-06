@@ -876,6 +876,30 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 		= LocalDateTime.of(2018, 9, 13, 8, 37, 43);
 	
 	/**
+	 * "2018-09-13_08_37_44"
+	 */
+	public static final String DATE_TELEVERSEMENT_2018_09_13_08_37_44_STRING 
+		= "2018-09-13_08_37_44";
+
+	/**
+	 * LocalDateTime.of(2018, 9, 13, 8, 37, 44).<br/>
+	 */
+	public static final LocalDateTime DATE_TELEVERSEMENT_2018_09_13_08_37_44 
+		= LocalDateTime.of(2018, 9, 13, 8, 37, 44);
+	
+	/**
+	 * "2018-09-13_08_37_45"
+	 */
+	public static final String DATE_TELEVERSEMENT_2018_09_13_08_37_45_STRING 
+		= "2018-09-13_08_37_45";
+
+	/**
+	 * LocalDateTime.of(2018, 9, 13, 8, 37, 45).<br/>
+	 */
+	public static final LocalDateTime DATE_TELEVERSEMENT_2018_09_13_08_37_45 
+		= LocalDateTime.of(2018, 9, 13, 8, 37, 45);
+	
+	/**
 	 * "2019-06-13_08_37_43"
 	 */
 	public static final String DATE_TELEVERSEMENT_2019_06_03_08_37_43_STRING 
@@ -925,6 +949,16 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 * "Papy".
 	 */
 	public static final String PRENOM_PAPY = "Papy";
+		
+	/**
+	 * "Laurent".
+	 */
+	public static final String PRENOM_LAURENT = "Laurent";
+		
+	/**
+	 * "Laurence".
+	 */
+	public static final String PRENOM_LAURENCE = "Laurence";
 
 	/**
 	 * "Duplantis".
@@ -940,6 +974,16 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 * "Gonzales".
 	 */
 	public static final String NOM_GONZALES = "Gonzales";
+
+	/**
+	 * "Sergent".
+	 */
+	public static final String NOM_SERGENT = "Sergent";
+
+	/**
+	 * "Biason".
+	 */
+	public static final String NOM_BIASON = "Biason";
 	
 	/**
 	 * "02 69 87 96 54".
@@ -960,6 +1004,18 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 		= "03 21 75 48 69";
 	
 	/**
+	 * "05 21 75 48 69".
+	 */
+	public static final String TELEPHONE_LAURENT_SERGENT_DIRE 
+		= "05 21 75 48 69";
+	
+	/**
+	 * "07 21 75 48 69".
+	 */
+	public static final String TELEPHONE_LAURENCE_BIASON_DIRSO 
+		= "07 21 75 48 69";
+	
+	/**
 	 * "jeanne.duplantis@dira.fr".
 	 */
 	public static final String MAIL_JEANNE_DUPLANTIS_DIRA 
@@ -978,6 +1034,18 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 		= "papy.gonzales@dirce.fr";
 	
 	/**
+	 * "laurent.sergent@dire.fr".
+	 */
+	public static final String MAIL_LAURENT_SERGENT_DIRE 
+		= "laurent.sergent@dire.fr";
+	
+	/**
+	 * "laurence.biason@dirso.fr".
+	 */
+	public static final String MAIL_LAURENCE_BIASON_DIRSO 
+		= "laurence.biason@dirso.fr";
+	
+	/**
 	 * "DIRA".<br/>
 	 */
 	public static final String SERVICE_DIRA = "DIRA";	
@@ -988,6 +1056,16 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	public static final String SERVICE_DIRCE = "DIRCE";	
 	
 	/**
+	 * "DIRE".<br/>
+	 */
+	public static final String SERVICE_DIRE = "DIRE";	
+	
+	/**
+	 * "DIRSO".<br/>
+	 */
+	public static final String SERVICE_DIRSO = "DIRSO";	
+	
+	/**
 	 * "DIRA/SIEER/CIGT".<br/>
 	 */
 	public static final String UNITE_DIRA_SIEER_CIGT = "DIRA/SIEER/CIGT";
@@ -996,6 +1074,16 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 * "DIRCE/SIEER/CIGT.
 	 */
 	public static final String UNITE_DIRCE_SIEER_CIGT = "DIRCE/SIEER/CIGT";
+	
+	/**
+	 * "DIRE/SIEER/CIGT.
+	 */
+	public static final String UNITE_DIRE_SIEER_CIGT = "DIRE/SIEER/CIGT";
+	
+	/**
+	 * "DIRSO/SIEER/CIGT.
+	 */
+	public static final String UNITE_DIRSO_SIEER_CIGT = "DIRSO/SIEER/CIGT";
 	
 	/**
 	 * "GESTIONNAIRE".<br/>
@@ -1018,6 +1106,16 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	public static final String PORTEE_DIRCE = "DIRCE";
 	
 	/**
+	 * "DIRE".<br/>
+	 */
+	public static final String PORTEE_DIRE = "DIRE";
+	
+	/**
+	 * "DIRSO".<br/>
+	 */
+	public static final String PORTEE_DIRSO = "DIRSO";
+	
+	/**
 	 * "44".<br/>
 	 */
 	public static final String RESTRICTION_JEANNE_DUPLANTIS_DIRA = "44";
@@ -1031,13 +1129,23 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 * "69".<br/>
 	 */
 	public static final String RESTRICTION_PAPY_GONZALES_DIRCE = "69";
+	
+	/**
+	 * "57".<br/>
+	 */
+	public static final String RESTRICTION_LAURENT_SERGENT_DIRE = "57";
+	
+	/**
+	 * "31".<br/>
+	 */
+	public static final String RESTRICTION_LAURENCE_BIASON_DIRSO = "31";
 
 	/**
-	 * DIRA_1_DTO.<br/>.
+	 * UTILISATEUR_DIRA_1_DTO.<br/>.
 	 */
 	public static final transient IUtilisateurCerbereDTO UTILISATEUR_JEANNE_DUPLANTIS_DIRA_DTO 
-		= new UtilisateurCerbereDTO("3"
-				, CIVILITE_MLLE_STRING
+		= new UtilisateurCerbereDTO(
+				CIVILITE_MLLE_STRING
 				, PRENOM_JEANNE, NOM_DUPLANTIS
 				, TELEPHONE_JEANNE_DUPLANTIS_DIRA
 				, MAIL_JEANNE_DUPLANTIS_DIRA
@@ -1047,11 +1155,11 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 				, RESTRICTION_JEANNE_DUPLANTIS_DIRA);
 	
 	/**
-	 * DIRA_1.<br/>
+	 * UTILISATEUR_DIRA_1.<br/>
 	 */
 	public static final transient IUtilisateurCerbere UTILISATEUR_JEANNE_DUPLANTIS_DIRA 
-	= new UtilisateurCerbere(3L
-			, CIVILITE_MLLE_STRING
+	= new UtilisateurCerbere(
+			CIVILITE_MLLE_STRING
 			, PRENOM_JEANNE, NOM_DUPLANTIS
 			, TELEPHONE_JEANNE_DUPLANTIS_DIRA
 			, MAIL_JEANNE_DUPLANTIS_DIRA
@@ -1061,11 +1169,11 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 			, RESTRICTION_JEANNE_DUPLANTIS_DIRA);
 
 	/**
-	 * DIRA_2_DTO.<br/>.
+	 * UTILISATEUR_DIRA_2_DTO.<br/>.
 	 */
 	public static final transient IUtilisateurCerbereDTO UTILISATEUR_JEAN_DUPONT_DIRA_DTO 
-		= new UtilisateurCerbereDTO("17"
-				, CIVILITE_M_STRING
+		= new UtilisateurCerbereDTO(
+				CIVILITE_M_STRING
 				, PRENOM_JEAN, NOM_DUPONT
 				, TELEPHONE_JEAN_DUPONT_DIRA
 				, MAIL_JEAN_DUPONT_DIRA
@@ -1075,11 +1183,11 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 				, RESTRICTION_JEAN_DUPONT_DIRA);
 	
 	/**
-	 * DIRA_2.<br/>
+	 * UTILISATEUR_DIRA_2.<br/>
 	 */
 	public static final transient IUtilisateurCerbere UTILISATEUR_JEAN_DUPONT_DIRA 
-	= new UtilisateurCerbere(17L
-			, CIVILITE_M_STRING
+	= new UtilisateurCerbere(
+			CIVILITE_M_STRING
 			, PRENOM_JEAN, NOM_DUPONT
 			, TELEPHONE_JEAN_DUPONT_DIRA
 			, MAIL_JEAN_DUPONT_DIRA
@@ -1089,11 +1197,11 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 			, RESTRICTION_JEAN_DUPONT_DIRA);
 
 	/**
-	 * DIRCE_1_DTO.<br/>.
+	 * UTILISATEUR_DIRCE_DTO.<br/>.
 	 */
 	public static final transient IUtilisateurCerbereDTO UTILISATEUR_PAPY_GONZALES_DIRCE_DTO 
-		= new UtilisateurCerbereDTO("7"
-				, CIVILITE_M_STRING
+		= new UtilisateurCerbereDTO(
+				CIVILITE_M_STRING
 				, PRENOM_PAPY, NOM_GONZALES
 				, TELEPHONE_PAPY_GONZALES_DIRCE
 				, MAIL_PAPY_GONZALES_DIRCE
@@ -1103,11 +1211,11 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 				, RESTRICTION_PAPY_GONZALES_DIRCE);
 	
 	/**
-	 * DIRCE_1.<br/>
+	 * UTILISATEUR_DIRCE.<br/>
 	 */
 	public static final transient IUtilisateurCerbere UTILISATEUR_PAPY_GONZALES_DIRCE
-	= new UtilisateurCerbere(7L
-			, CIVILITE_M_STRING
+	= new UtilisateurCerbere(
+			CIVILITE_M_STRING
 			, PRENOM_PAPY, NOM_GONZALES
 			, TELEPHONE_PAPY_GONZALES_DIRCE
 			, MAIL_PAPY_GONZALES_DIRCE
@@ -1115,6 +1223,62 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 			, PROFIL_GESTIONNAIRE_STRING
 			, PORTEE_DIRCE
 			, RESTRICTION_PAPY_GONZALES_DIRCE);
+
+	/**
+	 * UTILISATEUR_DIRE_DTO.<br/>.
+	 */
+	public static final transient IUtilisateurCerbereDTO UTILISATEUR_LAURENT_SERGENT_DIRE_DTO 
+		= new UtilisateurCerbereDTO(
+				CIVILITE_M_STRING
+				, PRENOM_LAURENT, NOM_SERGENT
+				, TELEPHONE_LAURENT_SERGENT_DIRE
+				, MAIL_LAURENT_SERGENT_DIRE
+				, SERVICE_DIRE, UNITE_DIRE_SIEER_CIGT
+				, PROFIL_GESTIONNAIRE_STRING
+				, PORTEE_DIRE
+				, RESTRICTION_LAURENT_SERGENT_DIRE);
+	
+	/**
+	 * UTILISATEUR_DIRE.<br/>
+	 */
+	public static final transient IUtilisateurCerbere UTILISATEUR_LAURENT_SERGENT_DIRE
+	= new UtilisateurCerbere(
+			CIVILITE_M_STRING
+			, PRENOM_LAURENT, NOM_SERGENT
+			, TELEPHONE_LAURENT_SERGENT_DIRE
+			, MAIL_LAURENT_SERGENT_DIRE
+			, SERVICE_DIRE, UNITE_DIRE_SIEER_CIGT
+			, PROFIL_GESTIONNAIRE_STRING
+			, PORTEE_DIRE
+			, RESTRICTION_LAURENT_SERGENT_DIRE);
+
+	/**
+	 * UTILISATEUR_DIRSO_DTO.<br/>.
+	 */
+	public static final transient IUtilisateurCerbereDTO UTILISATEUR_LAURENCE_BIASON_DIRSO_DTO 
+		= new UtilisateurCerbereDTO(
+				CIVILITE_MLLE_STRING
+				, PRENOM_LAURENCE, NOM_BIASON
+				, TELEPHONE_LAURENCE_BIASON_DIRSO
+				, MAIL_LAURENCE_BIASON_DIRSO
+				, SERVICE_DIRSO, UNITE_DIRSO_SIEER_CIGT
+				, PROFIL_GESTIONNAIRE_STRING
+				, PORTEE_DIRSO
+				, RESTRICTION_LAURENCE_BIASON_DIRSO);
+	
+	/**
+	 * UTILISATEUR_DIRSO.<br/>
+	 */
+	public static final transient IUtilisateurCerbere UTILISATEUR_LAURENCE_BIASON_DIRSO
+	= new UtilisateurCerbere(
+			CIVILITE_MLLE_STRING
+			, PRENOM_LAURENCE, NOM_BIASON
+			, TELEPHONE_LAURENCE_BIASON_DIRSO
+			, MAIL_LAURENCE_BIASON_DIRSO
+			, SERVICE_DIRSO, UNITE_DIRSO_SIEER_CIGT
+			, PROFIL_GESTIONNAIRE_STRING
+			, PORTEE_DIRSO
+			, RESTRICTION_LAURENCE_BIASON_DIRSO);
 	
 	/**
 	 * EnumGestionnaire.DIRA.getNomCourt().
@@ -1139,6 +1303,30 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	public static final EnumGestionnaire GESTIONNAIRE_DIRCE 
 		= EnumGestionnaire.DIRCE;
+	
+	/**
+	 * EnumGestionnaire.DIRE.getNomCourt().
+	 */
+	public static final String GESTIONNAIRE_DIRE_STRING 
+		= EnumGestionnaire.DIRE.getNomCourt();
+
+	/**
+	 * EnumGestionnaire.DIRE.
+	 */
+	public static final EnumGestionnaire GESTIONNAIRE_DIRE 
+		= EnumGestionnaire.DIRE;
+	
+	/**
+	 * EnumGestionnaire.DIRSO.getNomCourt().
+	 */
+	public static final String GESTIONNAIRE_DIRSO_STRING 
+		= EnumGestionnaire.DIRSO.getNomCourt();
+
+	/**
+	 * EnumGestionnaire.DIRSO.
+	 */
+	public static final EnumGestionnaire GESTIONNAIRE_DIRSO 
+		= EnumGestionnaire.DIRSO;
 
 	/**
 	 * EnumTypeFichierDonnees.HIT.getNomCourt().
@@ -1175,6 +1363,18 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	public static final String NOM_FICHIER_TELEVERSE_PAPY_GONZALES_DIRCE_2 
 		= "HITDIRCE2017.txt";
+
+	/**
+	 * "HITDIRE2017.txt".
+	 */
+	public static final String NOM_FICHIER_TELEVERSE_LAURENT_SERGENT_DIRE 
+		= "HITDIRE2017.txt";
+
+	/**
+	 * "HITDIRSO2017.txt".
+	 */
+	public static final String NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO 
+		= "HITDIRSO2017.txt";
 
 	/**
 	 * "HITDIRA2017.txt".<br/>
@@ -1227,6 +1427,32 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	public static final String FICHIER_STOCKE_SERVEUR_PAPY_GONZALES_DIRCE_2_STRING 
 		= FICHIER_STOCKE_SERVEUR_PAPY_GONZALES_DIRCE.getAbsolutePath();
+
+	/**
+	 * "HITDIRE2017.txt".<br/>
+	 * NOM_FICHIER_TELEVERSE_LAURENT_SERGENT_DIRE
+	 */
+	public static final File FICHIER_STOCKE_SERVEUR_LAURENT_SERGENT_DIRE 
+		= new File(NOM_FICHIER_TELEVERSE_LAURENT_SERGENT_DIRE);
+
+	/**
+	 * FICHIER_STOCKE_SERVEUR_LAURENT_SERGENT_DIRE.getAbsolutePath()
+	 */
+	public static final String FICHIER_STOCKE_SERVEUR_LAURENT_SERGENT_DIRE_STRING 
+		= FICHIER_STOCKE_SERVEUR_LAURENT_SERGENT_DIRE.getAbsolutePath();
+
+	/**
+	 * "HITDIRSO2017.txt".<br/>
+	 * NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO
+	 */
+	public static final File FICHIER_STOCKE_SERVEUR_LAURENCE_BIASON_DIRSO 
+		= new File(NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO);
+
+	/**
+	 * FICHIER_STOCKE_SERVEUR_LAURENCE_BIASON_DIRSO.getAbsolutePath()
+	 */
+	public static final String FICHIER_STOCKE_SERVEUR_LAURENCE_BIASON_DIRSO_STRING 
+		= FICHIER_STOCKE_SERVEUR_LAURENCE_BIASON_DIRSO.getAbsolutePath();
 
 	/**
 	 * new AnneeGestionDTO("2012").
@@ -1391,6 +1617,58 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 				, NOM_FICHIER_TELEVERSE_PAPY_GONZALES_DIRCE_2
 				, FICHIER_STOCKE_SERVEUR_PAPY_GONZALES_DIRCE_2_STRING
 				, ANNEE_GESTION_2018_DTO);
+	
+	/**
+	 * Téléversement de Laurent Sergent (DIRE) en 2018 (données 2017).
+	 */
+	public static final ITeleversement TELEVERSEMENT_LAURENT_SERGENT_DIRE
+		= new Televersement(
+				DATE_TELEVERSEMENT_2018_09_13_08_37_44
+				, UTILISATEUR_LAURENT_SERGENT_DIRE
+				, GESTIONNAIRE_DIRE
+				, TYPE_FICHIER_DONNEES_HIT
+				, NOM_FICHIER_TELEVERSE_LAURENT_SERGENT_DIRE
+				, FICHIER_STOCKE_SERVEUR_LAURENT_SERGENT_DIRE
+				, ANNEE_GESTION_2017);
+	
+	/**
+	 * Téléversement DTO de Laurent Sergent (DIRE) en 2018 (données 2017).
+	 */
+	public static final ITeleversementDTO TELEVERSEMENT_LAURENT_SERGENT_DIRE_DTO 
+		= new TeleversementDTO(
+				DATE_TELEVERSEMENT_2018_09_13_08_37_44_STRING
+				, UTILISATEUR_LAURENT_SERGENT_DIRE_DTO
+				, GESTIONNAIRE_DIRE_STRING
+				, TYPE_FICHIER_DONNEES_HIT_STRING
+				, NOM_FICHIER_TELEVERSE_LAURENT_SERGENT_DIRE
+				, FICHIER_STOCKE_SERVEUR_LAURENT_SERGENT_DIRE_STRING
+				, ANNEE_GESTION_2017_DTO);
+	
+	/**
+	 * Téléversement de Laurence Biason (DIRSO) en 2018 (données 2017).
+	 */
+	public static final ITeleversement TELEVERSEMENT_LAURENCE_BIASON_DIRSO
+		= new Televersement(
+				DATE_TELEVERSEMENT_2018_09_13_08_37_45
+				, UTILISATEUR_LAURENCE_BIASON_DIRSO
+				, GESTIONNAIRE_DIRSO
+				, TYPE_FICHIER_DONNEES_HIT
+				, NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO
+				, FICHIER_STOCKE_SERVEUR_LAURENCE_BIASON_DIRSO
+				, ANNEE_GESTION_2017);
+	
+	/**
+	 * Téléversement DTO de Laurence Biason (DIRSO) en 2018 (données 2017).
+	 */
+	public static final ITeleversementDTO TELEVERSEMENT_LAURENCE_BIASON_DIRSO_DTO 
+		= new TeleversementDTO(
+				DATE_TELEVERSEMENT_2018_09_13_08_37_45_STRING
+				, UTILISATEUR_LAURENCE_BIASON_DIRSO_DTO
+				, GESTIONNAIRE_DIRSO_STRING
+				, TYPE_FICHIER_DONNEES_HIT_STRING
+				, NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO
+				, FICHIER_STOCKE_SERVEUR_LAURENCE_BIASON_DIRSO_STRING
+				, ANNEE_GESTION_2017_DTO);
 			
 	/**
 	 * lotSectionsJeanneDuplantisDIRA.<br/>
@@ -1446,8 +1724,39 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	* NOM_FICHIER_TELEVERSE_PAPY_GONZALES_DIRCE_2<br/>
 	* "HITDIRCE2017.txt"<br/>
 	*/
-	public static Map<Integer, ISectionHitDTO> lotSectionsPapyGonzalesDIRCEDTO2;	
+	public static Map<Integer, ISectionHitDTO> lotSectionsPapyGonzalesDIRCEDTO2;
+			
+	/**
+	* lotSectionsLaurentSergentDIRE.<br/>
+	* NOM_FICHIER_TELEVERSE_LAURENT_SERGENT_DIRE<br/>
+	* "HITDIRE2017.txt"<br/>
+	*/
+	public static Map<Integer, ISectionHit> lotSectionsLaurentSergentDIRE;
 	
+	/**
+	* lotSectionsLaurentSergentDIREDTO.<br/>
+	* NOM_FICHIER_TELEVERSE_LAURENT_SERGENT_DIRE<br/>
+	* "HITDIRE2017.txt"<br/>
+	*/
+	public static Map<Integer, ISectionHitDTO> lotSectionsLaurentSergentDIREDTO;	
+		
+	/**
+	* lotSectionsLaurenceBiasonDIRSO.<br/>
+	* NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO<br/>
+	* "HITDIRSO2017.txt"<br/>
+	*/
+	public static Map<Integer, ISectionHit> lotSectionsLaurenceBiasonDIRSO;
+	
+	/**
+	* lotSectionsLaurenceBiasonDIRSODTO.<br/>
+	* NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO<br/>
+	* "HITDIRSO2017.txt"<br/>
+	*/
+	public static Map<Integer, ISectionHitDTO> lotSectionsLaurenceBiasonDIRSODTO;	
+
+
+	
+	// OBJETS A TESTER. *******************************************
 	 /**
 	 * objet CORRECT à créer dans le stockage 
 	 * pour la méthode remplirStockage() .<br/>
@@ -1814,6 +2123,7 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	@SuppressWarnings(UNUSED)
 	@Test
 	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testCreate() throws Exception {
 				
 		// **********************************
@@ -1954,7 +2264,9 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 		
 		try {
 			
-			final TeleversementDeLotSectionsHitEntityJPA objetACreer1ENTITY = TeleversementDeLotSectionsHitConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(objetACreer1);
+			final TeleversementDeLotSectionsHitEntityJPA objetACreer1ENTITY 
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(objetACreer1);
 			
 			/* ********************************************************* */
 			/* ***********************CREATION************************** */		
@@ -1973,7 +2285,9 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 						, objetPersiste1);
 			
 			
-			final TeleversementDeLotSectionsHitEntityJPA objetACreer2ENTITY = TeleversementDeLotSectionsHitConvertisseurMetierEntity.convertirObjetMetierEnEntityJPA(objetACreer2);
+			final TeleversementDeLotSectionsHitEntityJPA objetACreer2ENTITY 
+				= TeleversementDeLotSectionsHitConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(objetACreer2);
 			
 			/* ********************************************************* */
 			/* ***********************CREATION************************** */		
@@ -9206,6 +9520,14 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve(NOM_FICHIER_TELEVERSE_PAPY_GONZALES_DIRCE_2);
 		final File fichierDonneesPapyGonzalesDIRCE2 = fichierDonneesPathPapyGonzalesDIRCE2.toFile();
 
+		final Path fichierDonneesPathLaurentSergentDIRE 
+			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve(NOM_FICHIER_TELEVERSE_LAURENT_SERGENT_DIRE);
+		final File fichierDonneesLaurentSergentDIRE = fichierDonneesPathLaurentSergentDIRE.toFile();
+
+		final Path fichierDonneesPathLaurenceBiasonDIRSO 
+			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve(NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO);
+		final File fichierDonneesLaurenceBiasonDIRSO = fichierDonneesPathLaurenceBiasonDIRSO.toFile();
+
 		
 		// IMPORT DES FICHIERS
 		final ImporteurHit importeurHIT = new ImporteurHit();
@@ -9235,6 +9557,19 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 		
 		lotSectionsPapyGonzalesDIRCEDTO2 
 			= importeurHIT.importerDTO(fichierDonneesPapyGonzalesDIRCE2, charsetAnsi);
+		
+		lotSectionsLaurentSergentDIRE 
+			= importeurHIT.importerObjet(fichierDonneesLaurentSergentDIRE, charsetAnsi);
+		
+		lotSectionsLaurentSergentDIREDTO 
+			= importeurHIT.importerDTO(fichierDonneesLaurentSergentDIRE, charsetAnsi);
+		
+		lotSectionsLaurenceBiasonDIRSO 
+			= importeurHIT.importerObjet(fichierDonneesLaurenceBiasonDIRSO, charsetAnsi);
+		
+		lotSectionsLaurenceBiasonDIRSODTO 
+			= importeurHIT.importerDTO(fichierDonneesLaurenceBiasonDIRSO, charsetAnsi);
+		
 
 		// INSTANCIATION DES OBJETS DE TEST.
 		objetRemplirStockage1 = new TeleversementDeLotSectionsHit(
@@ -9249,11 +9584,14 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 		objetRemplirStockage4 = new TeleversementDeLotSectionsHit(
 				TELEVERSEMENT_PAPY_GONZALES_DIRCE_2, lotSectionsPapyGonzalesDIRCE2);
 
-		objetACreer1 = new TeleversementDeLotSectionsHit(null, null);
+		objetACreer1 = new TeleversementDeLotSectionsHit(
+				TELEVERSEMENT_LAURENT_SERGENT_DIRE, lotSectionsLaurentSergentDIRE);
 		
-		objetACreer2 = new TeleversementDeLotSectionsHit(null, null);
+		objetACreer2 = new TeleversementDeLotSectionsHit(
+				TELEVERSEMENT_LAURENCE_BIASON_DIRSO, lotSectionsLaurenceBiasonDIRSO);
 		
-		objet1 = new TeleversementDeLotSectionsHit(null, null);
+		objet1 = new TeleversementDeLotSectionsHit(
+				TELEVERSEMENT_JEANNE_DUPLANTIS_DIRA, lotSectionsJeanneDuplantisDIRA);
 		
 		objet1MemeInstance = objet1;
 		

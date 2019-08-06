@@ -220,8 +220,7 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 		
 		requeteString
 		= SELECT_OBJET
-		+ "where (televersementDeLotSectionsHit.televersement.id = :pTeleversementId) "
-		+ "and (televersementDeLotSectionsHit.lotSections = :pLotSections)";
+		+ "where ((televersementDeLotSectionsHit.televersement.id IS NULL and :pTeleversementId IS NULL) OR (televersementDeLotSectionsHit.televersement.id = :pTeleversementId))";
 				
 		/* Construction de la requête HQL. */
 		requete
@@ -229,7 +228,6 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 		
 		/* Passage des paramètres de la requête JPQL. */
 		requete.setParameter("pTeleversementId", pObject.getTeleversement().getId());
-		requete.setParameter("pLotSections", pObject.getLotSections());
 
 		return requete;
 		

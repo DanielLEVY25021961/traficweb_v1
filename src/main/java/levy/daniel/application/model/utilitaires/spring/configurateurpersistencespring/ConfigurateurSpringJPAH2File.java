@@ -153,6 +153,7 @@ public class ConfigurateurSpringJPAH2File {
 		managedClassNames.add("levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA");
 		managedClassNames.add("levy.daniel.application.model.persistence.metier.sections.localisations.entities.jpa.LocalisationHitEntityJPA");
 		managedClassNames.add("levy.daniel.application.model.persistence.metier.sections.entities.jpa.SectionHitEntityJPA");
+		managedClassNames.add("levy.daniel.application.model.persistence.metier.televersementdelotsections.entities.jpa.TeleversementDeLotSectionsHitEntityJPA");
 		
 		final MyMutablePersistenceUnitInfo 
 			mutablePersistenceUnitInfo 

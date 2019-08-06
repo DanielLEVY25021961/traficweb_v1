@@ -902,8 +902,7 @@ public class TeleversementDeLotSectionsHitEntityJPA
 	 * {@inheritDoc}
 	 */
 	@OneToOne(targetEntity = TeleversementEntityJPA.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID")
-	@Column(name="ID_TELEVERSEMENT"
+	@JoinColumn(name = "ID_TELEVERSEMENT", referencedColumnName = "ID"
 			, insertable = true, updatable = true
 			, nullable = false, unique = false)
 	@Override
