@@ -227,8 +227,14 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 			= this.entityManager.createQuery(requeteString);
 		
 		/* Passage des paramètres de la requête JPQL. */
-		requete.setParameter("pTeleversementId", pObject.getTeleversement().getId());
-
+		final ITeleversement televersement = pObject.getTeleversement();
+		
+		if (televersement != null) {
+			requete.setParameter("pTeleversementId", televersement.getId());
+		} else {
+			requete.setParameter("pTeleversementId", null);
+		}
+		
 		return requete;
 		
 	} // Fin de fournirRequeteEgaliteMetier(...).__________________________

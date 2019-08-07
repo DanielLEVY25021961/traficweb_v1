@@ -910,6 +910,18 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	public static final LocalDateTime DATE_TELEVERSEMENT_2019_06_03_08_37_43 
 		= LocalDateTime.of(2019, 6, 13, 8, 37, 43);
+		
+	/**
+	* "2030-01-13_08_37_43"
+	*/
+	public static final String DATE_TELEVERSEMENT_INEXISTANTE_STRING 
+		= "2030-01-13_08_37_43";
+	
+	/**
+	 * LocalDateTime.of(2030, 1, 13, 8, 37, 43).
+	 */
+	public static final LocalDateTime DATE_TELEVERSEMENT_INEXISTANTE 
+		= LocalDateTime.of(2030, 1, 13, 8, 37, 43);
 
 	/**
 	 * EnumCivilites.MADEMOISELLE.
@@ -1663,6 +1675,32 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	public static final ITeleversementDTO TELEVERSEMENT_LAURENCE_BIASON_DIRSO_DTO 
 		= new TeleversementDTO(
 				DATE_TELEVERSEMENT_2018_09_13_08_37_45_STRING
+				, UTILISATEUR_LAURENCE_BIASON_DIRSO_DTO
+				, GESTIONNAIRE_DIRSO_STRING
+				, TYPE_FICHIER_DONNEES_HIT_STRING
+				, NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO
+				, FICHIER_STOCKE_SERVEUR_LAURENCE_BIASON_DIRSO_STRING
+				, ANNEE_GESTION_2017_DTO);
+	
+	/**
+	 * Téléversement inexistant.
+	 */
+	public static final ITeleversement TELEVERSEMENT_INEXISTANT
+		= new Televersement(
+				DATE_TELEVERSEMENT_INEXISTANTE
+				, UTILISATEUR_LAURENCE_BIASON_DIRSO
+				, GESTIONNAIRE_DIRSO
+				, TYPE_FICHIER_DONNEES_HIT
+				, NOM_FICHIER_TELEVERSE_LAURENCE_BIASON_DIRSO
+				, FICHIER_STOCKE_SERVEUR_LAURENCE_BIASON_DIRSO
+				, ANNEE_GESTION_2017);
+	
+	/**
+	 * Téléversement DTO inexistant.
+	 */
+	public static final ITeleversementDTO TELEVERSEMENT_INEXISTANT_DTO 
+		= new TeleversementDTO(
+				DATE_TELEVERSEMENT_INEXISTANTE_STRING
 				, UTILISATEUR_LAURENCE_BIASON_DIRSO_DTO
 				, GESTIONNAIRE_DIRSO_STRING
 				, TYPE_FICHIER_DONNEES_HIT_STRING
@@ -9605,11 +9643,13 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 		
 		objetNull2 = new TeleversementDeLotSectionsHit(null, null);
 		
-		objetInexistant = new TeleversementDeLotSectionsHit(null, null);
+		objetInexistant = new TeleversementDeLotSectionsHit(
+				TELEVERSEMENT_INEXISTANT, lotSectionsLaurenceBiasonDIRSO);
 		
 		objetModifieCorrect = new TeleversementDeLotSectionsHit(null, null);
 		
-		objetModifieDoublon = new TeleversementDeLotSectionsHit(null, null);
+		objetModifieDoublon = new TeleversementDeLotSectionsHit(
+				TELEVERSEMENT_JEANNE_DUPLANTIS_DIRA, lotSectionsJeanneDuplantisDIRA);
 		
 	} // Fin de beforeClass()._____________________________________________
 
