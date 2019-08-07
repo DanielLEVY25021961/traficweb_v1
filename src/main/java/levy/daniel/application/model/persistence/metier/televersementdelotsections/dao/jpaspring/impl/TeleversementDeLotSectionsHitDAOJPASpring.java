@@ -298,28 +298,38 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 	 * <ul>
 	 * <li>récupère dans le stockage les composants persistants.</li>
 	 * <li><b>injecte les composants persistants dans pObject</b>.</li>
+	 * <li>retourne un boolean indiquant si l'opération s'est bien déroulée 
+	 * (true si les COMPOSANTS étaient persistants et on été injectés 
+	 * dans pObject)</li>
 	 * </ul>
-	 * - ne fait rien lorsqu'un composant de pObject n'est pas persisté.<br/>
+	 * - return false lorsqu'un composant de pObject n'est pas persisté.<br/>
 	 * <br/>
 	 *
 	 * @param pObject : ITeleversementDeLotSectionsHit : Objet métier.
 	 * 
+	 * @return boolean : true si les COMPOSANTS étaient persistants.
+	 * 
 	 * @throws Exception
 	 */
-	private void rechercherComposantsPersistants(
+	private boolean rechercherComposantsPersistants(
 			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 
 		/* récupère dans le stockage les composants persistants. */
 		final ITeleversement televersementPersistent 
 			= this.televersementDAO.retrieve(pObject.getTeleversement());
 
-		/* ne fait rien lorsqu'un composant de pObject n'est pas persisté. */
+		/* return false lorsqu'un composant de pObject n'est pas persisté. */
 		if (televersementPersistent == null) {
-			return;
+			return false;
 		}
 
 		final Map<Integer, ISectionHit> lotSectionsObjet 
 		= pObject.getLotSections();
+		
+		/* return false lorsqu'un composant de pObject n'est pas persisté. */
+		if (lotSectionsObjet == null || lotSectionsObjet.isEmpty()) {
+			return false;
+		}
 
 		final Map<Integer, ISectionHit> lotSectionsEntityPersiste 
 			= new ConcurrentHashMap<Integer, ISectionHit>();
@@ -343,6 +353,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 		/* INJECTION DU COMPOSANT PERSISTANT DANS L'ENTITE A RECHERCHER. */
 		pObject.setTeleversement(televersementPersistent);
 		pObject.setLotSections(lotSectionsEntityPersiste);
+		
+		return true;
 
 	} // Fin de rechercherComposantsPersistants(...).______________________
 
@@ -864,7 +876,12 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 		TeleversementDeLotSectionsHitEntityJPA entity = null;
 		
 		/* RECHERCHE DES COMPOSANTS EXISTANTS ET INJECTION DANS pOBJECT. */
-		this.rechercherComposantsPersistants(pObject);
+		final boolean composantsExistants = 
+				this.rechercherComposantsPersistants(pObject);
+		
+		if (!composantsExistants) {
+			return null;
+		}
 		
 		/* récupération de la requête paramétrée. */
 		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
@@ -996,7 +1013,12 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 		TeleversementDeLotSectionsHitEntityJPA entity = null;
 
 		/* RECHERCHE DES COMPOSANTS EXISTANTS ET INJECTION DANS pOBJECT. */
-		this.rechercherComposantsPersistants(pObject);
+		final boolean composantsExistants = 
+				this.rechercherComposantsPersistants(pObject);
+		
+		if (!composantsExistants) {
+			return null;
+		}
 		
 		/* récupération de la requête paramétrée. */
 		final Query requete = this.fournirRequeteEgaliteMetier(pObject);
@@ -1948,7 +1970,12 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 		ITeleversementDeLotSectionsHit objetResultat = null;
 		
 		/* RECHERCHE DES COMPOSANTS EXISTANTS ET INJECTION DANS pOBJECT. */
-		this.rechercherComposantsPersistants(pObject);
+		final boolean composantsExistants = 
+				this.rechercherComposantsPersistants(pObject);
+		
+		if (!composantsExistants) {
+			return false;
+		}
 		
 		/* récupération de la requête paramétrée. */
 		final Query requete = this.fournirRequeteEgaliteMetier(pObject);

@@ -1302,17 +1302,17 @@ public class TeleversementDAOJPASpring implements ITeleversementDAO {
 			return pObject;
 		}
 		
-		/* retourne null si pObject créerait un doublon. */
-		if (this.exists(pObject)) {
-			return null;
-		}
-		
 		/* retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!champsObligatoiresRemplis(pObject)) {
 			return null;
 		}
-
+		
+		/* retourne null si pObject créerait un doublon. */
+		if (this.exists(pObject)) {
+			return null;
+		}
+		
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 						

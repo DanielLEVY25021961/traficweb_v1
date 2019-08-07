@@ -253,15 +253,14 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		String requeteString = null;
 		
 		Query requete = null;
-		
-		
+				
 		/* REQUETE HQL PARMETREE. */
 		requeteString 
 			= SELECT_OBJET
-				+ "where utilisateurCerbere.prenom = :pPrenom "
-				+ "and utilisateurCerbere.nom = :pNom "
-				+ "and utilisateurCerbere.email = :pEmail "
-				+ "and utilisateurCerbere.unite = :pUnite";
+				+ "where ((utilisateurCerbere.prenom IS NULL and :pPrenom IS NULL) OR (utilisateurCerbere.prenom = :pPrenom)) "
+				+ "and ((utilisateurCerbere.nom IS NULL and :pNom IS NULL) OR (utilisateurCerbere.nom = :pNom)) "
+				+ "and ((utilisateurCerbere.email IS NULL and :pEmail IS NULL) OR (utilisateurCerbere.email = :pEmail)) "
+				+ "and ((utilisateurCerbere.unite IS NULL and :pUnite IS NULL) OR (utilisateurCerbere.unite = :pUnite))";
 		
 		/* Construction de la requête HQL. */
 		requete 
@@ -299,8 +298,9 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 			return null;
 		}
 
-		/* NULL : instancie une nouvelle liste à chaque appel de la méthode. */
+		/* instancie une nouvelle liste à chaque appel de la méthode. */
 		this.messagesErrorUtilisateurList = new ArrayList<String>();
+
 		
 		/* NULL : retourne null si pObject == null. */
 		if (pObject == null) {
@@ -388,11 +388,22 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 	@Override
 	public IUtilisateurCerbere createOrRetrieve(
 			final IUtilisateurCerbere pEntity) throws Exception {
+		
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
 
 		/* instancie une nouvelle liste à chaque appel de la méthode. */
 		this.messagesErrorUtilisateurList = new ArrayList<String>();
+
 		
-		/* retourne null si pObject == null. */
+		/* NULL : retourne null si pObject == null. */
 		if (pEntity == null) {
 			
 			/* ajout d'une explication dans le rapport utilisateur. */
@@ -400,20 +411,10 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 			
 			return null;
 			
-		} // Fin de null._____________________________________
+		} // Fin de NULL._____________________________________
 		
 		
-		/* retourne l'objet déjà persisté si pObject est un doublon. */
-		if (this.exists(pEntity)) {
-			
-			return UtilisateurCerbereConvertisseurMetierEntity
-					.convertirObjetMetierEnEntityJPA(
-							this.retrieve(pEntity));
-			
-		} // Fin de DOUBLON.___________________________________
-		
-		
-		/* retourne null si les attributs obligatoires 
+		/* CHAMPS OBLIGATOIRES : retourne null si les attributs obligatoires 
 		 * de pObject ne sont pas remplis.*/
 		if (!this.champsObligatoiresRemplis(pEntity)) {
 			
@@ -426,23 +427,18 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 			
 		} // Fin de CHAMPS OBLIGATOIRES.______________________________
 		
+		
+		/* DOUBLON : retourne l'objet déjà persisté si pObject est un doublon. */
+		if (this.exists(pEntity)) {
+			
+			return UtilisateurCerbereConvertisseurMetierEntity
+					.convertirObjetMetierEnEntityJPA(
+							this.retrieve(pEntity));
+			
+		} // Fin de DOUBLON.___________________________________
+		
 
 		IUtilisateurCerbere persistentObject = null;
-
-		/* Cas où this.entityManager == null. */
-		if (this.entityManager == null) {
-
-			/* LOG. */
-			if (LOG.isFatalEnabled()) {
-				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
-			}
-			return null;
-		}
-
-		/* retourne null si pObject est un doublon. */
-		if (this.exists(pEntity)) {
-			return null;
-		}
 
 		try {
 			
@@ -468,16 +464,26 @@ public class UtilisateurCerbereDAOJPASpring implements IUtilisateurCerbereDAO {
 		}
 		catch (Exception e) {
 
+			final String message 
+				= CLASSE_UTILISATEURCERBEREDAO_JPA_SPRING 
+				+ SEPARATEUR_MOINS_AERE
+				+ "méthode createOrRetrieve(object)"
+				+ SEPARATEUR_MOINS_AERE 
+				+ "Impossible de persister l'Objet : " 
+				+ pEntity.toString()
+				+ SEPARATEUR_MOINS_AERE
+				+ e.getMessage();
+			
 			/* LOG. */
 			if (LOG.isFatalEnabled()) {
-				LOG.fatal(e.getMessage(), e);
+				LOG.fatal(message, e);
 			}
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
 						CLASSE_UTILISATEURCERBEREDAO_JPA_SPRING
-							, "méthode create(object)", e);
+							, "méthode createOrRetrieve(object)", e);
 
 		}
 

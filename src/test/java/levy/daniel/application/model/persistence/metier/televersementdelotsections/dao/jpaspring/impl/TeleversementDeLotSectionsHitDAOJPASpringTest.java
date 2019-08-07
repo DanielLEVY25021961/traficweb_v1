@@ -6431,8 +6431,9 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 		
 		if (objetAModifierPersistant != null) {
 			
-			objetAModifierPersistant.setAnneeGestion(
-					objetRemplirStockage2.getAnneeGestion());
+			// CREE UN DOUBLON avec objetRemplirStockage2.
+			objetAModifierPersistant.setTeleversement(objetRemplirStockage2.getTeleversement());
+			objetAModifierPersistant.setLotSections(objetRemplirStockage2.getLotSections());
 			
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
