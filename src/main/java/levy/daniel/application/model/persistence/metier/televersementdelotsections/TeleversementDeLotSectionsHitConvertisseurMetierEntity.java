@@ -5,13 +5,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.model.metier.sections.ISectionHit;
 import levy.daniel.application.model.metier.televersement.ITeleversement;
 import levy.daniel.application.model.metier.televersementdelotsections.ITeleversementDeLotSectionsHit;
 import levy.daniel.application.model.metier.televersementdelotsections.impl.TeleversementDeLotSectionsHit;
+import levy.daniel.application.model.persistence.metier.sections.SectionHitConvertisseurMetierEntity;
+import levy.daniel.application.model.persistence.metier.sections.entities.jpa.SectionHitEntityJPA;
 import levy.daniel.application.model.persistence.metier.televersement.TeleversementConvertisseurMetierEntity;
 import levy.daniel.application.model.persistence.metier.televersement.entities.jpa.TeleversementEntityJPA;
 import levy.daniel.application.model.persistence.metier.televersementdelotsections.entities.jpa.TeleversementDeLotSectionsHitEntityJPA;
@@ -92,9 +98,12 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 	 * @param pEntityJPA : TeleversementDeLotSectionsHitEntityJPA.<br/>
 	 * 
 	 * @return : ITeleversementDeLotSectionsHit.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public static ITeleversementDeLotSectionsHit creerObjetMetierAPartirEntityJPA(
-			final TeleversementDeLotSectionsHitEntityJPA pEntityJPA) {
+			final TeleversementDeLotSectionsHitEntityJPA pEntityJPA) 
+					throws Exception {
 
 		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
 			
@@ -105,7 +114,9 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 				
 				objet.setId(pEntityJPA.getId());
 				objet.setTeleversement(pEntityJPA.getTeleversement());
-				objet.setLotSections(pEntityJPA.getLotSections());
+				objet.setLotSections(
+						convertirLotEntityEnLotObjet(
+								pEntityJPA.getLotSections()));
 			}
 							
 			return objet;
@@ -127,9 +138,12 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 	 * @param pEntity : TeleversementDeLotSectionsHitEntityJPA.<br/>
 	 * 
 	 * @return : ITeleversementDeLotSectionsHit : Objet métier.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public static ITeleversementDeLotSectionsHit convertirEntityJPAEnObjetMetier(
-			final TeleversementDeLotSectionsHitEntityJPA pEntity) {
+			final TeleversementDeLotSectionsHitEntityJPA pEntity) 
+						throws Exception {
 		
 		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
 			
@@ -143,7 +157,8 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 					= new TeleversementDeLotSectionsHit(
 							pEntity.getId()
 							, pEntity.getTeleversement()
-							, pEntity.getLotSections());
+							, convertirLotEntityEnLotObjet(
+									pEntity.getLotSections()));
 				
 			}
 			
@@ -156,6 +171,85 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 
 	
 	/**
+	 * convertit une Map&lt;Integer, INTERFACE OBJET METIER MAIS ENTITY&gt; 
+	 * dans laquelle <b>toutes les valeurs sont des ENTITY</b> 
+	 * <i>vues comme des Interfaces</i>
+	 * en Map&lt;Integer, OBJET METIER&gt;.<br/>
+	 * <ul>
+	 * <li>vérifie que la value dans pMap est une ENTITY (instance réelle) 
+	 * <i>vue comme une Interface commune avec l'OBJET METIER</i>.</li>
+	 * <li>caste l'interface en ENTITY.</li>
+	 * <li>convertit l'ENTITY en OBJET METIER.</li>
+	 * <li>insère la valeur convertie en OBJET METIER 
+	 * dans le résultat retourné.</li>
+	 * <li>retourne une nouvelle Map ne contenant que des OBJETS METIER.</li>
+	 * </ul>
+	 * - retourne null si pMap == null.<br/>
+	 * - retourne pMap inchangée si pMap contient déjà des OBJETS METIER 
+	 * (et pas des ENTITY).<br/>
+	 * <br/>
+	 *
+	 * @param pMap : Map&lt;Integer, ISectionHit&gt; : 
+	 * Map ne contenant que des ENTITY vues comme des Interfaces.
+	 * 
+	 * @return : Map&lt;Integer,ISectionHit&gt; : 
+	 * Map d'OBJETS METIER.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Map<Integer, ISectionHit> convertirLotEntityEnLotObjet(
+			final Map<Integer, ISectionHit> pMap) throws Exception {
+		
+		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
+			
+			/* retourne null si pMap == null. */
+			if (pMap == null) {
+				return null;
+			}
+			
+			final Map<Integer, ISectionHit> resultat = new ConcurrentHashMap<>();
+			
+			for (final Entry<Integer, ISectionHit> entry : pMap.entrySet()) {
+				
+				final Integer key = entry.getKey();
+				final ISectionHit value = entry.getValue();
+				
+				SectionHitEntityJPA valueCastee = null;
+				ISectionHit valueConvertie = null;
+				
+				/* vérifie que la value dans pMap est une ENTITY 
+				 * (instance réelle). */
+				if (value instanceof SectionHitEntityJPA) {
+					
+					/* caste l'interface en ENTITY. */
+					valueCastee 
+						= (SectionHitEntityJPA) entry.getValue();
+				
+					/* convertit l'ENTITY en OBJET METIER. */
+					valueConvertie 
+						= SectionHitConvertisseurMetierEntity
+							.convertirEntityJPAEnObjetMetier(valueCastee);
+				
+				} else {
+					
+					/* retourne pMap inchangée si pMap contient déjà des OBJETS METIER (et pas des ENTITY). */
+					valueConvertie = value;
+				}
+				
+				/* insère la valeur convertie en OBJET METIER 
+				 * dans le résultat retourné. */
+				resultat.put(key, valueConvertie);
+			}
+			
+			return resultat;
+
+		}
+		
+	} // Fin de convertirLotEntityEnLotObjet(...).___________________________
+
+	
+	
+	/**
 	 * convertit une Liste d'ENTITIES JPA 
 	 * en liste d'OBJETS METIER et la retourne.<br/>
 	 * <br/>
@@ -166,9 +260,12 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 	 * @param pList : List&lt;TeleversementDeLotSectionsHitEntityJPA&gt;.<br/>
 	 * 
 	 * @return : List&lt;ITeleversementDeLotSectionsHit&gt;.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public static List<ITeleversementDeLotSectionsHit> convertirListEntitiesJPAEnModel(
-			final List<TeleversementDeLotSectionsHitEntityJPA> pList) {
+			final List<TeleversementDeLotSectionsHitEntityJPA> pList) 
+					throws Exception {
 		
 		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
 			

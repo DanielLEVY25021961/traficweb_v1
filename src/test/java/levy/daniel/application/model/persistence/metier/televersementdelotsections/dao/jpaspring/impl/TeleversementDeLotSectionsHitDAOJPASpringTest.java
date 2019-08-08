@@ -1937,6 +1937,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 * @throws Exception
 	 */
 	@SuppressWarnings(UNUSED)
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	@Test
 	public void testCreateNull() throws Exception {
 				
@@ -2042,6 +2044,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 * @throws Exception
 	 */
 	@SuppressWarnings(UNUSED)
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	@Test
 	public void testCreateObjetNull() throws Exception {
 				
@@ -2271,6 +2275,7 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	@SuppressWarnings(UNUSED)
 	@Test
 	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testCreateBidon() throws Exception {
 				
 		// **********************************
@@ -2365,6 +2370,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testCreateDoublon() throws Exception {
 				
 		// **********************************
@@ -2523,6 +2530,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testPersistNull() throws Exception {
 				
 		// **********************************
@@ -2607,6 +2616,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testPersistObjetNull() throws Exception {
 				
 		// **********************************
@@ -2696,6 +2707,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testPersist() throws Exception {
 				
 		// **********************************
@@ -2799,6 +2812,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testPersistDoublon() throws Exception {
 				
 		// **********************************
@@ -2911,6 +2926,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testCreateReturnIdNull() throws Exception {
 				
 		// **********************************
@@ -3012,6 +3029,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testCreateReturnIdObjetNull() throws Exception {
 				
 		// **********************************
@@ -3131,6 +3150,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testCreateReturnId() throws Exception {
 				
 		// **********************************
@@ -3251,6 +3272,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testCreateReturnIdDoublon() throws Exception {
 				
 		// **********************************
@@ -3422,6 +3445,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testSaveIterableNull() throws Exception {
 				
 		// **********************************
@@ -3542,6 +3567,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testSaveIterableObjetsNull() throws Exception {
 				
 		// **********************************
@@ -3677,6 +3704,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testSaveIterable() throws Exception {
 				
 		// **********************************
@@ -3817,6 +3846,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testSaveIterableDoublon() throws Exception {
 				
 		// **********************************
@@ -3955,6 +3986,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testRetrieveNull() throws Exception {
 				
 		// **********************************
@@ -4082,6 +4115,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testRetrieveObjetNull() throws Exception {
 				
 		// **********************************
@@ -4212,6 +4247,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testRetrieveInexistant() throws Exception {
 				
 		// **********************************
@@ -4344,6 +4381,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testRetrieve() throws Exception {
 				
 		// **********************************
@@ -4480,6 +4519,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testFindByIdNull() throws Exception {
 				
 		// **********************************
@@ -4607,6 +4648,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testFindByIdInexistant() throws Exception {
 				
 		// **********************************
@@ -4734,6 +4777,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testFindById() throws Exception {
 				
 		// **********************************
@@ -4861,6 +4906,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testRetrieveIdNull() throws Exception {
 				
 		// **********************************
@@ -4988,6 +5035,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testRetrieveIdObjetNull() throws Exception {
 				
 		// **********************************
@@ -5118,6 +5167,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testRetrieveIdInexistant() throws Exception {
 				
 		// **********************************
@@ -5249,6 +5300,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testRetrieveId() throws Exception {
 				
 		// **********************************
@@ -5381,6 +5434,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testFindAll() throws Exception {
 				
 		// **********************************
@@ -5455,6 +5510,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testFindAllMaxOut() throws Exception {
 				
 		// **********************************
@@ -5582,6 +5639,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testFindAllMax() throws Exception {
 
 		// **********************************
@@ -5711,6 +5770,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testFindAllIterableNull() throws Exception {
 
 		// **********************************
@@ -5835,6 +5896,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testFindAllIterableOut() throws Exception {
 
 		// **********************************
@@ -5968,6 +6031,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testFindAllIterable() throws Exception {
 
 		// **********************************
@@ -6103,6 +6168,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testUpdateNull() throws Exception {
 		
 		// **********************************
@@ -6231,6 +6298,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testUpdateInexistant() throws Exception {
 
 		// **********************************
@@ -6368,6 +6437,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testUpdateDoublon() throws Exception {
 
 		// **********************************
@@ -6513,6 +6584,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testUpdate() throws Exception {
 
 		// **********************************
@@ -6666,6 +6739,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */	
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testUpdateIdNull() throws Exception {
 
 		// **********************************
@@ -6799,6 +6874,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */	
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testUpdateIdInexistant() throws Exception {
 
 		// **********************************
@@ -6933,6 +7010,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */	
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testUpdateIdDoublon() throws Exception {
 
 		// **********************************
@@ -7068,11 +7147,13 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */	
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testUpdateId() throws Exception {
 
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 
 		/* AFFICHAGE A LA CONSOLE. */
@@ -7160,6 +7241,12 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 			/* *********** */
 			// ASSERTIONS
 			/* *********** */
+			/* garantit que l'ID de l'objet modifié vaut pId. */
+			assertEquals(
+					"ID de l'objet modifié doit valoir pId : "
+						, idObjetAModifier
+							, this.dao.retrieveId(resultat));
+
 			/* garantit que updateById(id correct, objet correct) 
 			 * retourne l'instance modifiée. */
 			assertNotNull(
@@ -7167,18 +7254,22 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 					+ "retourner l'instance modifiée : "
 						, resultat);
 			
+			System.out.println("objetModifie.getLotSections().equals(resultat.getLotSections() ? : " 
+					+ objetModifie.getLotSections().equals(resultat.getLotSections()));
+			
+			System.out.println();
+			System.out.println("SECTIONS DE OBJET MODIFIE :");
+			System.out.println(objetModifie.afficherLotSections());
+			System.out.println();
+			System.out.println("SECTIONS DE RESULTAT : ");
+			System.out.println(resultat.afficherLotSections());
+						
 			assertEquals(
 					"updateById(id correct, objet correct) doit "
 					+ "retourner l'instance modifiée : "
 						, objetModifie
 							, resultat);
-			
-			/* garantit que l'ID de l'objet modifié vaut pId. */
-			assertEquals(
-					"ID de l'objet modifié doit valoir pId : "
-						, idObjetAModifier
-							, this.dao.retrieveId(resultat));
-			
+						
 			
 			// ETAT FINAL
 			/* récupération. */
@@ -7220,6 +7311,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteNull() throws Exception {	
 		
 		// **********************************
@@ -7341,6 +7434,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteInexistant() throws Exception {	
 		
 		// **********************************
@@ -7463,6 +7558,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDelete() throws Exception {	
 		
 		// **********************************
@@ -7586,6 +7683,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteByIdNull() throws Exception {	
 
 		// **********************************
@@ -7701,6 +7800,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteByIdInexistant() throws Exception {	
 
 		// **********************************
@@ -7816,6 +7917,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteById() throws Exception {	
 
 		// **********************************
@@ -7938,6 +8041,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteByIdBooleanNull() throws Exception {	
 
 		// **********************************
@@ -8069,6 +8174,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteByIdBooleanInexistant() throws Exception {	
 
 		// **********************************
@@ -8201,6 +8308,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteByIdBoolean() throws Exception {	
 
 		// **********************************
@@ -8337,6 +8446,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteAll() throws Exception {	
 		
 		// **********************************
@@ -8434,6 +8545,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteAllBoolean() throws Exception {	
 		
 		// **********************************
@@ -8545,6 +8658,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteIterable() throws Exception {
 
 		// **********************************
@@ -8660,6 +8775,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testDeleteIterableBoolean() throws Exception {
 
 		// **********************************
@@ -8790,6 +8907,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testExists() throws Exception {
 
 		// **********************************
@@ -8928,6 +9047,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testExistsId() throws Exception {
 
 		// **********************************
@@ -9069,6 +9190,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
+	@Rollback(value = VALEUR_ROLLBACK)
+//	@Rollback(value = false)
 	public void testCount() throws Exception {
 
 		// **********************************
@@ -9647,7 +9770,8 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 		objetInexistant = new TeleversementDeLotSectionsHit(
 				TELEVERSEMENT_INEXISTANT, lotSectionsLaurenceBiasonDIRSO);
 		
-		objetModifieCorrect = new TeleversementDeLotSectionsHit(null, null);
+		objetModifieCorrect = new TeleversementDeLotSectionsHit(
+				TELEVERSEMENT_INEXISTANT, lotSectionsLaurenceBiasonDIRSO);
 		
 		objetModifieDoublon = new TeleversementDeLotSectionsHit(
 				TELEVERSEMENT_JEANNE_DUPLANTIS_DIRA, lotSectionsJeanneDuplantisDIRA);

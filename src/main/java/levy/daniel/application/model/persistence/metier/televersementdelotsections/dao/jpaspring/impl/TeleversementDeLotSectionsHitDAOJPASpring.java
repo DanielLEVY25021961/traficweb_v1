@@ -337,17 +337,19 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 		for (final Entry<Integer, ISectionHit> entry : lotSectionsObjet.entrySet()) {
 
 			final Integer numero = entry.getKey();
-			final ISectionHit objet = entry.getValue();
+			final ISectionHit entityPersistant = entry.getValue();
 
-			final SectionHitEntityJPA sectionHitEntityJPA 
-				= SectionHitConvertisseurMetierEntity
-					.convertirObjetMetierEnEntityJPA(objet);
-
-			/* récupère dans le stockage les composants persistants. */
-			final ISectionHit sectionHitEntityJPAPersistent 
-				= this.sectionHitDAO.retrieve(sectionHitEntityJPA);
-
-			lotSectionsEntityPersiste.put(numero, sectionHitEntityJPAPersistent);
+//			final SectionHitEntityJPA sectionHitEntityJPA 
+//				= SectionHitConvertisseurMetierEntity
+//					.convertirObjetMetierEnEntityJPA(objet);
+//
+//			/* récupère dans le stockage les composants persistants. */
+//			final ISectionHit sectionHitEntityJPAPersistent 
+//				= this.sectionHitDAO.retrieve(sectionHitEntityJPA);
+//
+//			lotSectionsEntityPersiste.put(numero, sectionHitEntityJPAPersistent);
+			
+			lotSectionsEntityPersiste.put(numero, entityPersistant);
 		}
 
 		/* INJECTION DU COMPOSANT PERSISTANT DANS L'ENTITE A RECHERCHER. */
@@ -1410,41 +1412,6 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 			final Long pId, final ITeleversementDeLotSectionsHit pObjectModifie) 
 					throws Exception {
 
-		/* retourne null si pId == null. */
-		if (pId == null) {
-			return null;
-		}
-
-		/* retourne null si pId est hors indexes. */
-		if (this.findById(pId) == null) {
-			return null;
-		}
-
-		/* retourne null si pObjectModifie == null. */
-		if (pObjectModifie == null) {
-			return null;
-		}
-
-		/*
-		 * retourne null si les attributs obligatoires 
-		 * de pObjectModifie ne sont pas remplis.
-		 */
-		if (!this.champsObligatoiresRemplis(pObjectModifie)) {
-			return null;
-		}
-
-		/*
-		 * retourne null si l'objet modifie pObjectModifie 
-		 * créerait un doublon dans le stockage.
-		 */
-		if (this.exists(pObjectModifie)) {
-			return null;
-		}
-
-		/* récupère en BASE l'objet à modifier existant par son index. */
-		final ITeleversementDeLotSectionsHit objetAModifier 
-			= this.findById(pId);
-
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
 
@@ -1454,6 +1421,42 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 			}
 			return null;
 		}
+
+		/* retourne null si pId == null. */
+		if (pId == null) {
+			return null;
+		}
+
+		/* retourne null si pObjectModifie == null. */
+		if (pObjectModifie == null) {
+			return null;
+		}
+
+		/*
+		 * CHAMPS OBLIGATOIRE : retourne null si les attributs obligatoires 
+		 * de pObjectModifie ne sont pas remplis.
+		 */
+		if (!this.champsObligatoiresRemplis(pObjectModifie)) {
+			return null;
+		}
+
+		/*
+		 * DOUBLON : retourne null si l'objet modifie pObjectModifie 
+		 * créerait un doublon dans le stockage.
+		 */
+		if (this.exists(pObjectModifie)) {
+			return null;
+		}
+		
+		/* récupère en BASE l'objet à modifier existant par son index. */
+		final ITeleversementDeLotSectionsHit objetAModifier 
+			= this.findById(pId);
+
+		/* retourne null si pId est hors indexes. */
+		if (objetAModifier == null) {
+			return null;
+		}
+
 
 		ITeleversementDeLotSectionsHit persistentObject = null;
 
