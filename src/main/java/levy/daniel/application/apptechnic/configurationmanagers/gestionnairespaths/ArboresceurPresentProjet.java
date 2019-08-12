@@ -2332,7 +2332,7 @@ public final class ArboresceurPresentProjet {
 			/* Trie la liste des Keys des Entry de la Map. */
 			Collections.sort(list, new EntryStringComparator());
 
-			// créer une nouvelle Map à partir de LinkedList triée.
+			// crée une nouvelle Map à partir de LinkedList triée.
 			final Map<String, Path> mapTriee 
 				= new LinkedHashMap<String, Path>();
 

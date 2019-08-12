@@ -13,6 +13,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.metier.sections.ISectionHit;
+import levy.daniel.application.model.metier.sections.impl.SectionHit;
 import levy.daniel.application.model.metier.televersement.ITeleversement;
 import levy.daniel.application.model.metier.televersementdelotsections.ITeleversementDeLotSectionsHit;
 import levy.daniel.application.model.metier.televersementdelotsections.impl.TeleversementDeLotSectionsHit;
@@ -113,7 +114,10 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 			if (pEntityJPA != null) {
 				
 				objet.setId(pEntityJPA.getId());
-				objet.setTeleversement(pEntityJPA.getTeleversement());
+				objet.setTeleversement(
+						TeleversementConvertisseurMetierEntity
+							.convertirEntityJPAEnObjetMetier(
+									(TeleversementEntityJPA) pEntityJPA.getTeleversement()));
 				objet.setLotSections(
 						convertirLotEntityEnLotObjet(
 								pEntityJPA.getLotSections()));
@@ -156,7 +160,9 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 				objet 
 					= new TeleversementDeLotSectionsHit(
 							pEntity.getId()
-							, pEntity.getTeleversement()
+							, TeleversementConvertisseurMetierEntity
+							.convertirEntityJPAEnObjetMetier(
+									(TeleversementEntityJPA) pEntity.getTeleversement())
 							, convertirLotEntityEnLotObjet(
 									pEntity.getLotSections()));
 				
@@ -168,87 +174,8 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 		
 	} // Fin de convertirEntityJPAEnObjetMetier(...).______________________
 	
-
 	
-	/**
-	 * convertit une Map&lt;Integer, INTERFACE OBJET METIER MAIS ENTITY&gt; 
-	 * dans laquelle <b>toutes les valeurs sont des ENTITY</b> 
-	 * <i>vues comme des Interfaces</i>
-	 * en Map&lt;Integer, OBJET METIER&gt;.<br/>
-	 * <ul>
-	 * <li>vérifie que la value dans pMap est une ENTITY (instance réelle) 
-	 * <i>vue comme une Interface commune avec l'OBJET METIER</i>.</li>
-	 * <li>caste l'interface en ENTITY.</li>
-	 * <li>convertit l'ENTITY en OBJET METIER.</li>
-	 * <li>insère la valeur convertie en OBJET METIER 
-	 * dans le résultat retourné.</li>
-	 * <li>retourne une nouvelle Map ne contenant que des OBJETS METIER.</li>
-	 * </ul>
-	 * - retourne null si pMap == null.<br/>
-	 * - retourne pMap inchangée si pMap contient déjà des OBJETS METIER 
-	 * (et pas des ENTITY).<br/>
-	 * <br/>
-	 *
-	 * @param pMap : Map&lt;Integer, ISectionHit&gt; : 
-	 * Map ne contenant que des ENTITY vues comme des Interfaces.
-	 * 
-	 * @return : Map&lt;Integer,ISectionHit&gt; : 
-	 * Map d'OBJETS METIER.<br/>
-	 * 
-	 * @throws Exception 
-	 */
-	public static Map<Integer, ISectionHit> convertirLotEntityEnLotObjet(
-			final Map<Integer, ISectionHit> pMap) throws Exception {
-		
-		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
-			
-			/* retourne null si pMap == null. */
-			if (pMap == null) {
-				return null;
-			}
-			
-			final Map<Integer, ISectionHit> resultat = new ConcurrentHashMap<>();
-			
-			for (final Entry<Integer, ISectionHit> entry : pMap.entrySet()) {
-				
-				final Integer key = entry.getKey();
-				final ISectionHit value = entry.getValue();
-				
-				SectionHitEntityJPA valueCastee = null;
-				ISectionHit valueConvertie = null;
-				
-				/* vérifie que la value dans pMap est une ENTITY 
-				 * (instance réelle). */
-				if (value instanceof SectionHitEntityJPA) {
-					
-					/* caste l'interface en ENTITY. */
-					valueCastee 
-						= (SectionHitEntityJPA) entry.getValue();
-				
-					/* convertit l'ENTITY en OBJET METIER. */
-					valueConvertie 
-						= SectionHitConvertisseurMetierEntity
-							.convertirEntityJPAEnObjetMetier(valueCastee);
-				
-				} else {
-					
-					/* retourne pMap inchangée si pMap contient déjà des OBJETS METIER (et pas des ENTITY). */
-					valueConvertie = value;
-				}
-				
-				/* insère la valeur convertie en OBJET METIER 
-				 * dans le résultat retourné. */
-				resultat.put(key, valueConvertie);
-			}
-			
-			return resultat;
 
-		}
-		
-	} // Fin de convertirLotEntityEnLotObjet(...).___________________________
-
-	
-	
 	/**
 	 * convertit une Liste d'ENTITIES JPA 
 	 * en liste d'OBJETS METIER et la retourne.<br/>
@@ -309,9 +236,11 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 	 * @param pObject : ITeleversementDeLotSectionsHit.<br/>
 	 *  
 	 * @return : TeleversementDeLotSectionsHitEntityJPA.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public static TeleversementDeLotSectionsHitEntityJPA creerEntityJPA(
-			final ITeleversementDeLotSectionsHit pObject) {
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 		
 		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
 			
@@ -321,8 +250,12 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 			if (pObject != null) {
 				
 				entity.setId(pObject.getId());
-				entity.setTeleversement(pObject.getTeleversement());
-				entity.setLotSections(pObject.getLotSections());
+				entity.setTeleversement(
+						TeleversementConvertisseurMetierEntity
+							.convertirObjetMetierEnEntityJPA(
+									pObject.getTeleversement()));
+				entity.setLotSections(
+						convertirLotObjetEnLotEntity(pObject.getLotSections()));
 				
 			}
 			
@@ -345,9 +278,11 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 	 * @param pObject : ITeleversementDeLotSectionsHit : Objet métier.<br/>
 	 * 
 	 * @return : TeleversementDeLotSectionsHitEntityJPA : ENTITY JPA.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public static TeleversementDeLotSectionsHitEntityJPA convertirObjetMetierEnEntityJPA(
-			final ITeleversementDeLotSectionsHit pObject) {
+			final ITeleversementDeLotSectionsHit pObject) throws Exception {
 		
 		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
 			
@@ -362,12 +297,13 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 				= TeleversementConvertisseurMetierEntity
 					.convertirObjetMetierEnEntityJPA(televersement);
 				
-				/* injecte les valeurs String dans un DTO. */
+				/* injecte les valeurs converties dans une Entity. */
 				resultat 
 					= new TeleversementDeLotSectionsHitEntityJPA(
 							pObject.getId()
 							, televersementEntityJPA
-							, pObject.getLotSections());
+							, convertirLotObjetEnLotEntity(
+									pObject.getLotSections()));
 				
 			}
 						
@@ -389,9 +325,11 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 	 * @param pList : List&lt;ITeleversementDeLotSectionsHit&gt;
 	 * 
 	 * @return : List&lt;TeleversementDeLotSectionsHitEntityJPA&gt;.<br/>
+	 * 
+	 * @throws Exception 
 	 */
 	public static List<TeleversementDeLotSectionsHitEntityJPA> convertirListModelEnEntitiesJPA(
-			final Iterable<ITeleversementDeLotSectionsHit> pList) {
+			final Iterable<ITeleversementDeLotSectionsHit> pList) throws Exception {
 		
 		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
 			
@@ -544,6 +482,172 @@ public final class TeleversementDeLotSectionsHitConvertisseurMetierEntity {
 		return stb.toString();
 		
 	} //Fin de afficherFormateListObjets(...)._____________________________
+	
+
+	
+	/**
+	 * convertit une Map&lt;Integer, INTERFACE OBJET METIER MAIS ENTITY&gt; 
+	 * dans laquelle <b>toutes les valeurs sont des ENTITY</b> 
+	 * <i>vues comme des Interfaces</i>
+	 * en Map&lt;Integer, OBJET METIER&gt;.<br/>
+	 * <ul>
+	 * <li>vérifie que la value dans pMap est une ENTITY (instance réelle) 
+	 * <i>vue comme une Interface commune avec l'OBJET METIER</i>.</li>
+	 * <li>caste l'interface en ENTITY.</li>
+	 * <li>convertit l'ENTITY en OBJET METIER.</li>
+	 * <li>insère la valeur convertie en OBJET METIER 
+	 * dans le résultat retourné.</li>
+	 * <li>retourne une nouvelle Map ne contenant que des OBJETS METIER.</li>
+	 * </ul>
+	 * - retourne null si pMap == null.<br/>
+	 * - retourne pMap inchangée si pMap ne contient déjà que des OBJETS METIER 
+	 * (et pas des ENTITY).<br/>
+	 * <br/>
+	 *
+	 * @param pMap : Map&lt;Integer, ISectionHit&gt; : 
+	 * Map ne contenant que des ENTITY vues comme des Interfaces.
+	 * 
+	 * @return : Map&lt;Integer,ISectionHit&gt; : 
+	 * Map d'OBJETS METIER.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Map<Integer, ISectionHit> convertirLotEntityEnLotObjet(
+			final Map<Integer, ISectionHit> pMap) throws Exception {
+		
+		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
+			
+			/* retourne null si pMap == null. */
+			if (pMap == null) {
+				return null;
+			}
+			
+			final Map<Integer, ISectionHit> resultat 
+				= new ConcurrentHashMap<Integer, ISectionHit>();
+			
+			for (final Entry<Integer, ISectionHit> entry : pMap.entrySet()) {
+				
+				final Integer key = entry.getKey();
+				final ISectionHit value = entry.getValue();
+				
+				SectionHitEntityJPA valueCastee = null;
+				ISectionHit valueConvertie = null;
+				
+				/* vérifie que la value dans pMap est une ENTITY 
+				 * (instance réelle). */
+				if (value instanceof SectionHitEntityJPA) {
+					
+					/* caste l'interface en ENTITY. */
+					valueCastee 
+						= (SectionHitEntityJPA) entry.getValue();
+				
+					/* convertit l'ENTITY en OBJET METIER. */
+					valueConvertie 
+						= SectionHitConvertisseurMetierEntity
+							.convertirEntityJPAEnObjetMetier(valueCastee);
+				
+				} else {
+					
+					/* retourne pMap inchangée si pMap contient 
+					 * déjà des OBJETS METIER (et pas des ENTITY). */
+					valueConvertie = value;
+				}
+				
+				/* insère la valeur convertie en OBJET METIER 
+				 * dans le résultat retourné. */
+				resultat.put(key, valueConvertie);
+			}
+			
+			return resultat;
+
+		} // Fin de synchronized.___________________________________
+		
+	} // Fin de convertirLotEntityEnLotObjet(...).___________________________
+
+	
+		
+	/**
+	 *  convertit une Map&lt;Integer, INTERFACE OBJET METIER MAIS OBJET&gt; 
+	 * dans laquelle <b>toutes les valeurs sont des OBJETS METIER</b> 
+	 * <i>vues comme des Interfaces</i>
+	 * en Map&lt;Integer, ENTITY&gt;.<br/>
+	 * <ul>
+	 * <li>vérifie que la value dans pMap est une OBJET METIER (instance réelle) 
+	 * <i>vue comme une Interface commune avec l'ENTITY</i>.</li>
+	 * <li>caste l'interface en OBJET METIER.</li>
+	 * <li>convertit l'OBJET METIER en ENTITY.</li>
+	 * <li>insère la valeur convertie en ENTITY 
+	 * dans le résultat retourné.</li>
+	 * <li>retourne une nouvelle Map ne contenant que des ENTITY.</li>
+	 * </ul>
+	 * - retourne null si pMap == null.<br/>
+	 * - retourne pMap inchangée si pMap ne contient déjà que des ENTITY 
+	 * (et pas des OBJETS METIER).<br/>
+	 * <br/>
+	 *
+	 * @param pMap : Map&lt;Integer, ISectionHit&gt; : 
+	 * Map ne contenant que des OBJETS METIER vues comme des Interfaces.
+	 * 
+	 * @return : Map&lt;Integer,ISectionHit&gt; : 
+	 * Map ne contenant que des ENTITY.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Map<Integer, ISectionHit> convertirLotObjetEnLotEntity(
+			final Map<Integer, ISectionHit> pMap) throws Exception {
+		
+		synchronized (TeleversementDeLotSectionsHitConvertisseurMetierEntity.class) {
+			
+			/* retourne null si pMap == null. */
+			if (pMap == null) {
+				return null;
+			}
+			
+			final Map<Integer, ISectionHit> resultat 
+				= new ConcurrentHashMap<Integer, ISectionHit>();
+			
+			for (final Entry<Integer, ISectionHit> entry : pMap.entrySet()) {
+
+				final Integer key = entry.getKey();
+				final ISectionHit value = entry.getValue();
+								
+				SectionHit valueCastee = null;
+				ISectionHit valueConvertie = null;
+				
+				/* vérifie que la value dans pMap est un OBJET METIER
+				 * (instance réelle). */
+				if (value instanceof SectionHit) {
+					
+					/* caste l'interface en OBJET. */
+					valueCastee 
+						= (SectionHit) entry.getValue();
+					
+					/* convertit l'OBJET METIER en ENTITY. */
+					valueConvertie 
+						= SectionHitConvertisseurMetierEntity
+							.convertirObjetMetierEnEntityJPA(valueCastee);
+					
+				} else {
+
+					/*
+					 * retourne pMap inchangée si pMap contient déjà 
+					 * des ENTIY (et pas des OBJETS METIER).
+					 */
+					valueConvertie = value;
+
+				}
+								
+				/* insère la valeur convertie en ENTITY 
+				 * dans le résultat retourné. */
+				resultat.put(key, valueConvertie);
+
+			}
+			
+			return resultat;
+			
+		} // Fin de synchronized.___________________________________
+		
+	} // Fin de convertirLotObjetEnLotEntity(...)._________________________
 
 	
 	

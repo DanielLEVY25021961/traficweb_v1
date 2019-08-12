@@ -62,8 +62,10 @@ import levy.daniel.application.model.persistence.daoexceptions.AbstractDaoExcept
 import levy.daniel.application.model.persistence.metier.televersementdelotsections.ITeleversementDeLotSectionsHitDAO;
 import levy.daniel.application.model.persistence.metier.televersementdelotsections.TeleversementDeLotSectionsHitConvertisseurMetierEntity;
 import levy.daniel.application.model.persistence.metier.televersementdelotsections.entities.jpa.TeleversementDeLotSectionsHitEntityJPA;
+import levy.daniel.application.model.services.differentiateurfichiers.DifferentiateurFichiersHit;
 import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl.ImporteurHit;
 import levy.daniel.application.model.services.valideurs.metier.utilisateurs.EnumCivilites;
+import levy.daniel.application.model.utilitaires.differentiateur.DifferenceChamp;
 import levy.daniel.application.model.utilitaires.spring.afficheurcontexte.AfficheurContexteSpring;
 import levy.daniel.application.model.utilitaires.spring.configurateurspring.ConfigurateurSpringFrmkAnnotationJPAH2Memory;
 
@@ -7263,6 +7265,16 @@ public class TeleversementDeLotSectionsHitDAOJPASpringTest {
 			System.out.println();
 			System.out.println("SECTIONS DE RESULTAT : ");
 			System.out.println(resultat.afficherLotSections());
+			
+			final Map<Integer, Map<Integer, DifferenceChamp>> diffMap = 
+					DifferentiateurFichiersHit.differencier(
+							objetModifie.getLotSections()
+								, resultat.getLotSections());
+			
+			final String affichDiff 
+				= DifferentiateurFichiersHit.afficherMapDifferences(diffMap);
+			
+			System.out.println(affichDiff);
 						
 			assertEquals(
 					"updateById(id correct, objet correct) doit "
