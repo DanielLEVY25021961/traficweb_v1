@@ -30,8 +30,8 @@ import levy.daniel.application.model.metier.utilisateur.impl.UtilisateurCerbere;
  * <b>préférences relatives aux REGLES DE GESTION (RG) applicables 
  * à un {@link UtilisateurCerbere}</b>.<br/>
  * <ul>
- * <li>gère comme des préférences les booleens 
- * qui activent ou non les contrôles des RG.</li>
+ * <li>gère comme des préférences les <b>booleens 
+ * qui activent ou non les contrôles des RG</b>.</li>
  * </ul>
  * <br/>
  * 
@@ -126,7 +126,8 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	 * '='.<br/>
 	 */
 	public static final char EGAL = '=';
-		
+
+	// RGs ***************************************************
 	/**
 	 * clé de validerRGUtilisateurCivilite dans 
 	 * UtilisateurCerbere_RG.properties<br/>

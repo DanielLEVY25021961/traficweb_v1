@@ -87,6 +87,12 @@ public class ErreursMaps {
 	public static final String MOINS_ESPACE = " - ";
 
 	/**
+	 * boolean qui stipule si la validation est OK.<br/>
+	 * true si la validation est OK.<br/>
+	 */
+	private boolean valide;
+	
+	/**
 	 * Map&lt;String,String&gt; contenant les 
 	 * éventuels messages d'erreur pour chaque attribut avec 
 	 * toutes les violations des Règles de Gestion (RG) sur une seule ligne :
@@ -406,7 +412,33 @@ public class ErreursMaps {
 	} // Fin de afficherMapStringList(...).________________________________
 	
 	
+		
+	/**
+	 * Getter du boolean qui stipule si la validation est OK.<br/>
+	 * true si la validation est OK.<br/>
+	 *
+	 * @return this.valide : boolean.<br/>
+	 */
+	public final boolean isValide() {
+		return this.valide;
+	} // Fin de isValide().________________________________________________
+
+
 	
+	/**
+	* Setter du boolean qui stipule si la validation est OK.<br/>
+	* true si la validation est OK.<br/>
+	*
+	* @param pValide : boolean : 
+	* valeur à passer à this.valide.<br/>
+	*/
+	public final void setValide(
+			final boolean pValide) {
+		this.valide = pValide;
+	} // Fin de setValide(...).____________________________________________
+
+
+
 	/**
 	 * Getter de la Map&lt;String,String&gt; contenant les 
 	 * éventuels messages d'erreur pour chaque attribut avec 

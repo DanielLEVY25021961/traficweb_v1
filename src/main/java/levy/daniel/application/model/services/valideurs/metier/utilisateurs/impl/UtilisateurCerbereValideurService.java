@@ -245,7 +245,7 @@ public class UtilisateurCerbereValideurService
 	 * @throws Exception 
 	 */
 	@Override
-	public ErreursMaps valider(
+	public final ErreursMaps valider(
 			final IUtilisateurCerbereDTO pDto) throws Exception {
 		
 		if (pDto == null) {
@@ -338,6 +338,8 @@ public class UtilisateurCerbereValideurService
 //		this.validerRestriction(pDto, erreursMap);
 		
 		valide = civiliteValide && prenomValide && nomValide;
+		
+		erreursMap.setValide(valide);
 		
 //		System.out.println("valide ? : " + valide);
 		

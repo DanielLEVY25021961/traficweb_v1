@@ -130,7 +130,8 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 * '='.<br/>
 	 */
 	public static final char EGAL = '=';
-			
+
+	// CONTROLES ***************************************************
 	/**
 	 * clé de messageUtilisateurCiviliteRenseigne01 dans 
 	 * UtilisateurCerbere_CONTROLES.properties<br/>
@@ -542,7 +543,8 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	
 	/**
 	 * <b>sauvegarde sur disque un fichier 
-	 * UtilisateurCerbere_CONTROLES.properties initial</b> alimenté par des 
+	 * <code>ressources_externes/preferences/metier/utilisateurs/
+	 * UtilisateurCerbere_CONTROLES.properties</code> initial</b> alimenté par des 
 	 * propriétés [clé-valeur] <b>écrites en dur</b> 
 	 * dans la présente classe.<br/>
 	 * <ul>
@@ -600,8 +602,6 @@ public final class UtilisateurCerbereGestionnairePreferencesControles {
 	 * dans la classe au java.util.Properties <b>preferences</b>.<br/>
 	 * <ul>
 	 * civilite
-	 * <li>ajoute le messageRGUtilisateurCivilite 
-	 * par défaut stocké en dur.</li>
 	 * <li>ajoute le messageUtilisateurCiviliteRenseigne01 
 	 * par défaut stockée en dur.</li>
 	 * <li>ajoute le messageUtilisateurCiviliteLitteral02 
