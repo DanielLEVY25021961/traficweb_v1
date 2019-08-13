@@ -31,6 +31,8 @@ import levy.daniel.application.model.persistence.metier.televersement.ITeleverse
 import levy.daniel.application.model.persistence.metier.televersementdelotsections.ITeleversementDeLotSectionsHitDAO;
 import levy.daniel.application.model.persistence.metier.televersementdelotsections.TeleversementDeLotSectionsHitConvertisseurMetierEntity;
 import levy.daniel.application.model.persistence.metier.televersementdelotsections.entities.jpa.TeleversementDeLotSectionsHitEntityJPA;
+import levy.daniel.application.model.services.differentiateurfichiers.DifferentiateurFichiersHit;
+import levy.daniel.application.model.utilitaires.differentiateur.DifferenceChamp;
 
 /**
  * CLASSE TeleversementDeLotSectionsHitDAOJPASpring :<br/>
@@ -256,7 +258,7 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 		final ITeleversement televersementEntity 
 			= pEntity.getTeleversement();
 		
-		final Map<Integer, ISectionHit> lotSectionsObjet 
+		final Map<Integer, ISectionHit> lotSectionsEntity 
 			= pEntity.getLotSections();
 		
 		/* CREATION DANS LE STOCKAGE OU RECUPERATION DES ENTITY 
@@ -267,27 +269,34 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 		
 		final Map<Integer, ISectionHit> lotSectionsEntityPersiste 
 			= new ConcurrentHashMap<Integer, ISectionHit>();
-		
-		for (final Entry<Integer, ISectionHit> entry : lotSectionsObjet.entrySet()) {
+				
+		for (final Entry<Integer, ISectionHit> entry : lotSectionsEntity.entrySet()) {
 			
 			final Integer numero = entry.getKey();
 			final ISectionHit objet = entry.getValue();
 			
-			final SectionHitEntityJPA sectionHitEntityJPA 
-				= SectionHitConvertisseurMetierEntity
-					.convertirObjetMetierEnEntityJPA(objet);
+			SectionHitEntityJPA sectionHitEntityJPA = null;
 			
+			if (!(objet instanceof SectionHitEntityJPA)) {
+				sectionHitEntityJPA 
+					= SectionHitConvertisseurMetierEntity
+						.convertirObjetMetierEnEntityJPA(objet);
+			} else {
+				sectionHitEntityJPA = (SectionHitEntityJPA) objet;
+			}
+						
 			final ISectionHit sectionHitEntityJPAPersistent 
 				= this.sectionHitDAO.createOrRetrieve(sectionHitEntityJPA);
 			
 			lotSectionsEntityPersiste.put(numero, sectionHitEntityJPAPersistent);
+			
 		}
 		
 		/* INJECTION DES ENTITY COMPOSANTES PERSISTEES 
 		 * DANS LE COMPOSITE. */
 		pEntity.setTeleversement(televersementEntityPersiste);
 		pEntity.setLotSections(lotSectionsEntityPersiste);
-		
+	
 	} // Fin de stockerComposants(...).____________________________________
 
 
@@ -1467,8 +1476,13 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 			this.rechercherComposantsPersistants(objetAModifier);
 
 			// APPLIQUE LES MODIFICATIONS.
-			objetAModifier.setTeleversement(pObjectModifie.getTeleversement());
-			objetAModifier.setLotSections(pObjectModifie.getLotSections());
+			final ITeleversement televersementModifie 
+				= pObjectModifie.getTeleversement();
+			final Map<Integer, ISectionHit> lotSectionsModifie 
+				= pObjectModifie.getLotSections();
+			
+			objetAModifier.setTeleversement(televersementModifie);
+			objetAModifier.setLotSections(lotSectionsModifie);
 
 			/* conversion de l'OBJET METIER en ENTITY. */
 			final TeleversementDeLotSectionsHitEntityJPA entity 
@@ -1477,6 +1491,13 @@ public class TeleversementDeLotSectionsHitDAOJPASpring implements ITeleversement
 
 			// SAUVEGARDE DES COMPOSANTS *******************************
 			this.stockerComposants(entity);
+
+			final Map<Integer, Map<Integer, DifferenceChamp>>  diffMap 
+			= DifferentiateurFichiersHit.differencier(
+					lotSectionsModifie, entity.getLotSections());
+		
+			System.out.println("DIFFERENCE ENTRE lotSectionsModifie et entity.getLotSections() APRES STOCKERCOMPOSANTS() : " 
+			+ DifferentiateurFichiersHit.afficherMapDifferences(diffMap));
 
 			/* MODIFIE en base. */
 			this.entityManager.merge(entity);

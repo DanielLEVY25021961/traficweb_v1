@@ -282,7 +282,7 @@ public class SectionHitDAOJPASpring implements ISectionHitDAO {
 
 		requeteString
 		= SELECT_OBJET
-		+ "where (sectionHit.localisation.id = :pLocalisationId) "
+		+ "where ((sectionHit.localisation.id IS NULL and :pLocalisationId IS NULL) OR (sectionHit.localisation.id = :pLocalisationId)) "
 		+ "and ((sectionHit.numSection IS NULL and :pNumSection IS NULL) OR (sectionHit.numSection = :pNumSection)) "
 		+ "and ((sectionHit.sens IS NULL and :pSens IS NULL) OR (sectionHit.sens = :pSens)) "
 		+ "and ((sectionHit.nature IS NULL and :pNature IS NULL) OR (sectionHit.nature = :pNature)) "
