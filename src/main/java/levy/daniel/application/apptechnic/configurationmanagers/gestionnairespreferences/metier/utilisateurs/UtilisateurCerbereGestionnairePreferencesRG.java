@@ -415,7 +415,7 @@ public final class UtilisateurCerbereGestionnairePreferencesRG {
 	private static final String CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE 
 		= "commentaires_properties/metier/utilisateurs/UtilisateurCerbere_RG_properties_commentaires.txt";
 
-	
+	// BOOLEANS *************************************
 	/**
 	 * Boolean activant <b>globalement</b> les contrôles 
 	 * sur la <i>civilite</i> de l'utilisateur.<br/>

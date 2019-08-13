@@ -169,10 +169,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	* Chemin relatif (par rapport à ressources_externes) 
 	* du fichier properties contenant les preferences
 	* <code>SectionHit_CONTROLES.properties</code>.<br/>
-	* "preferences/metier/utilisateurs/SectionHit_CONTROLES.properties"
+	* "preferences/metier/sections/SectionHit_CONTROLES.properties"
 	*/
 	private static final String CHEMIN_RELATIF_PREFERENCES_PROPERTIES_STRING 
-	= "preferences/metier/utilisateurs/SectionHit_CONTROLES.properties";
+	= "preferences/metier/sections/SectionHit_CONTROLES.properties";
 	
 	/**
 	* Modélisation Java du fichier properties contenant les preferences
@@ -192,11 +192,13 @@ public final class SectionHitGestionnairePreferencesControles {
 	* du template contenant le commentataire à ajouter 
 	* en haut du fichier properties contenant les preferences 
 	* <code>SectionHit_CONTROLES.properties</code>.<br/>
-	* "commentaires_properties/metier/utilisateurs/SectionHit_CONTROLES_properties_commentaires.txt"
+	* "commentaires_properties/metier/sections/SectionHit_CONTROLES_properties_commentaires.txt"
 	*/
 	private static final String CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE 
-	= "commentaires_properties/metier/utilisateurs/SectionHit_CONTROLES_properties_commentaires.txt";
-	
+	= "commentaires_properties/metier/sections/SectionHit_CONTROLES_properties_commentaires.txt";
+
+	// MESSAGES ************************************************
+	/* 1 - numDepartement. */
 	/**
 	* message émis par la RG-SectionHit-NumDepartement-01 : 
 	* "le numéro de département doit obligatoirement être renseigné".<br/>
@@ -206,6 +208,7 @@ public final class SectionHitGestionnairePreferencesControles {
 	/**
 	* message émis par la RG-SectionHit-NumDepartement-02 : 
 	* "le numéro de département doit comporter exactement 3 chiffres 
+	* dans les colonnes [1-3] du HIT 
 	* ('030' pour 03, '300' pour 30, '972' pour 972)".<br/>
 	*/
 	private static String messageSectionHitNumDepartementRegex02;
@@ -2080,7 +2083,233 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static String getCheminRelatifTemplateCommentaire() {
 		return CHEMIN_RELATIF_TEMPLATE_COMMENTAIRE;
 	} // Fin de getCheminRelatifTemplateCommentaire()._____________________
+
+
+
+	/**
+	 * retourne le messageSectionHitNumDepartementRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumDepartementRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumDepartementRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumDepartementRenseigne01
+					, fournirKeyMessageSectionHitNumDepartementRenseigne01()
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENT_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumDepartementRenseigne01()._______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumDepartementRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numdepartement.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_UTILISATEUR_CIVILITE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumDepartementRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENT_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitNumDepartementRenseigne01().____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumDepartementRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumDepartementRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumDepartementRenseigne01() 
+													throws Exception {
+		return fournirMessageSectionHitNumDepartementRenseigne01();
+	} // Fin de getMessageSectionHitNumDepartementRenseigne01().___________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumDepartementRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumDepartementRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitNumDepartementRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumDepartementRenseigne01
+							, fournirKeyMessageSectionHitNumDepartementRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumDepartementRenseigne01(...).________
+
+
+
+	/**
+	 * retourne le messageSectionHitNumDepartementRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumDepartementRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumDepartementRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumDepartementRegex02
+					, fournirKeyMessageSectionHitNumDepartementRegex02()
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENT_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumDepartementRegex02().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumDepartementRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numdepartement.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENT_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumDepartementRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENT_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitNumDepartementRegex02().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumDepartementRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumDepartementRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumDepartementRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitNumDepartementRegex02();
+	} // Fin de getMessageSectionHitNumDepartementRegex02()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumDepartementRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumDepartementRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitNumDepartementRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumDepartementRegex02
+							, fournirKeyMessageSectionHitNumDepartementRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumDepartementRegex02(...).____________
 	
 	
 	
-}
+} // FIN DE LA CLASSE SectionHitGestionnairePreferencesControles.------------

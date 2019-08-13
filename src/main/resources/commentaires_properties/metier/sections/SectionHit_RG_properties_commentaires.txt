@@ -1,0 +1,11 @@
+# ################### SectionHit_RG.properties #########################
+# Encodé en UTF-8
+#
+# Fichier properties EXTERNE ne devant pas être inclus dans le classpath.
+# Fichier MODIFIABLE par la Maîtrise d'Ouvrage (MOA) via une
+# GESTION DE PREFERENCES.
+#
+# ######################################################################
+# Contient les paramétrages d'application des REGLES DE GESTION (RG)
+# pour l'OBJET METIER : SectionHit 
+# ######################################################################
