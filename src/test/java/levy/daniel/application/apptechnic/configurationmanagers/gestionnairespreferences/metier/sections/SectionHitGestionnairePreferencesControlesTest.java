@@ -186,6 +186,16 @@ public class SectionHitGestionnairePreferencesControlesTest {
 				, SectionHitGestionnairePreferencesControles
 					.getMessageSectionHitNumDepartementRegex02());
 		
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitNumDepartementRenseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_NUMDEPARTEMENT_RENSEIGNE_01_EN_DUR);
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitNumDepartementRegex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_NUMDEPARTEMENT_REGEX_02_EN_DUR);
+		
 	} // Fin de testAfficherPreferences()._________________________________
 	
 
@@ -467,7 +477,17 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		assertEquals("le message doit valoir : '3 CHIFFRES SVP'"
 				, "3 CHIFFRES SVP"
 					, messageModifie);
-				
+		
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitNumDepartementRenseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_NUMDEPARTEMENT_RENSEIGNE_01_EN_DUR);
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitNumDepartementRegex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_NUMDEPARTEMENT_REGEX_02_EN_DUR);
+
 	} // Fin de testGetMessageSectionHitNumDepartementRegex02().___________
 
 

@@ -14,7 +14,7 @@ import levy.daniel.application.model.services.valideurs.ErreursMaps;
 
 /**
  * CLASSE UtilisateurCerbereValideurServiceTest :<br/>
- * Test JUnit de la classe UtilisateurCerbereValideurService.<br/>
+ * Test JUnit de la classe {@link UtilisateurCerbereValideurService}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
