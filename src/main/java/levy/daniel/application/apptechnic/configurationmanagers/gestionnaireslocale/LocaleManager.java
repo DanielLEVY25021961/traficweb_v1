@@ -84,11 +84,15 @@ public final class LocaleManager {
 	public static final String CLASSE_LOCALEMANAGER 
 		= "Classe LocaleManager";
 
-
 	/**
 	 * '\n'.<br/>
 	 */
-	public static final char SAUT_LIGNE_JAVA = '\n';
+	public static final char SAUT_LIGNE_JAVA_CHAR = '\n';
+		
+	/**
+	 * "_".
+	 */
+	public static final String UNDERSCORE_STRING = "_";
 	
 	/**
 	 * <b>Locale par défaut de la plate-forme</b>.<br/>
@@ -403,7 +407,58 @@ static {
 
 	
 	/**
+	 * retourne l'extension d'une Locale pLocale comme "fr_FR" ou "en_US".<br/>
+	 * <ul>
+	 * <li>"fr" correspond au langage dans <code><b>fr_FR</b></code>.</li>
+	 * <li>"FR" correspond au pays (Country) dans <code><b>fr_FR</b></code>.</li>
+	 * </ul>
+	 * - retourne null si pLocale == null.<br/>
+	 * - retourne une chaîne vide si pLocale.getDisplayName() est blank 
+	 * (cas ou le properties n'a pas d'extension de langue-pays comme 
+	 * dans 'application.properties').<br/>
+	 * <br/>
+	 *
+	 * @param pLocale : Locale.
+	 * 
+	 * @return : String : extension comme "fr_FR" 
+	 * dans <code><b>application_fr_FR.properties</b></code>.<br/>
+	 */
+	public static String getExtensionLangageCountryLocale(
+			final Locale pLocale) {
+		
+		/* Bloc synchronized. */
+		synchronized (LocaleManager.class) {
+					
+			/* retourne null si pLocale == null. */
+			if (pLocale == null) {
+				return null;
+			}
+			
+			/* retourne une chaîne vide si pLocale.getDisplayName() est blank. */
+			if (StringUtils.isBlank(
+					pLocale.getDisplayName(
+							LocaleManager.getLocaleApplication()))) {
+				return "";
+			}
+
+		
+			final String resultat 
+				= getLangageLocale(pLocale) 
+				+ UNDERSCORE_STRING 
+				+ getCountryLocale(pLocale);
+			
+			return resultat;
+
+		} // Fin de synchronized._____________________________
+		
+	} // Fin de getExtensionLangageCountryLocale(...)._____________________
+	
+
+	
+	/**
 	 * <b>retourne le langage d'une Locale pLocale</b>.<br/>
+	 * Par exemple : "fr" dans <code><b>fr_FR</b></code> 
+	 * ou "en" dans <code><b>en_US</b></code>.<br/>
 	 * <br/>
 	 * - retourne null si pLocale == null.<br/>
 	 * <br/>
@@ -455,6 +510,8 @@ static {
 	
 	/**
 	 * <b>retourne le pays d'une Locale pLocale</b>.<br/>
+	 * Par exemple : "FR" dans <code><b>fr_FR</b></code> 
+	 * ou "US" dans <code><b>en_US</b>/code>.<br/>
 	 * <br/>
 	 * - retourne null si pLocale == null.<br/>
 	 * <br/>
@@ -475,7 +532,7 @@ static {
 				return null;
 			}
 			
-			return localeApplication.getCountry();
+			return pLocale.getCountry();
 			
 		} // Fin de synchronized._____________________________
 		
@@ -609,7 +666,7 @@ static {
 			
 			for (final String ligne : pList) {
 				stb.append(ligne);
-				stb.append(SAUT_LIGNE_JAVA);
+				stb.append(SAUT_LIGNE_JAVA_CHAR);
 			}
 			
 			return stb.toString();

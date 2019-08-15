@@ -58,7 +58,7 @@ public enum EnumTypesValidation {
 	
 	, /**
 	 * LONGUEUR : EnumTypesValidation :<br/>
-	 * Attribut devant avoir une longueur bornée.<br/>
+	 * Attribut devant avoir une longueur en caractères bornée.<br/>
 	 */
 	LONGUEUR(5, "longueur bornée")
 	
@@ -78,18 +78,21 @@ public enum EnumTypesValidation {
 	 * FOURCHETTE : EnumTypesValidation :<br/>
 	 * Attribut devant avoir une valeur numérique bornée.<br/>
 	 */
-	FOURCHETTE(8, "valeur numérique bornée");
+	FOURCHETTE(8, "valeur numérique bornée [min-max]");
     
 
 	
 	/**
 	 * type de validation sous forme de numéro.<br/>
+	 * Par exemple '1' pour RENSEIGNE, '2' pour LITTERAL, ...
 	 */
 	private final int numero;
 	
 	
     /**
      * label du type de validation.<br/>
+     * Par exemple "non renseigné" pour RENSEIGNE, 
+     * "champ littéral (lettres et caractères spéciaux)" pour LITTERAL, ...
      */
     private final String typeString;
 
@@ -110,7 +113,8 @@ public enum EnumTypesValidation {
 
     
 	/**
-	 * Getter du numéro.<br/>
+	 * Getter du type de validation sous forme de numéro.<br/>
+	 * Par exemple '1' pour RENSEIGNE, '2' pour LITTERAL, ...
 	 *
 	 * @return this.numero : int.<br/>
 	 */
@@ -121,7 +125,9 @@ public enum EnumTypesValidation {
 
 
 	/**
-	 * Getter du label.<br/>
+	 * Getter du label du type de validation.<br/>
+	 * Par exemple "non renseigné" pour RENSEIGNE, 
+     * "champ littéral (lettres et caractères spéciaux)" pour LITTERAL, ...
 	 *
 	 * @return this.typeString : String.<br/>
 	 */

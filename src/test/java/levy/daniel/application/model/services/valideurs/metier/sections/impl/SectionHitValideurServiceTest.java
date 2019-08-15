@@ -2,14 +2,17 @@ package levy.daniel.application.model.services.valideurs.metier.sections.impl;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.utilisateurs.UtilisateurCerbereGestionnairePreferencesRG;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.sections.SectionHitGestionnairePreferencesRG;
+import levy.daniel.application.model.FactorySectionHit;
+import levy.daniel.application.model.dto.metier.sections.ISectionHitDTO;
 import levy.daniel.application.model.services.valideurs.ErreursMaps;
+import levy.daniel.application.model.services.valideurs.metier.sections.ISectionHitValideurService;
 
 /**
  * CLASSE SectionHitValideurServiceTest :<br/>
@@ -44,7 +47,18 @@ public class SectionHitValideurServiceTest {
 	 * "unused".<br/>
 	 */
 	public static final String UNUSED = "unused";
+	
+	/**
+	 * ISectionHitValideurService.
+	 */
+	public static final ISectionHitValideurService SERVICE 
+		= new SectionHitValideurService();
 
+	/**
+	 * ISectionHitDTO.
+	 */
+	public static ISectionHitDTO dto;
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -52,11 +66,6 @@ public class SectionHitValideurServiceTest {
 	@SuppressWarnings("unused")
 	private static final Log LOG 
 		= LogFactory.getLog(SectionHitValideurServiceTest.class);
-
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 
 	// *************************METHODES************************************/
 	
@@ -67,6 +76,101 @@ public class SectionHitValideurServiceTest {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
+	
+	
+	/**
+	 * teste la validation de numDepartement 
+	 * validerCivilite(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG LITTERAL fonctionne.</li>
+	 * <li>garantit que la RG LONGUEUR fonctionne.</li>
+	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderNumDepartement() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderNumDepartement() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+		
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setNumDepartement("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* numDepartement non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+		/* TEST DU RENSEIGNE. ********* */
+		final String valeur = "030";
+		dto.setNumDepartement(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* numDepartement renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		
+	} // Fin de testValiderNumDepartement()._______________________________
+
+	
+	/**
+	 * active toutes les RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private void activerToutesRG() throws Exception {
+		
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRegex02(true);
+		
+	} // Fin de activerToutesRG()._________________________________________
+	
 
 	
 	/**
@@ -84,7 +188,7 @@ public class SectionHitValideurServiceTest {
 			System.out.println();
 			System.out.println("PREFERENCES");
 			System.out.println(
-					UtilisateurCerbereGestionnairePreferencesRG
+					SectionHitGestionnairePreferencesRG
 						.afficherPreferences());
 			System.out.println();
 		}
@@ -147,6 +251,22 @@ public class SectionHitValideurServiceTest {
 				, pErreursMaps.getErrorsMapDetaille().isEmpty());
 		
 	} // Fin de assertErreurs(...).________________________________________
+	
+
+	
+	/**
+	 * Exécuté avant tout test de la méthode.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	@BeforeClass
+	public static void beforeClass() throws Exception {
+		
+		System.setProperty("%log4j.skipJansi", "false");
+		
+		dto = FactorySectionHit.getBonneSectionHitDTO();
+		
+	} // Fin de beforeClass()._____________________________________________
 	
 	
 		

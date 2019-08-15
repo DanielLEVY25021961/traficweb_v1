@@ -128,10 +128,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitNumDepartementRenseigne01 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le numéro de département doit obligatoirement être renseigné".<br/>
+	 * "le numéro de département de la section HIT doit être renseigné (obligatoire)".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_NUMDEPARTEMENT_RENSEIGNE_01_EN_DUR 
-		= "le numéro de département doit obligatoirement être renseigné";
+		= "le numéro de département de la section HIT doit être renseigné (obligatoire)";
 		
 	/**
 	 * clé de messageSectionHitNumDepartementRegex02 dans 
@@ -151,8 +151,7 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * ('030' pour 03, '300' pour 30, '972' pour 972)".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_NUMDEPARTEMENT_REGEX_02_EN_DUR 
-		= "le numéro de département doit comporter exactement 3 chiffres "
-				+ "('030' pour 03, '300' pour 30, '972' pour 972)";
+		= "le numéro de département doit comporter exactement 3 chiffres ('030' pour 03, '300' pour 30, '972' pour 972)";
 		
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>

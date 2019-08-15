@@ -191,13 +191,14 @@ public class LigneRG
 
 	
 static {
-	mapTypesControle.put(1, "nullité");
-	mapTypesControle.put(2, "format");
-	mapTypesControle.put(3, "fourchette [Min-Max]");
-	mapTypesControle.put(4, "nomenclature");
-	mapTypesControle.put(5, "valeur par défaut");
-	mapTypesControle.put(6, "longueur");
-	mapTypesControle.put(7, "expression régulière (Regex)");
+	mapTypesControle.put(1, EnumTypesValidation.RENSEIGNE.getTypeString());
+	mapTypesControle.put(2, EnumTypesValidation.LITTERAL.getTypeString());
+	mapTypesControle.put(3, EnumTypesValidation.LITTERAL_ALPHABETIQUE.getTypeString());
+	mapTypesControle.put(4, EnumTypesValidation.NUMERIQUE.getTypeString());
+	mapTypesControle.put(5, EnumTypesValidation.LONGUEUR.getTypeString());
+	mapTypesControle.put(6, EnumTypesValidation.MOTIF.getTypeString());
+	mapTypesControle.put(7, EnumTypesValidation.NOMENCLATURE.getTypeString());
+	mapTypesControle.put(8, EnumTypesValidation.FOURCHETTE.getTypeString());
 }
 
 

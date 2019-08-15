@@ -1,15 +1,18 @@
 package levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.metier.utilisateurs;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.ConfigurationApplicationManager;
+import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.utilisateurs.UtilisateurCerbereGestionnairePreferencesControles;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.utilisateurs.UtilisateurCerbereGestionnairePreferencesRG;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.AbstractGestionnaireRG;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.EnumTypesValidation;
-import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.GestionnaireRG;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.LigneRG;
 
 /**
@@ -32,26 +35,26 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.
  * @since 12 mars 2019
  *
  */
-public final class UtilisateurCerbereGestionnaireRG 
+public class UtilisateurCerbereGestionnaireRG 
 					extends AbstractGestionnaireRG {
 
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * Règle de Gestion.<br/>
-	 * "RG_UTILISATEUR_CIVILITE_RENSEIGNE_01 : la civilité de l'Utilisateur doit être renseignée".<br/>
+	 * "RG_UTILISATEUR_CIVILITE_RENSEIGNE_01 : la civilité de l'Utilisateur doit être renseignée (obligatoire)".<br/>
 	 */
 	public static final String RG_UTILISATEUR_CIVILITE_RENSEIGNE_01 
-		= "RG_UTILISATEUR_CIVILITE_RENSEIGNE_01 : la civilité de l'Utilisateur doit être renseignée";
+		= "RG_UTILISATEUR_CIVILITE_RENSEIGNE_01 : la civilité de l'Utilisateur doit être renseignée (obligatoire)";
 	
 	/**
 	 * Message à l'attention de l'utilisateur.<br/>
-	 * "la civilité de l'Utilisateur doit être renseignée"<br/>
+	 * "la civilité de l'Utilisateur doit être renseignée (obligatoire)"<br/>
 	 */
-	public static final String RG_UTILISATEUR_CIVILITE_01_MESSAGE 
+	public static final String RG_UTILISATEUR_CIVILITE_RENSEIGNE_01_MESSAGE 
 		= "la civilité de l'Utilisateur doit être renseignée (obligatoire)";
 
 	/**
+	 * Nom de l'objet métier concerné par ces Règles de Gestion (RG).<br/>
 	 * "UtilisateurCerbere".<br/>
 	 */
 	public static final String NOM_OBJETMETIER 
@@ -64,15 +67,18 @@ public final class UtilisateurCerbereGestionnaireRG
 		= "model/services/valideurs/metier/utilisateurs/impl/UtilisateurCerbereValideurService.java";
 	
 	/**
-	 * "ressources_externes/preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties".<br/>
+	 * Chemin relatif par rapport au répertoire "ressources_externes" 
+	 * du <b>répertoire</b> du fichier properties contenant 
+	 * les RG de l'objet métier.<br/>
+	 * "preferences/metier/utilisateurs".<br/>
 	 */
-	public static final String FICHIER_PROPERTIES 
-		= "ressources_externes/preferences/metier/utilisateurs/UtilisateurCerbere_RG.properties";
+	public static final String CHEMIN_RELATIF_FICHIER_PROPERTIES_RG 
+		= "preferences/metier/utilisateurs";
 	
 	/**
 	 * "civilite".<br/>
 	 */
-	public static final String CIVILITE 
+	public static final String ATTRIBUT_CIVILITE 
 		= "civilite";
 	
 	/**
@@ -106,82 +112,86 @@ public final class UtilisateurCerbereGestionnaireRG
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
+	 * 
+	 * @throws Exception 
 	 */
-	private UtilisateurCerbereGestionnaireRG() {		
+	public UtilisateurCerbereGestionnaireRG() throws Exception {		
 		super();				
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 
+	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected String fournirCheminRessourceExterneRG() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	protected String fournirCheminRessourceExterneRG() throws Exception {
+		
+		final Path ressourcesExternesPath 
+			= Paths.get(
+					ConfigurationApplicationManager
+						.getPathRessourcesExternes());
+		
+		final Path cheminRelatifRGPropertiesPath 
+			= Paths.get(CHEMIN_RELATIF_FICHIER_PROPERTIES_RG);
+		
+		final Path pathAbsoluPropertiesRGPath 
+			= ressourcesExternesPath
+				.resolve(
+						cheminRelatifRGPropertiesPath)
+							.toAbsolutePath().normalize();
+		
+		final String pathAbsoluPropertiesRG 
+			= pathAbsoluPropertiesRGPath.toString();
+		
+		return pathAbsoluPropertiesRG;
+		
+	} // Fin de fournirCheminRessourceExterneRG()._________________________
+	
+	
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected String fournirNomBasePropertiesRG() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return "UtilisateurCerbere_RG";
+	} // Fin de fournirNomBasePropertiesRG().______________________________
+	
+	
+	
 	
 	
 	
 	/**
-	 * method remplirMapRG() :<br/>
-	 * <ul>
-	 * remplit et retourne la Map&lt;String, LigneRG&gt; mapRG 
-	 * contenant toutes 
-	 * les Règles de Gestion (RG) de l'UTILISATEUR implémentées 
-	 * dans les services de l'application avec :
-	 * <li>String : le nom de la RG.</li>
-	 * <li>LigneRG : pure fabrication encapsulant 
-	 * tous les éléments relatifs à la RG.</li>
-	 * </ul>
-	 * Une LigneRG encapsule :<br/>
-	 * [id;Actif;activité des contrôles sur l'attribut;activité de la RG
-	 * ;RG implémentée;clé du type de contrôle;type de contrôle
-	 * ;Message d'erreur;Objet Métier concerné;Attribut concerné
-	 * ;Classe implémentant la RG;Méthode implémentant la RG;].<br/>
-	 * <br/>
-	 *
-	 * @return : Map&lt;String, LigneRG&gt; : mapRG.<br/>
-	 * 
-	 * @throws Exception 
+	 * {@inheritDoc}
 	 */
-	private static Map<String, LigneRG> remplirMapRG() 
+	@Override
+	protected final Map<String, LigneRG> remplirMapRG() 
 			throws Exception {
-		
-		synchronized (GestionnaireRG.class) {
-			
-			/* RG_UTILISATEUR_CIVILITE_01. */
-			final LigneRG ligneRGUtilisateurCiviliteRenseigne01 
-			= new LigneRG(UtilisateurCerbereGestionnairePreferencesRG.getValiderRGUtilisateurCivilite()
-					, UtilisateurCerbereGestionnairePreferencesRG.getValiderRGUtilisateurCiviliteRenseigne01()
-					, RG_UTILISATEUR_CIVILITE_RENSEIGNE_01
-					, EnumTypesValidation.RENSEIGNE.getNumero()
-					, "la civilite de l'Utilisateur doit être renseignée (obligatoire)"
-					, NOM_OBJETMETIER
-					, CIVILITE
-					, CLASSE_CONTROLE
-					, "validerRGUtilisateurCiviliteRenseigne01"
-					, FICHIER_PROPERTIES
-					, UtilisateurCerbereGestionnairePreferencesRG.fournirKeyValiderRGUtilisateurCiviliteRenseigne01());
-						
-			mapRG.put(
-					RG_UTILISATEUR_CIVILITE_RENSEIGNE_01
-						, ligneRGUtilisateurCiviliteRenseigne01);
-			
 
-			return mapRG;
-			
-		} // Fin de bloc synchronized.__________________________
+		/* RG_UTILISATEUR_CIVILITE_RENSEIGNE_01. */
+		final LigneRG ligneRGUtilisateurCiviliteRenseigne01 
+		= new LigneRG(UtilisateurCerbereGestionnairePreferencesRG.getValiderRGUtilisateurCivilite()
+				, UtilisateurCerbereGestionnairePreferencesRG.getValiderRGUtilisateurCiviliteRenseigne01()
+				, RG_UTILISATEUR_CIVILITE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, UtilisateurCerbereGestionnairePreferencesControles.getMessageUtilisateurCiviliteRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CIVILITE
+				, CLASSE_CONTROLE
+				, "validerRGUtilisateurCiviliteRenseigne01"
+				, CHEMIN_RELATIF_FICHIER_PROPERTIES_RG
+				, UtilisateurCerbereGestionnairePreferencesRG.fournirKeyValiderRGUtilisateurCiviliteRenseigne01());
 		
+		// REMPLISSAGE DE LA MAP.
+		mapRG.put(
+				RG_UTILISATEUR_CIVILITE_RENSEIGNE_01
+					, ligneRGUtilisateurCiviliteRenseigne01);
+		
+
+		return mapRG;
+			
 	} // Fin de remplirMapRG().____________________________________________
 
 	
