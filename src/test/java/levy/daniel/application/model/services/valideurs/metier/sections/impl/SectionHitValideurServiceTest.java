@@ -115,6 +115,7 @@ public class SectionHitValideurServiceTest {
 		
 		ErreursMaps erreurMaps = null;
 		
+		//*********************************
 		/* TEST DU NON RENSEIGNE ***** */
 		dto.setNumDepartement("");
 		
@@ -134,6 +135,28 @@ public class SectionHitValideurServiceTest {
 		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
 				, erreurMaps.getErrorsMapDetaille().isEmpty());
 		
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "0A1B";
+		dto.setNumDepartement(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* numDepartement mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
 		/* TEST DU RENSEIGNE. ********* */
 		final String valeur = "030";
 		dto.setNumDepartement(valeur);
@@ -158,6 +181,110 @@ public class SectionHitValideurServiceTest {
 	} // Fin de testValiderNumDepartement()._______________________________
 
 	
+	
+	/**
+	 * teste la validation de numSection 
+	 * validerCivilite(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG LITTERAL fonctionne.</li>
+	 * <li>garantit que la RG LONGUEUR fonctionne.</li>
+	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderNumSection() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = true;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderNumSection() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setNumSection("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* numSection non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "041A078";
+		dto.setNumSection(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* numSection mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "027007";
+		dto.setNumSection(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* numSection renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		
+	} // Fin de testValiderNumSection()._______________________________
+
+	
 	/**
 	 * active toutes les RG.
 	 * 
@@ -165,9 +292,15 @@ public class SectionHitValideurServiceTest {
 	 */
 	private void activerToutesRG() throws Exception {
 		
+		/* 1 - numDepartement. */
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartement(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRenseigne01(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRegex02(true);
+		
+		/* 2 - numSection. */
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSection(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRegex02(true);
 		
 	} // Fin de activerToutesRG()._________________________________________
 	

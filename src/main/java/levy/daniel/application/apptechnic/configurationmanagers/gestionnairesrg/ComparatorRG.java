@@ -47,12 +47,9 @@ public class ComparatorRG implements Comparator<String> {
 
 	// *************************METHODES************************************/
 	
-
 	
 	 /**
-	 * method CONSTRUCTEUR ComparatorRG() :<br/>
-	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
+	 * CONSTRUCTEUR D'ARITE NULLE.
 	 */
 	public ComparatorRG() {
 		super();

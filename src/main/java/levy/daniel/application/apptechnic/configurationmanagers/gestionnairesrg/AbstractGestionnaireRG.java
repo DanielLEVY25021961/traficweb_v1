@@ -7,14 +7,12 @@ import java.net.URLClassLoader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.ResourceBundle;
 import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -77,7 +75,7 @@ public abstract class AbstractGestionnaireRG implements IGestionnaireRG {
 	 * properties;clé;].<br/>
 	 */
 	protected final transient Map<String, LigneRG> mapRG 
-		= new ConcurrentHashMap<String, LigneRG>();
+		= new LinkedHashMap<String, LigneRG>();
 	
 	/**
 	 * bundleExterneRG : ResourceBundle :<br/>
@@ -262,26 +260,27 @@ public abstract class AbstractGestionnaireRG implements IGestionnaireRG {
 			return null;
 		}
 
-		/* Tri de la Map en fonction du numéro des Règles de Gestion. */
-		/*
-		 * Instanciation d'un comparateur de RG qui trie 
-		 * sur les numéros des RG.
-		 */
-		final ComparatorRG comparateurRG = new ComparatorRG();
-
-		/* Instanciation d'une SortedMap vide avec le comparateur */
-		final SortedMap<String, LigneRG> mapTriee 
-			= new TreeMap<String, LigneRG>(comparateurRG);
-
-		/* Remplissage de la map triée. */
-		mapTriee.putAll(this.mapRG);
+//		/* Tri de la Map en fonction du numéro des Règles de Gestion. */
+//		/*
+//		 * Instanciation d'un comparateur de RG qui trie 
+//		 * sur les numéros des RG.
+//		 */
+//		final ComparatorRG comparateurRG = new ComparatorRG();
+//
+//		/* Instanciation d'une SortedMap vide avec le comparateur */
+//		final SortedMap<String, LigneRG> mapTriee 
+//			= new TreeMap<String, LigneRG>(comparateurRG);
+//
+//		/* Remplissage de la map triée. */
+//		mapTriee.putAll(this.mapRG);
 
 		final StringBuilder stb = new StringBuilder();
 
 		stb.append(getEnTeteCsv());
 		stb.append(NEWLINE);
 
-		final Set<Entry<String, LigneRG>> entrySet = mapTriee.entrySet();
+//		final Set<Entry<String, LigneRG>> entrySet = mapTriee.entrySet();
+		final Set<Entry<String, LigneRG>> entrySet = this.mapRG.entrySet();
 
 		final Iterator<Entry<String, LigneRG>> ite = entrySet.iterator();
 
