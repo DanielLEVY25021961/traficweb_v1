@@ -37,6 +37,18 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.
 public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 
 	// ************************ATTRIBUTS************************************/
+
+	/**
+	 * Path absolu du .properties contenant les 
+	 * Booleans de validation des RG sous forme de Path.
+	 */
+	public static transient Path pathAbsoluPropertiesRG;
+	
+	/**
+	 * Path absolu du .properties contenant les 
+	 * Booleans de validation des RG sous forme de String.
+	 */
+	public static transient String pathAbsoluPropertiesRGString;
 	
 	/**
 	 * Nom de l'objet métier concerné par ces Règles de Gestion (RG).<br/>
@@ -137,6 +149,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_SENS_REGEX_02 
 		= "RG_SECTIONHIT_SENS_REGEX_02 : "
 				+ "le sens doit comporter exactement 1 chiffre";
+	
 	/**
 	 * "RG_SECTIONHIT_SENS_NOMENCLATURE_03 : 
 	 * le sens doit respecter une nomenclature [1, 2, 3, 4, 5]".
@@ -144,6 +157,63 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_SENS_NOMENCLATURE_03 
 		= "RG_SECTIONHIT_SENS_NOMENCLATURE_03 : "
 				+ "le sens doit respecter une nomenclature [1, 2, 3, 4, 5]";
+
+	/* 4 - nature. */	
+	/**
+	 * "nature".<br/>
+	 */
+	public static final String ATTRIBUT_NATURE 
+		= "nature";
+
+	/**
+	 * "RG_SECTIONHIT_NATURE_RENSEIGNE_01 : 
+	 * la nature de la section HIT
+	 * doit être renseignée (obligatoire)".
+	 */
+	public static final String RG_SECTIONHIT_NATURE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_NATURE_RENSEIGNE_01 : "
+				+ "la nature de la section HIT "
+				+ "doit être renseignée (obligatoire)";
+
+	/**
+	 * "RG_SECTIONHIT_NATURE_REGEX_02 : 
+	 * la nature doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_NATURE_REGEX_02 
+		= "RG_SECTIONHIT_NATURE_REGEX_02 : "
+				+ "la nature doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_NATURE_NOMENCLATURE_03 : 
+	 * la nature doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".
+	 */
+	public static final String RG_SECTIONHIT_NATURE_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_NATURE_NOMENCLATURE_03 : "
+				+ "la nature doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+
+	/* 5 - classe. */	
+	/**
+	 * "classe".<br/>
+	 */
+	public static final String ATTRIBUT_CLASSE 
+		= "classe";
+
+	/**
+	 * "RG_SECTIONHIT_CLASSE_RENSEIGNE_01 : 
+	 * la classe de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_CLASSE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_CLASSE_RENSEIGNE_01 : "
+				+ "la classe de la section HIT "
+				+ "doit être renseignée";
+
+	/**
+	 * "RG_SECTIONHIT_CLASSE_REGEX_02 : 
+	 * la classe de la section HIT doit comporter exactement 2 chiffres '00'".
+	 */
+	public static final String RG_SECTIONHIT_CLASSE_REGEX_02 
+		= "RG_SECTIONHIT_CLASSE_REGEX_02 : "
+				+ "la classe de la section HIT doit comporter exactement 2 chiffres '00'";
 
 	/**
 	 * LOG : Log : 
@@ -157,12 +227,50 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
+	 * <ul>
+	 * <li>Instancie this.bundleExterneRG (dans la super-classe).</li>
+	 * <li>calcule le pathAbsoluPropertiesRG.</li>
+	 * <li>remplit la Map des RG.</li>
+	 * </ul>
 	 * 
 	 * @throws Exception 
 	 */
-	public SectionHitGestionnaireRG() throws Exception {		
-		super();				
+	public SectionHitGestionnaireRG() throws Exception {
+		
+		super();
+		
+		/* calcule le pathAbsoluPropertiesRG. */
+		pathAbsoluPropertiesRG = this.getPathAbsoluPropertiesRG();
+		
+		/* remplit la Map des RG. */
+		this.remplirMapRG();
+
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
+
+	
+
+	/**
+	 * retourne un SINGLETON de 
+	 * <code><b>pathAbsoluPropertiesRGString</b></code>.<br/>
+	 *
+	 * @return : String : 
+	 * SINGLETON de <code><b>pathAbsoluPropertiesRGString</b></code>.<br/>
+	 */
+	private static String getPathAbsoluPropertiesRGString() {
+		
+		synchronized (AbstractGestionnaireRG.class) {
+			
+			if (pathAbsoluPropertiesRGString == null) {
+				
+				pathAbsoluPropertiesRGString 
+					= pathAbsoluPropertiesRG.toString();
+			}
+			
+			return pathAbsoluPropertiesRGString;
+			
+		} // Fin de synchronized.________________________
+		
+	} // Fin de getPathAbsoluPropertiesRGString()._________________________
 
 	
 	
@@ -186,10 +294,10 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 						cheminRelatifRGPropertiesPath)
 							.toAbsolutePath().normalize();
 		
-		final String pathAbsoluPropertiesRG 
+		final String pathAbsoluPropertiesRGLocal 
 			= pathAbsoluPropertiesRGPath.toString();
 		
-		return pathAbsoluPropertiesRG;
+		return pathAbsoluPropertiesRGLocal;
 		
 	} // Fin de fournirCheminRessourceExterneRG()._________________________
 
@@ -223,8 +331,8 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, NOM_OBJETMETIER
 				, ATTRIBUT_NUMDEPARTEMENT
 				, CLASSE_CONTROLE
-				, "validerRGSectionHitNumDepartementRenseigne01"
-				, CHEMIN_RELATIF_FICHIER_PROPERTIES_RG
+				, "validerRGSectionHitNumDepartementRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumDepartementRenseigne01());
 		
 		/* RG_SECTIONHIT_NUMDEPARTEMENT_REGEX_02. */
@@ -237,8 +345,8 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, NOM_OBJETMETIER
 				, ATTRIBUT_NUMDEPARTEMENT
 				, CLASSE_CONTROLE
-				, "validerRGSectionHitNumDepartementRegex02"
-				, CHEMIN_RELATIF_FICHIER_PROPERTIES_RG
+				, "validerRGSectionHitNumDepartementRegex02()"
+				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumDepartementRegex02());
 		
 		/* 2 - numSection. ***************/
@@ -252,8 +360,8 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, NOM_OBJETMETIER
 				, ATTRIBUT_NUMSECTION
 				, CLASSE_CONTROLE
-				, "validerRGSectionHitNumSectionRenseigne01"
-				, CHEMIN_RELATIF_FICHIER_PROPERTIES_RG
+				, "validerRGSectionHitNumSectionRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumSectionRenseigne01());
 		
 		/* RG_SECTIONHIT_NUMSECTION_REGEX_02. */
@@ -266,8 +374,8 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, NOM_OBJETMETIER
 				, ATTRIBUT_NUMSECTION
 				, CLASSE_CONTROLE
-				, "validerRGSectionHitNumSectionRegex02"
-				, CHEMIN_RELATIF_FICHIER_PROPERTIES_RG
+				, "validerRGSectionHitNumSectionRegex02()"
+				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumSectionRegex02());
 		
 		/* 3 - sens. ***************/
@@ -281,8 +389,8 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, NOM_OBJETMETIER
 				, ATTRIBUT_SENS
 				, CLASSE_CONTROLE
-				, "validerRGSectionHitSensRenseigne01"
-				, CHEMIN_RELATIF_FICHIER_PROPERTIES_RG
+				, "validerRGSectionHitSensRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensRenseigne01());
 		
 		/* RG_SECTIONHIT_SENS_REGEX_02. */
@@ -295,8 +403,8 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, NOM_OBJETMETIER
 				, ATTRIBUT_SENS
 				, CLASSE_CONTROLE
-				, "validerRGSectionHitSensRegex02"
-				, CHEMIN_RELATIF_FICHIER_PROPERTIES_RG
+				, "validerRGSectionHitSensRegex02()"
+				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensRegex02());
 
 		/* RG_SECTIONHIT_SENS_NOMENCLATURE_03. */
@@ -309,12 +417,87 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, NOM_OBJETMETIER
 				, ATTRIBUT_SENS
 				, CLASSE_CONTROLE
-				, "validerRGSectionHitSensNomenclature03"
-				, CHEMIN_RELATIF_FICHIER_PROPERTIES_RG
+				, "validerRGSectionHitSensNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensNomenclature03());
+		
+		/* 4 - nature. ***************/
+		/* RG_SECTIONHIT_NATURE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitNatureRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNature()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNatureRenseigne01()
+				, RG_SECTIONHIT_NATURE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNatureRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NATURE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNatureRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNatureRenseigne01());
+		
+		/* RG_SECTIONHIT_NATURE_REGEX_02. */
+		final LigneRG ligneRGSectionHitNatureRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNature()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNatureRegex02()
+				, RG_SECTIONHIT_NATURE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNatureRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NATURE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNatureRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNatureRegex02());
+
+		/* RG_SECTIONHIT_NATURE_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitNatureNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNature()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNatureNomenclature03()
+				, RG_SECTIONHIT_NATURE_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNatureNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NATURE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNatureNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNatureNomenclature03());
+		
+		/* 5 - classe. ***************/
+		/* RG_SECTIONHIT_CLASSE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitClasseRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasse()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseRenseigne01()
+				, RG_SECTIONHIT_CLASSE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClasseRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClasseRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseRenseigne01());
+		
+		/* RG_SECTIONHIT_CLASSE_REGEX_02. */
+		final LigneRG ligneRGSectionHitClasseRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasse()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseRegex02()
+				, RG_SECTIONHIT_CLASSE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClasseRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClasseRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseRegex02());
 
 		
-		// REMPLISSAGE DE LA MAP.
+		// *********************************************
+		// REMPLISSAGE DE LA MAP. **********************
+		// *********************************************
+		
 		/* 1 - numDepartement. ****************/
 		this.mapRG.put(
 				RG_SECTIONHIT_NUMDEPARTEMENT_RENSEIGNE_01
@@ -322,6 +505,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 				RG_SECTIONHIT_NUMDEPARTEMENT_REGEX_02
 					, ligneRGSectionHitNumDepartementRegex02);
+		
 		/* 2 - numSection. ********************/
 		this.mapRG.put(
 				RG_SECTIONHIT_NUMSECTION_RENSEIGNE_01
@@ -329,6 +513,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 				RG_SECTIONHIT_NUMSECTION_REGEX_02
 					, ligneRGSectionHitNumSectionRegex02);
+		
 		/* 3 - sens. ***************************/
 		this.mapRG.put(
 				RG_SECTIONHIT_SENS_RENSEIGNE_01
@@ -339,6 +524,25 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 				RG_SECTIONHIT_SENS_NOMENCLATURE_03
 					, ligneRGSectionHitSensNomenclature03);
+		
+		/* 4 - nature. ***************************/
+		this.mapRG.put(
+				RG_SECTIONHIT_NATURE_RENSEIGNE_01
+					, ligneRGSectionHitNatureRenseigne01);
+		this.mapRG.put(
+				RG_SECTIONHIT_NATURE_REGEX_02
+					, ligneRGSectionHitNatureRegex02);
+		this.mapRG.put(
+				RG_SECTIONHIT_NATURE_NOMENCLATURE_03
+					, ligneRGSectionHitNatureNomenclature03);
+		
+		/* 5 - classe. ********************/
+		this.mapRG.put(
+				RG_SECTIONHIT_CLASSE_RENSEIGNE_01
+					, ligneRGSectionHitClasseRenseigne01);
+		this.mapRG.put(
+				RG_SECTIONHIT_CLASSE_REGEX_02
+					, ligneRGSectionHitClasseRegex02);
 
 		return this.mapRG;
 					

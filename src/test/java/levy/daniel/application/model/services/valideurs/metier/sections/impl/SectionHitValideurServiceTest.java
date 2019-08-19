@@ -78,16 +78,15 @@ public class SectionHitValideurServiceTest {
 
 	
 	
+	/* 1 - numDepartement. *********************/
 	/**
 	 * teste la validation de numDepartement 
-	 * validerCivilite(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * validerNumDepartement(ISectionHitDTO, String, ErreursMaps).<br/>
 	 * <ul>
 	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
 	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
 	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
-	 * <li>garantit que la RG LITTERAL fonctionne.</li>
-	 * <li>garantit que la RG LONGUEUR fonctionne.</li>
-	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
 	 * </ul>
 	 * 
 	 * @throws Exception 
@@ -181,17 +180,16 @@ public class SectionHitValideurServiceTest {
 	} // Fin de testValiderNumDepartement()._______________________________
 
 	
-	
+
+	/* 2 - numSection. *******************************/
 	/**
 	 * teste la validation de numSection 
-	 * validerCivilite(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * validerNumSection(ISectionHitDTO, String, ErreursMaps).<br/>
 	 * <ul>
 	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
 	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
 	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
-	 * <li>garantit que la RG LITTERAL fonctionne.</li>
-	 * <li>garantit que la RG LONGUEUR fonctionne.</li>
-	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
 	 * </ul>
 	 * 
 	 * @throws Exception 
@@ -202,7 +200,7 @@ public class SectionHitValideurServiceTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -282,7 +280,360 @@ public class SectionHitValideurServiceTest {
 				, erreurMaps.getErrorsMapDetaille().isEmpty());
 
 		
-	} // Fin de testValiderNumSection()._______________________________
+	} // Fin de testValiderNumSection().___________________________________
+
+	
+	
+	/* 3 - sens. ************************************/
+	/**
+	 * teste la validation de sens 
+	 * validerSens(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderSens() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderSens() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setSens("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* sens non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "A";
+		dto.setSens(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* sens mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU HORS NOMENCLATURE ***** */
+		final String valeurHorsNomenclature = "6";
+		dto.setSens(valeurHorsNomenclature);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* sens hors nomenclature avec '" + valeurHorsNomenclature + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "5";
+		dto.setSens(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* sens renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		
+	} // Fin de testValiderSens()._________________________________________
+
+	
+	
+	/* 4 - nature. ************************************/
+	/**
+	 * teste la validation de nature 
+	 * validerNature(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderNature() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderNature() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setNature("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* nature non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "A";
+		dto.setNature(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* nature mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU HORS NOMENCLATURE ***** */
+		final String valeurHorsNomenclature = "10";
+		dto.setNature(valeurHorsNomenclature);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* nature hors nomenclature avec '" + valeurHorsNomenclature + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "1";
+		dto.setNature(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* nature renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderNature()._______________________________________
+
+	
+
+	/* 5 - classe. *******************************/
+	/**
+	 * teste la validation de classe 
+	 * validerClasse(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderClasse() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderClasse() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setClasse("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* classe non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "01";
+		dto.setClasse(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* classe mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "00";
+		dto.setClasse(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* classe renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderClasse()._______________________________________
+
+	
 
 	
 	/**
@@ -292,15 +643,32 @@ public class SectionHitValideurServiceTest {
 	 */
 	private void activerToutesRG() throws Exception {
 		
-		/* 1 - numDepartement. */
+		/* 1 - numDepartement. ***************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartement(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRenseigne01(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRegex02(true);
 		
-		/* 2 - numSection. */
+		/* 2 - numSection. *******************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSection(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRenseigne01(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRegex02(true);
+		
+		/* 3 - sens. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSens(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensNomenclature03(true);
+		
+		/* 4 - nature. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNature(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureNomenclature03(true);
+		
+		/* 5 - classe. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasse(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseRegex02(true);
 		
 	} // Fin de activerToutesRG()._________________________________________
 	

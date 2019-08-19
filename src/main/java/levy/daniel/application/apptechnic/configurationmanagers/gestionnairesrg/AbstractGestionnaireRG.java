@@ -84,7 +84,6 @@ public abstract class AbstractGestionnaireRG implements IGestionnaireRG {
 	 * qui doit être accessible à la Maîtrise d'Ouvrage (MOA).<br/>
 	 */
 	protected transient ResourceBundle bundleExterneRG;
-
 	
 	/**
 	 * LOG : Log : 
@@ -97,10 +96,9 @@ public abstract class AbstractGestionnaireRG implements IGestionnaireRG {
 	
 	
 	 /**
+	 * CONSTRUCTEUR D'ARITE NULLE.
 	 * <ul>
-	 * <li>CONSTRUCTEUR D'ARITE NULLE.</li>
 	 * <li>Instancie this.bundleExterneRG.</li>
-	 * <li>remplit la Map des RG.</li>
 	 * </ul>
 	 * 
 	 * @throws Exception 
@@ -118,14 +116,11 @@ public abstract class AbstractGestionnaireRG implements IGestionnaireRG {
 				LOG.info("Bundle externe introuvable : ", e);
 			}
 		}
-		
-		/* remplit la Map des RG. */
-		this.remplirMapRG();
-		
+				
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
-
 	
-
+	
+	
 	/**
 	 * <ul>
 	 * <li>
@@ -351,7 +346,6 @@ public abstract class AbstractGestionnaireRG implements IGestionnaireRG {
 		
 		final String nomBaseProperties = this.fournirNomBasePropertiesRG();
 		final Locale localeBundle = this.getBundleExterneRG().getLocale();
-//		final Locale localeBundle = Locale.getDefault();
 		
 		final String localeAppliquee 
 			= this.getExtensionLangageCountryLocale(localeBundle);
