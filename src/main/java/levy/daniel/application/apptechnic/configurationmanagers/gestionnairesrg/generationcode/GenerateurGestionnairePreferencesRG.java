@@ -9,10 +9,10 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairestem
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairestemplates.impl.GestionnaireTemplates;
 
 /**
- * CLASSE GenerateurGestionnairePreferencesControle :<br/>
+ * CLASSE GenerateurGestionnairePreferencesRG :<br/>
  * Classe UTILITAIRE (final avec toutes les méthodes static) 
  * chargée de <b>générer le code</b> à insérer dans un 
- * <code><b>OBJETMETIERCestionnairePreferencesControle</b></code>.<br/>
+ * <code><b>OBJETMETIERCestionnairePreferencesRG</b></code>.<br/>
  * utilise des <b>Templates</b> pour générer le code.<br/>
  * <br/>
  *
@@ -28,10 +28,10 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairestem
  *
  * @author dan Lévy
  * @version 1.0
- * @since 19 août 2019
+ * @since 20 août 2019
  *
  */
-public final class GenerateurGestionnairePreferencesControle {
+public final class GenerateurGestionnairePreferencesRG {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -44,14 +44,14 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * "la section HIT".
 	 */
 	public static final String OBJET_METIER_EN_CLAIR = "la section HIT";
-	
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	@SuppressWarnings("unused")
 	private static final Log LOG 
-		= LogFactory.getLog(GenerateurGestionnairePreferencesControle.class);
+		= LogFactory.getLog(GenerateurGestionnairePreferencesRG.class);
 
 	// *************************METHODES************************************/
 	
@@ -60,7 +60,7 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * private pour bloquer l'instanciation
 	 */
-	private GenerateurGestionnairePreferencesControle() {
+	private GenerateurGestionnairePreferencesRG() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -69,9 +69,9 @@ public final class GenerateurGestionnairePreferencesControle {
 	/**
 	 * génère les lignes de code <i>commentées</i> relatives aux :
 	 * <ul>
-	 * <li><b>clés des messages des RG</b> 
-	 * de contrôle de l'attribut KEY_MESSAGE_...</li>
-	 * <li><b>messages en DUR des RG</b> 
+	 * <li><b>clés des Booleans des RG</b> 
+	 * de contrôle de l'attribut KEY_VALIDER_...</li>
+	 * <li><b>Booleans en DUR des RG</b> 
 	 * de contrôle de l'attribut MESSAGE_OBJETMETIER_...</li>
 	 * </ul>
 	 * S'applique aux attributs contrôlés par :
@@ -81,17 +81,7 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * </ul>
 	 * Par exemple, pour l'attribut 'anneeTraitement' d'une SectionHit (OBJET METIER) :
 	 * <pre>
-	 * public static final String KEY_MESSAGE_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01 
-	 * 		= "message.SectionHit.anneeTraitement.renseigne";
 	 * 
-	 * public static final String MESSAGE_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01_EN_DUR 
-	 * 		= "l'année de traitement de la section HIT (colonnes [14-15] du HIT) doit être renseigné";
-	 * 		
-	 * public static final String KEY_MESSAGE_SECTIONHIT_ANNEETRAITEMENT_REGEX_02 
-	 * 		= "message.SectionHit.anneeTraitement.regex";
-	 * 
-	 * public static final String MESSAGE_SECTIONHIT_ANNEETRAITEMENT_REGEX_02_EN_DUR 
-	 * 		= "l'année de traitement de la section HIT (colonnes [14-15] du HIT) doit comporter exactement 2 chiffres";
 	 * </pre>
 	 *
 	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
@@ -103,12 +93,12 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
 	 * 
 	 * @return : String : lignes de code à insérer dans les attributs KEYS 
-	 * et MESSAGES EN DUR du 
-	 * <code><b>OBJETMETIERGestionnairePreferencesControle</b></code>.<br/>
+	 * et BOOLEANS EN DUR du 
+	 * <code><b>OBJETMETIERGestionnairePreferencesRG</b></code>.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	private static String genererMessagesEnDurRGsRenseigneRegexChiffres(
+	private static String genererBooleansEnDurRGsRenseigneRegexChiffres(
 			final String pObjetMetier
 				, final String pObjetMetierEnClair
 					, final String pNumeroChamp
@@ -121,7 +111,7 @@ public final class GenerateurGestionnairePreferencesControle {
 		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
 		
 		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
-		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_genererMessagesEnDurRGsRenseigneRegexChiffres.txt";
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencesrgHIT/template_genererBooleansEnDurRGsRenseigneRegexChiffres.txt";
 		
 		// variables incorporées dans le template à lire.
 		final String[] variables = {"{$pObjetMetier}"
@@ -170,7 +160,7 @@ public final class GenerateurGestionnairePreferencesControle {
 		
 		return resultat;
 		
-	} // Fin de genererMessagesEnDurRGsRenseigneRegexChiffres(...).________
+	} // Fin de genererBooleansEnDurRGsRenseigneRegexChiffres(...).________
 
 	
 	
@@ -187,9 +177,7 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * </ul>
 	 * Par exemple, pour l'attribut 'anneeTraitement' d'une SectionHit (OBJET METIER) :
 	 * <pre>
-	 * private static String messageSectionHitAnneeTraitementRenseigne01;
 	 * 
-	 * private static String messageSectionHitAnneeTraitementRegex02;
 	 * </pre>
 	 *
 	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
@@ -206,7 +194,7 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * 
 	 * @throws Exception 
 	 */
-	private static String genererAttributsMessageRGsRenseigneRegexChiffres(
+	private static String genererAttributsBooleanRGsRenseigneRegexChiffres(
 			final String pObjetMetier
 				, final String pObjetMetierEnClair
 					, final String pNumeroChamp
@@ -219,7 +207,7 @@ public final class GenerateurGestionnairePreferencesControle {
 		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
 		
 		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
-		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_genererAttributsMessageRGsRenseigneRegexChiffres.txt";
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencesrgHIT/template_genererAttributsBooleanRGsRenseigneRegexChiffres.txt";
 		
 		// variables incorporées dans le template à lire.
 		final String[] variables = {"{$pObjetMetier}"
@@ -268,14 +256,14 @@ public final class GenerateurGestionnairePreferencesControle {
 		
 		return resultat;
 
-	} // Fin de genererAttributsMessageRGsRenseigneRegexChiffres(...)._____
+	} // Fin de genererAttributsBooleanRGsRenseigneRegexChiffres(...)._____
 
 	
 	
 	/**
 	 * génère les lignes de code <i>commentées</i> relatives aux :
 	 * <ul>
-	 * <li><b>ajout des messages EN DUR des RG</b> 
+	 * <li><b>ajout des Booleans EN DUR des RG</b> 
 	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
 	 * </ul>
 	 * S'applique aux attributs contrôlés par :
@@ -285,13 +273,7 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * </ul>
 	 * Par exemple, pour l'attribut 'anneeTraitement' d'une SectionHit (OBJET METIER) :
 	 * <pre>
-	 * 		preferences.setProperty(
-	 * 			KEY_MESSAGE_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01
-	 * 				, MESSAGE_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01_EN_DUR);
 	 * 
-	 * 		preferences.setProperty(
-	 * 			KEY_MESSAGE_SECTIONHIT_ANNEETRAITEMENT_REGEX_02
-	 * 				, MESSAGE_SECTIONHIT_ANNEETRAITEMENT_REGEX_02_EN_DUR);
 	 * </pre>
 	 *
 	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
@@ -321,7 +303,7 @@ public final class GenerateurGestionnairePreferencesControle {
 		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
 		
 		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
-		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_ajouterPropertiesEnDurRGsRenseigneRegexChiffres.txt";
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencesrgHIT/template_ajouterPropertiesEnDurRGsRenseigneRegexChiffres.txt";
 		
 		// variables incorporées dans le template à lire.
 		final String[] variables = {"{$pObjetMetier}"
@@ -377,10 +359,10 @@ public final class GenerateurGestionnairePreferencesControle {
 	/**
 	 * génère les lignes de code <i>commentées</i> relatives aux :
 	 * <ul>
-	 * <li><b>Getters des attributs des messages des RG</b> 
-	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
-	 * <li><b>Setters des attributs des messages des RG</b> 
-	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
+	 * <li><b>Getters des attributs des booleans des RG</b> 
+	 * de contrôle de l'attributvaliderObjetMetierATTRIBUTRGxxx...</li>
+	 * <li><b>Setters des attributs des booleans des RG</b> 
+	 * de contrôle de l'attributvaliderObjetMetierATTRIBUTRGxxx...</li>
 	 * </ul>
 	 * S'applique aux attributs contrôlés par :
 	 * <ul>
@@ -389,20 +371,7 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * </ul>
 	 * Par exemple, pour l'attribut 'anneeTraitement' d'une SectionHit (OBJET METIER) :
 	 * <pre>
-	 * private static String fournirMessageSectionHitAnneeTraitementRenseigne01() throws Exception {
 	 * 
-	 * 	synchronized (SectionHitGestionnairePreferencesControles.class) {
-	 * 
-	 * 		return fournirAttribut(
-	 * 				messageSectionHitAnneeTraitementRenseigne01
-	 * 				, fournirKeyMessageSectionHitAnneeTraitementRenseigne01()
-	 * 				, MESSAGE_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01_EN_DUR);
-	 * 
-	 * 	} // Fin du bloc synchronized.__________________
-	 * 
-	 * } // Fin de fournirMessageSectionHitAnneeTraitementRenseigne01().______
-	 * 
-	 * etc..
 	 * </pre>
 	 *
 	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
@@ -419,7 +388,7 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * 
 	 * @throws Exception 
 	 */
-	private static String genererGettersSettersMessagesRGsRenseigneRegexChiffres(
+	private static String genererGettersSettersBooleansRGsRenseigneRegexChiffres(
 			final String pObjetMetier
 				, final String pObjetMetierEnClair
 					, final String pNumeroChamp
@@ -432,7 +401,7 @@ public final class GenerateurGestionnairePreferencesControle {
 		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
 		
 		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
-		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_genererGettersSettersRGsRenseigneRegexChiffres.txt";
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencesrgHIT/template_genererGettersSettersRGsRenseigneRegexChiffres.txt";
 		
 		// variables incorporées dans le template à lire.
 		final String[] variables = {"{$pObjetMetier}"
@@ -498,9 +467,7 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * </ul>
 	 * Par exemple, pour l'attribut 'anneeTraitement' d'une SectionHit (OBJET METIER) :
 	 * <pre>
-	 * public void testGetMessageSectionHitAnneeTraitementRenseigne01() throws Exception {...}
 	 * 
-	 * public void testGetMessageSectionHitAnneeTraitementRegex02() throws Exception {...}
 	 * </pre>
 	 *
 	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
@@ -517,7 +484,7 @@ public final class GenerateurGestionnairePreferencesControle {
 	 * 
 	 * @throws Exception 
 	 */
-	private static String genererTestsMessagesRGsRenseigneRegexChiffres(
+	private static String genererTestsBooleansRGsRenseigneRegexChiffres(
 			final String pObjetMetier
 				, final String pObjetMetierEnClair
 					, final String pNumeroChamp
@@ -530,7 +497,7 @@ public final class GenerateurGestionnairePreferencesControle {
 		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
 		
 		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
-		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_genererTestRGsRenseigneRegexChiffres.txt";
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencesrgHIT/template_genererTestRGsRenseigneRegexChiffres.txt";
 		
 		// variables incorporées dans le template à lire.
 		final String[] variables = {"{$pObjetMetier}"
@@ -579,7 +546,7 @@ public final class GenerateurGestionnairePreferencesControle {
 		
 		return resultat;
 
-	} // Fin de genererTestsMessagesRGsRenseigneRegexChiffres(...).________
+	} // Fin de genererTestsBooleansRGsRenseigneRegexChiffres(...).________
 
 
 	
@@ -612,22 +579,22 @@ public final class GenerateurGestionnairePreferencesControle {
 							, final String pNbreChiffres) throws Exception {
 			
 			final String resultatMessagesEnDur 
-			= genererMessagesEnDurRGsRenseigneRegexChiffres(
+			= genererBooleansEnDurRGsRenseigneRegexChiffres(
 					OBJET_METIER
 					, OBJET_METIER_EN_CLAIR
 					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
 			
-			System.out.println("********** MESSAGES EN DUR **************");
+			System.out.println("********** BOOLEANS EN DUR **************");
 			System.out.println(resultatMessagesEnDur);
 			
-			final String resultatAttributsMessages 
-			= genererAttributsMessageRGsRenseigneRegexChiffres(
+			final String resultatAttributsBooleans 
+			= genererAttributsBooleanRGsRenseigneRegexChiffres(
 					OBJET_METIER
 					, OBJET_METIER_EN_CLAIR
 					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
 
-			System.out.println("********** ATTRIBUTS MESSAGES **************");
-			System.out.println(resultatAttributsMessages);
+			System.out.println("********** ATTRIBUTS BOOLEANS **************");
+			System.out.println(resultatAttributsBooleans);
 
 			final String resultatAjouterPropertiesEnDur 
 			= genererAjouterPropertiesEnDurRGsRenseigneRegexChiffres(
@@ -639,7 +606,7 @@ public final class GenerateurGestionnairePreferencesControle {
 			System.out.println(resultatAjouterPropertiesEnDur);
 		
 			final String resultatGenererGettersSetters 
-			= genererGettersSettersMessagesRGsRenseigneRegexChiffres(
+			= genererGettersSettersBooleansRGsRenseigneRegexChiffres(
 					OBJET_METIER
 					, OBJET_METIER_EN_CLAIR
 					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
@@ -648,7 +615,7 @@ public final class GenerateurGestionnairePreferencesControle {
 			System.out.println(resultatGenererGettersSetters);
 		
 			final String resultatTestJUnit 
-			= genererTestsMessagesRGsRenseigneRegexChiffres(
+			= genererTestsBooleansRGsRenseigneRegexChiffres(
 					OBJET_METIER
 					, OBJET_METIER_EN_CLAIR
 					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
@@ -683,5 +650,5 @@ public final class GenerateurGestionnairePreferencesControle {
 	} // Fin de main(...)._________________________________________________
 	
 	
-	
-} // FIN DE LA CLASSE GenerateurGestionnairePreferencesControle.-------------
+		
+} // FIN DE LA CLASSE GenerateurGestionnairePreferencesRG.-------------------

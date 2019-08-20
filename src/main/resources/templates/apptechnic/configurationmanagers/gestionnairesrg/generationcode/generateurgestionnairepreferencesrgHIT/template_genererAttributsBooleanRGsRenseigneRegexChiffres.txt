@@ -1,0 +1,21 @@
+	
+	/* {$pNumeroChamp} - {$pNomChamp}. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>{$pNomChamp}</i> de {$pObjetMetier}.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>{$pNomChamp}</i> 
+	 * de {$pObjetMetier}.<br/>
+	 */
+	private static Boolean validerRG{$pObjetMetier}{$NomChampCamelise};
+	
+	/**
+	 * Boolean activant la RG-{$pObjetMetier}-{$NomChampCamelise}-01 : 
+	 * "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-{$pObjetMetier}-{$NomChampCamelise}-02 : 
+	 * "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres".<br/>
+	 */
+	private static Boolean validerRG{$pObjetMetier}{$NomChampCamelise}Regex02;

@@ -1,0 +1,57 @@
+	
+	/* {$pNumeroChamp} - {$pNomChamp}. *******/
+	/**
+	 * clé de validerRG{$pObjetMetier}{$NomChampCamelise} dans 
+	 * {$pObjetMetier}_RG.properties<br/>
+	 * "valider.{$pObjetMetier}.{$pNomChamp}"<br/>
+	 */
+	public static final String KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise} 
+		= "valider.{$pObjetMetier}.{$pNomChamp}";
+	
+	/**
+	 * validerRG{$pObjetMetier}{$NomChampCamelise} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRG{$pObjetMetier}{$NomChampCamelise} 
+	 * indiqué dans {$pObjetMetier}_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 dans 
+	 * {$pObjetMetier}_RG.properties<br/>
+	 * "valider.{$pObjetMetier}.{$pNomChamp}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01 
+		= "valider.{$pObjetMetier}.{$pNomChamp}.renseigne";
+	
+	/**
+	 * validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * indiqué dans {$pObjetMetier}_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 dans 
+	 * {$pObjetMetier}_RG.properties<br/>
+	 * "valider.{$pObjetMetier}.{$pNomChamp}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02 
+		= "valider.{$pObjetMetier}.{$pNomChamp}.regex";
+	
+	/**
+	 * validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * indiqué dans {$pObjetMetier}_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR 
+		= "true";
