@@ -1,5 +1,5 @@
 	
-	/* {$pNumeroChamp} - {$pNomChamp}. */
+	/* {$pNumeroChamp} - {$pNomChamp}. *******/
 	/**
 	 * clé de message{$pObjetMetier}{$NomChampCamelise}Renseigne01 dans 
 	 * {$pObjetMetier}_CONTROLES.properties<br/>
@@ -14,10 +14,10 @@
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * message{$pObjetMetier}{$NomChampCamelise}Renseigne01 
 	 * indiqué dans {$pObjetMetier}_CONTROLES.properties.<br/>
-	 * "{$pNomChamp} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné".<br/>
+	 * "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné".<br/>
 	 */
 	public static final String MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR 
-		= "{$pNomChamp} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné";
+		= "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné";
 		
 	/**
 	 * clé de message{$pObjetMetier}{$NomChampCamelise}Regex02 dans 
@@ -31,9 +31,9 @@
 	 * message{$pObjetMetier}{$NomChampCamelise}Regex02 par défaut 
 	 * de l'application en dur.<br/>
 	 * N'est utilisé que si l'application ne peut lire le 
-	 * message{$pObjetMetier}{$NomChampCamelise}Litteral02 
+	 * message{$pObjetMetier}{$NomChampCamelise}Regex02 
 	 * indiqué dans {$pObjetMetier}_CONTROLES.properties.<br/>
-	 * "{$pNomChamp} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres".<br/>
+	 * "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres".<br/>
 	 */
 	public static final String MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR 
-		= "{$pNomChamp} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres";
+		= "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres";
