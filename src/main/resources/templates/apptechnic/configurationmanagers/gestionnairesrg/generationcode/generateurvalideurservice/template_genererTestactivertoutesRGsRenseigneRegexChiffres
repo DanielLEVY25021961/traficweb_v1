@@ -1,0 +1,5 @@
+		
+		/* {$pNumeroChamp} - {$pNomChamp}. **************/
+		{$pObjetMetier}GestionnairePreferencesRG.setValiderRG{$pObjetMetier}{$NomChampCamelise}(true);
+		{$pObjetMetier}GestionnairePreferencesRG.setValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01(true);
+		{$pObjetMetier}GestionnairePreferencesRG.setValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02(true);
