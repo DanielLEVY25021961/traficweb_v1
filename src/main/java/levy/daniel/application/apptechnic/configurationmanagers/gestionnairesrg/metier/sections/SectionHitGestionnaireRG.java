@@ -239,6 +239,30 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_ANNEETRAITEMENT_REGEX_02 : "
 				+ "l'année de traitement de la section HIT doit comporter exactement 2 chiffres";
 
+	/* 7 - zoneLibre1. *******/
+	/**
+	 * "zoneLibre1".<br/>
+	 */
+	public static final String ATTRIBUT_ZONELIBRE1 
+		= "zoneLibre1";
+
+	/**
+	 * "RG_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01 : 
+	 * la zone libre de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01 : "
+				+ "la zone libre de la section HIT "
+				+ "doit être renseignée";
+
+	/**
+	 * "RG_SECTIONHIT_ZONELIBRE1_REGEX_02 : 
+	 * la zone libre de la section HIT doit comporter exactement 1 espace".
+	 */
+	public static final String RG_SECTIONHIT_ZONELIBRE1_REGEX_02 
+		= "RG_SECTIONHIT_ZONELIBRE1_REGEX_02 : "
+				+ "la zone libre de la section HIT doit comporter exactement 1 espace";
+
 
 	/**
 	 * LOG : Log : 
@@ -546,7 +570,35 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitAnneeTraitementRegex02()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeTraitementRegex02());
-
+		
+		/* 7 - zoneLibre1. *******/
+		/* RG_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitZoneLibre1Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre1()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre1Renseigne01()
+				, RG_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitZoneLibre1Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ZONELIBRE1
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitZoneLibre1Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitZoneLibre1Renseigne01());
+		
+		/* RG_SECTIONHIT_ZONELIBRE1_REGEX_02. */
+		final LigneRG ligneRGSectionHitZoneLibre1Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre1()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre1Regex02()
+				, RG_SECTIONHIT_ZONELIBRE1_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitZoneLibre1Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ZONELIBRE1
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitZoneLibre1Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitZoneLibre1Regex02());
 		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
@@ -605,6 +657,14 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 				RG_SECTIONHIT_ANNEETRAITEMENT_REGEX_02
 					, ligneRGSectionHitAnneeTraitementRegex02);
+				
+		/* 7 - zoneLibre1. *******/
+		this.mapRG.put(
+				RG_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01
+					, ligneRGSectionHitZoneLibre1Renseigne01);
+		this.mapRG.put(
+				RG_SECTIONHIT_ZONELIBRE1_REGEX_02
+					, ligneRGSectionHitZoneLibre1Regex02);
 
 		return this.mapRG;
 					

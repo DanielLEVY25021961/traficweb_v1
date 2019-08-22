@@ -343,11 +343,11 @@ public final class GenerateurGestionnaireRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "6";
-		final String nomChamp = "anneeTraitement";
-		final String nomChampEnClair = "l'année de traitement";
-		final String colonnes = "[14-15]";
-		final String nbreChiffres = "2";
+		final String numeroChamp = "7";
+		final String nomChamp = "zoneLibre1";
+		final String nomChampEnClair = "la zone libre";
+		final String colonnes = "[16]";
+		final String nbreChiffres = "1";
 		// *******************************************************
 		
 		genererCodeRGsRenseigneRegexChiffres(
