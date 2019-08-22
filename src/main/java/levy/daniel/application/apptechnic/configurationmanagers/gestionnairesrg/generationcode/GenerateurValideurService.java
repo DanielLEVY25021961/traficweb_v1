@@ -511,16 +511,7 @@ public final class GenerateurValideurService {
 
 			System.out.println("********** A RAJOUTER DANS activerToutesRG() du Test JUNIT **************");
 			System.out.println(resultatGenererAjouterToutesRG);
-		
-//			final String resultatTestJUnit 
-//			= genererTestsBooleansRGsRenseigneRegexChiffres(
-//					OBJET_METIER
-//					, OBJET_METIER_EN_CLAIR
-//					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
-//
-//			System.out.println("********** AJOUT POUR LES TESTS JUNIT **************");
-//			System.out.println(resultatTestJUnit);
-		
+				
 	} // Fin de genererCodeRGsRenseigneRegexChiffres(...)._________________
 	
 	
@@ -535,10 +526,10 @@ public final class GenerateurValideurService {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "7";
-		final String nomChamp = "zoneLibre1";
-		final String nomChampEnClair = "la zone libre";
-		final String colonnes = "[16]";
+		final String numeroChamp = "9";
+		final String nomChamp = "indiceNumRoute";
+		final String nomChampEnClair = "l'indice numérique de la route";
+		final String colonnes = "[21]";
 		final String nbreChiffres = "1";
 		// *******************************************************
 		

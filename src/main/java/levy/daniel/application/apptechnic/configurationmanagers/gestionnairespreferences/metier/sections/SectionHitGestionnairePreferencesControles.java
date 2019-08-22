@@ -465,7 +465,84 @@ public final class SectionHitGestionnairePreferencesControles {
 	 */
 	public static final String MESSAGE_SECTIONHIT_ZONELIBRE1_REGEX_02_EN_DUR 
 		= "la zone libre de la section HIT (colonnes [16] du HIT) doit comporter exactement 1 espace";
-
+	
+	/* 8 - numRoute. *******/
+	/**
+	 * clé de messageSectionHitNumRouteRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numRoute.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01 
+		= "message.SectionHit.numRoute.renseigne";
+	
+	/**
+	 * messageSectionHitNumRouteRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumRouteRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de la route de la section HIT (colonnes [17-20] du HIT) doit être renseigné (obligatoire)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01_EN_DUR 
+		= "le numéro de la route de la section HIT (colonnes [17-20] du HIT) doit être renseigné (obligatoire)";
+		
+	/**
+	 * clé de messageSectionHitNumRouteRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numRoute.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02 
+		= "message.SectionHit.numRoute.regex";
+	
+	/**
+	 * messageSectionHitNumRouteRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumRouteRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de la route de la section HIT (colonnes [17-20] du HIT) doit comporter exactement 4 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02_EN_DUR 
+		= "le numéro de la route de la section HIT (colonnes [17-20] du HIT) doit comporter exactement 4 chiffres";
+	
+	/* 9 - indiceNumRoute. *******/
+	/**
+	 * clé de messageSectionHitIndiceNumRouteRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.indiceNumRoute.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01 
+		= "message.SectionHit.indiceNumRoute.renseigne";
+	
+	/**
+	 * messageSectionHitIndiceNumRouteRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitIndiceNumRouteRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'indice numérique de la route de la section HIT (colonnes [21] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01_EN_DUR 
+		= "l'indice numérique de la route de la section HIT (colonnes [21] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitIndiceNumRouteRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.indiceNumRoute.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02 
+		= "message.SectionHit.indiceNumRoute.regex";
+	
+	/**
+	 * messageSectionHitIndiceNumRouteRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitIndiceNumRouteRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'indice numérique de la route de la section HIT (colonnes [21] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02_EN_DUR 
+		= "l'indice numérique de la route de la section HIT (colonnes [21] du HIT) doit comporter exactement 1 chiffre";
 		
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
@@ -618,6 +695,32 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "la zone libre de la section HIT (colonnes [16] du HIT) doit comporter exactement 1 espace".<br/>
 	*/
 	private static String messageSectionHitZoneLibre1Regex02;
+
+	/* 8 - numRoute. *******/
+	/**
+	* message émis par la RG-SectionHit-NumRoute-01 : 
+	* "le numéro de la route de la section HIT (colonnes [17-20] du HIT) doit être renseigné (obligatoire)".<br/>
+	*/
+	private static String messageSectionHitNumRouteRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-NumRoute-02 : 
+	* "le numéro de la route de la section HIT (colonnes [17-20] du HIT) doit comporter exactement 4 chiffres".<br/>
+	*/
+	private static String messageSectionHitNumRouteRegex02;
+
+	/* 9 - indiceNumRoute. *******/
+	/**
+	* message émis par la RG-SectionHit-IndiceNumRoute-01 : 
+	* "l'indice numérique de la route de la section HIT (colonnes [21] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitIndiceNumRouteRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-IndiceNumRoute-02 : 
+	* "l'indice numérique de la route de la section HIT (colonnes [21] du HIT) doit comporter exactement 1 chiffre".<br/>
+	*/
+	private static String messageSectionHitIndiceNumRouteRegex02;
 	
 	/**
 	 * LOG : Log : 
@@ -806,7 +909,33 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_ZONELIBRE1_REGEX_02
 				, MESSAGE_SECTIONHIT_ZONELIBRE1_REGEX_02_EN_DUR);
-			
+				
+		/* 8 - numRoute. *******/		
+		/* ajoute le messageSectionHitNumRouteRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitNumRouteRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02
+				, MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02_EN_DUR);
+				
+		/* 9 - indiceNumRoute. *******/		
+		/* ajoute le messageSectionHitIndiceNumRouteRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitIndiceNumRouteRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02
+				, MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02_EN_DUR);
+		
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -4373,6 +4502,460 @@ public final class SectionHitGestionnairePreferencesControles {
 						
 	} // Fin de setMessageSectionHitZoneLibre1Regex02(...).________________
 
+
+	
+	/* 8 - numRoute. ****************/
+	/**
+	 * retourne le messageSectionHitNumRouteRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumRouteRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumRouteRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumRouteRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumRouteRenseigne01
+					, fournirKeyMessageSectionHitNumRouteRenseigne01()
+					, MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumRouteRenseigne01()._____________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumRouteRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numRoute.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumRouteRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitNumRouteRenseigne01().__________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumRouteRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumRouteRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumRouteRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumRouteRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitNumRouteRenseigne01();
+	} // Fin de getMessageSectionHitNumRouteRenseigne01()._________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumRouteRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumRouteRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitNumRouteRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumRouteRenseigne01
+							, fournirKeyMessageSectionHitNumRouteRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumRouteRenseigne01(...).______________
+
+
+
+	/**
+	 * retourne le messageSectionHitNumRouteRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumRouteRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumRouteRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumRouteRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumRouteRegex02
+					, fournirKeyMessageSectionHitNumRouteRegex02()
+					, MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumRouteRegex02()._________________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumRouteRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numRoute.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumRouteRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitNumRouteRegex02().______________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumRouteRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumRouteRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumRouteRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumRouteRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitNumRouteRegex02();
+	} // Fin de getMessageSectionHitNumRouteRegex02()._____________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumRouteRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumRouteRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitNumRouteRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumRouteRegex02
+							, fournirKeyMessageSectionHitNumRouteRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumRouteRegex02(...).__________________
+
+
+	
+	/* 9 - indiceNumRoute. ****************/
+	/**
+	 * retourne le messageSectionHitIndiceNumRouteRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceNumRouteRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitIndiceNumRouteRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitIndiceNumRouteRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitIndiceNumRouteRenseigne01
+					, fournirKeyMessageSectionHitIndiceNumRouteRenseigne01()
+					, MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitIndiceNumRouteRenseigne01()._______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitIndiceNumRouteRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.indiceNumRoute.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitIndiceNumRouteRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitIndiceNumRouteRenseigne01().____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitIndiceNumRouteRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceNumRouteRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitIndiceNumRouteRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitIndiceNumRouteRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitIndiceNumRouteRenseigne01();
+	} // Fin de getMessageSectionHitIndiceNumRouteRenseigne01().___________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitIndiceNumRouteRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitIndiceNumRouteRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitIndiceNumRouteRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitIndiceNumRouteRenseigne01
+							, fournirKeyMessageSectionHitIndiceNumRouteRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitIndiceNumRouteRenseigne01(...).________
+
+
+
+	/**
+	 * retourne le messageSectionHitIndiceNumRouteRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceNumRouteRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitIndiceNumRouteRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitIndiceNumRouteRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitIndiceNumRouteRegex02
+					, fournirKeyMessageSectionHitIndiceNumRouteRegex02()
+					, MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitIndiceNumRouteRegex02().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitIndiceNumRouteRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.indiceNumRoute.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitIndiceNumRouteRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitIndiceNumRouteRegex02().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitIndiceNumRouteRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceNumRouteRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitIndiceNumRouteRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitIndiceNumRouteRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitIndiceNumRouteRegex02();
+	} // Fin de getMessageSectionHitIndiceNumRouteRegex02()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitIndiceNumRouteRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitIndiceNumRouteRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitIndiceNumRouteRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitIndiceNumRouteRegex02
+							, fournirKeyMessageSectionHitIndiceNumRouteRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitIndiceNumRouteRegex02(...).____________
+	
 	
 		
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesControles.------------

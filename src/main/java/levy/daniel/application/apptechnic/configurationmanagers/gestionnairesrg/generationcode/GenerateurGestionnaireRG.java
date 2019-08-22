@@ -343,10 +343,10 @@ public final class GenerateurGestionnaireRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "7";
-		final String nomChamp = "zoneLibre1";
-		final String nomChampEnClair = "la zone libre";
-		final String colonnes = "[16]";
+		final String numeroChamp = "9";
+		final String nomChamp = "indiceNumRoute";
+		final String nomChampEnClair = "l'indice numérique de la route";
+		final String colonnes = "[21]";
 		final String nbreChiffres = "1";
 		// *******************************************************
 		

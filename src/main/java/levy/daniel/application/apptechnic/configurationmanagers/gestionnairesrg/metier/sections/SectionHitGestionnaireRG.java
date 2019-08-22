@@ -263,7 +263,54 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_ZONELIBRE1_REGEX_02 : "
 				+ "la zone libre de la section HIT doit comporter exactement 1 espace";
 
+	/* 8 - numRoute. *******/
+	/**
+	 * "numRoute".<br/>
+	 */
+	public static final String ATTRIBUT_NUMROUTE 
+		= "numRoute";
 
+	/**
+	 * "RG_SECTIONHIT_NUMROUTE_RENSEIGNE_01 : 
+	 * le numéro de la route de la section HIT doit être renseigné (obligatoire)".
+	 */
+	public static final String RG_SECTIONHIT_NUMROUTE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_NUMROUTE_RENSEIGNE_01 : "
+				+ "le numéro de la route de la section HIT "
+				+ "doit être renseigné (obligatoire)";
+
+	/**
+	 * "RG_SECTIONHIT_NUMROUTE_REGEX_02 : 
+	 * le numéro de la route de la section HIT doit comporter exactement 4 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_NUMROUTE_REGEX_02 
+		= "RG_SECTIONHIT_NUMROUTE_REGEX_02 : "
+				+ "le numéro de la route de la section HIT doit comporter exactement 4 chiffres";
+
+	/* 9 - indiceNumRoute. *******/
+	/**
+	 * "indiceNumRoute".<br/>
+	 */
+	public static final String ATTRIBUT_INDICENUMROUTE 
+		= "indiceNumRoute";
+
+	/**
+	 * "RG_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01 : 
+	 * l'indice numérique de la route de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01 : "
+				+ "l'indice numérique de la route de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_INDICENUMROUTE_REGEX_02 : 
+	 * l'indice numérique de la route de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_INDICENUMROUTE_REGEX_02 
+		= "RG_SECTIONHIT_INDICENUMROUTE_REGEX_02 : "
+				+ "l'indice numérique de la route de la section HIT doit comporter exactement 1 chiffre";
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -600,6 +647,64 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitZoneLibre1Regex02());
 		
+		/* 8 - numRoute. *******/
+		/* RG_SECTIONHIT_NUMROUTE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitNumRouteRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumRouteRenseigne01()
+				, RG_SECTIONHIT_NUMROUTE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumRouteRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumRouteRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumRouteRenseigne01());
+		
+		/* RG_SECTIONHIT_NUMROUTE_REGEX_02. */
+		final LigneRG ligneRGSectionHitNumRouteRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumRouteRegex02()
+				, RG_SECTIONHIT_NUMROUTE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumRouteRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumRouteRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumRouteRegex02());
+		
+		/* 9 - indiceNumRoute. *******/
+		/* RG_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitIndiceNumRouteRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceNumRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceNumRouteRenseigne01()
+				, RG_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceNumRouteRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICENUMROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceNumRouteRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceNumRouteRenseigne01());
+		
+		/* RG_SECTIONHIT_INDICENUMROUTE_REGEX_02. */
+		final LigneRG ligneRGSectionHitIndiceNumRouteRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceNumRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceNumRouteRegex02()
+				, RG_SECTIONHIT_INDICENUMROUTE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceNumRouteRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICENUMROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceNumRouteRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceNumRouteRegex02());
+
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -665,7 +770,23 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 				RG_SECTIONHIT_ZONELIBRE1_REGEX_02
 					, ligneRGSectionHitZoneLibre1Regex02);
-
+					
+		/* 8 - numRoute. *******/
+		this.mapRG.put(
+				RG_SECTIONHIT_NUMROUTE_RENSEIGNE_01
+					, ligneRGSectionHitNumRouteRenseigne01);
+		this.mapRG.put(
+				RG_SECTIONHIT_NUMROUTE_REGEX_02
+					, ligneRGSectionHitNumRouteRegex02);
+		
+		/* 9 - indiceNumRoute. *******/
+		this.mapRG.put(
+				RG_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01
+					, ligneRGSectionHitIndiceNumRouteRenseigne01);
+		this.mapRG.put(
+				RG_SECTIONHIT_INDICENUMROUTE_REGEX_02
+					, ligneRGSectionHitIndiceNumRouteRegex02);
+						
 		return this.mapRG;
 					
 	} // Fin de remplirMapRG().____________________________________________
