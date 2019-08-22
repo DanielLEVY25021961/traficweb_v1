@@ -5,7 +5,7 @@
 4;11;1;Nature;1 - Tous Véhicules. [sep] 2 - Vitesse. [sep] 3 - Type de véhicule. [sep] 4 - Longueur de Tôle. [sep] 5 - SATL. [sep] 6 - SATL. [sep] 7 - SATL. [sep] 8 - SATL. [sep] 9 - SATL. [sep];nature;String;true;false;11;11;1
 5;12-13;2;Classe;2 chiffres. Codé 00 pour 'Tous Véhicules' ;classe;String;false;false;12;13;2
 6;14-15;2;Année de traitement;Année de Traitement sur deux caractères (ex 07 pour 2007);anneeTraitement;Date;false;false;14;15;2
-7;16;1;Zone libre;1 espace;sans objet;sans objet;false;false;16;16;1
+7;16;1;Zone libre;1 espace;zoneLibre1;String;false;false;16;16;1
 8;17-20;4;Numéro de Route;4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 0020 pour N20);numRoute;String;false;false;17;20;4
 9;21;1;Indice Numérique de la Route;1 chiffre (ou zéro);indiceNumRoute;String;false;false;21;21;1
 10;22;1;Indice Lettre de la Route;1 lettre (ou rien);indiceLettreRoute;String;false;false;22;22;1

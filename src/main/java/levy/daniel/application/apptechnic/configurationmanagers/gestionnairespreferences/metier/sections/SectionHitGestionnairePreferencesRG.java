@@ -520,6 +520,63 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	public static final String STRING_VALIDER_SECTIONHIT_ANNEETRAITEMENT_REGEX_02_EN_DUR 
 		= "true";	
+	
+	/* 7 - zoneLibre1. *******/
+	/**
+	 * clé de validerRGSectionHitZoneLibre1 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.zoneLibre1"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_ZONELIBRE1 
+		= "valider.SectionHit.zoneLibre1";
+	
+	/**
+	 * validerRGSectionHitZoneLibre1 par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitZoneLibre1 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_ZONELIBRE1_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitZoneLibre1Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.zoneLibre1.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01 
+		= "valider.SectionHit.zoneLibre1.renseigne";
+	
+	/**
+	 * validerRGSectionHitZoneLibre1Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitZoneLibre1Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitZoneLibre1Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.zoneLibre1.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_ZONELIBRE1_REGEX_02 
+		= "valider.SectionHit.zoneLibre1.regex";
+	
+	/**
+	 * validerRGSectionHitZoneLibre1Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitZoneLibre1Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_ZONELIBRE1_REGEX_02_EN_DUR 
+		= "true";
 		
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
@@ -711,6 +768,27 @@ public final class SectionHitGestionnairePreferencesRG {
 	 * "l'année de traitement de la section HIT (colonnes [14-15] du HIT) doit comporter exactement 2 chiffres".<br/>
 	 */
 	private static Boolean validerRGSectionHitAnneeTraitementRegex02;
+	
+	/* 7 - zoneLibre1. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>zoneLibre1</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>zoneLibre1</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitZoneLibre1;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ZoneLibre1-01 : 
+	 * "la zone libre de la section HIT (colonne [16] du HIT) doit être renseignée (1 espace)".<br/>
+	 */
+	private static Boolean validerRGSectionHitZoneLibre1Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ZoneLibre1-02 : 
+	 * "la zone libre de la section HIT (colonne [16] du HIT) doit comporter exactement 1 espace".<br/>
+	 */
+	private static Boolean validerRGSectionHitZoneLibre1Regex02;
 	
 	/**
 	 * LOG : Log : 
@@ -921,7 +999,25 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_ANNEETRAITEMENT_REGEX_02
 						, STRING_VALIDER_SECTIONHIT_ANNEETRAITEMENT_REGEX_02_EN_DUR);
-
+			
+			/* 7 - zoneLibre1. *******/
+			/* ajoute le validerRGSectionHitZoneLibre1 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_ZONELIBRE1
+						, STRING_VALIDER_SECTIONHIT_ZONELIBRE1_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitZoneLibre1Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitZoneLibre1Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_ZONELIBRE1_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_ZONELIBRE1_REGEX_02_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -4511,7 +4607,354 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitAnneeTraitementRegex02(...).__________________
+	
+	
+	
+	/* 7 - zoneLibre1. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitZoneLibre1</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>zoneLibre1</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>zoneLibre1</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitZoneLibre1 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitZoneLibre1 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitZoneLibre1() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitZoneLibre1
+					, fournirKeyValiderRGSectionHitZoneLibre1()
+					, STRING_VALIDER_SECTIONHIT_ZONELIBRE1_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitZoneLibre1().____________________
+	
 
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitZoneLibre1 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.zoneLibre1".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_ZONELIBRE1 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitZoneLibre1() {
+		return KEY_VALIDER_SECTIONHIT_ZONELIBRE1;
+	} // Fin de fournirKeyValiderRGSectionHitZoneLibre1()._________________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitZoneLibre1 par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitZoneLibre1 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitZoneLibre1 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitZoneLibre1 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitZoneLibre1() 
+													throws Exception {
+		return fournirValiderRGSectionHitZoneLibre1();
+	} // Fin de getValiderRGSectionHitZoneLibre1().________________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitZoneLibre1 par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitZoneLibre1.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitZoneLibre1(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitZoneLibre1
+							, fournirKeyValiderRGSectionHitZoneLibre1());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitZoneLibre1(...)._____________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitZoneLibre1Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitZoneLibre1Renseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitZoneLibre1Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitZoneLibre1Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitZoneLibre1Renseigne01
+					, fournirKeyValiderRGSectionHitZoneLibre1Renseigne01()
+					, STRING_VALIDER_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitZoneLibre1Renseigne01()._________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitZoneLibre1Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.zoneLibre1.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitZoneLibre1Renseigne01() {
+		return KEY_VALIDER_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitZoneLibre1Renseigne01().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitZoneLibre1Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitZoneLibre1Renseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitZoneLibre1Renseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitZoneLibre1Renseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitZoneLibre1Renseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitZoneLibre1Renseigne01();
+	} // Fin de getValiderRGSectionHitZoneLibre1Renseigne01()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitZoneLibre1Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitZoneLibre1Renseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitZoneLibre1Renseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitZoneLibre1Renseigne01
+							, fournirKeyValiderRGSectionHitZoneLibre1Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitZoneLibre1Renseigne01(...).__________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitZoneLibre1Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitZoneLibre1Regex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitZoneLibre1Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitZoneLibre1Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitZoneLibre1Regex02
+					, fournirKeyValiderRGSectionHitZoneLibre1Regex02()
+					, STRING_VALIDER_SECTIONHIT_ZONELIBRE1_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitZoneLibre1Regex02()._____________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitZoneLibre1Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.zoneLibre1.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_ZONELIBRE1_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitZoneLibre1Regex02() {
+		return KEY_VALIDER_SECTIONHIT_ZONELIBRE1_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitZoneLibre1Regex02().__________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitZoneLibre1Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitZoneLibre1Regex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitZoneLibre1Regex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitZoneLibre1Regex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitZoneLibre1Regex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitZoneLibre1Regex02();
+	} // Fin de getValiderRGSectionHitZoneLibre1Regex02()._________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitZoneLibre1Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitZoneLibre1Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitZoneLibre1Regex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitZoneLibre1Regex02
+							, fournirKeyValiderRGSectionHitZoneLibre1Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitZoneLibre1Regex02(...).______________
 	
 	
 	
