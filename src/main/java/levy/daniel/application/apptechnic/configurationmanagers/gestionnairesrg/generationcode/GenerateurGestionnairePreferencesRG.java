@@ -637,10 +637,10 @@ public final class GenerateurGestionnairePreferencesRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "9";
-		final String nomChamp = "indiceNumRoute";
-		final String nomChampEnClair = "l'indice numérique de la route";
-		final String colonnes = "[21]";
+		final String numeroChamp = "10";
+		final String nomChamp = "indiceLettreRoute";
+		final String nomChampEnClair = "l'indice lettre de la route";
+		final String colonnes = "[22]";
 		final String nbreChiffres = "1";
 		// *******************************************************
 		

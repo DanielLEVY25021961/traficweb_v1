@@ -301,33 +301,6 @@ public final class GenerateurGestionnaireRG {
 
 			System.out.println("********** RAJOUTER DANS remplirMapRG() **************");
 			System.out.println(resultatRemplirMapRG);
-
-//			final String resultatAjouterTestValiderAttribut 
-//			= genererTestRenseigneRegexChiffres(
-//					OBJET_METIER
-//					, OBJET_METIER_EN_CLAIR
-//					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
-//
-//			System.out.println("********** AJOUT DE METHODES DANS TEST JUNIT **************");
-//			System.out.println(resultatAjouterTestValiderAttribut);
-//		
-//			final String resultatGenererAjouterToutesRG 
-//			= genererAjouterToutesRGRenseigneRegexChiffres(
-//					OBJET_METIER
-//					, OBJET_METIER_EN_CLAIR
-//					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
-//
-//			System.out.println("********** A RAJOUTER DANS activerToutesRG() du Test JUNIT **************");
-//			System.out.println(resultatGenererAjouterToutesRG);
-//		
-//			final String resultatTestJUnit 
-//			= genererTestsBooleansRGsRenseigneRegexChiffres(
-//					OBJET_METIER
-//					, OBJET_METIER_EN_CLAIR
-//					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
-//
-//			System.out.println("********** AJOUT POUR LES TESTS JUNIT **************");
-//			System.out.println(resultatTestJUnit);
 		
 	} // Fin de genererCodeRGsRenseigneRegexChiffres(...)._________________
 	
@@ -343,10 +316,10 @@ public final class GenerateurGestionnaireRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "9";
-		final String nomChamp = "indiceNumRoute";
-		final String nomChampEnClair = "l'indice numérique de la route";
-		final String colonnes = "[21]";
+		final String numeroChamp = "10";
+		final String nomChamp = "indiceLettreRoute";
+		final String nomChampEnClair = "l'indice lettre de la route";
+		final String colonnes = "[22]";
 		final String nbreChiffres = "1";
 		// *******************************************************
 		

@@ -310,6 +310,30 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_INDICENUMROUTE_REGEX_02 
 		= "RG_SECTIONHIT_INDICENUMROUTE_REGEX_02 : "
 				+ "l'indice numérique de la route de la section HIT doit comporter exactement 1 chiffre";
+
+	/* 10 - indiceLettreRoute. *******/
+	/**
+	 * "indiceLettreRoute".<br/>
+	 */
+	public static final String ATTRIBUT_INDICELETTREROUTE 
+		= "indiceLettreRoute";
+
+	/**
+	 * "RG_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01 : 
+	 * l'indice lettre de la route de la section HIT doit être renseigné (ou espace si pas d'indice)".
+	 */
+	public static final String RG_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01 : "
+				+ "l'indice lettre de la route de la section HIT "
+				+ "doit être renseigné (ou espace si pas d'indice)";
+
+	/**
+	 * "RG_SECTIONHIT_INDICELETTREROUTE_REGEX_02 : 
+	 * l'indice lettre de la route de la section HIT doit comporter exactement 1 lettre (ou espace si pas d'indice)".
+	 */
+	public static final String RG_SECTIONHIT_INDICELETTREROUTE_REGEX_02 
+		= "RG_SECTIONHIT_INDICELETTREROUTE_REGEX_02 : "
+				+ "l'indice lettre de la route de la section HIT doit comporter exactement 1 lettre (ou espace si pas d'indice)";
 	
 	/**
 	 * LOG : Log : 
@@ -704,7 +728,36 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitIndiceNumRouteRegex02()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceNumRouteRegex02());
-
+		
+		/* 10 - indiceLettreRoute. *******/
+		/* RG_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitIndiceLettreRouteRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceLettreRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceLettreRouteRenseigne01()
+				, RG_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceLettreRouteRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICELETTREROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceLettreRouteRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceLettreRouteRenseigne01());
+		
+		/* RG_SECTIONHIT_INDICELETTREROUTE_REGEX_02. */
+		final LigneRG ligneRGSectionHitIndiceLettreRouteRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceLettreRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceLettreRouteRegex02()
+				, RG_SECTIONHIT_INDICELETTREROUTE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceLettreRouteRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICELETTREROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceLettreRouteRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceLettreRouteRegex02());
+		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -786,7 +839,15 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 				RG_SECTIONHIT_INDICENUMROUTE_REGEX_02
 					, ligneRGSectionHitIndiceNumRouteRegex02);
-						
+				
+		/* 10 - indiceLettreRoute. *******/
+		this.mapRG.put(
+				RG_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01
+					, ligneRGSectionHitIndiceLettreRouteRenseigne01);
+		this.mapRG.put(
+				RG_SECTIONHIT_INDICELETTREROUTE_REGEX_02
+					, ligneRGSectionHitIndiceLettreRouteRegex02);
+		
 		return this.mapRG;
 					
 	} // Fin de remplirMapRG().____________________________________________
