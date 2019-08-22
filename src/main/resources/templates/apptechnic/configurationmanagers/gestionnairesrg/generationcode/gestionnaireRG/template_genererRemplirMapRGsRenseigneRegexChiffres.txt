@@ -1,0 +1,41 @@
+		
+		/* {$pNumeroChamp} - {$pNomChamp}. *******/
+		/* RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01. */
+		final LigneRG ligneRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+		= new LigneRG({$pObjetMetier}GestionnairePreferencesRG.getValiderRG{$pObjetMetier}{$NomChampCamelise}()
+				, {$pObjetMetier}GestionnairePreferencesRG.getValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01()
+				, RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, {$pObjetMetier}GestionnairePreferencesControles.getMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_{$NomChampCapitalise}
+				, CLASSE_CONTROLE
+				, "validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, {$pObjetMetier}GestionnairePreferencesRG.fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01());
+		
+		/* RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02. */
+		final LigneRG ligneRG{$pObjetMetier}{$NomChampCamelise}Regex02 
+		= new LigneRG({$pObjetMetier}GestionnairePreferencesRG.getValiderRG{$pObjetMetier}{$NomChampCamelise}()
+				, {$pObjetMetier}GestionnairePreferencesRG.getValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02()
+				, RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, {$pObjetMetier}GestionnairePreferencesControles.getMessage{$pObjetMetier}{$NomChampCamelise}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_{$NomChampCapitalise}
+				, CLASSE_CONTROLE
+				, "validerRG{$pObjetMetier}{$NomChampCamelise}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, {$pObjetMetier}GestionnairePreferencesRG.fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02());
+				
+				
+				
+						
+		/* {$pNumeroChamp} - {$pNomChamp}. *******/
+		this.mapRG.put(
+				RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01
+					, ligneRG{$pObjetMetier}{$NomChampCamelise}Renseigne01);
+		this.mapRG.put(
+				RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02
+					, ligneRG{$pObjetMetier}{$NomChampCamelise}Regex02);
+				

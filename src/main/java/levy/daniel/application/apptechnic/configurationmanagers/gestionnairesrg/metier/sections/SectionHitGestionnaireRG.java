@@ -100,7 +100,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				+ "le numéro de département doit comporter exactement "
 				+ "3 chiffres ('030' pour 03, '300' pour 30, '972' pour 972)";
 
-	/* 2 - numSection. */	
+	/* 2 - numSection. **************/	
 	/**
 	 * "numSection".<br/>
 	 */
@@ -125,7 +125,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_NUMSECTION_REGEX_02 : "
 				+ "le numéro de section doit comporter exactement 6 chiffres";
 
-	/* 3 - sens. */	
+	/* 3 - sens. *****************/	
 	/**
 	 * "sens".<br/>
 	 */
@@ -158,7 +158,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_SENS_NOMENCLATURE_03 : "
 				+ "le sens doit respecter une nomenclature [1, 2, 3, 4, 5]";
 
-	/* 4 - nature. */	
+	/* 4 - nature. ***************/	
 	/**
 	 * "nature".<br/>
 	 */
@@ -191,7 +191,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_NATURE_NOMENCLATURE_03 : "
 				+ "la nature doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
 
-	/* 5 - classe. */	
+	/* 5 - classe. ****************/	
 	/**
 	 * "classe".<br/>
 	 */
@@ -214,6 +214,31 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_CLASSE_REGEX_02 
 		= "RG_SECTIONHIT_CLASSE_REGEX_02 : "
 				+ "la classe de la section HIT doit comporter exactement 2 chiffres '00'";
+
+	/* 6 - anneeTraitement. *******/
+	/**
+	 * "anneeTraitement".<br/>
+	 */
+	public static final String ATTRIBUT_ANNEETRAITEMENT 
+		= "anneeTraitement";
+
+	/**
+	 * "RG_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01 : 
+	 * l'année de traitement de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01 : "
+				+ "l'année de traitement de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_ANNEETRAITEMENT_REGEX_02 : 
+	 * l'année de traitement de la section HIT doit comporter exactement 2 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ANNEETRAITEMENT_REGEX_02 
+		= "RG_SECTIONHIT_ANNEETRAITEMENT_REGEX_02 : "
+				+ "l'année de traitement de la section HIT doit comporter exactement 2 chiffres";
+
 
 	/**
 	 * LOG : Log : 
@@ -492,6 +517,35 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitClasseRegex02()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseRegex02());
+		
+		/* 6 - anneeTraitement. *******/
+		/* RG_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAnneeTraitementRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeTraitement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeTraitementRenseigne01()
+				, RG_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeTraitementRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEETRAITEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeTraitementRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeTraitementRenseigne01());
+		
+		/* RG_SECTIONHIT_ANNEETRAITEMENT_REGEX_02. */
+		final LigneRG ligneRGSectionHitAnneeTraitementRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeTraitement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeTraitementRegex02()
+				, RG_SECTIONHIT_ANNEETRAITEMENT_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeTraitementRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEETRAITEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeTraitementRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeTraitementRegex02());
 
 		
 		// *********************************************
@@ -543,6 +597,14 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 				RG_SECTIONHIT_CLASSE_REGEX_02
 					, ligneRGSectionHitClasseRegex02);
+				
+		/* 6 - anneeTraitement. *******/
+		this.mapRG.put(
+				RG_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01
+					, ligneRGSectionHitAnneeTraitementRenseigne01);
+		this.mapRG.put(
+				RG_SECTIONHIT_ANNEETRAITEMENT_REGEX_02
+					, ligneRGSectionHitAnneeTraitementRegex02);
 
 		return this.mapRG;
 					
