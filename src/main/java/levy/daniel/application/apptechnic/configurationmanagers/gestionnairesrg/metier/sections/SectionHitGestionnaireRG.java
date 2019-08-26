@@ -453,6 +453,70 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03 
 		= "RG_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03 : "
 				+ "le classement de la route doit respecter une nomenclature [1, 2, 3, 4, 5]";
+
+	/* 14 - classeLargeurChausseeU. *******/
+	/**
+	 * "classeLargeurChausseeU".<br/>
+	 */
+	public static final String ATTRIBUT_CLASSELARGEURCHAUSSEEU 
+		= "classeLargeurChausseeU";
+
+	/**
+	 * "RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01 : 
+	 * la classe de largeur de chaussée unique de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01 
+		= "RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01 : "
+				+ "la classe de largeur de chaussée unique de la section HIT "
+				+ "doit être renseignée";
+
+	/**
+	 * "RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02 : 
+	 * la classe de largeur de chaussée unique de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02 
+		= "RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02 : "
+				+ "la classe de largeur de chaussée unique de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03 : 
+	 * la classe de largeur de chaussée unique doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7, 8]".
+	 */
+	public static final String RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03 : "
+				+ "la classe de largeur de chaussée unique doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7, 8]";
+
+	/* 15 - classeLargeurChausseesS. *******/
+	/**
+	 * "classeLargeurChausseesS".<br/>
+	 */
+	public static final String ATTRIBUT_CLASSELARGEURCHAUSSEESS 
+		= "classeLargeurChausseesS";
+
+	/**
+	 * "RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01 : 
+	 * la classe de largeur de chaussées séparées de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01 
+		= "RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01 : "
+				+ "la classe de largeur de chaussées séparées de la section HIT "
+				+ "doit être renseignée";
+
+	/**
+	 * "RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02 : 
+	 * la classe de largeur de chaussées séparées de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02 
+		= "RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02 : "
+				+ "la classe de largeur de chaussées séparées de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03 : 
+	 * la classe de largeur de chaussées séparées doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7]".
+	 */
+	public static final String RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03 : "
+				+ "la classe de largeur de chaussées séparées doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7]";				
 					
 	/**
 	 * LOG : Log : 
@@ -1005,7 +1069,93 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitClassementRouteNomenclature03()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClassementRouteNomenclature03());
-						
+		
+		/* 14 - classeLargeurChausseeU. *******/
+		/* RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitClasseLargeurChausseeURenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseeU()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseeURenseigne01()
+				, RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClasseLargeurChausseeURenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSELARGEURCHAUSSEEU
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClasseLargeurChausseeURenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseLargeurChausseeURenseigne01());
+		
+		/* RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02. */
+		final LigneRG ligneRGSectionHitClasseLargeurChausseeURegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseeU()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseeURegex02()
+				, RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClasseLargeurChausseeURegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSELARGEURCHAUSSEEU
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClasseLargeurChausseeURegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseLargeurChausseeURegex02());
+				
+		/* RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitClasseLargeurChausseeUNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseeU()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseeUNomenclature03()
+				, RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClasseLargeurChausseeUNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSELARGEURCHAUSSEEU
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClasseLargeurChausseeUNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseLargeurChausseeUNomenclature03());
+		
+		/* 15 - classeLargeurChausseesS. *******/
+		/* RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitClasseLargeurChausseesSRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseesS()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseesSRenseigne01()
+				, RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClasseLargeurChausseesSRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSELARGEURCHAUSSEESS
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClasseLargeurChausseesSRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseLargeurChausseesSRenseigne01());
+		
+		/* RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02. */
+		final LigneRG ligneRGSectionHitClasseLargeurChausseesSRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseesS()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseesSRegex02()
+				, RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClasseLargeurChausseesSRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSELARGEURCHAUSSEESS
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClasseLargeurChausseesSRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseLargeurChausseesSRegex02());
+				
+		/* RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitClasseLargeurChausseesSNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseesS()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClasseLargeurChausseesSNomenclature03()
+				, RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClasseLargeurChausseesSNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSELARGEURCHAUSSEESS
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClasseLargeurChausseesSNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseLargeurChausseesSNomenclature03());
+		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -1128,6 +1278,28 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03
 			, ligneRGSectionHitClassementRouteNomenclature03);
+				
+		/* 14 - classeLargeurChausseeU. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01
+			, ligneRGSectionHitClasseLargeurChausseeURenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02
+			, ligneRGSectionHitClasseLargeurChausseeURegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03
+			, ligneRGSectionHitClasseLargeurChausseeUNomenclature03);				
+				
+		/* 15 - classeLargeurChausseesS. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01
+			, ligneRGSectionHitClasseLargeurChausseesSRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02
+			, ligneRGSectionHitClasseLargeurChausseesSRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03
+			, ligneRGSectionHitClasseLargeurChausseesSNomenclature03);				
 		
 		return this.mapRG;
 					

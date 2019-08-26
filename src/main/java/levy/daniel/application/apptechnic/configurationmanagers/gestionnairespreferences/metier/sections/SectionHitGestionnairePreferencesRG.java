@@ -1052,6 +1052,83 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	public static final String STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03_EN_DUR 
 		= "true";
+	
+	/* 15 - classeLargeurChausseesS. *******/
+	/**
+	 * clé de validerRGSectionHitClasseLargeurChausseesS dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.classeLargeurChausseesS"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS 
+		= "valider.SectionHit.classeLargeurChausseesS";
+	
+	/**
+	 * validerRGSectionHitClasseLargeurChausseesS par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitClasseLargeurChausseesS 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitClasseLargeurChausseesSRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.classeLargeurChausseesS.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01 
+		= "valider.SectionHit.classeLargeurChausseesS.renseigne";
+	
+	/**
+	 * validerRGSectionHitClasseLargeurChausseesSRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitClasseLargeurChausseesSRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitClasseLargeurChausseesSRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.classeLargeurChausseesS.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02 
+		= "valider.SectionHit.classeLargeurChausseesS.regex";
+	
+	/**
+	 * validerRGSectionHitClasseLargeurChausseesSRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitClasseLargeurChausseesSRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitClasseLargeurChausseesSNomenclature03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.classeLargeurChausseesS.nomenclature"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03 
+		= "valider.SectionHit.classeLargeurChausseesS.nomenclature";
+	
+	/**
+	 * validerRGSectionHitClasseLargeurChausseesSNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitClasseLargeurChausseesSNomenclature03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03_EN_DUR 
+		= "true";
+		
 					
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
@@ -1435,6 +1512,33 @@ public final class SectionHitGestionnairePreferencesRG {
 	 * "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7, 8]".<br/>
 	 */
 	private static Boolean validerRGSectionHitClasseLargeurChausseeUNomenclature03;
+	
+	/* 15 - classeLargeurChausseesS. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>classeLargeurChausseesS</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>classeLargeurChausseesS</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitClasseLargeurChausseesS;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ClasseLargeurChausseesS-01 : 
+	 * "la classe de largeur de chaussées séparées de la section HIT (colonne [27] du HIT) doit être renseignée (0 si sans objet)".<br/>
+	 */
+	private static Boolean validerRGSectionHitClasseLargeurChausseesSRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ClasseLargeurChausseesS-02 : 
+	 * "la classe de largeur de chaussées séparées de la section HIT (colonne [27] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	private static Boolean validerRGSectionHitClasseLargeurChausseesSRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ClasseLargeurChausseesS-03 :
+	 * "la classe de largeur de chaussées séparées de la section HIT (colonne [27] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7]".<br/>
+	 */
+	private static Boolean validerRGSectionHitClasseLargeurChausseesSNomenclature03;
 	
 		
 	/**
@@ -1822,7 +1926,32 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03
 						, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03_EN_DUR);
-																											
+			
+			/* 15 - classeLargeurChausseesS. *******/
+			/* ajoute le validerRGSectionHitClasseLargeurChausseesS 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS
+						, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitClasseLargeurChausseesSRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitClasseLargeurChausseesSRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitClasseLargeurChausseesSNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03
+						, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03_EN_DUR);
+																																	
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -8651,7 +8780,469 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitClasseLargeurChausseeUNomenclature03(...).
+	
+	
+	
+	/* 15 - classeLargeurChausseesS. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitClasseLargeurChausseesS</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>classeLargeurChausseesS</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>classeLargeurChausseesS</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClasseLargeurChausseesS stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitClasseLargeurChausseesS 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitClasseLargeurChausseesS() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitClasseLargeurChausseesS
+					, fournirKeyValiderRGSectionHitClasseLargeurChausseesS()
+					, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_EN_DUR);
 			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitClasseLargeurChausseesS()._______
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitClasseLargeurChausseesS 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.classeLargeurChausseesS".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitClasseLargeurChausseesS() {
+		return KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS;
+	} // Fin de fournirKeyValiderRGSectionHitClasseLargeurChausseesS().____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitClasseLargeurChausseesS par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitClasseLargeurChausseesS 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitClasseLargeurChausseesS stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitClasseLargeurChausseesS : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitClasseLargeurChausseesS() 
+													throws Exception {
+		return fournirValiderRGSectionHitClasseLargeurChausseesS();
+	} // Fin de getValiderRGSectionHitClasseLargeurChausseesS().___________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitClasseLargeurChausseesS par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitClasseLargeurChausseesS.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitClasseLargeurChausseesS(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitClasseLargeurChausseesS
+							, fournirKeyValiderRGSectionHitClasseLargeurChausseesS());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitClasseLargeurChausseesS(...).________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitClasseLargeurChausseesSRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClasseLargeurChausseesSRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitClasseLargeurChausseesSRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitClasseLargeurChausseesSRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitClasseLargeurChausseesSRenseigne01
+					, fournirKeyValiderRGSectionHitClasseLargeurChausseesSRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitClasseLargeurChausseesSRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitClasseLargeurChausseesSRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.classeLargeurChausseesS.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitClasseLargeurChausseesSRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitClasseLargeurChausseesSRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitClasseLargeurChausseesSRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClasseLargeurChausseesSRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitClasseLargeurChausseesSRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitClasseLargeurChausseesSRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitClasseLargeurChausseesSRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitClasseLargeurChausseesSRenseigne01();
+	} // Fin de getValiderRGSectionHitClasseLargeurChausseesSRenseigne01().
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitClasseLargeurChausseesSRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitClasseLargeurChausseesSRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitClasseLargeurChausseesSRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitClasseLargeurChausseesSRenseigne01
+							, fournirKeyValiderRGSectionHitClasseLargeurChausseesSRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitClasseLargeurChausseesSRenseigne01(...).
+
+
+
+	/**
+	 * retourne le validerRGSectionHitClasseLargeurChausseesSRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClasseLargeurChausseesSRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitClasseLargeurChausseesSRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitClasseLargeurChausseesSRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitClasseLargeurChausseesSRegex02
+					, fournirKeyValiderRGSectionHitClasseLargeurChausseesSRegex02()
+					, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitClasseLargeurChausseesSRegex02().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitClasseLargeurChausseesSRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.classeLargeurChausseesS.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitClasseLargeurChausseesSRegex02() {
+		return KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitClasseLargeurChausseesSRegex02().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitClasseLargeurChausseesSRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClasseLargeurChausseesSRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitClasseLargeurChausseesSRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitClasseLargeurChausseesSRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitClasseLargeurChausseesSRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitClasseLargeurChausseesSRegex02();
+	} // Fin de getValiderRGSectionHitClasseLargeurChausseesSRegex02().____
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitClasseLargeurChausseesSRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitClasseLargeurChausseesSRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitClasseLargeurChausseesSRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitClasseLargeurChausseesSRegex02
+							, fournirKeyValiderRGSectionHitClasseLargeurChausseesSRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitClasseLargeurChausseesSRegex02(...)._
+
+
+
+	/**
+	 * retourne le validerRGSectionHitClasseLargeurChausseesSNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClasseLargeurChausseesSNomenclature03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitClasseLargeurChausseesSNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitClasseLargeurChausseesSNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitClasseLargeurChausseesSNomenclature03
+					, fournirKeyValiderRGSectionHitClasseLargeurChausseesSNomenclature03()
+					, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitClasseLargeurChausseesSNomenclature03().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitClasseLargeurChausseesSNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.classeLargeurChausseesS.nomenclature".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitClasseLargeurChausseesSNomenclature03() {
+		return KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03;
+	} // Fin de fournirKeyValiderRGSectionHitClasseLargeurChausseesSNomenclature03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitClasseLargeurChausseesSNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClasseLargeurChausseesSNomenclature03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitClasseLargeurChausseesSNomenclature03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitClasseLargeurChausseesSNomenclature03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitClasseLargeurChausseesSNomenclature03() 
+													throws Exception {
+		return fournirValiderRGSectionHitClasseLargeurChausseesSNomenclature03();
+	} // Fin de getValiderRGSectionHitClasseLargeurChausseesSNomenclature03().
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitClasseLargeurChausseesSNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitClasseLargeurChausseesSNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitClasseLargeurChausseesSNomenclature03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitClasseLargeurChausseesSNomenclature03
+							, fournirKeyValiderRGSectionHitClasseLargeurChausseesSNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitClasseLargeurChausseesSNomenclature03(...).
+				
 			
 	
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesRG.-------------------

@@ -93,7 +93,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setCategorieAdminRoute("4");
 				bonneSectionHitDTO.setTypeComptage("1");
 				bonneSectionHitDTO.setClassementRoute("1");
-				bonneSectionHitDTO.setClasseLargeurChausseeU(UN_ESPACE);
+				bonneSectionHitDTO.setClasseLargeurChausseeU("0");
 				bonneSectionHitDTO.setClasseLargeurChausseesS("2");
 				bonneSectionHitDTO.setTypeReseau("5");
 				bonneSectionHitDTO.setPRoupK("1");
