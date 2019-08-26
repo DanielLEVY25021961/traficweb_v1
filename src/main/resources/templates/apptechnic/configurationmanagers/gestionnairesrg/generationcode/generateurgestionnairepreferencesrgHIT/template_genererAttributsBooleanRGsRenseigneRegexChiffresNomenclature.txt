@@ -22,7 +22,7 @@
 	
 	/**
 	 * Boolean activant la RG-{$pObjetMetier}-{$NomChampCamelise}-03 :
-	 * "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonne {$pColonnes} du HIT) doit respecter une nomenclature {$pNomenclature}".<br/>
+	 * "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit respecter une nomenclature {$pNomenclature}".<br/>
 	 */
 	private static Boolean validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03;
 	

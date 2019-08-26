@@ -1011,12 +1011,12 @@ public final class GenerateurValideurService {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "11";
-		final String nomChamp = "categorieAdminRoute";
-		final String nomChampEnClair = "la catégorie administrative de la route";
-		final String colonnes = "[23]";
+		final String numeroChamp = "13";
+		final String nomChamp = "classementRoute";
+		final String nomChampEnClair = "le classement de la route";
+		final String colonnes = "[25]";
 		final String nbreChiffres = "1";
-		final String nomenclature = "[1, 2, 3, 4, 5, 6, 7, 8, 9]";
+		final String nomenclature = "[1, 2, 3, 4, 5]";
 		// *******************************************************
 		
 //		genererCodeRGsRenseigneRegexChiffres(

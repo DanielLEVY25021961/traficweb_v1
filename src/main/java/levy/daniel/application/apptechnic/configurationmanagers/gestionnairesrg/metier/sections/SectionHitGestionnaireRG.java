@@ -384,8 +384,71 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03 
 		= "RG_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03 : "
 				+ "la catégorie administrative de la route doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
-				
+
+	/* 12 - typeComptage. *******/
+	/**
+	 * "typeComptage".<br/>
+	 */
+	public static final String ATTRIBUT_TYPECOMPTAGE 
+		= "typeComptage";
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01 : 
+	 * le type de comptage de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01 : "
+				+ "le type de comptage de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGE_REGEX_02 : 
+	 * le type de comptage de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGE_REGEX_02 
+		= "RG_SECTIONHIT_TYPECOMPTAGE_REGEX_02 : "
+				+ "le type de comptage de la section HIT doit comporter exactement 1 chiffre";
 	
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03 : 
+	 * le type de comptage doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03 : "
+				+ "le type de comptage doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+
+	/* 13 - classementRoute. *******/
+	/**
+	 * "classementRoute".<br/>
+	 */
+	public static final String ATTRIBUT_CLASSEMENTROUTE 
+		= "classementRoute";
+
+	/**
+	 * "RG_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01 : 
+	 * le classement de la route de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01 : "
+				+ "le classement de la route de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_CLASSEMENTROUTE_REGEX_02 : 
+	 * le classement de la route de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_CLASSEMENTROUTE_REGEX_02 
+		= "RG_SECTIONHIT_CLASSEMENTROUTE_REGEX_02 : "
+				+ "le classement de la route de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03 : 
+	 * le classement de la route doit respecter une nomenclature [1, 2, 3, 4, 5]".
+	 */
+	public static final String RG_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03 : "
+				+ "le classement de la route doit respecter une nomenclature [1, 2, 3, 4, 5]";
+					
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -851,8 +914,93 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitCategorieAdminRouteNomenclature03()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitCategorieAdminRouteNomenclature03());
-
 		
+		/* 12 - typeComptage. *******/
+		/* RG_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitTypeComptageRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageRenseigne01()
+				, RG_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageRenseigne01());
+		
+		/* RG_SECTIONHIT_TYPECOMPTAGE_REGEX_02. */
+		final LigneRG ligneRGSectionHitTypeComptageRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageRegex02()
+				, RG_SECTIONHIT_TYPECOMPTAGE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageRegex02());
+				
+		/* RG_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitTypeComptageNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNomenclature03()
+				, RG_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNomenclature03());
+		
+		/* 13 - classementRoute. *******/
+		/* RG_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitClassementRouteRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClassementRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClassementRouteRenseigne01()
+				, RG_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClassementRouteRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSEMENTROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClassementRouteRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClassementRouteRenseigne01());
+		
+		/* RG_SECTIONHIT_CLASSEMENTROUTE_REGEX_02. */
+		final LigneRG ligneRGSectionHitClassementRouteRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClassementRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClassementRouteRegex02()
+				, RG_SECTIONHIT_CLASSEMENTROUTE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClassementRouteRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSEMENTROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClassementRouteRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClassementRouteRegex02());
+				
+		/* RG_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitClassementRouteNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClassementRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitClassementRouteNomenclature03()
+				, RG_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitClassementRouteNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CLASSEMENTROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitClassementRouteNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClassementRouteNomenclature03());
+						
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -953,6 +1101,28 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03
 			, ligneRGSectionHitCategorieAdminRouteNomenclature03);				
+				
+		/* 12 - typeComptage. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01
+			, ligneRGSectionHitTypeComptageRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGE_REGEX_02
+			, ligneRGSectionHitTypeComptageRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03
+			, ligneRGSectionHitTypeComptageNomenclature03);				
+				
+		/* 13 - classementRoute. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01
+			, ligneRGSectionHitClassementRouteRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_CLASSEMENTROUTE_REGEX_02
+			, ligneRGSectionHitClassementRouteRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03
+			, ligneRGSectionHitClassementRouteNomenclature03);
 		
 		return this.mapRG;
 					

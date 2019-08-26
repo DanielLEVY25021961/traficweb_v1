@@ -320,7 +320,7 @@
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonne {$pColonnes} du HIT) doit respecter une nomenclature {$pNomenclature}'"
+		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit respecter une nomenclature {$pNomenclature}'"
 				, {$pObjetMetier}GestionnairePreferencesControles
 				.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03_EN_DUR
 					, message);
@@ -386,7 +386,7 @@
 			System.out.println();
 		}
 
-		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonne {$pColonnes} du HIT) doit respecter une nomenclature {$pNomenclature}'"
+		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit respecter une nomenclature {$pNomenclature}'"
 				, {$pObjetMetier}GestionnairePreferencesControles
 				.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03_EN_DUR
 					, messageModifie2);

@@ -825,6 +825,159 @@ public final class SectionHitGestionnairePreferencesRG {
 	public static final String STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR 
 		= "true";
 	
+	/* 12 - typeComptage. *******/
+	/**
+	 * clé de validerRGSectionHitTypeComptage dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeComptage"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE 
+		= "valider.SectionHit.typeComptage";
+	
+	/**
+	 * validerRGSectionHitTypeComptage par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeComptage 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitTypeComptageRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeComptage.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01 
+		= "valider.SectionHit.typeComptage.renseigne";
+	
+	/**
+	 * validerRGSectionHitTypeComptageRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeComptageRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitTypeComptageRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeComptage.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_REGEX_02 
+		= "valider.SectionHit.typeComptage.regex";
+	
+	/**
+	 * validerRGSectionHitTypeComptageRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeComptageRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitTypeComptageNomenclature03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeComptage.nomenclature"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03 
+		= "valider.SectionHit.typeComptage.nomenclature";
+	
+	/**
+	 * validerRGSectionHitTypeComptageNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeComptageNomenclature03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03_EN_DUR 
+		= "true";
+	
+	/* 13 - classementRoute. *******/
+	/**
+	 * clé de validerRGSectionHitClassementRoute dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.classementRoute"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE 
+		= "valider.SectionHit.classementRoute";
+	
+	/**
+	 * validerRGSectionHitClassementRoute par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitClassementRoute 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitClassementRouteRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.classementRoute.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01 
+		= "valider.SectionHit.classementRoute.renseigne";
+	
+	/**
+	 * validerRGSectionHitClassementRouteRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitClassementRouteRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitClassementRouteRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.classementRoute.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_REGEX_02 
+		= "valider.SectionHit.classementRoute.regex";
+	
+	/**
+	 * validerRGSectionHitClassementRouteRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitClassementRouteRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitClassementRouteNomenclature03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.classementRoute.nomenclature"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03 
+		= "valider.SectionHit.classementRoute.nomenclature";
+	
+	/**
+	 * validerRGSectionHitClassementRouteNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitClassementRouteNomenclature03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03_EN_DUR 
+		= "true";
+		
+			
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -1126,6 +1279,60 @@ public final class SectionHitGestionnairePreferencesRG {
 	 * "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".<br/>
 	 */
 	private static Boolean validerRGSectionHitCategorieAdminRouteNomenclature03;
+	
+	/* 12 - typeComptage. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>typeComptage</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>typeComptage</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeComptage;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-TypeComptage-01 : 
+	 * "le type de comptage de la section HIT (colonne [24] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeComptageRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-TypeComptage-02 : 
+	 * "le type de comptage de la section HIT (colonne [24] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeComptageRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-TypeComptage-03 :
+	 * "le type de comptage de la section HIT (colonne [24] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeComptageNomenclature03;
+	
+	/* 13 - classementRoute. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>classementRoute</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>classementRoute</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitClassementRoute;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ClassementRoute-01 : 
+	 * "le classement de la route de la section HIT (colonne [25] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitClassementRouteRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ClassementRoute-02 : 
+	 * "le classement de la route de la section HIT (colonne [25] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	private static Boolean validerRGSectionHitClassementRouteRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ClassementRoute-03 :
+	 * "le classement de la route de la section HIT (colonne [25] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]".<br/>
+	 */
+	private static Boolean validerRGSectionHitClassementRouteNomenclature03;	
 		
 	/**
 	 * LOG : Log : 
@@ -1437,7 +1644,57 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03
 						, STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR);
-									
+			
+			/* 12 - typeComptage. *******/
+			/* ajoute le validerRGSectionHitTypeComptage 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE
+						, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitTypeComptageRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitTypeComptageRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitTypeComptageNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03
+						, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03_EN_DUR);
+			
+			/* 13 - classementRoute. *******/
+			/* ajoute le validerRGSectionHitClassementRoute 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE
+						, STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitClassementRouteRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitClassementRouteRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitClassementRouteNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03
+						, STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03_EN_DUR);
+																					
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -6880,7 +7137,931 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitCategorieAdminRouteNomenclature03(...).
-		
 	
+	
+	
+	/* 12 - typeComptage. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitTypeComptage</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>typeComptage</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>typeComptage</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeComptage stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitTypeComptage 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitTypeComptage() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitTypeComptage
+					, fournirKeyValiderRGSectionHitTypeComptage()
+					, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitTypeComptage().__________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitTypeComptage 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.typeComptage".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitTypeComptage() {
+		return KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE;
+	} // Fin de fournirKeyValiderRGSectionHitTypeComptage()._______________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitTypeComptage par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitTypeComptage 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitTypeComptage stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitTypeComptage : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitTypeComptage() 
+													throws Exception {
+		return fournirValiderRGSectionHitTypeComptage();
+	} // Fin de getValiderRGSectionHitTypeComptage().______________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitTypeComptage par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitTypeComptage.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitTypeComptage(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitTypeComptage
+							, fournirKeyValiderRGSectionHitTypeComptage());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitTypeComptage(...).___________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitTypeComptageRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeComptageRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitTypeComptageRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitTypeComptageRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitTypeComptageRenseigne01
+					, fournirKeyValiderRGSectionHitTypeComptageRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitTypeComptageRenseigne01()._______
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitTypeComptageRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.typeComptage.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitTypeComptageRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitTypeComptageRenseigne01().____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitTypeComptageRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeComptageRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitTypeComptageRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitTypeComptageRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitTypeComptageRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitTypeComptageRenseigne01();
+	} // Fin de getValiderRGSectionHitTypeComptageRenseigne01().___________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitTypeComptageRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitTypeComptageRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitTypeComptageRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitTypeComptageRenseigne01
+							, fournirKeyValiderRGSectionHitTypeComptageRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitTypeComptageRenseigne01(...).________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitTypeComptageRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeComptageRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitTypeComptageRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitTypeComptageRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitTypeComptageRegex02
+					, fournirKeyValiderRGSectionHitTypeComptageRegex02()
+					, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitTypeComptageRegex02().___________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitTypeComptageRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.typeComptage.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitTypeComptageRegex02() {
+		return KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitTypeComptageRegex02().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitTypeComptageRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeComptageRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitTypeComptageRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitTypeComptageRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitTypeComptageRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitTypeComptageRegex02();
+	} // Fin de getValiderRGSectionHitTypeComptageRegex02()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitTypeComptageRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitTypeComptageRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitTypeComptageRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitTypeComptageRegex02
+							, fournirKeyValiderRGSectionHitTypeComptageRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitTypeComptageRegex02(...).____________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitTypeComptageNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeComptageNomenclature03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitTypeComptageNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitTypeComptageNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitTypeComptageNomenclature03
+					, fournirKeyValiderRGSectionHitTypeComptageNomenclature03()
+					, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitTypeComptageNomenclature03().____
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitTypeComptageNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.typeComptage.nomenclature".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitTypeComptageNomenclature03() {
+		return KEY_VALIDER_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03;
+	} // Fin de fournirKeyValiderRGSectionHitTypeComptageNomenclature03()._
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitTypeComptageNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeComptageNomenclature03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitTypeComptageNomenclature03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitTypeComptageNomenclature03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitTypeComptageNomenclature03() 
+													throws Exception {
+		return fournirValiderRGSectionHitTypeComptageNomenclature03();
+	} // Fin de getValiderRGSectionHitTypeComptageNomenclature03().________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitTypeComptageNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitTypeComptageNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitTypeComptageNomenclature03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitTypeComptageNomenclature03
+							, fournirKeyValiderRGSectionHitTypeComptageNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitTypeComptageNomenclature03(...)._____
+	
+	
+	
+	/* 13 - classementRoute. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitClassementRoute</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>classementRoute</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>classementRoute</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClassementRoute stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitClassementRoute 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitClassementRoute() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitClassementRoute
+					, fournirKeyValiderRGSectionHitClassementRoute()
+					, STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitClassementRoute()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitClassementRoute 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.classementRoute".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitClassementRoute() {
+		return KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE;
+	} // Fin de fournirKeyValiderRGSectionHitClassementRoute().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitClassementRoute par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitClassementRoute 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitClassementRoute stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitClassementRoute : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitClassementRoute() 
+													throws Exception {
+		return fournirValiderRGSectionHitClassementRoute();
+	} // Fin de getValiderRGSectionHitClassementRoute().___________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitClassementRoute par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitClassementRoute.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitClassementRoute(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitClassementRoute
+							, fournirKeyValiderRGSectionHitClassementRoute());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitClassementRoute(...).__________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitClassementRouteRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClassementRouteRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitClassementRouteRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitClassementRouteRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitClassementRouteRenseigne01
+					, fournirKeyValiderRGSectionHitClassementRouteRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitClassementRouteRenseigne01().____
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitClassementRouteRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.classementRoute.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitClassementRouteRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitClassementRouteRenseigne01()._
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitClassementRouteRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClassementRouteRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitClassementRouteRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitClassementRouteRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitClassementRouteRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitClassementRouteRenseigne01();
+	} // Fin de getValiderRGSectionHitClassementRouteRenseigne01().________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitClassementRouteRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitClassementRouteRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitClassementRouteRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitClassementRouteRenseigne01
+							, fournirKeyValiderRGSectionHitClassementRouteRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitClassementRouteRenseigne01(...)._____
+
+
+
+	/**
+	 * retourne le validerRGSectionHitClassementRouteRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClassementRouteRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitClassementRouteRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitClassementRouteRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitClassementRouteRegex02
+					, fournirKeyValiderRGSectionHitClassementRouteRegex02()
+					, STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitClassementRouteRegex02().________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitClassementRouteRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.classementRoute.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitClassementRouteRegex02() {
+		return KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitClassementRouteRegex02()._____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitClassementRouteRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClassementRouteRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitClassementRouteRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitClassementRouteRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitClassementRouteRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitClassementRouteRegex02();
+	} // Fin de getValiderRGSectionHitClassementRouteRegex02().____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitClassementRouteRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitClassementRouteRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitClassementRouteRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitClassementRouteRegex02
+							, fournirKeyValiderRGSectionHitClassementRouteRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitClassementRouteRegex02(...)._________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitClassementRouteNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClassementRouteNomenclature03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitClassementRouteNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitClassementRouteNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitClassementRouteNomenclature03
+					, fournirKeyValiderRGSectionHitClassementRouteNomenclature03()
+					, STRING_VALIDER_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitClassementRouteNomenclature03()._
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitClassementRouteNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.classementRoute.nomenclature".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitClassementRouteNomenclature03() {
+		return KEY_VALIDER_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03;
+	} // Fin de fournirKeyValiderRGSectionHitClassementRouteNomenclature03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitClassementRouteNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitClassementRouteNomenclature03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitClassementRouteNomenclature03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitClassementRouteNomenclature03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitClassementRouteNomenclature03() 
+													throws Exception {
+		return fournirValiderRGSectionHitClassementRouteNomenclature03();
+	} // Fin de getValiderRGSectionHitClassementRouteNomenclature03()._____
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitClassementRouteNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitClassementRouteNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitClassementRouteNomenclature03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitClassementRouteNomenclature03
+							, fournirKeyValiderRGSectionHitClassementRouteNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitClassementRouteNomenclature03(...).__
+		
+			
 	
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesRG.-------------------
