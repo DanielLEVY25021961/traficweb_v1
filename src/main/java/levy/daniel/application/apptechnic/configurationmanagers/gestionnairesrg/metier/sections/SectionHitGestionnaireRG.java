@@ -517,7 +517,39 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03 
 		= "RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03 : "
 				+ "la classe de largeur de chaussées séparées doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7]";				
-					
+
+	/* 16 - typeReseau. *******/
+	/**
+	 * "typeReseau".<br/>
+	 */
+	public static final String ATTRIBUT_TYPERESEAU 
+		= "typeReseau";
+
+	/**
+	 * "RG_SECTIONHIT_TYPERESEAU_RENSEIGNE_01 : 
+	 * le type de réseau de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_TYPERESEAU_RENSEIGNE_01 
+		= "RG_SECTIONHIT_TYPERESEAU_RENSEIGNE_01 : "
+				+ "le type de réseau de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_TYPERESEAU_REGEX_02 : 
+	 * le type de réseau de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_TYPERESEAU_REGEX_02 
+		= "RG_SECTIONHIT_TYPERESEAU_REGEX_02 : "
+				+ "le type de réseau de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03 : 
+	 * le type de réseau doit respecter une nomenclature [0, 1, 2, 3, 4]".
+	 */
+	public static final String RG_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03 : "
+				+ "le type de réseau doit respecter une nomenclature [0, 1, 2, 3, 4]";
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -1156,6 +1188,49 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitClasseLargeurChausseesSNomenclature03());
 		
+		/* 16 - typeReseau. *******/
+		/* RG_SECTIONHIT_TYPERESEAU_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitTypeReseauRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeReseau()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeReseauRenseigne01()
+				, RG_SECTIONHIT_TYPERESEAU_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeReseauRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPERESEAU
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeReseauRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeReseauRenseigne01());
+		
+		/* RG_SECTIONHIT_TYPERESEAU_REGEX_02. */
+		final LigneRG ligneRGSectionHitTypeReseauRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeReseau()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeReseauRegex02()
+				, RG_SECTIONHIT_TYPERESEAU_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeReseauRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPERESEAU
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeReseauRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeReseauRegex02());
+				
+		/* RG_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitTypeReseauNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeReseau()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeReseauNomenclature03()
+				, RG_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeReseauNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPERESEAU
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeReseauNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeReseauNomenclature03());
+		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -1300,6 +1375,17 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03
 			, ligneRGSectionHitClasseLargeurChausseesSNomenclature03);				
+				
+		/* 16 - typeReseau. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPERESEAU_RENSEIGNE_01
+			, ligneRGSectionHitTypeReseauRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPERESEAU_REGEX_02
+			, ligneRGSectionHitTypeReseauRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03
+			, ligneRGSectionHitTypeReseauNomenclature03);				
 		
 		return this.mapRG;
 					

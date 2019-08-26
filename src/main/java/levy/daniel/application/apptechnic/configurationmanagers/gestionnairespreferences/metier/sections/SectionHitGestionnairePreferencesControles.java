@@ -872,7 +872,65 @@ public final class SectionHitGestionnairePreferencesControles {
 	 */
 	public static final String MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03_EN_DUR 
 		= "la classe de largeur de chaussées séparées de la section HIT (colonne [27] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7]";
-							
+	
+	/* 16 - typeReseau. *******/
+	/**
+	 * clé de messageSectionHitTypeReseauRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.typeReseau.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01 
+		= "message.SectionHit.typeReseau.renseigne";
+	
+	/**
+	 * messageSectionHitTypeReseauRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitTypeReseauRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le type de réseau de la section HIT (colonne [28] du HIT) doit être renseigné (0 si autre que autoroute)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01_EN_DUR 
+		= "le type de réseau de la section HIT (colonne [28] du HIT) doit être renseigné (0 si autre que autoroute)";
+		
+	/**
+	 * clé de messageSectionHitTypeReseauRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.typeReseau.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02 
+		= "message.SectionHit.typeReseau.regex";
+	
+	/**
+	 * messageSectionHitTypeReseauRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitTypeReseauRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le type de réseau de la section HIT (colonne [28] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02_EN_DUR 
+		= "le type de réseau de la section HIT (colonne [28] du HIT) doit comporter exactement 1 chiffre";
+				
+	/**
+	 * clé de messageSectionHitTypeReseauNomenclature03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.typeReseau.nomenclature"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03 
+		= "message.SectionHit.typeReseau.nomenclature";
+	
+	/**
+	 * messageSectionHitTypeReseauNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitTypeReseauNomenclature03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le type de réseau de la section HIT (colonne [28] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4]".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR 
+		= "le type de réseau de la section HIT (colonne [28] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4]";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -1158,6 +1216,26 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * "la classe de largeur de chaussées séparées de la section HIT (colonne [27] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7]"
 	 */
 	private static String messageSectionHitClasseLargeurChausseesSNomenclature03;
+
+	/* 16 - typeReseau. *******/
+	/**
+	* message émis par la RG-SectionHit-TypeReseau-01 : 
+	* "le type de réseau de la section HIT (colonne [28] du HIT) doit être renseigné (0 si autre que autoroute)".<br/>
+	*/
+	private static String messageSectionHitTypeReseauRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-TypeReseau-02 : 
+	* "le type de réseau de la section HIT (colonne [28] du HIT) doit comporter exactement 1 chiffre".<br/>
+	*/
+	private static String messageSectionHitTypeReseauRegex02;
+
+	/**
+	 * message émis par la RG-SectionHit-TypeReseau-03 : 
+	 * "le type de réseau de la section HIT (colonne [28] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4]"
+	 */
+	private static String messageSectionHitTypeReseauNomenclature03;
+	
 					
 	/**
 	 * LOG : Log : 
@@ -1480,7 +1558,26 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 				KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03
 					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03_EN_DUR);
-										
+				
+		/* 16 - typeReseau. *******/		
+		/* ajoute le messageSectionHitTypeReseauRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitTypeReseauRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02
+				, MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitTypeReseauNomenclature03 
+		 * par défaut stocké en dur.*/
+		preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03
+					, MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR);
+												
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -7428,6 +7525,346 @@ public final class SectionHitGestionnairePreferencesControles {
 						
 	} // Fin de setMessageSectionHitClasseLargeurChausseesSNomenclature03(...).
 
+
+	
+	/* 16 - typeReseau. ****************/
+	/**
+	 * retourne le messageSectionHitTypeReseauRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeReseauRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitTypeReseauRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitTypeReseauRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitTypeReseauRenseigne01
+					, fournirKeyMessageSectionHitTypeReseauRenseigne01()
+					, MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitTypeReseauRenseigne01().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitTypeReseauRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.typeReseau.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitTypeReseauRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitTypeReseauRenseigne01().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitTypeReseauRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeReseauRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitTypeReseauRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitTypeReseauRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitTypeReseauRenseigne01();
+	} // Fin de getMessageSectionHitTypeReseauRenseigne01()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitTypeReseauRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitTypeReseauRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitTypeReseauRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitTypeReseauRenseigne01
+							, fournirKeyMessageSectionHitTypeReseauRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitTypeReseauRenseigne01(...).____________
+
+
+
+	/**
+	 * retourne le messageSectionHitTypeReseauRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeReseauRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitTypeReseauRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitTypeReseauRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitTypeReseauRegex02
+					, fournirKeyMessageSectionHitTypeReseauRegex02()
+					, MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitTypeReseauRegex02()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitTypeReseauRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.typeReseau.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitTypeReseauRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitTypeReseauRegex02().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitTypeReseauRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeReseauRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitTypeReseauRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitTypeReseauRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitTypeReseauRegex02();
+	} // Fin de getMessageSectionHitTypeReseauRegex02().___________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitTypeReseauRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitTypeReseauRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitTypeReseauRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitTypeReseauRegex02
+							, fournirKeyMessageSectionHitTypeReseauRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitTypeReseauRegex02(...).________________
+	
+
+
+	/**
+	 * retourne le messageSectionHitTypeReseauNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeReseauNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitTypeReseauNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitTypeReseauNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitTypeReseauNomenclature03
+					, fournirKeyMessageSectionHitTypeReseauNomenclature03()
+					, MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitTypeReseauNomenclature03().________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitTypeReseauNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.typeReseau.nomenclature".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitTypeReseauNomenclature03() {
+		return KEY_MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03;
+	} // Fin de fournirKeyMessageSectionHitTypeReseauNomenclature03()._____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitTypeReseauNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeReseauNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitTypeReseauNomenclature03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitTypeReseauNomenclature03() 
+													throws Exception {
+		return fournirMessageSectionHitTypeReseauNomenclature03();
+	} // Fin de getMessageSectionHitTypeReseauNomenclature03().____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitTypeReseauNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitTypeReseauNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitTypeReseauNomenclature03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitTypeReseauNomenclature03
+							, fournirKeyMessageSectionHitTypeReseauNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitTypeReseauNomenclature03(...)._________
+	
 	
 			
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesControles.------------

@@ -575,12 +575,12 @@ public final class GenerateurGestionnaireRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "15";
-		final String nomChamp = "classeLargeurChausseesS";
-		final String nomChampEnClair = "la classe de largeur de chaussées séparées";
-		final String colonnes = "[27]";
+		final String numeroChamp = "16";
+		final String nomChamp = "typeReseau";
+		final String nomChampEnClair = "le type de réseau";
+		final String colonnes = "[28]";
 		final String nbreChiffres = "1";
-		final String nomenclature = "[0, 1, 2, 3, 4, 5, 6, 7]";
+		final String nomenclature = "[0, 1, 2, 3, 4]";
 		// *******************************************************
 		
 //		genererCodeRGsRenseigneRegexChiffres(

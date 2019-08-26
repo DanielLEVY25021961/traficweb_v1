@@ -1128,7 +1128,83 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	public static final String STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03_EN_DUR 
 		= "true";
+	
+	/* 16 - typeReseau. *******/
+	/**
+	 * clé de validerRGSectionHitTypeReseau dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeReseau"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPERESEAU 
+		= "valider.SectionHit.typeReseau";
+	
+	/**
+	 * validerRGSectionHitTypeReseau par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeReseau 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPERESEAU_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitTypeReseauRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeReseau.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPERESEAU_RENSEIGNE_01 
+		= "valider.SectionHit.typeReseau.renseigne";
+	
+	/**
+	 * validerRGSectionHitTypeReseauRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeReseauRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPERESEAU_RENSEIGNE_01_EN_DUR 
+		= "true";
 		
+	/**
+	 * clé de validerRGSectionHitTypeReseauRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeReseau.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPERESEAU_REGEX_02 
+		= "valider.SectionHit.typeReseau.regex";
+	
+	/**
+	 * validerRGSectionHitTypeReseauRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeReseauRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPERESEAU_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitTypeReseauNomenclature03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeReseau.nomenclature"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03 
+		= "valider.SectionHit.typeReseau.nomenclature";
+	
+	/**
+	 * validerRGSectionHitTypeReseauNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeReseauNomenclature03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR 
+		= "true";
+				
 					
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
@@ -1539,6 +1615,33 @@ public final class SectionHitGestionnairePreferencesRG {
 	 * "la classe de largeur de chaussées séparées de la section HIT (colonne [27] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7]".<br/>
 	 */
 	private static Boolean validerRGSectionHitClasseLargeurChausseesSNomenclature03;
+	
+	/* 16 - typeReseau. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>typeReseau</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>typeReseau</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeReseau;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-TypeReseau-01 : 
+	 * "le type de réseau de la section HIT (colonne [28] du HIT) doit être renseigné (0 si autre que autoroute)".<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeReseauRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-TypeReseau-02 : 
+	 * "le type de réseau de la section HIT (colonne [28] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeReseauRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-TypeReseau-03 :
+	 * "le type de réseau de la section HIT (colonne [28] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4]".<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeReseauNomenclature03;
 	
 		
 	/**
@@ -1951,6 +2054,31 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03
 						, STRING_VALIDER_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03_EN_DUR);
+			
+			/* 16 - typeReseau. *******/
+			/* ajoute le validerRGSectionHitTypeReseau 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPERESEAU
+						, STRING_VALIDER_SECTIONHIT_TYPERESEAU_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitTypeReseauRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPERESEAU_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_TYPERESEAU_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitTypeReseauRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPERESEAU_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_TYPERESEAU_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitTypeReseauNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03
+						, STRING_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR);
 																																	
 		} // Fin du bloc synchronized.__________________
 		
@@ -9242,7 +9370,469 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitClasseLargeurChausseesSNomenclature03(...).
-				
+	
+	
+	
+	/* 16 - typeReseau. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitTypeReseau</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>typeReseau</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>typeReseau</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeReseau stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitTypeReseau 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitTypeReseau() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitTypeReseau
+					, fournirKeyValiderRGSectionHitTypeReseau()
+					, STRING_VALIDER_SECTIONHIT_TYPERESEAU_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitTypeReseau().____________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitTypeReseau 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.typeReseau".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_TYPERESEAU : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitTypeReseau() {
+		return KEY_VALIDER_SECTIONHIT_TYPERESEAU;
+	} // Fin de fournirKeyValiderRGSectionHitTypeReseau()._________________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitTypeReseau par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitTypeReseau 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitTypeReseau stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitTypeReseau : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitTypeReseau() 
+													throws Exception {
+		return fournirValiderRGSectionHitTypeReseau();
+	} // Fin de getValiderRGSectionHitTypeReseau().________________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitTypeReseau par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitTypeReseau.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitTypeReseau(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitTypeReseau
+							, fournirKeyValiderRGSectionHitTypeReseau());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitTypeReseau(...)._____________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitTypeReseauRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeReseauRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitTypeReseauRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitTypeReseauRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitTypeReseauRenseigne01
+					, fournirKeyValiderRGSectionHitTypeReseauRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_TYPERESEAU_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitTypeReseauRenseigne01()._________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitTypeReseauRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.typeReseau.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_TYPERESEAU_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitTypeReseauRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_TYPERESEAU_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitTypeReseauRenseigne01().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitTypeReseauRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeReseauRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitTypeReseauRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitTypeReseauRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitTypeReseauRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitTypeReseauRenseigne01();
+	} // Fin de getValiderRGSectionHitTypeReseauRenseigne01()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitTypeReseauRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitTypeReseauRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitTypeReseauRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitTypeReseauRenseigne01
+							, fournirKeyValiderRGSectionHitTypeReseauRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitTypeReseauRenseigne01(...).__________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitTypeReseauRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeReseauRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitTypeReseauRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitTypeReseauRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitTypeReseauRegex02
+					, fournirKeyValiderRGSectionHitTypeReseauRegex02()
+					, STRING_VALIDER_SECTIONHIT_TYPERESEAU_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitTypeReseauRegex02()._____________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitTypeReseauRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.typeReseau.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_TYPERESEAU_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitTypeReseauRegex02() {
+		return KEY_VALIDER_SECTIONHIT_TYPERESEAU_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitTypeReseauRegex02().___________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitTypeReseauRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeReseauRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitTypeReseauRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitTypeReseauRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitTypeReseauRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitTypeReseauRegex02();
+	} // Fin de getValiderRGSectionHitTypeReseauRegex02()._________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitTypeReseauRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitTypeReseauRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitTypeReseauRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitTypeReseauRegex02
+							, fournirKeyValiderRGSectionHitTypeReseauRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitTypeReseauRegex02(...).______________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitTypeReseauNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeReseauNomenclature03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitTypeReseauNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitTypeReseauNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitTypeReseauNomenclature03
+					, fournirKeyValiderRGSectionHitTypeReseauNomenclature03()
+					, STRING_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitTypeReseauNomenclature03().______
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitTypeReseauNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.typeReseau.nomenclature".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitTypeReseauNomenclature03() {
+		return KEY_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03;
+	} // Fin de fournirKeyValiderRGSectionHitTypeReseauNomenclature03().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitTypeReseauNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitTypeReseauNomenclature03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitTypeReseauNomenclature03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitTypeReseauNomenclature03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitTypeReseauNomenclature03() 
+													throws Exception {
+		return fournirValiderRGSectionHitTypeReseauNomenclature03();
+	} // Fin de getValiderRGSectionHitTypeReseauNomenclature03().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitTypeReseauNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitTypeReseauNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitTypeReseauNomenclature03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitTypeReseauNomenclature03
+							, fournirKeyValiderRGSectionHitTypeReseauNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitTypeReseauNomenclature03(...)._______
+	
 			
 	
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesRG.-------------------

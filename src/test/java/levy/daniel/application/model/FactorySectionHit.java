@@ -95,7 +95,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setClassementRoute("1");
 				bonneSectionHitDTO.setClasseLargeurChausseeU("0");
 				bonneSectionHitDTO.setClasseLargeurChausseesS("2");
-				bonneSectionHitDTO.setTypeReseau("5");
+				bonneSectionHitDTO.setTypeReseau("1");
 				bonneSectionHitDTO.setPRoupK("1");
 				bonneSectionHitDTO.setLieuDitOrigine("PAMIERS A 66        ");
 				bonneSectionHitDTO.setPrOrigine("18");
