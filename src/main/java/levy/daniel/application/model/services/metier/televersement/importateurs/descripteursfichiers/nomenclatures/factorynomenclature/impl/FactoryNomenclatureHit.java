@@ -201,7 +201,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * DE LA ROUTE pour les fichiers HIT.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient Set<Integer> setClesPossiblesCatAdminRoute;
+	private static transient Set<Integer> setClesPossiblesCategorieAdminRoute;
 				
 	/**
 	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
@@ -213,7 +213,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * </ul>
 	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient SortedMap<Integer, String> nomenclatureMapCatAdminRoute;
+	private static transient SortedMap<Integer, String> nomenclatureMapCategorieAdminRoute;
 		
 	// TYPE DE COMPTAGE HIT.********	
 	/**
@@ -544,7 +544,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			/* CATEGORIE ADMINISTRATIVE DE LA ROUTE. */
 			case 11:
 								
-				resultat = getSetClesPossiblesCatAdminRoute();				
+				resultat = getSetClesPossiblesCategorieAdminRoute();				
 				break;
 				
 			/* TYPE DE COMPTAGE. */
@@ -683,7 +683,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			/* CATEGORIE ADMINISTRATIVE DE LA ROUTE. */
 			case 11:
 				
-				resultat = getNomenclatureMapCatAdminRoute();			
+				resultat = getNomenclatureMapCategorieAdminRoute();			
 				break;
 			
 			/* TYPE DE COMPTAGE. */
@@ -1119,16 +1119,16 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
 	 * </ul>
 	 *
-	 * @return setClesPossiblesCatAdminRoute : Set&lt;Integer&gt;.<br/>
+	 * @return setClesPossiblesCategorieAdminRoute : Set&lt;Integer&gt;.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	public static Set<Integer> getSetClesPossiblesCatAdminRoute() 
+	public static Set<Integer> getSetClesPossiblesCategorieAdminRoute() 
 													throws Exception {
 		
 		synchronized (FactoryNomenclatureHit.class) {
 					
-			if (setClesPossiblesCatAdminRoute == null) {
+			if (setClesPossiblesCategorieAdminRoute == null) {
 				
 				final IImporteurNomenclature importeur 
 					= new ImporteurNomenclature();
@@ -1138,11 +1138,11 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 							ConfigurationNomenclaturesHitManager
 								.getFichierNomenclatureHitCatAdminRouteUtf8());
 				
-				setClesPossiblesCatAdminRoute = importeur.getClesPossiblesSet();
-				nomenclatureMapCatAdminRoute = importeur.getNomenclatureMap();
+				setClesPossiblesCategorieAdminRoute = importeur.getClesPossiblesSet();
+				nomenclatureMapCategorieAdminRoute = importeur.getNomenclatureMap();
 			}
 		
-			return setClesPossiblesCatAdminRoute;
+			return setClesPossiblesCategorieAdminRoute;
 			
 		} // Fin du bloc synchronized.__________________________
 		
@@ -1168,17 +1168,17 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
 	 * </ul>
 	 *
-	 * @return nomenclatureMapCatAdminRoute : 
+	 * @return nomenclatureMapCategorieAdminRoute : 
 	 * SortedMap&lt;Integer,String&gt;.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	public static SortedMap<Integer, String> getNomenclatureMapCatAdminRoute() 
+	public static SortedMap<Integer, String> getNomenclatureMapCategorieAdminRoute() 
 															throws Exception {
 		
 		synchronized (FactoryNomenclatureHit.class) {
 			
-			if (nomenclatureMapCatAdminRoute == null) {
+			if (nomenclatureMapCategorieAdminRoute == null) {
 				
 				final IImporteurNomenclature importeur 
 					= new ImporteurNomenclature();
@@ -1188,11 +1188,11 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 							ConfigurationNomenclaturesHitManager
 								.getFichierNomenclatureHitCatAdminRouteUtf8());
 				
-				setClesPossiblesCatAdminRoute = importeur.getClesPossiblesSet();
-				nomenclatureMapCatAdminRoute = importeur.getNomenclatureMap();
+				setClesPossiblesCategorieAdminRoute = importeur.getClesPossiblesSet();
+				nomenclatureMapCategorieAdminRoute = importeur.getNomenclatureMap();
 			}
 
-			return nomenclatureMapCatAdminRoute;
+			return nomenclatureMapCategorieAdminRoute;
 			
 		} // Fin du bloc synchronized.__________________________
 		

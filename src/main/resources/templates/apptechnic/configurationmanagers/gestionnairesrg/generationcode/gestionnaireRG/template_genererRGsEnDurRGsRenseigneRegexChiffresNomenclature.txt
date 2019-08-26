@@ -1,0 +1,33 @@
+
+	/* {$pNumeroChamp} - {$pNomChamp}. *******/
+	/**
+	 * "{$pNomChamp}".<br/>
+	 */
+	public static final String ATTRIBUT_{$NomChampCapitalise} 
+		= "{$pNomChamp}";
+
+	/**
+	 * "RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01 : 
+	 * {$pNomChampEnClair} de {$pObjetMetierEnClair} doit être renseigné".
+	 */
+	public static final String RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01 
+		= "RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01 : "
+				+ "{$pNomChampEnClair} de {$pObjetMetierEnClair} "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02 : 
+	 * {$pNomChampEnClair} de {$pObjetMetierEnClair} doit comporter exactement {$pNbreChiffres} chiffres".
+	 */
+	public static final String RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02 
+		= "RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02 : "
+				+ "{$pNomChampEnClair} de {$pObjetMetierEnClair} doit comporter exactement {$pNbreChiffres} chiffres";
+	
+	/**
+	 * "RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03 : 
+	 * {$pNomChampEnClair} doit respecter une nomenclature {$pNomenclature}".
+	 */
+	public static final String RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03 
+		= "RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03 : "
+				+ "{$pNomChampEnClair} doit respecter une nomenclature {$pNomenclature}";
+				

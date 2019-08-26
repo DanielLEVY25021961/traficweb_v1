@@ -583,6 +583,64 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static final String MESSAGE_SECTIONHIT_INDICELETTREROUTE_REGEX_02_EN_DUR 
 		= "l'indice lettre de la route de la section HIT (colonnes [22] du HIT) doit comporter exactement 1 lettre (ou espace pour pas d'indice)";
 	
+	/* 11 - categorieAdminRoute. *******/
+	/**
+	 * clé de messageSectionHitCategorieAdminRouteRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.categorieAdminRoute.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01 
+		= "message.SectionHit.categorieAdminRoute.renseigne";
+	
+	/**
+	 * messageSectionHitCategorieAdminRouteRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitCategorieAdminRouteRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit être renseignée (obligatoire)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01_EN_DUR 
+		= "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit être renseignée (obligatoire)";
+		
+	/**
+	 * clé de messageSectionHitCategorieAdminRouteRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.categorieAdminRoute.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02 
+		= "message.SectionHit.categorieAdminRoute.regex";
+	
+	/**
+	 * messageSectionHitCategorieAdminRouteRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitCategorieAdminRouteRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02_EN_DUR 
+		= "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit comporter exactement 1 chiffre";
+				
+	/**
+	 * clé de messageSectionHitCategorieAdminRouteNomenclature03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.categorieAdminRoute.nomenclature"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03 
+		= "message.SectionHit.categorieAdminRoute.nomenclature";
+	
+	/**
+	 * messageSectionHitCategorieAdminRouteNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitCategorieAdminRouteNomenclature03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR 
+		= "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -773,7 +831,26 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "l'indice lettre de la route de la section HIT (colonnes [22] du HIT) doit comporter exactement 1 lettre (ou espace si pas d'indice)".<br/>
 	*/
 	private static String messageSectionHitIndiceLettreRouteRegex02;
-		
+
+	/* 11 - categorieAdminRoute. *******/
+	/**
+	* message émis par la RG-SectionHit-CategorieAdminRoute-01 : 
+	* "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit être renseignée (obligatoire)".<br/>
+	*/
+	private static String messageSectionHitCategorieAdminRouteRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-CategorieAdminRoute-02 : 
+	* "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit comporter exactement 1 chiffre".<br/>
+	*/
+	private static String messageSectionHitCategorieAdminRouteRegex02;
+
+	/**
+	 * message émis par la RG-SectionHit-CategorieAdminRoute-03 : 
+	 * "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+	 */
+	private static String messageSectionHitCategorieAdminRouteNomenclature03;
+			
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -1000,7 +1077,26 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_INDICELETTREROUTE_REGEX_02
 				, MESSAGE_SECTIONHIT_INDICELETTREROUTE_REGEX_02_EN_DUR);
+				
+		/* 11 - categorieAdminRoute. *******/		
+		/* ajoute le messageSectionHitCategorieAdminRouteRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01_EN_DUR);
 		
+		/* ajoute le messageSectionHitCategorieAdminRouteRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02
+				, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitCategorieAdminRouteNomenclature03 
+		 * par défaut stocké en dur.*/
+		preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03
+					, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR);
+				
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -5247,6 +5343,346 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitIndiceLettreRouteRegex02(...)._________
+
+
+	
+	/* 11 - categorieAdminRoute. ****************/
+	/**
+	 * retourne le messageSectionHitCategorieAdminRouteRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitCategorieAdminRouteRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitCategorieAdminRouteRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitCategorieAdminRouteRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitCategorieAdminRouteRenseigne01
+					, fournirKeyMessageSectionHitCategorieAdminRouteRenseigne01()
+					, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitCategorieAdminRouteRenseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitCategorieAdminRouteRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.categorieAdminRoute.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitCategorieAdminRouteRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitCategorieAdminRouteRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitCategorieAdminRouteRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitCategorieAdminRouteRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitCategorieAdminRouteRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitCategorieAdminRouteRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitCategorieAdminRouteRenseigne01();
+	} // Fin de getMessageSectionHitCategorieAdminRouteRenseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitCategorieAdminRouteRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitCategorieAdminRouteRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitCategorieAdminRouteRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitCategorieAdminRouteRenseigne01
+							, fournirKeyMessageSectionHitCategorieAdminRouteRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitCategorieAdminRouteRenseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitCategorieAdminRouteRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitCategorieAdminRouteRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitCategorieAdminRouteRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitCategorieAdminRouteRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitCategorieAdminRouteRegex02
+					, fournirKeyMessageSectionHitCategorieAdminRouteRegex02()
+					, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitCategorieAdminRouteRegex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitCategorieAdminRouteRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.categorieAdminRoute.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitCategorieAdminRouteRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitCategorieAdminRouteRegex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitCategorieAdminRouteRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitCategorieAdminRouteRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitCategorieAdminRouteRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitCategorieAdminRouteRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitCategorieAdminRouteRegex02();
+	} // Fin de getMessageSectionHitCategorieAdminRouteRegex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitCategorieAdminRouteRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitCategorieAdminRouteRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitCategorieAdminRouteRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitCategorieAdminRouteRegex02
+							, fournirKeyMessageSectionHitCategorieAdminRouteRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitCategorieAdminRouteRegex02(...)._______
+	
+
+
+	/**
+	 * retourne le messageSectionHitCategorieAdminRouteNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitCategorieAdminRouteNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitCategorieAdminRouteNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitCategorieAdminRouteNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitCategorieAdminRouteNomenclature03
+					, fournirKeyMessageSectionHitCategorieAdminRouteNomenclature03()
+					, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitCategorieAdminRouteNomenclature03().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitCategorieAdminRouteNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.categorieAdminRoute.nomenclature".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitCategorieAdminRouteNomenclature03() {
+		return KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03;
+	} // Fin de fournirKeyMessageSectionHitCategorieAdminRouteNomenclature03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitCategorieAdminRouteNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitCategorieAdminRouteNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitCategorieAdminRouteNomenclature03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitCategorieAdminRouteNomenclature03() 
+													throws Exception {
+		return fournirMessageSectionHitCategorieAdminRouteNomenclature03();
+	} // Fin de getMessageSectionHitCategorieAdminRouteNomenclature03().___
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitCategorieAdminRouteNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitCategorieAdminRouteNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitCategorieAdminRouteNomenclature03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitCategorieAdminRouteNomenclature03
+							, fournirKeyMessageSectionHitCategorieAdminRouteNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitCategorieAdminRouteNomenclature03(...).
 	
 	
 		

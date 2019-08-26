@@ -1,0 +1,340 @@
+
+
+	
+	/* {$pNumeroChamp} - {$pNomChamp}. ****************/
+	/**
+	 * retourne le message{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le message{$pObjetMetier}{$NomChampCamelise}Renseigne01 stocké 
+	 * dans {$pObjetMetier}_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : message{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01() 
+			throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					message{$pObjetMetier}{$NomChampCamelise}Renseigne01
+					, fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01()
+					, MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du message{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * par défaut de l'application 
+	 * dans {$pObjetMetier}_CONTROLES.properties.<br/>
+	 * "message.{$pObjetMetier}.{$pNomChamp}.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01() {
+		return KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01;
+	} // Fin de fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de message{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le message{$pObjetMetier}{$NomChampCamelise}Renseigne01 stocké 
+	 * dans {$pObjetMetier}_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return message{$pObjetMetier}{$NomChampCamelise}Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01() 
+											throws Exception {
+		return fournirMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01();
+	} // Fin de getMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01().___________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de message{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* {$pObjetMetier}_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier {$pObjetMetier}_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à message{$pObjetMetier}{$NomChampCamelise}Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, message{$pObjetMetier}{$NomChampCamelise}Renseigne01
+							, fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01(...).________________
+
+
+
+	/**
+	 * retourne le message{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le message{$pObjetMetier}{$NomChampCamelise}Regex02 stocké 
+	 * dans {$pObjetMetier}_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : message{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessage{$pObjetMetier}{$NomChampCamelise}Regex02() 
+			throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					message{$pObjetMetier}{$NomChampCamelise}Regex02
+					, fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Regex02()
+					, MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessage{$pObjetMetier}{$NomChampCamelise}Regex02().___________________
+	
+
+	
+	/**
+	 * Getter de la clé du message{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * par défaut de l'application 
+	 * dans {$pObjetMetier}_CONTROLES.properties.<br/>
+	 * "message.{$pObjetMetier}.{$pNomChamp}.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Regex02() {
+		return KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02;
+	} // Fin de fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Regex02().________________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de message{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le message{$pObjetMetier}{$NomChampCamelise}Regex02 stocké 
+	 * dans {$pObjetMetier}_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return message{$pObjetMetier}{$NomChampCamelise}Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessage{$pObjetMetier}{$NomChampCamelise}Regex02() 
+													throws Exception {
+		return fournirMessage{$pObjetMetier}{$NomChampCamelise}Regex02();
+	} // Fin de getMessage{$pObjetMetier}{$NomChampCamelise}Regex02()._______________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de message{$pObjetMetier}{$NomChampCamelise}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* {$pObjetMetier}_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier {$pObjetMetier}_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à message{$pObjetMetier}{$NomChampCamelise}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessage{$pObjetMetier}{$NomChampCamelise}Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, message{$pObjetMetier}{$NomChampCamelise}Regex02
+							, fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessage{$pObjetMetier}{$NomChampCamelise}Regex02(...).____________________
+	
+
+
+	/**
+	 * retourne le message{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le message{$pObjetMetier}{$NomChampCamelise}Nomenclature03 stocké 
+	 * dans {$pObjetMetier}_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : message{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03() 
+			throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					message{$pObjetMetier}{$NomChampCamelise}Nomenclature03
+					, fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03()
+					, MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03().___________
+	
+
+	
+	/**
+	 * Getter de la clé du message{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	 * par défaut de l'application 
+	 * dans {$pObjetMetier}_CONTROLES.properties.<br/>
+	 * "message.{$pObjetMetier}.{$pNomChamp}.nomenclature".<br/>
+	 *
+	 * @return KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03() {
+		return KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03;
+	} // Fin de fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de message{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le message{$pObjetMetier}{$NomChampCamelise}Nomenclature03 stocké 
+	 * dans {$pObjetMetier}_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return message{$pObjetMetier}{$NomChampCamelise}Nomenclature03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03() 
+													throws Exception {
+		return fournirMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03();
+	} // Fin de getMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de message{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* {$pObjetMetier}_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier {$pObjetMetier}_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à message{$pObjetMetier}{$NomChampCamelise}Nomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03(
+			final String pValue) throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, message{$pObjetMetier}{$NomChampCamelise}Nomenclature03
+							, fournirKeyMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03(...).____________

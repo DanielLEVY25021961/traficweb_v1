@@ -240,7 +240,7 @@ public class FactoryNomenclatureHitTest {
 		 * les clés possibles du CATEGORIE ADMINISTRATIVE DE LA ROUTE. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatCatAdminRoute);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
-				, FactoryNomenclatureHit.getSetClesPossiblesCatAdminRoute()
+				, FactoryNomenclatureHit.getSetClesPossiblesCategorieAdminRoute()
 					, resultatCatAdminRoute);
 
 		/* TYPE DE COMPTAGE. */
@@ -634,7 +634,7 @@ public class FactoryNomenclatureHitTest {
 		 * la nomenclature du CATEGORIE ADMINISTRATIVE DE LA ROUTE. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatCatAdminRoute);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
-				, FactoryNomenclatureHit.getNomenclatureMapCatAdminRoute()
+				, FactoryNomenclatureHit.getNomenclatureMapCategorieAdminRoute()
 					, resultatCatAdminRoute);
 
 		/* TYPE DE COMPTAGE. */

@@ -1,0 +1,463 @@
+	
+	
+	
+	/* {$pNumeroChamp} - {$pNomChamp}. **************/
+	/**
+	 * retourne le <code>validerRG{$pObjetMetier}{$NomChampCamelise}</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>{$pNomChamp}</i> de {$pObjetMetier}.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>{$pNomChamp}</i> 
+	 * de {$pObjetMetier}.<br/>
+	 * <ul>
+	 * <li>lit le validerRG{$pObjetMetier}{$NomChampCamelise} stocké 
+	 * dans {$pObjetMetier}_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRG{$pObjetMetier}{$NomChampCamelise} 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRG{$pObjetMetier}{$NomChampCamelise}() 
+			throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRG{$pObjetMetier}{$NomChampCamelise}
+					, fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}()
+					, STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRG{$pObjetMetier}{$NomChampCamelise}().________________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRG{$pObjetMetier}{$NomChampCamelise} 
+	 * par défaut de l'application 
+	 * dans {$pObjetMetier}_RG.properties.<br/>
+	 * "valider.{$pObjetMetier}.{$pNomChamp}".<br/>
+	 *
+	 * @return KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise} : String.<br/>
+	 */
+	public static String fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}() {
+		return KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise};
+	} // Fin de fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}()._____________________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRG{$pObjetMetier}{$NomChampCamelise} par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRG{$pObjetMetier}{$NomChampCamelise} 
+	 * stocké dans {$pObjetMetier}_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRG{$pObjetMetier}{$NomChampCamelise} stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRG{$pObjetMetier}{$NomChampCamelise} : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRG{$pObjetMetier}{$NomChampCamelise}() 
+													throws Exception {
+		return fournirValiderRG{$pObjetMetier}{$NomChampCamelise}();
+	} // Fin de getValiderRG{$pObjetMetier}{$NomChampCamelise}().____________________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRG{$pObjetMetier}{$NomChampCamelise} par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* {$pObjetMetier}_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier {$pObjetMetier}_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRG{$pObjetMetier}{$NomChampCamelise}.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRG{$pObjetMetier}{$NomChampCamelise}(
+			final Boolean pValue) throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRG{$pObjetMetier}{$NomChampCamelise}
+							, fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRG{$pObjetMetier}{$NomChampCamelise}(...)._________________________
+
+
+
+	/**
+	 * retourne le validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 stocké 
+	 * dans {$pObjetMetier}_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01() 
+			throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01
+					, fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01()
+					, STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01()._____________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * par défaut de l'application 
+	 * dans {$pObjetMetier}_RG.properties.<br/>
+	 * "valider.{$pObjetMetier}.{$pNomChamp}.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01() {
+		return KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01().__________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * stocké dans {$pObjetMetier}_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01() 
+													throws Exception {
+		return fournirValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01();
+	} // Fin de getValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01()._________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* {$pObjetMetier}_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier {$pObjetMetier}_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01
+							, fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01(...).______________
+
+
+
+	/**
+	 * retourne le validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 stocké 
+	 * dans {$pObjetMetier}_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02() 
+			throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRG{$pObjetMetier}{$NomChampCamelise}Regex02
+					, fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02()
+					, STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02()._________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * par défaut de l'application 
+	 * dans {$pObjetMetier}_RG.properties.<br/>
+	 * "valider.{$pObjetMetier}.{$pNomChamp}.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02() {
+		return KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02;
+	} // Fin de fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02().______________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * stocké dans {$pObjetMetier}_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02() 
+													throws Exception {
+		return fournirValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02();
+	} // Fin de getValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02()._____________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* {$pObjetMetier}_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier {$pObjetMetier}_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRG{$pObjetMetier}{$NomChampCamelise}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRG{$pObjetMetier}{$NomChampCamelise}Regex02
+							, fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02(...).__________________
+
+
+
+	/**
+	 * retourne le validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03 stocké 
+	 * dans {$pObjetMetier}_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03() 
+			throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03
+					, fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03()
+					, STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03().____________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	 * par défaut de l'application 
+	 * dans {$pObjetMetier}_RG.properties.<br/>
+	 * "valider.{$pObjetMetier}.{$pNomChamp}.nomenclature".<br/>
+	 *
+	 * @return KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03() {
+		return KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03;
+	} // Fin de fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03()._________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	 * stocké dans {$pObjetMetier}_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03() 
+													throws Exception {
+		return fournirValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03();
+	} // Fin de getValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03().________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* {$pObjetMetier}_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier {$pObjetMetier}_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized ({$pObjetMetier}GestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03
+							, fournirKeyValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03(...)._____________
+	

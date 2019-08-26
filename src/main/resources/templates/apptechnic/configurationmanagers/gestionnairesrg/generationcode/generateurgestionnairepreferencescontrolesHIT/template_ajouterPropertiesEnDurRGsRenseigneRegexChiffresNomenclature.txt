@@ -1,0 +1,20 @@
+				
+		/* {$pNumeroChamp} - {$pNomChamp}. *******/		
+		/* ajoute le message{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01
+				, MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le message{$pObjetMetier}{$NomChampCamelise}Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02
+				, MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR);
+		
+		/* ajoute le message{$pObjetMetier}{$NomChampCamelise}Nomenclature03 
+		 * par défaut stocké en dur.*/
+		preferences.setProperty(
+				KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03
+					, MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03_EN_DUR);
+				

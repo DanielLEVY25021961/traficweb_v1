@@ -1,0 +1,394 @@
+	
+
+	
+	/* {$pNumeroChamp} - {$pNomChamp}. ************************/
+	/**
+	 * teste la méthode getMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE {$pObjetMetier}GestionnairePreferencesControlesTest - méthode testGetMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= {$pObjetMetier}GestionnairePreferencesControles
+				.getMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01();
+		
+		/* garantit que getMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, {$pObjetMetier}GestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = {$pObjetMetier}GestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné'"
+				, {$pObjetMetier}GestionnairePreferencesControles
+				.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		{$pObjetMetier}GestionnairePreferencesControles
+			.setMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= {$pObjetMetier}GestionnairePreferencesControles
+			.getMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = {$pObjetMetier}GestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		{$pObjetMetier}GestionnairePreferencesControles
+			.setMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01(
+					{$pObjetMetier}GestionnairePreferencesControles
+						.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= {$pObjetMetier}GestionnairePreferencesControles
+			.getMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = {$pObjetMetier}GestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné'"
+				, {$pObjetMetier}GestionnairePreferencesControles
+				.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessage{$pObjetMetier}{$NomChampCamelise}Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessage{$pObjetMetier}{$NomChampCamelise}Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessage{$pObjetMetier}{$NomChampCamelise}Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE {$pObjetMetier}GestionnairePreferencesControlesTest - méthode testGetMessage{$pObjetMetier}{$NomChampCamelise}Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= {$pObjetMetier}GestionnairePreferencesControles
+				.getMessage{$pObjetMetier}{$NomChampCamelise}Regex02();
+		
+		/* garantit que getMessage{$pObjetMetier}{$NomChampCamelise}Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, {$pObjetMetier}GestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = {$pObjetMetier}GestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres'"
+				, {$pObjetMetier}GestionnairePreferencesControles
+				.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		{$pObjetMetier}GestionnairePreferencesControles
+			.setMessage{$pObjetMetier}{$NomChampCamelise}Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= {$pObjetMetier}GestionnairePreferencesControles
+				.getMessage{$pObjetMetier}{$NomChampCamelise}Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = {$pObjetMetier}GestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessage{$pObjetMetier}{$NomChampCamelise}Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		{$pObjetMetier}GestionnairePreferencesControles
+			.setMessage{$pObjetMetier}{$NomChampCamelise}Regex02(
+					{$pObjetMetier}GestionnairePreferencesControles
+						.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= {$pObjetMetier}GestionnairePreferencesControles
+			.getMessage{$pObjetMetier}{$NomChampCamelise}Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = {$pObjetMetier}GestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres'"
+				, {$pObjetMetier}GestionnairePreferencesControles
+				.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessage{$pObjetMetier}{$NomChampCamelise}Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE {$pObjetMetier}GestionnairePreferencesControlesTest - méthode testGetMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= {$pObjetMetier}GestionnairePreferencesControles
+				.getMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03();
+		
+		/* garantit que getMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, {$pObjetMetier}GestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = {$pObjetMetier}GestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonne {$pColonnes} du HIT) doit respecter une nomenclature {$pNomenclature}'"
+				, {$pObjetMetier}GestionnairePreferencesControles
+				.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03_EN_DUR
+					, message);
+
+		
+		// ***************************************
+		/* modification du message. ****************/
+		{$pObjetMetier}GestionnairePreferencesControles
+			.setMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= {$pObjetMetier}GestionnairePreferencesControles
+				.getMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = {$pObjetMetier}GestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+
+		/* garantit que setMessage{$pObjetMetier}{$NomChampCamelise}Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		{$pObjetMetier}GestionnairePreferencesControles
+			.setMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03(
+					{$pObjetMetier}GestionnairePreferencesControles
+						.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= {$pObjetMetier}GestionnairePreferencesControles
+			.getMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = {$pObjetMetier}GestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+		assertEquals("le message doit valoir : '{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonne {$pColonnes} du HIT) doit respecter une nomenclature {$pNomenclature}'"
+				, {$pObjetMetier}GestionnairePreferencesControles
+				.MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessage{$pObjetMetier}{$NomChampCamelise}Nomenclature03().______________

@@ -749,6 +749,82 @@ public final class SectionHitGestionnairePreferencesRG {
 	public static final String STRING_VALIDER_SECTIONHIT_INDICELETTREROUTE_REGEX_02_EN_DUR 
 		= "true";
 	
+	/* 11 - categorieAdminRoute. *******/
+	/**
+	 * clé de validerRGSectionHitCategorieAdminRoute dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.categorieAdminRoute"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE 
+		= "valider.SectionHit.categorieAdminRoute";
+	
+	/**
+	 * validerRGSectionHitCategorieAdminRoute par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitCategorieAdminRoute 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitCategorieAdminRouteRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.categorieAdminRoute.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01 
+		= "valider.SectionHit.categorieAdminRoute.renseigne";
+	
+	/**
+	 * validerRGSectionHitCategorieAdminRouteRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitCategorieAdminRouteRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitCategorieAdminRouteRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.categorieAdminRoute.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02 
+		= "valider.SectionHit.categorieAdminRoute.regex";
+	
+	/**
+	 * validerRGSectionHitCategorieAdminRouteRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitCategorieAdminRouteRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitCategorieAdminRouteNomenclature03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.categorieAdminRoute.nomenclature"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03 
+		= "valider.SectionHit.categorieAdminRoute.nomenclature";
+	
+	/**
+	 * validerRGSectionHitCategorieAdminRouteNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitCategorieAdminRouteNomenclature03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR 
+		= "true";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -1024,6 +1100,33 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	private static Boolean validerRGSectionHitIndiceLettreRouteRegex02;
 	
+	/* 11 - categorieAdminRoute. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>categorieAdminRoute</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>categorieAdminRoute</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitCategorieAdminRoute;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-CategorieAdminRoute-01 : 
+	 * "la catégorie administrative de la route de la section HIT (colonnes [23] du HIT) doit être renseignée (obligatoire)".<br/>
+	 */
+	private static Boolean validerRGSectionHitCategorieAdminRouteRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-CategorieAdminRoute-02 : 
+	 * "la catégorie administrative de la route de la section HIT (colonnes [23] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	private static Boolean validerRGSectionHitCategorieAdminRouteRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-CategorieAdminRoute-03 :
+	 * "la catégorie administrative de la route de la section HIT (colonne [23] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".<br/>
+	 */
+	private static Boolean validerRGSectionHitCategorieAdminRouteNomenclature03;
+		
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -1310,6 +1413,31 @@ public final class SectionHitGestionnairePreferencesRG {
 					KEY_VALIDER_SECTIONHIT_INDICELETTREROUTE_REGEX_02
 						, STRING_VALIDER_SECTIONHIT_INDICELETTREROUTE_REGEX_02_EN_DUR);
 			
+			/* 11 - categorieAdminRoute. *******/
+			/* ajoute le validerRGSectionHitCategorieAdminRoute 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE
+						, STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitCategorieAdminRouteRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitCategorieAdminRouteRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitCategorieAdminRouteNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03
+						, STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR);
+									
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -6291,6 +6419,468 @@ public final class SectionHitGestionnairePreferencesRG {
 						
 	} // Fin de setValiderRGSectionHitIndiceLettreRouteRegex02(...)._______
 	
+	
+	
+	/* 11 - categorieAdminRoute. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitCategorieAdminRoute</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>categorieAdminRoute</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>categorieAdminRoute</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitCategorieAdminRoute stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitCategorieAdminRoute 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitCategorieAdminRoute() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitCategorieAdminRoute
+					, fournirKeyValiderRGSectionHitCategorieAdminRoute()
+					, STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitCategorieAdminRoute().___________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitCategorieAdminRoute 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.categorieAdminRoute".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitCategorieAdminRoute() {
+		return KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE;
+	} // Fin de fournirKeyValiderRGSectionHitCategorieAdminRoute().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitCategorieAdminRoute par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitCategorieAdminRoute 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitCategorieAdminRoute stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitCategorieAdminRoute : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitCategorieAdminRoute() 
+													throws Exception {
+		return fournirValiderRGSectionHitCategorieAdminRoute();
+	} // Fin de getValiderRGSectionHitCategorieAdminRoute()._______________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitCategorieAdminRoute par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitCategorieAdminRoute.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitCategorieAdminRoute(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitCategorieAdminRoute
+							, fournirKeyValiderRGSectionHitCategorieAdminRoute());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitCategorieAdminRoute(...).____________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitCategorieAdminRouteRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitCategorieAdminRouteRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitCategorieAdminRouteRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitCategorieAdminRouteRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitCategorieAdminRouteRenseigne01
+					, fournirKeyValiderRGSectionHitCategorieAdminRouteRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitCategorieAdminRouteRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitCategorieAdminRouteRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.categorieAdminRoute.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitCategorieAdminRouteRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitCategorieAdminRouteRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitCategorieAdminRouteRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitCategorieAdminRouteRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitCategorieAdminRouteRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitCategorieAdminRouteRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitCategorieAdminRouteRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitCategorieAdminRouteRenseigne01();
+	} // Fin de getValiderRGSectionHitCategorieAdminRouteRenseigne01().____
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitCategorieAdminRouteRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitCategorieAdminRouteRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitCategorieAdminRouteRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitCategorieAdminRouteRenseigne01
+							, fournirKeyValiderRGSectionHitCategorieAdminRouteRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitCategorieAdminRouteRenseigne01(...)._
+
+
+
+	/**
+	 * retourne le validerRGSectionHitCategorieAdminRouteRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitCategorieAdminRouteRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitCategorieAdminRouteRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitCategorieAdminRouteRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitCategorieAdminRouteRegex02
+					, fournirKeyValiderRGSectionHitCategorieAdminRouteRegex02()
+					, STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitCategorieAdminRouteRegex02().____
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitCategorieAdminRouteRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.categorieAdminRoute.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitCategorieAdminRouteRegex02() {
+		return KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitCategorieAdminRouteRegex02()._
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitCategorieAdminRouteRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitCategorieAdminRouteRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitCategorieAdminRouteRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitCategorieAdminRouteRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitCategorieAdminRouteRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitCategorieAdminRouteRegex02();
+	} // Fin de getValiderRGSectionHitCategorieAdminRouteRegex02().________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitCategorieAdminRouteRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitCategorieAdminRouteRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitCategorieAdminRouteRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitCategorieAdminRouteRegex02
+							, fournirKeyValiderRGSectionHitCategorieAdminRouteRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitCategorieAdminRouteRegex02(...)._____
+
+
+
+	/**
+	 * retourne le validerRGSectionHitCategorieAdminRouteNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitCategorieAdminRouteNomenclature03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitCategorieAdminRouteNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitCategorieAdminRouteNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitCategorieAdminRouteNomenclature03
+					, fournirKeyValiderRGSectionHitCategorieAdminRouteNomenclature03()
+					, STRING_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitCategorieAdminRouteNomenclature03().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitCategorieAdminRouteNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.categorieAdminRoute.nomenclature".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitCategorieAdminRouteNomenclature03() {
+		return KEY_VALIDER_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03;
+	} // Fin de fournirKeyValiderRGSectionHitCategorieAdminRouteNomenclature03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitCategorieAdminRouteNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitCategorieAdminRouteNomenclature03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitCategorieAdminRouteNomenclature03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitCategorieAdminRouteNomenclature03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitCategorieAdminRouteNomenclature03() 
+													throws Exception {
+		return fournirValiderRGSectionHitCategorieAdminRouteNomenclature03();
+	} // Fin de getValiderRGSectionHitCategorieAdminRouteNomenclature03()._
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitCategorieAdminRouteNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitCategorieAdminRouteNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitCategorieAdminRouteNomenclature03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitCategorieAdminRouteNomenclature03
+							, fournirKeyValiderRGSectionHitCategorieAdminRouteNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitCategorieAdminRouteNomenclature03(...).
+		
 	
 	
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesRG.-------------------

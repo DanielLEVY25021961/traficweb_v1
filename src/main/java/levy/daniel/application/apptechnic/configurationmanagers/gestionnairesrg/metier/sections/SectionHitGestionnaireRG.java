@@ -13,10 +13,28 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespre
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.AbstractGestionnaireRG;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.EnumTypesValidation;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.LigneRG;
+import levy.daniel.application.model.metier.sections.impl.SectionHit;
 
 /**
  * CLASSE SectionHitGestionnaireRG :<br/>
- * .<br/>
+ * Classe chargée de fournir toutes les REGLES DE GESTION (RG) 
+ * implémentées dans la présente application pour un OBJET METIER donné 
+ * (ici {@link SectionHit}).<br/>
+ * <ul>
+ * <li>permet à la Maîtrise d'Ouvrage (MOA) de 
+ * <b>connaître instantanémént la liste des RGs implémentées</b> 
+ * et leur <b>état d'activation</b> (RG active/non active paramétrable 
+ * via une <i>gestion de préférences</i>).</li>
+ * <li>retourne via sa méthode <code><b>getMapRG()</b></code> 
+ * la Map&lt;String, LigneRG&gt; des RGs implémentées 
+ * dans la présente application et contrôlées 
+ * dans un OBJETMETIERValideurService.</li>
+ * <li>retourne via sa méthode 
+ * <code><b>afficherListeRGImplementeesCsv()</b></code> 
+ * une String CSV pour l'affichage des RGs implémentées 
+ * dans la présente application et contrôlées 
+ * dans un OBJETMETIERValideurService.</li>
+ * </ul>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>

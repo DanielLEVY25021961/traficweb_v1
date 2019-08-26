@@ -1,0 +1,20 @@
+
+	/* {$pNumeroChamp} - {$pNomChamp}. *******/
+	/**
+	* message émis par la RG-{$pObjetMetier}-{$NomChampCamelise}-01 : 
+	* "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné".<br/>
+	*/
+	private static String message{$pObjetMetier}{$NomChampCamelise}Renseigne01;
+	
+	/**
+	* message émis par la RG-{$pObjetMetier}-{$NomChampCamelise}-02 : 
+	* "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres".<br/>
+	*/
+	private static String message{$pObjetMetier}{$NomChampCamelise}Regex02;
+
+	/**
+	 * message émis par la RG-{$pObjetMetier}-{$NomChampCamelise}-03 : 
+	 * "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit respecter une nomenclature {$pNomenclature}"
+	 */
+	private static String message{$pObjetMetier}{$NomChampCamelise}Nomenclature03;
+	
