@@ -1274,12 +1274,12 @@ public final class GenerateurGestionnairePreferencesControle {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "16";
-		final String nomChamp = "typeReseau";
-		final String nomChampEnClair = "le type de réseau";
-		final String colonnes = "[28]";
+		final String numeroChamp = "17";
+		final String nomChamp = "pRoupK";
+		final String nomChampEnClair = "PR ou PK";
+		final String colonnes = "[29]";
 		final String nbreChiffres = "1";
-		final String nomenclature = "[0, 1, 2, 3, 4]";
+		final String nomenclature = "[1, 2]";
 		// *******************************************************
 		
 //		genererCodeRGsRenseigneRegexChiffres(

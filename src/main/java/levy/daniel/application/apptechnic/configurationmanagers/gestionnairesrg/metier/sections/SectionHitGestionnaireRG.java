@@ -549,7 +549,39 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03 
 		= "RG_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03 : "
 				+ "le type de réseau doit respecter une nomenclature [0, 1, 2, 3, 4]";
+
+	/* 17 - pRoupK. *******/
+	/**
+	 * "pRoupK".<br/>
+	 */
+	public static final String ATTRIBUT_PROUPK 
+		= "pRoupK";
+
+	/**
+	 * "RG_SECTIONHIT_PROUPK_RENSEIGNE_01 : 
+	 * PR ou PK de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PROUPK_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PROUPK_RENSEIGNE_01 : "
+				+ "PR ou PK de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_PROUPK_REGEX_02 : 
+	 * PR ou PK de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_PROUPK_REGEX_02 
+		= "RG_SECTIONHIT_PROUPK_REGEX_02 : "
+				+ "PR ou PK de la section HIT doit comporter exactement 1 chiffre";
 	
+	/**
+	 * "RG_SECTIONHIT_PROUPK_NOMENCLATURE_03 : 
+	 * PR ou PK doit respecter une nomenclature [1, 2]".
+	 */
+	public static final String RG_SECTIONHIT_PROUPK_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_PROUPK_NOMENCLATURE_03 : "
+				+ "PR ou PK doit respecter une nomenclature [1, 2]";
+					
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -1231,6 +1263,49 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeReseauNomenclature03());
 		
+		/* 17 - pRoupK. *******/
+		/* RG_SECTIONHIT_PROUPK_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPRoupKRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPRoupK()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPRoupKRenseigne01()
+				, RG_SECTIONHIT_PROUPK_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPRoupKRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PROUPK
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPRoupKRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPRoupKRenseigne01());
+		
+		/* RG_SECTIONHIT_PROUPK_REGEX_02. */
+		final LigneRG ligneRGSectionHitPRoupKRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPRoupK()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPRoupKRegex02()
+				, RG_SECTIONHIT_PROUPK_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPRoupKRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PROUPK
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPRoupKRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPRoupKRegex02());
+				
+		/* RG_SECTIONHIT_PROUPK_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitPRoupKNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPRoupK()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPRoupKNomenclature03()
+				, RG_SECTIONHIT_PROUPK_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPRoupKNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PROUPK
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPRoupKNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPRoupKNomenclature03());
+		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -1386,6 +1461,17 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03
 			, ligneRGSectionHitTypeReseauNomenclature03);				
+				
+		/* 17 - pRoupK. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PROUPK_RENSEIGNE_01
+			, ligneRGSectionHitPRoupKRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PROUPK_REGEX_02
+			, ligneRGSectionHitPRoupKRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PROUPK_NOMENCLATURE_03
+			, ligneRGSectionHitPRoupKNomenclature03);				
 		
 		return this.mapRG;
 					

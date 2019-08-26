@@ -15,7 +15,7 @@
 14;26;1;Classe de largeur chaussée unique;0 - Sans objet.[sep] 1 - 2 Voies < 5m. [sep] 2 - 2 Voies entre 5 et 7 m.[sep] 3 - 2 Voies >= 7m.[sep] 4 - 3 Voies < 10,5m.[sep] 5 - 3 Voies >= 10,5m.[sep] 6 - 4 Voies < 14m.[sep] 7 - 4 Voies >= 14m.[sep] 8 - 5 Voies et plus.[sep];classeLargeurChausseeU;String;true;false;26;26;1
 15;27;1;Classe de largeur chaussée séparées;0 - Sans objet.[sep] 1 - 2 x 2 Voies, chaussée < 14m.[sep] 2 - 2 x 2 Voies, chaussée >= 14m.[sep] 3 - 2 x 3 Voies, chaussée < 21m.[sep] 4 - 2 x 3 Voies, chaussée >= 21m.[sep] 5 - 2 x 4 Voies, chaussée < 28m.[sep] 6 - 2 x 4 Voies, chaussée >= 28m.[sep] 7 - Autres.[sep];classeLargeurChausseesS;String;true;false;27;27;1
 16;28;1;Type de réseau;0 - Autre que autoroute. [sep] 1 - Autoroute concédée de dégagement. [sep] 2 - Autoroute concédée de liaison. [sep] 3 - Autoroute non concédée de dégagement. [sep] 4 - Autoroute non concédée de liaison.[sep];typeReseau;String;true;false;28;28;1
-17;29;1;PR/PK;1 - PR.[sep] 2 - PK.[sep];pRoupK;Integer;true;false;29;29;1
+17;29;1;PR/PK;1 - PR.[sep] 2 - PK.[sep];pRoupK;String;true;false;29;29;1
 18;30-49;20;Lieu-dit d'origine;Libellé du lieu-dit d'origine;lieuDitOrigine;String;false;false;30;49;20
 19;50-52;3;P.R. Origine;Point repère origine ('début');prOrigine;Integer;false;false;50;52;3
 20;53-56;4;Abscisse du PRO;Abscisse du Point Origine par rapport au Point Repère Origine ('début');absOrigine;Integer;false;false;53;56;4

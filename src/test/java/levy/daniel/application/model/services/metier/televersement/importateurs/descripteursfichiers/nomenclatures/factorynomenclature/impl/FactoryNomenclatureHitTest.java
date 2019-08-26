@@ -348,7 +348,7 @@ public class FactoryNomenclatureHitTest {
 		 * les clés possibles du PR/PK. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatPrPk);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
-				, FactoryNomenclatureHit.getSetClesPossiblesPrPk()
+				, FactoryNomenclatureHit.getSetClesPossiblesPRoupK()
 					, resultatPrPk);
 
 		/* SENS DE LA SECTION DE RATTACHEMENT. */
@@ -742,7 +742,7 @@ public class FactoryNomenclatureHitTest {
 		 * la nomenclature du PR/PK. */
 		assertNotNull(NE_DOIT_PAS_RETOURNER_NULL, resultatPrPk);
 		assertSame(DOIT_RETOURNER_BONNE_NOMENCLATURE
-				, FactoryNomenclatureHit.getNomenclatureMapPrPk()
+				, FactoryNomenclatureHit.getNomenclatureMapPRoupK()
 					, resultatPrPk);
 
 		/* SENS DE LA SECTION DE RATTACHEMENT. */

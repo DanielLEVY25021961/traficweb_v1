@@ -1204,7 +1204,82 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	public static final String STRING_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR 
 		= "true";
-				
+	
+	/* 17 - pRoupK. *******/
+	/**
+	 * clé de validerRGSectionHitPRoupK dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pRoupK"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PROUPK 
+		= "valider.SectionHit.pRoupK";
+	
+	/**
+	 * validerRGSectionHitPRoupK par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPRoupK 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PROUPK_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitPRoupKRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pRoupK.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PROUPK_RENSEIGNE_01 
+		= "valider.SectionHit.pRoupK.renseigne";
+	
+	/**
+	 * validerRGSectionHitPRoupKRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPRoupKRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PROUPK_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPRoupKRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pRoupK.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PROUPK_REGEX_02 
+		= "valider.SectionHit.pRoupK.regex";
+	
+	/**
+	 * validerRGSectionHitPRoupKRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPRoupKRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PROUPK_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPRoupKNomenclature03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pRoupK.nomenclature"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PROUPK_NOMENCLATURE_03 
+		= "valider.SectionHit.pRoupK.nomenclature";
+	
+	/**
+	 * validerRGSectionHitPRoupKNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPRoupKNomenclature03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PROUPK_NOMENCLATURE_03_EN_DUR 
+		= "true";				
 					
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
@@ -1643,6 +1718,34 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	private static Boolean validerRGSectionHitTypeReseauNomenclature03;
 	
+	/* 17 - pRoupK. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>pRoupK</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>pRoupK</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitPRoupK;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PRoupK-01 : 
+	 * "PR ou PK de la section HIT (colonne [29] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitPRoupKRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PRoupK-02 : 
+	 * "PR ou PK de la section HIT (colonne [29] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	private static Boolean validerRGSectionHitPRoupKRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PRoupK-03 :
+	 * "PR ou PK de la section HIT (colonne [29] du HIT) doit respecter une nomenclature [1, 2]".<br/>
+	 */
+	private static Boolean validerRGSectionHitPRoupKNomenclature03;
+	
+	
 		
 	/**
 	 * LOG : Log : 
@@ -2079,7 +2182,32 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03
 						, STRING_VALIDER_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR);
-																																	
+			
+			/* 17 - pRoupK. *******/
+			/* ajoute le validerRGSectionHitPRoupK 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PROUPK
+						, STRING_VALIDER_SECTIONHIT_PROUPK_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPRoupKRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PROUPK_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_PROUPK_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPRoupKRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PROUPK_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_PROUPK_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPRoupKNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PROUPK_NOMENCLATURE_03
+						, STRING_VALIDER_SECTIONHIT_PROUPK_NOMENCLATURE_03_EN_DUR);
+			
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -9833,6 +9961,468 @@ public final class SectionHitGestionnairePreferencesRG {
 						
 	} // Fin de setValiderRGSectionHitTypeReseauNomenclature03(...)._______
 	
+	
+	
+	/* 17 - pRoupK. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitPRoupK</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>pRoupK</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>pRoupK</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPRoupK stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPRoupK 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPRoupK() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitPRoupK
+					, fournirKeyValiderRGSectionHitPRoupK()
+					, STRING_VALIDER_SECTIONHIT_PROUPK_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPRoupK().________________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPRoupK 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.pRoupK".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PROUPK : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPRoupK() {
+		return KEY_VALIDER_SECTIONHIT_PROUPK;
+	} // Fin de fournirKeyValiderRGSectionHitPRoupK()._____________________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPRoupK par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitPRoupK 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPRoupK stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPRoupK : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPRoupK() 
+													throws Exception {
+		return fournirValiderRGSectionHitPRoupK();
+	} // Fin de getValiderRGSectionHitPRoupK().____________________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPRoupK par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPRoupK.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPRoupK(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPRoupK
+							, fournirKeyValiderRGSectionHitPRoupK());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPRoupK(...)._________________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitPRoupKRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPRoupKRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPRoupKRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPRoupKRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitPRoupKRenseigne01
+					, fournirKeyValiderRGSectionHitPRoupKRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_PROUPK_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPRoupKRenseigne01()._____________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPRoupKRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.pRoupK.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PROUPK_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPRoupKRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_PROUPK_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitPRoupKRenseigne01().__________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPRoupKRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPRoupKRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPRoupKRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPRoupKRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPRoupKRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitPRoupKRenseigne01();
+	} // Fin de getValiderRGSectionHitPRoupKRenseigne01()._________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPRoupKRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPRoupKRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPRoupKRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPRoupKRenseigne01
+							, fournirKeyValiderRGSectionHitPRoupKRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPRoupKRenseigne01(...).______________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitPRoupKRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPRoupKRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPRoupKRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPRoupKRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitPRoupKRegex02
+					, fournirKeyValiderRGSectionHitPRoupKRegex02()
+					, STRING_VALIDER_SECTIONHIT_PROUPK_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPRoupKRegex02()._________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPRoupKRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.pRoupK.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PROUPK_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPRoupKRegex02() {
+		return KEY_VALIDER_SECTIONHIT_PROUPK_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitPRoupKRegex02().______________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPRoupKRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPRoupKRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPRoupKRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPRoupKRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPRoupKRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitPRoupKRegex02();
+	} // Fin de getValiderRGSectionHitPRoupKRegex02()._____________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPRoupKRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPRoupKRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPRoupKRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPRoupKRegex02
+							, fournirKeyValiderRGSectionHitPRoupKRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPRoupKRegex02(...).__________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitPRoupKNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPRoupKNomenclature03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPRoupKNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPRoupKNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitPRoupKNomenclature03
+					, fournirKeyValiderRGSectionHitPRoupKNomenclature03()
+					, STRING_VALIDER_SECTIONHIT_PROUPK_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPRoupKNomenclature03().__________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPRoupKNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.pRoupK.nomenclature".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PROUPK_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPRoupKNomenclature03() {
+		return KEY_VALIDER_SECTIONHIT_PROUPK_NOMENCLATURE_03;
+	} // Fin de fournirKeyValiderRGSectionHitPRoupKNomenclature03()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPRoupKNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPRoupKNomenclature03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPRoupKNomenclature03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPRoupKNomenclature03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPRoupKNomenclature03() 
+													throws Exception {
+		return fournirValiderRGSectionHitPRoupKNomenclature03();
+	} // Fin de getValiderRGSectionHitPRoupKNomenclature03().______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPRoupKNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPRoupKNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPRoupKNomenclature03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPRoupKNomenclature03
+							, fournirKeyValiderRGSectionHitPRoupKNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPRoupKNomenclature03(...).___________
+		
 			
 	
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesRG.-------------------

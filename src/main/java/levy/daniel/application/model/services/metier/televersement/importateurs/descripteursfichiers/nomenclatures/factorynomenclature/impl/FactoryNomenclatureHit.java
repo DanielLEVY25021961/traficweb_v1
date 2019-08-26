@@ -327,7 +327,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * pour les fichiers HIT.<br/>
 	 * <b>SINGLETON</b>.<br/>
 	 */
-	private static transient Set<Integer> setClesPossiblesPrPk;
+	private static transient Set<Integer> setClesPossiblesPRoupK;
 				
 	/**
 	 * Nomenclature sous forme de SortedMap&lt;Integer,String&gt; 
@@ -580,7 +580,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			/* TYPE PR/PK. */
 			case 17:
 				
-				resultat = getSetClesPossiblesPrPk();				
+				resultat = getSetClesPossiblesPRoupK();				
 				break;
 				
 			/* SENS DE LA SECTION DE RATTACHEMENT. */
@@ -719,7 +719,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 			/* TYPE PR/PK. */
 			case 17:
 
-				resultat = getNomenclatureMapPrPk();			
+				resultat = getNomenclatureMapPRoupK();			
 				break;
 				
 			/* SENS DE LA SECTION DE RATTACHEMENT. */
@@ -1683,16 +1683,16 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * <li>alimente l'attribut associé (Map pour Set ou Set pour Map).</li>
 	 * </ul>
 	 *
-	 * @return setClesPossiblesPrPk : Set&lt;Integer&gt;.<br/>
+	 * @return setClesPossiblesPRoupK : Set&lt;Integer&gt;.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	public static Set<Integer> getSetClesPossiblesPrPk() 
+	public static Set<Integer> getSetClesPossiblesPRoupK() 
 													throws Exception {
 		
 		synchronized (FactoryNomenclatureHit.class) {
 					
-			if (setClesPossiblesPrPk == null) {
+			if (setClesPossiblesPRoupK == null) {
 				
 				final IImporteurNomenclature importeur 
 					= new ImporteurNomenclature();
@@ -1702,11 +1702,11 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 							ConfigurationNomenclaturesHitManager
 								.getFichierNomenclatureHitPrPkUtf8());
 				
-				setClesPossiblesPrPk = importeur.getClesPossiblesSet();
+				setClesPossiblesPRoupK = importeur.getClesPossiblesSet();
 				nomenclatureMapPrPk = importeur.getNomenclatureMap();
 			}
 		
-			return setClesPossiblesPrPk;
+			return setClesPossiblesPRoupK;
 			
 		} // Fin du bloc synchronized.__________________________
 		
@@ -1737,7 +1737,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 	 * 
 	 * @throws Exception
 	 */
-	public static SortedMap<Integer, String> getNomenclatureMapPrPk() 
+	public static SortedMap<Integer, String> getNomenclatureMapPRoupK() 
 															throws Exception {
 		
 		synchronized (FactoryNomenclatureHit.class) {
@@ -1752,7 +1752,7 @@ public final class FactoryNomenclatureHit implements IFactoryNomenclature {
 							ConfigurationNomenclaturesHitManager
 								.getFichierNomenclatureHitPrPkUtf8());
 				
-				setClesPossiblesPrPk = importeur.getClesPossiblesSet();
+				setClesPossiblesPRoupK = importeur.getClesPossiblesSet();
 				nomenclatureMapPrPk = importeur.getNomenclatureMap();
 			}
 

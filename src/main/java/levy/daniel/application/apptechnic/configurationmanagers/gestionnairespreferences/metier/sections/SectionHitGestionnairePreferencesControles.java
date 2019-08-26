@@ -931,6 +931,64 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static final String MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR 
 		= "le type de réseau de la section HIT (colonne [28] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4]";
 	
+	/* 17 - pRoupK. *******/
+	/**
+	 * clé de messageSectionHitPRoupKRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pRoupK.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01 
+		= "message.SectionHit.pRoupK.renseigne";
+	
+	/**
+	 * messageSectionHitPRoupKRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPRoupKRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "PR ou PK de la section HIT (colonne [29] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01_EN_DUR 
+		= "PR ou PK de la section HIT (colonne [29] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPRoupKRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pRoupK.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PROUPK_REGEX_02 
+		= "message.SectionHit.pRoupK.regex";
+	
+	/**
+	 * messageSectionHitPRoupKRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPRoupKRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "PR ou PK de la section HIT (colonne [29] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PROUPK_REGEX_02_EN_DUR 
+		= "PR ou PK de la section HIT (colonne [29] du HIT) doit comporter exactement 1 chiffre";
+				
+	/**
+	 * clé de messageSectionHitPRoupKNomenclature03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pRoupK.nomenclature"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03 
+		= "message.SectionHit.pRoupK.nomenclature";
+	
+	/**
+	 * messageSectionHitPRoupKNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPRoupKNomenclature03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "PR ou PK de la section HIT (colonne [29] du HIT) doit respecter une nomenclature [1, 2]".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03_EN_DUR 
+		= "PR ou PK de la section HIT (colonne [29] du HIT) doit respecter une nomenclature [1, 2]";
+			
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -1235,7 +1293,26 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * "le type de réseau de la section HIT (colonne [28] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4]"
 	 */
 	private static String messageSectionHitTypeReseauNomenclature03;
+
+	/* 17 - pRoupK. *******/
+	/**
+	* message émis par la RG-SectionHit-PRoupK-01 : 
+	* "PR ou PK de la section HIT (colonne [29] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPRoupKRenseigne01;
 	
+	/**
+	* message émis par la RG-SectionHit-PRoupK-02 : 
+	* "PR ou PK de la section HIT (colonne [29] du HIT) doit comporter exactement 1 chiffre".<br/>
+	*/
+	private static String messageSectionHitPRoupKRegex02;
+
+	/**
+	 * message émis par la RG-SectionHit-PRoupK-03 : 
+	 * "PR ou PK de la section HIT (colonne [29] du HIT) doit respecter une nomenclature [1, 2]"
+	 */
+	private static String messageSectionHitPRoupKNomenclature03;
+		
 					
 	/**
 	 * LOG : Log : 
@@ -1577,7 +1654,26 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 				KEY_MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03
 					, MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR);
-												
+				
+		/* 17 - pRoupK. *******/		
+		/* ajoute le messageSectionHitPRoupKRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPRoupKRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PROUPK_REGEX_02
+				, MESSAGE_SECTIONHIT_PROUPK_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPRoupKNomenclature03 
+		 * par défaut stocké en dur.*/
+		preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03
+					, MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03_EN_DUR);
+														
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -7864,6 +7960,346 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitTypeReseauNomenclature03(...)._________
+
+
+	
+	/* 17 - pRoupK. ****************/
+	/**
+	 * retourne le messageSectionHitPRoupKRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPRoupKRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPRoupKRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPRoupKRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPRoupKRenseigne01
+					, fournirKeyMessageSectionHitPRoupKRenseigne01()
+					, MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPRoupKRenseigne01()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPRoupKRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pRoupK.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPRoupKRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPRoupKRenseigne01().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPRoupKRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPRoupKRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPRoupKRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPRoupKRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPRoupKRenseigne01();
+	} // Fin de getMessageSectionHitPRoupKRenseigne01().___________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPRoupKRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPRoupKRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPRoupKRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPRoupKRenseigne01
+							, fournirKeyMessageSectionHitPRoupKRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPRoupKRenseigne01(...).________________
+
+
+
+	/**
+	 * retourne le messageSectionHitPRoupKRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPRoupKRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPRoupKRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPRoupKRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPRoupKRegex02
+					, fournirKeyMessageSectionHitPRoupKRegex02()
+					, MESSAGE_SECTIONHIT_PROUPK_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPRoupKRegex02().___________________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPRoupKRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pRoupK.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PROUPK_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPRoupKRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_PROUPK_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPRoupKRegex02().________________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPRoupKRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPRoupKRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPRoupKRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPRoupKRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitPRoupKRegex02();
+	} // Fin de getMessageSectionHitPRoupKRegex02()._______________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPRoupKRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPRoupKRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPRoupKRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPRoupKRegex02
+							, fournirKeyMessageSectionHitPRoupKRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPRoupKRegex02(...).____________________
+	
+
+
+	/**
+	 * retourne le messageSectionHitPRoupKNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPRoupKNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPRoupKNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPRoupKNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPRoupKNomenclature03
+					, fournirKeyMessageSectionHitPRoupKNomenclature03()
+					, MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPRoupKNomenclature03().____________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPRoupKNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pRoupK.nomenclature".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPRoupKNomenclature03() {
+		return KEY_MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03;
+	} // Fin de fournirKeyMessageSectionHitPRoupKNomenclature03()._________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPRoupKNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPRoupKNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPRoupKNomenclature03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPRoupKNomenclature03() 
+													throws Exception {
+		return fournirMessageSectionHitPRoupKNomenclature03();
+	} // Fin de getMessageSectionHitPRoupKNomenclature03().________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPRoupKNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPRoupKNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPRoupKNomenclature03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPRoupKNomenclature03
+							, fournirKeyMessageSectionHitPRoupKNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPRoupKNomenclature03(...)._____________
 	
 	
 			
