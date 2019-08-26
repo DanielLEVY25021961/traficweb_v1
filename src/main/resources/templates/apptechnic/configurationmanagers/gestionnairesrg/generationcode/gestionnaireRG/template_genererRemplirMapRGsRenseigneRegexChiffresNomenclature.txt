@@ -53,4 +53,4 @@
 					, ligneRG{$pObjetMetier}{$NomChampCamelise}Regex02);
 		this.mapRG.put(
 				RG_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NOMENCLATURE_03
-					, ligneRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03)				
+					, ligneRG{$pObjetMetier}{$NomChampCamelise}Nomenclature03);				

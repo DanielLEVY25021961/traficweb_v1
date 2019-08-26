@@ -352,6 +352,39 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_INDICELETTREROUTE_REGEX_02 
 		= "RG_SECTIONHIT_INDICELETTREROUTE_REGEX_02 : "
 				+ "l'indice lettre de la route de la section HIT doit comporter exactement 1 lettre (ou espace si pas d'indice)";
+
+	/* 11 - categorieAdminRoute. *******/
+	/**
+	 * "categorieAdminRoute".<br/>
+	 */
+	public static final String ATTRIBUT_CATEGORIEADMINROUTE 
+		= "categorieAdminRoute";
+
+	/**
+	 * "RG_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01 : 
+	 * la catégorie administrative de la route de la section HIT doit être renseignée (obligatoire)".
+	 */
+	public static final String RG_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01 : "
+				+ "la catégorie administrative de la route de la section HIT "
+				+ "doit être renseignée (obligatoire)";
+
+	/**
+	 * "RG_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02 : 
+	 * la catégorie administrative de la route de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02 
+		= "RG_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02 : "
+				+ "la catégorie administrative de la route de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03 : 
+	 * la catégorie administrative de la route doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".
+	 */
+	public static final String RG_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03 : "
+				+ "la catégorie administrative de la route doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+				
 	
 	/**
 	 * LOG : Log : 
@@ -775,6 +808,50 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitIndiceLettreRouteRegex02()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceLettreRouteRegex02());
+				
+		/* 11 - categorieAdminRoute. *******/
+		/* RG_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitCategorieAdminRouteRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitCategorieAdminRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitCategorieAdminRouteRenseigne01()
+				, RG_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitCategorieAdminRouteRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CATEGORIEADMINROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitCategorieAdminRouteRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitCategorieAdminRouteRenseigne01());
+		
+		/* RG_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02. */
+		final LigneRG ligneRGSectionHitCategorieAdminRouteRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitCategorieAdminRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitCategorieAdminRouteRegex02()
+				, RG_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitCategorieAdminRouteRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CATEGORIEADMINROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitCategorieAdminRouteRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitCategorieAdminRouteRegex02());
+				
+		/* RG_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitCategorieAdminRouteNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitCategorieAdminRoute()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitCategorieAdminRouteNomenclature03()
+				, RG_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitCategorieAdminRouteNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_CATEGORIEADMINROUTE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitCategorieAdminRouteNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitCategorieAdminRouteNomenclature03());
+
 		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
@@ -865,6 +942,17 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 				RG_SECTIONHIT_INDICELETTREROUTE_REGEX_02
 					, ligneRGSectionHitIndiceLettreRouteRegex02);
+				
+		/* 11 - categorieAdminRoute. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01
+			, ligneRGSectionHitCategorieAdminRouteRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02
+			, ligneRGSectionHitCategorieAdminRouteRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03
+			, ligneRGSectionHitCategorieAdminRouteNomenclature03);				
 		
 		return this.mapRG;
 					
