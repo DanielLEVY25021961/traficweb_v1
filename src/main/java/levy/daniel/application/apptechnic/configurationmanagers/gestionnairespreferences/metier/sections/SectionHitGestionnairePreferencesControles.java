@@ -756,8 +756,65 @@ public final class SectionHitGestionnairePreferencesControles {
 	 */
 	public static final String MESSAGE_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03_EN_DUR 
 		= "le classement de la route de la section HIT (colonne [25] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]";
+	
+	/* 14 - classeLargeurChausseeU. *******/
+	/**
+	 * clé de messageSectionHitClasseLargeurChausseeURenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.classeLargeurChausseeU.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01 
+		= "message.SectionHit.classeLargeurChausseeU.renseigne";
+	
+	/**
+	 * messageSectionHitClasseLargeurChausseeURenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitClasseLargeurChausseeURenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit être renseignée (0 si sans objet)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01_EN_DUR 
+		= "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit être renseignée (0 si sans objet)";
 		
-			
+	/**
+	 * clé de messageSectionHitClasseLargeurChausseeURegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.classeLargeurChausseeU.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02 
+		= "message.SectionHit.classeLargeurChausseeU.regex";
+	
+	/**
+	 * messageSectionHitClasseLargeurChausseeURegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitClasseLargeurChausseeURegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02_EN_DUR 
+		= "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit comporter exactement 1 chiffre";
+				
+	/**
+	 * clé de messageSectionHitClasseLargeurChausseeUNomenclature03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.classeLargeurChausseeU.nomenclature"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03 
+		= "message.SectionHit.classeLargeurChausseeU.nomenclature";
+	
+	/**
+	 * messageSectionHitClasseLargeurChausseeUNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitClasseLargeurChausseeUNomenclature03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7, 8]".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03_EN_DUR 
+		= "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7, 8]";
+					
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -1005,7 +1062,26 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * "le classement de la route de la section HIT (colonne [25] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]"
 	 */
 	private static String messageSectionHitClassementRouteNomenclature03;
+
+	/* 14 - classeLargeurChausseeU. *******/
+	/**
+	* message émis par la RG-SectionHit-ClasseLargeurChausseeU-01 : 
+	* "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit être renseignée (0 si sans objet)".<br/>
+	*/
+	private static String messageSectionHitClasseLargeurChausseeURenseigne01;
 	
+	/**
+	* message émis par la RG-SectionHit-ClasseLargeurChausseeU-02 : 
+	* "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit comporter exactement 1 chiffre".<br/>
+	*/
+	private static String messageSectionHitClasseLargeurChausseeURegex02;
+
+	/**
+	 * message émis par la RG-SectionHit-ClasseLargeurChausseeU-03 : 
+	 * "la classe de largeur de chaussée unique de la section HIT (colonne [26] du HIT) doit respecter une nomenclature [0, 1, 2, 3, 4, 5, 6, 7, 8]"
+	 */
+	private static String messageSectionHitClasseLargeurChausseeUNomenclature03;
+		
 				
 	/**
 	 * LOG : Log : 
@@ -1290,7 +1366,26 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 				KEY_MESSAGE_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03
 					, MESSAGE_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03_EN_DUR);
-								
+				
+		/* 14 - classeLargeurChausseeU. *******/		
+		/* ajoute le messageSectionHitClasseLargeurChausseeURenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitClasseLargeurChausseeURegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02
+				, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitClasseLargeurChausseeUNomenclature03 
+		 * par défaut stocké en dur.*/
+		preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03
+					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03_EN_DUR);
+										
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -6557,6 +6652,346 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitClassementRouteNomenclature03(...).____
+
+
+	
+	/* 14 - classeLargeurChausseeU. ****************/
+	/**
+	 * retourne le messageSectionHitClasseLargeurChausseeURenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitClasseLargeurChausseeURenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitClasseLargeurChausseeURenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitClasseLargeurChausseeURenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitClasseLargeurChausseeURenseigne01
+					, fournirKeyMessageSectionHitClasseLargeurChausseeURenseigne01()
+					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitClasseLargeurChausseeURenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitClasseLargeurChausseeURenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.classeLargeurChausseeU.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitClasseLargeurChausseeURenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitClasseLargeurChausseeURenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitClasseLargeurChausseeURenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitClasseLargeurChausseeURenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitClasseLargeurChausseeURenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitClasseLargeurChausseeURenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitClasseLargeurChausseeURenseigne01();
+	} // Fin de getMessageSectionHitClasseLargeurChausseeURenseigne01().___
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitClasseLargeurChausseeURenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitClasseLargeurChausseeURenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitClasseLargeurChausseeURenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitClasseLargeurChausseeURenseigne01
+							, fournirKeyMessageSectionHitClasseLargeurChausseeURenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitClasseLargeurChausseeURenseigne01(...).
+
+
+
+	/**
+	 * retourne le messageSectionHitClasseLargeurChausseeURegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitClasseLargeurChausseeURegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitClasseLargeurChausseeURegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitClasseLargeurChausseeURegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitClasseLargeurChausseeURegex02
+					, fournirKeyMessageSectionHitClasseLargeurChausseeURegex02()
+					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitClasseLargeurChausseeURegex02().___
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitClasseLargeurChausseeURegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.classeLargeurChausseeU.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitClasseLargeurChausseeURegex02() {
+		return KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitClasseLargeurChausseeURegex02().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitClasseLargeurChausseeURegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitClasseLargeurChausseeURegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitClasseLargeurChausseeURegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitClasseLargeurChausseeURegex02() 
+													throws Exception {
+		return fournirMessageSectionHitClasseLargeurChausseeURegex02();
+	} // Fin de getMessageSectionHitClasseLargeurChausseeURegex02()._______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitClasseLargeurChausseeURegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitClasseLargeurChausseeURegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitClasseLargeurChausseeURegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitClasseLargeurChausseeURegex02
+							, fournirKeyMessageSectionHitClasseLargeurChausseeURegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitClasseLargeurChausseeURegex02(...).____
+	
+
+
+	/**
+	 * retourne le messageSectionHitClasseLargeurChausseeUNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitClasseLargeurChausseeUNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitClasseLargeurChausseeUNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitClasseLargeurChausseeUNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitClasseLargeurChausseeUNomenclature03
+					, fournirKeyMessageSectionHitClasseLargeurChausseeUNomenclature03()
+					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitClasseLargeurChausseeUNomenclature03().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitClasseLargeurChausseeUNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.classeLargeurChausseeU.nomenclature".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitClasseLargeurChausseeUNomenclature03() {
+		return KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03;
+	} // Fin de fournirKeyMessageSectionHitClasseLargeurChausseeUNomenclature03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitClasseLargeurChausseeUNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitClasseLargeurChausseeUNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitClasseLargeurChausseeUNomenclature03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitClasseLargeurChausseeUNomenclature03() 
+													throws Exception {
+		return fournirMessageSectionHitClasseLargeurChausseeUNomenclature03();
+	} // Fin de getMessageSectionHitClasseLargeurChausseeUNomenclature03().
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitClasseLargeurChausseeUNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitClasseLargeurChausseeUNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitClasseLargeurChausseeUNomenclature03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitClasseLargeurChausseeUNomenclature03
+							, fournirKeyMessageSectionHitClasseLargeurChausseeUNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitClasseLargeurChausseeUNomenclature03(...).
 
 	
 			
