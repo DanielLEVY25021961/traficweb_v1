@@ -67,6 +67,11 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	 * Booleans de validation des RG sous forme de String.
 	 */
 	public static transient String pathAbsoluPropertiesRGString;
+
+	/**
+	 * "doit être renseigné".
+	 */
+	public static final String DOIT_ETRE_RENSEIGNE = "doit être renseigné";
 	
 	/**
 	 * Nom de l'objet métier concerné par ces Règles de Gestion (RG).<br/>
@@ -247,7 +252,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01 
 		= "RG_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01 : "
 				+ "l'année de traitement de la section HIT "
-				+ "doit être renseigné";
+				+ DOIT_ETRE_RENSEIGNE;
 
 	/**
 	 * "RG_SECTIONHIT_ANNEETRAITEMENT_REGEX_02 : 
@@ -319,7 +324,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01 
 		= "RG_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01 : "
 				+ "l'indice numérique de la route de la section HIT "
-				+ "doit être renseigné";
+				+ DOIT_ETRE_RENSEIGNE;
 
 	/**
 	 * "RG_SECTIONHIT_INDICENUMROUTE_REGEX_02 : 
@@ -399,7 +404,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01 
 		= "RG_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01 : "
 				+ "le type de comptage de la section HIT "
-				+ "doit être renseigné";
+				+ DOIT_ETRE_RENSEIGNE;
 
 	/**
 	 * "RG_SECTIONHIT_TYPECOMPTAGE_REGEX_02 : 
@@ -431,7 +436,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01 
 		= "RG_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01 : "
 				+ "le classement de la route de la section HIT "
-				+ "doit être renseigné";
+				+ DOIT_ETRE_RENSEIGNE;
 
 	/**
 	 * "RG_SECTIONHIT_CLASSEMENTROUTE_REGEX_02 : 
