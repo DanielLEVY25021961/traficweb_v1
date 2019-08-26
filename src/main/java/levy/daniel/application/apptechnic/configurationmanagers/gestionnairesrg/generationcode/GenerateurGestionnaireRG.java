@@ -575,19 +575,19 @@ public final class GenerateurGestionnaireRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "17";
-		final String nomChamp = "pRoupK";
-		final String nomChampEnClair = "PR ou PK";
-		final String colonnes = "[29]";
-		final String nbreChiffres = "1";
-		final String nomenclature = "[1, 2]";
+		final String numeroChamp = "18";
+		final String nomChamp = "lieuDitOrigine";
+		final String nomChampEnClair = "le lieu-dit origine";
+		final String colonnes = "[30-49]";
+		final String nbreChiffres = "20";
+//		final String nomenclature = "[1, 2]";
 		// *******************************************************
 		
-//		genererCodeRGsRenseigneRegexChiffres(
-//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
+		genererCodeRGsRenseigneRegexChiffres(
+				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
 		
-		genererCodeRGsRenseigneRegexChiffresNomenclature(
-				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres, nomenclature);
+//		genererCodeRGsRenseigneRegexChiffresNomenclature(
+//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres, nomenclature);
 
 	} // Fin de main(...)._________________________________________________
 	

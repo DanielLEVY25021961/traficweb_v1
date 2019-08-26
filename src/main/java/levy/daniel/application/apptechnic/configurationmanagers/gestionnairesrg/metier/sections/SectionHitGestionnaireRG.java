@@ -581,7 +581,30 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_PROUPK_NOMENCLATURE_03 
 		= "RG_SECTIONHIT_PROUPK_NOMENCLATURE_03 : "
 				+ "PR ou PK doit respecter une nomenclature [1, 2]";
-					
+
+	/* 18 - lieuDitOrigine. *******/
+	/**
+	 * "lieuDitOrigine".<br/>
+	 */
+	public static final String ATTRIBUT_LIEUDITORIGINE 
+		= "lieuDitOrigine";
+
+	/**
+	 * "RG_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01 : 
+	 * le lieu-dit origine de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01 : "
+				+ "le lieu-dit origine de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02 : 
+	 * le lieu-dit origine de la section HIT doit comporter exactement 20 caractères quelconques".
+	 */
+	public static final String RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02 
+		= "RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02 : "
+				+ "le lieu-dit origine de la section HIT doit comporter exactement 20 caractères quelconques";					
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -1306,6 +1329,35 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPRoupKNomenclature03());
 		
+		/* 18 - lieuDitOrigine. *******/
+		/* RG_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitLieuDitOrigineRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitOrigine()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitOrigineRenseigne01()
+				, RG_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLieuDitOrigineRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LIEUDITORIGINE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLieuDitOrigineRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLieuDitOrigineRenseigne01());
+		
+		/* RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02. */
+		final LigneRG ligneRGSectionHitLieuDitOrigineRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitOrigine()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitOrigineRegex02()
+				, RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLieuDitOrigineRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LIEUDITORIGINE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLieuDitOrigineRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLieuDitOrigineRegex02());
+		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -1472,6 +1524,14 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_PROUPK_NOMENCLATURE_03
 			, ligneRGSectionHitPRoupKNomenclature03);				
+				
+		/* 18 - lieuDitOrigine. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01
+			, ligneRGSectionHitLieuDitOrigineRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02
+			, ligneRGSectionHitLieuDitOrigineRegex02);
 		
 		return this.mapRG;
 					
