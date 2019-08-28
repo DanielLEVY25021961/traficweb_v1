@@ -74,6 +74,17 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String DOIT_ETRE_RENSEIGNE = "doit être renseigné";
 	
 	/**
+	 * "doit être renseigné (obligatoire)".
+	 */
+	public static final String DOIT_ETRE_RENSEIGNE_OBLIGATOIRE 
+		= "doit être renseigné (obligatoire)";
+	
+	/**
+	 * "doit être renseignée".
+	 */
+	public static final String DOIT_ETRE_RENSEIGNEE = "doit être renseignée";
+	
+	/**
 	 * Nom de l'objet métier concerné par ces Règles de Gestion (RG).<br/>
 	 * "SectionHit".<br/>
 	 */
@@ -138,7 +149,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_NUMSECTION_RENSEIGNE_01 
 		= "RG_SECTIONHIT_NUMSECTION_RENSEIGNE_01 : "
 				+ "le numéro de section de la section HIT "
-				+ "doit être renseigné (obligatoire)";
+				+ DOIT_ETRE_RENSEIGNE_OBLIGATOIRE;
 
 	/**
 	 * "RG_SECTIONHIT_NUMSECTION_REGEX_02 : 
@@ -163,7 +174,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_SENS_RENSEIGNE_01 
 		= "RG_SECTIONHIT_SENS_RENSEIGNE_01 : "
 				+ "le sens de la section HIT "
-				+ "doit être renseigné (obligatoire)";
+				+ DOIT_ETRE_RENSEIGNE_OBLIGATOIRE;
 
 	/**
 	 * "RG_SECTIONHIT_SENS_REGEX_02 : 
@@ -228,7 +239,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_CLASSE_RENSEIGNE_01 
 		= "RG_SECTIONHIT_CLASSE_RENSEIGNE_01 : "
 				+ "la classe de la section HIT "
-				+ "doit être renseignée";
+				+ DOIT_ETRE_RENSEIGNEE;
 
 	/**
 	 * "RG_SECTIONHIT_CLASSE_REGEX_02 : 
@@ -276,7 +287,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01 
 		= "RG_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01 : "
 				+ "la zone libre de la section HIT "
-				+ "doit être renseignée";
+				+ DOIT_ETRE_RENSEIGNEE;
 
 	/**
 	 * "RG_SECTIONHIT_ZONELIBRE1_REGEX_02 : 
@@ -300,7 +311,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_NUMROUTE_RENSEIGNE_01 
 		= "RG_SECTIONHIT_NUMROUTE_RENSEIGNE_01 : "
 				+ "le numéro de la route de la section HIT "
-				+ "doit être renseigné (obligatoire)";
+				+ DOIT_ETRE_RENSEIGNE_OBLIGATOIRE;
 
 	/**
 	 * "RG_SECTIONHIT_NUMROUTE_REGEX_02 : 
@@ -468,7 +479,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01 
 		= "RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01 : "
 				+ "la classe de largeur de chaussée unique de la section HIT "
-				+ "doit être renseignée";
+				+ DOIT_ETRE_RENSEIGNEE;
 
 	/**
 	 * "RG_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02 : 
@@ -500,7 +511,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01 
 		= "RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01 : "
 				+ "la classe de largeur de chaussées séparées de la section HIT "
-				+ "doit être renseignée";
+				+ DOIT_ETRE_RENSEIGNEE;
 
 	/**
 	 * "RG_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02 : 
@@ -532,7 +543,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_TYPERESEAU_RENSEIGNE_01 
 		= "RG_SECTIONHIT_TYPERESEAU_RENSEIGNE_01 : "
 				+ "le type de réseau de la section HIT "
-				+ "doit être renseigné";
+				+ DOIT_ETRE_RENSEIGNE;
 
 	/**
 	 * "RG_SECTIONHIT_TYPERESEAU_REGEX_02 : 
@@ -564,7 +575,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_PROUPK_RENSEIGNE_01 
 		= "RG_SECTIONHIT_PROUPK_RENSEIGNE_01 : "
 				+ "PR ou PK de la section HIT "
-				+ "doit être renseigné";
+				+ DOIT_ETRE_RENSEIGNE;
 
 	/**
 	 * "RG_SECTIONHIT_PROUPK_REGEX_02 : 
@@ -596,7 +607,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01 
 		= "RG_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01 : "
 				+ "le lieu-dit origine de la section HIT "
-				+ "doit être renseigné";
+				+ DOIT_ETRE_RENSEIGNE;
 
 	/**
 	 * "RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02 : 
@@ -604,7 +615,40 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	 */
 	public static final String RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02 
 		= "RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02 : "
-				+ "le lieu-dit origine de la section HIT doit comporter exactement 20 caractères quelconques";					
+				+ "le lieu-dit origine de la section HIT doit comporter exactement 20 caractères quelconques";	
+
+	/* 19 - prOrigine. *******/
+	/**
+	 * "prOrigine".<br/>
+	 */
+	public static final String ATTRIBUT_PRORIGINE 
+		= "prOrigine";
+
+	/**
+	 * "RG_SECTIONHIT_PRORIGINE_RENSEIGNE_01 : 
+	 * le PR origine de la section HIT doit être renseigné (obligatoire)".
+	 */
+	public static final String RG_SECTIONHIT_PRORIGINE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PRORIGINE_RENSEIGNE_01 : "
+				+ "le PR origine de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE_OBLIGATOIRE;
+
+	/**
+	 * "RG_SECTIONHIT_PRORIGINE_REGEX_02 : 
+	 * le PR origine de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PRORIGINE_REGEX_02 
+		= "RG_SECTIONHIT_PRORIGINE_REGEX_02 : "
+				+ "le PR origine de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PRORIGINE_NUMERIQUE_03 : 
+	 * le PR origine doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PRORIGINE_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PRORIGINE_NUMERIQUE_03 : "
+				+ "le PR origine doit être homogène à un entier";
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -1358,6 +1402,50 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLieuDitOrigineRegex02());
 		
+		/* 19 - prOrigine. *******/
+		/* RG_SECTIONHIT_PRORIGINE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPrOrigineRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrOrigine()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrOrigineRenseigne01()
+				, RG_SECTIONHIT_PRORIGINE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPrOrigineRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PRORIGINE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPrOrigineRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrOrigineRenseigne01());
+		
+		/* RG_SECTIONHIT_PRORIGINE_REGEX_02. */
+		final LigneRG ligneRGSectionHitPrOrigineRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrOrigine()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrOrigineRegex02()
+				, RG_SECTIONHIT_PRORIGINE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPrOrigineRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PRORIGINE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPrOrigineRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrOrigineRegex02());
+				
+		/* RG_SECTIONHIT_PRORIGINE_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPrOrigineNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrOrigine()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrOrigineNumerique03()
+				, RG_SECTIONHIT_PRORIGINE_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPrOrigineNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PRORIGINE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPrOrigineNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrOrigineNumerique03());
+				
+		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -1532,6 +1620,17 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_LIEUDITORIGINE_REGEX_02
 			, ligneRGSectionHitLieuDitOrigineRegex02);
+				
+		/* 19 - prOrigine. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PRORIGINE_RENSEIGNE_01
+			, ligneRGSectionHitPrOrigineRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PRORIGINE_REGEX_02
+			, ligneRGSectionHitPrOrigineRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PRORIGINE_NUMERIQUE_03
+			, ligneRGSectionHitPrOrigineNumerique03);				
 		
 		return this.mapRG;
 					

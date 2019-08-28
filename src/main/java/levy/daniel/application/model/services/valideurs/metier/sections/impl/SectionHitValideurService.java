@@ -238,6 +238,72 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 	} // Fin de creerEntreeDansErrorsMapDetaille(...)._____________________
 
+
+	
+	/**
+	 * retire les éventuels zéros à gauche de pString.<br/>
+	 * par exemple <code><b>retirerZerosAGauche("0021")</b></code> 
+	 * retourne '21'.<br/> 
+	 * <br/>
+	 * - retourne pString inchangée si pString ne commence pas 
+	 * par 1 ou plusieurs zéros.<br/>
+	 * - retourne null si pString est blank.<br/>
+	 * <br/>
+	 *
+	 * @param pString : String : String avec éventuellement des zéros à gauche.
+	 * 
+	 * @return : String : String sans les zéros à gauche.<br/>
+	 */
+	private String retirerZerosAGauche(final String pString) {
+		
+		/* retourne null si pString est blank. */
+		if (StringUtils.isBlank(pString)) {
+			return null;
+		}
+		
+		String resultat = pString;
+		
+		while (StringUtils.startsWith(resultat, "0")) {
+			resultat = StringUtils.removeStart(pString, "0");
+		} 
+		
+		return resultat;
+		
+	} // Fin de retirerZerosAGauche(...).__________________________________
+	
+
+	
+	/**
+	 * retire les éventuels espaces à gauche de pString.<br/>
+	 * par exemple <code><b>retirerZerosAGauche("  21")</b></code> 
+	 * retourne '21'.<br/> 
+	 * <br/>
+	 * - retourne pString inchangée si pString ne commence pas 
+	 * par 1 ou plusieurs espaces.<br/>
+	 * - retourne null si pString est blank.<br/>
+	 * <br/>
+	 *
+	 * @param pString : String : String avec éventuellement des espaces à gauche.
+	 * 
+	 * @return : String : String sans les espaces à gauche.<br/>
+	 */
+	private String retirerEspacesAGauche(final String pString) {
+		
+		/* retourne null si pString est blank. */
+		if (StringUtils.isBlank(pString)) {
+			return null;
+		}
+		
+		String resultat = pString;
+		
+		while (StringUtils.startsWith(resultat, " ")) {
+			resultat = StringUtils.removeStart(pString, " ");
+		} 
+		
+		return resultat;
+		
+	} // Fin de retirerEspacesAGauche(...).________________________________
+	
 	
 	
 	/**
@@ -5991,10 +6057,15 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPrOrigineRegex02();
 
+		final Boolean interrupteurPrOrigineNumerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPrOrigineNumerique03();
+
 		boolean ok = false;
 		
 		boolean renseigne = false;
 		boolean rg2 = false;
+		boolean rg3 = false;
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
@@ -6022,10 +6093,22 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				 * si son interrupteur n'est pas à true. */
 				rg2 = true;
 			}
+
 			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPrOrigineNumerique03) {
+				rg3 = this.validerRGSectionHitPrOrigineNumerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
 		}
 		
-		ok = renseigne && rg2;
+		ok = renseigne && rg2 && rg3;
 		
 		if (!ok) {
 			
@@ -6170,6 +6253,81 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		return true;
 		
 	} // Fin de validerRGSectionHitPrOrigineRegex02(...).__________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>prOrigine</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>prOrigine</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPrOrigineNumerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPrOrigineNumerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPrOrigine();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPrOrigineNumerique03(...).______________	
 	
 	
 

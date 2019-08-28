@@ -5481,7 +5481,7 @@ public class SectionHitGestionnairePreferencesRGTest {
 		
 		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
 		
-	} // Fin de testGetValiderRGSectionHitPrOrigine().____________________
+	} // Fin de testGetValiderRGSectionHitPrOrigine()._____________________
 
 	
 	
@@ -5560,7 +5560,7 @@ public class SectionHitGestionnairePreferencesRGTest {
 		
 		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
 
-	} // Fin de testGetValiderRGSectionHitPrOrigineRenseigne01()._________
+	} // Fin de testGetValiderRGSectionHitPrOrigineRenseigne01().__________
 
 	
 	
@@ -5639,7 +5639,86 @@ public class SectionHitGestionnairePreferencesRGTest {
 		
 		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
 
-	} // Fin de testGetValiderRGSectionHitPrOrigineRegex02()._____________
+	} // Fin de testGetValiderRGSectionHitPrOrigineRegex02().______________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPrOrigineNumerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPrOrigineNumerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPrOrigineNumerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPrOrigineNumerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPrOrigineNumerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPrOrigineNumerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPrOrigineNumerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPrOrigineNumerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPrOrigineNumerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPrOrigineNumerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPrOrigineNumerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPrOrigineNumerique03().__________
 
 	
 			

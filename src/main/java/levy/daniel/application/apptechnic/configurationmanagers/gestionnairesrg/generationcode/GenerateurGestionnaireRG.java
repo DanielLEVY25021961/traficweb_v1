@@ -265,6 +265,102 @@ public final class GenerateurGestionnaireRG {
 	/**
 	 * génère les lignes de code <i>commentées</i> relatives aux :
 	 * <ul>
+	 * <li>attributs RGs en dur dans un OBJETMETIERGestionnaireRG</li>
+	 * </ul>
+	 * S'applique aux attributs contrôlés par :
+	 * <ul>
+	 * <li>une <b>RG RENSEIGNE</b>.</li>
+	 * <li>une <b>RG REGEX portant sur un nombre obligatoire de chiffres</b>.</li>
+	 * <li>une <b>RG NUMERIQUE</b>.</i>
+	 * </ul>
+	 * Par exemple, pour l'attribut ' ' d'une SectionHit (OBJET METIER) :
+	 * <pre>
+	 * 
+	 * </pre>
+	 *
+	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
+	 * @param pObjetMetierEnClair : String : nom de l'objet métier en clair avec  article comme 'la section HIT'
+	 * @param pNumeroChamp : String : numéro d'ordre du champ dans le HIT comme '5' pour l'attribut 'classe'.
+	 * @param pNomChamp : String : nom de l'attribut comme 'classe' ou 'numSection'.
+	 * @param pNomChampEnClair : String : nom de l'attribut en clair avec article comme 'la classe' ou 'le numéro de section'.
+	 * @param pColonnes : String : colonnes de l'attribut dans le HIT comme '[12-13]' pour l'attribut 'classe'.
+	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
+	 * 
+	 * @return : String : lignes de code à insérer dans les attributs KEYS 
+	 * et BOOLEANS EN DUR du 
+	 * <code><b>OBJETMETIERGestionnairePreferencesRG</b></code>.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String genererRGsEnDurRGsRenseigneRegexChiffresNumerique(
+			final String pObjetMetier
+				, final String pObjetMetierEnClair
+					, final String pNumeroChamp
+						, final String pNomChamp
+							, final String pNomChampEnClair
+								, final String pColonnes
+									, final String pNbreChiffres) throws Exception {
+		
+		// Instanciation d'un GestionnaireTemplates.
+		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
+		
+		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/gestionnaireRG/template_genererRGsEnDurRGsRenseigneRegexChiffresNumerique.txt";
+		
+		// variables incorporées dans le template à lire.
+		final String[] variables = {"{$pObjetMetier}"
+				, "{$pObjetMetierEnClair}"
+				, "{$ObjetMetierCapitalise}"
+				, "{$pNumeroChamp}"
+				, "{$pNomChamp}"
+				, "{$NomChampCamelise}"
+				, "{$NomChampCapitalise}"
+				, "{$pNomChampEnClair}"
+				, "{$pColonnes}"
+				, "{$pNbreChiffres}"};
+		
+		final String objetMetierASubstituer = pObjetMetier;
+		final String objetMetierEnClairASubstituer = pObjetMetierEnClair;
+		final String objetMetierCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pObjetMetier, LocaleManager.getLocaleApplication());
+		final String numeroChampASubstituer = pNumeroChamp;
+		final String nomChampASubstituer = pNomChamp;
+		final String nomChampCameliseASubstituer = StringUtils.capitalize(pNomChamp);
+		final String nomChampCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pNomChamp, LocaleManager.getLocaleApplication());
+		final String nomChampEnClairASubstituer = pNomChampEnClair;
+		final String colonnesASubstituer = pColonnes;
+		final String nombreChiffresASubstituer = pNbreChiffres;
+		
+		// valeurs à substituer aux variables dépendant d'une Locale paramétrée pLocale.
+		final String[] substituants = {objetMetierASubstituer
+				, objetMetierEnClairASubstituer
+				, objetMetierCapitaliseASubstituer
+				, numeroChampASubstituer
+				, nomChampASubstituer
+				, nomChampCameliseASubstituer
+				, nomChampCapitaliseASubstituer
+				, nomChampEnClairASubstituer
+				, colonnesASubstituer
+				, nombreChiffresASubstituer};
+		
+		// Récupération du template lu/substitué sous forme de String.
+		final String resultat 
+			= gestionnaireTemplates
+				.fournirTemplateSubstitueSousFormeString(
+						cheminRelatifTemplate, variables, substituants);
+		
+		return resultat;
+		
+	} // Fin de genererRGsEnDurRGsRenseigneRegexChiffresNumerique(...).____
+	
+
+	
+	/**
+	 * génère les lignes de code <i>commentées</i> relatives aux :
+	 * <ul>
 	 * <li>ajout des RG dans la MapRG dans un OBJETMETIERGestionnaireRG</li>
 	 * </ul>
 	 * S'applique aux attributs contrôlés par :
@@ -455,6 +551,103 @@ public final class GenerateurGestionnaireRG {
 		return resultat;
 		
 	} // Fin de genererAjoutMapRGsRenseigneRegexChiffresNomenclature(...)._
+	
+
+	
+	/**
+	 * génère les lignes de code <i>commentées</i> relatives aux :
+	 * <ul>
+	 * <li>ajout des RG dans la MapRG dans un OBJETMETIERGestionnaireRG</li>
+	 * </ul>
+	 * S'applique aux attributs contrôlés par :
+	 * <ul>
+	 * <li>une <b>RG RENSEIGNE</b>.</li>
+	 * <li>une <b>RG REGEX portant sur un nombre obligatoire de chiffres</b>.</li>
+	 * <li>une <b>RG NUMERIQUE</b>.</i>
+	 * </ul>
+	 * Par exemple, pour l'attribut ' ' d'une SectionHit (OBJET METIER) :
+	 * <pre>
+	 * 
+	 * </pre>
+	 *
+	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
+	 * @param pObjetMetierEnClair : String : nom de l'objet métier en clair avec  article comme 'la section HIT'
+	 * @param pNumeroChamp : String : numéro d'ordre du champ dans le HIT comme '5' pour l'attribut 'classe'.
+	 * @param pNomChamp : String : nom de l'attribut comme 'classe' ou 'numSection'.
+	 * @param pNomChampEnClair : String : nom de l'attribut en clair avec article comme 'la classe' ou 'le numéro de section'.
+	 * @param pColonnes : String : colonnes de l'attribut dans le HIT comme '[12-13]' pour l'attribut 'classe'.
+	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
+	 * @param pNumerique : String : nomenclature entre crochets comme [1, 2, 3].
+	 * 
+	 * @return : String : lignes de code à insérer dans les attributs KEYS 
+	 * et BOOLEANS EN DUR du 
+	 * <code><b>OBJETMETIERGestionnairePreferencesRG</b></code>.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String genererAjoutMapRGsRenseigneRegexChiffresNumerique(
+			final String pObjetMetier
+				, final String pObjetMetierEnClair
+					, final String pNumeroChamp
+						, final String pNomChamp
+							, final String pNomChampEnClair
+								, final String pColonnes
+									, final String pNbreChiffres) throws Exception {
+		
+		// Instanciation d'un GestionnaireTemplates.
+		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
+		
+		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/gestionnaireRG/template_genererRemplirMapRGsRenseigneRegexChiffresNumerique.txt";
+		
+		// variables incorporées dans le template à lire.
+		final String[] variables = {"{$pObjetMetier}"
+				, "{$pObjetMetierEnClair}"
+				, "{$ObjetMetierCapitalise}"
+				, "{$pNumeroChamp}"
+				, "{$pNomChamp}"
+				, "{$NomChampCamelise}"
+				, "{$NomChampCapitalise}"
+				, "{$pNomChampEnClair}"
+				, "{$pColonnes}"
+				, "{$pNbreChiffres}"};
+		
+		final String objetMetierASubstituer = pObjetMetier;
+		final String objetMetierEnClairASubstituer = pObjetMetierEnClair;
+		final String objetMetierCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pObjetMetier, LocaleManager.getLocaleApplication());
+		final String numeroChampASubstituer = pNumeroChamp;
+		final String nomChampASubstituer = pNomChamp;
+		final String nomChampCameliseASubstituer = StringUtils.capitalize(pNomChamp);
+		final String nomChampCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pNomChamp, LocaleManager.getLocaleApplication());
+		final String nomChampEnClairASubstituer = pNomChampEnClair;
+		final String colonnesASubstituer = pColonnes;
+		final String nombreChiffresASubstituer = pNbreChiffres;
+		
+		// valeurs à substituer aux variables dépendant d'une Locale paramétrée pLocale.
+		final String[] substituants = {objetMetierASubstituer
+				, objetMetierEnClairASubstituer
+				, objetMetierCapitaliseASubstituer
+				, numeroChampASubstituer
+				, nomChampASubstituer
+				, nomChampCameliseASubstituer
+				, nomChampCapitaliseASubstituer
+				, nomChampEnClairASubstituer
+				, colonnesASubstituer
+				, nombreChiffresASubstituer};
+		
+		// Récupération du template lu/substitué sous forme de String.
+		final String resultat 
+			= gestionnaireTemplates
+				.fournirTemplateSubstitueSousFormeString(
+						cheminRelatifTemplate, variables, substituants);
+		
+		return resultat;
+		
+	} // Fin de genererAjoutMapRGsRenseigneRegexChiffresNumerique(...).____
 
 
 	
@@ -562,6 +755,59 @@ public final class GenerateurGestionnaireRG {
 			System.out.println(resultatRemplirMapRG);
 		
 	} // Fin de genererCodeRGsRenseigneRegexChiffresNomenclature(...)._____
+
+
+	
+	/**
+	 * génère l'ensemble des lignes de code <i>commentées</i> 
+	 * relatives à un attribut à insérer dans un :
+	 * <ul>
+	 * <li>OBJETMETIERSGestionnaireRG</li>
+	 * <li>OBJETMETIERGestionnaireRGTest</li>
+	 * </ul>
+	 * S'applique aux attributs contrôlés par :
+	 * <ul>
+	 * <li>une <b>RG RENSEIGNE</b>.</li>
+	 * <li>une <b>RG REGEX portant sur un nombre obligatoire de chiffres</b>.</li>
+	 * <li>une <b>RG NUMERIQUE</b>.</i>
+	 * </ul>
+	 *
+	 * @param pNumeroChamp : String : numéro d'ordre du champ dans le HIT comme '5' pour l'attribut 'classe'.
+	 * @param pNomChamp : String : nom de l'attribut comme 'classe' ou 'numSection'.
+	 * @param pNomChampEnClair : String : nom de l'attribut en clair avec article comme 'la classe' ou 'le numéro de section'.
+	 * @param pColonnes : String : colonnes de l'attribut dans le HIT comme '[12-13]' pour l'attribut 'classe'.
+	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
+	 * 
+	 * @throws Exception 
+	 */
+	public static void genererCodeRGsRenseigneRegexChiffresNumerique(
+			final String pNumeroChamp
+				, final String pNomChamp
+					, final String pNomChampEnClair
+						, final String pColonnes
+							, final String pNbreChiffres) throws Exception {
+			
+			final String resultatRGsEnDur 
+			= genererRGsEnDurRGsRenseigneRegexChiffresNumerique(
+					OBJET_METIER
+					, OBJET_METIER_EN_CLAIR
+					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
+			
+			System.out.println("****************************************************************************************************************");
+			System.out.println("******************************************** ATTRIBUTS RGs EN DUR ************************************************");
+			System.out.println(resultatRGsEnDur);
+			
+			final String resultatRemplirMapRG 
+			= genererAjoutMapRGsRenseigneRegexChiffresNumerique(
+					OBJET_METIER
+					, OBJET_METIER_EN_CLAIR
+					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
+
+			System.out.println("****************************************************************************************************************");
+			System.out.println("******************************************** RAJOUTER DANS remplirMapRG() *****************************************");
+			System.out.println(resultatRemplirMapRG);
+		
+	} // Fin de genererCodeRGsRenseigneRegexChiffresNumerique(...)._____
 	
 	
 	
@@ -575,19 +821,22 @@ public final class GenerateurGestionnaireRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "18";
-		final String nomChamp = "lieuDitOrigine";
-		final String nomChampEnClair = "le lieu-dit origine";
-		final String colonnes = "[30-49]";
-		final String nbreChiffres = "20";
+		final String numeroChamp = "19";
+		final String nomChamp = "prOrigine";
+		final String nomChampEnClair = "le PR origine";
+		final String colonnes = "[50-52]";
+		final String nbreChiffres = "3";
 //		final String nomenclature = "[1, 2]";
 		// *******************************************************
 		
-		genererCodeRGsRenseigneRegexChiffres(
-				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
+//		genererCodeRGsRenseigneRegexChiffres(
+//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
 		
 //		genererCodeRGsRenseigneRegexChiffresNomenclature(
 //				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres, nomenclature);
+		
+		genererCodeRGsRenseigneRegexChiffresNumerique(
+				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
 
 	} // Fin de main(...)._________________________________________________
 	

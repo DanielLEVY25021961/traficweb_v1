@@ -3,6 +3,7 @@ package levy.daniel.application.model.services.valideurs.metier.sections.impl;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.BeforeClass;
@@ -2171,9 +2172,9 @@ public class SectionHitValideurServiceTest {
 		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
 				, erreurMaps.getErrorsMapDetaille().isEmpty());
 
-		//*********************************
-		/* TEST DU MAL RENSEIGNE ***** */
-		final String valeurMalRenseigne = "a21";
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "0a3";
 		dto.setPrOrigine(valeurMalRenseigne);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -2186,7 +2187,28 @@ public class SectionHitValideurServiceTest {
 			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
 		}
 		
-		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "1 8";
+		dto.setPrOrigine(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* prOrigine non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
 		assertFalse("ErrorsMap ne doit pas être vide : "
 				, erreurMaps.getErrorsMap().isEmpty());
 		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
@@ -2194,7 +2216,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "718";
+		final String valeur = "018";
 		dto.setPrOrigine(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -2213,10 +2235,10 @@ public class SectionHitValideurServiceTest {
 		assertTrue("ErrorsMapDetaille doit être vide : "
 				, erreurMaps.getErrorsMapDetaille().isEmpty());
 		
-	} // Fin de testValiderPrOrigine()._______________________________________
+	} // Fin de testValiderPrOrigine().____________________________________
 	
-
-		
+	
+	
 	/**
 	 * active toutes les RG.
 	 * 
@@ -2327,6 +2349,7 @@ public class SectionHitValideurServiceTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigine(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigineRenseigne01(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigineRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigineNumerique03(true);
 
 	} // Fin de activerToutesRG()._________________________________________
 	
@@ -2410,6 +2433,35 @@ public class SectionHitValideurServiceTest {
 				, pErreursMaps.getErrorsMapDetaille().isEmpty());
 		
 	} // Fin de assertErreurs(...).________________________________________
+
+
+	
+	/**
+	 * retire les éventuels zéros à gauche de pString.<br/>
+	 * <br/>
+	 * - retourne null si pString est blank.<br/>
+	 * <br/>
+	 *
+	 * @param pString : String : String avec éventuellement des zéros à gauche.
+	 * 
+	 * @return : String : String sans les zéros à gauche.<br/>
+	 */
+	private static String retirerZerosAGauche(final String pString) {
+		
+		/* retourne null si pString est blank. */
+		if (StringUtils.isBlank(pString)) {
+			return null;
+		}
+		
+		String resultat = pString;
+		
+		while (StringUtils.startsWith(resultat, "0")) {
+			resultat = StringUtils.removeStart(resultat, "0");
+		} 
+		
+		return resultat;
+		
+	} // Fin de retirerZerosAGauche(...).__________________________________
 	
 
 	

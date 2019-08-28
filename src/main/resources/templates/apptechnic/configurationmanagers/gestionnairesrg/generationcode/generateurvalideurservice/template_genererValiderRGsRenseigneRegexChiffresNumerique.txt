@@ -1,0 +1,22 @@
+		
+		/* {$pNumeroChamp} - {$pNomChamp}. *******/
+		boolean {$pNomChamp}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attribut{$NomChampCamelise} = "{$pNomChamp}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneral{$NomChampCamelise} 
+		= {$pObjetMetier}GestionnairePreferencesRG
+			.getValiderRG{$pObjetMetier}{$NomChampCamelise}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneral{$NomChampCamelise}) {
+			{$pNomChamp}Valide 
+				= this.valider{$NomChampCamelise}(
+						pDto, attribut{$NomChampCamelise}, erreursMap);
+		} else {
+			{$pNomChamp}Valide = true;
+		}
