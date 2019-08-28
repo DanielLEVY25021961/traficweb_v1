@@ -1241,11 +1241,11 @@ public final class GenerateurGestionnairePreferencesRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "18";
-		final String nomChamp = "lieuDitOrigine";
-		final String nomChampEnClair = "le lieu-dit origine";
-		final String colonnes = "[30-49]";
-		final String nbreChiffres = "20";
+		final String numeroChamp = "19";
+		final String nomChamp = "prOrigine";
+		final String nomChampEnClair = "le PR origine";
+		final String colonnes = "[50-52]";
+		final String nbreChiffres = "3";
 //		final String nomenclature = "[1, 2]";
 		// *******************************************************
 		

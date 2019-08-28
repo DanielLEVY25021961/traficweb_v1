@@ -98,7 +98,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setTypeReseau("1");
 				bonneSectionHitDTO.setPRoupK("1");
 				bonneSectionHitDTO.setLieuDitOrigine("PAMIERS A 66        ");
-				bonneSectionHitDTO.setPrOrigine("18");
+				bonneSectionHitDTO.setPrOrigine("018");
 				bonneSectionHitDTO.setAbsOrigine("0");
 				bonneSectionHitDTO.setLieuDitExtremite("RD 119              ");
 				bonneSectionHitDTO.setPrExtremite("21");

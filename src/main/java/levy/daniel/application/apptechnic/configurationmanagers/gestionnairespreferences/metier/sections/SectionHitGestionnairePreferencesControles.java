@@ -1027,7 +1027,65 @@ public final class SectionHitGestionnairePreferencesControles {
 	 */
 	public static final String MESSAGE_SECTIONHIT_LIEUDITORIGINE_REGEX_02_EN_DUR 
 		= "le lieu-dit origine de la section HIT (colonnes [30-49] du HIT) doit comporter exactement 20 caractères";
-			
+	
+	/* 19 - prOrigine. *******/
+	/**
+	 * clé de messageSectionHitPrOrigineRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.prOrigine.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01 
+		= "message.SectionHit.prOrigine.renseigne";
+	
+	/**
+	 * messageSectionHitPrOrigineRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPrOrigineRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le PR origine de la section HIT (colonnes [50-52] du HIT) doit être renseigné (obligatoire)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01_EN_DUR 
+		= "le PR origine de la section HIT (colonnes [50-52] du HIT) doit être renseigné (obligatoire)";
+		
+	/**
+	 * clé de messageSectionHitPrOrigineRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.prOrigine.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02 
+		= "message.SectionHit.prOrigine.regex";
+	
+	/**
+	 * messageSectionHitPrOrigineRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPrOrigineRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le PR origine de la section HIT (colonnes [50-52] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02_EN_DUR 
+		= "le PR origine de la section HIT (colonnes [50-52] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPrOrigineNumerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.prOrigine.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03 
+		= "message.SectionHit.prOrigine.numerique";
+	
+	/**
+	 * messageSectionHitPrOrigineNumerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPrOrigineNumerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le PR origine de la section HIT (colonnes [50-52] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03_EN_DUR 
+		= "le PR origine de la section HIT (colonnes [50-52] du HIT) doit être homogène à un entier";
+					
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -1364,7 +1422,27 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "le lieu-dit origine de la section HIT (colonnes [30-49] du HIT) doit comporter exactement 20 caractères".<br/>
 	*/
 	private static String messageSectionHitLieuDitOrigineRegex02;		
-					
+
+	/* 19 - prOrigine. *******/
+	/**
+	* message émis par la RG-SectionHit-PrOrigine-01 : 
+	* "le PR origine de la section HIT (colonnes [50-52] du HIT) doit être renseigné (obligatoire)".<br/>
+	*/
+	private static String messageSectionHitPrOrigineRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PrOrigine-02 : 
+	* "le PR origine de la section HIT (colonnes [50-52] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPrOrigineRegex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PrOrigine-03 : 
+	* "le PR origine de la section HIT (colonnes [50-52] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPrOrigineNumerique03;
+	
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -1737,6 +1815,25 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_LIEUDITORIGINE_REGEX_02
 				, MESSAGE_SECTIONHIT_LIEUDITORIGINE_REGEX_02_EN_DUR);
+				
+		/* 19 - prOrigine. *******/		
+		/* ajoute le messageSectionHitPrOrigineRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPrOrigineRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02
+				, MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPrOrigineNumerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03_EN_DUR);
 														
 		} // Fin du bloc synchronized.__________________
 		
@@ -8591,7 +8688,347 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitLieuDitOrigineRegex02(...).____________
+
+
 	
+	/* 19 - prOrigine. ****************/
+	/**
+	 * retourne le messageSectionHitPrOrigineRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPrOrigineRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPrOrigineRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPrOrigineRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPrOrigineRenseigne01
+					, fournirKeyMessageSectionHitPrOrigineRenseigne01()
+					, MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPrOrigineRenseigne01().____________
 	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPrOrigineRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPrOrigineRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPrOrigineRenseigne01()._________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPrOrigineRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPrOrigineRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPrOrigineRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPrOrigineRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPrOrigineRenseigne01();
+	} // Fin de getMessageSectionHitPrOrigineRenseigne01().________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPrOrigineRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPrOrigineRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPrOrigineRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPrOrigineRenseigne01
+							, fournirKeyMessageSectionHitPrOrigineRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPrOrigineRenseigne01(...)._____________
+
+
+
+	/**
+	 * retourne le messageSectionHitPrOrigineRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPrOrigineRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPrOrigineRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPrOrigineRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPrOrigineRegex02
+					, fournirKeyMessageSectionHitPrOrigineRegex02()
+					, MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPrOrigineRegex02().________________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPrOrigineRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPrOrigineRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPrOrigineRegex02()._____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPrOrigineRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPrOrigineRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPrOrigineRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPrOrigineRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitPrOrigineRegex02();
+	} // Fin de getMessageSectionHitPrOrigineRegex02().____________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPrOrigineRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPrOrigineRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPrOrigineRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPrOrigineRegex02
+							, fournirKeyMessageSectionHitPrOrigineRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPrOrigineRegex02(...)._________________
+
+
+
+	/**
+	 * retourne le messageSectionHitPrOrigineNumerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPrOrigineNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPrOrigineNumerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPrOrigineNumerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPrOrigineNumerique03
+					, fournirKeyMessageSectionHitPrOrigineNumerique03()
+					, MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPrOrigineNumerique03().____________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPrOrigineNumerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPrOrigineNumerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPrOrigineNumerique03()._________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPrOrigineNumerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPrOrigineNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPrOrigineNumerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPrOrigineNumerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPrOrigineNumerique03();
+	} // Fin de getMessageSectionHitPrOrigineNumerique03().________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPrOrigineNumerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPrOrigineNumerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPrOrigineNumerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPrOrigineNumerique03
+							, fournirKeyMessageSectionHitPrOrigineNumerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPrOrigineNumerique03(...)._____________	
+	
+		
 			
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesControles.------------

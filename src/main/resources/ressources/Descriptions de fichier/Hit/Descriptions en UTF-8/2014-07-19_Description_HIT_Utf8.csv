@@ -17,7 +17,7 @@
 16;28;1;Type de réseau;0 - Autre que autoroute. [sep] 1 - Autoroute concédée de dégagement. [sep] 2 - Autoroute concédée de liaison. [sep] 3 - Autoroute non concédée de dégagement. [sep] 4 - Autoroute non concédée de liaison.[sep];typeReseau;String;true;false;28;28;1
 17;29;1;PR/PK;1 - PR.[sep] 2 - PK.[sep];pRoupK;String;true;false;29;29;1
 18;30-49;20;Lieu-dit d'origine;Libellé du lieu-dit d'origine;lieuDitOrigine;String;false;false;30;49;20
-19;50-52;3;P.R. Origine;Point repère origine ('début');prOrigine;Integer;false;false;50;52;3
+19;50-52;3;P.R. Origine;Point repère origine ('début') - 3 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 020 pour PR20);prOrigine;Integer;false;false;50;52;3
 20;53-56;4;Abscisse du PRO;Abscisse du Point Origine par rapport au Point Repère Origine ('début');absOrigine;Integer;false;false;53;56;4
 21;57-76;20;Lieu-dit d'extrémité;Libellé du lieu-dit d'extrémité;lieuDitExtremite;String;false;false;57;76;20
 22;77-79;3;P.R. Extrémité;Point repère extrémité ('fin');prExtremite;Integer;false;false;77;79;3

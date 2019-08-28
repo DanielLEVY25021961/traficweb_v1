@@ -1338,6 +1338,63 @@ public final class SectionHitGestionnairePreferencesRG {
 	public static final String STRING_VALIDER_SECTIONHIT_LIEUDITORIGINE_REGEX_02_EN_DUR 
 		= "true";
 	
+	/* 19 - prOrigine. *******/
+	/**
+	 * clé de validerRGSectionHitPrOrigine dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.prOrigine"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PRORIGINE 
+		= "valider.SectionHit.prOrigine";
+	
+	/**
+	 * validerRGSectionHitPrOrigine par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPrOrigine 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PRORIGINE_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitPrOrigineRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.prOrigine.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PRORIGINE_RENSEIGNE_01 
+		= "valider.SectionHit.prOrigine.renseigne";
+	
+	/**
+	 * validerRGSectionHitPrOrigineRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPrOrigineRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PRORIGINE_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPrOrigineRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.prOrigine.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PRORIGINE_REGEX_02 
+		= "valider.SectionHit.prOrigine.regex";
+	
+	/**
+	 * validerRGSectionHitPrOrigineRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPrOrigineRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PRORIGINE_REGEX_02_EN_DUR 
+		= "true";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -1823,6 +1880,27 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	private static Boolean validerRGSectionHitLieuDitOrigineRegex02;	
 	
+	/* 19 - prOrigine. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>prOrigine</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>prOrigine</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitPrOrigine;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PrOrigine-01 : 
+	 * "le PR origine de la section HIT (colonnes [50-52] du HIT) doit être renseigné (obligatoire)".<br/>
+	 */
+	private static Boolean validerRGSectionHitPrOrigineRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PrOrigine-02 : 
+	 * "le PR origine de la section HIT (colonnes [50-52] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitPrOrigineRegex02;
+	
 		
 	/**
 	 * LOG : Log : 
@@ -2303,6 +2381,25 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_LIEUDITORIGINE_REGEX_02
 						, STRING_VALIDER_SECTIONHIT_LIEUDITORIGINE_REGEX_02_EN_DUR);
+			
+			/* 19 - prOrigine. *******/
+			/* ajoute le validerRGSectionHitPrOrigine 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PRORIGINE
+						, STRING_VALIDER_SECTIONHIT_PRORIGINE_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPrOrigineRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PRORIGINE_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_PRORIGINE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPrOrigineRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PRORIGINE_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_PRORIGINE_REGEX_02_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -10866,6 +10963,354 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitLieuDitOrigineRegex02(...).__________
+	
+	
+	
+	/* 19 - prOrigine. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitPrOrigine</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>prOrigine</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>prOrigine</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPrOrigine stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPrOrigine 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPrOrigine() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitPrOrigine
+					, fournirKeyValiderRGSectionHitPrOrigine()
+					, STRING_VALIDER_SECTIONHIT_PRORIGINE_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPrOrigine()._____________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPrOrigine 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.prOrigine".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PRORIGINE : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPrOrigine() {
+		return KEY_VALIDER_SECTIONHIT_PRORIGINE;
+	} // Fin de fournirKeyValiderRGSectionHitPrOrigine().__________________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPrOrigine par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitPrOrigine 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPrOrigine stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPrOrigine : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPrOrigine() 
+													throws Exception {
+		return fournirValiderRGSectionHitPrOrigine();
+	} // Fin de getValiderRGSectionHitPrOrigine()._________________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPrOrigine par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPrOrigine.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPrOrigine(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPrOrigine
+							, fournirKeyValiderRGSectionHitPrOrigine());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPrOrigine(...).______________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitPrOrigineRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPrOrigineRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPrOrigineRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPrOrigineRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitPrOrigineRenseigne01
+					, fournirKeyValiderRGSectionHitPrOrigineRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_PRORIGINE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPrOrigineRenseigne01().__________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPrOrigineRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.prOrigine.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PRORIGINE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPrOrigineRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_PRORIGINE_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitPrOrigineRenseigne01()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPrOrigineRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPrOrigineRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPrOrigineRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPrOrigineRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPrOrigineRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitPrOrigineRenseigne01();
+	} // Fin de getValiderRGSectionHitPrOrigineRenseigne01().______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPrOrigineRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPrOrigineRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPrOrigineRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPrOrigineRenseigne01
+							, fournirKeyValiderRGSectionHitPrOrigineRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPrOrigineRenseigne01(...).___________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitPrOrigineRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPrOrigineRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPrOrigineRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPrOrigineRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitPrOrigineRegex02
+					, fournirKeyValiderRGSectionHitPrOrigineRegex02()
+					, STRING_VALIDER_SECTIONHIT_PRORIGINE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPrOrigineRegex02().______________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPrOrigineRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PRORIGINE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPrOrigineRegex02() {
+		return KEY_VALIDER_SECTIONHIT_PRORIGINE_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitPrOrigineRegex02().___________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPrOrigineRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPrOrigineRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPrOrigineRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPrOrigineRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPrOrigineRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitPrOrigineRegex02();
+	} // Fin de getValiderRGSectionHitPrOrigineRegex02().__________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPrOrigineRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPrOrigineRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPrOrigineRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPrOrigineRegex02
+							, fournirKeyValiderRGSectionHitPrOrigineRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPrOrigineRegex02(...)._______________
 		
 			
 	

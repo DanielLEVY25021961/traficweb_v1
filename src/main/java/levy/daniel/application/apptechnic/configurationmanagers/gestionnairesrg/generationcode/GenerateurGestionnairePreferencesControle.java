@@ -275,6 +275,105 @@ public final class GenerateurGestionnairePreferencesControle {
 		return resultat;
 		
 	} // Fin de genererMessagesEnDurRGsRenseigneRegexChiffresNomenclature(...).
+	
+
+	
+	/**
+	 * génère les lignes de code <i>commentées</i> relatives aux :
+	 * <ul>
+	 * <li><b>clés des messages des RG</b> 
+	 * de contrôle de l'attribut KEY_MESSAGE_...</li>
+	 * <li><b>messages en DUR des RG</b> 
+	 * de contrôle de l'attribut MESSAGE_OBJETMETIER_...</li>
+	 * </ul>
+	 * S'applique aux attributs contrôlés par :
+	 * <ul>
+	 * <li>une <b>RG RENSEIGNE</b>.</li>
+	 * <li>une <b>RG REGEX portant sur un nombre obligatoire de chiffres</b>.</li>
+	 * <li>une <b>RG NUMERIQUE</b>.</i>
+	 * </ul>
+	 * Par exemple, pour l'attribut '' d'une SectionHit (OBJET METIER) :
+	 * <pre>
+	 * 
+	 * </pre>
+	 *
+	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
+	 * @param pObjetMetierEnClair : String : nom de l'objet métier en clair avec  article comme 'la section HIT'
+	 * @param pNumeroChamp : String : numéro d'ordre du champ dans le HIT comme '5' pour l'attribut 'classe'.
+	 * @param pNomChamp : String : nom de l'attribut comme 'classe' ou 'numSection'.
+	 * @param pNomChampEnClair : String : nom de l'attribut en clair avec article comme 'la classe' ou 'le numéro de section'.
+	 * @param pColonnes : String : colonnes de l'attribut dans le HIT comme '[12-13]' pour l'attribut 'classe'.
+	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
+	 * 
+	 * @return : String : lignes de code à insérer dans les attributs KEYS 
+	 * et MESSAGES EN DUR du 
+	 * <code><b>OBJETMETIERGestionnairePreferencesControle</b></code>.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String genererMessagesEnDurRGsRenseigneRegexChiffresNumerique(
+			final String pObjetMetier
+				, final String pObjetMetierEnClair
+					, final String pNumeroChamp
+						, final String pNomChamp
+							, final String pNomChampEnClair
+								, final String pColonnes
+									, final String pNbreChiffres) throws Exception {
+		
+		// Instanciation d'un GestionnaireTemplates.
+		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
+		
+		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_genererMessagesEnDurRGsRenseigneRegexChiffresNumerique.txt";
+		
+		// variables incorporées dans le template à lire.
+		final String[] variables = {"{$pObjetMetier}"
+				, "{$pObjetMetierEnClair}"
+				, "{$ObjetMetierCapitalise}"
+				, "{$pNumeroChamp}"
+				, "{$pNomChamp}"
+				, "{$NomChampCamelise}"
+				, "{$NomChampCapitalise}"
+				, "{$pNomChampEnClair}"
+				, "{$pColonnes}"
+				, "{$pNbreChiffres}"};
+		
+		final String objetMetierASubstituer = pObjetMetier;
+		final String objetMetierEnClairASubstituer = pObjetMetierEnClair;
+		final String objetMetierCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pObjetMetier, LocaleManager.getLocaleApplication());
+		final String numeroChampASubstituer = pNumeroChamp;
+		final String nomChampASubstituer = pNomChamp;
+		final String nomChampCameliseASubstituer = StringUtils.capitalize(pNomChamp);
+		final String nomChampCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pNomChamp, LocaleManager.getLocaleApplication());
+		final String nomChampEnClairASubstituer = pNomChampEnClair;
+		final String colonnesASubstituer = pColonnes;
+		final String nombreChiffresASubstituer = pNbreChiffres;
+		
+		// valeurs à substituer aux variables dépendant d'une Locale paramétrée pLocale.
+		final String[] substituants = {objetMetierASubstituer
+				, objetMetierEnClairASubstituer
+				, objetMetierCapitaliseASubstituer
+				, numeroChampASubstituer
+				, nomChampASubstituer
+				, nomChampCameliseASubstituer
+				, nomChampCapitaliseASubstituer
+				, nomChampEnClairASubstituer
+				, colonnesASubstituer
+				, nombreChiffresASubstituer};
+		
+		// Récupération du template lu/substitué sous forme de String.
+		final String resultat 
+			= gestionnaireTemplates
+				.fournirTemplateSubstitueSousFormeString(
+						cheminRelatifTemplate, variables, substituants);
+		
+		return resultat;
+		
+	} // Fin de genererMessagesEnDurRGsRenseigneRegexChiffresNumerique(...).
 
 	
 	
@@ -481,6 +580,103 @@ public final class GenerateurGestionnairePreferencesControle {
 	/**
 	 * génère les lignes de code <i>commentées</i> relatives aux :
 	 * <ul>
+	 * <li><b>attributs messages des RG</b> 
+	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
+	 * </ul>
+	 * S'applique aux attributs contrôlés par :
+	 * <ul>
+	 * <li>une <b>RG RENSEIGNE</b>.</li>
+	 * <li>une <b>RG REGEX portant sur un nombre obligatoire de chiffres</b>.</li>
+	 * <li>une <b>RG NUMERIQUE</b>.</i>
+	 * </ul>
+	 * Par exemple, pour l'attribut '' d'une SectionHit (OBJET METIER) :
+	 * <pre>
+	 * 
+	 * </pre>
+	 *
+	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
+	 * @param pObjetMetierEnClair : String : nom de l'objet métier en clair avec  article comme 'la section HIT'
+	 * @param pNumeroChamp : String : numéro d'ordre du champ dans le HIT comme '5' pour l'attribut 'classe'.
+	 * @param pNomChamp : String : nom de l'attribut comme 'classe' ou 'numSection'.
+	 * @param pNomChampEnClair : String : nom de l'attribut en clair avec article comme 'la classe' ou 'le numéro de section'.
+	 * @param pColonnes : String : colonnes de l'attribut dans le HIT comme '[12-13]' pour l'attribut 'classe'.
+	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
+	 * 
+	 * @return : String : lignes de code à insérer dans les attributs 
+	 * messageObjetMetierATTRIBUTxxx du 
+	 * <code><b>OBJETMETIERGestionnairePreferencesControle</b></code>.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String genererAttributsMessageRGsRenseigneRegexChiffresNumerique(
+			final String pObjetMetier
+				, final String pObjetMetierEnClair
+					, final String pNumeroChamp
+						, final String pNomChamp
+							, final String pNomChampEnClair
+								, final String pColonnes
+									, final String pNbreChiffres) throws Exception {
+		
+		// Instanciation d'un GestionnaireTemplates.
+		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
+		
+		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_genererAttributsMessageRGsRenseigneRegexChiffresNumerique.txt";
+		
+		// variables incorporées dans le template à lire.
+		final String[] variables = {"{$pObjetMetier}"
+				, "{$pObjetMetierEnClair}"
+				, "{$ObjetMetierCapitalise}"
+				, "{$pNumeroChamp}"
+				, "{$pNomChamp}"
+				, "{$NomChampCamelise}"
+				, "{$NomChampCapitalise}"
+				, "{$pNomChampEnClair}"
+				, "{$pColonnes}"
+				, "{$pNbreChiffres}"};
+		
+		final String objetMetierASubstituer = pObjetMetier;
+		final String objetMetierEnClairASubstituer = pObjetMetierEnClair;
+		final String objetMetierCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pObjetMetier, LocaleManager.getLocaleApplication());
+		final String numeroChampASubstituer = pNumeroChamp;
+		final String nomChampASubstituer = pNomChamp;
+		final String nomChampCameliseASubstituer = StringUtils.capitalize(pNomChamp);
+		final String nomChampCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pNomChamp, LocaleManager.getLocaleApplication());
+		final String nomChampEnClairASubstituer = pNomChampEnClair;
+		final String colonnesASubstituer = pColonnes;
+		final String nombreChiffresASubstituer = pNbreChiffres;
+		
+		// valeurs à substituer aux variables dépendant d'une Locale paramétrée pLocale.
+		final String[] substituants = {objetMetierASubstituer
+				, objetMetierEnClairASubstituer
+				, objetMetierCapitaliseASubstituer
+				, numeroChampASubstituer
+				, nomChampASubstituer
+				, nomChampCameliseASubstituer
+				, nomChampCapitaliseASubstituer
+				, nomChampEnClairASubstituer
+				, colonnesASubstituer
+				, nombreChiffresASubstituer};
+		
+		// Récupération du template lu/substitué sous forme de String.
+		final String resultat 
+			= gestionnaireTemplates
+				.fournirTemplateSubstitueSousFormeString(
+						cheminRelatifTemplate, variables, substituants);
+		
+		return resultat;
+
+	} // Fin de genererAttributsMessageRGsRenseigneRegexChiffresNumerique(...).
+
+	
+	
+	/**
+	 * génère les lignes de code <i>commentées</i> relatives aux :
+	 * <ul>
 	 * <li><b>ajout des messages EN DUR des RG</b> 
 	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
 	 * </ul>
@@ -679,6 +875,103 @@ public final class GenerateurGestionnairePreferencesControle {
 		return resultat;
 
 	} // Fin de genererAjouterPropertiesEnDurRGsRenseigneRegexChiffresNomenclature(...)
+
+	
+	
+	/**
+	 * génère les lignes de code <i>commentées</i> relatives aux :
+	 * <ul>
+	 * <li><b>ajout des messages EN DUR des RG</b> 
+	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
+	 * </ul>
+	 * S'applique aux attributs contrôlés par :
+	 * <ul>
+	 * <li>une <b>RG RENSEIGNE</b>.</li>
+	 * <li>une <b>RG REGEX portant sur un nombre obligatoire de chiffres</b>.</li>
+	 * <li>une <b>RG NUMERIQUE</b>.</i>
+	 * </ul>
+	 * Par exemple, pour l'attribut '' d'une SectionHit (OBJET METIER) :
+	 * <pre>
+	 * 
+	 * </pre>
+	 *
+	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
+	 * @param pObjetMetierEnClair : String : nom de l'objet métier en clair avec  article comme 'la section HIT'
+	 * @param pNumeroChamp : String : numéro d'ordre du champ dans le HIT comme '5' pour l'attribut 'classe'.
+	 * @param pNomChamp : String : nom de l'attribut comme 'classe' ou 'numSection'.
+	 * @param pNomChampEnClair : String : nom de l'attribut en clair avec article comme 'la classe' ou 'le numéro de section'.
+	 * @param pColonnes : String : colonnes de l'attribut dans le HIT comme '[12-13]' pour l'attribut 'classe'.
+	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
+	 * 
+	 * @return : String : lignes de code à insérer dans la méthode 
+	 * <code>ajouterPropertiesEnDur()</code> du 
+	 * <code><b>OBJETMETIERGestionnairePreferencesControle</b></code>.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String genererAjouterPropertiesEnDurRGsRenseigneRegexChiffresNumerique(
+			final String pObjetMetier
+				, final String pObjetMetierEnClair
+					, final String pNumeroChamp
+						, final String pNomChamp
+							, final String pNomChampEnClair
+								, final String pColonnes
+									, final String pNbreChiffres) throws Exception {
+		
+		// Instanciation d'un GestionnaireTemplates.
+		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
+		
+		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_ajouterPropertiesEnDurRGsRenseigneRegexChiffresNumerique.txt";
+		
+		// variables incorporées dans le template à lire.
+		final String[] variables = {"{$pObjetMetier}"
+				, "{$pObjetMetierEnClair}"
+				, "{$ObjetMetierCapitalise}"
+				, "{$pNumeroChamp}"
+				, "{$pNomChamp}"
+				, "{$NomChampCamelise}"
+				, "{$NomChampCapitalise}"
+				, "{$pNomChampEnClair}"
+				, "{$pColonnes}"
+				, "{$pNbreChiffres}"};
+		
+		final String objetMetierASubstituer = pObjetMetier;
+		final String objetMetierEnClairASubstituer = pObjetMetierEnClair;
+		final String objetMetierCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pObjetMetier, LocaleManager.getLocaleApplication());
+		final String numeroChampASubstituer = pNumeroChamp;
+		final String nomChampASubstituer = pNomChamp;
+		final String nomChampCameliseASubstituer = StringUtils.capitalize(pNomChamp);
+		final String nomChampCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pNomChamp, LocaleManager.getLocaleApplication());
+		final String nomChampEnClairASubstituer = pNomChampEnClair;
+		final String colonnesASubstituer = pColonnes;
+		final String nombreChiffresASubstituer = pNbreChiffres;
+		
+		// valeurs à substituer aux variables dépendant d'une Locale paramétrée pLocale.
+		final String[] substituants = {objetMetierASubstituer
+				, objetMetierEnClairASubstituer
+				, objetMetierCapitaliseASubstituer
+				, numeroChampASubstituer
+				, nomChampASubstituer
+				, nomChampCameliseASubstituer
+				, nomChampCapitaliseASubstituer
+				, nomChampEnClairASubstituer
+				, colonnesASubstituer
+				, nombreChiffresASubstituer};
+		
+		// Récupération du template lu/substitué sous forme de String.
+		final String resultat 
+			= gestionnaireTemplates
+				.fournirTemplateSubstitueSousFormeString(
+						cheminRelatifTemplate, variables, substituants);
+		
+		return resultat;
+
+	} // Fin de genererAjouterPropertiesEnDurRGsRenseigneRegexChiffresNumerique(...)
 
 	
 	
@@ -900,6 +1193,106 @@ public final class GenerateurGestionnairePreferencesControle {
 	/**
 	 * génère les lignes de code <i>commentées</i> relatives aux :
 	 * <ul>
+	 * <li><b>Getters des attributs des messages des RG</b> 
+	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
+	 * <li><b>Setters des attributs des messages des RG</b> 
+	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
+	 * </ul>
+	 * S'applique aux attributs contrôlés par :
+	 * <ul>
+	 * <li>une <b>RG RENSEIGNE</b>.</li>
+	 * <li>une <b>RG REGEX portant sur un nombre obligatoire de chiffres</b>.</li>
+	 * <li>une <b>RG NUMERIQUE</b>.</i>
+	 * </ul>
+	 * Par exemple, pour l'attribut '' d'une SectionHit (OBJET METIER) :
+	 * <pre>
+	 * 
+	 * </pre>
+	 *
+	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
+	 * @param pObjetMetierEnClair : String : nom de l'objet métier en clair avec  article comme 'la section HIT'
+	 * @param pNumeroChamp : String : numéro d'ordre du champ dans le HIT comme '5' pour l'attribut 'classe'.
+	 * @param pNomChamp : String : nom de l'attribut comme 'classe' ou 'numSection'.
+	 * @param pNomChampEnClair : String : nom de l'attribut en clair avec article comme 'la classe' ou 'le numéro de section'.
+	 * @param pColonnes : String : colonnes de l'attribut dans le HIT comme '[12-13]' pour l'attribut 'classe'.
+	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
+	 * @param pNumerique : String : nomenclature entre crochets comme [1, 2, 3].
+	 * 
+	 * @return : String : lignes de code à insérer dans la méthode 
+	 * <code>ajouterPropertiesEnDur()</code> du 
+	 * <code><b>OBJETMETIERGestionnairePreferencesControle</b></code>.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String genererGettersSettersMessagesRGsRenseigneRegexChiffresNumerique(
+			final String pObjetMetier
+				, final String pObjetMetierEnClair
+					, final String pNumeroChamp
+						, final String pNomChamp
+							, final String pNomChampEnClair
+								, final String pColonnes
+									, final String pNbreChiffres) throws Exception {
+		
+		// Instanciation d'un GestionnaireTemplates.
+		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
+		
+		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_genererGettersSettersRGsRenseigneRegexChiffresNumerique.txt";
+		
+		// variables incorporées dans le template à lire.
+		final String[] variables = {"{$pObjetMetier}"
+				, "{$pObjetMetierEnClair}"
+				, "{$ObjetMetierCapitalise}"
+				, "{$pNumeroChamp}"
+				, "{$pNomChamp}"
+				, "{$NomChampCamelise}"
+				, "{$NomChampCapitalise}"
+				, "{$pNomChampEnClair}"
+				, "{$pColonnes}"
+				, "{$pNbreChiffres}"};
+		
+		final String objetMetierASubstituer = pObjetMetier;
+		final String objetMetierEnClairASubstituer = pObjetMetierEnClair;
+		final String objetMetierCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pObjetMetier, LocaleManager.getLocaleApplication());
+		final String numeroChampASubstituer = pNumeroChamp;
+		final String nomChampASubstituer = pNomChamp;
+		final String nomChampCameliseASubstituer = StringUtils.capitalize(pNomChamp);
+		final String nomChampCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pNomChamp, LocaleManager.getLocaleApplication());
+		final String nomChampEnClairASubstituer = pNomChampEnClair;
+		final String colonnesASubstituer = pColonnes;
+		final String nombreChiffresASubstituer = pNbreChiffres;
+		
+		// valeurs à substituer aux variables dépendant d'une Locale paramétrée pLocale.
+		final String[] substituants = {objetMetierASubstituer
+				, objetMetierEnClairASubstituer
+				, objetMetierCapitaliseASubstituer
+				, numeroChampASubstituer
+				, nomChampASubstituer
+				, nomChampCameliseASubstituer
+				, nomChampCapitaliseASubstituer
+				, nomChampEnClairASubstituer
+				, colonnesASubstituer
+				, nombreChiffresASubstituer};
+		
+		// Récupération du template lu/substitué sous forme de String.
+		final String resultat 
+			= gestionnaireTemplates
+				.fournirTemplateSubstitueSousFormeString(
+						cheminRelatifTemplate, variables, substituants);
+		
+		return resultat;
+
+	} // Fin de genererGettersSettersMessagesRGsRenseigneRegexChiffresNumerique(...)
+
+	
+	
+	/**
+	 * génère les lignes de code <i>commentées</i> relatives aux :
+	 * <ul>
 	 * <li><b>Tests JUnit des messages des RG</b> 
 	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
 	 * </ul>
@@ -1095,6 +1488,103 @@ public final class GenerateurGestionnairePreferencesControle {
 
 	} // Fin de genererTestsMessagesRGsRenseigneRegexChiffresNomenclature(...).
 
+	
+	
+	/**
+	 * génère les lignes de code <i>commentées</i> relatives aux :
+	 * <ul>
+	 * <li><b>Tests JUnit des messages des RG</b> 
+	 * de contrôle de l'attribut messageObjetMetierATTRIBUTRGxxx...</li>
+	 * </ul>
+	 * S'applique aux attributs contrôlés par :
+	 * <ul>
+	 * <li>une <b>RG RENSEIGNE</b>.</li>
+	 * <li>une <b>RG REGEX portant sur un nombre obligatoire de chiffres</b>.</li>
+	 * <li>une <b>RG NUMERIQUE</b>.</i>
+	 * </ul>
+	 * Par exemple, pour l'attribut '' d'une SectionHit (OBJET METIER) :
+	 * <pre>
+	 * 
+	 * </pre>
+	 *
+	 * @param pObjetMetier : String : nom de l'objet métier comme 'SectionHit'.
+	 * @param pObjetMetierEnClair : String : nom de l'objet métier en clair avec  article comme 'la section HIT'
+	 * @param pNumeroChamp : String : numéro d'ordre du champ dans le HIT comme '5' pour l'attribut 'classe'.
+	 * @param pNomChamp : String : nom de l'attribut comme 'classe' ou 'numSection'.
+	 * @param pNomChampEnClair : String : nom de l'attribut en clair avec article comme 'la classe' ou 'le numéro de section'.
+	 * @param pColonnes : String : colonnes de l'attribut dans le HIT comme '[12-13]' pour l'attribut 'classe'.
+	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
+	 * 
+	 * @return : String : lignes de code à insérer dans la méthode 
+	 * <code>ajouterPropertiesEnDur()</code> du 
+	 * <code><b>OBJETMETIERGestionnairePreferencesControle</b></code>.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String genererTestsMessagesRGsRenseigneRegexChiffresNumerique(
+			final String pObjetMetier
+				, final String pObjetMetierEnClair
+					, final String pNumeroChamp
+						, final String pNomChamp
+							, final String pNomChampEnClair
+								, final String pColonnes
+									, final String pNbreChiffres) throws Exception {
+		
+		// Instanciation d'un GestionnaireTemplates.
+		final IGestionnaireTemplates gestionnaireTemplates = new GestionnaireTemplates();
+		
+		// récupération du template grâce à son chemin relatif par rapport aux resources internes.
+		final String cheminRelatifTemplate = "templates/apptechnic/configurationmanagers/gestionnairesrg/generationcode/generateurgestionnairepreferencescontrolesHIT/template_genererTestRGsRenseigneRegexChiffresNumerique.txt";
+		
+		// variables incorporées dans le template à lire.
+		final String[] variables = {"{$pObjetMetier}"
+				, "{$pObjetMetierEnClair}"
+				, "{$ObjetMetierCapitalise}"
+				, "{$pNumeroChamp}"
+				, "{$pNomChamp}"
+				, "{$NomChampCamelise}"
+				, "{$NomChampCapitalise}"
+				, "{$pNomChampEnClair}"
+				, "{$pColonnes}"
+				, "{$pNbreChiffres}"};
+		
+		final String objetMetierASubstituer = pObjetMetier;
+		final String objetMetierEnClairASubstituer = pObjetMetierEnClair;
+		final String objetMetierCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pObjetMetier, LocaleManager.getLocaleApplication());
+		final String numeroChampASubstituer = pNumeroChamp;
+		final String nomChampASubstituer = pNomChamp;
+		final String nomChampCameliseASubstituer = StringUtils.capitalize(pNomChamp);
+		final String nomChampCapitaliseASubstituer 
+			= StringUtils.upperCase(
+					pNomChamp, LocaleManager.getLocaleApplication());
+		final String nomChampEnClairASubstituer = pNomChampEnClair;
+		final String colonnesASubstituer = pColonnes;
+		final String nombreChiffresASubstituer = pNbreChiffres;
+		
+		// valeurs à substituer aux variables dépendant d'une Locale paramétrée pLocale.
+		final String[] substituants = {objetMetierASubstituer
+				, objetMetierEnClairASubstituer
+				, objetMetierCapitaliseASubstituer
+				, numeroChampASubstituer
+				, nomChampASubstituer
+				, nomChampCameliseASubstituer
+				, nomChampCapitaliseASubstituer
+				, nomChampEnClairASubstituer
+				, colonnesASubstituer
+				, nombreChiffresASubstituer};
+		
+		// Récupération du template lu/substitué sous forme de String.
+		final String resultat 
+			= gestionnaireTemplates
+				.fournirTemplateSubstitueSousFormeString(
+						cheminRelatifTemplate, variables, substituants);
+		
+		return resultat;
+
+	} // Fin de genererTestsMessagesRGsRenseigneRegexChiffresNumerique(...).
+
 
 	
 	/**
@@ -1261,6 +1751,89 @@ public final class GenerateurGestionnairePreferencesControle {
 			System.out.println(resultatTestJUnit);
 		
 	} // Fin de genererCodeRGsRenseigneRegexChiffresNomenclature(...)._____
+
+
+	
+	/**
+	 * génère l'ensemble des lignes de code <i>commentées</i> 
+	 * relatives à un attribut à insérer dans un :
+	 * <ul>
+	 * <li>OBJETMETIERGestionnairePreferencesControles</li>
+	 * <li>OBJETMETIERGestionnairePreferencesControlesTest</li>
+	 * </ul>
+	 * S'applique aux attributs contrôlés par :
+	 * <ul>
+	 * <li>une <b>RG RENSEIGNE</b>.</li>
+	 * <li>une <b>RG REGEX portant sur un nombre obligatoire de chiffres</b>.</li>
+	 * <li>une <b>RG NUMERIQUE</b>.</i>
+	 * </ul>
+	 *
+	 * @param pNumeroChamp : String : numéro d'ordre du champ dans le HIT comme '5' pour l'attribut 'classe'.
+	 * @param pNomChamp : String : nom de l'attribut comme 'classe' ou 'numSection'.
+	 * @param pNomChampEnClair : String : nom de l'attribut en clair avec article comme 'la classe' ou 'le numéro de section'.
+	 * @param pColonnes : String : colonnes de l'attribut dans le HIT comme '[12-13]' pour l'attribut 'classe'.
+	 * @param pNbreChiffres : String : nombre de chiffres exact (REGEX) de l'attribut.
+	 * 
+	 * @throws Exception 
+	 */
+	public static void genererCodeRGsRenseigneRegexChiffresNumerique(
+			final String pNumeroChamp
+				, final String pNomChamp
+					, final String pNomChampEnClair
+						, final String pColonnes
+							, final String pNbreChiffres) throws Exception {
+			
+			final String resultatMessagesEnDur 
+			= genererMessagesEnDurRGsRenseigneRegexChiffresNumerique(
+					OBJET_METIER
+					, OBJET_METIER_EN_CLAIR
+					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
+
+			System.out.println("****************************************************************************************************************");
+			System.out.println("***************************************************** MESSAGES EN DUR ***********************************************");
+			System.out.println(resultatMessagesEnDur);
+			
+			final String resultatAttributsMessages 
+			= genererAttributsMessageRGsRenseigneRegexChiffresNumerique(
+					OBJET_METIER
+					, OBJET_METIER_EN_CLAIR
+					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
+
+			System.out.println("****************************************************************************************************************");
+			System.out.println("****************************************************** ATTRIBUTS MESSAGES *******************************************");
+			System.out.println(resultatAttributsMessages);
+
+			final String resultatAjouterPropertiesEnDur 
+			= genererAjouterPropertiesEnDurRGsRenseigneRegexChiffresNumerique(
+					OBJET_METIER
+					, OBJET_METIER_EN_CLAIR
+					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
+
+			System.out.println("****************************************************************************************************************");
+			System.out.println("************************************************ AJOUT METHODE ajouterPropertiesEnDur() ********************************");
+			System.out.println(resultatAjouterPropertiesEnDur);
+		
+			final String resultatGenererGettersSetters 
+			= genererGettersSettersMessagesRGsRenseigneRegexChiffresNumerique(
+					OBJET_METIER
+					, OBJET_METIER_EN_CLAIR
+					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
+
+			System.out.println("****************************************************************************************************************");
+			System.out.println("********************************************************** GETTERS ET SETTERS ********************************************");
+			System.out.println(resultatGenererGettersSetters);
+		
+			final String resultatTestJUnit 
+			= genererTestsMessagesRGsRenseigneRegexChiffresNumerique(
+					OBJET_METIER
+					, OBJET_METIER_EN_CLAIR
+					, pNumeroChamp, pNomChamp, pNomChampEnClair, pColonnes, pNbreChiffres);
+
+			System.out.println("****************************************************************************************************************");
+			System.out.println("******************************************************** AJOUT POUR LES TESTS JUNIT *****************************************");
+			System.out.println(resultatTestJUnit);
+		
+	} // Fin de genererCodeRGsRenseigneRegexChiffresNumerique(...)._____
 	
 	
 	
@@ -1274,20 +1847,22 @@ public final class GenerateurGestionnairePreferencesControle {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "18";
-		final String nomChamp = "lieuDitOrigine";
-		final String nomChampEnClair = "le lieu-dit origine";
-		final String colonnes = "[30-49]";
-		final String nbreChiffres = "20";
+		final String numeroChamp = "19";
+		final String nomChamp = "prOrigine";
+		final String nomChampEnClair = "le PR origine";
+		final String colonnes = "[50-52]";
+		final String nbreChiffres = "3";
 //		final String nomenclature = "[1, 2]";
 		// *******************************************************
 		
-		genererCodeRGsRenseigneRegexChiffres(
-				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
+//		genererCodeRGsRenseigneRegexChiffres(
+//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
 
 //		genererCodeRGsRenseigneRegexChiffresNomenclature(
 //				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres, nomenclature);
 		
+		genererCodeRGsRenseigneRegexChiffresNumerique(
+				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);		
 	} // Fin de main(...)._________________________________________________
 	
 	

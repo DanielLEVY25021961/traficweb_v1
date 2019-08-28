@@ -1,0 +1,59 @@
+	
+	/* {$pNumeroChamp} - {$pNomChamp}. *******/
+	/**
+	 * clé de message{$pObjetMetier}{$NomChampCamelise}Renseigne01 dans 
+	 * {$pObjetMetier}_CONTROLES.properties<br/>
+	 * "message.{$pObjetMetier}.{$pNomChamp}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01 
+		= "message.{$pObjetMetier}.{$pNomChamp}.renseigne";
+	
+	/**
+	 * message{$pObjetMetier}{$NomChampCamelise}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * message{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+	 * indiqué dans {$pObjetMetier}_CONTROLES.properties.<br/>
+	 * "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR 
+		= "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit être renseigné";
+		
+	/**
+	 * clé de message{$pObjetMetier}{$NomChampCamelise}Regex02 dans 
+	 * {$pObjetMetier}_CONTROLES.properties<br/>
+	 * "message.{$pObjetMetier}.{$pNomChamp}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02 
+		= "message.{$pObjetMetier}.{$pNomChamp}.regex";
+	
+	/**
+	 * message{$pObjetMetier}{$NomChampCamelise}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * message{$pObjetMetier}{$NomChampCamelise}Regex02 
+	 * indiqué dans {$pObjetMetier}_CONTROLES.properties.<br/>
+	 * "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres".<br/>
+	 */
+	public static final String MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR 
+		= "{$pNomChampEnClair} de {$pObjetMetierEnClair} (colonnes {$pColonnes} du HIT) doit comporter exactement {$pNbreChiffres} chiffres";
+		
+	/**
+	 * clé de message{$pObjetMetier}{$NomChampCamelise}Numerique03 dans 
+	 * {$pObjetMetier}_CONTROLES.properties<br/>
+	 * "message.{$pObjetMetier}.{$pNomChamp}.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NUMERIQUE_03 
+		= "message.{$pObjetMetier}.{$pNomChamp}.numerique";
+	
+	/**
+	 * message{$pObjetMetier}{$NomChampCamelise}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * message{$pObjetMetier}{$NomChampCamelise}Numerique03 
+	 * indiqué dans {$pObjetMetier}_CONTROLES.properties.<br/>
+	 * "{$pNomChampEnClair} de la section HIT (colonnes {$pColonnes} du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NUMERIQUE_03_EN_DUR 
+		= "{$pNomChampEnClair} de la section HIT (colonnes {$pColonnes} du HIT) doit être homogène à un entier";
+		
