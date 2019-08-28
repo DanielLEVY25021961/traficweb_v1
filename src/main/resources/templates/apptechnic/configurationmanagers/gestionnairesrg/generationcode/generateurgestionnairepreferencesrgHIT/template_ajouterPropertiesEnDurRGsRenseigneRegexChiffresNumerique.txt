@@ -1,0 +1,26 @@
+			
+			/* {$pNumeroChamp} - {$pNomChamp}. *******/
+			/* ajoute le validerRG{$pObjetMetier}{$NomChampCamelise} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}
+						, STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_EN_DUR);
+			
+			/* ajoute le validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01
+						, STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02
+						, STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRG{$pObjetMetier}{$NomChampCamelise}Numerique03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NUMERIQUE_03
+						, STRING_VALIDER_{$ObjetMetierCapitalise}_{$NomChampCapitalise}_NUMERIQUE_03_EN_DUR);
+						

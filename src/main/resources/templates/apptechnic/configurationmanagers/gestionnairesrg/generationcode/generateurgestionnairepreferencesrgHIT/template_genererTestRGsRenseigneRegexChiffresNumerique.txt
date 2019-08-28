@@ -1,0 +1,318 @@
+
+	
+	
+	/* {$pNumeroChamp} - {$pNomChamp}. **************/
+	/**
+	 * teste la méthode getValiderRG{$pObjetMetier}{$NomChampCamelise}().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRG{$pObjetMetier}{$NomChampCamelise}() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE {$pObjetMetier}GestionnairePreferencesRGTest - méthode testGetValiderRG{$pObjetMetier}{$NomChampCamelise}() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= {$pObjetMetier}GestionnairePreferencesRG
+				.getValiderRG{$pObjetMetier}{$NomChampCamelise}();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise} dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		{$pObjetMetier}GestionnairePreferencesRG
+			.setValiderRG{$pObjetMetier}{$NomChampCamelise}(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= {$pObjetMetier}GestionnairePreferencesRG
+				.getValiderRG{$pObjetMetier}{$NomChampCamelise}();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise} après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		{$pObjetMetier}GestionnairePreferencesRG
+			.setValiderRG{$pObjetMetier}{$NomChampCamelise}(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= {$pObjetMetier}GestionnairePreferencesRG
+			.getValiderRG{$pObjetMetier}{$NomChampCamelise}();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise} après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRG{$pObjetMetier}{$NomChampCamelise}().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE {$pObjetMetier}GestionnairePreferencesRGTest - méthode testGetValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= {$pObjetMetier}GestionnairePreferencesRG
+				.getValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		{$pObjetMetier}GestionnairePreferencesRG
+			.setValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= {$pObjetMetier}GestionnairePreferencesRG
+				.getValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		{$pObjetMetier}GestionnairePreferencesRG
+			.setValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= {$pObjetMetier}GestionnairePreferencesRG
+			.getValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise}Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRG{$pObjetMetier}{$NomChampCamelise}Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE {$pObjetMetier}GestionnairePreferencesRGTest - méthode testGetValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= {$pObjetMetier}GestionnairePreferencesRG
+				.getValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		{$pObjetMetier}GestionnairePreferencesRG
+			.setValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= {$pObjetMetier}GestionnairePreferencesRG
+				.getValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		{$pObjetMetier}GestionnairePreferencesRG
+			.setValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= {$pObjetMetier}GestionnairePreferencesRG
+			.getValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise}Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRG{$pObjetMetier}{$NomChampCamelise}Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRG{$pObjetMetier}{$NomChampCamelise}Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRG{$pObjetMetier}{$NomChampCamelise}Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE {$pObjetMetier}GestionnairePreferencesRGTest - méthode testGetValiderRG{$pObjetMetier}{$NomChampCamelise}Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= {$pObjetMetier}GestionnairePreferencesRG
+				.getValiderRG{$pObjetMetier}{$NomChampCamelise}Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise}Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		{$pObjetMetier}GestionnairePreferencesRG
+			.setValiderRG{$pObjetMetier}{$NomChampCamelise}Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= {$pObjetMetier}GestionnairePreferencesRG
+				.getValiderRG{$pObjetMetier}{$NomChampCamelise}Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise}Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		{$pObjetMetier}GestionnairePreferencesRG
+			.setValiderRG{$pObjetMetier}{$NomChampCamelise}Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= {$pObjetMetier}GestionnairePreferencesRG
+			.getValiderRG{$pObjetMetier}{$NomChampCamelise}Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRG{$pObjetMetier}{$NomChampCamelise}Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRG{$pObjetMetier}{$NomChampCamelise}Numerique03()._____________
+	
