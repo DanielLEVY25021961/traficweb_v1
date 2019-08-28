@@ -18,10 +18,10 @@
 17;29;1;PR/PK;1 - PR.[sep] 2 - PK.[sep];pRoupK;String;true;false;29;29;1
 18;30-49;20;Lieu-dit d'origine;Libellé du lieu-dit d'origine;lieuDitOrigine;String;false;false;30;49;20
 19;50-52;3;P.R. Origine;Point repère origine ('début') - 3 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 020 pour PR20);prOrigine;Integer;false;false;50;52;3
-20;53-56;4;Abscisse du PRO;Abscisse du Point Origine par rapport au Point Repère Origine ('début');absOrigine;Integer;false;false;53;56;4
+20;53-56;4;Abscisse du PRO;Abscisse du Point Origine par rapport au Point Repère Origine ('début') - 4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 0020 pour 20);absOrigine;Integer;false;false;53;56;4
 21;57-76;20;Lieu-dit d'extrémité;Libellé du lieu-dit d'extrémité;lieuDitExtremite;String;false;false;57;76;20
-22;77-79;3;P.R. Extrémité;Point repère extrémité ('fin');prExtremite;Integer;false;false;77;79;3
-23;80-83;4;Abscisse du PRE;Abscisse du Point Extrémité par rapport au Point Repère Extrémité ('fin');absExtremite;Integer;false;false;80;83;4
+22;77-79;3;P.R. Extrémité;Point repère extrémité ('fin') - 3 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 021 pour PR21);prExtremite;Integer;false;false;77;79;3
+23;80-83;4;Abscisse du PRE;Abscisse du Point Extrémité par rapport au Point Repère Extrémité ('fin') - 4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 0020 pour 20);absExtremite;Integer;false;false;80;83;4
 24;84-103;20;Lieu-dit de comptage;Libellé du lieu-dit de comptage;lieuDitComptage;String;false;false;84;103;20
 25;104-106;3;P.R. Comptage;Point repère comptage;prComptage;Integer;false;false;104;106;3
 26;107-110;4;Abscisse du PRC;Abscisse du Point de Comptage par rapport au Point Repère Comptage;absComptage;Integer;false;false;107;110;4

@@ -85,6 +85,12 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String DOIT_ETRE_RENSEIGNEE = "doit être renseignée";
 	
 	/**
+	 * "doit être renseignée (obligatoire)".
+	 */
+	public static final String DOIT_ETRE_RENSEIGNEE_OBLIGATOIRE 
+		= "doit être renseignée (obligatoire)";
+	
+	/**
 	 * Nom de l'objet métier concerné par ces Règles de Gestion (RG).<br/>
 	 * "SectionHit".<br/>
 	 */
@@ -207,7 +213,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_NATURE_RENSEIGNE_01 
 		= "RG_SECTIONHIT_NATURE_RENSEIGNE_01 : "
 				+ "la nature de la section HIT "
-				+ "doit être renseignée (obligatoire)";
+				+ DOIT_ETRE_RENSEIGNEE_OBLIGATOIRE;
 
 	/**
 	 * "RG_SECTIONHIT_NATURE_REGEX_02 : 
@@ -383,7 +389,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01 
 		= "RG_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01 : "
 				+ "la catégorie administrative de la route de la section HIT "
-				+ "doit être renseignée (obligatoire)";
+				+ DOIT_ETRE_RENSEIGNEE_OBLIGATOIRE;
 
 	/**
 	 * "RG_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02 : 
@@ -648,6 +654,126 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_PRORIGINE_NUMERIQUE_03 
 		= "RG_SECTIONHIT_PRORIGINE_NUMERIQUE_03 : "
 				+ "le PR origine doit être homogène à un entier";
+
+	/* 20 - absOrigine. *******/
+	/**
+	 * "absOrigine".<br/>
+	 */
+	public static final String ATTRIBUT_ABSORIGINE 
+		= "absOrigine";
+
+	/**
+	 * "RG_SECTIONHIT_ABSORIGINE_RENSEIGNE_01 : 
+	 * l'abscisse origine de la section HIT doit être renseignée (obligatoire)".
+	 */
+	public static final String RG_SECTIONHIT_ABSORIGINE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ABSORIGINE_RENSEIGNE_01 : "
+				+ "l'abscisse origine de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE_OBLIGATOIRE;
+
+	/**
+	 * "RG_SECTIONHIT_ABSORIGINE_REGEX_02 : 
+	 * l'abscisse origine de la section HIT doit comporter exactement 4 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ABSORIGINE_REGEX_02 
+		= "RG_SECTIONHIT_ABSORIGINE_REGEX_02 : "
+				+ "l'abscisse origine de la section HIT doit comporter exactement 4 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_ABSORIGINE_NUMERIQUE_03 : 
+	 * l'abscisse origine doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_ABSORIGINE_NUMERIQUE_03 
+		= "RG_SECTIONHIT_ABSORIGINE_NUMERIQUE_03 : "
+				+ "l'abscisse origine doit être homogène à un entier";
+
+	/* 21 - lieuDitExtremite. *******/
+	/**
+	 * "lieuDitExtremite".<br/>
+	 */
+	public static final String ATTRIBUT_LIEUDITEXTREMITE 
+		= "lieuDitExtremite";
+
+	/**
+	 * "RG_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01 : 
+	 * le lieu-dit extremité de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01 : "
+				+ "le lieu-dit extremité de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02 : 
+	 * le lieu-dit extremité de la section HIT doit comporter exactement 20 caractères quelconques".
+	 */
+	public static final String RG_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02 
+		= "RG_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02 : "
+				+ "le lieu-dit extremité de la section HIT doit comporter exactement 20 caractères quelconques";	
+
+	/* 22 - prExtremite. *******/
+	/**
+	 * "prExtremite".<br/>
+	 */
+	public static final String ATTRIBUT_PREXTREMITE 
+		= "prExtremite";
+
+	/**
+	 * "RG_SECTIONHIT_PREXTREMITE_RENSEIGNE_01 : 
+	 * le PR extremité de la section HIT doit être renseigné (obligatoire)".
+	 */
+	public static final String RG_SECTIONHIT_PREXTREMITE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PREXTREMITE_RENSEIGNE_01 : "
+				+ "le PR extremité de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE_OBLIGATOIRE;
+
+	/**
+	 * "RG_SECTIONHIT_PREXTREMITE_REGEX_02 : 
+	 * le PR extremité de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PREXTREMITE_REGEX_02 
+		= "RG_SECTIONHIT_PREXTREMITE_REGEX_02 : "
+				+ "le PR extremité de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PREXTREMITE_NUMERIQUE_03 : 
+	 * le PR extremité doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PREXTREMITE_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PREXTREMITE_NUMERIQUE_03 : "
+				+ "le PR extremité doit être homogène à un entier";
+
+	/* 23 - absExtremite. *******/
+	/**
+	 * "absExtremite".<br/>
+	 */
+	public static final String ATTRIBUT_ABSEXTREMITE 
+		= "absExtremite";
+
+	/**
+	 * "RG_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01 : 
+	 * l'abscisse extremité de la section HIT doit être renseignée (obligatoire)".
+	 */
+	public static final String RG_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01 : "
+				+ "l'abscisse extremité de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE_OBLIGATOIRE;
+
+	/**
+	 * "RG_SECTIONHIT_ABSEXTREMITE_REGEX_02 : 
+	 * l'abscisse extremité de la section HIT doit comporter exactement 4 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ABSEXTREMITE_REGEX_02 
+		= "RG_SECTIONHIT_ABSEXTREMITE_REGEX_02 : "
+				+ "l'abscisse extremité de la section HIT doit comporter exactement 4 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03 : 
+	 * l'abscisse extremité doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03 
+		= "RG_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03 : "
+				+ "l'abscisse extremité doit être homogène à un entier";
 
 	/**
 	 * LOG : Log : 
@@ -1444,7 +1570,165 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitPrOrigineNumerique03()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrOrigineNumerique03());
+		
+		/* 20 - absOrigine. *******/
+		/* RG_SECTIONHIT_ABSORIGINE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAbsOrigineRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsOrigine()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsOrigineRenseigne01()
+				, RG_SECTIONHIT_ABSORIGINE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAbsOrigineRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ABSORIGINE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAbsOrigineRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsOrigineRenseigne01());
+		
+		/* RG_SECTIONHIT_ABSORIGINE_REGEX_02. */
+		final LigneRG ligneRGSectionHitAbsOrigineRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsOrigine()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsOrigineRegex02()
+				, RG_SECTIONHIT_ABSORIGINE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAbsOrigineRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ABSORIGINE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAbsOrigineRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsOrigineRegex02());
 				
+		/* RG_SECTIONHIT_ABSORIGINE_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitAbsOrigineNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsOrigine()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsOrigineNumerique03()
+				, RG_SECTIONHIT_ABSORIGINE_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAbsOrigineNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ABSORIGINE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAbsOrigineNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsOrigineNumerique03());
+		
+		/* 21 - lieuDitExtremite. *******/
+		/* RG_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitLieuDitExtremiteRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitExtremite()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitExtremiteRenseigne01()
+				, RG_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLieuDitExtremiteRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LIEUDITEXTREMITE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLieuDitExtremiteRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLieuDitExtremiteRenseigne01());
+		
+		/* RG_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02. */
+		final LigneRG ligneRGSectionHitLieuDitExtremiteRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitExtremite()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitExtremiteRegex02()
+				, RG_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLieuDitExtremiteRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LIEUDITEXTREMITE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLieuDitExtremiteRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLieuDitExtremiteRegex02());
+		
+		/* 22 - prExtremite. *******/
+		/* RG_SECTIONHIT_PREXTREMITE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPrExtremiteRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrExtremite()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrExtremiteRenseigne01()
+				, RG_SECTIONHIT_PREXTREMITE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPrExtremiteRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PREXTREMITE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPrExtremiteRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrExtremiteRenseigne01());
+		
+		/* RG_SECTIONHIT_PREXTREMITE_REGEX_02. */
+		final LigneRG ligneRGSectionHitPrExtremiteRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrExtremite()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrExtremiteRegex02()
+				, RG_SECTIONHIT_PREXTREMITE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPrExtremiteRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PREXTREMITE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPrExtremiteRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrExtremiteRegex02());
+				
+		/* RG_SECTIONHIT_PREXTREMITE_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPrExtremiteNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrExtremite()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrExtremiteNumerique03()
+				, RG_SECTIONHIT_PREXTREMITE_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPrExtremiteNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PREXTREMITE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPrExtremiteNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrExtremiteNumerique03());
+		
+		/* 23 - absExtremite. *******/
+		/* RG_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAbsExtremiteRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsExtremite()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsExtremiteRenseigne01()
+				, RG_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAbsExtremiteRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ABSEXTREMITE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAbsExtremiteRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsExtremiteRenseigne01());
+		
+		/* RG_SECTIONHIT_ABSEXTREMITE_REGEX_02. */
+		final LigneRG ligneRGSectionHitAbsExtremiteRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsExtremite()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsExtremiteRegex02()
+				, RG_SECTIONHIT_ABSEXTREMITE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAbsExtremiteRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ABSEXTREMITE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAbsExtremiteRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsExtremiteRegex02());
+				
+		/* RG_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitAbsExtremiteNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsExtremite()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsExtremiteNumerique03()
+				, RG_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAbsExtremiteNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ABSEXTREMITE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAbsExtremiteNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsExtremiteNumerique03());
+								
 		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
@@ -1631,6 +1915,47 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_PRORIGINE_NUMERIQUE_03
 			, ligneRGSectionHitPrOrigineNumerique03);				
+				
+		/* 20 - absOrigine. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ABSORIGINE_RENSEIGNE_01
+			, ligneRGSectionHitAbsOrigineRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ABSORIGINE_REGEX_02
+			, ligneRGSectionHitAbsOrigineRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_ABSORIGINE_NUMERIQUE_03
+			, ligneRGSectionHitAbsOrigineNumerique03);				
+				
+		/* 21 - lieuDitExtremite. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01
+			, ligneRGSectionHitLieuDitExtremiteRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02
+			, ligneRGSectionHitLieuDitExtremiteRegex02);
+				
+		/* 22 - prExtremite. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PREXTREMITE_RENSEIGNE_01
+			, ligneRGSectionHitPrExtremiteRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PREXTREMITE_REGEX_02
+			, ligneRGSectionHitPrExtremiteRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PREXTREMITE_NUMERIQUE_03
+			, ligneRGSectionHitPrExtremiteNumerique03);				
+				
+		/* 23 - absExtremite. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01
+			, ligneRGSectionHitAbsExtremiteRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ABSEXTREMITE_REGEX_02
+			, ligneRGSectionHitAbsExtremiteRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03
+			, ligneRGSectionHitAbsExtremiteNumerique03);				
 		
 		return this.mapRG;
 					

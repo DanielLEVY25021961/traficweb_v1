@@ -99,10 +99,10 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setPRoupK("1");
 				bonneSectionHitDTO.setLieuDitOrigine("PAMIERS A 66        ");
 				bonneSectionHitDTO.setPrOrigine("018");
-				bonneSectionHitDTO.setAbsOrigine("0");
+				bonneSectionHitDTO.setAbsOrigine("0001");
 				bonneSectionHitDTO.setLieuDitExtremite("RD 119              ");
-				bonneSectionHitDTO.setPrExtremite("21");
-				bonneSectionHitDTO.setAbsExtremite("444");
+				bonneSectionHitDTO.setPrExtremite("021");
+				bonneSectionHitDTO.setAbsExtremite("0444");
 				bonneSectionHitDTO.setLieuDitComptage("PAMIERS             ");
 				bonneSectionHitDTO.setPrComptage("19");
 				bonneSectionHitDTO.setAbsComptage("290");

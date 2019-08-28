@@ -821,11 +821,11 @@ public final class GenerateurGestionnaireRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "19";
-		final String nomChamp = "prOrigine";
-		final String nomChampEnClair = "le PR origine";
-		final String colonnes = "[50-52]";
-		final String nbreChiffres = "3";
+		final String numeroChamp = "20";
+		final String nomChamp = "absOrigine";
+		final String nomChampEnClair = "l'abscisse origine";
+		final String colonnes = "[53-56]";
+		final String nbreChiffres = "4";
 //		final String nomenclature = "[1, 2]";
 		// *******************************************************
 		
