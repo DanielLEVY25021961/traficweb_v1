@@ -23,8 +23,8 @@
 22;77-79;3;P.R. Extrémité;Point repère extrémité ('fin') - 3 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 021 pour PR21);prExtremite;Integer;false;false;77;79;3
 23;80-83;4;Abscisse du PRE;Abscisse du Point Extrémité par rapport au Point Repère Extrémité ('fin') - 4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 0020 pour 20);absExtremite;Integer;false;false;80;83;4
 24;84-103;20;Lieu-dit de comptage;Libellé du lieu-dit de comptage;lieuDitComptage;String;false;false;84;103;20
-25;104-106;3;P.R. Comptage;Point repère comptage;prComptage;Integer;false;false;104;106;3
-26;107-110;4;Abscisse du PRC;Abscisse du Point de Comptage par rapport au Point Repère Comptage;absComptage;Integer;false;false;107;110;4
+25;104-106;3;P.R. Comptage;Point repère comptage - 3 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 021 pour PR21);prComptage;Integer;false;false;104;106;3
+26;107-110;4;Abscisse du PRC;Abscisse du Point de Comptage par rapport au Point Repère Comptage - 4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche (ex 0020 pour 20);absComptage;Integer;false;false;107;110;4
 27;111-116;6;Longueur section;Longueur de la section en mètres;longueurSection;Integer;false;false;111;116;6
 28;117-122;6;Longueur rase campagne;Longueur en rase campagne en mètres;longueurRaseCampagne;Integer;false;false;117;122;6
 29;123-125;3;Numéro de Département de la section de rattachement;Exactement 3 Chiffres. Complété par un 0 à droite si dep < 3 chiffres et complété par un 0 à gauche si dep < 2 chiffres. Exemples : (Ain) 1 = 010, (Allier) 3 = 030, (Bouches-du-Rhône) 13 = 130, (Dordogne) 24 = 240, (Guadeloupe) 971 = 971;numDepartementRattachement;Integer;false;false;123;125;3

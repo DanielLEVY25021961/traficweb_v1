@@ -1298,6 +1298,161 @@ public final class SectionHitGestionnairePreferencesControles {
 	 */
 	public static final String MESSAGE_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03_EN_DUR 
 		= "l'abscisse extremité de la section HIT (colonnes [80-83] du HIT) doit être homogène à un entier";
+	
+	/* 24 - lieuDitComptage. *******/
+	/**
+	 * clé de messageSectionHitLieuDitComptageRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.lieuDitComptage.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01 
+		= "message.SectionHit.lieuDitComptage.renseigne";
+	
+	/**
+	 * messageSectionHitLieuDitComptageRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitLieuDitComptageRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le lieu-dit de comptage de la section HIT (colonnes [84-103] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01_EN_DUR 
+		= "le lieu-dit de comptage de la section HIT (colonnes [84-103] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitLieuDitComptageRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.lieuDitComptage.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02 
+		= "message.SectionHit.lieuDitComptage.regex";
+	
+	/**
+	 * messageSectionHitLieuDitComptageRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitLieuDitComptageRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le lieu-dit de comptage de la section HIT (colonnes [84-103] du HIT) doit comporter exactement 20 caractères".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02_EN_DUR 
+		= "le lieu-dit de comptage de la section HIT (colonnes [84-103] du HIT) doit comporter exactement 20 caractères";
+	
+	/* 25 - prComptage. *******/
+	/**
+	 * clé de messageSectionHitPrComptageRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.prComptage.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01 
+		= "message.SectionHit.prComptage.renseigne";
+	
+	/**
+	 * messageSectionHitPrComptageRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPrComptageRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le PR du comptage de la section HIT (colonnes [104-106] du HIT) doit être renseigné (obligatoire)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01_EN_DUR 
+		= "le PR du comptage de la section HIT (colonnes [104-106] du HIT) doit être renseigné (obligatoire)";
+		
+	/**
+	 * clé de messageSectionHitPrComptageRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.prComptage.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02 
+		= "message.SectionHit.prComptage.regex";
+	
+	/**
+	 * messageSectionHitPrComptageRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPrComptageRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le PR du comptage de la section HIT (colonnes [104-106] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02_EN_DUR 
+		= "le PR du comptage de la section HIT (colonnes [104-106] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPrComptageNumerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.prComptage.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03 
+		= "message.SectionHit.prComptage.numerique";
+	
+	/**
+	 * messageSectionHitPrComptageNumerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPrComptageNumerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le PR du comptage de la section HIT (colonnes [104-106] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03_EN_DUR 
+		= "le PR du comptage de la section HIT (colonnes [104-106] du HIT) doit être homogène à un entier";
+	
+	/* 26 - absComptage. *******/
+	/**
+	 * clé de messageSectionHitAbsComptageRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.absComptage.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01 
+		= "message.SectionHit.absComptage.renseigne";
+	
+	/**
+	 * messageSectionHitAbsComptageRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitAbsComptageRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit être renseignée (obligatoire)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01_EN_DUR 
+		= "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit être renseignée (obligatoire)";
+		
+	/**
+	 * clé de messageSectionHitAbsComptageRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.absComptage.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02 
+		= "message.SectionHit.absComptage.regex";
+	
+	/**
+	 * messageSectionHitAbsComptageRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitAbsComptageRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit comporter exactement 4 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02_EN_DUR 
+		= "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit comporter exactement 4 chiffres";
+		
+	/**
+	 * clé de messageSectionHitAbsComptageNumerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.absComptage.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03 
+		= "message.SectionHit.absComptage.numerique";
+	
+	/**
+	 * messageSectionHitAbsComptageNumerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitAbsComptageNumerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03_EN_DUR 
+		= "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit être homogène à un entier";
 							
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
@@ -1724,6 +1879,57 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "l'abscisse extremité de la section HIT (colonnes [80-83] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitAbsExtremiteNumerique03;
+
+	/* 24 - lieuDitComptage. *******/
+	/**
+	* message émis par la RG-SectionHit-LieuDitComptage-01 : 
+	* "le lieu-dit de comptage de la section HIT (colonnes [84-103] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitLieuDitComptageRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-LieuDitComptage-02 : 
+	* "le lieu-dit de comptage de la section HIT (colonnes [84-103] du HIT) doit comporter exactement 20 caractères".<br/>
+	*/
+	private static String messageSectionHitLieuDitComptageRegex02;		
+
+	/* 25 - prComptage. *******/
+	/**
+	* message émis par la RG-SectionHit-PrComptage-01 : 
+	* "le PR du comptage de la section HIT (colonnes [104-106] du HIT) doit être renseigné (obligatoire)".<br/>
+	*/
+	private static String messageSectionHitPrComptageRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PrComptage-02 : 
+	* "le PR du comptage de la section HIT (colonnes [104-106] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPrComptageRegex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PrComptage-03 : 
+	* "le PR du comptage de la section HIT (colonnes [104-106] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPrComptageNumerique03;
+
+	/* 26 - absComptage. *******/
+	/**
+	* message émis par la RG-SectionHit-AbsComptage-01 : 
+	* "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit être renseignée (obligatoire)".<br/>
+	*/
+	private static String messageSectionHitAbsComptageRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-AbsComptage-02 : 
+	* "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit comporter exactement 4 chiffres".<br/>
+	*/
+	private static String messageSectionHitAbsComptageRegex02;
+	
+	/**
+	* message émis par la RG-SectionHit-AbsComptage-03 : 
+	* "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitAbsComptageNumerique03;
 		
 	
 	/**
@@ -2187,6 +2393,57 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03
 				, MESSAGE_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03_EN_DUR);
+				
+		/* 24 - lieuDitComptage. *******/		
+		/* ajoute le messageSectionHitLieuDitComptageRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitLieuDitComptageRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02
+				, MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02_EN_DUR);
+				
+		/* 25 - prComptage. *******/		
+		/* ajoute le messageSectionHitPrComptageRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPrComptageRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02
+				, MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPrComptageNumerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03_EN_DUR);
+				
+		/* 26 - absComptage. *******/		
+		/* ajoute le messageSectionHitAbsComptageRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitAbsComptageRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02
+				, MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitAbsComptageNumerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03_EN_DUR);
 																
 		} // Fin du bloc synchronized.__________________
 		
@@ -10628,6 +10885,913 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitAbsExtremiteNumerique03(...).__________	
+
+
+	
+	/* 24 - lieuDitComptage. ****************/
+	/**
+	 * retourne le messageSectionHitLieuDitComptageRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitLieuDitComptageRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitLieuDitComptageRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitLieuDitComptageRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitLieuDitComptageRenseigne01
+					, fournirKeyMessageSectionHitLieuDitComptageRenseigne01()
+					, MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitLieuDitComptageRenseigne01().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitLieuDitComptageRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.lieuDitComptage.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitLieuDitComptageRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitLieuDitComptageRenseigne01().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitLieuDitComptageRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitLieuDitComptageRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitLieuDitComptageRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitLieuDitComptageRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitLieuDitComptageRenseigne01();
+	} // Fin de getMessageSectionHitLieuDitComptageRenseigne01().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitLieuDitComptageRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitLieuDitComptageRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitLieuDitComptageRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitLieuDitComptageRenseigne01
+							, fournirKeyMessageSectionHitLieuDitComptageRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitLieuDitComptageRenseigne01(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitLieuDitComptageRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitLieuDitComptageRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitLieuDitComptageRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitLieuDitComptageRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitLieuDitComptageRegex02
+					, fournirKeyMessageSectionHitLieuDitComptageRegex02()
+					, MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitLieuDitComptageRegex02().__________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitLieuDitComptageRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.lieuDitComptage.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitLieuDitComptageRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitLieuDitComptageRegex02()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitLieuDitComptageRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitLieuDitComptageRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitLieuDitComptageRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitLieuDitComptageRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitLieuDitComptageRegex02();
+	} // Fin de getMessageSectionHitLieuDitComptageRegex02().______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitLieuDitComptageRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitLieuDitComptageRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitLieuDitComptageRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitLieuDitComptageRegex02
+							, fournirKeyMessageSectionHitLieuDitComptageRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitLieuDitComptageRegex02(...).___________
+
+
+	
+	/* 25 - prComptage. ****************/
+	/**
+	 * retourne le messageSectionHitPrComptageRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPrComptageRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPrComptageRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPrComptageRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPrComptageRenseigne01
+					, fournirKeyMessageSectionHitPrComptageRenseigne01()
+					, MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPrComptageRenseigne01().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPrComptageRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prComptage.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPrComptageRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPrComptageRenseigne01().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPrComptageRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPrComptageRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPrComptageRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPrComptageRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPrComptageRenseigne01();
+	} // Fin de getMessageSectionHitPrComptageRenseigne01()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPrComptageRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPrComptageRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPrComptageRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPrComptageRenseigne01
+							, fournirKeyMessageSectionHitPrComptageRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPrComptageRenseigne01(...).____________
+
+
+
+	/**
+	 * retourne le messageSectionHitPrComptageRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPrComptageRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPrComptageRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPrComptageRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPrComptageRegex02
+					, fournirKeyMessageSectionHitPrComptageRegex02()
+					, MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPrComptageRegex02()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPrComptageRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prComptage.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPrComptageRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPrComptageRegex02().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPrComptageRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPrComptageRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPrComptageRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPrComptageRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitPrComptageRegex02();
+	} // Fin de getMessageSectionHitPrComptageRegex02().___________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPrComptageRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPrComptageRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPrComptageRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPrComptageRegex02
+							, fournirKeyMessageSectionHitPrComptageRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPrComptageRegex02(...).________________
+
+
+
+	/**
+	 * retourne le messageSectionHitPrComptageNumerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPrComptageNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPrComptageNumerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPrComptageNumerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPrComptageNumerique03
+					, fournirKeyMessageSectionHitPrComptageNumerique03()
+					, MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPrComptageNumerique03().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPrComptageNumerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prComptage.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPrComptageNumerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPrComptageNumerique03().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPrComptageNumerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPrComptageNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPrComptageNumerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPrComptageNumerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPrComptageNumerique03();
+	} // Fin de getMessageSectionHitPrComptageNumerique03()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPrComptageNumerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPrComptageNumerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPrComptageNumerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPrComptageNumerique03
+							, fournirKeyMessageSectionHitPrComptageNumerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPrComptageNumerique03(...).____________	
+
+
+	
+	/* 26 - absComptage. ****************/
+	/**
+	 * retourne le messageSectionHitAbsComptageRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitAbsComptageRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitAbsComptageRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitAbsComptageRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitAbsComptageRenseigne01
+					, fournirKeyMessageSectionHitAbsComptageRenseigne01()
+					, MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitAbsComptageRenseigne01().__________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitAbsComptageRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.absComptage.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitAbsComptageRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitAbsComptageRenseigne01()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitAbsComptageRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitAbsComptageRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitAbsComptageRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitAbsComptageRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitAbsComptageRenseigne01();
+	} // Fin de getMessageSectionHitAbsComptageRenseigne01().______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitAbsComptageRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitAbsComptageRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitAbsComptageRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitAbsComptageRenseigne01
+							, fournirKeyMessageSectionHitAbsComptageRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitAbsComptageRenseigne01(...).___________
+
+
+
+	/**
+	 * retourne le messageSectionHitAbsComptageRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitAbsComptageRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitAbsComptageRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitAbsComptageRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitAbsComptageRegex02
+					, fournirKeyMessageSectionHitAbsComptageRegex02()
+					, MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitAbsComptageRegex02().______________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitAbsComptageRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.absComptage.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitAbsComptageRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitAbsComptageRegex02().___________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitAbsComptageRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitAbsComptageRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitAbsComptageRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitAbsComptageRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitAbsComptageRegex02();
+	} // Fin de getMessageSectionHitAbsComptageRegex02().__________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitAbsComptageRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitAbsComptageRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitAbsComptageRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitAbsComptageRegex02
+							, fournirKeyMessageSectionHitAbsComptageRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitAbsComptageRegex02(...)._______________
+
+
+
+	/**
+	 * retourne le messageSectionHitAbsComptageNumerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitAbsComptageNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitAbsComptageNumerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitAbsComptageNumerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitAbsComptageNumerique03
+					, fournirKeyMessageSectionHitAbsComptageNumerique03()
+					, MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitAbsComptageNumerique03().__________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitAbsComptageNumerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prComptage.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitAbsComptageNumerique03() {
+		return KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitAbsComptageNumerique03()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitAbsComptageNumerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitAbsComptageNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitAbsComptageNumerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitAbsComptageNumerique03() 
+													throws Exception {
+		return fournirMessageSectionHitAbsComptageNumerique03();
+	} // Fin de getMessageSectionHitAbsComptageNumerique03().______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitAbsComptageNumerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitAbsComptageNumerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitAbsComptageNumerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitAbsComptageNumerique03
+							, fournirKeyMessageSectionHitAbsComptageNumerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitAbsComptageNumerique03(...).___________	
 	
 			
 			
