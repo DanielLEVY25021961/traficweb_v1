@@ -104,8 +104,8 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setPrExtremite("021");
 				bonneSectionHitDTO.setAbsExtremite("0444");
 				bonneSectionHitDTO.setLieuDitComptage("PAMIERS             ");
-				bonneSectionHitDTO.setPrComptage("19");
-				bonneSectionHitDTO.setAbsComptage("290");
+				bonneSectionHitDTO.setPrComptage("019");
+				bonneSectionHitDTO.setAbsComptage("0290");
 				bonneSectionHitDTO.setLongueurSection("3444");
 				bonneSectionHitDTO.setLongueurRaseCampagne("3444");
 				bonneSectionHitDTO.setNumDepartementRattachement("090");

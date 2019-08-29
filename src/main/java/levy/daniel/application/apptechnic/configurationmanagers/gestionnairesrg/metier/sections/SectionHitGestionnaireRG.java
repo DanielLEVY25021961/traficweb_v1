@@ -775,6 +775,94 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03 : "
 				+ "l'abscisse extremité doit être homogène à un entier";
 
+	/* 24 - lieuDitComptage. *******/
+	/**
+	 * "lieuDitComptage".<br/>
+	 */
+	public static final String ATTRIBUT_LIEUDITCOMPTAGE 
+		= "lieuDitComptage";
+
+	/**
+	 * "RG_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01 : 
+	 * le lieu-dit de comptage de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01 : "
+				+ "le lieu-dit de comptage de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02 : 
+	 * le lieu-dit du comptage de la section HIT doit comporter exactement 20 caractères quelconques".
+	 */
+	public static final String RG_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02 
+		= "RG_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02 : "
+				+ "le lieu-dit du comptage de la section HIT doit comporter exactement 20 caractères quelconques";	
+
+	/* 25 - prComptage. *******/
+	/**
+	 * "prComptage".<br/>
+	 */
+	public static final String ATTRIBUT_PRCOMPTAGE 
+		= "prComptage";
+
+	/**
+	 * "RG_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01 : 
+	 * le PR du comptage de la section HIT doit être renseigné (obligatoire)".
+	 */
+	public static final String RG_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01 : "
+				+ "le PR du comptage de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE_OBLIGATOIRE;
+
+	/**
+	 * "RG_SECTIONHIT_PRCOMPTAGE_REGEX_02 : 
+	 * le PR du comptage de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PRCOMPTAGE_REGEX_02 
+		= "RG_SECTIONHIT_PRCOMPTAGE_REGEX_02 : "
+				+ "le PR du comptage de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03 : 
+	 * le PR du comptage doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03 : "
+				+ "le PR du comptage doit être homogène à un entier";
+
+	/* 26 - absComptage. *******/
+	/**
+	 * "absComptage".<br/>
+	 */
+	public static final String ATTRIBUT_ABSCOMPTAGE 
+		= "absComptage";
+
+	/**
+	 * "RG_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01 : 
+	 * l'abscisse du comptage de la section HIT doit être renseignée (obligatoire)".
+	 */
+	public static final String RG_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01 : "
+				+ "l'abscisse du comptage de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE_OBLIGATOIRE;
+
+	/**
+	 * "RG_SECTIONHIT_ABSCOMPTAGE_REGEX_02 : 
+	 * l'abscisse du comptage de la section HIT doit comporter exactement 4 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ABSCOMPTAGE_REGEX_02 
+		= "RG_SECTIONHIT_ABSCOMPTAGE_REGEX_02 : "
+				+ "l'abscisse du comptage de la section HIT doit comporter exactement 4 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03 : 
+	 * l'abscisse du comptage doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03 
+		= "RG_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03 : "
+				+ "l'abscisse du comptage doit être homogène à un entier";
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -1728,6 +1816,121 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitAbsExtremiteNumerique03()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsExtremiteNumerique03());
+		
+		/* 24 - lieuDitComptage. *******/
+		/* RG_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitLieuDitComptageRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitComptageRenseigne01()
+				, RG_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLieuDitComptageRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LIEUDITCOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLieuDitComptageRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLieuDitComptageRenseigne01());
+		
+		/* RG_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02. */
+		final LigneRG ligneRGSectionHitLieuDitComptageRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLieuDitComptageRegex02()
+				, RG_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLieuDitComptageRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LIEUDITCOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLieuDitComptageRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLieuDitComptageRegex02());
+		
+		/* 25 - prComptage. *******/
+		/* RG_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPrComptageRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrComptageRenseigne01()
+				, RG_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPrComptageRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PRCOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPrComptageRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrComptageRenseigne01());
+		
+		/* RG_SECTIONHIT_PRCOMPTAGE_REGEX_02. */
+		final LigneRG ligneRGSectionHitPrComptageRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrComptageRegex02()
+				, RG_SECTIONHIT_PRCOMPTAGE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPrComptageRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PRCOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPrComptageRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrComptageRegex02());
+				
+		/* RG_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPrComptageNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPrComptageNumerique03()
+				, RG_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPrComptageNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PRCOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPrComptageNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPrComptageNumerique03());
+		
+		/* 26 - absComptage. *******/
+		/* RG_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAbsComptageRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsComptageRenseigne01()
+				, RG_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAbsComptageRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ABSCOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAbsComptageRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsComptageRenseigne01());
+		
+		/* RG_SECTIONHIT_ABSCOMPTAGE_REGEX_02. */
+		final LigneRG ligneRGSectionHitAbsComptageRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsComptageRegex02()
+				, RG_SECTIONHIT_ABSCOMPTAGE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAbsComptageRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ABSCOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAbsComptageRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsComptageRegex02());
+				
+		/* RG_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitAbsComptageNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsComptage()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAbsComptageNumerique03()
+				, RG_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAbsComptageNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ABSCOMPTAGE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAbsComptageNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsComptageNumerique03());
 								
 		
 		// *********************************************
@@ -1956,6 +2159,36 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03
 			, ligneRGSectionHitAbsExtremiteNumerique03);				
+				
+		/* 24 - lieuDitComptage. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01
+			, ligneRGSectionHitLieuDitComptageRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02
+			, ligneRGSectionHitLieuDitComptageRegex02);
+				
+		/* 25 - prComptage. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01
+			, ligneRGSectionHitPrComptageRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PRCOMPTAGE_REGEX_02
+			, ligneRGSectionHitPrComptageRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03
+			, ligneRGSectionHitPrComptageNumerique03);				
+				
+		/* 26 - absComptage. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01
+			, ligneRGSectionHitAbsComptageRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ABSCOMPTAGE_REGEX_02
+			, ligneRGSectionHitAbsComptageRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03
+			, ligneRGSectionHitAbsComptageNumerique03);				
 		
 		return this.mapRG;
 					
