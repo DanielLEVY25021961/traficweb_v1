@@ -1470,11 +1470,11 @@ public final class GenerateurValideurService {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "20";
-		final String nomChamp = "absOrigine";
-		final String nomChampEnClair = "l'abscisse origine";
-		final String colonnes = "[53-56]";
-		final String nbreChiffres = "4";
+		final String numeroChamp = "28";
+		final String nomChamp = "longueurRaseCampagne";
+		final String nomChampEnClair = "la longueur en rase campagne";
+		final String colonnes = "[117-122]";
+		final String nbreChiffres = "6";
 //		final String nomenclature = "[1, 2]";
 		// *******************************************************
 		

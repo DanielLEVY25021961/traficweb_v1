@@ -1511,7 +1511,65 @@ public final class SectionHitGestionnairePreferencesControles {
 	 */
 	public static final String MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR 
 		= "la longueur de la section HIT (colonnes [111-116] du HIT) doit être homogène à un entier";
-									
+	
+	/* 28 - longueurRaseCampagne. *******/
+	/**
+	 * clé de messageSectionHitLongueurRaseCampagneRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.longueurRaseCampagne.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01 
+		= "message.SectionHit.longueurRaseCampagne.renseigne";
+	
+	/**
+	 * messageSectionHitLongueurRaseCampagneRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitLongueurRaseCampagneRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01_EN_DUR 
+		= "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitLongueurRaseCampagneRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.longueurRaseCampagne.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02 
+		= "message.SectionHit.longueurRaseCampagne.regex";
+	
+	/**
+	 * messageSectionHitLongueurRaseCampagneRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitLongueurRaseCampagneRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02_EN_DUR 
+		= "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitLongueurRaseCampagneNumerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.longueurRaseCampagne.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03 
+		= "message.SectionHit.longueurRaseCampagne.numerique";
+	
+	/**
+	 * messageSectionHitLongueurRaseCampagneNumerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitLongueurRaseCampagneNumerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR 
+		= "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être homogène à un entier";	
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -2007,7 +2065,25 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "la longueur de la section HIT (colonnes [111-116] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitLongueurSectionNumerique03;
-			
+
+	/* 28 - longueurRaseCampagne. *******/
+	/**
+	* message émis par la RG-SectionHit-LongueurRaseCampagne-01 : 
+	* "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitLongueurRaseCampagneRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-LongueurRaseCampagne-02 : 
+	* "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitLongueurRaseCampagneRegex02;
+	
+	/**
+	* message émis par la RG-SectionHit-LongueurRaseCampagne-03 : 
+	* "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitLongueurRaseCampagneNumerique03;			
 	
 	/**
 	 * LOG : Log : 
@@ -2540,6 +2616,25 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03
 				, MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR);
+				
+		/* 28 - longueurRaseCampagne. *******/		
+		/* ajoute le messageSectionHitLongueurRaseCampagneRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitLongueurRaseCampagneRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02
+				, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitLongueurRaseCampagneNumerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR);
 																		
 		} // Fin du bloc synchronized.__________________
 		
@@ -12228,7 +12323,347 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitLongueurSectionNumerique03(...)._______
+
+
+	
+	/* 28 - longueurRaseCampagne. ****************/
+	/**
+	 * retourne le messageSectionHitLongueurRaseCampagneRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurRaseCampagneRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitLongueurRaseCampagneRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitLongueurRaseCampagneRenseigne01() 
+			throws Exception {
 		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitLongueurRaseCampagneRenseigne01
+					, fournirKeyMessageSectionHitLongueurRaseCampagneRenseigne01()
+					, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitLongueurRaseCampagneRenseigne01()._
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitLongueurRaseCampagneRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.longueurRaseCampagne.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitLongueurRaseCampagneRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitLongueurRaseCampagneRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitLongueurRaseCampagneRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurRaseCampagneRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitLongueurRaseCampagneRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitLongueurRaseCampagneRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitLongueurRaseCampagneRenseigne01();
+	} // Fin de getMessageSectionHitLongueurRaseCampagneRenseigne01()._____
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitLongueurRaseCampagneRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitLongueurRaseCampagneRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitLongueurRaseCampagneRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitLongueurRaseCampagneRenseigne01
+							, fournirKeyMessageSectionHitLongueurRaseCampagneRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitLongueurRaseCampagneRenseigne01(...).__
+
+
+
+	/**
+	 * retourne le messageSectionHitLongueurRaseCampagneRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurRaseCampagneRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitLongueurRaseCampagneRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitLongueurRaseCampagneRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitLongueurRaseCampagneRegex02
+					, fournirKeyMessageSectionHitLongueurRaseCampagneRegex02()
+					, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitLongueurRaseCampagneRegex02()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitLongueurRaseCampagneRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.longueurRaseCampagne.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitLongueurRaseCampagneRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitLongueurRaseCampagneRegex02().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitLongueurRaseCampagneRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurRaseCampagneRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitLongueurRaseCampagneRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitLongueurRaseCampagneRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitLongueurRaseCampagneRegex02();
+	} // Fin de getMessageSectionHitLongueurRaseCampagneRegex02()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitLongueurRaseCampagneRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitLongueurRaseCampagneRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitLongueurRaseCampagneRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitLongueurRaseCampagneRegex02
+							, fournirKeyMessageSectionHitLongueurRaseCampagneRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitLongueurRaseCampagneRegex02(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitLongueurRaseCampagneNumerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurRaseCampagneNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitLongueurRaseCampagneNumerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitLongueurRaseCampagneNumerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitLongueurRaseCampagneNumerique03
+					, fournirKeyMessageSectionHitLongueurRaseCampagneNumerique03()
+					, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitLongueurRaseCampagneNumerique03()._
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitLongueurRaseCampagneNumerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitLongueurRaseCampagneNumerique03() {
+		return KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitLongueurRaseCampagneNumerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitLongueurRaseCampagneNumerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurRaseCampagneNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitLongueurRaseCampagneNumerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitLongueurRaseCampagneNumerique03() 
+													throws Exception {
+		return fournirMessageSectionHitLongueurRaseCampagneNumerique03();
+	} // Fin de getMessageSectionHitLongueurRaseCampagneNumerique03()._____
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitLongueurRaseCampagneNumerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitLongueurRaseCampagneNumerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitLongueurRaseCampagneNumerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitLongueurRaseCampagneNumerique03
+							, fournirKeyMessageSectionHitLongueurRaseCampagneNumerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitLongueurRaseCampagneNumerique03(...).__	
+	
 			
 			
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesControles.------------

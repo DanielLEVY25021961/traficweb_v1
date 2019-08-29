@@ -863,6 +863,70 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03 : "
 				+ "l'abscisse du comptage doit être homogène à un entier";
 
+	/* 27 - longueurSection. *******/
+	/**
+	 * "longueurSection".<br/>
+	 */
+	public static final String ATTRIBUT_LONGUEURSECTION 
+		= "longueurSection";
+
+	/**
+	 * "RG_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01 : 
+	 * la longueur de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01 
+		= "RG_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01 : "
+				+ "la longueur de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_LONGUEURSECTION_REGEX_02 : 
+	 * la longueur de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_LONGUEURSECTION_REGEX_02 
+		= "RG_SECTIONHIT_LONGUEURSECTION_REGEX_02 : "
+				+ "la longueur de la section HIT doit comporter exactement 6 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03 : 
+	 * la longueur doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03 
+		= "RG_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03 : "
+				+ "la longueur doit être homogène à un entier";
+
+	/* 28 - longueurRaseCampagne. *******/
+	/**
+	 * "longueurRaseCampagne".<br/>
+	 */
+	public static final String ATTRIBUT_LONGUEURRASECAMPAGNE 
+		= "longueurRaseCampagne";
+
+	/**
+	 * "RG_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01 : 
+	 * la longueur en rase campagne de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01 : "
+				+ "la longueur en rase campagne de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02 : 
+	 * la longueur en rase campagne de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02 
+		= "RG_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02 : "
+				+ "la longueur en rase campagne de la section HIT doit comporter exactement 6 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03 : 
+	 * la longueur en rase campagne doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03 
+		= "RG_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03 : "
+				+ "la longueur en rase campagne doit être homogène à un entier";
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -1931,7 +1995,92 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitAbsComptageNumerique03()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAbsComptageNumerique03());
-								
+		
+		/* 27 - longueurSection. *******/
+		/* RG_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitLongueurSectionRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurSection()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurSectionRenseigne01()
+				, RG_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLongueurSectionRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LONGUEURSECTION
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLongueurSectionRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLongueurSectionRenseigne01());
+		
+		/* RG_SECTIONHIT_LONGUEURSECTION_REGEX_02. */
+		final LigneRG ligneRGSectionHitLongueurSectionRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurSection()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurSectionRegex02()
+				, RG_SECTIONHIT_LONGUEURSECTION_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLongueurSectionRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LONGUEURSECTION
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLongueurSectionRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLongueurSectionRegex02());
+				
+		/* RG_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitLongueurSectionNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurSection()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurSectionNumerique03()
+				, RG_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLongueurSectionNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LONGUEURSECTION
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLongueurSectionNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLongueurSectionNumerique03());
+		
+		/* 28 - longueurRaseCampagne. *******/
+		/* RG_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitLongueurRaseCampagneRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurRaseCampagne()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurRaseCampagneRenseigne01()
+				, RG_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLongueurRaseCampagneRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LONGUEURRASECAMPAGNE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLongueurRaseCampagneRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLongueurRaseCampagneRenseigne01());
+		
+		/* RG_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02. */
+		final LigneRG ligneRGSectionHitLongueurRaseCampagneRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurRaseCampagne()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurRaseCampagneRegex02()
+				, RG_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLongueurRaseCampagneRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LONGUEURRASECAMPAGNE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLongueurRaseCampagneRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLongueurRaseCampagneRegex02());
+				
+		/* RG_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitLongueurRaseCampagneNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurRaseCampagne()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitLongueurRaseCampagneNumerique03()
+				, RG_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitLongueurRaseCampagneNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_LONGUEURRASECAMPAGNE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitLongueurRaseCampagneNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLongueurRaseCampagneNumerique03());								
 		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
@@ -2189,6 +2338,28 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03
 			, ligneRGSectionHitAbsComptageNumerique03);				
+				
+		/* 27 - longueurSection. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01
+			, ligneRGSectionHitLongueurSectionRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_LONGUEURSECTION_REGEX_02
+			, ligneRGSectionHitLongueurSectionRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03
+			, ligneRGSectionHitLongueurSectionNumerique03);				
+				
+		/* 28 - longueurRaseCampagne. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01
+			, ligneRGSectionHitLongueurRaseCampagneRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02
+			, ligneRGSectionHitLongueurRaseCampagneRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03
+			, ligneRGSectionHitLongueurRaseCampagneNumerique03);				
 		
 		return this.mapRG;
 					

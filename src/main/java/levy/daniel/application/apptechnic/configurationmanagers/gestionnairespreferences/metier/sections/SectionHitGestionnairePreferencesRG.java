@@ -1908,6 +1908,157 @@ public final class SectionHitGestionnairePreferencesRG {
 	public static final String STRING_VALIDER_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03_EN_DUR 
 		= "true";				
 	
+	/* 27 - longueurSection. *******/
+	/**
+	 * clé de validerRGSectionHitLongueurSection dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.longueurSection"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_LONGUEURSECTION 
+		= "valider.SectionHit.longueurSection";
+	
+	/**
+	 * validerRGSectionHitLongueurSection par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitLongueurSection 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitLongueurSectionRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.longueurSection.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01 
+		= "valider.SectionHit.longueurSection.renseigne";
+	
+	/**
+	 * validerRGSectionHitLongueurSectionRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitLongueurSectionRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitLongueurSectionRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.longueurSection.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_REGEX_02 
+		= "valider.SectionHit.longueurSection.regex";
+	
+	/**
+	 * validerRGSectionHitLongueurSectionRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitLongueurSectionRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitLongueurSectionNumerique03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.longueurSection.numerique"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03 
+		= "valider.SectionHit.longueurSection.numerique";
+	
+	/**
+	 * validerRGSectionHitLongueurSectionNumerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitLongueurSectionNumerique03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR 
+		= "true";
+	
+	/* 28 - longueurRaseCampagne. *******/
+	/**
+	 * clé de validerRGSectionHitLongueurRaseCampagne dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.longueurRaseCampagne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE 
+		= "valider.SectionHit.longueurRaseCampagne";
+	
+	/**
+	 * validerRGSectionHitLongueurRaseCampagne par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitLongueurRaseCampagne 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitLongueurRaseCampagneRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.longueurRaseCampagne.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01 
+		= "valider.SectionHit.longueurRaseCampagne.renseigne";
+	
+	/**
+	 * validerRGSectionHitLongueurRaseCampagneRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitLongueurRaseCampagneRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitLongueurRaseCampagneRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.longueurRaseCampagne.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02 
+		= "valider.SectionHit.longueurRaseCampagne.regex";
+	
+	/**
+	 * validerRGSectionHitLongueurRaseCampagneRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitLongueurRaseCampagneRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitLongueurRaseCampagneNumerique03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.longueurRaseCampagne.numerique"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03 
+		= "valider.SectionHit.longueurRaseCampagne.numerique";
+	
+	/**
+	 * validerRGSectionHitLongueurRaseCampagneNumerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitLongueurRaseCampagneNumerique03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR 
+		= "true";			
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -2597,7 +2748,61 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	private static Boolean validerRGSectionHitAbsComptageNumerique03;
 	
-			
+	/* 27 - longueurSection. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>longueurSection</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>longueurSection</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitLongueurSection;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-LongueurSection-01 : 
+	 * "la longueur de la section HIT (colonnes [111-116] du HIT) doit être renseignée".<br/>
+	 */
+	private static Boolean validerRGSectionHitLongueurSectionRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-LongueurSection-02 : 
+	 * "la longueur de la section HIT (colonnes [111-116] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitLongueurSectionRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-LongueurSection-03 : 
+	 * "la longueur de la section HIT (colonnes [111-116] du HIT) doit être homogène à un entier".<br/>
+	 */
+	private static Boolean validerRGSectionHitLongueurSectionNumerique03;
+	
+	/* 28 - longueurRaseCampagne. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>longueurRaseCampagne</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>longueurRaseCampagne</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitLongueurRaseCampagne;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-LongueurRaseCampagne-01 : 
+	 * "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être renseignée".<br/>
+	 */
+	private static Boolean validerRGSectionHitLongueurRaseCampagneRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-LongueurRaseCampagne-02 : 
+	 * "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitLongueurRaseCampagneRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-LongueurRaseCampagne-03 : 
+	 * "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être homogène à un entier".<br/>
+	 */
+	private static Boolean validerRGSectionHitLongueurRaseCampagneNumerique03;
+	
+				
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -3265,7 +3470,57 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03
 						, STRING_VALIDER_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03_EN_DUR);
-															
+			
+			/* 27 - longueurSection. *******/
+			/* ajoute le validerRGSectionHitLongueurSection 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_LONGUEURSECTION
+						, STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitLongueurSectionRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitLongueurSectionRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitLongueurSectionNumerique03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03
+						, STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR);
+			
+			/* 28 - longueurRaseCampagne. *******/
+			/* ajoute le validerRGSectionHitLongueurRaseCampagne 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE
+						, STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitLongueurRaseCampagneRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitLongueurRaseCampagneRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitLongueurRaseCampagneNumerique03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03
+						, STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR);
+																											
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -15296,7 +15551,931 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitAbsComptageNumerique03(...)._________
+	
+	
+	
+	/* 27 - longueurSection. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitLongueurSection</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>longueurSection</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>longueurSection</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurSection stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitLongueurSection 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitLongueurSection() 
+			throws Exception {
 		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitLongueurSection
+					, fournirKeyValiderRGSectionHitLongueurSection()
+					, STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitLongueurSection()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitLongueurSection 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.longueurSection".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_LONGUEURSECTION : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitLongueurSection() {
+		return KEY_VALIDER_SECTIONHIT_LONGUEURSECTION;
+	} // Fin de fournirKeyValiderRGSectionHitLongueurSection().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitLongueurSection par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitLongueurSection 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitLongueurSection stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitLongueurSection : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitLongueurSection() 
+													throws Exception {
+		return fournirValiderRGSectionHitLongueurSection();
+	} // Fin de getValiderRGSectionHitLongueurSection().___________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitLongueurSection par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitLongueurSection.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitLongueurSection(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitLongueurSection
+							, fournirKeyValiderRGSectionHitLongueurSection());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitLongueurSection(...).________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitLongueurSectionRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurSectionRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitLongueurSectionRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitLongueurSectionRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitLongueurSectionRenseigne01
+					, fournirKeyValiderRGSectionHitLongueurSectionRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitLongueurSectionRenseigne01().____
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitLongueurSectionRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.longueurSection.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitLongueurSectionRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitLongueurSectionRenseigne01()._
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitLongueurSectionRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurSectionRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitLongueurSectionRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitLongueurSectionRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitLongueurSectionRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitLongueurSectionRenseigne01();
+	} // Fin de getValiderRGSectionHitLongueurSectionRenseigne01().________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitLongueurSectionRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitLongueurSectionRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitLongueurSectionRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitLongueurSectionRenseigne01
+							, fournirKeyValiderRGSectionHitLongueurSectionRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitLongueurSectionRenseigne01(...)._____
+
+
+
+	/**
+	 * retourne le validerRGSectionHitLongueurSectionRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurSectionRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitLongueurSectionRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitLongueurSectionRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitLongueurSectionRegex02
+					, fournirKeyValiderRGSectionHitLongueurSectionRegex02()
+					, STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitLongueurSectionRegex02().________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitLongueurSectionRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.longueurSection.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitLongueurSectionRegex02() {
+		return KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitLongueurSectionRegex02()._____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitLongueurSectionRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurSectionRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitLongueurSectionRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitLongueurSectionRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitLongueurSectionRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitLongueurSectionRegex02();
+	} // Fin de getValiderRGSectionHitLongueurSectionRegex02().____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitLongueurSectionRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitLongueurSectionRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitLongueurSectionRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitLongueurSectionRegex02
+							, fournirKeyValiderRGSectionHitLongueurSectionRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitLongueurSectionRegex02(...)._________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitLongueurSectionNumerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurSectionNumerique03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitLongueurSectionNumerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitLongueurSectionNumerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitLongueurSectionNumerique03
+					, fournirKeyValiderRGSectionHitLongueurSectionNumerique03()
+					, STRING_VALIDER_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitLongueurSectionNumerique03().____
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitLongueurSectionNumerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.longueurSection.numerique".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitLongueurSectionNumerique03() {
+		return KEY_VALIDER_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03;
+	} // Fin de fournirKeyValiderRGSectionHitLongueurSectionNumerique03()._
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitLongueurSectionNumerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurSectionNumerique03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitLongueurSectionNumerique03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitLongueurSectionNumerique03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitLongueurSectionNumerique03() 
+													throws Exception {
+		return fournirValiderRGSectionHitLongueurSectionNumerique03();
+	} // Fin de getValiderRGSectionHitLongueurSectionNumerique03().________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitLongueurSectionNumerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitLongueurSectionNumerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitLongueurSectionNumerique03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitLongueurSectionNumerique03
+							, fournirKeyValiderRGSectionHitLongueurSectionNumerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitLongueurSectionNumerique03(...)._____
+	
+	
+	
+	/* 28 - longueurRaseCampagne. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitLongueurRaseCampagne</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>longueurRaseCampagne</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>longueurRaseCampagne</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurRaseCampagne stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitLongueurRaseCampagne 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitLongueurRaseCampagne() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitLongueurRaseCampagne
+					, fournirKeyValiderRGSectionHitLongueurRaseCampagne()
+					, STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitLongueurRaseCampagne().__________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitLongueurRaseCampagne 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.longueurRaseCampagne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitLongueurRaseCampagne() {
+		return KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE;
+	} // Fin de fournirKeyValiderRGSectionHitLongueurRaseCampagne()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitLongueurRaseCampagne par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitLongueurRaseCampagne 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitLongueurRaseCampagne stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitLongueurRaseCampagne : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitLongueurRaseCampagne() 
+													throws Exception {
+		return fournirValiderRGSectionHitLongueurRaseCampagne();
+	} // Fin de getValiderRGSectionHitLongueurRaseCampagne().______________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitLongueurRaseCampagne par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitLongueurRaseCampagne.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitLongueurRaseCampagne(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitLongueurRaseCampagne
+							, fournirKeyValiderRGSectionHitLongueurRaseCampagne());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitLongueurRaseCampagne(...).___________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitLongueurRaseCampagneRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurRaseCampagneRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitLongueurRaseCampagneRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitLongueurRaseCampagneRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitLongueurRaseCampagneRenseigne01
+					, fournirKeyValiderRGSectionHitLongueurRaseCampagneRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitLongueurRaseCampagneRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitLongueurRaseCampagneRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.longueurRaseCampagne.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitLongueurRaseCampagneRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitLongueurRaseCampagneRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitLongueurRaseCampagneRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurRaseCampagneRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitLongueurRaseCampagneRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitLongueurRaseCampagneRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitLongueurRaseCampagneRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitLongueurRaseCampagneRenseigne01();
+	} // Fin de getValiderRGSectionHitLongueurRaseCampagneRenseigne01().___
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitLongueurRaseCampagneRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitLongueurRaseCampagneRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitLongueurRaseCampagneRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitLongueurRaseCampagneRenseigne01
+							, fournirKeyValiderRGSectionHitLongueurRaseCampagneRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitLongueurRaseCampagneRenseigne01(...).
+
+
+
+	/**
+	 * retourne le validerRGSectionHitLongueurRaseCampagneRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurRaseCampagneRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitLongueurRaseCampagneRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitLongueurRaseCampagneRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitLongueurRaseCampagneRegex02
+					, fournirKeyValiderRGSectionHitLongueurRaseCampagneRegex02()
+					, STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitLongueurRaseCampagneRegex02().___
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitLongueurRaseCampagneRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.longueurRaseCampagne.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitLongueurRaseCampagneRegex02() {
+		return KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitLongueurRaseCampagneRegex02().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitLongueurRaseCampagneRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurRaseCampagneRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitLongueurRaseCampagneRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitLongueurRaseCampagneRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitLongueurRaseCampagneRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitLongueurRaseCampagneRegex02();
+	} // Fin de getValiderRGSectionHitLongueurRaseCampagneRegex02()._______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitLongueurRaseCampagneRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitLongueurRaseCampagneRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitLongueurRaseCampagneRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitLongueurRaseCampagneRegex02
+							, fournirKeyValiderRGSectionHitLongueurRaseCampagneRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitLongueurRaseCampagneRegex02(...).____
+
+
+
+	/**
+	 * retourne le validerRGSectionHitLongueurRaseCampagneNumerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurRaseCampagneNumerique03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitLongueurRaseCampagneNumerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitLongueurRaseCampagneNumerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitLongueurRaseCampagneNumerique03
+					, fournirKeyValiderRGSectionHitLongueurRaseCampagneNumerique03()
+					, STRING_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitLongueurRaseCampagneNumerique03().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitLongueurRaseCampagneNumerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.longueurRaseCampagne.numerique".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitLongueurRaseCampagneNumerique03() {
+		return KEY_VALIDER_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03;
+	} // Fin de fournirKeyValiderRGSectionHitLongueurRaseCampagneNumerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitLongueurRaseCampagneNumerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitLongueurRaseCampagneNumerique03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitLongueurRaseCampagneNumerique03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitLongueurRaseCampagneNumerique03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitLongueurRaseCampagneNumerique03() 
+													throws Exception {
+		return fournirValiderRGSectionHitLongueurRaseCampagneNumerique03();
+	} // Fin de getValiderRGSectionHitLongueurRaseCampagneNumerique03().___
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitLongueurRaseCampagneNumerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitLongueurRaseCampagneNumerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitLongueurRaseCampagneNumerique03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitLongueurRaseCampagneNumerique03
+							, fournirKeyValiderRGSectionHitLongueurRaseCampagneNumerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitLongueurRaseCampagneNumerique03(...).
+			
 					
 	
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesRG.-------------------
