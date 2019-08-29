@@ -87,10 +87,17 @@ public class ErreursMaps {
 	public static final String MOINS_ESPACE = " - ";
 
 	/**
-	 * boolean qui stipule si la validation est OK.<br/>
+	 * boolean qui stipule si la validation est OK (toutes RG OK).<br/>
 	 * true si la validation est OK.<br/>
 	 */
 	private boolean valide;
+
+	/**
+	 * boolean qui stipule si la validation est Admissible 
+	 * (toutes RG indispensables OK).<br/>
+	 * true si la validation des RG indispensables est OK.<br/>
+	 */
+	private boolean admissible;
 	
 	/**
 	 * Map&lt;String,String&gt; contenant les 
@@ -436,6 +443,34 @@ public class ErreursMaps {
 			final boolean pValide) {
 		this.valide = pValide;
 	} // Fin de setValide(...).____________________________________________
+
+
+	
+	/**
+	 * Getter du boolean qui stipule si la validation est Admissible 
+	 * (toutes RG indispensables OK).<br/>
+	 * true si la validation des RG indispensables est OK.<br/>
+	 *
+	 * @return this.admissible : boolean.<br/>
+	 */
+	public final boolean isAdmissible() {
+		return this.admissible;
+	} // Fin de isAdmissible().____________________________________________
+
+
+	
+	/**
+	* Setter du boolean qui stipule si la validation est Admissible 
+	* (toutes RG indispensables OK).<br/>
+	* true si la validation des RG indispensables est OK.<br/>
+	*
+	* @param pAdmissible : boolean : 
+	* valeur à passer à this.admissible.<br/>
+	*/
+	public final void setAdmissible(
+			final boolean pAdmissible) {
+		this.admissible = pAdmissible;
+	} // Fin de setAdmissible(...).________________________________________
 
 
 

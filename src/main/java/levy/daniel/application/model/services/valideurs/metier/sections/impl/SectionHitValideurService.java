@@ -948,6 +948,24 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		erreursMap.setValide(valide);
 		
+		/* calcul de l'admissibilité sur tous les attributs obligatoires. */
+		final boolean admissible 
+			= numDepartementValide 
+			&& sensValide 
+			&& anneeTraitementValide
+			&& numRouteValide 
+			&& indiceNumRouteValide 
+			&& indiceLettreRouteValide 
+			&& categorieAdminRouteValide 
+			&& prOrigineValide 
+			&& absOrigineValide 
+			&& prExtremiteValide 
+			&& absExtremiteValide
+			&& prComptageValide 
+			&& absComptageValide;
+		
+		erreursMap.setAdmissible(admissible);
+		
 //		System.out.println("valide ? : " + valide);
 		
 		return erreursMap;

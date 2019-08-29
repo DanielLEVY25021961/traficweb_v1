@@ -1453,7 +1453,65 @@ public final class SectionHitGestionnairePreferencesControles {
 	 */
 	public static final String MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03_EN_DUR 
 		= "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit être homogène à un entier";
-							
+	
+	/* 27 - longueurSection. *******/
+	/**
+	 * clé de messageSectionHitLongueurSectionRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.longueurSection.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01 
+		= "message.SectionHit.longueurSection.renseigne";
+	
+	/**
+	 * messageSectionHitLongueurSectionRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitLongueurSectionRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la longueur de la section HIT (colonnes [111-116] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01_EN_DUR 
+		= "la longueur de la section HIT (colonnes [111-116] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitLongueurSectionRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.longueurSection.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02 
+		= "message.SectionHit.longueurSection.regex";
+	
+	/**
+	 * messageSectionHitLongueurSectionRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitLongueurSectionRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la longueur de la section HIT (colonnes [111-116] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02_EN_DUR 
+		= "la longueur de la section HIT (colonnes [111-116] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitLongueurSectionNumerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.longueurSection.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03 
+		= "message.SectionHit.longueurSection.numerique";
+	
+	/**
+	 * messageSectionHitLongueurSectionNumerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitLongueurSectionNumerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la longueur de la section HIT (colonnes [111-116] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR 
+		= "la longueur de la section HIT (colonnes [111-116] du HIT) doit être homogène à un entier";
+									
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -1930,7 +1988,26 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "l'abscisse du comptage de la section HIT (colonnes [107-110] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitAbsComptageNumerique03;
-		
+
+	/* 27 - longueurSection. *******/
+	/**
+	* message émis par la RG-SectionHit-LongueurSection-01 : 
+	* "la longueur de la section HIT (colonnes [111-116] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitLongueurSectionRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-LongueurSection-02 : 
+	* "la longueur de la section HIT (colonnes [111-116] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitLongueurSectionRegex02;
+	
+	/**
+	* message émis par la RG-SectionHit-LongueurSection-03 : 
+	* "la longueur de la section HIT (colonnes [111-116] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitLongueurSectionNumerique03;
+			
 	
 	/**
 	 * LOG : Log : 
@@ -2444,7 +2521,26 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03
 				, MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03_EN_DUR);
-																
+				
+		/* 27 - longueurSection. *******/		
+		/* ajoute le messageSectionHitLongueurSectionRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitLongueurSectionRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02
+				, MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitLongueurSectionNumerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR);
+																		
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -11792,7 +11888,347 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitAbsComptageNumerique03(...).___________	
+
+
 	
+	/* 27 - longueurSection. ****************/
+	/**
+	 * retourne le messageSectionHitLongueurSectionRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurSectionRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitLongueurSectionRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitLongueurSectionRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitLongueurSectionRenseigne01
+					, fournirKeyMessageSectionHitLongueurSectionRenseigne01()
+					, MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitLongueurSectionRenseigne01().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitLongueurSectionRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.longueurSection.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitLongueurSectionRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitLongueurSectionRenseigne01().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitLongueurSectionRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurSectionRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitLongueurSectionRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitLongueurSectionRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitLongueurSectionRenseigne01();
+	} // Fin de getMessageSectionHitLongueurSectionRenseigne01().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitLongueurSectionRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitLongueurSectionRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitLongueurSectionRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitLongueurSectionRenseigne01
+							, fournirKeyMessageSectionHitLongueurSectionRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitLongueurSectionRenseigne01(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitLongueurSectionRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurSectionRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitLongueurSectionRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitLongueurSectionRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitLongueurSectionRegex02
+					, fournirKeyMessageSectionHitLongueurSectionRegex02()
+					, MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitLongueurSectionRegex02().__________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitLongueurSectionRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.longueurSection.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitLongueurSectionRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitLongueurSectionRegex02()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitLongueurSectionRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurSectionRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitLongueurSectionRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitLongueurSectionRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitLongueurSectionRegex02();
+	} // Fin de getMessageSectionHitLongueurSectionRegex02().______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitLongueurSectionRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitLongueurSectionRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitLongueurSectionRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitLongueurSectionRegex02
+							, fournirKeyMessageSectionHitLongueurSectionRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitLongueurSectionRegex02(...).___________
+
+
+
+	/**
+	 * retourne le messageSectionHitLongueurSectionNumerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurSectionNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitLongueurSectionNumerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitLongueurSectionNumerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitLongueurSectionNumerique03
+					, fournirKeyMessageSectionHitLongueurSectionNumerique03()
+					, MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitLongueurSectionNumerique03().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitLongueurSectionNumerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitLongueurSectionNumerique03() {
+		return KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitLongueurSectionNumerique03().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitLongueurSectionNumerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitLongueurSectionNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitLongueurSectionNumerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitLongueurSectionNumerique03() 
+													throws Exception {
+		return fournirMessageSectionHitLongueurSectionNumerique03();
+	} // Fin de getMessageSectionHitLongueurSectionNumerique03().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitLongueurSectionNumerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitLongueurSectionNumerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitLongueurSectionNumerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitLongueurSectionNumerique03
+							, fournirKeyMessageSectionHitLongueurSectionNumerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitLongueurSectionNumerique03(...)._______
+		
 			
 			
 } // FIN DE LA CLASSE SectionHitGestionnairePreferencesControles.------------
