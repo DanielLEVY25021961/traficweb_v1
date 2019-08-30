@@ -1086,6 +1086,54 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03 
 		= "RG_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03 : "
 				+ "le sens de la section limitrophe doit respecter une nomenclature [1, 2, 3, 4, 5]";
+
+	/* 35 - moisSectionnement. *******/
+	/**
+	 * "moisSectionnement".<br/>
+	 */
+	public static final String ATTRIBUT_MOISSECTIONNEMENT 
+		= "moisSectionnement";
+
+	/**
+	 * "RG_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01 : 
+	 * le mois de sectionnement de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01 : "
+				+ "le mois de sectionnement de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02 : 
+	 * le mois de sectionnement de la section HIT doit comporter exactement 2 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02 
+		= "RG_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02 : "
+				+ "le mois de sectionnement de la section HIT doit comporter exactement 2 chiffres";
+
+	/* 36 - anneeSectionnement. *******/
+	/**
+	 * "anneeSectionnement".<br/>
+	 */
+	public static final String ATTRIBUT_ANNEESECTIONNEMENT 
+		= "anneeSectionnement";
+
+	/**
+	 * "RG_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01 : 
+	 * l'année de sectionnement de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01 : "
+				+ "l'année de sectionnement de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02 : 
+	 * l'année de sectionnement de la section HIT doit comporter exactement 2 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02 
+		= "RG_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02 : "
+				+ "l'année de sectionnement de la section HIT doit comporter exactement 2 chiffres";
 	
 	/**
 	 * LOG : Log : 
@@ -2443,8 +2491,66 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitSensLimitropheNomenclature03()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensLimitropheNomenclature03());
+		
+		/* 35 - moisSectionnement. *******/
+		/* RG_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitMoisSectionnementRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMoisSectionnement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMoisSectionnementRenseigne01()
+				, RG_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMoisSectionnementRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MOISSECTIONNEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMoisSectionnementRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMoisSectionnementRenseigne01());
+		
+		/* RG_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02. */
+		final LigneRG ligneRGSectionHitMoisSectionnementRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMoisSectionnement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMoisSectionnementRegex02()
+				, RG_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMoisSectionnementRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MOISSECTIONNEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMoisSectionnementRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMoisSectionnementRegex02());
+		
+		/* 36 - anneeSectionnement. *******/
+		/* RG_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAnneeSectionnementRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeSectionnement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeSectionnementRenseigne01()
+				, RG_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeSectionnementRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEESECTIONNEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeSectionnementRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeSectionnementRenseigne01());
+		
+		/* RG_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02. */
+		final LigneRG ligneRGSectionHitAnneeSectionnementRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeSectionnement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeSectionnementRegex02()
+				, RG_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeSectionnementRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEESECTIONNEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeSectionnementRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeSectionnementRegex02());
 				
-										
+														
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -2777,6 +2883,22 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03
 			, ligneRGSectionHitSensLimitropheNomenclature03);				
+				
+		/* 35 - moisSectionnement. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01
+			, ligneRGSectionHitMoisSectionnementRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02
+			, ligneRGSectionHitMoisSectionnementRegex02);
+				
+		/* 36 - anneeSectionnement. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01
+			, ligneRGSectionHitAnneeSectionnementRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02
+			, ligneRGSectionHitAnneeSectionnementRegex02);
 		
 		return this.mapRG;
 					

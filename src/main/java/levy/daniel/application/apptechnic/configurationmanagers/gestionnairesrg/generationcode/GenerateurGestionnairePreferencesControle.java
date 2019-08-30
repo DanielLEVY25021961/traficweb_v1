@@ -1847,19 +1847,19 @@ public final class GenerateurGestionnairePreferencesControle {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "31";
-		final String nomChamp = "sensRattachement";
-		final String nomChampEnClair = "le sens de la section de rattachement";
-		final String colonnes = "[132]";
-		final String nbreChiffres = "1";
-		final String nomenclature = "[1, 2, 3, 4, 5]";
+		final String numeroChamp = "36";
+		final String nomChamp = "anneeSectionnement";
+		final String nomChampEnClair = "l'année de sectionnement";
+		final String colonnes = "[145-146]";
+		final String nbreChiffres = "2";
+//		final String nomenclature = "[1, 2, 3, 4, 5]";
 		// *******************************************************
 		
-//		genererCodeRGsRenseigneRegexChiffres(
-//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
+		genererCodeRGsRenseigneRegexChiffres(
+				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
 
-		genererCodeRGsRenseigneRegexChiffresNomenclature(
-				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres, nomenclature);
+//		genererCodeRGsRenseigneRegexChiffresNomenclature(
+//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres, nomenclature);
 		
 //		genererCodeRGsRenseigneRegexChiffresNumerique(
 //				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
