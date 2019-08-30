@@ -111,9 +111,9 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setNumDepartementRattachement("090");
 				bonneSectionHitDTO.setNumSectionRattachement("000402");
 				bonneSectionHitDTO.setSensRattachement("3");
-				bonneSectionHitDTO.setNumDepartementLimitrophe("000");
-				bonneSectionHitDTO.setNumSectionLimitrophe("      ");
-				bonneSectionHitDTO.setSensLimitrophe(UN_ESPACE);
+				bonneSectionHitDTO.setNumDepartementLimitrophe("140");
+				bonneSectionHitDTO.setNumSectionLimitrophe("000407");
+				bonneSectionHitDTO.setSensLimitrophe("3");
 				bonneSectionHitDTO.setMoisSectionnement("01");
 				bonneSectionHitDTO.setAnneeSectionnement("87");
 				bonneSectionHitDTO.setZoneLibre2("      ");

@@ -1028,6 +1028,72 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			sensRattachementValide = true;
 		}
 		
+		/* 32 - numDepartementLimitrophe. *******/
+		boolean numDepartementLimitropheValide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributNumDepartementLimitrophe = "numDepartementLimitrophe";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralNumDepartementLimitrophe 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitNumDepartementLimitrophe();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralNumDepartementLimitrophe) {
+			numDepartementLimitropheValide 
+				= this.validerNumDepartementLimitrophe(
+						pDto, attributNumDepartementLimitrophe, erreursMap);
+		} else {
+			numDepartementLimitropheValide = true;
+		}
+		
+		/* 33 - numSectionLimitrophe. *******/
+		boolean numSectionLimitropheValide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributNumSectionLimitrophe = "numSectionLimitrophe";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralNumSectionLimitrophe 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitNumSectionLimitrophe();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralNumSectionLimitrophe) {
+			numSectionLimitropheValide 
+				= this.validerNumSectionLimitrophe(
+						pDto, attributNumSectionLimitrophe, erreursMap);
+		} else {
+			numSectionLimitropheValide = true;
+		}
+		
+		/* 34 - sensLimitrophe. *******/
+		boolean sensLimitropheValide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributSensLimitrophe = "sensLimitrophe";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralSensLimitrophe 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitSensLimitrophe();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralSensLimitrophe) {
+			sensLimitropheValide 
+				= this.validerSensLimitrophe(
+						pDto, attributSensLimitrophe, erreursMap);
+		} else {
+			sensLimitropheValide = true;
+		}
+		
 		/* calcul de validité sur tous les attributs. */
 		valide = numDepartementValide 
 				&& numSectionValide 
@@ -1059,7 +1125,10 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				&& longueurRaseCampagneValide 
 				&& numDepartementRattachementValide 
 				&& numSectionRattachementValide 
-				&& sensRattachementValide;
+				&& sensRattachementValide 
+				&& numDepartementLimitropheValide 
+				&& numSectionLimitropheValide 
+				&& sensLimitropheValide;
 		
 		erreursMap.setValide(valide);
 		
@@ -10258,6 +10327,827 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		return true;
 		
 	} // Fin de validerRGSectionHitSensRattachementNomenclature03(...).____
+	
+	
+	
+	/* 32 - numDepartementLimitrophe. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>numDepartementLimitrophe</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerNumDepartementLimitrophe(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurNumDepartementLimitropheRenseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitNumDepartementLimitropheRenseigne01();
+		
+		final Boolean interrupteurNumDepartementLimitropheRegex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitNumDepartementLimitropheRegex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurNumDepartementLimitropheRenseigne01) {
+			renseigne = this.validerRGSectionHitNumDepartementLimitropheRenseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurNumDepartementLimitropheRegex02) {
+				rg2 = this.validerRGSectionHitNumDepartementLimitropheRegex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerNumDepartementLimitrophe(...).______________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>numDepartementLimitrophe</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>numDepartementLimitrophe</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitNumDepartementLimitropheRenseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitNumDepartementLimitropheRenseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getNumDepartementLimitrophe())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitNumDepartementLimitropheRenseigne01(...).
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>numDepartementLimitrophe</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>numDepartementLimitrophe</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitNumDepartementLimitropheRegex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitNumDepartementLimitropheRegex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getNumDepartementLimitrophe();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitNumDepartementLimitropheRegex02(...).___
+	
+	
+	
+	/* 33 - numSectionLimitrophe. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>numSectionLimitrophe</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerNumSectionLimitrophe(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurNumSectionLimitropheRenseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitNumSectionLimitropheRenseigne01();
+		
+		final Boolean interrupteurNumSectionLimitropheRegex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitNumSectionLimitropheRegex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurNumSectionLimitropheRenseigne01) {
+			renseigne = this.validerRGSectionHitNumSectionLimitropheRenseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurNumSectionLimitropheRegex02) {
+				rg2 = this.validerRGSectionHitNumSectionLimitropheRegex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerNumSectionLimitrophe(...).__________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>numSectionLimitrophe</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>numSectionLimitrophe</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitNumSectionLimitropheRenseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitNumSectionLimitropheRenseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getNumSectionLimitrophe())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitNumSectionLimitropheRenseigne01(...).___
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>numSectionLimitrophe</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>numSectionLimitrophe</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitNumSectionLimitropheRegex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitNumSectionLimitropheRegex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getNumSectionLimitrophe();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitNumSectionLimitropheRegex02(...)._______
+	
+	
+	
+	/* 34 - sensLimitrophe. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>sensLimitrophe</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerSensLimitrophe(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurSensLimitropheRenseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitSensLimitropheRenseigne01();
+		
+		final Boolean interrupteurSensLimitropheRegex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitSensLimitropheRegex02();
+		
+		final Boolean interrupteurSensLimitropheNomenclature03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitSensLimitropheNomenclature03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurSensLimitropheRenseigne01) {
+			renseigne = this.validerRGSectionHitSensLimitropheRenseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurSensLimitropheRegex02) {
+				rg2 = this.validerRGSectionHitSensLimitropheRegex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurSensLimitropheNomenclature03) {
+				rg3 = this.validerRGSectionHitSensLimitropheNomenclature03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerSensLimitrophe(...).________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>sensLimitrophe</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>sensLimitrophe</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitSensLimitropheRenseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitSensLimitropheRenseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getSensLimitrophe())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitSensLimitropheRenseigne01(...)._________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>sensLimitrophe</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{1}] qui signifie 
+	 * 'exactement 1 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>sensLimitrophe</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitSensLimitropheRegex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitSensLimitropheRegex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getSensLimitrophe();
+		
+		final String motif = "\\d{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitSensLimitropheRegex02(...)._____________
+
+	
+	
+	/**
+	 * valide la RG NOMENCLATURE pour 
+	 * l'attribut <b>sensLimitrophe</b>.<br/>
+	 * <ul>
+	 * <li>retourne false si la valeur à contrôler n'est pas homogène 
+	 * à un entier.</li>
+	 * <li>récupère le Set des valeurs possibles auprès de la 
+	 * FactoryNomenclature (<code><b>
+	 * FactoryNomenclatureHit.getSetClesPossiblesSensLimitrophe()</b></code>).</li>
+	 * <li>retourne false si la valeur à contrôler n'appartient 
+	 * pas à la nomenclature.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>sensLimitrophe</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitSensLimitropheNomenclature03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitSensLimitropheNomenclature03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getSensLimitrophe();
+		Integer valeurAControlerInteger = null;
+		
+		try {
+			valeurAControlerInteger = Integer.valueOf(valeurAControler);
+		} catch (Exception e) {
+			valeurAControlerInteger = null;
+		}
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'est pas homogène à un entier. */
+		if (valeurAControlerInteger == null) {
+			return false;
+		}
+		
+		/* récupère le Set des valeurs possibles auprès de la 
+		 * FactoryNomenclature. */
+		final Set<Integer> setClesPossibles 
+			= FactoryNomenclatureHit.getSetClesPossiblesSensLimitrophe();
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'appartient pas à la nomenclature. */
+		if (!setClesPossibles.contains(valeurAControlerInteger)) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitSensLimitropheNomenclature03(...).______
 	
 		
 

@@ -941,7 +941,7 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01 
 		= "RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01 : "
 				+ "le numéro de département de rattachement de la section HIT "
-				+ "doit être renseigné";
+				+ DOIT_ETRE_RENSEIGNE;
 
 	/**
 	 * "RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02 : 
@@ -1006,6 +1006,86 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03 
 		= "RG_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03 : "
 				+ "le sens de la section de rattachement doit respecter une nomenclature [1, 2, 3, 4, 5]";
+
+	/* 32 - numDepartementLimitrophe. *******/
+	/**
+	 * "numDepartementLimitrophe".<br/>
+	 */
+	public static final String ATTRIBUT_NUMDEPARTEMENTLIMITROPHE 
+		= "numDepartementLimitrophe";
+
+	/**
+	 * "RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01 : 
+	 * le numéro de département limitrophe de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01 : "
+				+ "le numéro de département limitrophe de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02 : 
+	 * le numéro de département limitrophe de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02 
+		= "RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02 : "
+				+ "le numéro de département limitrophe de la section HIT doit comporter exactement 3 chiffres";
+
+	/* 33 - numSectionLimitrophe. *******/
+	/**
+	 * "numSectionLimitrophe".<br/>
+	 */
+	public static final String ATTRIBUT_NUMSECTIONLIMITROPHE 
+		= "numSectionLimitrophe";
+
+	/**
+	 * "RG_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01 : 
+	 * le numéro de section limitrophe de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01 : "
+				+ "le numéro de section limitrophe de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02 : 
+	 * le numéro de section limitrophe de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02 
+		= "RG_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02 : "
+				+ "le numéro de section limitrophe de la section HIT doit comporter exactement 6 chiffres";
+
+	/* 34 - sensLimitrophe. *******/
+	/**
+	 * "sensLimitrophe".<br/>
+	 */
+	public static final String ATTRIBUT_SENSLIMITROPHE 
+		= "sensLimitrophe";
+
+	/**
+	 * "RG_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01 : 
+	 * le sens de la section limitrophe de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01 
+		= "RG_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01 : "
+				+ "le sens de la section limitrophe de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_SENSLIMITROPHE_REGEX_02 : 
+	 * le sens de la section limitrophe de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_SENSLIMITROPHE_REGEX_02 
+		= "RG_SECTIONHIT_SENSLIMITROPHE_REGEX_02 : "
+				+ "le sens de la section limitrophe de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03 : 
+	 * le sens de la section limitrophe doit respecter une nomenclature [1, 2, 3, 4, 5]".
+	 */
+	public static final String RG_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03 : "
+				+ "le sens de la section limitrophe doit respecter une nomenclature [1, 2, 3, 4, 5]";
 	
 	/**
 	 * LOG : Log : 
@@ -2262,6 +2342,107 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitSensRattachementNomenclature03()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensRattachementNomenclature03());
+		
+		/* 32 - numDepartementLimitrophe. *******/
+		/* RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitNumDepartementLimitropheRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumDepartementLimitrophe()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumDepartementLimitropheRenseigne01()
+				, RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumDepartementLimitropheRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMDEPARTEMENTLIMITROPHE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumDepartementLimitropheRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumDepartementLimitropheRenseigne01());
+		
+		/* RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02. */
+		final LigneRG ligneRGSectionHitNumDepartementLimitropheRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumDepartementLimitrophe()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumDepartementLimitropheRegex02()
+				, RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumDepartementLimitropheRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMDEPARTEMENTLIMITROPHE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumDepartementLimitropheRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumDepartementLimitropheRegex02());
+		
+		/* 33 - numSectionLimitrophe. *******/
+		/* RG_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitNumSectionLimitropheRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumSectionLimitrophe()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumSectionLimitropheRenseigne01()
+				, RG_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumSectionLimitropheRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMSECTIONLIMITROPHE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumSectionLimitropheRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumSectionLimitropheRenseigne01());
+		
+		/* RG_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02. */
+		final LigneRG ligneRGSectionHitNumSectionLimitropheRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumSectionLimitrophe()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumSectionLimitropheRegex02()
+				, RG_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumSectionLimitropheRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMSECTIONLIMITROPHE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumSectionLimitropheRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumSectionLimitropheRegex02());
+		
+		/* 34 - sensLimitrophe. *******/
+		/* RG_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitSensLimitropheRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensLimitrophe()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensLimitropheRenseigne01()
+				, RG_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitSensLimitropheRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_SENSLIMITROPHE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitSensLimitropheRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensLimitropheRenseigne01());
+		
+		/* RG_SECTIONHIT_SENSLIMITROPHE_REGEX_02. */
+		final LigneRG ligneRGSectionHitSensLimitropheRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensLimitrophe()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensLimitropheRegex02()
+				, RG_SECTIONHIT_SENSLIMITROPHE_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitSensLimitropheRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_SENSLIMITROPHE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitSensLimitropheRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensLimitropheRegex02());
+				
+		/* RG_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitSensLimitropheNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensLimitrophe()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensLimitropheNomenclature03()
+				, RG_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitSensLimitropheNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_SENSLIMITROPHE
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitSensLimitropheNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensLimitropheNomenclature03());
 				
 										
 		// *********************************************
@@ -2569,6 +2750,33 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03
 			, ligneRGSectionHitSensRattachementNomenclature03);				
+				
+		/* 32 - numDepartementLimitrophe. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01
+			, ligneRGSectionHitNumDepartementLimitropheRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02
+			, ligneRGSectionHitNumDepartementLimitropheRegex02);
+				
+		/* 33 - numSectionLimitrophe. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01
+			, ligneRGSectionHitNumSectionLimitropheRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02
+			, ligneRGSectionHitNumSectionLimitropheRegex02);
+				
+		/* 34 - sensLimitrophe. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01
+			, ligneRGSectionHitSensLimitropheRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_SENSLIMITROPHE_REGEX_02
+			, ligneRGSectionHitSensLimitropheRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03
+			, ligneRGSectionHitSensLimitropheNomenclature03);				
 		
 		return this.mapRG;
 					

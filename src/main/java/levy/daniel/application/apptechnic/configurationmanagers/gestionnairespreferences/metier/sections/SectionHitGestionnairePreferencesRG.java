@@ -2249,6 +2249,196 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	public static final String STRING_VALIDER_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03_EN_DUR 
 		= "true";
+	
+	/* 32 - numDepartementLimitrophe. *******/
+	/**
+	 * clé de validerRGSectionHitNumDepartementLimitrophe dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.numDepartementLimitrophe"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE 
+		= "valider.SectionHit.numDepartementLimitrophe";
+	
+	/**
+	 * validerRGSectionHitNumDepartementLimitrophe par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitNumDepartementLimitrophe 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitNumDepartementLimitropheRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.numDepartementLimitrophe.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01 
+		= "valider.SectionHit.numDepartementLimitrophe.renseigne";
+	
+	/**
+	 * validerRGSectionHitNumDepartementLimitropheRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitNumDepartementLimitropheRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitNumDepartementLimitropheRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.numDepartementLimitrophe.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02 
+		= "valider.SectionHit.numDepartementLimitrophe.regex";
+	
+	/**
+	 * validerRGSectionHitNumDepartementLimitropheRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitNumDepartementLimitropheRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02_EN_DUR 
+		= "true";
+	
+	/* 33 - numSectionLimitrophe. *******/
+	/**
+	 * clé de validerRGSectionHitNumSectionLimitrophe dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.numSectionLimitrophe"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE 
+		= "valider.SectionHit.numSectionLimitrophe";
+	
+	/**
+	 * validerRGSectionHitNumSectionLimitrophe par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitNumSectionLimitrophe 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitNumSectionLimitropheRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.numSectionLimitrophe.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01 
+		= "valider.SectionHit.numSectionLimitrophe.renseigne";
+	
+	/**
+	 * validerRGSectionHitNumSectionLimitropheRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitNumSectionLimitropheRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitNumSectionLimitropheRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.numSectionLimitrophe.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02 
+		= "valider.SectionHit.numSectionLimitrophe.regex";
+	
+	/**
+	 * validerRGSectionHitNumSectionLimitropheRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitNumSectionLimitropheRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02_EN_DUR 
+		= "true";
+	
+	/* 34 - sensLimitrophe. *******/
+	/**
+	 * clé de validerRGSectionHitSensLimitrophe dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.sensLimitrophe"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE 
+		= "valider.SectionHit.sensLimitrophe";
+	
+	/**
+	 * validerRGSectionHitSensLimitrophe par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitSensLimitrophe 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitSensLimitropheRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.sensLimitrophe.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01 
+		= "valider.SectionHit.sensLimitrophe.renseigne";
+	
+	/**
+	 * validerRGSectionHitSensLimitropheRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitSensLimitropheRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitSensLimitropheRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.sensLimitrophe.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_REGEX_02 
+		= "valider.SectionHit.sensLimitrophe.regex";
+	
+	/**
+	 * validerRGSectionHitSensLimitropheRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitSensLimitropheRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitSensLimitropheNomenclature03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.sensLimitrophe.nomenclature"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03 
+		= "valider.SectionHit.sensLimitrophe.nomenclature";
+	
+	/**
+	 * validerRGSectionHitSensLimitropheNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitSensLimitropheNomenclature03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03_EN_DUR 
+		= "true";
 			
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
@@ -3061,6 +3251,75 @@ public final class SectionHitGestionnairePreferencesRG {
 	 * "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]".<br/>
 	 */
 	private static Boolean validerRGSectionHitSensRattachementNomenclature03;
+	
+	/* 32 - numDepartementLimitrophe. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>numDepartementLimitrophe</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>numDepartementLimitrophe</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitNumDepartementLimitrophe;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-NumDepartementLimitrophe-01 : 
+	 * "le numéro de département limitrophe de la section HIT (colonnes [133-135] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitNumDepartementLimitropheRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-NumDepartementLimitrophe-02 : 
+	 * "le numéro de département limitrophe de la section HIT (colonnes [133-135] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitNumDepartementLimitropheRegex02;	
+	
+	/* 33 - numSectionLimitrophe. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>numSectionLimitrophe</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>numSectionLimitrophe</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitNumSectionLimitrophe;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-NumSectionLimitrophe-01 : 
+	 * "le numéro de section limitrophe de la section HIT (colonnes [136-141] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitNumSectionLimitropheRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-NumSectionLimitrophe-02 : 
+	 * "le numéro de section limitrophe de la section HIT (colonnes [136-141] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitNumSectionLimitropheRegex02;
+	
+	/* 34 - sensLimitrophe. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>sensLimitrophe</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>sensLimitrophe</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitSensLimitrophe;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-SensLimitrophe-01 : 
+	 * "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitSensLimitropheRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-SensLimitrophe-02 : 
+	 * "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	private static Boolean validerRGSectionHitSensLimitropheRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-SensLimitrophe-03 :
+	 * "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]".<br/>
+	 */
+	private static Boolean validerRGSectionHitSensLimitropheNomenclature03;
 					
 	/**
 	 * LOG : Log : 
@@ -3842,6 +4101,69 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03
 						, STRING_VALIDER_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03_EN_DUR);
+			
+			/* 29 - numDepartementLimitrophe. *******/
+			/* ajoute le validerRGSectionHitNumDepartementLimitrophe 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE
+						, STRING_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitNumDepartementLimitropheRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitNumDepartementLimitropheRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02_EN_DUR);
+			
+			/* 30 - numSectionLimitrophe. *******/
+			/* ajoute le validerRGSectionHitNumSectionLimitrophe 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE
+						, STRING_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitNumSectionLimitropheRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitNumSectionLimitropheRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02_EN_DUR);
+			
+			/* 31 - sensLimitrophe. *******/
+			/* ajoute le validerRGSectionHitSensLimitrophe 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE
+						, STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitSensLimitropheRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitSensLimitropheRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitSensLimitropheNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03
+						, STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03_EN_DUR);
 									
 		} // Fin du bloc synchronized.__________________
 		
@@ -17955,6 +18277,1164 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitSensRattachementNomenclature03(...)._
+	
+	
+	
+	/* 32 - numDepartementLimitrophe. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitNumDepartementLimitrophe</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>numDepartementLimitrophe</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>numDepartementLimitrophe</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumDepartementLimitrophe stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitNumDepartementLimitrophe 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitNumDepartementLimitrophe() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitNumDepartementLimitrophe
+					, fournirKeyValiderRGSectionHitNumDepartementLimitrophe()
+					, STRING_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitNumDepartementLimitrophe().______
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitNumDepartementLimitrophe 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.numDepartementLimitrophe".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitNumDepartementLimitrophe() {
+		return KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE;
+	} // Fin de fournirKeyValiderRGSectionHitNumDepartementLimitrophe().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitNumDepartementLimitrophe par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitNumDepartementLimitrophe 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitNumDepartementLimitrophe stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitNumDepartementLimitrophe : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitNumDepartementLimitrophe() 
+													throws Exception {
+		return fournirValiderRGSectionHitNumDepartementLimitrophe();
+	} // Fin de getValiderRGSectionHitNumDepartementLimitrophe().__________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitNumDepartementLimitrophe par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitNumDepartementLimitrophe.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitNumDepartementLimitrophe(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitNumDepartementLimitrophe
+							, fournirKeyValiderRGSectionHitNumDepartementLimitrophe());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitNumDepartementLimitrophe(...)._______
+
+
+
+	/**
+	 * retourne le validerRGSectionHitNumDepartementLimitropheRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumDepartementLimitropheRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitNumDepartementLimitropheRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitNumDepartementLimitropheRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitNumDepartementLimitropheRenseigne01
+					, fournirKeyValiderRGSectionHitNumDepartementLimitropheRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitNumDepartementLimitropheRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitNumDepartementLimitropheRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.numDepartementLimitrophe.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitNumDepartementLimitropheRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitNumDepartementLimitropheRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitNumDepartementLimitropheRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumDepartementLimitropheRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitNumDepartementLimitropheRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitNumDepartementLimitropheRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitNumDepartementLimitropheRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitNumDepartementLimitropheRenseigne01();
+	} // Fin de getValiderRGSectionHitNumDepartementLimitropheRenseigne01().
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitNumDepartementLimitropheRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitNumDepartementLimitropheRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitNumDepartementLimitropheRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitNumDepartementLimitropheRenseigne01
+							, fournirKeyValiderRGSectionHitNumDepartementLimitropheRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitNumDepartementLimitropheRenseigne01(...).
+
+
+
+	/**
+	 * retourne le validerRGSectionHitNumDepartementLimitropheRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumDepartementLimitropheRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitNumDepartementLimitropheRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitNumDepartementLimitropheRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitNumDepartementLimitropheRegex02
+					, fournirKeyValiderRGSectionHitNumDepartementLimitropheRegex02()
+					, STRING_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitNumDepartementLimitropheRegex02().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitNumDepartementLimitropheRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.numDepartementLimitrophe.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitNumDepartementLimitropheRegex02() {
+		return KEY_VALIDER_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitNumDepartementLimitropheRegex02().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitNumDepartementLimitropheRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumDepartementLimitropheRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitNumDepartementLimitropheRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitNumDepartementLimitropheRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitNumDepartementLimitropheRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitNumDepartementLimitropheRegex02();
+	} // Fin de getValiderRGSectionHitNumDepartementLimitropheRegex02().___
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitNumDepartementLimitropheRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitNumDepartementLimitropheRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitNumDepartementLimitropheRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitNumDepartementLimitropheRegex02
+							, fournirKeyValiderRGSectionHitNumDepartementLimitropheRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitNumDepartementLimitropheRegex02(...).
+	
+	
+	
+	/* 33 - numSectionLimitrophe. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitNumSectionLimitrophe</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>numSectionLimitrophe</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>numSectionLimitrophe</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumSectionLimitrophe stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitNumSectionLimitrophe 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitNumSectionLimitrophe() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitNumSectionLimitrophe
+					, fournirKeyValiderRGSectionHitNumSectionLimitrophe()
+					, STRING_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitNumSectionLimitrophe().__________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitNumSectionLimitrophe 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.numSectionLimitrophe".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitNumSectionLimitrophe() {
+		return KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE;
+	} // Fin de fournirKeyValiderRGSectionHitNumSectionLimitrophe()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitNumSectionLimitrophe par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitNumSectionLimitrophe 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitNumSectionLimitrophe stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitNumSectionLimitrophe : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitNumSectionLimitrophe() 
+													throws Exception {
+		return fournirValiderRGSectionHitNumSectionLimitrophe();
+	} // Fin de getValiderRGSectionHitNumSectionLimitrophe().______________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitNumSectionLimitrophe par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitNumSectionLimitrophe.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitNumSectionLimitrophe(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitNumSectionLimitrophe
+							, fournirKeyValiderRGSectionHitNumSectionLimitrophe());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitNumSectionLimitrophe(...).___________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitNumSectionLimitropheRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumSectionLimitropheRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitNumSectionLimitropheRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitNumSectionLimitropheRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitNumSectionLimitropheRenseigne01
+					, fournirKeyValiderRGSectionHitNumSectionLimitropheRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitNumSectionLimitropheRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitNumSectionLimitropheRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.numSectionLimitrophe.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitNumSectionLimitropheRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitNumSectionLimitropheRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitNumSectionLimitropheRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumSectionLimitropheRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitNumSectionLimitropheRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitNumSectionLimitropheRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitNumSectionLimitropheRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitNumSectionLimitropheRenseigne01();
+	} // Fin de getValiderRGSectionHitNumSectionLimitropheRenseigne01().___
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitNumSectionLimitropheRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitNumSectionLimitropheRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitNumSectionLimitropheRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitNumSectionLimitropheRenseigne01
+							, fournirKeyValiderRGSectionHitNumSectionLimitropheRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitNumSectionLimitropheRenseigne01(...).
+
+
+
+	/**
+	 * retourne le validerRGSectionHitNumSectionLimitropheRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumSectionLimitropheRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitNumSectionLimitropheRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitNumSectionLimitropheRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitNumSectionLimitropheRegex02
+					, fournirKeyValiderRGSectionHitNumSectionLimitropheRegex02()
+					, STRING_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitNumSectionLimitropheRegex02().___
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitNumSectionLimitropheRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.numSectionLimitrophe.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitNumSectionLimitropheRegex02() {
+		return KEY_VALIDER_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitNumSectionLimitropheRegex02().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitNumSectionLimitropheRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitNumSectionLimitropheRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitNumSectionLimitropheRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitNumSectionLimitropheRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitNumSectionLimitropheRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitNumSectionLimitropheRegex02();
+	} // Fin de getValiderRGSectionHitNumSectionLimitropheRegex02()._______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitNumSectionLimitropheRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitNumSectionLimitropheRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitNumSectionLimitropheRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitNumSectionLimitropheRegex02
+							, fournirKeyValiderRGSectionHitNumSectionLimitropheRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitNumSectionLimitropheRegex02(...).____
+	
+	
+	
+	/* 34 - sensLimitrophe. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitSensLimitrophe</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>sensLimitrophe</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>sensLimitrophe</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitSensLimitrophe stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitSensLimitrophe 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitSensLimitrophe() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitSensLimitrophe
+					, fournirKeyValiderRGSectionHitSensLimitrophe()
+					, STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitSensLimitrophe().________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitSensLimitrophe 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.sensLimitrophe".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitSensLimitrophe() {
+		return KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE;
+	} // Fin de fournirKeyValiderRGSectionHitSensLimitrophe()._____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitSensLimitrophe par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitSensLimitrophe 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitSensLimitrophe stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitSensLimitrophe : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitSensLimitrophe() 
+													throws Exception {
+		return fournirValiderRGSectionHitSensLimitrophe();
+	} // Fin de getValiderRGSectionHitSensLimitrophe().____________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitSensLimitrophe par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitSensLimitrophe.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitSensLimitrophe(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitSensLimitrophe
+							, fournirKeyValiderRGSectionHitSensLimitrophe());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitSensLimitrophe(...)._________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitSensLimitropheRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitSensLimitropheRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitSensLimitropheRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitSensLimitropheRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitSensLimitropheRenseigne01
+					, fournirKeyValiderRGSectionHitSensLimitropheRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitSensLimitropheRenseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitSensLimitropheRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.sensLimitrophe.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitSensLimitropheRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitSensLimitropheRenseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitSensLimitropheRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitSensLimitropheRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitSensLimitropheRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitSensLimitropheRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitSensLimitropheRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitSensLimitropheRenseigne01();
+	} // Fin de getValiderRGSectionHitSensLimitropheRenseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitSensLimitropheRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitSensLimitropheRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitSensLimitropheRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitSensLimitropheRenseigne01
+							, fournirKeyValiderRGSectionHitSensLimitropheRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitSensLimitropheRenseigne01(...).______
+
+
+
+	/**
+	 * retourne le validerRGSectionHitSensLimitropheRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitSensLimitropheRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitSensLimitropheRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitSensLimitropheRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitSensLimitropheRegex02
+					, fournirKeyValiderRGSectionHitSensLimitropheRegex02()
+					, STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitSensLimitropheRegex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitSensLimitropheRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.sensLimitrophe.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitSensLimitropheRegex02() {
+		return KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitSensLimitropheRegex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitSensLimitropheRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitSensLimitropheRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitSensLimitropheRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitSensLimitropheRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitSensLimitropheRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitSensLimitropheRegex02();
+	} // Fin de getValiderRGSectionHitSensLimitropheRegex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitSensLimitropheRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitSensLimitropheRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitSensLimitropheRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitSensLimitropheRegex02
+							, fournirKeyValiderRGSectionHitSensLimitropheRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitSensLimitropheRegex02(...).__________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitSensLimitropheNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitSensLimitropheNomenclature03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitSensLimitropheNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitSensLimitropheNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitSensLimitropheNomenclature03
+					, fournirKeyValiderRGSectionHitSensLimitropheNomenclature03()
+					, STRING_VALIDER_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitSensLimitropheNomenclature03().__
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitSensLimitropheNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.sensLimitrophe.nomenclature".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitSensLimitropheNomenclature03() {
+		return KEY_VALIDER_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03;
+	} // Fin de fournirKeyValiderRGSectionHitSensLimitropheNomenclature03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitSensLimitropheNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitSensLimitropheNomenclature03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitSensLimitropheNomenclature03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitSensLimitropheNomenclature03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitSensLimitropheNomenclature03() 
+													throws Exception {
+		return fournirValiderRGSectionHitSensLimitropheNomenclature03();
+	} // Fin de getValiderRGSectionHitSensLimitropheNomenclature03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitSensLimitropheNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitSensLimitropheNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitSensLimitropheNomenclature03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitSensLimitropheNomenclature03
+							, fournirKeyValiderRGSectionHitSensLimitropheNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitSensLimitropheNomenclature03(...).___
 	
 					
 	

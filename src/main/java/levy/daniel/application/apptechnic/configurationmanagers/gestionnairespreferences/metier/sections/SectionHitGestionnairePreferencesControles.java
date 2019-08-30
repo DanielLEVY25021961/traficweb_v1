@@ -1706,6 +1706,142 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static final String MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03_EN_DUR 
 		= "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]";
 	
+	/* 32 - numDepartementLimitrophe. *******/
+	/**
+	 * clé de messageSectionHitNumDepartementLimitropheRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numDepartementLimitrophe.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01 
+		= "message.SectionHit.numDepartementLimitrophe.renseigne";
+	
+	/**
+	 * messageSectionHitNumDepartementLimitropheRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumDepartementLimitropheRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de département limitrophe de la section HIT (colonnes [133-135] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01_EN_DUR 
+		= "le numéro de département limitrophe de la section HIT (colonnes [133-135] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitNumDepartementLimitropheRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numDepartementLimitrophe.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02 
+		= "message.SectionHit.numDepartementLimitrophe.regex";
+	
+	/**
+	 * messageSectionHitNumDepartementLimitropheRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumDepartementLimitropheRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de département limitrophe de la section HIT (colonnes [133-135] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02_EN_DUR 
+		= "le numéro de département limitrophe de la section HIT (colonnes [133-135] du HIT) doit comporter exactement 3 chiffres";
+	
+	/* 33 - numSectionLimitrophe. *******/
+	/**
+	 * clé de messageSectionHitNumSectionLimitropheRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numSectionLimitrophe.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01 
+		= "message.SectionHit.numSectionLimitrophe.renseigne";
+	
+	/**
+	 * messageSectionHitNumSectionLimitropheRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumSectionLimitropheRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de section limitrophe de la section HIT (colonnes [136-141] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01_EN_DUR 
+		= "le numéro de section limitrophe de la section HIT (colonnes [136-141] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitNumSectionLimitropheRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numSectionLimitrophe.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02 
+		= "message.SectionHit.numSectionLimitrophe.regex";
+	
+	/**
+	 * messageSectionHitNumSectionLimitropheRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumSectionLimitropheRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de section limitrophe de la section HIT (colonnes [136-141] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02_EN_DUR 
+		= "le numéro de section limitrophe de la section HIT (colonnes [136-141] du HIT) doit comporter exactement 6 chiffres";
+	
+	/* 31 - sensLimitrophe. *******/
+	/**
+	 * clé de messageSectionHitSensLimitropheRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.sensLimitrophe.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01 
+		= "message.SectionHit.sensLimitrophe.renseigne";
+	
+	/**
+	 * messageSectionHitSensLimitropheRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitSensLimitropheRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01_EN_DUR 
+		= "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitSensLimitropheRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.sensLimitrophe.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02 
+		= "message.SectionHit.sensLimitrophe.regex";
+	
+	/**
+	 * messageSectionHitSensLimitropheRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitSensLimitropheRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02_EN_DUR 
+		= "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit comporter exactement 1 chiffre";
+				
+	/**
+	 * clé de messageSectionHitSensLimitropheNomenclature03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.sensLimitrophe.nomenclature"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03 
+		= "message.SectionHit.sensLimitrophe.nomenclature";
+	
+	/**
+	 * messageSectionHitSensLimitropheNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitSensLimitropheNomenclature03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03_EN_DUR 
+		= "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -2265,6 +2401,51 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]"
 	 */
 	private static String messageSectionHitSensRattachementNomenclature03;
+
+	/* 32 - numDepartementLimitrophe. *******/
+	/**
+	* message émis par la RG-SectionHit-NumDepartementLimitrophe-01 : 
+	* "le numéro de département limitrophe de la section HIT (colonnes [133-135] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitNumDepartementLimitropheRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-NumDepartementLimitrophe-02 : 
+	* "le numéro de département limitrophe de la section HIT (colonnes [133-135] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitNumDepartementLimitropheRegex02;
+
+	/* 33 - numSectionLimitrophe. *******/
+	/**
+	* message émis par la RG-SectionHit-NumSectionLimitrophe-01 : 
+	* "le numéro de section limitrophe de la section HIT (colonnes [136-141] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitNumSectionLimitropheRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-NumSectionLimitrophe-02 : 
+	* "le numéro de section limitrophe de la section HIT (colonnes [136-141] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitNumSectionLimitropheRegex02;
+
+	/* 34 - sensLimitrophe. *******/
+	/**
+	* message émis par la RG-SectionHit-SensLimitrophe-01 : 
+	* "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitSensLimitropheRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-SensLimitrophe-02 : 
+	* "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit comporter exactement 1 chiffre".<br/>
+	*/
+	private static String messageSectionHitSensLimitropheRegex02;
+
+	/**
+	 * message émis par la RG-SectionHit-SensLimitrophe-03 : 
+	 * "le sens de la section limitrophe de la section HIT (colonne [142] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]"
+	 */
+	private static String messageSectionHitSensLimitropheNomenclature03;
 		
 	/**
 	 * LOG : Log : 
@@ -2861,6 +3042,51 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 				KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03
 					, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03_EN_DUR);
+				
+		/* 32 - numDepartementLimitrophe. *******/		
+		/* ajoute le messageSectionHitNumDepartementLimitropheRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitNumDepartementLimitropheRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02
+				, MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02_EN_DUR);
+				
+		/* 33 - numSectionLimitrophe. *******/		
+		/* ajoute le messageSectionHitNumSectionLimitropheRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitNumSectionLimitropheRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02
+				, MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02_EN_DUR);
+				
+		/* 34 - sensLimitrophe. *******/		
+		/* ajoute le messageSectionHitSensLimitropheRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitSensLimitropheRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02
+				, MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitSensLimitropheNomenclature03 
+		 * par défaut stocké en dur.*/
+		preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03
+					, MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03_EN_DUR);
 																				
 		} // Fin du bloc synchronized.__________________
 		
@@ -13683,6 +13909,800 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitSensRattachementNomenclature03(...).___
+
+
+	
+	/* 32 - numDepartementLimitrophe. ****************/
+	/**
+	 * retourne le messageSectionHitNumDepartementLimitropheRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementLimitropheRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumDepartementLimitropheRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumDepartementLimitropheRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumDepartementLimitropheRenseigne01
+					, fournirKeyMessageSectionHitNumDepartementLimitropheRenseigne01()
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumDepartementLimitropheRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumDepartementLimitropheRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numDepartementLimitrophe.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumDepartementLimitropheRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitNumDepartementLimitropheRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumDepartementLimitropheRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementLimitropheRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumDepartementLimitropheRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumDepartementLimitropheRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitNumDepartementLimitropheRenseigne01();
+	} // Fin de getMessageSectionHitNumDepartementLimitropheRenseigne01().
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumDepartementLimitropheRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumDepartementLimitropheRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitNumDepartementLimitropheRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumDepartementLimitropheRenseigne01
+							, fournirKeyMessageSectionHitNumDepartementLimitropheRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumDepartementLimitropheRenseigne01(...).
+
+
+
+	/**
+	 * retourne le messageSectionHitNumDepartementLimitropheRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementLimitropheRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumDepartementLimitropheRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumDepartementLimitropheRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumDepartementLimitropheRegex02
+					, fournirKeyMessageSectionHitNumDepartementLimitropheRegex02()
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumDepartementLimitropheRegex02().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumDepartementLimitropheRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numDepartementLimitrophe.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumDepartementLimitropheRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitNumDepartementLimitropheRegex02().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumDepartementLimitropheRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementLimitropheRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumDepartementLimitropheRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumDepartementLimitropheRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitNumDepartementLimitropheRegex02();
+	} // Fin de getMessageSectionHitNumDepartementLimitropheRegex02().
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumDepartementLimitropheRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumDepartementLimitropheRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitNumDepartementLimitropheRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumDepartementLimitropheRegex02
+							, fournirKeyMessageSectionHitNumDepartementLimitropheRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumDepartementLimitropheRegex02(...).
+
+
+	
+	/* 33 - numSectionLimitrophe. ****************/
+	/**
+	 * retourne le messageSectionHitNumSectionLimitropheRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumSectionLimitropheRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumSectionLimitropheRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumSectionLimitropheRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumSectionLimitropheRenseigne01
+					, fournirKeyMessageSectionHitNumSectionLimitropheRenseigne01()
+					, MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumSectionLimitropheRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumSectionLimitropheRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numSectionLimitrophe.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumSectionLimitropheRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitNumSectionLimitropheRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumSectionLimitropheRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumSectionLimitropheRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumSectionLimitropheRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumSectionLimitropheRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitNumSectionLimitropheRenseigne01();
+	} // Fin de getMessageSectionHitNumSectionLimitropheRenseigne01()._____
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumSectionLimitropheRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumSectionLimitropheRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitNumSectionLimitropheRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumSectionLimitropheRenseigne01
+							, fournirKeyMessageSectionHitNumSectionLimitropheRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumSectionLimitropheRenseigne01(...).__
+
+
+
+	/**
+	 * retourne le messageSectionHitNumSectionLimitropheRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumSectionLimitropheRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumSectionLimitropheRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumSectionLimitropheRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumSectionLimitropheRegex02
+					, fournirKeyMessageSectionHitNumSectionLimitropheRegex02()
+					, MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumSectionLimitropheRegex02()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumSectionLimitropheRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numSectionLimitrophe.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumSectionLimitropheRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitNumSectionLimitropheRegex02().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumSectionLimitropheRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumSectionLimitropheRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumSectionLimitropheRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumSectionLimitropheRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitNumSectionLimitropheRegex02();
+	} // Fin de getMessageSectionHitNumSectionLimitropheRegex02()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumSectionLimitropheRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumSectionLimitropheRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitNumSectionLimitropheRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumSectionLimitropheRegex02
+							, fournirKeyMessageSectionHitNumSectionLimitropheRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumSectionLimitropheRegex02(...).______
+
+
+	
+	/* 34 - sensLimitrophe. ****************/
+	/**
+	 * retourne le messageSectionHitSensLimitropheRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitSensLimitropheRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitSensLimitropheRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitSensLimitropheRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitSensLimitropheRenseigne01
+					, fournirKeyMessageSectionHitSensLimitropheRenseigne01()
+					, MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitSensLimitropheRenseigne01()._______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitSensLimitropheRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.sensLimitrophe.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitSensLimitropheRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitSensLimitropheRenseigne01().____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitSensLimitropheRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitSensLimitropheRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitSensLimitropheRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitSensLimitropheRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitSensLimitropheRenseigne01();
+	} // Fin de getMessageSectionHitSensLimitropheRenseigne01().___________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitSensLimitropheRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitSensLimitropheRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitSensLimitropheRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitSensLimitropheRenseigne01
+							, fournirKeyMessageSectionHitSensLimitropheRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitSensLimitropheRenseigne01(...).________
+
+
+
+	/**
+	 * retourne le messageSectionHitSensLimitropheRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitSensLimitropheRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitSensLimitropheRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitSensLimitropheRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitSensLimitropheRegex02
+					, fournirKeyMessageSectionHitSensLimitropheRegex02()
+					, MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitSensLimitropheRegex02().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitSensLimitropheRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.sensLimitrophe.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitSensLimitropheRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitSensLimitropheRegex02().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitSensLimitropheRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitSensLimitropheRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitSensLimitropheRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitSensLimitropheRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitSensLimitropheRegex02();
+	} // Fin de getMessageSectionHitSensLimitropheRegex02()._______________
+
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitSensLimitropheRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitSensLimitropheRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitSensLimitropheRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitSensLimitropheRegex02
+							, fournirKeyMessageSectionHitSensLimitropheRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitSensLimitropheRegex02(...).____________
+	
+
+
+	/**
+	 * retourne le messageSectionHitSensLimitropheNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitSensLimitropheNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitSensLimitropheNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitSensLimitropheNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitSensLimitropheNomenclature03
+					, fournirKeyMessageSectionHitSensLimitropheNomenclature03()
+					, MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitSensLimitropheNomenclature03().____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitSensLimitropheNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.sensLimitrophe.nomenclature".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitSensLimitropheNomenclature03() {
+		return KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03;
+	} // Fin de fournirKeyMessageSectionHitSensLimitropheNomenclature03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitSensLimitropheNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitSensLimitropheNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitSensLimitropheNomenclature03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitSensLimitropheNomenclature03() 
+													throws Exception {
+		return fournirMessageSectionHitSensLimitropheNomenclature03();
+	} // Fin de getMessageSectionHitSensLimitropheNomenclature03().________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitSensLimitropheNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitSensLimitropheNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitSensLimitropheNomenclature03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitSensLimitropheNomenclature03
+							, fournirKeyMessageSectionHitSensLimitropheNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitSensLimitropheNomenclature03(...)._____
 	
 			
 			
