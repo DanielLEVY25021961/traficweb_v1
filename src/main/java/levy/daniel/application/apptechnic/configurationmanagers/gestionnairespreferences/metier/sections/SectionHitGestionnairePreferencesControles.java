@@ -1570,6 +1570,142 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static final String MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR 
 		= "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être homogène à un entier";	
 	
+	/* 29 - numDepartementRattachement. *******/
+	/**
+	 * clé de messageSectionHitNumDepartementRattachementRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numDepartementRattachement.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01 
+		= "message.SectionHit.numDepartementRattachement.renseigne";
+	
+	/**
+	 * messageSectionHitNumDepartementRattachementRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumDepartementRattachementRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de département de rattachement de la section HIT (colonnes [123-125] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01_EN_DUR 
+		= "le numéro de département de rattachement de la section HIT (colonnes [123-125] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitNumDepartementRattachementRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numDepartementRattachement.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02 
+		= "message.SectionHit.numDepartementRattachement.regex";
+	
+	/**
+	 * messageSectionHitNumDepartementRattachementRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumDepartementRattachementRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de département de rattachement de la section HIT (colonnes [123-125] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02_EN_DUR 
+		= "le numéro de département de rattachement de la section HIT (colonnes [123-125] du HIT) doit comporter exactement 3 chiffres";
+	
+	/* 30 - numSectionRattachement. *******/
+	/**
+	 * clé de messageSectionHitNumSectionRattachementRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numSectionRattachement.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01 
+		= "message.SectionHit.numSectionRattachement.renseigne";
+	
+	/**
+	 * messageSectionHitNumSectionRattachementRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumSectionRattachementRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de section de rattachement de la section HIT (colonnes [126-131] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01_EN_DUR 
+		= "le numéro de section de rattachement de la section HIT (colonnes [126-131] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitNumSectionRattachementRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.numSectionRattachement.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02 
+		= "message.SectionHit.numSectionRattachement.regex";
+	
+	/**
+	 * messageSectionHitNumSectionRattachementRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitNumSectionRattachementRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le numéro de section de rattachement de la section HIT (colonnes [126-131] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02_EN_DUR 
+		= "le numéro de section de rattachement de la section HIT (colonnes [126-131] du HIT) doit comporter exactement 6 chiffres";
+	
+	/* 31 - sensRattachement. *******/
+	/**
+	 * clé de messageSectionHitSensRattachementRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.sensRattachement.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01 
+		= "message.SectionHit.sensRattachement.renseigne";
+	
+	/**
+	 * messageSectionHitSensRattachementRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitSensRattachementRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01_EN_DUR 
+		= "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitSensRattachementRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.sensRattachement.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02 
+		= "message.SectionHit.sensRattachement.regex";
+	
+	/**
+	 * messageSectionHitSensRattachementRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitSensRattachementRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02_EN_DUR 
+		= "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit comporter exactement 1 chiffre";
+				
+	/**
+	 * clé de messageSectionHitSensRattachementNomenclature03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.sensRattachement.nomenclature"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03 
+		= "message.SectionHit.sensRattachement.nomenclature";
+	
+	/**
+	 * messageSectionHitSensRattachementNomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitSensRattachementNomenclature03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03_EN_DUR 
+		= "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -2084,7 +2220,52 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "la longueur en rase campagne de la section HIT (colonnes [117-122] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitLongueurRaseCampagneNumerique03;			
+
+	/* 29 - numDepartementRattachement. *******/
+	/**
+	* message émis par la RG-SectionHit-NumDepartementRattachement-01 : 
+	* "le numéro de département de rattachement de la section HIT (colonnes [123-125] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitNumDepartementRattachementRenseigne01;
 	
+	/**
+	* message émis par la RG-SectionHit-NumDepartementRattachement-02 : 
+	* "le numéro de département de rattachement de la section HIT (colonnes [123-125] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitNumDepartementRattachementRegex02;
+
+	/* 30 - numSectionRattachement. *******/
+	/**
+	* message émis par la RG-SectionHit-NumSectionRattachement-01 : 
+	* "le numéro de section de rattachement de la section HIT (colonnes [126-131] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitNumSectionRattachementRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-NumSectionRattachement-02 : 
+	* "le numéro de section de rattachement de la section HIT (colonnes [126-131] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitNumSectionRattachementRegex02;
+
+	/* 31 - sensRattachement. *******/
+	/**
+	* message émis par la RG-SectionHit-SensRattachement-01 : 
+	* "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitSensRattachementRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-SensRattachement-02 : 
+	* "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit comporter exactement 1 chiffre".<br/>
+	*/
+	private static String messageSectionHitSensRattachementRegex02;
+
+	/**
+	 * message émis par la RG-SectionHit-SensRattachement-03 : 
+	 * "le sens de la section de rattachement de la section HIT (colonne [132] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5]"
+	 */
+	private static String messageSectionHitSensRattachementNomenclature03;
+		
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -2635,7 +2816,52 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03
 				, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR);
-																		
+				
+		/* 29 - numDepartementRattachement. *******/		
+		/* ajoute le messageSectionHitNumDepartementRattachementRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitNumDepartementRattachementRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02
+				, MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02_EN_DUR);
+				
+		/* 30 - numSectionRattachement. *******/		
+		/* ajoute le messageSectionHitNumSectionRattachementRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitNumSectionRattachementRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02
+				, MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02_EN_DUR);
+				
+		/* 31 - sensRattachement. *******/		
+		/* ajoute le messageSectionHitSensRattachementRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitSensRattachementRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02
+				, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitSensRattachementNomenclature03 
+		 * par défaut stocké en dur.*/
+		preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03
+					, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03_EN_DUR);
+																				
 		} // Fin du bloc synchronized.__________________
 		
 	} // Fin de ajouterProperties()._______________________________________
@@ -12663,6 +12889,800 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitLongueurRaseCampagneNumerique03(...).__	
+
+
+	
+	/* 29 - numDepartementRattachement. ****************/
+	/**
+	 * retourne le messageSectionHitNumDepartementRattachementRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementRattachementRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumDepartementRattachementRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumDepartementRattachementRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumDepartementRattachementRenseigne01
+					, fournirKeyMessageSectionHitNumDepartementRattachementRenseigne01()
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumDepartementRattachementRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumDepartementRattachementRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numDepartementRattachement.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumDepartementRattachementRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitNumDepartementRattachementRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumDepartementRattachementRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementRattachementRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumDepartementRattachementRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumDepartementRattachementRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitNumDepartementRattachementRenseigne01();
+	} // Fin de getMessageSectionHitNumDepartementRattachementRenseigne01().
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumDepartementRattachementRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumDepartementRattachementRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitNumDepartementRattachementRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumDepartementRattachementRenseigne01
+							, fournirKeyMessageSectionHitNumDepartementRattachementRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumDepartementRattachementRenseigne01(...).
+
+
+
+	/**
+	 * retourne le messageSectionHitNumDepartementRattachementRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementRattachementRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumDepartementRattachementRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumDepartementRattachementRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumDepartementRattachementRegex02
+					, fournirKeyMessageSectionHitNumDepartementRattachementRegex02()
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumDepartementRattachementRegex02().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumDepartementRattachementRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numDepartementRattachement.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumDepartementRattachementRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitNumDepartementRattachementRegex02().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumDepartementRattachementRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumDepartementRattachementRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumDepartementRattachementRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumDepartementRattachementRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitNumDepartementRattachementRegex02();
+	} // Fin de getMessageSectionHitNumDepartementRattachementRegex02().
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumDepartementRattachementRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumDepartementRattachementRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitNumDepartementRattachementRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumDepartementRattachementRegex02
+							, fournirKeyMessageSectionHitNumDepartementRattachementRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumDepartementRattachementRegex02(...).
+
+
+	
+	/* 30 - numSectionRattachement. ****************/
+	/**
+	 * retourne le messageSectionHitNumSectionRattachementRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumSectionRattachementRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumSectionRattachementRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumSectionRattachementRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumSectionRattachementRenseigne01
+					, fournirKeyMessageSectionHitNumSectionRattachementRenseigne01()
+					, MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumSectionRattachementRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumSectionRattachementRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numSectionRattachement.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumSectionRattachementRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitNumSectionRattachementRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumSectionRattachementRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumSectionRattachementRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumSectionRattachementRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumSectionRattachementRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitNumSectionRattachementRenseigne01();
+	} // Fin de getMessageSectionHitNumSectionRattachementRenseigne01().___
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumSectionRattachementRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumSectionRattachementRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitNumSectionRattachementRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumSectionRattachementRenseigne01
+							, fournirKeyMessageSectionHitNumSectionRattachementRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumSectionRattachementRenseigne01(...).
+
+
+
+	/**
+	 * retourne le messageSectionHitNumSectionRattachementRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitNumSectionRattachementRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitNumSectionRattachementRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitNumSectionRattachementRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitNumSectionRattachementRegex02
+					, fournirKeyMessageSectionHitNumSectionRattachementRegex02()
+					, MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitNumSectionRattachementRegex02().___
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitNumSectionRattachementRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.numSectionRattachement.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitNumSectionRattachementRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitNumSectionRattachementRegex02().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitNumSectionRattachementRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitNumSectionRattachementRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitNumSectionRattachementRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitNumSectionRattachementRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitNumSectionRattachementRegex02();
+	} // Fin de getMessageSectionHitNumSectionRattachementRegex02()._______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitNumSectionRattachementRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitNumSectionRattachementRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitNumSectionRattachementRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitNumSectionRattachementRegex02
+							, fournirKeyMessageSectionHitNumSectionRattachementRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitNumSectionRattachementRegex02(...).____
+
+
+	
+	/* 31 - sensRattachement. ****************/
+	/**
+	 * retourne le messageSectionHitSensRattachementRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitSensRattachementRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitSensRattachementRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitSensRattachementRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitSensRattachementRenseigne01
+					, fournirKeyMessageSectionHitSensRattachementRenseigne01()
+					, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitSensRattachementRenseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitSensRattachementRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.sensRattachement.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitSensRattachementRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitSensRattachementRenseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitSensRattachementRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitSensRattachementRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitSensRattachementRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitSensRattachementRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitSensRattachementRenseigne01();
+	} // Fin de getMessageSectionHitSensRattachementRenseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitSensRattachementRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitSensRattachementRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitSensRattachementRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitSensRattachementRenseigne01
+							, fournirKeyMessageSectionHitSensRattachementRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitSensRattachementRenseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitSensRattachementRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitSensRattachementRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitSensRattachementRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitSensRattachementRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitSensRattachementRegex02
+					, fournirKeyMessageSectionHitSensRattachementRegex02()
+					, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitSensRattachementRegex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitSensRattachementRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.sensRattachement.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitSensRattachementRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitSensRattachementRegex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitSensRattachementRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitSensRattachementRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitSensRattachementRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitSensRattachementRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitSensRattachementRegex02();
+	} // Fin de getMessageSectionHitSensRattachementRegex02()._____________
+
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitSensRattachementRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitSensRattachementRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitSensRattachementRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitSensRattachementRegex02
+							, fournirKeyMessageSectionHitSensRattachementRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitSensRattachementRegex02(...).__________
+	
+
+
+	/**
+	 * retourne le messageSectionHitSensRattachementNomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitSensRattachementNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitSensRattachementNomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitSensRattachementNomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitSensRattachementNomenclature03
+					, fournirKeyMessageSectionHitSensRattachementNomenclature03()
+					, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitSensRattachementNomenclature03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitSensRattachementNomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.sensRattachement.nomenclature".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitSensRattachementNomenclature03() {
+		return KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03;
+	} // Fin de fournirKeyMessageSectionHitSensRattachementNomenclature03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitSensRattachementNomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitSensRattachementNomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitSensRattachementNomenclature03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitSensRattachementNomenclature03() 
+													throws Exception {
+		return fournirMessageSectionHitSensRattachementNomenclature03();
+	} // Fin de getMessageSectionHitSensRattachementNomenclature03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitSensRattachementNomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitSensRattachementNomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitSensRattachementNomenclature03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitSensRattachementNomenclature03
+							, fournirKeyMessageSectionHitSensRattachementNomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitSensRattachementNomenclature03(...).___
 	
 			
 			

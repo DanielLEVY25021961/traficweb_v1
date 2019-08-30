@@ -1470,22 +1470,22 @@ public final class GenerateurValideurService {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "28";
-		final String nomChamp = "longueurRaseCampagne";
-		final String nomChampEnClair = "la longueur en rase campagne";
-		final String colonnes = "[117-122]";
-		final String nbreChiffres = "6";
-//		final String nomenclature = "[1, 2]";
+		final String numeroChamp = "31";
+		final String nomChamp = "sensRattachement";
+		final String nomChampEnClair = "le sens de la section de rattachement";
+		final String colonnes = "[132]";
+		final String nbreChiffres = "1";
+		final String nomenclature = "[1, 2, 3, 4, 5]";
 		// *******************************************************
 		
 //		genererCodeRGsRenseigneRegexChiffres(
 //				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
 
-//		genererCodeRGsRenseigneRegexChiffresNomenclature(
-//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres, nomenclature);
+		genererCodeRGsRenseigneRegexChiffresNomenclature(
+				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres, nomenclature);
 		
-		genererCodeRGsRenseigneRegexChiffresNumerique(
-				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
+//		genererCodeRGsRenseigneRegexChiffresNumerique(
+//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
 
 	} // Fin de main(...)._________________________________________________
 	

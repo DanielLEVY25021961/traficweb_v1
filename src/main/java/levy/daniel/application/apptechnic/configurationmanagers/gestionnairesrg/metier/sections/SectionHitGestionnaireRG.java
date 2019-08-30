@@ -927,6 +927,86 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03 : "
 				+ "la longueur en rase campagne doit être homogène à un entier";
 
+	/* 29 - numDepartementRattachement. *******/
+	/**
+	 * "numDepartementRattachement".<br/>
+	 */
+	public static final String ATTRIBUT_NUMDEPARTEMENTRATTACHEMENT 
+		= "numDepartementRattachement";
+
+	/**
+	 * "RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01 : 
+	 * le numéro de département de rattachement de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01 
+		= "RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01 : "
+				+ "le numéro de département de rattachement de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02 : 
+	 * le numéro de département de rattachement de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02 
+		= "RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02 : "
+				+ "le numéro de département de rattachement de la section HIT doit comporter exactement 3 chiffres";
+
+	/* 30 - numSectionRattachement. *******/
+	/**
+	 * "numSectionRattachement".<br/>
+	 */
+	public static final String ATTRIBUT_NUMSECTIONRATTACHEMENT 
+		= "numSectionRattachement";
+
+	/**
+	 * "RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01 : 
+	 * le numéro de section de rattachement de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01 
+		= "RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01 : "
+				+ "le numéro de section de rattachement de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02 : 
+	 * le numéro de section de rattachement de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02 
+		= "RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02 : "
+				+ "le numéro de section de rattachement de la section HIT doit comporter exactement 6 chiffres";
+
+	/* 31 - sensRattachement. *******/
+	/**
+	 * "sensRattachement".<br/>
+	 */
+	public static final String ATTRIBUT_SENSRATTACHEMENT 
+		= "sensRattachement";
+
+	/**
+	 * "RG_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01 : 
+	 * le sens de la section de rattachement de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01 
+		= "RG_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01 : "
+				+ "le sens de la section de rattachement de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_SENSRATTACHEMENT_REGEX_02 : 
+	 * le sens de la section de rattachement de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_SENSRATTACHEMENT_REGEX_02 
+		= "RG_SECTIONHIT_SENSRATTACHEMENT_REGEX_02 : "
+				+ "le sens de la section de rattachement de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03 : 
+	 * le sens de la section de rattachement doit respecter une nomenclature [1, 2, 3, 4, 5]".
+	 */
+	public static final String RG_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03 : "
+				+ "le sens de la section de rattachement doit respecter une nomenclature [1, 2, 3, 4, 5]";
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -2082,6 +2162,108 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitLongueurRaseCampagneNumerique03());								
 		
+		/* 29 - numDepartementRattachement. *******/
+		/* RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitNumDepartementRattachementRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumDepartementRattachement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumDepartementRattachementRenseigne01()
+				, RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumDepartementRattachementRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMDEPARTEMENTRATTACHEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumDepartementRattachementRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumDepartementRattachementRenseigne01());
+		
+		/* RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02. */
+		final LigneRG ligneRGSectionHitNumDepartementRattachementRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumDepartementRattachement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumDepartementRattachementRegex02()
+				, RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumDepartementRattachementRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMDEPARTEMENTRATTACHEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumDepartementRattachementRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumDepartementRattachementRegex02());
+		
+		/* 30 - numSectionRattachement. *******/
+		/* RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitNumSectionRattachementRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumSectionRattachement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumSectionRattachementRenseigne01()
+				, RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumSectionRattachementRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMSECTIONRATTACHEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumSectionRattachementRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumSectionRattachementRenseigne01());
+		
+		/* RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02. */
+		final LigneRG ligneRGSectionHitNumSectionRattachementRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumSectionRattachement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitNumSectionRattachementRegex02()
+				, RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitNumSectionRattachementRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_NUMSECTIONRATTACHEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitNumSectionRattachementRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitNumSectionRattachementRegex02());
+		
+		/* 31 - sensRattachement. *******/
+		/* RG_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitSensRattachementRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensRattachement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensRattachementRenseigne01()
+				, RG_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitSensRattachementRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_SENSRATTACHEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitSensRattachementRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensRattachementRenseigne01());
+		
+		/* RG_SECTIONHIT_SENSRATTACHEMENT_REGEX_02. */
+		final LigneRG ligneRGSectionHitSensRattachementRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensRattachement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensRattachementRegex02()
+				, RG_SECTIONHIT_SENSRATTACHEMENT_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitSensRattachementRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_SENSRATTACHEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitSensRattachementRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensRattachementRegex02());
+				
+		/* RG_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitSensRattachementNomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensRattachement()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitSensRattachementNomenclature03()
+				, RG_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitSensRattachementNomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_SENSRATTACHEMENT
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitSensRattachementNomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitSensRattachementNomenclature03());
+				
+										
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
 		// *********************************************
@@ -2360,6 +2542,33 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03
 			, ligneRGSectionHitLongueurRaseCampagneNumerique03);				
+				
+		/* 29 - numDepartementRattachement. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01
+			, ligneRGSectionHitNumDepartementRattachementRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02
+			, ligneRGSectionHitNumDepartementRattachementRegex02);
+				
+		/* 30 - numSectionRattachement. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01
+			, ligneRGSectionHitNumSectionRattachementRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02
+			, ligneRGSectionHitNumSectionRattachementRegex02);
+				
+		/* 31 - sensRattachement. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01
+			, ligneRGSectionHitSensRattachementRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_SENSRATTACHEMENT_REGEX_02
+			, ligneRGSectionHitSensRattachementRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03
+			, ligneRGSectionHitSensRattachementNomenclature03);				
 		
 		return this.mapRG;
 					
