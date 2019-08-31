@@ -34,7 +34,7 @@
 33;136-141;6;Numéro de la Section limitrophe;Numéro de section sur 4 chiffres significatifs maxi complété éventuellement avec des 0 à gauche et indice sur 2 chiffres significatifs maxi complété éventuellement avec des 0 à gauche. Exemples : section 26 indice 4 = 002604, section 1 indice 0 = 000100, section 162 indice 65 = 016265;numSectionLimitrophe;String;false;false;136;141;6
 34;142;1;Sens de la Section limitrophe;1 - sens P.R. croissants route à 2 sens. [sep] 2 - sens P.R. décroissants route à 2 sens. [sep] 3 - Cumul des deux sens route à 2 sens. [sep] 4 - Sens P.R. croissants route à sens unique. [sep] 5 - Sens P.R. décroissants route à sens unique. [sep];sensLimitrophe;String;true;false;142;142;1
 35;143-144;2;mois de sectionnement;Mois de sectionnement sur deux caractères (ex 07 pour juillet);moisSectionnement;String;false;false;143;144;2
-36;145-146;2;Année de sectionement;Année de Sectionnement sur deux caractères (ex 07 pour 2007);anneeSectionnement;String;false;false;145;146;2
+36;145-146;2;Année de sectionnement;Année de Sectionnement sur deux caractères (ex 07 pour 2007);anneeSectionnement;String;false;false;145;146;2
 37;147-152;6;Zone libre;6 espaces;zoneLibre2;String;false;false;147;152;6
 38;153-158;6;MJA;Moyenne journalière annuelle de l'année de traitement (n-0) en véhicules/jour;mjaN;Integer;false;false;153;158;6
 39;159;1;Mode de calcul;1 caractère (ou espace);modeCalculN;String;false;false;159;159;1

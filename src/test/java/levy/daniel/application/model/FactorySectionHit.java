@@ -117,7 +117,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setMoisSectionnement("01");
 				bonneSectionHitDTO.setAnneeSectionnement("87");
 				bonneSectionHitDTO.setZoneLibre2("      ");
-				bonneSectionHitDTO.setMjaN("11928");
+				bonneSectionHitDTO.setMjaN("011928");
 				bonneSectionHitDTO.setModeCalculN(UN_ESPACE);
 				bonneSectionHitDTO.setPcPLN(" 57");
 				bonneSectionHitDTO.setEvaluationPLN("7");

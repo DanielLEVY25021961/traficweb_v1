@@ -1134,7 +1134,87 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02 
 		= "RG_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02 : "
 				+ "l'année de sectionnement de la section HIT doit comporter exactement 2 chiffres";
+
+	/* 37 - zoneLibre2. *******/
+	/**
+	 * "zoneLibre2".<br/>
+	 */
+	public static final String ATTRIBUT_ZONELIBRE2 
+		= "zoneLibre2";
+
+	/**
+	 * "RG_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01 : 
+	 * la zone libre (2) de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01 : "
+				+ "la zone libre (2) de la section HIT "
+				+ "doit être renseignée";
+
+	/**
+	 * "RG_SECTIONHIT_ZONELIBRE2_REGEX_02 : 
+	 * la zone libre (2) de la section HIT doit comporter exactement 6 espaces".
+	 */
+	public static final String RG_SECTIONHIT_ZONELIBRE2_REGEX_02 
+		= "RG_SECTIONHIT_ZONELIBRE2_REGEX_02 : "
+				+ "la zone libre (2) de la section HIT doit comporter exactement 6 espaces";
+
+	/* 38 - mjaN. *******/
+	/**
+	 * "mjaN".<br/>
+	 */
+	public static final String ATTRIBUT_MJAN 
+		= "mjaN";
+
+	/**
+	 * "RG_SECTIONHIT_MJAN_RENSEIGNE_01 : 
+	 * le trafic moyen journalier annuel de l'année n de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MJAN_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MJAN_RENSEIGNE_01 : "
+				+ "le trafic moyen journalier annuel de l'année n de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_MJAN_REGEX_02 : 
+	 * le trafic moyen journalier annuel de l'année n de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_MJAN_REGEX_02 
+		= "RG_SECTIONHIT_MJAN_REGEX_02 : "
+				+ "le trafic moyen journalier annuel de l'année n de la section HIT doit comporter exactement 6 chiffres";
 	
+	/**
+	 * "RG_SECTIONHIT_MJAN_NUMERIQUE_03 : 
+	 * le trafic moyen journalier annuel de l'année n doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_MJAN_NUMERIQUE_03 
+		= "RG_SECTIONHIT_MJAN_NUMERIQUE_03 : "
+				+ "le trafic moyen journalier annuel de l'année n doit être homogène à un entier";
+	
+	/* 39 - modeCalculN. *******/
+	/**
+	 * "modeCalculN".<br/>
+	 */
+	public static final String ATTRIBUT_MODECALCULN 
+		= "modeCalculN";
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULN_RENSEIGNE_01 : 
+	 * le mode de calcul des trafics de l'année n de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULN_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MODECALCULN_RENSEIGNE_01 : "
+				+ "le mode de calcul des trafics de l'année n de la section HIT "
+				+ "doit être renseigné";
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULN_REGEX_02 : 
+	 * le mode de calcul des trafics de l'année n de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULN_REGEX_02 
+		= "RG_SECTIONHIT_MODECALCULN_REGEX_02 : "
+				+ "le mode de calcul des trafics de l'année n de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -2549,7 +2629,108 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitAnneeSectionnementRegex02()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeSectionnementRegex02());
+		
+		/* 37 - zoneLibre2. *******/
+		/* RG_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitZoneLibre2Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre2Renseigne01()
+				, RG_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitZoneLibre2Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ZONELIBRE2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitZoneLibre2Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitZoneLibre2Renseigne01());
+		
+		/* RG_SECTIONHIT_ZONELIBRE2_REGEX_02. */
+		final LigneRG ligneRGSectionHitZoneLibre2Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre2Regex02()
+				, RG_SECTIONHIT_ZONELIBRE2_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitZoneLibre2Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ZONELIBRE2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitZoneLibre2Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitZoneLibre2Regex02());
+		
+		/* 38 - mjaN. *******/
+		/* RG_SECTIONHIT_MJAN_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitMjaNRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNRenseigne01()
+				, RG_SECTIONHIT_MJAN_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJAN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNRenseigne01());
+		
+		/* RG_SECTIONHIT_MJAN_REGEX_02. */
+		final LigneRG ligneRGSectionHitMjaNRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNRegex02()
+				, RG_SECTIONHIT_MJAN_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJAN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNRegex02());
 				
+		/* RG_SECTIONHIT_MJAN_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitMjaNNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNNumerique03()
+				, RG_SECTIONHIT_MJAN_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJAN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNNumerique03());
+		
+		/* 39 - modeCalculN. *******/
+		/* RG_SECTIONHIT_MODECALCULN_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitModeCalculNRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNRenseigne01()
+				, RG_SECTIONHIT_MODECALCULN_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNRenseigne01());
+		
+		/* RG_SECTIONHIT_MODECALCULN_REGEX_02. */
+		final LigneRG ligneRGSectionHitModeCalculNRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNRegex02()
+				, RG_SECTIONHIT_MODECALCULN_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNRegex02());
+								
 														
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
@@ -2899,6 +3080,33 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02
 			, ligneRGSectionHitAnneeSectionnementRegex02);
+				
+		/* 37 - zoneLibre2. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01
+			, ligneRGSectionHitZoneLibre2Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ZONELIBRE2_REGEX_02
+			, ligneRGSectionHitZoneLibre2Regex02);
+				
+		/* 38 - mjaN. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJAN_RENSEIGNE_01
+			, ligneRGSectionHitMjaNRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJAN_REGEX_02
+			, ligneRGSectionHitMjaNRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJAN_NUMERIQUE_03
+			, ligneRGSectionHitMjaNNumerique03);				
+				
+		/* 39 - modeCalculN. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULN_RENSEIGNE_01
+			, ligneRGSectionHitModeCalculNRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULN_REGEX_02
+			, ligneRGSectionHitModeCalculNRegex02);
 		
 		return this.mapRG;
 					
