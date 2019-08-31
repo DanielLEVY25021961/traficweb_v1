@@ -119,7 +119,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setZoneLibre2("      ");
 				bonneSectionHitDTO.setMjaN("011928");
 				bonneSectionHitDTO.setModeCalculN(UN_ESPACE);
-				bonneSectionHitDTO.setPcPLN(" 57");
+				bonneSectionHitDTO.setPcPLN("057");
 				bonneSectionHitDTO.setEvaluationPLN("7");
 				bonneSectionHitDTO.setPcNuitAnnuelN(TROIS_ESPACES);
 				bonneSectionHitDTO.setIndiceFiabiliteMjaN(UN_ESPACE);

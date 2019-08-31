@@ -1813,22 +1813,22 @@ public final class GenerateurGestionnairePreferencesRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "39";
-		final String nomChamp = "modeCalculN";
-		final String nomChampEnClair = "le mode de calcul des trafics de l'année n";
-		final String colonnes = "[159]";
-		final String nbreChiffres = "1";
+		final String numeroChamp = "40";
+		final String nomChamp = "pcPLN";
+		final String nomChampEnClair = "le pourcentage de trafic poids lourds annuel de l'année n";
+		final String colonnes = "[160-162]";
+		final String nbreChiffres = "3";
 //		final String nomenclature = "[1, 2, 3, 4, 5]";
 		// *******************************************************
 		
-		genererCodeRGsRenseigneRegexChiffres(
-				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
+//		genererCodeRGsRenseigneRegexChiffres(
+//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
 
 //		genererCodeRGsRenseigneRegexChiffresNomenclature(
 //				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres, nomenclature);
 
-//		genererCodeRGsRenseigneRegexChiffresNumerique(
-//				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
+		genererCodeRGsRenseigneRegexChiffresNumerique(
+				numeroChamp, nomChamp, nomChampEnClair, colonnes, nbreChiffres);
 
 	} // Fin de main(...)._________________________________________________
 	

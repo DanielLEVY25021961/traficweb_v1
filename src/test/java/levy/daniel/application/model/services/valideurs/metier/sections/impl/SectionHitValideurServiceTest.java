@@ -4488,7 +4488,232 @@ public class SectionHitValideurServiceTest {
 				, erreurMaps.getErrorsMapDetaille().isEmpty());
 		
 	} // Fin de testValiderModeCalculN().__________________________________
+
 	
+
+	/* 40 - pcPLN. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcPLN</b></code> 
+	 * dans validerPcPLN(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcPLN() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcPLN() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcPLN("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLN non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = " 23";
+		dto.setPcPLN(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLN mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "7 9";
+		dto.setPcPLN(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLN non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "079";
+		dto.setPcPLN(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLN renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcPLN()._______________________________________	
+
+	
+
+	/* 41 - evaluationPLN. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>evaluationPLN</b></code> 
+	 * dans validerEvaluationPLN(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderEvaluationPLN() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderEvaluationPLN() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setEvaluationPLN("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLN non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setEvaluationPLN(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLN mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setEvaluationPLN(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLN renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderEvaluationPLN().__________________________________
+
 	
 	
 	/**
@@ -4706,6 +4931,17 @@ public class SectionHitValideurServiceTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculN(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNRenseigne01(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNRegex02(true);
+		
+		/* 40 - pcPLN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLN(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNNumerique03(true);
+		
+		/* 41 - evaluationPLN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLN(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNRegex02(true);
 
 	} // Fin de activerToutesRG()._________________________________________
 	

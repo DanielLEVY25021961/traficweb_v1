@@ -2744,6 +2744,139 @@ public final class SectionHitGestionnairePreferencesRG {
 	public static final String STRING_VALIDER_SECTIONHIT_MODECALCULN_REGEX_02_EN_DUR 
 		= "true";
 	
+	/* 40 - pcPLN. *******/
+	/**
+	 * clé de validerRGSectionHitPcPLN dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcPLN"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCPLN 
+		= "valider.SectionHit.pcPLN";
+	
+	/**
+	 * validerRGSectionHitPcPLN par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcPLN 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCPLN_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitPcPLNRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcPLN.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCPLN_RENSEIGNE_01 
+		= "valider.SectionHit.pcPLN.renseigne";
+	
+	/**
+	 * validerRGSectionHitPcPLNRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcPLNRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCPLN_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPcPLNRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcPLN.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCPLN_REGEX_02 
+		= "valider.SectionHit.pcPLN.regex";
+	
+	/**
+	 * validerRGSectionHitPcPLNRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcPLNRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCPLN_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPcPLNNumerique03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcPLN.numerique"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCPLN_NUMERIQUE_03 
+		= "valider.SectionHit.pcPLN.numerique";
+	
+	/**
+	 * validerRGSectionHitPcPLNNumerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcPLNNumerique03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCPLN_NUMERIQUE_03_EN_DUR 
+		= "true";
+	
+	/* 41 - evaluationPLN. *******/
+	/**
+	 * clé de validerRGSectionHitEvaluationPLN dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.evaluationPLN"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_EVALUATIONPLN 
+		= "valider.SectionHit.evaluationPLN";
+	
+	/**
+	 * validerRGSectionHitEvaluationPLN par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitEvaluationPLN 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_EVALUATIONPLN_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitEvaluationPLNRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.evaluationPLN.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01 
+		= "valider.SectionHit.evaluationPLN.renseigne";
+	
+	/**
+	 * validerRGSectionHitEvaluationPLNRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitEvaluationPLNRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitEvaluationPLNRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.evaluationPLN.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_EVALUATIONPLN_REGEX_02 
+		= "valider.SectionHit.evaluationPLN.regex";
+	
+	/**
+	 * validerRGSectionHitEvaluationPLNRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitEvaluationPLNRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_EVALUATIONPLN_REGEX_02_EN_DUR 
+		= "true";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -3736,6 +3869,54 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	private static Boolean validerRGSectionHitModeCalculNRegex02;
 	
+	/* 40 - pcPLN. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>pcPLN</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>pcPLN</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitPcPLN;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PcPLN-01 : 
+	 * "le pourcentage de trafic poids lourds annuel de l'année n de la section HIT (colonnes [160-162] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitPcPLNRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PcPLN-02 : 
+	 * "le pourcentage de trafic poids lourds annuel de l'année n de la section HIT (colonnes [160-162] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitPcPLNRegex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PcPLN-03 : 
+	 * "le pourcentage de trafic poids lourds annuel de l'année n de la section HIT (colonnes [160-162] du HIT) doit être homogène à un entier".<br/>
+	 */
+	private static Boolean validerRGSectionHitPcPLNNumerique03;
+	
+	/* 41 - evaluationPLN. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>evaluationPLN</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>evaluationPLN</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitEvaluationPLN;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-EvaluationPLN-01 : 
+	 * "l'évaluation des pourcentages de trafic poids lourds de l'année n de la section HIT (colonne [163] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitEvaluationPLNRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-EvaluationPLN-02 : 
+	 * "l'évaluation des pourcentages de trafic poids lourds de l'année n de la section HIT (colonne [163] du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	private static Boolean validerRGSectionHitEvaluationPLNRegex02;
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -4680,6 +4861,50 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_MODECALCULN_REGEX_02
 						, STRING_VALIDER_SECTIONHIT_MODECALCULN_REGEX_02_EN_DUR);
+			
+			/* 40 - pcPLN. *******/
+			/* ajoute le validerRGSectionHitPcPLN 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCPLN
+						, STRING_VALIDER_SECTIONHIT_PCPLN_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcPLNRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCPLN_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_PCPLN_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcPLNRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCPLN_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_PCPLN_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcPLNNumerique03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCPLN_NUMERIQUE_03
+						, STRING_VALIDER_SECTIONHIT_PCPLN_NUMERIQUE_03_EN_DUR);
+			
+			/* 41 - evaluationPLN. *******/
+			/* ajoute le validerRGSectionHitEvaluationPLN 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_EVALUATIONPLN
+						, STRING_VALIDER_SECTIONHIT_EVALUATIONPLN_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitEvaluationPLNRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitEvaluationPLNRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_EVALUATIONPLN_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_EVALUATIONPLN_REGEX_02_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -21805,6 +22030,816 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitModeCalculNRegex02(...)._____________
+	
+	
+	
+	/* 40 - pcPLN. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitPcPLN</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>pcPLN</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>pcPLN</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPcPLN stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPcPLN 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPcPLN() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitPcPLN
+					, fournirKeyValiderRGSectionHitPcPLN()
+					, STRING_VALIDER_SECTIONHIT_PCPLN_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPcPLN()._________________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPcPLN 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.pcPLN".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PCPLN : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPcPLN() {
+		return KEY_VALIDER_SECTIONHIT_PCPLN;
+	} // Fin de fournirKeyValiderRGSectionHitPcPLN().______________________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPcPLN par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitPcPLN 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPcPLN stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPcPLN : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPcPLN() 
+													throws Exception {
+		return fournirValiderRGSectionHitPcPLN();
+	} // Fin de getValiderRGSectionHitPcPLN()._____________________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPcPLN par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPcPLN.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPcPLN(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPcPLN
+							, fournirKeyValiderRGSectionHitPcPLN());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPcPLN(...).__________________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitPcPLNRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPcPLNRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPcPLNRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPcPLNRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitPcPLNRenseigne01
+					, fournirKeyValiderRGSectionHitPcPLNRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_PCPLN_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPcPLNRenseigne01().______________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPcPLNRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.pcPLN.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PCPLN_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPcPLNRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_PCPLN_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitPcPLNRenseigne01().___________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPcPLNRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPcPLNRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPcPLNRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPcPLNRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPcPLNRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitPcPLNRenseigne01();
+	} // Fin de getValiderRGSectionHitPcPLNRenseigne01().__________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPcPLNRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPcPLNRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPcPLNRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPcPLNRenseigne01
+							, fournirKeyValiderRGSectionHitPcPLNRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPcPLNRenseigne01(...)._______________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitPcPLNRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPcPLNRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPcPLNRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPcPLNRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitPcPLNRegex02
+					, fournirKeyValiderRGSectionHitPcPLNRegex02()
+					, STRING_VALIDER_SECTIONHIT_PCPLN_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPcPLNRegex02().__________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPcPLNRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.pcPLN.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PCPLN_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPcPLNRegex02() {
+		return KEY_VALIDER_SECTIONHIT_PCPLN_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitPcPLNRegex02()._______________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPcPLNRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPcPLNRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPcPLNRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPcPLNRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPcPLNRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitPcPLNRegex02();
+	} // Fin de getValiderRGSectionHitPcPLNRegex02().______________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPcPLNRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPcPLNRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPcPLNRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPcPLNRegex02
+							, fournirKeyValiderRGSectionHitPcPLNRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPcPLNRegex02(...).___________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitPcPLNNumerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPcPLNNumerique03 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitPcPLNNumerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitPcPLNNumerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitPcPLNNumerique03
+					, fournirKeyValiderRGSectionHitPcPLNNumerique03()
+					, STRING_VALIDER_SECTIONHIT_PCPLN_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitPcPLNNumerique03().______________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitPcPLNNumerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.pcPLN.numerique".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_PCPLN_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitPcPLNNumerique03() {
+		return KEY_VALIDER_SECTIONHIT_PCPLN_NUMERIQUE_03;
+	} // Fin de fournirKeyValiderRGSectionHitPcPLNNumerique03().___________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitPcPLNNumerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitPcPLNNumerique03 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitPcPLNNumerique03 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitPcPLNNumerique03 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitPcPLNNumerique03() 
+													throws Exception {
+		return fournirValiderRGSectionHitPcPLNNumerique03();
+	} // Fin de getValiderRGSectionHitPcPLNNumerique03().__________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitPcPLNNumerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitPcPLNNumerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitPcPLNNumerique03(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitPcPLNNumerique03
+							, fournirKeyValiderRGSectionHitPcPLNNumerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitPcPLNNumerique03(...)._______________
+	
+	
+	
+	/* 41 - evaluationPLN. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitEvaluationPLN</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>evaluationPLN</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>evaluationPLN</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitEvaluationPLN stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitEvaluationPLN 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitEvaluationPLN() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitEvaluationPLN
+					, fournirKeyValiderRGSectionHitEvaluationPLN()
+					, STRING_VALIDER_SECTIONHIT_EVALUATIONPLN_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitEvaluationPLN()._________________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitEvaluationPLN 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.evaluationPLN".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_EVALUATIONPLN : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitEvaluationPLN() {
+		return KEY_VALIDER_SECTIONHIT_EVALUATIONPLN;
+	} // Fin de fournirKeyValiderRGSectionHitEvaluationPLN().______________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitEvaluationPLN par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitEvaluationPLN 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitEvaluationPLN stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitEvaluationPLN : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitEvaluationPLN() 
+													throws Exception {
+		return fournirValiderRGSectionHitEvaluationPLN();
+	} // Fin de getValiderRGSectionHitEvaluationPLN()._____________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitEvaluationPLN par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitEvaluationPLN.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitEvaluationPLN(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitEvaluationPLN
+							, fournirKeyValiderRGSectionHitEvaluationPLN());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitEvaluationPLN(...).__________________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitEvaluationPLNRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitEvaluationPLNRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitEvaluationPLNRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitEvaluationPLNRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitEvaluationPLNRenseigne01
+					, fournirKeyValiderRGSectionHitEvaluationPLNRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitEvaluationPLNRenseigne01().______
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitEvaluationPLNRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.evaluationPLN.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitEvaluationPLNRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitEvaluationPLNRenseigne01().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitEvaluationPLNRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitEvaluationPLNRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitEvaluationPLNRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitEvaluationPLNRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitEvaluationPLNRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitEvaluationPLNRenseigne01();
+	} // Fin de getValiderRGSectionHitEvaluationPLNRenseigne01().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitEvaluationPLNRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitEvaluationPLNRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitEvaluationPLNRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitEvaluationPLNRenseigne01
+							, fournirKeyValiderRGSectionHitEvaluationPLNRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitEvaluationPLNRenseigne01(...)._______
+
+
+
+	/**
+	 * retourne le validerRGSectionHitEvaluationPLNRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitEvaluationPLNRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitEvaluationPLNRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitEvaluationPLNRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitEvaluationPLNRegex02
+					, fournirKeyValiderRGSectionHitEvaluationPLNRegex02()
+					, STRING_VALIDER_SECTIONHIT_EVALUATIONPLN_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitEvaluationPLNRegex02().__________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitEvaluationPLNRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.evaluationPLN.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_EVALUATIONPLN_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitEvaluationPLNRegex02() {
+		return KEY_VALIDER_SECTIONHIT_EVALUATIONPLN_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitEvaluationPLNRegex02()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitEvaluationPLNRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitEvaluationPLNRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitEvaluationPLNRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitEvaluationPLNRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitEvaluationPLNRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitEvaluationPLNRegex02();
+	} // Fin de getValiderRGSectionHitEvaluationPLNRegex02().______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitEvaluationPLNRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitEvaluationPLNRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitEvaluationPLNRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitEvaluationPLNRegex02
+							, fournirKeyValiderRGSectionHitEvaluationPLNRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitEvaluationPLNRegex02(...).___________
 	
 					
 	
