@@ -13884,6 +13884,401 @@ public class SectionHitGestionnairePreferencesControlesTest {
 	} // Fin de testGetMessageSectionHitEvaluationPLNRegex02().______________
 	
 
+	
+	/* 42 - pcNuitAnnuelN. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitAnnuelNRenseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitAnnuelNRenseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitAnnuelNRenseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitAnnuelNRenseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNRenseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitAnnuelNRenseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitAnnuelNRenseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitAnnuelNRenseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitAnnuelNRenseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitAnnuelNRenseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitAnnuelNRenseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitAnnuelNRenseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitAnnuelNRenseigne01().________________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitAnnuelNRegex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitAnnuelNRegex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitAnnuelNRegex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitAnnuelNRegex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNRegex02();
+		
+		/* garantit que getMessageSectionHitPcNuitAnnuelNRegex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitAnnuelNRegex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNRegex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitAnnuelNRegex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitAnnuelNRegex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitAnnuelNRegex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitAnnuelNRegex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitAnnuelNNumerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitAnnuelNNumerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitAnnuelNNumerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitAnnuelNNumerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNNumerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitAnnuelNNumerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitAnnuelNNumerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNNumerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitAnnuelNNumerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitAnnuelNNumerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitAnnuelNNumerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitAnnuelNNumerique03().________
+	
+
 				
 	/**
 	 * détruit le fichier properties si il existe.<br/>

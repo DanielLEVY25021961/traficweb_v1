@@ -1271,6 +1271,38 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_EVALUATIONPLN_REGEX_02 : "
 				+ "l'évaluation des pourcentages de trafic poids lourds de l'année n de la section HIT doit comporter exactement 1 caractère (ou espace)";
 
+	/* 42 - pcNuitAnnuelN. *******/
+	/**
+	 * "pcNuitAnnuelN".<br/>
+	 */
+	public static final String ATTRIBUT_PCNUITANNUELN 
+		= "pcNuitAnnuelN";
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELN_REGEX_02 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELN_REGEX_02 
+		= "RG_SECTIONHIT_PCNUITANNUELN_REGEX_02 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n doit être homogène à un entier";
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -2858,6 +2890,49 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitEvaluationPLNRegex02()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLNRegex02());
+		
+		/* 42 - pcNuitAnnuelN. *******/
+		/* RG_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNRenseigne01()
+				, RG_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNRenseigne01());
+		
+		/* RG_SECTIONHIT_PCNUITANNUELN_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNRegex02()
+				, RG_SECTIONHIT_PCNUITANNUELN_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNRegex02());
+				
+		/* RG_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNNumerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNNumerique03()
+				, RG_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNNumerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNNumerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNNumerique03());
 								
 														
 		// *********************************************
@@ -3254,6 +3329,17 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_EVALUATIONPLN_REGEX_02
 			, ligneRGSectionHitEvaluationPLNRegex02);
+				
+		/* 42 - pcNuitAnnuelN. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitAnnuelNRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELN_REGEX_02
+			, ligneRGSectionHitPcNuitAnnuelNRegex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitAnnuelNNumerique03);				
 		
 		return this.mapRG;
 					

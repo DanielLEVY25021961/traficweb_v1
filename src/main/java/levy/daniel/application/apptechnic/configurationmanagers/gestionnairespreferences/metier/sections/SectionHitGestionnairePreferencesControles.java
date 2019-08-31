@@ -2153,6 +2153,64 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static final String MESSAGE_SECTIONHIT_EVALUATIONPLN_REGEX_02_EN_DUR 
 		= "l'évaluation des pourcentages de trafic poids lourds de l'année n de la section HIT (colonne [163] du HIT) doit comporter exactement 1 caractère (ou espace)";
 	
+	/* 42 - pcNuitAnnuelN. *******/
+	/**
+	 * clé de messageSectionHitPcNuitAnnuelNRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitAnnuelN.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitAnnuelN.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitAnnuelNRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitAnnuelNRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitAnnuelNRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitAnnuelN.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02 
+		= "message.SectionHit.pcNuitAnnuelN.regex";
+	
+	/**
+	 * messageSectionHitPcNuitAnnuelNRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitAnnuelNRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitAnnuelNNumerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitAnnuelN.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitAnnuelN.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitAnnuelNNumerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitAnnuelNNumerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être homogène à un entier";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -2860,6 +2918,25 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "l'évaluation des pourcentages de trafic poids lourds de l'année n de la section HIT (colonne [163] du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
 	*/
 	private static String messageSectionHitEvaluationPLNRegex02;
+
+	/* 42 - pcNuitAnnuelN. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitAnnuelN-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitAnnuelNRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitAnnuelN-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitAnnuelNRegex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitAnnuelN-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitAnnuelNNumerique03;
 
 	
 	/**
@@ -3605,6 +3682,25 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN_REGEX_02
 				, MESSAGE_SECTIONHIT_EVALUATIONPLN_REGEX_02_EN_DUR);
+				
+		/* 42 - pcNuitAnnuelN. *******/		
+		/* ajoute le messageSectionHitPcNuitAnnuelNRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitAnnuelNRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitAnnuelNNumerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR);
 		
 		} // Fin du bloc synchronized.__________________
 		
@@ -17036,6 +17132,346 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitEvaluationPLNRegex02(...)._____________
+
+
+	
+	/* 42 - pcNuitAnnuelN. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitAnnuelNRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelNRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitAnnuelNRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitAnnuelNRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitAnnuelNRenseigne01
+					, fournirKeyMessageSectionHitPcNuitAnnuelNRenseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitAnnuelNRenseigne01().________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitAnnuelNRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitAnnuelN.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitAnnuelNRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitAnnuelNRenseigne01()._____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitAnnuelNRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelNRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitAnnuelNRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitAnnuelNRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitAnnuelNRenseigne01();
+	} // Fin de getMessageSectionHitPcNuitAnnuelNRenseigne01().____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitAnnuelNRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitAnnuelNRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitAnnuelNRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitAnnuelNRenseigne01
+							, fournirKeyMessageSectionHitPcNuitAnnuelNRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitAnnuelNRenseigne01(...)._________
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitAnnuelNRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelNRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitAnnuelNRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitAnnuelNRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitAnnuelNRegex02
+					, fournirKeyMessageSectionHitPcNuitAnnuelNRegex02()
+					, MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitAnnuelNRegex02().____________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitAnnuelNRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitAnnuelN.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitAnnuelNRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitAnnuelNRegex02()._________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitAnnuelNRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelNRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitAnnuelNRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitAnnuelNRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitAnnuelNRegex02();
+	} // Fin de getMessageSectionHitPcNuitAnnuelNRegex02().________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitAnnuelNRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitAnnuelNRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitAnnuelNRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitAnnuelNRegex02
+							, fournirKeyMessageSectionHitPcNuitAnnuelNRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitAnnuelNRegex02(...)._____________
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitAnnuelNNumerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelNNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitAnnuelNNumerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitAnnuelNNumerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitAnnuelNNumerique03
+					, fournirKeyMessageSectionHitPcNuitAnnuelNNumerique03()
+					, MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitAnnuelNNumerique03().________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitAnnuelNNumerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitAnnuelNNumerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitAnnuelNNumerique03()._____
+	
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitAnnuelNNumerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelNNumerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitAnnuelNNumerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitAnnuelNNumerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitAnnuelNNumerique03();
+	} // Fin de getMessageSectionHitPcNuitAnnuelNNumerique03().____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitAnnuelNNumerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitAnnuelNNumerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitAnnuelNNumerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitAnnuelNNumerique03
+							, fournirKeyMessageSectionHitPcNuitAnnuelNNumerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitAnnuelNNumerique03(...)._________
 		
 			
 			
