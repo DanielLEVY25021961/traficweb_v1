@@ -2211,6 +2211,45 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static final String MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR 
 		= "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être homogène à un entier";
 	
+	/* 43 - indiceFiabiliteMjaN. *******/
+	/**
+	 * clé de messageSectionHitIndiceFiabiliteMjaNRenseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.indiceFiabiliteMjaN.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01 
+		= "message.SectionHit.indiceFiabiliteMjaN.renseigne";
+	
+	/**
+	 * messageSectionHitIndiceFiabiliteMjaNRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'indice de fiabilité de la TMJA de l'année n de la section HIT (colonne [167] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01_EN_DUR 
+		= "l'indice de fiabilité de la TMJA de l'année n de la section HIT (colonne [167] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitIndiceFiabiliteMjaNRegex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.indiceFiabiliteMjaN.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02 
+		= "message.SectionHit.indiceFiabiliteMjaN.regex";
+	
+	/**
+	 * messageSectionHitIndiceFiabiliteMjaNRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitIndiceFiabiliteMjaNRegex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'indice de fiabilité de la TMJA de l'année n de la section HIT (colonne [167] du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02_EN_DUR 
+		= "l'indice de fiabilité de la TMJA de l'année n de la section HIT (colonne [167] du HIT) doit comporter exactement 1 caractère (ou espace)";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -2937,6 +2976,19 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "le pourcentage de trafic de nuit tous véhicules annuel de l'année n de la section HIT (colonnes [164-166] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitPcNuitAnnuelNNumerique03;
+
+	/* 43 - indiceFiabiliteMjaN. *******/
+	/**
+	* message émis par la RG-SectionHit-IndiceFiabiliteMjaN-01 : 
+	* "l'indice de fiabilité de la TMJA de l'année n de la section HIT (colonne [167] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitIndiceFiabiliteMjaNRenseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-IndiceFiabiliteMjaN-02 : 
+	* "l'indice de fiabilité de la TMJA de l'année n de la section HIT (colonne [167] du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	*/
+	private static String messageSectionHitIndiceFiabiliteMjaNRegex02;
 
 	
 	/**
@@ -3701,6 +3753,19 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03
 				, MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR);
+				
+		/* 43 - indiceFiabiliteMjaN. *******/		
+		/* ajoute le messageSectionHitIndiceFiabiliteMjaNRenseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitIndiceFiabiliteMjaNRegex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02
+				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02_EN_DUR);
 		
 		} // Fin du bloc synchronized.__________________
 		
@@ -17472,6 +17537,233 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitPcNuitAnnuelNNumerique03(...)._________
+
+
+	
+	/* 43 - indiceFiabiliteMjaN. ****************/
+	/**
+	 * retourne le messageSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceFiabiliteMjaNRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitIndiceFiabiliteMjaNRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitIndiceFiabiliteMjaNRenseigne01
+					, fournirKeyMessageSectionHitIndiceFiabiliteMjaNRenseigne01()
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitIndiceFiabiliteMjaNRenseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.indiceFiabiliteMjaN.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitIndiceFiabiliteMjaNRenseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitIndiceFiabiliteMjaNRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceFiabiliteMjaNRenseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitIndiceFiabiliteMjaNRenseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitIndiceFiabiliteMjaNRenseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitIndiceFiabiliteMjaNRenseigne01();
+	} // Fin de getMessageSectionHitIndiceFiabiliteMjaNRenseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitIndiceFiabiliteMjaNRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitIndiceFiabiliteMjaNRenseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitIndiceFiabiliteMjaNRenseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitIndiceFiabiliteMjaNRenseigne01
+							, fournirKeyMessageSectionHitIndiceFiabiliteMjaNRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitIndiceFiabiliteMjaNRenseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitIndiceFiabiliteMjaNRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceFiabiliteMjaNRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitIndiceFiabiliteMjaNRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitIndiceFiabiliteMjaNRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitIndiceFiabiliteMjaNRegex02
+					, fournirKeyMessageSectionHitIndiceFiabiliteMjaNRegex02()
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitIndiceFiabiliteMjaNRegex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitIndiceFiabiliteMjaNRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.indiceFiabiliteMjaN.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitIndiceFiabiliteMjaNRegex02() {
+		return KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitIndiceFiabiliteMjaNRegex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitIndiceFiabiliteMjaNRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceFiabiliteMjaNRegex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitIndiceFiabiliteMjaNRegex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitIndiceFiabiliteMjaNRegex02() 
+													throws Exception {
+		return fournirMessageSectionHitIndiceFiabiliteMjaNRegex02();
+	} // Fin de getMessageSectionHitIndiceFiabiliteMjaNRegex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitIndiceFiabiliteMjaNRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitIndiceFiabiliteMjaNRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitIndiceFiabiliteMjaNRegex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitIndiceFiabiliteMjaNRegex02
+							, fournirKeyMessageSectionHitIndiceFiabiliteMjaNRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitIndiceFiabiliteMjaNRegex02(...)._______
 		
 			
 			

@@ -38,9 +38,9 @@
 37;147-152;6;Zone libre;6 espaces;zoneLibre2;String;false;false;147;152;6
 38;153-158;6;MJA;Moyenne journalière annuelle de l'année de traitement (n-0) en véhicules/jour;mjaN;Integer;false;false;153;158;6
 39;159;1;Mode de calcul;1 caractère (ou espace);modeCalculN;String;false;false;159;159;1
-40;160-162;3;Pourcentage de trafic poids lourds (annuel);%PL de l'année de traitement (n-0). 3 chiffres dont 1 décimale, sans séparateur décimal. Ex : 99.9 ------> sans point (999);pcPLN;Integer;false;false;160;162;3
+40;160-162;3;Pourcentage de trafic poids lourds (annuel);%PL de l'année de traitement (n-0). 3 chiffres dont 1 décimale, sans séparateur décimal. Ex : 99.9 ------> sans point (999);pcPLN;String;false;false;160;162;3
 41;163;1;Moyen d'évaluation des PL N;1 caractère (ou espace);evaluationPLN;String;false;false;163;163;1
-42;164-166;3;Pourcentage de trafic de nuit tous véhicules (annuel);%Trafic de Nuit tous véhicules de l'année de traitement (n-0). 3 chiffres dont 1 décimale, sans séparateur décimal. Ex : 99.9 ------> sans point (999);pcNuitAnnuelN;Integer;false;false;164;166;3
+42;164-166;3;Pourcentage de trafic de nuit tous véhicules (annuel);%Trafic de Nuit tous véhicules de l'année de traitement (n-0). 3 chiffres dont 1 décimale, sans séparateur décimal. Ex : 99.9 ------> sans point (999);pcNuitAnnuelN;String;false;false;164;166;3
 43;167;1;Indice de fiabilité de la TMJA;1 caractère (ou espace);indiceFiabiliteMjaN;String;false;false;167;167;1
 44;168-173;6;Moyenne journalière mensuelle 01;du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour;mjmNmois01;Integer;false;false;168;173;6
 45;174-176;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 01;du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois01;Integer;false;false;174;176;3

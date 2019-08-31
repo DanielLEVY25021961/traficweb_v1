@@ -2953,6 +2953,63 @@ public final class SectionHitGestionnairePreferencesRG {
 	public static final String STRING_VALIDER_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR 
 		= "true";
 	
+	/* 43 - indiceFiabiliteMjaN. *******/
+	/**
+	 * clé de validerRGSectionHitIndiceFiabiliteMjaN dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.indiceFiabiliteMjaN"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN 
+		= "valider.SectionHit.indiceFiabiliteMjaN";
+	
+	/**
+	 * validerRGSectionHitIndiceFiabiliteMjaN par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitIndiceFiabiliteMjaN 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.indiceFiabiliteMjaN.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01 
+		= "valider.SectionHit.indiceFiabiliteMjaN.renseigne";
+	
+	/**
+	 * validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitIndiceFiabiliteMjaNRegex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.indiceFiabiliteMjaN.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02 
+		= "valider.SectionHit.indiceFiabiliteMjaN.regex";
+	
+	/**
+	 * validerRGSectionHitIndiceFiabiliteMjaNRegex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitIndiceFiabiliteMjaNRegex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02_EN_DUR 
+		= "true";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -4020,6 +4077,27 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	private static Boolean validerRGSectionHitPcNuitAnnuelNNumerique03;
 	
+	/* 43 - indiceFiabiliteMjaN. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>indiceFiabiliteMjaN</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>indiceFiabiliteMjaN</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitIndiceFiabiliteMjaN;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-IndiceFiabiliteMjaN-01 : 
+	 * "l'indice de fiabilité de la TMJA de l'année n de la section HIT (colonne [167] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitIndiceFiabiliteMjaNRenseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-IndiceFiabiliteMjaN-02 : 
+	 * "l'indice de fiabilité de la TMJA de l'année n de la section HIT (colonne [167] du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	private static Boolean validerRGSectionHitIndiceFiabiliteMjaNRegex02;
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -5033,6 +5111,25 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03
 						, STRING_VALIDER_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR);
+			
+			/* 43 - indiceFiabiliteMjaN. *******/
+			/* ajoute le validerRGSectionHitIndiceFiabiliteMjaN 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN
+						, STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitIndiceFiabiliteMjaNRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -23430,6 +23527,354 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitPcNuitAnnuelNNumerique03(...)._______
+	
+	
+	
+	/* 43 - indiceFiabiliteMjaN. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitIndiceFiabiliteMjaN</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>indiceFiabiliteMjaN</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>indiceFiabiliteMjaN</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitIndiceFiabiliteMjaN stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitIndiceFiabiliteMjaN 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitIndiceFiabiliteMjaN() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitIndiceFiabiliteMjaN
+					, fournirKeyValiderRGSectionHitIndiceFiabiliteMjaN()
+					, STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitIndiceFiabiliteMjaN().___________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitIndiceFiabiliteMjaN 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.indiceFiabiliteMjaN".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitIndiceFiabiliteMjaN() {
+		return KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN;
+	} // Fin de fournirKeyValiderRGSectionHitIndiceFiabiliteMjaN().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitIndiceFiabiliteMjaN par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitIndiceFiabiliteMjaN 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitIndiceFiabiliteMjaN stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitIndiceFiabiliteMjaN : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitIndiceFiabiliteMjaN() 
+													throws Exception {
+		return fournirValiderRGSectionHitIndiceFiabiliteMjaN();
+	} // Fin de getValiderRGSectionHitIndiceFiabiliteMjaN()._______________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitIndiceFiabiliteMjaN par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitIndiceFiabiliteMjaN.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitIndiceFiabiliteMjaN(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitIndiceFiabiliteMjaN
+							, fournirKeyValiderRGSectionHitIndiceFiabiliteMjaN());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitIndiceFiabiliteMjaN(...).____________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitIndiceFiabiliteMjaNRenseigne01
+					, fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01()
+					, STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.indiceFiabiliteMjaN.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01() {
+		return KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01();
+	} // Fin de getValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01().____
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitIndiceFiabiliteMjaNRenseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitIndiceFiabiliteMjaNRenseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitIndiceFiabiliteMjaNRenseigne01
+							, fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01(...)._
+
+
+
+	/**
+	 * retourne le validerRGSectionHitIndiceFiabiliteMjaNRegex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitIndiceFiabiliteMjaNRegex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitIndiceFiabiliteMjaNRegex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitIndiceFiabiliteMjaNRegex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitIndiceFiabiliteMjaNRegex02
+					, fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRegex02()
+					, STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitIndiceFiabiliteMjaNRegex02().____
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitIndiceFiabiliteMjaNRegex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.indiceFiabiliteMjaN.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRegex02() {
+		return KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRegex02()._
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitIndiceFiabiliteMjaNRegex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitIndiceFiabiliteMjaNRegex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitIndiceFiabiliteMjaNRegex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitIndiceFiabiliteMjaNRegex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitIndiceFiabiliteMjaNRegex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitIndiceFiabiliteMjaNRegex02();
+	} // Fin de getValiderRGSectionHitIndiceFiabiliteMjaNRegex02().________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitIndiceFiabiliteMjaNRegex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitIndiceFiabiliteMjaNRegex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitIndiceFiabiliteMjaNRegex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitIndiceFiabiliteMjaNRegex02
+							, fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRegex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitIndiceFiabiliteMjaNRegex02(...)._____
 	
 					
 	

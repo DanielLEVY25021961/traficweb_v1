@@ -1302,6 +1302,30 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03 
 		= "RG_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03 : "
 				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n doit être homogène à un entier";
+	
+	/* 43 - indiceFiabiliteMjaN. *******/
+	/**
+	 * "indiceFiabiliteMjaN".<br/>
+	 */
+	public static final String ATTRIBUT_INDICEFIABLITEMJAN 
+		= "indiceFiabiliteMjaN";
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01 : 
+	 * l'indice de fiabilité de la TMJA de l'année n de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02 : 
+	 * l'indice de fiabilité de la TMJA de l'année n de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n de la section HIT doit comporter exactement 1 caractère (ou espace)";
 
 	/**
 	 * LOG : Log : 
@@ -2933,6 +2957,35 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitPcNuitAnnuelNNumerique03()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNNumerique03());
+		
+		/* 43 - indiceFiabiliteMjaN. *******/
+		/* RG_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNRenseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01()
+				, RG_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNRenseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJAN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNRenseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01());
+		
+		/* RG_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNRegex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaN()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNRegex02()
+				, RG_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNRegex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJAN
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNRegex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNRegex02());
 								
 														
 		// *********************************************
@@ -3340,6 +3393,14 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03
 			, ligneRGSectionHitPcNuitAnnuelNNumerique03);				
+				
+		/* 43 - indiceFiabiliteMjaN. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01
+			, ligneRGSectionHitIndiceFiabiliteMjaNRenseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02
+			, ligneRGSectionHitIndiceFiabiliteMjaNRegex02);
 		
 		return this.mapRG;
 					

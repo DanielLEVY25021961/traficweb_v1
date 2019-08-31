@@ -121,7 +121,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setModeCalculN(UN_ESPACE);
 				bonneSectionHitDTO.setPcPLN("057");
 				bonneSectionHitDTO.setEvaluationPLN("7");
-				bonneSectionHitDTO.setPcNuitAnnuelN(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcNuitAnnuelN("200");
 				bonneSectionHitDTO.setIndiceFiabiliteMjaN(UN_ESPACE);
 				bonneSectionHitDTO.setMjmNmois01("10631");
 				bonneSectionHitDTO.setPcNuitNmois01(TROIS_ESPACES);
