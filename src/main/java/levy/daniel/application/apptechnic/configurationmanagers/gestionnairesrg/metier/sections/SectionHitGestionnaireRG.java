@@ -1390,6 +1390,70 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_PCNUITNMOIS01_NUMERIQUE_03 
 		= "RG_SECTIONHIT_PCNUITNMOIS01_NUMERIQUE_03 : "
 				+ "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n doit être homogène à un entier";
+
+	/* 46 - mjmNmois02. *******/
+	/**
+	 * "mjmNmois02".<br/>
+	 */
+	public static final String ATTRIBUT_MJMNMOIS02 
+		= "mjmNmois02";
+
+	/**
+	 * "RG_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01 : 
+	 * la moyenne journalière mensuelle du mois de février (02) de l'année n en véhicules/jour de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01 : "
+				+ "la moyenne journalière mensuelle du mois de février (02) de l'année n en véhicules/jour de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_MJMNMOIS02_REGEX_02 : 
+	 * la moyenne journalière mensuelle du mois de février (02) de l'année n en véhicules/jour de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_MJMNMOIS02_REGEX_02 
+		= "RG_SECTIONHIT_MJMNMOIS02_REGEX_02 : "
+				+ "la moyenne journalière mensuelle du mois de février (02) de l'année n en véhicules/jour de la section HIT doit comporter exactement 6 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03 : 
+	 * la moyenne journalière mensuelle du mois de février (02) de l'année n en véhicules/jour doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03 
+		= "RG_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03 : "
+				+ "la moyenne journalière mensuelle du mois de février (02) de l'année n en véhicules/jour doit être homogène à un entier";
+
+	/* 47 - pcNuitNmois02. *******/
+	/**
+	 * "pcNuitNmois02".<br/>
+	 */
+	public static final String ATTRIBUT_PCNUITNMOIS02 
+		= "pcNuitNmois02";
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01 : 
+	 * le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITNMOIS02_REGEX_02 : 
+	 * le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITNMOIS02_REGEX_02 
+		= "RG_SECTIONHIT_PCNUITNMOIS02_REGEX_02 : "
+				+ "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03 : 
+	 * le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n doit être homogène à un entier";
 	
 	/**
 	 * LOG : Log : 
@@ -3136,6 +3200,92 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, "validerRGSectionHitPcNuitNmois01Numerique03()"
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitNmois01Numerique03());
+		
+		/* 46 - mjmNmois02. *******/
+		/* RG_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitMjmNmois02Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmNmois02()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmNmois02Renseigne01()
+				, RG_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjmNmois02Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJMNMOIS02
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjmNmois02Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjmNmois02Renseigne01());
+		
+		/* RG_SECTIONHIT_MJMNMOIS02_REGEX_02. */
+		final LigneRG ligneRGSectionHitMjmNmois02Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmNmois02()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmNmois02Regex02()
+				, RG_SECTIONHIT_MJMNMOIS02_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjmNmois02Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJMNMOIS02
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjmNmois02Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjmNmois02Regex02());
+				
+		/* RG_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitMjmNmois02Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmNmois02()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmNmois02Numerique03()
+				, RG_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjmNmois02Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJMNMOIS02
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjmNmois02Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjmNmois02Numerique03());
+		
+		/* 47 - pcNuitNmois02. *******/
+		/* RG_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcNuitNmois02Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitNmois02()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitNmois02Renseigne01()
+				, RG_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitNmois02Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITNMOIS02
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitNmois02Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitNmois02Renseigne01());
+		
+		/* RG_SECTIONHIT_PCNUITNMOIS02_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcNuitNmois02Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitNmois02()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitNmois02Regex02()
+				, RG_SECTIONHIT_PCNUITNMOIS02_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitNmois02Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITNMOIS02
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitNmois02Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitNmois02Regex02());
+				
+		/* RG_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcNuitNmois02Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitNmois02()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitNmois02Numerique03()
+				, RG_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitNmois02Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITNMOIS02
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitNmois02Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitNmois02Numerique03());
 							
 														
 		// *********************************************
@@ -3573,6 +3723,28 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_PCNUITNMOIS01_NUMERIQUE_03
 			, ligneRGSectionHitPcNuitNmois01Numerique03);				
+				
+		/* 46 - mjmNmois02. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois02Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS02_REGEX_02
+			, ligneRGSectionHitMjmNmois02Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois02Numerique03);
+				
+		/* 47 - pcNuitNmois02. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois02Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS02_REGEX_02
+			, ligneRGSectionHitPcNuitNmois02Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois02Numerique03);				
 		
 		return this.mapRG;
 					
