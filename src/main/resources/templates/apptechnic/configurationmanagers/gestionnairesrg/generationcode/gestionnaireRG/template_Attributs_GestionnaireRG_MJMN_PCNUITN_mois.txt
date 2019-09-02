@@ -1,0 +1,64 @@
+
+	/* {$pNumeroChamp} - mjmN{$mois}. *******/
+	/**
+	 * "mjmN{$mois}".<br/>
+	 */
+	public static final String ATTRIBUT_MJMN{$MOIS} 
+		= "mjmN{$mois}";
+
+	/**
+	 * "RG_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01 : 
+	 * la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01 : "
+				+ "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_MJMN{$MOIS}_REGEX_02 : 
+	 * la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_MJMN{$MOIS}_REGEX_02 
+		= "RG_SECTIONHIT_MJMN{$MOIS}_REGEX_02 : "
+				+ "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT doit comporter exactement 6 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03 : 
+	 * la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03 
+		= "RG_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03 : "
+				+ "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour doit être homogène à un entier";
+
+	/* {$pNumeroChamp + 1} - pcNuitN{$mois}. *******/
+	/**
+	 * "pcNuitN{$mois}".<br/>
+	 */
+	public static final String ATTRIBUT_PCNUITN{$MOIS} 
+		= "pcNuitN{$mois}";
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01 : 
+	 * le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02 : 
+	 * le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02 
+		= "RG_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02 : "
+				+ "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03 : 
+	 * le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n doit être homogène à un entier";	

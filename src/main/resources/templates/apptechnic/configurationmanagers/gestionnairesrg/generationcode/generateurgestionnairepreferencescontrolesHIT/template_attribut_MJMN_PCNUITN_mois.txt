@@ -1,0 +1,38 @@
+
+	/* {$pNumeroChamp} - mjmN{$mois}. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmN{$mois}-01 : 
+	* "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT (colonnes {$pColonnes} du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmN{$mois}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmN{$mois}-02 : 
+	* "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT (colonnes {$pColonnes} du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmN{$mois}Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmN{$mois}-03 : 
+	* "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT (colonnes {$pColonnes} du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmN{$mois}Numerique03;
+
+	/* {$pNumeroChamp + 1} - pcNuitN{$mois}. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitN{$mois}-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT (colonnes {$pColonnes+1} du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitN{$mois}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitN{$mois}-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT (colonnes {$pColonnes+1} du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitN{$mois}Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitN{$mois}-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT (colonnes {$pColonnes+1} du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitN{$mois}Numerique03;

@@ -1,0 +1,116 @@
+	
+	/* {$pNumeroChamp} - mjmN{$mois}. *******/
+	/**
+	 * clé de messageSectionHitMjmN{$mois}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmN{$mois}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01 
+		= "message.SectionHit.mjmN{$mois}.renseigne";
+	
+	/**
+	 * messageSectionHitMjmN{$mois}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmN{$mois}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT (colonnes {$pColonnes} du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT (colonnes {$pColonnes} du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmN{$mois}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmN{$mois}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMN{$MOIS}_REGEX_02 
+		= "message.SectionHit.mjmN{$mois}.regex";
+	
+	/**
+	 * messageSectionHitMjmN{$mois}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmN{$mois}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT (colonnes {$pColonnes} du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMN{$MOIS}_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT (colonnes {$pColonnes} du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmN{$mois}Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmN{$mois}.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03 
+		= "message.SectionHit.mjmN{$mois}.numerique";
+	
+	/**
+	 * messageSectionHitMjmN{$mois}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmN{$mois}Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT (colonnes {$pColonnes} du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de {$moisEnClair} {$numeroMois} de l'année n en véhicules/jour de la section HIT (colonnes {$pColonnes} du HIT) doit être homogène à un entier";
+	
+	/* {$pNumeroChamp + 1} - pcNuitN{$mois}. *******/
+	/**
+	 * clé de messageSectionHitPcNuitN{$mois}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitN{$mois}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitN{$mois}.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitN{$mois}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitN{$mois}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT (colonnes {$pColonnes+1} du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT (colonnes {$pColonnes+1} du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitN{$mois}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitN{$mois}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02 
+		= "message.SectionHit.pcNuitN{$mois}.regex";
+	
+	/**
+	 * messageSectionHitPcNuitN{$mois}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitN{$mois}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT (colonnes {$pColonnes+1} du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT (colonnes {$pColonnes+1} du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitN{$mois}Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitN{$mois}.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitN{$mois}.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitN{$mois}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitN{$mois}Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT (colonnes {$pColonnes+1} du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de {$moisEnClair} {$numeroMois} de l'année n de la section HIT (colonnes {$pColonnes+1} du HIT) doit être homogène à un entier";

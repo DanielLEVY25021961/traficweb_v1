@@ -1,0 +1,44 @@
+		
+		/* {$pNumeroChamp} - mjmN{$mois}. *******/
+		boolean mjmN{$mois}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmN{$mois} = "mjmN{$mois}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmN{$mois} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmN{$mois}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmN{$mois}) {
+			mjmN{$mois}Valide 
+				= this.validerMjmN{$mois}(
+						pDto, attributMjmN{$mois}, erreursMap);
+		} else {
+			mjmN{$mois}Valide = true;
+		}
+		
+		/* {$pNumeroChamp + 1} - pcNuitN{$mois}. *******/
+		boolean pcNuitN{$mois}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitN{$mois} = "pcNuitN{$mois}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitN{$mois} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitN{$mois}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitN{$mois}) {
+			pcNuitN{$mois}Valide 
+				= this.validerPcNuitN{$mois}(
+						pDto, attributPcNuitN{$mois}, erreursMap);
+		} else {
+			pcNuitN{$mois}Valide = true;
+		}

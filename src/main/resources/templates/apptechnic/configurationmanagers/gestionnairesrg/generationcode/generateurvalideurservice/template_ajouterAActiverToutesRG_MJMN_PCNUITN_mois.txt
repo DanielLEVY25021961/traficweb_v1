@@ -1,0 +1,12 @@
+		
+		/* {$pNumeroChamp} - mjmN{$mois}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmN{$mois}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmN{$mois}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmN{$mois}Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmN{$mois}Numerique03(true);
+		
+		/* {$pNumeroChamp + 1} - pcNuitN{$mois}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitN{$mois}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitN{$mois}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitN{$mois}Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitN{$mois}Numerique03(true);

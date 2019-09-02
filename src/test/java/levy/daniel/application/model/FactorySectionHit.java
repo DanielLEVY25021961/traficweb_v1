@@ -137,7 +137,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setPcNuitNmois06("078");
 				bonneSectionHitDTO.setMjmNmois07("012537");
 				bonneSectionHitDTO.setPcNuitNmois07("054");
-				bonneSectionHitDTO.setMjmNmois08("12593");
+				bonneSectionHitDTO.setMjmNmois08("012593");
 				bonneSectionHitDTO.setPcNuitNmois08("036");
 				bonneSectionHitDTO.setMjmNmois09("012346");
 				bonneSectionHitDTO.setPcNuitNmois09("123");

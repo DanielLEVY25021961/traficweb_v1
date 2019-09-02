@@ -1,0 +1,152 @@
+	
+	/* {$pNumeroChamp} - mjmN{$mois}. *******/
+	/**
+	 * clé de validerRGSectionHitMjmN{$mois} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.mjmN{$mois}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MJMN{$MOIS} 
+		= "valider.SectionHit.mjmN{$mois}";
+	
+	/**
+	 * validerRGSectionHitMjmN{$mois} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitMjmN{$mois} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MJMN{$MOIS}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitMjmN{$mois}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.mjmN{$mois}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01 
+		= "valider.SectionHit.mjmN{$mois}.renseigne";
+	
+	/**
+	 * validerRGSectionHitMjmN{$mois}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitMjmN{$mois}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitMjmN{$mois}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.mjmN{$mois}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MJMN{$MOIS}_REGEX_02 
+		= "valider.SectionHit.mjmN{$mois}.regex";
+	
+	/**
+	 * validerRGSectionHitMjmN{$mois}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitMjmN{$mois}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MJMN{$MOIS}_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitMjmN{$mois}Numerique03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.mjmN{$mois}.numerique"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03 
+		= "valider.SectionHit.mjmN{$mois}.numerique";
+	
+	/**
+	 * validerRGSectionHitMjmN{$mois}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitMjmN{$mois}Numerique03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03_EN_DUR 
+		= "true";
+	
+	/* {$pNumeroChamp + 1} - pcNuitN{$mois}. *******/
+	/**
+	 * clé de validerRGSectionHitPcNuitN{$mois} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcNuitN{$mois}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCNUITN{$MOIS} 
+		= "valider.SectionHit.pcNuitN{$mois}";
+	
+	/**
+	 * validerRGSectionHitPcNuitN{$mois} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcNuitN{$mois} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitPcNuitN{$mois}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcNuitN{$mois}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01 
+		= "valider.SectionHit.pcNuitN{$mois}.renseigne";
+	
+	/**
+	 * validerRGSectionHitPcNuitN{$mois}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcNuitN{$mois}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPcNuitN{$mois}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcNuitN{$mois}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02 
+		= "valider.SectionHit.pcNuitN{$mois}.regex";
+	
+	/**
+	 * validerRGSectionHitPcNuitN{$mois}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcNuitN{$mois}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPcNuitN{$mois}Numerique03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcNuitN{$mois}.numerique"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03 
+		= "valider.SectionHit.pcNuitN{$mois}.numerique";
+	
+	/**
+	 * validerRGSectionHitPcNuitN{$mois}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcNuitN{$mois}Numerique03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03_EN_DUR 
+		= "true";

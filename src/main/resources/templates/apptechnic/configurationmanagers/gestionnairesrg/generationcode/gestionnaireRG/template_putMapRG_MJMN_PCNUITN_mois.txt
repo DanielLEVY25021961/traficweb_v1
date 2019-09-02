@@ -1,0 +1,22 @@
+				
+		/* {$pNumeroChamp} - mjmN{$mois}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01
+			, ligneRGSectionHitMjmN{$mois}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMN{$MOIS}_REGEX_02
+			, ligneRGSectionHitMjmN{$mois}Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03
+			, ligneRGSectionHitMjmN{$mois}Numerique03);
+				
+		/* {$pNumeroChamp + 1} - pcNuitN{$mois}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitN{$mois}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02
+			, ligneRGSectionHitPcNuitN{$mois}Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitN{$mois}Numerique03);				

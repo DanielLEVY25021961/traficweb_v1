@@ -1,0 +1,50 @@
+			
+			/* {$pNumeroChamp} - mjmN{$mois}. *******/
+			/* ajoute le validerRGSectionHitMjmN{$mois} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MJMN{$MOIS}
+						, STRING_VALIDER_SECTIONHIT_MJMN{$MOIS}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitMjmN{$mois}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitMjmN{$mois}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MJMN{$MOIS}_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_MJMN{$MOIS}_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitMjmN{$mois}Numerique03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03
+						, STRING_VALIDER_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03_EN_DUR);
+			
+			/* {$pNumeroChamp + 1} - pcNuitN{$mois}. *******/
+			/* ajoute le validerRGSectionHitPcNuitN{$mois} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCNUITN{$MOIS}
+						, STRING_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcNuitN{$mois}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcNuitN{$mois}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcNuitN{$mois}Numerique03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03
+						, STRING_VALIDER_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03_EN_DUR);

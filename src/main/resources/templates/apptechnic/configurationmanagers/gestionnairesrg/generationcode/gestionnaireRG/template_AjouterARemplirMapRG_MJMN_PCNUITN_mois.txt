@@ -1,0 +1,86 @@
+		
+		/* {$pNumeroChamp} - mjmN{$mois}. *******/
+		/* RG_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitMjmN{$mois}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmN{$mois}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmN{$mois}Renseigne01()
+				, RG_SECTIONHIT_MJMN{$MOIS}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjmN{$mois}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJMN{$MOIS}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjmN{$mois}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjmN{$mois}Renseigne01());
+		
+		/* RG_SECTIONHIT_MJMN{$MOIS}_REGEX_02. */
+		final LigneRG ligneRGSectionHitMjmN{$mois}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmN{$mois}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmN{$mois}Regex02()
+				, RG_SECTIONHIT_MJMN{$MOIS}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjmN{$mois}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJMN{$MOIS}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjmN{$mois}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjmN{$mois}Regex02());
+				
+		/* RG_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitMjmN{$mois}Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmN{$mois}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjmN{$mois}Numerique03()
+				, RG_SECTIONHIT_MJMN{$MOIS}_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjmN{$mois}Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJMN{$MOIS}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjmN{$mois}Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjmN{$mois}Numerique03());
+		
+		/* {$pNumeroChamp + 1} - pcNuitN{$mois}. *******/
+		/* RG_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcNuitN{$mois}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitN{$mois}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitN{$mois}Renseigne01()
+				, RG_SECTIONHIT_PCNUITN{$MOIS}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitN{$mois}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITN{$MOIS}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitN{$mois}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitN{$mois}Renseigne01());
+		
+		/* RG_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcNuitN{$mois}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitN{$mois}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitN{$mois}Regex02()
+				, RG_SECTIONHIT_PCNUITN{$MOIS}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitN{$mois}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITN{$MOIS}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitN{$mois}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitN{$mois}Regex02());
+				
+		/* RG_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcNuitN{$mois}Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitN{$mois}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitN{$mois}Numerique03()
+				, RG_SECTIONHIT_PCNUITN{$MOIS}_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitN{$mois}Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITN{$MOIS}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitN{$mois}Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitN{$mois}Numerique03());
