@@ -42,30 +42,30 @@
 41;163;1;Moyen d'évaluation des PL N;1 caractère (ou espace);evaluationPLN;String;false;false;163;163;1
 42;164-166;3;Pourcentage de trafic de nuit tous véhicules (annuel);%Trafic de Nuit tous véhicules de l'année de traitement (n-0). 3 chiffres dont 1 décimale, sans séparateur décimal. Ex : 99.9 ------> sans point (999);pcNuitAnnuelN;String;false;false;164;166;3
 43;167;1;Indice de fiabilité de la TMJA;1 caractère (ou espace);indiceFiabiliteMjaN;String;false;false;167;167;1
-44;168-173;6;Moyenne journalière mensuelle 01;du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour;mjmNmois01;Integer;false;false;168;173;6
-45;174-176;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 01;du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois01;Integer;false;false;174;176;3
-46;177-182;6;Moyenne journalière mensuelle 02;du mois de février (02) de l'année de traitement (n-0) en véhicules/jour;mjmNmois02;Integer;false;false;177;182;6
-47;183-185;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 02;du mois de février (02) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois02;Integer;false;false;183;185;3
-48;186-191;6;Moyenne journalière mensuelle 03;du mois de mars (03) de l'année de traitement (n-0) en véhicules/jour;mjmNmois03;Integer;false;false;186;191;6
-49;192-194;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 03;du mois de mars (03) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois03;Integer;false;false;192;194;3
-50;195-200;6;Moyenne journalière mensuelle 04;du mois d'avril (04) de l'année de traitement (n-0) en véhicules/jour;mjmNmois04;Integer;false;false;195;200;6
-51;201-203;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 04;du mois d'avril (04) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois04;Integer;false;false;201;203;3
-52;204-209;6;Moyenne journalière mensuelle 05;du mois de mai (05) de l'année de traitement (n-0) en véhicules/jour;mjmNmois05;Integer;false;false;204;209;6
-53;210-212;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 05;du mois de mai (05) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois05;Integer;false;false;210;212;3
-54;213-218;6;Moyenne journalière mensuelle 06;du mois de juin (06) de l'année de traitement (n-0) en véhicules/jour;mjmNmois06;Integer;false;false;213;218;6
-55;219-221;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 06;du mois de juin (06) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois06;Integer;false;false;219;221;3
-56;222-227;6;Moyenne journalière mensuelle 07;du mois de juillet (07) de l'année de traitement (n-0) en véhicules/jour;mjmNmois07;Integer;false;false;222;227;6
-57;228-230;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 07;du mois de juillet (07) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois07;Integer;false;false;228;230;3
-58;231-236;6;Moyenne journalière mensuelle 08;du mois d'août (08) de l'année de traitement (n-0) en véhicules/jour;mjmNmois08;Integer;false;false;231;236;6
-59;237-239;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 08;du mois d'août (08) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois08;Integer;false;false;237;239;3
-60;240-245;6;Moyenne journalière mensuelle 09;du mois de septembre (09) de l'année de traitement (n-0) en véhicules/jour;mjmNmois09;Integer;false;false;240;245;6
-61;246-248;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 09;du mois de septembre (09) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois09;Integer;false;false;246;248;3
-62;249-254;6;Moyenne journalière mensuelle 10;du mois d'octobre (10) de l'année de traitement (n-0) en véhicules/jour;mjmNmois10;Integer;false;false;249;254;6
-63;255-257;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 10;du mois d'octobre (10) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois10;Integer;false;false;255;257;3
-64;258-263;6;Moyenne journalière mensuelle 11;du mois de novembre (11) de l'année de traitement (n-0) en véhicules/jour;mjmNmois11;Integer;false;false;258;263;6
-65;264-266;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 11;du mois de novembre (11) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois11;Integer;false;false;264;266;3
-66;267-272;6;Moyenne journalière mensuelle 12;du mois de décembre (12) de l'année de traitement (n-0) en véhicules/jour;mjmNmois12;Integer;false;false;267;272;6
-67;273-275;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 12;du mois de décembre (12) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois12;Integer;false;false;273;275;3
+44;168-173;6;Moyenne journalière mensuelle du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour;mjmNmois01;Integer;false;false;168;173;6
+45;174-176;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 01;du mois de janvier (01) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois01;String;false;false;174;176;3
+46;177-182;6;Moyenne journalière mensuelle du mois de février (02) de l'année de traitement (n-0) en véhicules/jour;mjmNmois02;Integer;false;false;177;182;6
+47;183-185;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 02;du mois de février (02) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois02;String;false;false;183;185;3
+48;186-191;6;Moyenne journalière mensuelle du mois de mars (03) de l'année de traitement (n-0) en véhicules/jour;mjmNmois03;Integer;false;false;186;191;6
+49;192-194;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 03;du mois de mars (03) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois03;String;false;false;192;194;3
+50;195-200;6;Moyenne journalière mensuelle du mois d'avril (04) de l'année de traitement (n-0) en véhicules/jour;mjmNmois04;Integer;false;false;195;200;6
+51;201-203;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 04;du mois d'avril (04) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois04;String;false;false;201;203;3
+52;204-209;6;Moyenne journalière mensuelle du mois de mai (05) de l'année de traitement (n-0) en véhicules/jour;mjmNmois05;Integer;false;false;204;209;6
+53;210-212;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 05;du mois de mai (05) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois05;String;false;false;210;212;3
+54;213-218;6;Moyenne journalière mensuelle du mois de juin (06) de l'année de traitement (n-0) en véhicules/jour;mjmNmois06;Integer;false;false;213;218;6
+55;219-221;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 06;du mois de juin (06) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois06;String;false;false;219;221;3
+56;222-227;6;Moyenne journalière mensuelle du mois de juillet (07) de l'année de traitement (n-0) en véhicules/jour;mjmNmois07;Integer;false;false;222;227;6
+57;228-230;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 07;du mois de juillet (07) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois07;String;false;false;228;230;3
+58;231-236;6;Moyenne journalière mensuelle du mois d'août (08) de l'année de traitement (n-0) en véhicules/jour;mjmNmois08;Integer;false;false;231;236;6
+59;237-239;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 08;du mois d'août (08) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois08;String;false;false;237;239;3
+60;240-245;6;Moyenne journalière mensuelle du mois de septembre (09) de l'année de traitement (n-0) en véhicules/jour;mjmNmois09;Integer;false;false;240;245;6
+61;246-248;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 09;du mois de septembre (09) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois09;String;false;false;246;248;3
+62;249-254;6;Moyenne journalière mensuelle du mois d'octobre (10) de l'année de traitement (n-0) en véhicules/jour;mjmNmois10;Integer;false;false;249;254;6
+63;255-257;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 10;du mois d'octobre (10) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois10;String;false;false;255;257;3
+64;258-263;6;Moyenne journalière mensuelle du mois de novembre (11) de l'année de traitement (n-0) en véhicules/jour;mjmNmois11;Integer;false;false;258;263;6
+65;264-266;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 11;du mois de novembre (11) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois11;String;false;false;264;266;3
+66;267-272;6;Moyenne journalière mensuelle du mois de décembre (12) de l'année de traitement (n-0) en véhicules/jour;mjmNmois12;Integer;false;false;267;272;6
+67;273-275;3;Pourcentage de trafic de nuit tous véhicules (mensuel) 12;du mois de décembre (12) de l'année de traitement (n-0) en véhicules/jour. Ex : 99.9 ------> sans point (999);pcNuitNmois12;String;false;false;273;275;3
 68;276-287;12;Zone libre;12 espaces;sans objet;sans objet;false;false;276;287;12
 69;288-289;2;Année N-1;Année de traitement - 1  (n-1) sur deux caractères (ex 06 pour 2006);anneeNmoins1;Date;false;false;288;289;2
 70;290-295;6;MJA N-1;Moyenne journalière annuelle de l'année de traitement -1 (n-1) en véhicules/jour;mjaNmoins1;Integer;false;false;290;295;6

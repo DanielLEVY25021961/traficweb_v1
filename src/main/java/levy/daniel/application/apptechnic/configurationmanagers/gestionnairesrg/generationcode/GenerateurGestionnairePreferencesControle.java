@@ -1847,10 +1847,10 @@ public final class GenerateurGestionnairePreferencesControle {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "40";
-		final String nomChamp = "pcPLN";
-		final String nomChampEnClair = "le pourcentage de trafic poids lourds annuel de l'année n";
-		final String colonnes = "[160-162]";
+		final String numeroChamp = "45";
+		final String nomChamp = "pcNuitNmois01";
+		final String nomChampEnClair = "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n";
+		final String colonnes = "[174-176]";
 		final String nbreChiffres = "3";
 //		final String nomenclature = "[1, 2, 3, 4, 5]";
 		// *******************************************************
