@@ -821,11 +821,11 @@ public final class GenerateurGestionnaireRG {
 	public static void main(final String... pArgs) throws Exception {
 		
 		// *********** VALEURS ***********************************
-		final String numeroChamp = "45";
-		final String nomChamp = "pcNuitNmois01";
-		final String nomChampEnClair = "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n";
-		final String colonnes = "[174-176]";
-		final String nbreChiffres = "3";
+		final String numeroChamp = "70";
+		final String nomChamp = "mjaNmoins1";
+		final String nomChampEnClair = "le trafic moyen journalier annuel de l'année n-1";
+		final String colonnes = "[290-295]";
+		final String nbreChiffres = "6";
 //		final String nomenclature = "[1, 2, 3, 4, 5]";
 		// *******************************************************
 		
