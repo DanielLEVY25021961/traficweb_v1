@@ -1895,6 +1895,28 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			mjaNmoins1Valide = true;
 		}
 		
+		/* 71 - typeComptageNmoins1. *******/
+		boolean typeComptageNmoins1Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributTypeComptageNmoins1 = "typeComptageNmoins1";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralTypeComptageNmoins1 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitTypeComptageNmoins1();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralTypeComptageNmoins1) {
+			typeComptageNmoins1Valide 
+				= this.validerTypeComptageNmoins1(
+						pDto, attributTypeComptageNmoins1, erreursMap);
+		} else {
+			typeComptageNmoins1Valide = true;
+		}
+		
 		
 		/* calcul de validité sur tous les attributs. */
 		valide = numDepartementValide 
@@ -1966,7 +1988,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				&& pcNuitNmois12Valide 
 				&& zoneLibre3Valide 
 				&& anneeNmoins1Valide 
-				&& mjaNmoins1Valide;
+				&& mjaNmoins1Valide 
+				&& typeComptageNmoins1Valide;
 		
 		erreursMap.setValide(valide);
 		
@@ -23204,6 +23227,349 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		return true;
 		
 	} // Fin de validerRGSectionHitMjaNmoins1Numerique03(...)._____________
+	
+	
+	
+	/* 71 - typeComptageNmoins1. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>typeComptageNmoins1</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerTypeComptageNmoins1(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurTypeComptageNmoins1Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins1Renseigne01();
+		
+		final Boolean interrupteurTypeComptageNmoins1Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins1Regex02();
+		
+		final Boolean interrupteurTypeComptageNmoins1Nomenclature03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins1Nomenclature03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurTypeComptageNmoins1Renseigne01) {
+			renseigne = this.validerRGSectionHitTypeComptageNmoins1Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins1Regex02) {
+				rg2 = this.validerRGSectionHitTypeComptageNmoins1Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins1Nomenclature03) {
+				rg3 = this.validerRGSectionHitTypeComptageNmoins1Nomenclature03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerTypeComptageNmoins1(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>typeComptageNmoins1</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins1</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins1Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins1Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getTypeComptageNmoins1())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitTypeComptageNmoins1Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>typeComptageNmoins1</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{1}] qui signifie 
+	 * 'exactement 1 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins1</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins1Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins1Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins1();
+		
+		final String motif = "\\d{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins1Regex02(...).________
+
+	
+	
+	/**
+	 * valide la RG NOMENCLATURE pour 
+	 * l'attribut <b>typeComptageNmoins1</b>.<br/>
+	 * <ul>
+	 * <li>retourne false si la valeur à contrôler n'est pas homogène 
+	 * à un entier.</li>
+	 * <li>récupère le Set des valeurs possibles auprès de la 
+	 * FactoryNomenclature (<code><b>
+	 * FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins1()</b></code>).</li>
+	 * <li>retourne false si la valeur à contrôler n'appartient 
+	 * pas à la nomenclature.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins1</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins1Nomenclature03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins1Nomenclature03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins1();
+		Integer valeurAControlerInteger = null;
+		
+		try {
+			valeurAControlerInteger = Integer.valueOf(valeurAControler);
+		} catch (Exception e) {
+			valeurAControlerInteger = null;
+		}
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'est pas homogène à un entier. */
+		if (valeurAControlerInteger == null) {
+			return false;
+		}
+		
+		/* récupère le Set des valeurs possibles auprès de la 
+		 * FactoryNomenclature. */
+		final Set<Integer> setClesPossibles 
+			= FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins1();
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'appartient pas à la nomenclature. */
+		if (!setClesPossibles.contains(valeurAControlerInteger)) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins1Nomenclature03(...)._
 	
 	
 
