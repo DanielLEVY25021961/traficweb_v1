@@ -3650,6 +3650,45 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOIS12_NUMERIQUE_03_EN_DUR 
 		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n de la section HIT (colonnes [273-275] du HIT) doit être homogène à un entier";
 	
+	/* 68 - zoneLibre3. *******/
+	/**
+	 * clé de messageSectionHitZoneLibre3Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.zoneLibre3.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01 
+		= "message.SectionHit.zoneLibre3.renseigne";
+	
+	/**
+	 * messageSectionHitZoneLibre3Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitZoneLibre3Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la zone libre de la section HIT (colonnes [276-287] du HIT) doit être renseignée (avec des espaces)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01_EN_DUR 
+		= "la zone libre de la section HIT (colonnes [276-287] du HIT) doit être renseignée (avec des espaces)";
+		
+	/**
+	 * clé de messageSectionHitZoneLibre3Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.zoneLibre3.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02 
+		= "message.SectionHit.zoneLibre3.regex";
+	
+	/**
+	 * messageSectionHitZoneLibre3Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitZoneLibre3Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la zone libre de la section HIT (colonnes [276-287] du HIT) doit comporter exactement 12 espaces".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02_EN_DUR 
+		= "la zone libre de la section HIT (colonnes [276-287] du HIT) doit comporter exactement 12 espaces";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -4853,6 +4892,19 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n de la section HIT (colonnes [273-275] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmois12Numerique03;
+
+	/* 68 - zoneLibre3. *******/
+	/**
+	* message émis par la RG-SectionHit-ZoneLibre3-01 : 
+	* "la zone libre de la section HIT (colonnes [276-287] du HIT) doit être renseignée avec des espaces)".<br/>
+	*/
+	private static String messageSectionHitZoneLibre3Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-ZoneLibre3-02 : 
+	* "la zone libre de la section HIT (colonnes [276-287] du HIT) doit comporter exactement 12 espaces".<br/>
+	*/
+	private static String messageSectionHitZoneLibre3Regex02;
 
 	
 	/**
@@ -6094,6 +6146,19 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS12_NUMERIQUE_03
 				, MESSAGE_SECTIONHIT_PCNUITNMOIS12_NUMERIQUE_03_EN_DUR);
+				
+		/* 68 - zoneLibre3. *******/		
+		/* ajoute le messageSectionHitZoneLibre3Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitZoneLibre3Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02
+				, MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02_EN_DUR);
 		
 		} // Fin du bloc synchronized.__________________
 		
@@ -28260,6 +28325,233 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitPcNuitNmois12Numerique03(...)._________
+
+
+	
+	/* 68 - zoneLibre3. ****************/
+	/**
+	 * retourne le messageSectionHitZoneLibre3Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitZoneLibre3Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitZoneLibre3Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitZoneLibre3Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitZoneLibre3Renseigne01
+					, fournirKeyMessageSectionHitZoneLibre3Renseigne01()
+					, MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitZoneLibre3Renseigne01().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitZoneLibre3Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.zoneLibre3.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitZoneLibre3Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitZoneLibre3Renseigne01().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitZoneLibre3Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitZoneLibre3Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitZoneLibre3Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitZoneLibre3Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitZoneLibre3Renseigne01();
+	} // Fin de getMessageSectionHitZoneLibre3Renseigne01()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitZoneLibre3Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitZoneLibre3Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitZoneLibre3Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitZoneLibre3Renseigne01
+							, fournirKeyMessageSectionHitZoneLibre3Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitZoneLibre3Renseigne01(...).____________
+
+
+
+	/**
+	 * retourne le messageSectionHitZoneLibre3Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitZoneLibre3Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitZoneLibre3Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitZoneLibre3Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitZoneLibre3Regex02
+					, fournirKeyMessageSectionHitZoneLibre3Regex02()
+					, MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitZoneLibre3Regex02()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitZoneLibre3Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.zoneLibre3.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitZoneLibre3Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitZoneLibre3Regex02().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitZoneLibre3Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitZoneLibre3Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitZoneLibre3Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitZoneLibre3Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitZoneLibre3Regex02();
+	} // Fin de getMessageSectionHitZoneLibre3Regex02().___________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitZoneLibre3Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitZoneLibre3Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitZoneLibre3Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitZoneLibre3Regex02
+							, fournirKeyMessageSectionHitZoneLibre3Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitZoneLibre3Regex02(...).________________
 	
 			
 			
