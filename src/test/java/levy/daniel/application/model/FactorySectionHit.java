@@ -152,15 +152,15 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setMjaNmoins1("011647");
 				bonneSectionHitDTO.setTypeComptageNmoins1("1");
 				bonneSectionHitDTO.setModeCalculNmoins1(UN_ESPACE);
-				bonneSectionHitDTO.setPcPLNmoins1(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcPLNmoins1("074");
 				bonneSectionHitDTO.setEvaluationPLNmoins1("7");
-				bonneSectionHitDTO.setPcNuitAnnuelNmoins1(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcNuitAnnuelNmoins1("079");
 				bonneSectionHitDTO.setIndiceFiabiliteMjaNmoins1(UN_ESPACE);
 				bonneSectionHitDTO.setAnneeNmoins2("15");
 				bonneSectionHitDTO.setMjaNmoins2("011400");
 				bonneSectionHitDTO.setTypeComptageNmoins2("1");
 				bonneSectionHitDTO.setModeCalculNmoins2(UN_ESPACE);
-				bonneSectionHitDTO.setPcPLNmoins2(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcPLNmoins2("123");
 				bonneSectionHitDTO.setEvaluationPLNmoins2("7");
 				bonneSectionHitDTO.setPcNuitAnnuelNmoins2(TROIS_ESPACES);
 				bonneSectionHitDTO.setIndiceFiabiliteMjaNmoins2(UN_ESPACE);
@@ -168,7 +168,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setMjaNmoins3("011079");
 				bonneSectionHitDTO.setTypeComptageNmoins3("1");
 				bonneSectionHitDTO.setModeCalculNmoins3(UN_ESPACE);
-				bonneSectionHitDTO.setPcPLNmoins3(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcPLNmoins3("136");
 				bonneSectionHitDTO.setEvaluationPLNmoins3("7");
 				bonneSectionHitDTO.setPcNuitAnnuelNmoins3(TROIS_ESPACES);
 				bonneSectionHitDTO.setIndiceFiabiliteMjaNmoins3(UN_ESPACE);
@@ -176,7 +176,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setMjaNmoins4("010748");
 				bonneSectionHitDTO.setTypeComptageNmoins4("1");
 				bonneSectionHitDTO.setModeCalculNmoins4(UN_ESPACE);
-				bonneSectionHitDTO.setPcPLNmoins4(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcPLNmoins4("154");
 				bonneSectionHitDTO.setEvaluationPLNmoins4("7");
 				bonneSectionHitDTO.setPcNuitAnnuelNmoins4(TROIS_ESPACES);
 				bonneSectionHitDTO.setIndiceFiabiliteMjaNmoins4(UN_ESPACE);
@@ -184,7 +184,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setMjaNmoins5("010742");
 				bonneSectionHitDTO.setTypeComptageNmoins5("1");
 				bonneSectionHitDTO.setModeCalculNmoins5(UN_ESPACE);
-				bonneSectionHitDTO.setPcPLNmoins5(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcPLNmoins5("178");
 				bonneSectionHitDTO.setEvaluationPLNmoins5("7");
 				bonneSectionHitDTO.setPcNuitAnnuelNmoins5(TROIS_ESPACES);
 				bonneSectionHitDTO.setIndiceFiabiliteMjaNmoins5(UN_ESPACE);

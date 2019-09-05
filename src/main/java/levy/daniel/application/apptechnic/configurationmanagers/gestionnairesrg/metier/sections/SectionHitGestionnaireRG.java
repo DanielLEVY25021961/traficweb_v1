@@ -2238,6 +2238,38 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_MODECALCULNMOINS1_REGEX_02 
 		= "RG_SECTIONHIT_MODECALCULNMOINS1_REGEX_02 : "
 				+ "le mode de calcul des trafics de l'année n-1 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 73 - pcPLNmoins1. *******/
+	/**
+	 * "pcPLNmoins1".<br/>
+	 */
+	public static final String ATTRIBUT_PCPLNMOINS1 
+		= "pcPLNmoins1";
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-1 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-1 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS1_REGEX_02 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-1 de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS1_REGEX_02 
+		= "RG_SECTIONHIT_PCPLNMOINS1_REGEX_02 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-1 de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-1 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-1 doit être homogène à un entier";
 	
 	/**
 	 * LOG : Log : 
@@ -5112,6 +5144,49 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins1Regex02());
 		
+		/* 73 - pcPLNmoins1. *******/
+		/* RG_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcPLNmoins1Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins1()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins1Renseigne01()
+				, RG_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins1Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS1
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins1Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins1Renseigne01());
+		
+		/* RG_SECTIONHIT_PCPLNMOINS1_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcPLNmoins1Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins1()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins1Regex02()
+				, RG_SECTIONHIT_PCPLNMOINS1_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins1Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS1
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins1Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins1Regex02());
+				
+		/* RG_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcPLNmoins1Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins1()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins1Numerique03()
+				, RG_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins1Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS1
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins1Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins1Numerique03());
+		
 		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
@@ -5844,6 +5919,17 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_MODECALCULNMOINS1_REGEX_02
 			, ligneRGSectionHitModeCalculNmoins1Regex02);
+				
+		/* 73 - pcPLNmoins1. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01
+			, ligneRGSectionHitPcPLNmoins1Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS1_REGEX_02
+			, ligneRGSectionHitPcPLNmoins1Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03
+			, ligneRGSectionHitPcPLNmoins1Numerique03);				
 
 		return this.mapRG;
 					
