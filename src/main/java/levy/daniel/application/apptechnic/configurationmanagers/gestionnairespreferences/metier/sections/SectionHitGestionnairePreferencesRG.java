@@ -5108,6 +5108,63 @@ public final class SectionHitGestionnairePreferencesRG {
 	public static final String STRING_VALIDER_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03_EN_DUR 
 		= "true";
 	
+	/* 72 - modeCalculNmoins1. *******/
+	/**
+	 * clé de validerRGSectionHitModeCalculNmoins1 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.modeCalculNmoins1"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1 
+		= "valider.SectionHit.modeCalculNmoins1";
+	
+	/**
+	 * validerRGSectionHitModeCalculNmoins1 par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitModeCalculNmoins1 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MODECALCULNMOINS1_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitModeCalculNmoins1Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.modeCalculNmoins1.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01 
+		= "valider.SectionHit.modeCalculNmoins1.renseigne";
+	
+	/**
+	 * validerRGSectionHitModeCalculNmoins1Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitModeCalculNmoins1Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitModeCalculNmoins1Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.modeCalculNmoins1.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1_REGEX_02 
+		= "valider.SectionHit.modeCalculNmoins1.regex";
+	
+	/**
+	 * validerRGSectionHitModeCalculNmoins1Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitModeCalculNmoins1Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MODECALCULNMOINS1_REGEX_02_EN_DUR 
+		= "true";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -6948,6 +7005,27 @@ public final class SectionHitGestionnairePreferencesRG {
 	 */
 	private static Boolean validerRGSectionHitTypeComptageNmoins1Nomenclature03;
 	
+	/* 72 - modeCalculNmoins1. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>modeCalculNmoins1</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>modeCalculNmoins1</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitModeCalculNmoins1;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ModeCalculNmoins1-01 : 
+	 * "le mode de calcul des trafics de l'année n-1 de la section HIT (colonne [297] du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitModeCalculNmoins1Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ModeCalculNmoins1-02 : 
+	 * "le mode de calcul des trafics de l'année n-1 de la section HIT (colonne [297] du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	private static Boolean validerRGSectionHitModeCalculNmoins1Regex02;
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -8676,6 +8754,25 @@ public final class SectionHitGestionnairePreferencesRG {
 			preferences.setProperty(
 					KEY_VALIDER_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03
 						, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03_EN_DUR);
+			
+			/* 72 - modeCalculNmoins1. *******/
+			/* ajoute le validerRGSectionHitModeCalculNmoins1 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1
+						, STRING_VALIDER_SECTIONHIT_MODECALCULNMOINS1_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitModeCalculNmoins1Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitModeCalculNmoins1Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_MODECALCULNMOINS1_REGEX_02_EN_DUR);
 			
 		} // Fin du bloc synchronized.__________________
 		
@@ -40137,6 +40234,354 @@ public final class SectionHitGestionnairePreferencesRG {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setValiderRGSectionHitTypeComptageNmoins1Nomenclature03(...).
+	
+	
+	
+	/* 72 - modeCalculNmoins1. **************/
+	/**
+	 * retourne le <code>validerRGSectionHitModeCalculNmoins1</code> 
+	 * par défaut de l'application.<br/>
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>modeCalculNmoins1</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>modeCalculNmoins1</i> 
+	 * de SectionHit.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitModeCalculNmoins1 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitModeCalculNmoins1 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitModeCalculNmoins1() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			return fournirAttribut(
+					validerRGSectionHitModeCalculNmoins1
+					, fournirKeyValiderRGSectionHitModeCalculNmoins1()
+					, STRING_VALIDER_SECTIONHIT_MODECALCULNMOINS1_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitModeCalculNmoins1()._____________
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitModeCalculNmoins1 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.modeCalculNmoins1".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1MOINS1 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitModeCalculNmoins1() {
+		return KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1;
+	} // Fin de fournirKeyValiderRGSectionHitModeCalculNmoins1().__________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitModeCalculNmoins1 par défaut 
+	 * dans l'application</b>.
+	 * <ul>
+	 * <li><b>interrupteur GENERAL de la validation de l'attribut.</b></li>
+	 * <li>lit le validerRGSectionHitModeCalculNmoins1 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitModeCalculNmoins1 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitModeCalculNmoins1 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitModeCalculNmoins1() 
+													throws Exception {
+		return fournirValiderRGSectionHitModeCalculNmoins1();
+	} // Fin de getValiderRGSectionHitModeCalculNmoins1()._________________
+	
+	
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitModeCalculNmoins1 par défaut 
+	* dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitModeCalculNmoins1.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitModeCalculNmoins1(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+						
+			setterAttribut(
+					pValue
+						, validerRGSectionHitModeCalculNmoins1
+							, fournirKeyValiderRGSectionHitModeCalculNmoins1());
+
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitModeCalculNmoins1(...).______________
+
+
+
+	/**
+	 * retourne le validerRGSectionHitModeCalculNmoins1Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitModeCalculNmoins1Renseigne01 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitModeCalculNmoins1Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitModeCalculNmoins1Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitModeCalculNmoins1Renseigne01
+					, fournirKeyValiderRGSectionHitModeCalculNmoins1Renseigne01()
+					, STRING_VALIDER_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitModeCalculNmoins1Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitModeCalculNmoins1Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.modeCalculNmoins1.renseigne".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1MOINS1_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitModeCalculNmoins1Renseigne01() {
+		return KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01;
+	} // Fin de fournirKeyValiderRGSectionHitModeCalculNmoins1Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitModeCalculNmoins1Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitModeCalculNmoins1Renseigne01 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitModeCalculNmoins1Renseigne01 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitModeCalculNmoins1Renseigne01 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitModeCalculNmoins1Renseigne01() 
+													throws Exception {
+		return fournirValiderRGSectionHitModeCalculNmoins1Renseigne01();
+	} // Fin de getValiderRGSectionHitModeCalculNmoins1Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitModeCalculNmoins1Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitModeCalculNmoins1Renseigne01.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitModeCalculNmoins1Renseigne01(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitModeCalculNmoins1Renseigne01
+							, fournirKeyValiderRGSectionHitModeCalculNmoins1Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitModeCalculNmoins1Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le validerRGSectionHitModeCalculNmoins1Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le validerRGSectionHitModeCalculNmoins1Regex02 stocké 
+	 * dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : Boolean : validerRGSectionHitModeCalculNmoins1Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static Boolean fournirValiderRGSectionHitModeCalculNmoins1Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			return fournirAttribut(
+					validerRGSectionHitModeCalculNmoins1Regex02
+					, fournirKeyValiderRGSectionHitModeCalculNmoins1Regex02()
+					, STRING_VALIDER_SECTIONHIT_MODECALCULNMOINS1_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirValiderRGSectionHitModeCalculNmoins1Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du validerRGSectionHitModeCalculNmoins1Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_RG.properties.<br/>
+	 * "valider.SectionHit.modeCalculNmoins1.regex".<br/>
+	 *
+	 * @return KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1MOINS1_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyValiderRGSectionHitModeCalculNmoins1Regex02() {
+		return KEY_VALIDER_SECTIONHIT_MODECALCULNMOINS1_REGEX_02;
+	} // Fin de fournirKeyValiderRGSectionHitModeCalculNmoins1Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de validerRGSectionHitModeCalculNmoins1Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le validerRGSectionHitModeCalculNmoins1Regex02 
+	 * stocké dans SectionHit_RG.properties 
+	 * si il n'est pas null.</li>
+	 * <li>true sinon (stocké en dur dans la classe).</li>
+	 * </ul>
+	 * - retourne le validerRGSectionHitModeCalculNmoins1Regex02 stocké en dur 
+	 * dans la classe (true) 
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return validerRGSectionHitModeCalculNmoins1Regex02 : Boolean.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static Boolean getValiderRGSectionHitModeCalculNmoins1Regex02() 
+													throws Exception {
+		return fournirValiderRGSectionHitModeCalculNmoins1Regex02();
+	} // Fin de getValiderRGSectionHitModeCalculNmoins1Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de validerRGSectionHitModeCalculNmoins1Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_RG.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_RG.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : Boolean : 
+	* valeur à passer à validerRGSectionHitModeCalculNmoins1Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setValiderRGSectionHitModeCalculNmoins1Regex02(
+			final Boolean pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesRG.class) {
+			
+			setterAttribut(
+					pValue
+						, validerRGSectionHitModeCalculNmoins1Regex02
+							, fournirKeyValiderRGSectionHitModeCalculNmoins1Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setValiderRGSectionHitModeCalculNmoins1Regex02(...)._______
 	
 					
 	

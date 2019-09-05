@@ -2215,6 +2215,30 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03 : "
 				+ "le type de comptage de l'année n-1 doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
 	
+	/* 72 - modeCalculNmoins1. *******/
+	/**
+	 * "modeCalculNmoins1".<br/>
+	 */
+	public static final String ATTRIBUT_MODECALCULNMOINS1 
+		= "modeCalculNmoins1";
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01 : 
+	 * le mode de calcul des trafics de l'année n-1 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01 : "
+				+ "le mode de calcul des trafics de l'année n-1 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS1_REGEX_02 : 
+	 * le mode de calcul des trafics de l'année n-1 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS1_REGEX_02 
+		= "RG_SECTIONHIT_MODECALCULNMOINS1_REGEX_02 : "
+				+ "le mode de calcul des trafics de l'année n-1 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+	
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -5059,6 +5083,35 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins1Nomenclature03());
 		
+		/* 72 - modeCalculNmoins1. *******/
+		/* RG_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins1Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins1()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins1Renseigne01()
+				, RG_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins1Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS1
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins1Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins1Renseigne01());
+		
+		/* RG_SECTIONHIT_MODECALCULNMOINS1_REGEX_02. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins1Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins1()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins1Regex02()
+				, RG_SECTIONHIT_MODECALCULNMOINS1_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins1Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS1
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins1Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins1Regex02());
+		
 		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
@@ -5783,6 +5836,14 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03
 			, ligneRGSectionHitTypeComptageNmoins1Nomenclature03);
+				
+		/* 72 - modeCalculNmoins1. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01
+			, ligneRGSectionHitModeCalculNmoins1Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS1_REGEX_02
+			, ligneRGSectionHitModeCalculNmoins1Regex02);
 
 		return this.mapRG;
 					

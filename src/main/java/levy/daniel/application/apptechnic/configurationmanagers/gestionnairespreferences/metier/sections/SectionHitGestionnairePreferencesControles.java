@@ -3844,6 +3844,45 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static final String MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03_EN_DUR 
 		= "le type de comptage de l'année n-1 de la section HIT (colonne [296] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
 	
+	/* 72 - modeCalculNmoins1. *******/
+	/**
+	 * clé de messageSectionHitModeCalculNmoins1Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.modeCalculNmoins1.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01 
+		= "message.SectionHit.modeCalculNmoins1.renseigne";
+	
+	/**
+	 * messageSectionHitModeCalculNmoins1Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitModeCalculNmoins1Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le mode de calcul des trafics de l'année n-1 de la section HIT (colonne [297] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01_EN_DUR 
+		= "le mode de calcul des trafics de l'année n-1 de la section HIT (colonne [297] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitModeCalculNmoins1Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.modeCalculNmoins1.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02 
+		= "message.SectionHit.modeCalculNmoins1.regex";
+	
+	/**
+	 * messageSectionHitModeCalculNmoins1Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitModeCalculNmoins1Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le mode de calcul des trafics de l'année n-1 de la section HIT (colonne [297] du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02_EN_DUR 
+		= "le mode de calcul des trafics de l'année n-1 de la section HIT (colonne [297] du HIT) doit comporter exactement 1 caractère (ou espace)";
+	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
 	*/
@@ -5111,6 +5150,19 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * "le type de comptage de l'année n-1 de la section HIT (colonnes [296] du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]"
 	 */
 	private static String messageSectionHitTypeComptageNmoins1Nomenclature03;
+
+	/* 72 - modeCalculNmoins1. *******/
+	/**
+	* message émis par la RG-SectionHit-ModeCalculNmoins1-01 : 
+	* "le mode de calcul des trafics de l'année n-1 de la section HIT (colonne [297] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitModeCalculNmoins1Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-ModeCalculNmoins1-02 : 
+	* "le mode de calcul des trafics de l'année n-1 de la section HIT (colonne [297] du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	*/
+	private static String messageSectionHitModeCalculNmoins1Regex02;
 	
 	/**
 	 * LOG : Log : 
@@ -6415,6 +6467,19 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03
 					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03_EN_DUR);
+				
+		/* 72 - modeCalculNmoins1. *******/		
+		/* ajoute le messageSectionHitModeCalculNmoins1Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitModeCalculNmoins1Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02
+				, MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02_EN_DUR);
 		
 		} // Fin du bloc synchronized.__________________
 		
@@ -29715,6 +29780,233 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitTypeComptageNmoins1Nomenclature03(...).
+
+
+	
+	/* 72 - modeCalculNmoins1. ****************/
+	/**
+	 * retourne le messageSectionHitModeCalculNmoins1Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitModeCalculNmoins1Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitModeCalculNmoins1Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitModeCalculNmoins1Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitModeCalculNmoins1Renseigne01
+					, fournirKeyMessageSectionHitModeCalculNmoins1Renseigne01()
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitModeCalculNmoins1Renseigne01().____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitModeCalculNmoins1Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.modeCalculNmoins1.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitModeCalculNmoins1Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitModeCalculNmoins1Renseigne01()._
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitModeCalculNmoins1Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitModeCalculNmoins1Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitModeCalculNmoins1Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitModeCalculNmoins1Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitModeCalculNmoins1Renseigne01();
+	} // Fin de getMessageSectionHitModeCalculNmoins1Renseigne01().________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitModeCalculNmoins1Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitModeCalculNmoins1Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitModeCalculNmoins1Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitModeCalculNmoins1Renseigne01
+							, fournirKeyMessageSectionHitModeCalculNmoins1Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitModeCalculNmoins1Renseigne01(...)._____
+
+
+
+	/**
+	 * retourne le messageSectionHitModeCalculNmoins1Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitModeCalculNmoins1Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitModeCalculNmoins1Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitModeCalculNmoins1Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitModeCalculNmoins1Regex02
+					, fournirKeyMessageSectionHitModeCalculNmoins1Regex02()
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitModeCalculNmoins1Regex02().________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitModeCalculNmoins1Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.modeCalculNmoins1.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitModeCalculNmoins1Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitModeCalculNmoins1Regex02()._____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitModeCalculNmoins1Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitModeCalculNmoins1Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitModeCalculNmoins1Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitModeCalculNmoins1Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitModeCalculNmoins1Regex02();
+	} // Fin de getMessageSectionHitModeCalculNmoins1Regex02().____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitModeCalculNmoins1Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitModeCalculNmoins1Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitModeCalculNmoins1Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitModeCalculNmoins1Regex02
+							, fournirKeyMessageSectionHitModeCalculNmoins1Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitModeCalculNmoins1Regex02(...)._________
 	
 			
 			
