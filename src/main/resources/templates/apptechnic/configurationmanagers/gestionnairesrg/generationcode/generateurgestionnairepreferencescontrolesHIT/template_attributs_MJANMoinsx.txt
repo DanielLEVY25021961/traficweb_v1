@@ -1,0 +1,128 @@
+
+	/* {$pNumeroChamp} - anneeN{$moinsi}. *******/
+	/**
+	* message émis par la RG-SectionHit-AnneeN{$moinsi}-01 : 
+	* "l'année {$n-i} de la section HIT (colonnes {$colonnesAnnee} du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitAnneeN{$moinsi}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-AnneeN{$moinsi}-02 : 
+	* "l'année {$n-i} de la section HIT (colonnes {$colonnesAnnee} du HIT) doit comporter exactement 2 chiffres".<br/>
+	*/
+	private static String messageSectionHitAnneeN{$moinsi}Regex02;
+
+	/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/
+	/**
+	* message émis par la RG-SectionHit-MjaN{$moinsi}-01 : 
+	* "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitMjaN{$moinsi}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjaN{$moinsi}-02 : 
+	* "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjaN{$moinsi}Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjaN{$moinsi}-03 : 
+	* "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjaN{$moinsi}Numerique03;
+
+	/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/
+	/**
+	* message émis par la RG-SectionHit-TypeComptageN{$moinsi}-01 : 
+	* "le type de comptage de l'année {$n-i} de la section HIT (colonnes {$colonneTypeComptage} du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitTypeComptageN{$moinsi}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-TypeComptageN{$moinsi}-02 : 
+	* "le type de comptage de l'année {$n-i} de la section HIT (colonnes {$colonneTypeComptage} du HIT) doit comporter exactement 1 chiffre".<br/>
+	*/
+	private static String messageSectionHitTypeComptageN{$moinsi}Regex02;
+
+	/**
+	 * message émis par la RG-SectionHit-TypeComptageN{$moinsi}-03 : 
+	 * "le type de comptage de l'année {$n-i} de la section HIT (colonnes {$colonneTypeComptage} du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+	 */
+	private static String messageSectionHitTypeComptageN{$moinsi}Nomenclature03;
+
+	/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/
+	/**
+	* message émis par la RG-SectionHit-ModeCalculN{$moinsi}-01 : 
+	* "le mode de calcul des trafics de l'année {$n-i} de la section HIT (colonne {$colonneModeCalcul} du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitModeCalculN{$moinsi}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-ModeCalculN{$moinsi}-02 : 
+	* "le mode de calcul des trafics de l'année {$n-i} de la section HIT (colonne {$colonneModeCalcul} du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	*/
+	private static String messageSectionHitModeCalculN{$moinsi}Regex02;
+
+	/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/
+	/**
+	* message émis par la RG-SectionHit-PcPLN{$moinsi}-01 : 
+	* "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcPLN{$moinsi}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcPLN{$moinsi}-02 : 
+	* "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcPLN{$moinsi}Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcPLN{$moinsi}-03 : 
+	* "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcPLN{$moinsi}Numerique03;
+
+	/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/
+	/**
+	* message émis par la RG-SectionHit-EvaluationPLN{$moinsi}-01 : 
+	* "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT (colonne {$evaluationPL} du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitEvaluationPLN{$moinsi}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-EvaluationPLN{$moinsi}-02 : 
+	* "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT (colonne {$evaluationPL} du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	*/
+	private static String messageSectionHitEvaluationPLN{$moinsi}Regex02;
+
+	/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitAnnuelN{$moinsi}-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitAnnuelN{$moinsi}-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitAnnuelN{$moinsi}Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitAnnuelN{$moinsi}-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03;
+
+	/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/
+	/**
+	* message émis par la RG-SectionHit-IndiceFiabiliteMjaN{$moinsi}-01 : 
+	* "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT (colonne {$colonneIndiceFiabiliteMjaN} du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-IndiceFiabiliteMjaN{$moinsi}-02 : 
+	* "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT (colonne {$colonneIndiceFiabiliteMjaN} du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	*/
+	private static String messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02;

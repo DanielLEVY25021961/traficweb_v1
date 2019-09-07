@@ -1,0 +1,388 @@
+	
+	/* {$pNumeroChamp} - anneeN{$moinsi}. *******/
+	/**
+	 * clé de messageSectionHitAnneeN{$moinsi}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.anneeN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01 
+		= "message.SectionHit.anneeN{$moinsi}.renseigne";
+	
+	/**
+	 * messageSectionHitAnneeN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitAnneeN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'année {$n-i} de la section HIT (colonnes {$colonnesAnnee} du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "l'année {$n-i} de la section HIT (colonnes {$colonnesAnnee} du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitAnneeN{$moinsi}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.anneeN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02 
+		= "message.SectionHit.anneeN{$moinsi}.regex";
+	
+	/**
+	 * messageSectionHitAnneeN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitAnneeN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'année {$n-i} de la section HIT (colonnes {$colonnesAnnee} du HIT) doit comporter exactement 2 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02_EN_DUR 
+		= "l'année {$n-i} de la section HIT (colonnes {$colonnesAnnee} du HIT) doit comporter exactement 2 chiffres";
+	
+	/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/
+	/**
+	 * clé de messageSectionHitMjaN{$moinsi}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjaN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01 
+		= "message.SectionHit.mjaN{$moinsi}.renseigne";
+	
+	/**
+	 * messageSectionHitMjaN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjaN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitMjaN{$moinsi}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjaN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_REGEX_02 
+		= "message.SectionHit.mjaN{$moinsi}.regex";
+	
+	/**
+	 * messageSectionHitMjaN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjaN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJAN{$MOINSi}_REGEX_02_EN_DUR 
+		= "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjaN{$moinsi}Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjaN{$moinsi}.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03 
+		= "message.SectionHit.mjaN{$moinsi}.numerique";
+	
+	/**
+	 * messageSectionHitMjaN{$moinsi}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjaN{$moinsi}Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03_EN_DUR 
+		= "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit être homogène à un entier";
+	
+	/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/
+	/**
+	 * clé de messageSectionHitTypeComptageN{$moinsi}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.typeComptageN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01 
+		= "message.SectionHit.typeComptageN{$moinsi}.renseigne";
+	
+	/**
+	 * messageSectionHitTypeComptageN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitTypeComptageN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le type de comptage de l'année {$n-i} de la section HIT (colonne {$colonneTypeComptage} du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "le type de comptage de l'année {$n-i} de la section HIT (colonne {$colonneTypeComptage} du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitTypeComptageN{$moinsi}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.typeComptageN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02 
+		= "message.SectionHit.typeComptageN{$moinsi}.regex";
+	
+	/**
+	 * messageSectionHitTypeComptageN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitTypeComptageN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le type de comptage de l'année {$n-i} de la section HIT (colonne {$colonneTypeComptage} du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02_EN_DUR 
+		= "le type de comptage de l'année {$n-i} de la section HIT (colonne {$colonneTypeComptage} du HIT) doit comporter exactement 1 chiffre";
+				
+	/**
+	 * clé de messageSectionHitTypeComptageN{$moinsi}Nomenclature03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.typeComptageN{$moinsi}.nomenclature"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03 
+		= "message.SectionHit.typeComptageN{$moinsi}.nomenclature";
+	
+	/**
+	 * messageSectionHitTypeComptageN{$moinsi}Nomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitTypeComptageN{$moinsi}Nomenclature03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le type de comptage de l'année {$n-i} de la section HIT (colonne {$colonneTypeComptage} du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03_EN_DUR 
+		= "le type de comptage de l'année {$n-i} de la section HIT (colonne {$colonneTypeComptage} du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+	
+	/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/
+	/**
+	 * clé de messageSectionHitModeCalculN{$moinsi}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.modeCalculN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01 
+		= "message.SectionHit.modeCalculN{$moinsi}.renseigne";
+	
+	/**
+	 * messageSectionHitModeCalculN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitModeCalculN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le mode de calcul des trafics de l'année {$n-i} de la section HIT (colonne {$colonneModeCalcul} du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "le mode de calcul des trafics de l'année {$n-i} de la section HIT (colonne {$colonneModeCalcul} du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitModeCalculN{$moinsi}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.modeCalculN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02 
+		= "message.SectionHit.modeCalculN{$moinsi}.regex";
+	
+	/**
+	 * messageSectionHitModeCalculN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitModeCalculN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le mode de calcul des trafics de l'année {$n-i} de la section HIT (colonne {$colonneModeCalcul} du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02_EN_DUR 
+		= "le mode de calcul des trafics de l'année {$n-i} de la section HIT (colonne {$colonneModeCalcul} du HIT) doit comporter exactement 1 caractère (ou espace)";
+	
+	/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/
+	/**
+	 * clé de messageSectionHitPcPLN{$moinsi}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcPLN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01 
+		= "message.SectionHit.pcPLN{$moinsi}.renseigne";
+	
+	/**
+	 * messageSectionHitPcPLN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcPLN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcPLN{$moinsi}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcPLN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02 
+		= "message.SectionHit.pcPLN{$moinsi}.regex";
+	
+	/**
+	 * messageSectionHitPcPLN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcPLN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcPLN{$moinsi}Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcPLN{$moinsi}.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03 
+		= "message.SectionHit.pcPLN{$moinsi}.numerique";
+	
+	/**
+	 * messageSectionHitPcPLN{$moinsi}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcPLN{$moinsi}Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit être homogène à un entier";
+	
+	/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/
+	/**
+	 * clé de messageSectionHitEvaluationPLN{$moinsi}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.evaluationPLN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01 
+		= "message.SectionHit.evaluationPLN{$moinsi}.renseigne";
+	
+	/**
+	 * messageSectionHitEvaluationPLN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitEvaluationPLN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT (colonne {$evaluationPL} du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT (colonne {$evaluationPL} du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitEvaluationPLN{$moinsi}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.evaluationPLN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02 
+		= "message.SectionHit.evaluationPLN{$moinsi}.regex";
+	
+	/**
+	 * messageSectionHitEvaluationPLN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitEvaluationPLN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT (colonne {$evaluationPL} du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02_EN_DUR 
+		= "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT (colonne {$evaluationPL} du HIT) doit comporter exactement 1 caractère (ou espace)";
+	
+	/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/
+	/**
+	 * clé de messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitAnnuelN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitAnnuelN{$moinsi}.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitAnnuelN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02 
+		= "message.SectionHit.pcNuitAnnuelN{$moinsi}.regex";
+	
+	/**
+	 * messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitAnnuelN{$moinsi}.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitAnnuelN{$moinsi}.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit être homogène à un entier";
+	
+	/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/
+	/**
+	 * clé de messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.indiceFiabiliteMjaN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01 
+		= "message.SectionHit.indiceFiabiliteMjaN{$moinsi}.renseigne";
+	
+	/**
+	 * messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT (colonne {$colonneIndiceFiabiliteMjaN} du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT (colonne {$colonneIndiceFiabiliteMjaN} du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.indiceFiabiliteMjaN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02 
+		= "message.SectionHit.indiceFiabiliteMjaN{$moinsi}.regex";
+	
+	/**
+	 * messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT (colonne {$colonneIndiceFiabiliteMjaN} du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02_EN_DUR 
+		= "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT (colonne {$colonneIndiceFiabiliteMjaN} du HIT) doit comporter exactement 1 caractère (ou espace)";

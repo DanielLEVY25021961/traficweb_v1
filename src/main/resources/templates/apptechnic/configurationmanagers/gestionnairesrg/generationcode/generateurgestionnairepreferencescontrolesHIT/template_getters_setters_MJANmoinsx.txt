@@ -1,0 +1,2268 @@
+
+
+	
+	/* {$pNumeroChamp} - anneeN{$moinsi}. ****************/
+	/**
+	 * retourne le messageSectionHitAnneeN{$moinsi}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitAnneeN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitAnneeN{$moinsi}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitAnneeN{$moinsi}Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitAnneeN{$moinsi}Renseigne01
+					, fournirKeyMessageSectionHitAnneeN{$moinsi}Renseigne01()
+					, MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitAnneeN{$moinsi}Renseigne01()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitAnneeN{$moinsi}Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.anneeN{$moinsi}.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitAnneeN{$moinsi}Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitAnneeN{$moinsi}Renseigne01().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitAnneeN{$moinsi}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitAnneeN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitAnneeN{$moinsi}Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitAnneeN{$moinsi}Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitAnneeN{$moinsi}Renseigne01();
+	} // Fin de getMessageSectionHitAnneeN{$moinsi}Renseigne01()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitAnneeN{$moinsi}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitAnneeN{$moinsi}Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitAnneeN{$moinsi}Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitAnneeN{$moinsi}Renseigne01
+							, fournirKeyMessageSectionHitAnneeN{$moinsi}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitAnneeN{$moinsi}Renseigne01(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitAnneeN{$moinsi}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitAnneeN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitAnneeN{$moinsi}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitAnneeN{$moinsi}Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitAnneeN{$moinsi}Regex02
+					, fournirKeyMessageSectionHitAnneeN{$moinsi}Regex02()
+					, MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitAnneeN{$moinsi}Regex02()._____________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitAnneeN{$moinsi}Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.anneeN{$moinsi}.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitAnneeN{$moinsi}Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitAnneeN{$moinsi}Regex02().__________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitAnneeN{$moinsi}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitAnneeN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitAnneeN{$moinsi}Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitAnneeN{$moinsi}Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitAnneeN{$moinsi}Regex02();
+	} // Fin de getMessageSectionHitAnneeN{$moinsi}Regex02()._________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitAnneeN{$moinsi}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitAnneeN{$moinsi}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitAnneeN{$moinsi}Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitAnneeN{$moinsi}Regex02
+							, fournirKeyMessageSectionHitAnneeN{$moinsi}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitAnneeN{$moinsi}Regex02(...).______________
+
+
+	
+	/* {$pNumeroChamp + 1} - mjaN{$moinsi}. ****************/
+	/**
+	 * retourne le messageSectionHitMjaN{$moinsi}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjaN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjaN{$moinsi}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjaN{$moinsi}Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjaN{$moinsi}Renseigne01
+					, fournirKeyMessageSectionHitMjaN{$moinsi}Renseigne01()
+					, MESSAGE_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjaN{$moinsi}Renseigne01().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjaN{$moinsi}Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjaN{$moinsi}.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjaN{$moinsi}Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjaN{$moinsi}Renseigne01().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjaN{$moinsi}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjaN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjaN{$moinsi}Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjaN{$moinsi}Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjaN{$moinsi}Renseigne01();
+	} // Fin de getMessageSectionHitMjaN{$moinsi}Renseigne01()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjaN{$moinsi}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjaN{$moinsi}Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjaN{$moinsi}Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjaN{$moinsi}Renseigne01
+							, fournirKeyMessageSectionHitMjaN{$moinsi}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjaN{$moinsi}Renseigne01(...).____________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjaN{$moinsi}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjaN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjaN{$moinsi}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjaN{$moinsi}Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjaN{$moinsi}Regex02
+					, fournirKeyMessageSectionHitMjaN{$moinsi}Regex02()
+					, MESSAGE_SECTIONHIT_MJAN{$MOINSi}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjaN{$moinsi}Regex02()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjaN{$moinsi}Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjaN{$moinsi}.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjaN{$moinsi}Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjaN{$moinsi}Regex02().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjaN{$moinsi}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjaN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjaN{$moinsi}Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjaN{$moinsi}Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjaN{$moinsi}Regex02();
+	} // Fin de getMessageSectionHitMjaN{$moinsi}Regex02().___________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjaN{$moinsi}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjaN{$moinsi}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjaN{$moinsi}Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjaN{$moinsi}Regex02
+							, fournirKeyMessageSectionHitMjaN{$moinsi}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjaN{$moinsi}Regex02(...).________________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjaN{$moinsi}Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjaN{$moinsi}Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjaN{$moinsi}Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjaN{$moinsi}Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjaN{$moinsi}Numerique03
+					, fournirKeyMessageSectionHitMjaN{$moinsi}Numerique03()
+					, MESSAGE_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjaN{$moinsi}Numerique03().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjaN{$moinsi}Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjaN{$moinsi}Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjaN{$moinsi}Numerique03().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjaN{$moinsi}Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjaN{$moinsi}Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjaN{$moinsi}Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjaN{$moinsi}Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjaN{$moinsi}Numerique03();
+	} // Fin de getMessageSectionHitMjaN{$moinsi}Numerique03()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjaN{$moinsi}Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjaN{$moinsi}Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjaN{$moinsi}Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjaN{$moinsi}Numerique03
+							, fournirKeyMessageSectionHitMjaN{$moinsi}Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjaN{$moinsi}Numerique03(...).____________
+
+
+	
+	/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. ****************/
+	/**
+	 * retourne le messageSectionHitTypeComptageN{$moinsi}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeComptageN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitTypeComptageN{$moinsi}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitTypeComptageN{$moinsi}Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitTypeComptageN{$moinsi}Renseigne01
+					, fournirKeyMessageSectionHitTypeComptageN{$moinsi}Renseigne01()
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitTypeComptageN{$moinsi}Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitTypeComptageN{$moinsi}Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.typeComptageN{$moinsi}.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitTypeComptageN{$moinsi}Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitTypeComptageN{$moinsi}Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitTypeComptageN{$moinsi}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeComptageN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitTypeComptageN{$moinsi}Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitTypeComptageN{$moinsi}Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitTypeComptageN{$moinsi}Renseigne01();
+	} // Fin de getMessageSectionHitTypeComptageN{$moinsi}Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitTypeComptageN{$moinsi}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitTypeComptageN{$moinsi}Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitTypeComptageN{$moinsi}Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitTypeComptageN{$moinsi}Renseigne01
+							, fournirKeyMessageSectionHitTypeComptageN{$moinsi}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitTypeComptageN{$moinsi}Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitTypeComptageN{$moinsi}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeComptageN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitTypeComptageN{$moinsi}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitTypeComptageN{$moinsi}Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitTypeComptageN{$moinsi}Regex02
+					, fournirKeyMessageSectionHitTypeComptageN{$moinsi}Regex02()
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitTypeComptageN{$moinsi}Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitTypeComptageN{$moinsi}Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.typeComptageN{$moinsi}.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitTypeComptageN{$moinsi}Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitTypeComptageN{$moinsi}Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitTypeComptageN{$moinsi}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeComptageN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitTypeComptageN{$moinsi}Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitTypeComptageN{$moinsi}Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitTypeComptageN{$moinsi}Regex02();
+	} // Fin de getMessageSectionHitTypeComptageN{$moinsi}Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitTypeComptageN{$moinsi}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitTypeComptageN{$moinsi}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitTypeComptageN{$moinsi}Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitTypeComptageN{$moinsi}Regex02
+							, fournirKeyMessageSectionHitTypeComptageN{$moinsi}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitTypeComptageN{$moinsi}Regex02(...)._______
+	
+
+
+	/**
+	 * retourne le messageSectionHitTypeComptageN{$moinsi}Nomenclature03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeComptageN{$moinsi}Nomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitTypeComptageN{$moinsi}Nomenclature03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitTypeComptageN{$moinsi}Nomenclature03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitTypeComptageN{$moinsi}Nomenclature03
+					, fournirKeyMessageSectionHitTypeComptageN{$moinsi}Nomenclature03()
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitTypeComptageN{$moinsi}Nomenclature03().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitTypeComptageN{$moinsi}Nomenclature03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.typeComptageN{$moinsi}.nomenclature".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitTypeComptageN{$moinsi}Nomenclature03() {
+		return KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03;
+	} // Fin de fournirKeyMessageSectionHitTypeComptageN{$moinsi}Nomenclature03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitTypeComptageN{$moinsi}Nomenclature03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitTypeComptageN{$moinsi}Nomenclature03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitTypeComptageN{$moinsi}Nomenclature03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitTypeComptageN{$moinsi}Nomenclature03() 
+													throws Exception {
+		return fournirMessageSectionHitTypeComptageN{$moinsi}Nomenclature03();
+	} // Fin de getMessageSectionHitTypeComptageN{$moinsi}Nomenclature03().___
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitTypeComptageN{$moinsi}Nomenclature03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitTypeComptageN{$moinsi}Nomenclature03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitTypeComptageN{$moinsi}Nomenclature03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitTypeComptageN{$moinsi}Nomenclature03
+							, fournirKeyMessageSectionHitTypeComptageN{$moinsi}Nomenclature03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitTypeComptageN{$moinsi}Nomenclature03(...).
+
+
+	
+	/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. ****************/
+	/**
+	 * retourne le messageSectionHitModeCalculN{$moinsi}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitModeCalculN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitModeCalculN{$moinsi}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitModeCalculN{$moinsi}Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitModeCalculN{$moinsi}Renseigne01
+					, fournirKeyMessageSectionHitModeCalculN{$moinsi}Renseigne01()
+					, MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitModeCalculN{$moinsi}Renseigne01().____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitModeCalculN{$moinsi}Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.modeCalculN{$moinsi}.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitModeCalculN{$moinsi}Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitModeCalculN{$moinsi}Renseigne01()._
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitModeCalculN{$moinsi}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitModeCalculN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitModeCalculN{$moinsi}Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitModeCalculN{$moinsi}Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitModeCalculN{$moinsi}Renseigne01();
+	} // Fin de getMessageSectionHitModeCalculN{$moinsi}Renseigne01().________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitModeCalculN{$moinsi}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitModeCalculN{$moinsi}Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitModeCalculN{$moinsi}Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitModeCalculN{$moinsi}Renseigne01
+							, fournirKeyMessageSectionHitModeCalculN{$moinsi}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitModeCalculN{$moinsi}Renseigne01(...)._____
+
+
+
+	/**
+	 * retourne le messageSectionHitModeCalculN{$moinsi}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitModeCalculN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitModeCalculN{$moinsi}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitModeCalculN{$moinsi}Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitModeCalculN{$moinsi}Regex02
+					, fournirKeyMessageSectionHitModeCalculN{$moinsi}Regex02()
+					, MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitModeCalculN{$moinsi}Regex02().________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitModeCalculN{$moinsi}Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.modeCalculN{$moinsi}.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitModeCalculN{$moinsi}Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitModeCalculN{$moinsi}Regex02()._____
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitModeCalculN{$moinsi}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitModeCalculN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitModeCalculN{$moinsi}Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitModeCalculN{$moinsi}Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitModeCalculN{$moinsi}Regex02();
+	} // Fin de getMessageSectionHitModeCalculN{$moinsi}Regex02().____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitModeCalculN{$moinsi}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitModeCalculN{$moinsi}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitModeCalculN{$moinsi}Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitModeCalculN{$moinsi}Regex02
+							, fournirKeyMessageSectionHitModeCalculN{$moinsi}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitModeCalculN{$moinsi}Regex02(...)._________
+
+
+	
+	/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. ****************/
+	/**
+	 * retourne le messageSectionHitPcPLN{$moinsi}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcPLN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcPLN{$moinsi}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcPLN{$moinsi}Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcPLN{$moinsi}Renseigne01
+					, fournirKeyMessageSectionHitPcPLN{$moinsi}Renseigne01()
+					, MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcPLN{$moinsi}Renseigne01().__________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcPLN{$moinsi}Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcPLN{$moinsi}.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcPLN{$moinsi}Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcPLN{$moinsi}Renseigne01()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcPLN{$moinsi}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcPLN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcPLN{$moinsi}Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcPLN{$moinsi}Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcPLN{$moinsi}Renseigne01();
+	} // Fin de getMessageSectionHitPcPLN{$moinsi}Renseigne01().______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcPLN{$moinsi}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcPLN{$moinsi}Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcPLN{$moinsi}Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcPLN{$moinsi}Renseigne01
+							, fournirKeyMessageSectionHitPcPLN{$moinsi}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcPLN{$moinsi}Renseigne01(...).___________
+
+
+
+	/**
+	 * retourne le messageSectionHitPcPLN{$moinsi}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcPLN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcPLN{$moinsi}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcPLN{$moinsi}Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcPLN{$moinsi}Regex02
+					, fournirKeyMessageSectionHitPcPLN{$moinsi}Regex02()
+					, MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcPLN{$moinsi}Regex02().______________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcPLN{$moinsi}Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcPLN{$moinsi}.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcPLN{$moinsi}Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcPLN{$moinsi}Regex02().___________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcPLN{$moinsi}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcPLN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcPLN{$moinsi}Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcPLN{$moinsi}Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcPLN{$moinsi}Regex02();
+	} // Fin de getMessageSectionHitPcPLN{$moinsi}Regex02().__________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcPLN{$moinsi}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcPLN{$moinsi}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcPLN{$moinsi}Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcPLN{$moinsi}Regex02
+							, fournirKeyMessageSectionHitPcPLN{$moinsi}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcPLN{$moinsi}Regex02(...)._______________
+
+
+
+	/**
+	 * retourne le messageSectionHitPcPLN{$moinsi}Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcPLN{$moinsi}Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcPLN{$moinsi}Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcPLN{$moinsi}Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcPLN{$moinsi}Numerique03
+					, fournirKeyMessageSectionHitPcPLN{$moinsi}Numerique03()
+					, MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcPLN{$moinsi}Numerique03().__________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcPLN{$moinsi}Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcPLN{$moinsi}Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcPLN{$moinsi}Numerique03()._______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcPLN{$moinsi}Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcPLN{$moinsi}Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcPLN{$moinsi}Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcPLN{$moinsi}Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcPLN{$moinsi}Numerique03();
+	} // Fin de getMessageSectionHitPcPLN{$moinsi}Numerique03().______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcPLN{$moinsi}Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcPLN{$moinsi}Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcPLN{$moinsi}Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcPLN{$moinsi}Numerique03
+							, fournirKeyMessageSectionHitPcPLN{$moinsi}Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcPLN{$moinsi}Numerique03(...).___________	
+
+
+	
+	/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. ****************/
+	/**
+	 * retourne le messageSectionHitEvaluationPLN{$moinsi}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitEvaluationPLN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitEvaluationPLN{$moinsi}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitEvaluationPLN{$moinsi}Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitEvaluationPLN{$moinsi}Renseigne01
+					, fournirKeyMessageSectionHitEvaluationPLN{$moinsi}Renseigne01()
+					, MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitEvaluationPLN{$moinsi}Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitEvaluationPLN{$moinsi}Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.evaluationPLN{$moinsi}.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitEvaluationPLN{$moinsi}Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitEvaluationPLN{$moinsi}Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitEvaluationPLN{$moinsi}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitEvaluationPLN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitEvaluationPLN{$moinsi}Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitEvaluationPLN{$moinsi}Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitEvaluationPLN{$moinsi}Renseigne01();
+	} // Fin de getMessageSectionHitEvaluationPLN{$moinsi}Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitEvaluationPLN{$moinsi}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitEvaluationPLN{$moinsi}Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitEvaluationPLN{$moinsi}Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitEvaluationPLN{$moinsi}Renseigne01
+							, fournirKeyMessageSectionHitEvaluationPLN{$moinsi}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitEvaluationPLN{$moinsi}Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitEvaluationPLN{$moinsi}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitEvaluationPLN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitEvaluationPLN{$moinsi}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitEvaluationPLN{$moinsi}Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitEvaluationPLN{$moinsi}Regex02
+					, fournirKeyMessageSectionHitEvaluationPLN{$moinsi}Regex02()
+					, MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitEvaluationPLN{$moinsi}Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitEvaluationPLN{$moinsi}Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.evaluationPLN{$moinsi}.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitEvaluationPLN{$moinsi}Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitEvaluationPLN{$moinsi}Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitEvaluationPLN{$moinsi}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitEvaluationPLN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitEvaluationPLN{$moinsi}Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitEvaluationPLN{$moinsi}Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitEvaluationPLN{$moinsi}Regex02();
+	} // Fin de getMessageSectionHitEvaluationPLN{$moinsi}Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitEvaluationPLN{$moinsi}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitEvaluationPLN{$moinsi}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitEvaluationPLN{$moinsi}Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitEvaluationPLN{$moinsi}Regex02
+							, fournirKeyMessageSectionHitEvaluationPLN{$moinsi}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitEvaluationPLN{$moinsi}Regex02(...)._______
+
+
+	
+	/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01
+					, fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitAnnuelN{$moinsi}.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01
+							, fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitAnnuelN{$moinsi}Regex02
+					, fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitAnnuelN{$moinsi}.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02();
+	} // Fin de getMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitAnnuelN{$moinsi}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitAnnuelN{$moinsi}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitAnnuelN{$moinsi}Regex02
+							, fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03
+					, fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03().
+	
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03();
+	} // Fin de getMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03
+							, fournirKeyMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03(...).___
+
+
+	
+	/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. ****************/
+	/**
+	 * retourne le messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01
+					, fournirKeyMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01()
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.indiceFiabiliteMjaN{$moinsi}.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01();
+	} // Fin de getMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01().
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01
+							, fournirKeyMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01(...).
+
+
+
+	/**
+	 * retourne le messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02
+					, fournirKeyMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02()
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02().
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.indiceFiabiliteMjaN{$moinsi}.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02();
+	} // Fin de getMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02().____
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02
+							, fournirKeyMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02(...)._

@@ -1,0 +1,128 @@
+				
+		/* {$pNumeroChamp} - anneeN{$moinsi}. *******/		
+		/* ajoute le messageSectionHitAnneeN{$moinsi}Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitAnneeN{$moinsi}Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02
+				, MESSAGE_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02_EN_DUR);	
+				
+		/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/		
+		/* ajoute le messageSectionHitMjaN{$moinsi}Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjaN{$moinsi}Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_REGEX_02
+				, MESSAGE_SECTIONHIT_MJAN{$MOINSi}_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjaN{$moinsi}Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03_EN_DUR);
+				
+		/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/		
+		/* ajoute le messageSectionHitTypeComptageN{$moinsi}Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitTypeComptageN{$moinsi}Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02
+				, MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitTypeComptageN{$moinsi}Nomenclature03 
+		 * par défaut stocké en dur.*/
+		preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03_EN_DUR);
+				
+		/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/		
+		/* ajoute le messageSectionHitModeCalculN{$moinsi}Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitModeCalculN{$moinsi}Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02
+				, MESSAGE_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02_EN_DUR);
+				
+		/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/		
+		/* ajoute le messageSectionHitPcPLN{$moinsi}Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcPLN{$moinsi}Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02
+				, MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcPLN{$moinsi}Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03_EN_DUR);
+				
+		/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/		
+		/* ajoute le messageSectionHitEvaluationPLN{$moinsi}Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitEvaluationPLN{$moinsi}Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02
+				, MESSAGE_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02_EN_DUR);
+				
+		/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/		
+		/* ajoute le messageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitAnnuelN{$moinsi}Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitAnnuelN{$moinsi}Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03_EN_DUR);
+				
+		/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/		
+		/* ajoute le messageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02
+				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02_EN_DUR);

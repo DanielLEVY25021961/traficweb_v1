@@ -1,0 +1,170 @@
+			
+			/* {$pNumeroChamp} - anneeN{$moinsi}. *******/
+			/* ajoute le validerRGSectionHitAnneeN{$moinsi} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}
+						, STRING_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitAnneeN{$moinsi}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitAnneeN{$moinsi}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02_EN_DUR);
+			
+			/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/
+			/* ajoute le validerRGSectionHitMjaN{$moinsi} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MJAN{$MOINSi}
+						, STRING_VALIDER_SECTIONHIT_MJAN{$MOINSi}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitMjaN{$moinsi}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitMjaN{$moinsi}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MJAN{$MOINSi}_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_MJAN{$MOINSi}_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitMjaN{$moinsi}Numerique03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03
+						, STRING_VALIDER_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03_EN_DUR);
+			
+			/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/
+			/* ajoute le validerRGSectionHitTypeComptageN{$moinsi} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}
+						, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitTypeComptageN{$moinsi}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitTypeComptageN{$moinsi}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitTypeComptageN{$moinsi}Nomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03
+						, STRING_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03_EN_DUR);
+			
+			/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/
+			/* ajoute le validerRGSectionHitModeCalculN{$moinsi} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}
+						, STRING_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitModeCalculN{$moinsi}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitModeCalculN{$moinsi}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02_EN_DUR);
+			
+			/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/
+			/* ajoute le validerRGSectionHitPcPLN{$moinsi} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCPLN{$MOINSi}
+						, STRING_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcPLN{$moinsi}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcPLN{$moinsi}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcPLN{$moinsi}Numerique03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03
+						, STRING_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03_EN_DUR);
+			
+			/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/
+			/* ajoute le validerRGSectionHitEvaluationPLN{$moinsi} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}
+						, STRING_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitEvaluationPLN{$moinsi}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitEvaluationPLN{$moinsi}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02_EN_DUR);
+			
+			/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/
+			/* ajoute le validerRGSectionHitPcNuitAnnuelN{$moinsi} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}
+						, STRING_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcNuitAnnuelN{$moinsi}Regex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02
+						, STRING_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03
+						, STRING_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03_EN_DUR);
+			
+			/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/
+			/* ajoute le validerRGSectionHitIndiceFiabiliteMjaN{$moinsi} 
+			 * par défaut stocké en dur. */
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}
+						, STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_EN_DUR);
+			
+			/* ajoute le validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01
+						, STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01_EN_DUR);

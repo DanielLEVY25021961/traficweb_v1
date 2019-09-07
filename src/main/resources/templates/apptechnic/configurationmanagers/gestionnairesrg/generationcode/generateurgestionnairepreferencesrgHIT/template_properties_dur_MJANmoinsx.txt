@@ -1,0 +1,532 @@
+	
+	/* {$pNumeroChamp} - anneeN{$moinsi}. *******/
+	/**
+	 * clé de validerRGSectionHitAnneeN{$moinsi} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.anneeN{$moinsi}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_ANNEEN{$MOINSi} 
+		= "valider.SectionHit.anneeN{$moinsi}";
+	
+	/**
+	 * validerRGSectionHitAnneeN{$moinsi} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitAnneeN{$moinsi} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitAnneeN{$moinsi}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.anneeN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01 
+		= "valider.SectionHit.anneeN{$moinsi}.renseigne";
+	
+	/**
+	 * validerRGSectionHitAnneeN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitAnneeN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitAnneeN{$moinsi}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.anneeN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02 
+		= "valider.SectionHit.anneeN{$moinsi}.regex";
+	
+	/**
+	 * validerRGSectionHitAnneeN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitAnneeN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02_EN_DUR 
+		= "true";
+	
+	/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/
+	/**
+	 * clé de validerRGSectionHitMjaN{$moinsi} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.mjaN{$moinsi}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MJAN{$MOINSi} 
+		= "valider.SectionHit.mjaN{$moinsi}";
+	
+	/**
+	 * validerRGSectionHitMjaN{$moinsi} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitMjaN{$moinsi} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MJAN{$MOINSi}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitMjaN{$moinsi}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.mjaN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01 
+		= "valider.SectionHit.mjaN{$moinsi}.renseigne";
+	
+	/**
+	 * validerRGSectionHitMjaN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitMjaN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitMjaN{$moinsi}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.mjaN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MJAN{$MOINSi}_REGEX_02 
+		= "valider.SectionHit.mjaN{$moinsi}.regex";
+	
+	/**
+	 * validerRGSectionHitMjaN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitMjaN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MJAN{$MOINSi}_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitMjaN{$moinsi}Numerique03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.mjaN{$moinsi}.numerique"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03 
+		= "valider.SectionHit.mjaN{$moinsi}.numerique";
+	
+	/**
+	 * validerRGSectionHitMjaN{$moinsi}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitMjaN{$moinsi}Numerique03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03_EN_DUR 
+		= "true";
+	
+	/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/
+	/**
+	 * clé de validerRGSectionHitTypeComptageN{$moinsi} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeComptageN{$moinsi}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi} 
+		= "valider.SectionHit.typeComptageN{$moinsi}";
+	
+	/**
+	 * validerRGSectionHitTypeComptageN{$moinsi} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeComptageN{$moinsi} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitTypeComptageN{$moinsi}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeComptageN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01 
+		= "valider.SectionHit.typeComptageN{$moinsi}.renseigne";
+	
+	/**
+	 * validerRGSectionHitTypeComptageN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeComptageN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitTypeComptageN{$moinsi}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeComptageN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02 
+		= "valider.SectionHit.typeComptageN{$moinsi}.regex";
+	
+	/**
+	 * validerRGSectionHitTypeComptageN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeComptageN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitTypeComptageN{$moinsi}Nomenclature03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.typeComptageN{$moinsi}.nomenclature"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03 
+		= "valider.SectionHit.typeComptageN{$moinsi}.nomenclature";
+	
+	/**
+	 * validerRGSectionHitTypeComptageN{$moinsi}Nomenclature03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitTypeComptageN{$moinsi}Nomenclature03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03_EN_DUR 
+		= "true";
+	
+	/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/
+	/**
+	 * clé de validerRGSectionHitModeCalculN{$moinsi} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.modeCalculN{$moinsi}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi} 
+		= "valider.SectionHit.modeCalculN{$moinsi}";
+	
+	/**
+	 * validerRGSectionHitModeCalculN{$moinsi} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitModeCalculN{$moinsi} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitModeCalculN{$moinsi}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.modeCalculN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01 
+		= "valider.SectionHit.modeCalculN{$moinsi}.renseigne";
+	
+	/**
+	 * validerRGSectionHitModeCalculN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitModeCalculN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitModeCalculN{$moinsi}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.modeCalculN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02 
+		= "valider.SectionHit.modeCalculN{$moinsi}.regex";
+	
+	/**
+	 * validerRGSectionHitModeCalculN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitModeCalculN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02_EN_DUR 
+		= "true";
+	
+	/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/
+	/**
+	 * clé de validerRGSectionHitPcPLN{$moinsi} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcPLN{$moinsi}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCPLN{$MOINSi} 
+		= "valider.SectionHit.pcPLN{$moinsi}";
+	
+	/**
+	 * validerRGSectionHitPcPLN{$moinsi} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcPLN{$moinsi} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitPcPLN{$moinsi}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcPLN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01 
+		= "valider.SectionHit.pcPLN{$moinsi}.renseigne";
+	
+	/**
+	 * validerRGSectionHitPcPLN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcPLN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPcPLN{$moinsi}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcPLN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02 
+		= "valider.SectionHit.pcPLN{$moinsi}.regex";
+	
+	/**
+	 * validerRGSectionHitPcPLN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcPLN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPcPLN{$moinsi}Numerique03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcPLN{$moinsi}.numerique"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03 
+		= "valider.SectionHit.pcPLN{$moinsi}.numerique";
+	
+	/**
+	 * validerRGSectionHitPcPLN{$moinsi}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcPLN{$moinsi}Numerique03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03_EN_DUR 
+		= "true";
+	
+	/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/
+	/**
+	 * clé de validerRGSectionHitEvaluationPLN{$moinsi} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.evaluationPLN{$moinsi}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi} 
+		= "valider.SectionHit.evaluationPLN{$moinsi}";
+	
+	/**
+	 * validerRGSectionHitEvaluationPLN{$moinsi} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitEvaluationPLN{$moinsi} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitEvaluationPLN{$moinsi}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.evaluationPLN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01 
+		= "valider.SectionHit.evaluationPLN{$moinsi}.renseigne";
+	
+	/**
+	 * validerRGSectionHitEvaluationPLN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitEvaluationPLN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitEvaluationPLN{$moinsi}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.evaluationPLN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02 
+		= "valider.SectionHit.evaluationPLN{$moinsi}.regex";
+	
+	/**
+	 * validerRGSectionHitEvaluationPLN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitEvaluationPLN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02_EN_DUR 
+		= "true";
+	
+	/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/
+	/**
+	 * clé de validerRGSectionHitPcNuitAnnuelN{$moinsi} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcNuitAnnuelN{$moinsi}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi} 
+		= "valider.SectionHit.pcNuitAnnuelN{$moinsi}";
+	
+	/**
+	 * validerRGSectionHitPcNuitAnnuelN{$moinsi} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcNuitAnnuelN{$moinsi} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcNuitAnnuelN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01 
+		= "valider.SectionHit.pcNuitAnnuelN{$moinsi}.renseigne";
+	
+	/**
+	 * validerRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPcNuitAnnuelN{$moinsi}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcNuitAnnuelN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02 
+		= "valider.SectionHit.pcNuitAnnuelN{$moinsi}.regex";
+	
+	/**
+	 * validerRGSectionHitPcNuitAnnuelN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcNuitAnnuelN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.pcNuitAnnuelN{$moinsi}.numerique"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03 
+		= "valider.SectionHit.pcNuitAnnuelN{$moinsi}.numerique";
+	
+	/**
+	 * validerRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03_EN_DUR 
+		= "true";
+	
+	/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/
+	/**
+	 * clé de validerRGSectionHitIndiceFiabiliteMjaN{$moinsi} dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.indiceFiabiliteMjaN{$moinsi}"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi} 
+		= "valider.SectionHit.indiceFiabiliteMjaN{$moinsi}";
+	
+	/**
+	 * validerRGSectionHitIndiceFiabiliteMjaN{$moinsi} par défaut de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitIndiceFiabiliteMjaN{$moinsi} 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_EN_DUR 
+		= "true";
+	
+	/**
+	 * clé de validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.indiceFiabiliteMjaN{$moinsi}.renseigne"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01 
+		= "valider.SectionHit.indiceFiabiliteMjaN{$moinsi}.renseigne";
+	
+	/**
+	 * validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01_EN_DUR 
+		= "true";
+		
+	/**
+	 * clé de validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 dans 
+	 * SectionHit_RG.properties<br/>
+	 * "valider.SectionHit.indiceFiabiliteMjaN{$moinsi}.regex"<br/>
+	 */
+	public static final String KEY_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02 
+		= "valider.SectionHit.indiceFiabiliteMjaN{$moinsi}.regex";
+	
+	/**
+	 * validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 
+	 * indiqué dans SectionHit_RG.properties.<br/>
+	 * "true".<br/>
+	 */
+	public static final String STRING_VALIDER_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02_EN_DUR 
+		= "true";

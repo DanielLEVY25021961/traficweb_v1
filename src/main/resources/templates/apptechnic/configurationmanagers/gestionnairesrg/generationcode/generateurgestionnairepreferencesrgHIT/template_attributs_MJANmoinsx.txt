@@ -1,0 +1,192 @@
+	
+	/* {$pNumeroChamp} - anneeN{$moinsi}. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>anneeN{$moinsi}</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>anneeN{$moinsi}</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitAnneeN{$moinsi};
+	
+	/**
+	 * Boolean activant la RG-SectionHit-AnneeN{$moinsi}-01 : 
+	 * "l'année {$n-i} de la section HIT (colonnes {$colonnesAnnee} du HIT) doit être renseignée".<br/>
+	 */
+	private static Boolean validerRGSectionHitAnneeN{$moinsi}Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-AnneeN{$moinsi}-02 : 
+	 * "l'année {$n-i} de la section HIT (colonnes {$colonnesAnnee} du HIT) doit comporter exactement 2 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitAnneeN{$moinsi}Regex02;
+	
+	/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>mjaN{$moinsi}</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>mjaN{$moinsi}</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitMjaN{$moinsi};
+	
+	/**
+	 * Boolean activant la RG-SectionHit-MjaN{$moinsi}-01 : 
+	 * "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitMjaN{$moinsi}Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-MjaN{$moinsi}-02 : 
+	 * "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitMjaN{$moinsi}Regex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-MjaN{$moinsi}-03 : 
+	 * "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesMja} du HIT) doit être homogène à un entier".<br/>
+	 */
+	private static Boolean validerRGSectionHitMjaN{$moinsi}Numerique03;
+	
+	/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>typeComptageN{$moinsi}</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>typeComptageN{$moinsi}</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeComptageN{$moinsi};
+	
+	/**
+	 * Boolean activant la RG-SectionHit-TypeComptageN{$moinsi}-01 : 
+	 * "le type de comptage de l'année {$n-i} de la section HIT (colonne {$colonneTypeComptage} du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeComptageN{$moinsi}Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-TypeComptageN{$moinsi}-02 : 
+	 * "le type de comptage de l'année {$n-i} de la section HIT (colonne {$colonneTypeComptage} du HIT) doit comporter exactement 1 chiffre".<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeComptageN{$moinsi}Regex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-TypeComptageN{$moinsi}-03 :
+	 * "le type de comptage de l'année {$n-i} de la section HIT (colonne {$colonneTypeComptage} du HIT) doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".<br/>
+	 */
+	private static Boolean validerRGSectionHitTypeComptageN{$moinsi}Nomenclature03;
+	
+	/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>modeCalculN{$moinsi}</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>modeCalculN{$moinsi}</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitModeCalculN{$moinsi};
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ModeCalculN{$moinsi}-01 : 
+	 * "le mode de calcul des trafics de l'année {$n-i} de la section HIT (colonne {$colonneModeCalcul} du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitModeCalculN{$moinsi}Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-ModeCalculN{$moinsi}-02 : 
+	 * "le mode de calcul des trafics de l'année {$n-i} de la section HIT (colonne {$colonneModeCalcul} du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	private static Boolean validerRGSectionHitModeCalculN{$moinsi}Regex02;
+	
+	/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>pcPLN{$moinsi}</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>pcPLN{$moinsi}</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitPcPLN{$moinsi};
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PcPLN{$moinsi}-01 : 
+	 * "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitPcPLN{$moinsi}Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PcPLN{$moinsi}-02 : 
+	 * "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitPcPLN{$moinsi}Regex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PcPLN{$moinsi}-03 : 
+	 * "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT (colonnes {$pcPLNmoinsi} du HIT) doit être homogène à un entier".<br/>
+	 */
+	private static Boolean validerRGSectionHitPcPLN{$moinsi}Numerique03;
+	
+	/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>evaluationPLN{$moinsi}</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>evaluationPLN{$moinsi}</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitEvaluationPLN{$moinsi};
+	
+	/**
+	 * Boolean activant la RG-SectionHit-EvaluationPLN{$moinsi}-01 : 
+	 * "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT (colonne {$evaluationPL} du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitEvaluationPLN{$moinsi}Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-EvaluationPLN{$moinsi}-02 : 
+	 * "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT (colonne {$evaluationPL} du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	private static Boolean validerRGSectionHitEvaluationPLN{$moinsi}Regex02;
+	
+	/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>pcNuitAnnuelN{$moinsi}</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>pcNuitAnnuelN{$moinsi}</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitPcNuitAnnuelN{$moinsi};
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PcNuitAnnuelN{$moinsi}-01 : 
+	 * "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PcNuitAnnuelN{$moinsi}-02 : 
+	 * "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	private static Boolean validerRGSectionHitPcNuitAnnuelN{$moinsi}Regex02;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-PcNuitAnnuelN{$moinsi}-03 : 
+	 * "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT (colonnes {$colonnesPcNuitAnnuel} du HIT) doit être homogène à un entier".<br/>
+	 */
+	private static Boolean validerRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03;
+	
+	/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/
+	/**
+	 * Boolean activant <b>globalement</b> les contrôles 
+	 * sur <i>indiceFiabiliteMjaN{$moinsi}</i> de SectionHit.<br/>
+	 * <b>interrupteur GENERAL</b> sur les contrôles de <i>indiceFiabiliteMjaN{$moinsi}</i> 
+	 * de SectionHit.<br/>
+	 */
+	private static Boolean validerRGSectionHitIndiceFiabiliteMjaN{$moinsi};
+	
+	/**
+	 * Boolean activant la RG-SectionHit-IndiceFiabiliteMjaN{$moinsi}-01 : 
+	 * "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT (colonne {$colonneIndiceFiabiliteMjaN} du HIT) doit être renseigné".<br/>
+	 */
+	private static Boolean validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01;
+	
+	/**
+	 * Boolean activant la RG-SectionHit-IndiceFiabiliteMjaN{$moinsi}-02 : 
+	 * "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT (colonne {$colonneIndiceFiabiliteMjaN} du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
+	 */
+	private static Boolean validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02;
