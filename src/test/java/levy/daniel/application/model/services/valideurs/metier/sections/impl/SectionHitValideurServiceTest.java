@@ -1166,7 +1166,7 @@ public class SectionHitValideurServiceTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -8901,9 +8901,6576 @@ public class SectionHitValideurServiceTest {
 				, erreurMaps.getErrorsMapDetaille().isEmpty());
 		
 	} // Fin de testValiderIndiceFiabiliteMjaNmoins1().____________________
+
 	
-	
+
+	/* 77 - anneeNmoins2. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>anneeNmoins2</b></code> 
+	 * dans validerAnneeNmoins2(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderAnneeNmoins2() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
 		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderAnneeNmoins2() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setAnneeNmoins2("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins2 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "AB";
+		dto.setAnneeNmoins2(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins2 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "19";
+		dto.setAnneeNmoins2(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins2 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderAnneeNmoins2()._________________________________
+
+	
+
+	/* 78 - mjaNmoins2. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjaNmoins2</b></code> 
+	 * dans validerMjaNmoins2(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjaNmoins2() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjaNmoins2() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjaNmoins2("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins2 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "85A8965";
+		dto.setMjaNmoins2(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins2 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "12 563";
+		dto.setMjaNmoins2(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins2 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "012553";
+		dto.setMjaNmoins2(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins2 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjaNmoins2().___________________________________
+
+	
+
+	/* 79 - typeComptageNmoins2. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>typeComptageNmoins2</b></code> 
+	 * dans validerTypeComptageNmoins2(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderTypeComptageNmoins2() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderTypeComptageNmoins2() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setTypeComptageNmoins2("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins2 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//***************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "A";
+		dto.setTypeComptageNmoins2(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins2 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU HORS NOMENCLATURE ***** */
+		final String valeurHorsNomenclature = "-1";
+		dto.setTypeComptageNmoins2(valeurHorsNomenclature);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins2 hors nomenclature avec '" + valeurHorsNomenclature + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG HORS NOMENCLATURE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*************************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "1";
+		dto.setTypeComptageNmoins2(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins2 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderTypeComptageNmoins2().__________________________
+
+	
+
+	/* 80 - modeCalculNmoins2. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>modeCalculNmoins2</b></code> 
+	 * dans validerModeCalculNmoins2(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderModeCalculNmoins2() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderModeCalculNmoins2() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setModeCalculNmoins2("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins2 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setModeCalculNmoins2(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins2 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setModeCalculNmoins2(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins2 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderModeCalculNmoins2().____________________________
+
+	
+
+	/* 81 - pcPLNmoins2. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcPLNmoins2</b></code> 
+	 * dans validerPcPLNmoins2(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcPLNmoins2() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcPLNmoins2() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcPLNmoins2("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins2 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = " 23";
+		dto.setPcPLNmoins2(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins2 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "7 9";
+		dto.setPcPLNmoins2(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins2 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "079";
+		dto.setPcPLNmoins2(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins2 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcPLNmoins2().__________________________________	
+
+	
+
+	/* 82 - evaluationPLNmoins2. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>evaluationPLNmoins2</b></code> 
+	 * dans validerEvaluationPLNmoins2(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderEvaluationPLNmoins2() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderEvaluationPLNmoins2() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setEvaluationPLNmoins2("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins2 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setEvaluationPLNmoins2(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins2 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setEvaluationPLNmoins2(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins2 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderEvaluationPLNmoins2().__________________________
+
+	
+
+	/* 83 - pcNuitAnnuelNmoins2. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitAnnuelNmoins2</b></code> 
+	 * dans validerPcNuitAnnuelNmoins2(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitAnnuelNmoins2() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitAnnuelNmoins2() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitAnnuelNmoins2("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins2 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = " 23";
+		dto.setPcNuitAnnuelNmoins2(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins2 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "7 9";
+		dto.setPcNuitAnnuelNmoins2(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins2 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "079";
+		dto.setPcNuitAnnuelNmoins2(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins2 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitAnnuelNmoins2().__________________________
+
+	
+
+	/* 84 - indiceFiabiliteMjaNmoins2. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>indiceFiabiliteMjaNmoins2</b></code> 
+	 * dans validerIndiceFiabiliteMjaNmoins2(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderIndiceFiabiliteMjaNmoins2() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderIndiceFiabiliteMjaNmoins2() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setIndiceFiabiliteMjaNmoins2("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins2 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setIndiceFiabiliteMjaNmoins2(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins2 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setIndiceFiabiliteMjaNmoins2(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins2 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderIndiceFiabiliteMjaNmoins2().____________________
+
+
+	
+
+	/* 85 - anneeNmoins3. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>anneeNmoins3</b></code> 
+	 * dans validerAnneeNmoins3(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderAnneeNmoins3() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderAnneeNmoins3() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setAnneeNmoins3("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins3 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "AB";
+		dto.setAnneeNmoins3(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins3 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "19";
+		dto.setAnneeNmoins3(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins3 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderAnneeNmoins3()._________________________________
+
+	
+
+	/* 86 - mjaNmoins3. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjaNmoins3</b></code> 
+	 * dans validerMjaNmoins3(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjaNmoins3() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjaNmoins3() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjaNmoins3("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins3 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "85A8965";
+		dto.setMjaNmoins3(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins3 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "12 563";
+		dto.setMjaNmoins3(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins3 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "012553";
+		dto.setMjaNmoins3(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins3 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjaNmoins3().___________________________________
+
+	
+
+	/* 87 - typeComptageNmoins3. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>typeComptageNmoins3</b></code> 
+	 * dans validerTypeComptageNmoins3(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderTypeComptageNmoins3() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderTypeComptageNmoins3() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setTypeComptageNmoins3("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins3 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//***************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "A";
+		dto.setTypeComptageNmoins3(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins3 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU HORS NOMENCLATURE ***** */
+		final String valeurHorsNomenclature = "-1";
+		dto.setTypeComptageNmoins3(valeurHorsNomenclature);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins3 hors nomenclature avec '" + valeurHorsNomenclature + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG HORS NOMENCLATURE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*************************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "1";
+		dto.setTypeComptageNmoins3(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins3 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderTypeComptageNmoins3().__________________________
+
+	
+
+	/* 88 - modeCalculNmoins3. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>modeCalculNmoins3</b></code> 
+	 * dans validerModeCalculNmoins3(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderModeCalculNmoins3() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderModeCalculNmoins3() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setModeCalculNmoins3("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins3 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setModeCalculNmoins3(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins3 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setModeCalculNmoins3(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins3 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderModeCalculNmoins3().____________________________
+
+	
+
+	/* 89 - pcPLNmoins3. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcPLNmoins3</b></code> 
+	 * dans validerPcPLNmoins3(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcPLNmoins3() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcPLNmoins3() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcPLNmoins3("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins3 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = " 23";
+		dto.setPcPLNmoins3(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins3 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "7 9";
+		dto.setPcPLNmoins3(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins3 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "079";
+		dto.setPcPLNmoins3(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins3 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcPLNmoins3().__________________________________	
+
+	
+
+	/* 90 - evaluationPLNmoins3. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>evaluationPLNmoins3</b></code> 
+	 * dans validerEvaluationPLNmoins3(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderEvaluationPLNmoins3() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderEvaluationPLNmoins3() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setEvaluationPLNmoins3("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins3 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setEvaluationPLNmoins3(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins3 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setEvaluationPLNmoins3(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins3 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderEvaluationPLNmoins3().__________________________
+
+	
+
+	/* 91 - pcNuitAnnuelNmoins3. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitAnnuelNmoins3</b></code> 
+	 * dans validerPcNuitAnnuelNmoins3(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitAnnuelNmoins3() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitAnnuelNmoins3() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitAnnuelNmoins3("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins3 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = " 23";
+		dto.setPcNuitAnnuelNmoins3(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins3 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "7 9";
+		dto.setPcNuitAnnuelNmoins3(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins3 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "079";
+		dto.setPcNuitAnnuelNmoins3(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins3 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitAnnuelNmoins3().__________________________
+
+	
+
+	/* 92 - indiceFiabiliteMjaNmoins3. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>indiceFiabiliteMjaNmoins3</b></code> 
+	 * dans validerIndiceFiabiliteMjaNmoins3(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderIndiceFiabiliteMjaNmoins3() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderIndiceFiabiliteMjaNmoins3() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setIndiceFiabiliteMjaNmoins3("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins3 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setIndiceFiabiliteMjaNmoins3(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins3 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setIndiceFiabiliteMjaNmoins3(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins3 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderIndiceFiabiliteMjaNmoins3().____________________
+
+
+	
+
+	/* 93 - anneeNmoins4. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>anneeNmoins4</b></code> 
+	 * dans validerAnneeNmoins4(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderAnneeNmoins4() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderAnneeNmoins4() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setAnneeNmoins4("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins4 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "AB";
+		dto.setAnneeNmoins4(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins4 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "19";
+		dto.setAnneeNmoins4(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins4 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderAnneeNmoins4()._________________________________
+
+	
+
+	/* 94 - mjaNmoins4. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjaNmoins4</b></code> 
+	 * dans validerMjaNmoins4(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjaNmoins4() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjaNmoins4() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjaNmoins4("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins4 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "85A8965";
+		dto.setMjaNmoins4(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins4 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "12 563";
+		dto.setMjaNmoins4(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins4 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "012553";
+		dto.setMjaNmoins4(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins4 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjaNmoins4().___________________________________
+
+	
+
+	/* 95 - typeComptageNmoins4. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>typeComptageNmoins4</b></code> 
+	 * dans validerTypeComptageNmoins4(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderTypeComptageNmoins4() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderTypeComptageNmoins4() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setTypeComptageNmoins4("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins4 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//***************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "A";
+		dto.setTypeComptageNmoins4(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins4 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU HORS NOMENCLATURE ***** */
+		final String valeurHorsNomenclature = "-1";
+		dto.setTypeComptageNmoins4(valeurHorsNomenclature);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins4 hors nomenclature avec '" + valeurHorsNomenclature + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG HORS NOMENCLATURE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*************************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "1";
+		dto.setTypeComptageNmoins4(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins4 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderTypeComptageNmoins4().__________________________
+
+	
+
+	/* 96 - modeCalculNmoins4. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>modeCalculNmoins4</b></code> 
+	 * dans validerModeCalculNmoins4(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderModeCalculNmoins4() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderModeCalculNmoins4() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setModeCalculNmoins4("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins4 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setModeCalculNmoins4(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins4 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setModeCalculNmoins4(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins4 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderModeCalculNmoins4().____________________________
+
+	
+
+	/* 97 - pcPLNmoins4. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcPLNmoins4</b></code> 
+	 * dans validerPcPLNmoins4(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcPLNmoins4() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcPLNmoins4() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcPLNmoins4("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins4 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = " 23";
+		dto.setPcPLNmoins4(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins4 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "7 9";
+		dto.setPcPLNmoins4(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins4 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "079";
+		dto.setPcPLNmoins4(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins4 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcPLNmoins4().__________________________________	
+
+	
+
+	/* 98 - evaluationPLNmoins4. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>evaluationPLNmoins4</b></code> 
+	 * dans validerEvaluationPLNmoins4(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderEvaluationPLNmoins4() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderEvaluationPLNmoins4() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setEvaluationPLNmoins4("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins4 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setEvaluationPLNmoins4(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins4 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setEvaluationPLNmoins4(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins4 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderEvaluationPLNmoins4().__________________________
+
+	
+
+	/* 99 - pcNuitAnnuelNmoins4. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitAnnuelNmoins4</b></code> 
+	 * dans validerPcNuitAnnuelNmoins4(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitAnnuelNmoins4() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitAnnuelNmoins4() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitAnnuelNmoins4("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins4 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = " 23";
+		dto.setPcNuitAnnuelNmoins4(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins4 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "7 9";
+		dto.setPcNuitAnnuelNmoins4(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins4 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "079";
+		dto.setPcNuitAnnuelNmoins4(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins4 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitAnnuelNmoins4().__________________________
+
+	
+
+	/* 100 - indiceFiabiliteMjaNmoins4. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>indiceFiabiliteMjaNmoins4</b></code> 
+	 * dans validerIndiceFiabiliteMjaNmoins4(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderIndiceFiabiliteMjaNmoins4() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderIndiceFiabiliteMjaNmoins4() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setIndiceFiabiliteMjaNmoins4("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins4 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setIndiceFiabiliteMjaNmoins4(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins4 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setIndiceFiabiliteMjaNmoins4(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins4 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderIndiceFiabiliteMjaNmoins4().____________________
+
+
+	
+
+	/* 101 - anneeNmoins5. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>anneeNmoins5</b></code> 
+	 * dans validerAnneeNmoins5(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderAnneeNmoins5() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderAnneeNmoins5() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setAnneeNmoins5("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins5 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "AB";
+		dto.setAnneeNmoins5(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins5 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "19";
+		dto.setAnneeNmoins5(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* anneeNmoins5 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderAnneeNmoins5()._________________________________
+
+	
+
+	/* 102 - mjaNmoins5. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjaNmoins5</b></code> 
+	 * dans validerMjaNmoins5(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjaNmoins5() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjaNmoins5() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjaNmoins5("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins5 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "85A8965";
+		dto.setMjaNmoins5(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins5 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "12 563";
+		dto.setMjaNmoins5(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins5 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "012553";
+		dto.setMjaNmoins5(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjaNmoins5 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjaNmoins5().___________________________________
+
+	
+
+	/* 103 - typeComptageNmoins5. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>typeComptageNmoins5</b></code> 
+	 * dans validerTypeComptageNmoins5(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * <li>garantit que la RG NOMENCLATURE fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderTypeComptageNmoins5() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderTypeComptageNmoins5() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setTypeComptageNmoins5("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins5 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//***************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "A";
+		dto.setTypeComptageNmoins5(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins5 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU HORS NOMENCLATURE ***** */
+		final String valeurHorsNomenclature = "-1";
+		dto.setTypeComptageNmoins5(valeurHorsNomenclature);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins5 hors nomenclature avec '" + valeurHorsNomenclature + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG HORS NOMENCLATURE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*************************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "1";
+		dto.setTypeComptageNmoins5(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* typeComptageNmoins5 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderTypeComptageNmoins5().__________________________
+
+	
+
+	/* 104 - modeCalculNmoins5. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>modeCalculNmoins5</b></code> 
+	 * dans validerModeCalculNmoins5(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderModeCalculNmoins5() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderModeCalculNmoins5() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setModeCalculNmoins5("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins5 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setModeCalculNmoins5(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins5 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setModeCalculNmoins5(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* modeCalculNmoins5 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderModeCalculNmoins5().____________________________
+
+	
+
+	/* 105 - pcPLNmoins5. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcPLNmoins5</b></code> 
+	 * dans validerPcPLNmoins5(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcPLNmoins5() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcPLNmoins5() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcPLNmoins5("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins5 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = " 23";
+		dto.setPcPLNmoins5(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins5 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "7 9";
+		dto.setPcPLNmoins5(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins5 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "079";
+		dto.setPcPLNmoins5(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcPLNmoins5 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcPLNmoins5().__________________________________	
+
+	
+
+	/* 106 - evaluationPLNmoins5. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>evaluationPLNmoins5</b></code> 
+	 * dans validerEvaluationPLNmoins5(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderEvaluationPLNmoins5() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderEvaluationPLNmoins5() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setEvaluationPLNmoins5("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins5 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setEvaluationPLNmoins5(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins5 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setEvaluationPLNmoins5(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* evaluationPLNmoins5 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderEvaluationPLNmoins5().__________________________
+
+	
+
+	/* 107 - pcNuitAnnuelNmoins5. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitAnnuelNmoins5</b></code> 
+	 * dans validerPcNuitAnnuelNmoins5(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitAnnuelNmoins5() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitAnnuelNmoins5() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitAnnuelNmoins5("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins5 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = " 23";
+		dto.setPcNuitAnnuelNmoins5(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins5 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "7 9";
+		dto.setPcNuitAnnuelNmoins5(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins5 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "079";
+		dto.setPcNuitAnnuelNmoins5(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitAnnuelNmoins5 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitAnnuelNmoins5().__________________________
+
+	
+
+	/* 108 - indiceFiabiliteMjaNmoins5. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>indiceFiabiliteMjaNmoins5</b></code> 
+	 * dans validerIndiceFiabiliteMjaNmoins5(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderIndiceFiabiliteMjaNmoins5() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderIndiceFiabiliteMjaNmoins5() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setIndiceFiabiliteMjaNmoins5("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins5 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "-";
+		dto.setIndiceFiabiliteMjaNmoins5(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins5 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = " ";
+		dto.setIndiceFiabiliteMjaNmoins5(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* indiceFiabiliteMjaNmoins5 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderIndiceFiabiliteMjaNmoins5().____________________
+
+	
+
+	/* 109 - mjmNmoins1mois01. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois01</b></code> 
+	 * dans validerMjmNmoins1mois01(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois01() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois01("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois01 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois01(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois01 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois01(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois01 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois01(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois01 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois01().___________________________________
+
+	
+
+	/* 110 - pcNuitNmoins1mois01. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois01</b></code> 
+	 * dans validerPcNuitNmoins1mois01(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois01() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois01("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois01 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois01(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois01 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois01(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois01 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois01(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois01 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois01()._______________________________________
+
+	
+
+	/* 111 - mjmNmoins1mois02. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois02</b></code> 
+	 * dans validerMjmNmoins1mois02(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois02() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois02("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois02 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois02(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois02 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois02(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois02 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois02(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois02 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois02().___________________________________
+
+	
+
+	/* 112 - pcNuitNmoins1mois02. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois02</b></code> 
+	 * dans validerPcNuitNmoins1mois02(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois02() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois02("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois02 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois02(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois02 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois02(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois02 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois02(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois02 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois02()._______________________________________
+
+	
+
+	/* 113 - mjmNmoins1mois03. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois03</b></code> 
+	 * dans validerMjmNmoins1mois03(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois03() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois03("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois03 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois03(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois03 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois03(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois03 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois03(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois03 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois03().___________________________________
+
+	
+
+	/* 114 - pcNuitNmoins1mois03. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois03</b></code> 
+	 * dans validerPcNuitNmoins1mois03(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois03() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois03("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois03 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois03(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois03 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois03(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois03 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois03(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois03 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois03()._______________________________________
+
+	
+
+	/* 115 - mjmNmoins1mois04. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois04</b></code> 
+	 * dans validerMjmNmoins1mois04(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois04() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois04() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois04("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois04 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois04(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois04 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois04(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois04 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois04(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois04 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois04().___________________________________
+
+	
+
+	/* 116 - pcNuitNmoins1mois04. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois04</b></code> 
+	 * dans validerPcNuitNmoins1mois04(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois04() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois04() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois04("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois04 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois04(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois04 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois04(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois04 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois04(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois04 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois04()._______________________________________
+
+
+	
+
+	/* 117 - mjmNmoins1mois05. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois05</b></code> 
+	 * dans validerMjmNmoins1mois05(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois05() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois05() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois05("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois05 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois05(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois05 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois05(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois05 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois05(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois05 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois05().___________________________________
+
+	
+
+	/* 118 - pcNuitNmoins1mois05. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois05</b></code> 
+	 * dans validerPcNuitNmoins1mois05(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois05() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois05() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois05("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois05 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois05(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois05 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois05(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois05 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois05(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois05 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois05()._______________________________________
+
+
+	
+
+	/* 119 - mjmNmoins1mois06. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois06</b></code> 
+	 * dans validerMjmNmoins1mois06(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois06() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois06() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois06("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois06 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois06(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois06 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois06(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois06 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois06(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois06 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois06().___________________________________
+
+	
+
+	/* 120 - pcNuitNmoins1mois06. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois06</b></code> 
+	 * dans validerPcNuitNmoins1mois06(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois06() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois06() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois06("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois06 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois06(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois06 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois06(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois06 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois06(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois06 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois06()._______________________________________
+
+
+	
+
+	/* 121 - mjmNmoins1mois07. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois07</b></code> 
+	 * dans validerMjmNmoins1mois07(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois07() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois07() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois07("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois07 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois07(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois07 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois07(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois07 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois07(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois07 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois07().___________________________________
+
+	
+
+	/* 122 - pcNuitNmoins1mois07. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois07</b></code> 
+	 * dans validerPcNuitNmoins1mois07(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois07() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois07() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois07("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois07 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois07(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois07 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois07(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois07 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois07(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois07 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois07()._______________________________________
+
+
+	
+
+	/* 123 - mjmNmoins1mois08. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois08</b></code> 
+	 * dans validerMjmNmoins1mois08(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois08() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois08() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois08("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois08 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois08(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois08 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois08(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois08 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois08(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois08 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois08().___________________________________
+
+	
+
+	/* 124 - pcNuitNmoins1mois08. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois08</b></code> 
+	 * dans validerPcNuitNmoins1mois08(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois08() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois08() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois08("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois08 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois08(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois08 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois08(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois08 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois08(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois08 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois08()._______________________________________
+
+
+	
+
+	/* 125 - mjmNmoins1mois09. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois09</b></code> 
+	 * dans validerMjmNmoins1mois09(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois09() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois09() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois09("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois09 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois09(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois09 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois09(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois09 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois09(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois09 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois09().___________________________________
+
+	
+
+	/* 126 - pcNuitNmoins1mois09. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois09</b></code> 
+	 * dans validerPcNuitNmoins1mois09(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois09() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois09() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois09("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois09 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois09(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois09 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois09(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois09 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois09(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois09 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois09()._______________________________________
+
+
+	
+
+	/* 127 - mjmNmoins1mois10. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois10</b></code> 
+	 * dans validerMjmNmoins1mois10(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois10() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois10() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois10("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois10 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois10(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois10 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois10(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois10 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois10(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois10 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois10().___________________________________
+
+	
+
+	/* 128 - pcNuitNmoins1mois10. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois10</b></code> 
+	 * dans validerPcNuitNmoins1mois10(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois10() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois10() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois10("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois10 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois10(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois10 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois10(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois10 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois10(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois10 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois10()._______________________________________
+
+
+	
+
+	/* 129 - mjmNmoins1mois11. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois11</b></code> 
+	 * dans validerMjmNmoins1mois11(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois11() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois11() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois11("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois11 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois11(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois11 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois11(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois11 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois11(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois11 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois11().___________________________________
+
+	
+
+	/* 130 - pcNuitNmoins1mois11. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois11</b></code> 
+	 * dans validerPcNuitNmoins1mois11(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois11() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois11() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois11("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois11 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois11(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois11 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois11(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois11 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois11(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois11 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois11()._______________________________________
+
+
+	
+
+	/* 131 - mjmNmoins1mois12. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>mjmNmoins1mois12</b></code> 
+	 * dans validerMjmNmoins1mois12(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderMjmNmoins1mois12() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderMjmNmoins1mois12() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setMjmNmoins1mois12("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois12 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "00A128 8";
+		dto.setMjmNmoins1mois12(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois12 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = " 2 023";
+		dto.setMjmNmoins1mois12(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois12 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0101281";
+		dto.setMjmNmoins1mois12(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* mjmNmoins1mois12 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderMjmNmoins1mois12().___________________________________
+
+	
+
+	/* 132 - pcNuitNmoins1mois12. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>pcNuitNmoins1mois12</b></code> 
+	 * dans validerPcNuitNmoins1mois12(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderPcNuitNmoins1mois12() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderPcNuitNmoins1mois12() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setPcNuitNmoins1mois12("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois12 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//**************************************
+		/* TEST DU MAL RENSEIGNE (REGEX) ***** */
+		final String valeurMalRenseigne = "05A";
+		dto.setPcNuitNmoins1mois12(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois12 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE (REGEX) fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*****************************************
+		/* TEST DU MAL RENSEIGNE (NUMERIQUE)***** */
+		final String valeurNonNumerique = "5 4";
+		dto.setPcNuitNmoins1mois12(valeurNonNumerique);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois12 non numérique avec '" + valeurNonNumerique + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE NUMERIQUE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "0119";
+		dto.setPcNuitNmoins1mois12(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* pcNuitNmoins1mois12 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderPcNuitNmoins1mois12()._______________________________________
+
+
+				
 	/**
 	 * active toutes les RG.
 	 * 
@@ -9334,6 +15901,329 @@ public class SectionHitValideurServiceTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins1(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins1Renseigne01(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins1Regex02(true);
+		
+		/* 77 - anneeNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins2Regex02(true);
+		
+		/* 78 - mjaNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2Numerique03(true);
+		
+		/* 79 - typeComptageNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2Nomenclature03(true);
+		
+		/* 80 - modeCalculNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins2Regex02(true);
+		
+		/* 81 - pcPLNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2Numerique03(true);
+		
+		/* 82 - evaluationPLNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins2Regex02(true);
+		
+		/* 83 - pcNuitAnnuelNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2Numerique03(true);
+		
+		/* 84 - indiceFiabiliteMjaNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins2Regex02(true);
+
+		
+		/* 85 - anneeNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins3Regex02(true);
+		
+		/* 86 - mjaNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3Numerique03(true);
+		
+		/* 87 - typeComptageNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3Nomenclature03(true);
+		
+		/* 88 - modeCalculNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins3Regex02(true);
+		
+		/* 89 - pcPLNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3Numerique03(true);
+		
+		/* 90 - evaluationPLNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins3Regex02(true);
+		
+		/* 91 - pcNuitAnnuelNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3Numerique03(true);
+		
+		/* 92 - indiceFiabiliteMjaNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins3Regex02(true);
+
+		
+		/* 93 - anneeNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins4Regex02(true);
+		
+		/* 94 - mjaNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4Numerique03(true);
+		
+		/* 95 - typeComptageNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4Nomenclature03(true);
+		
+		/* 96 - modeCalculNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins4Regex02(true);
+		
+		/* 97 - pcPLNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4Numerique03(true);
+		
+		/* 98 - evaluationPLNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins4Regex02(true);
+		
+		/* 99 - pcNuitAnnuelNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4Numerique03(true);
+		
+		/* 100 - indiceFiabiliteMjaNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins4Regex02(true);
+
+		
+		/* 101 - anneeNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins5Regex02(true);
+		
+		/* 102 - mjaNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5Numerique03(true);
+		
+		/* 103 - typeComptageNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5Nomenclature03(true);
+		
+		/* 104 - modeCalculNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins5Regex02(true);
+		
+		/* 105 - pcPLNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5Numerique03(true);
+		
+		/* 106 - evaluationPLNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins5Regex02(true);
+		
+		/* 107 - pcNuitAnnuelNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5Numerique03(true);
+		
+		/* 108 - indiceFiabiliteMjaNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5Regex02(true);
+		
+		/* 109 - mjmNmoins1mois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Numerique03(true);
+		
+		/* 110 - pcNuitNmoins1mois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Numerique03(true);
+		
+		/* 111 - mjmNmoins1mois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Numerique03(true);
+		
+		/* 112 - pcNuitNmoins1mois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Numerique03(true);
+		
+		/* 113 - mjmNmoins1mois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Numerique03(true);
+		
+		/* 114 - pcNuitNmoins1mois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Numerique03(true);
+		
+		/* 115 - mjmNmoins1mois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Numerique03(true);
+		
+		/* 116 - pcNuitNmoins1mois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Numerique03(true);
+		
+		/* 117 - mjmNmoins1mois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Numerique03(true);
+		
+		/* 118 - pcNuitNmoins1mois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Numerique03(true);
+		
+		/* 119 - mjmNmoins1mois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Numerique03(true);
+		
+		/* 120 - pcNuitNmoins1mois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Numerique03(true);
+		
+		/* 121 - mjmNmoins1mois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Numerique03(true);
+		
+		/* 122 - pcNuitNmoins1mois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Numerique03(true);
+		
+		/* 123 - mjmNmoins1mois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Numerique03(true);
+		
+		/* 124 - pcNuitNmoins1mois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Numerique03(true);
+		
+		/* 125 - mjmNmoins1mois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Numerique03(true);
+		
+		/* 126 - pcNuitNmoins1mois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Numerique03(true);
+		
+		/* 127 - mjmNmoins1mois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Numerique03(true);
+		
+		/* 128 - pcNuitNmoins1mois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Numerique03(true);
+		
+		/* 129 - mjmNmoins1mois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Numerique03(true);
+		
+		/* 130 - pcNuitNmoins1mois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Numerique03(true);
+		
+		/* 131 - mjmNmoins1mois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Numerique03(true);
+		
+		/* 132 - pcNuitNmoins1mois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Numerique03(true);
 
 	} // Fin de activerToutesRG()._________________________________________
 	

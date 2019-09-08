@@ -31339,6 +31339,7623 @@ public class SectionHitGestionnairePreferencesRGTest {
 
 	
 	
+	/* 109 - mjmNmoins1mois01. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois01().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois01Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois01Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois01Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois01Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois01Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois01Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois01Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois01Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois01Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois01Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois01Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois01Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois01Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois01Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois01Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois01Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois01Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois01Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois01Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois01Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois01Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois01Numerique03()._________
+
+	
+	
+	/* 110 - pcNuitNmoins1mois01. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois01()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois01Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois01Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois01Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois01Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois01Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois01Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois01Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois01Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois01Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois01Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois01Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois01Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois01Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois01Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois01Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois01Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois01Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois01Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois01Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois01Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois01Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois01Numerique03().______
+
+	
+	
+	/* 111 - mjmNmoins1mois02. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois02().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois02Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois02Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois02Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois02Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois02Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois02Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois02Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois02Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois02Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois02Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois02Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois02Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois02Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois02Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois02Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois02Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois02Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois02Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois02Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois02Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois02Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois02Numerique03()._________
+
+	
+	
+	/* 112 - pcNuitNmoins1mois02. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois02()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois02Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois02Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois02Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois02Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois02Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois02Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois02Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois02Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois02Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois02Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois02Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois02Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois02Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois02Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois02Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois02Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois02Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois02Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois02Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois02Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois02Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois02Numerique03().______
+
+	
+	
+	/* 113 - mjmNmoins1mois03. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois03().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois03Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois03Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois03Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois03Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois03Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois03Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois03Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois03Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois03Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois03Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois03Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois03Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois03Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois03Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois03Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois03Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois03Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois03Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois03Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois03Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois03Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois03Numerique03()._________
+
+	
+	
+	/* 114 - pcNuitNmoins1mois03. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois03()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois03Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois03Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois03Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois03Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois03Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois03Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois03Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois03Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois03Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois03Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois03Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois03Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois03Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois03Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois03Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois03Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois03Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois03Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois03Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois03Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois03Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois03Numerique03().______
+
+	
+	
+	/* 115 - mjmNmoins1mois04. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois04().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois04() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois04() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois04(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois04(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois04();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois04().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois04Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois04Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois04Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois04Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois04Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois04Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois04Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois04Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois04Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois04Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois04Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois04Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois04Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois04Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois04Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois04Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois04Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois04Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois04Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois04Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois04Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois04Numerique03()._________
+
+	
+	
+	/* 116 - pcNuitNmoins1mois04. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois04().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois04() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois04() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois04(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois04(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois04();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois04()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois04Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois04Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois04Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois04Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois04Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois04Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois04Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois04Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois04Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois04Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois04Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois04Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois04Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois04Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois04Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois04Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois04Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois04Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois04Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois04Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois04Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois04Numerique03().______
+
+
+	
+	
+	/* 117 - mjmNmoins1mois05. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois05().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois05() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois05() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois05(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois05(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois05();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois05().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois05Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois05Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois05Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois05Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois05Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois05Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois05Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois05Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois05Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois05Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois05Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois05Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois05Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois05Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois05Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois05Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois05Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois05Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois05Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois05Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois05Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois05Numerique03()._________
+
+	
+	
+	/* 118 - pcNuitNmoins1mois05. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois05().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois05() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois05() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois05(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois05(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois05();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois05()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois05Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois05Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois05Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois05Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois05Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois05Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois05Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois05Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois05Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois05Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois05Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois05Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois05Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois05Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois05Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois05Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois05Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois05Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois05Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois05Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois05Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois05Numerique03().______
+
+
+	
+	
+	/* 119 - mjmNmoins1mois06. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois06().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois06() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois06() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois06(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois06(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois06();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois06().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois06Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois06Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois06Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois06Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois06Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois06Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois06Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois06Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois06Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois06Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois06Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois06Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois06Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois06Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois06Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois06Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois06Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois06Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois06Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois06Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois06Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois06Numerique03()._________
+
+	
+	
+	/* 120 - pcNuitNmoins1mois06. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois06().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois06() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois06() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois06(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois06(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois06();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois06()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois06Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois06Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois06Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois06Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois06Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois06Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois06Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois06Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois06Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois06Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois06Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois06Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois06Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois06Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois06Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois06Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois06Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois06Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois06Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois06Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois06Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois06Numerique03().______
+
+
+	
+	
+	/* 121 - mjmNmoins1mois07. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois07().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois07() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois07() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois07(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois07(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois07();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois07().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois07Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois07Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois07Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois07Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois07Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois07Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois07Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois07Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois07Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois07Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois07Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois07Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois07Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois07Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois07Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois07Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois07Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois07Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois07Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois07Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois07Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois07Numerique03()._________
+
+	
+	
+	/* 122 - pcNuitNmoins1mois07. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois07().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois07() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois07() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois07(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois07(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois07();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois07()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois07Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois07Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois07Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois07Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois07Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois07Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois07Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois07Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois07Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois07Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois07Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois07Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois07Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois07Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois07Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois07Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois07Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois07Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois07Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois07Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois07Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois07Numerique03().______
+
+
+	
+	
+	/* 123 - mjmNmoins1mois08. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois08().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois08() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois08() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois08(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois08(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois08();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois08().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois08Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois08Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois08Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois08Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois08Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois08Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois08Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois08Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois08Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois08Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois08Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois08Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois08Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois08Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois08Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois08Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois08Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois08Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois08Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois08Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois08Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois08Numerique03()._________
+
+	
+	
+	/* 124 - pcNuitNmoins1mois08. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois08().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois08() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois08() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois08(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois08(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois08();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois08()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois08Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois08Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois08Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois08Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois08Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois08Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois08Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois08Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois08Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois08Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois08Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois08Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois08Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois08Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois08Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois08Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois08Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois08Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois08Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois08Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois08Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois08Numerique03().______
+
+
+	
+	
+	/* 125 - mjmNmoins1mois09. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois09().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois09() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois09() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois09(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois09(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois09();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois09().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois09Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois09Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois09Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois09Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois09Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois09Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois09Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois09Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois09Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois09Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois09Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois09Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois09Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois09Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois09Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois09Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois09Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois09Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois09Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois09Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois09Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois09Numerique03()._________
+
+	
+	
+	/* 126 - pcNuitNmoins1mois09. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois09().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois09() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois09() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois09(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois09(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois09();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois09()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois09Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois09Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois09Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois09Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois09Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois09Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois09Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois09Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois09Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois09Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois09Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois09Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois09Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois09Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois09Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois09Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois09Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois09Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois09Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois09Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois09Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois09Numerique03().______
+
+
+	
+	
+	/* 127 - mjmNmoins1mois10. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois10().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois10() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois10() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois10(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois10(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois10();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois10().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois10Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois10Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois10Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois10Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois10Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois10Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois10Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois10Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois10Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois10Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois10Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois10Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois10Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois10Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois10Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois10Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois10Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois10Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois10Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois10Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois10Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois10Numerique03()._________
+
+	
+	
+	/* 128 - pcNuitNmoins1mois10. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois10().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois10() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois10() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois10(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois10(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois10();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois10()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois10Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois10Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois10Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois10Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois10Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois10Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois10Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois10Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois10Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois10Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois10Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois10Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois10Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois10Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois10Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois10Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois10Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois10Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois10Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois10Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois10Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois10Numerique03().______
+
+
+	
+	
+	/* 129 - mjmNmoins1mois11. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois11().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois11() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois11() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois11(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois11(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois11();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois11().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois11Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois11Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois11Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois11Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois11Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois11Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois11Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois11Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois11Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois11Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois11Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois11Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois11Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois11Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois11Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois11Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois11Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois11Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois11Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois11Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois11Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois11Numerique03()._________
+
+	
+	
+	/* 130 - pcNuitNmoins1mois11. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois11().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois11() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois11() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois11(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois11(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois11();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois11()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois11Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois11Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois11Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois11Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois11Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois11Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois11Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois11Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois11Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois11Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois11Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois11Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois11Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois11Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois11Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois11Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois11Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois11Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois11Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois11Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois11Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois11Numerique03().______
+
+
+	
+	
+	/* 131 - mjmNmoins1mois12. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois12().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois12() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois12() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois12(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois12(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois12();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois12().____________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois12Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois12Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois12Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois12Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois12Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois12Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois12Renseigne01()._________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois12Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois12Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois12Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois12Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois12Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois12Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois12Regex02()._____________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitMjmNmoins1mois12Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitMjmNmoins1mois12Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitMjmNmoins1mois12Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois12Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitMjmNmoins1mois12Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois12Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitMjmNmoins1mois12Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitMjmNmoins1mois12Numerique03()._________
+
+	
+	
+	/* 132 - pcNuitNmoins1mois12. **************/
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois12().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois12() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois12() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois12(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois12(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois12();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+		
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois12()._________________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois12Renseigne01().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois12Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois12Renseigne01() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12Renseigne01();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12Renseigne01 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois12Renseigne01(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12Renseigne01();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12Renseigne01 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois12Renseigne01(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois12Renseigne01();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12Renseigne01 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois12Renseigne01().______
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois12Regex02().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois12Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois12Regex02() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12Regex02();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12Regex02 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois12Regex02(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12Regex02();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12Regex02 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois12Regex02(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois12Regex02();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12Regex02 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois12Regex02().__________
+
+	
+	
+	/**
+	 * teste la méthode getValiderRGSectionHitPcNuitNmoins1mois12Numerique03().<br/>
+	 * <ul>
+	 * <li>récupère le Boolean dans le properties.</li>
+	 * <li>passe le Boolean à true en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a true 
+	 * dans le properties.</li>
+	 * <li>passe le Boolean à false en utilisant son Setter.</li>
+	 * <li>garantit que le Boolean a bien été passé a false 
+	 * dans le properties.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetValiderRGSectionHitPcNuitNmoins1mois12Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+		System.out.println("********** CLASSE SectionHitGestionnairePreferencesRGTest - méthode testGetValiderRGSectionHitPcNuitNmoins1mois12Numerique03() ********** ");
+		}
+		
+		/* récupère le Boolean dans le properties. */
+		Boolean validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12Numerique03();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12Numerique03 dans Properties : " + validerRGBoolean);
+		}
+		
+		/* passe le Boolean à false. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois12Numerique03(false);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12Numerique03();
+	
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12Numerique03 après passage à false : " + validerRGBoolean);
+		}
+		
+		/* garantit que le Boolean a bien été passé a false dans le properties. */
+		assertFalse(BOOLEAN_DOIT_VALOIR_FALSE, validerRGBoolean);
+		
+		/* passe le Boolean à true. */
+		/* ***************************************** */
+		SectionHitGestionnairePreferencesRG
+			.setValiderRGSectionHitPcNuitNmoins1mois12Numerique03(true);
+		/* ***************************************** */
+		
+		/* récupère le Boolean dans le properties. */
+		validerRGBoolean 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois12Numerique03();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("validerRGSectionHitPcNuitNmoins1mois12Numerique03 après passage à true : " + validerRGBoolean);
+		}
+		
+		assertTrue(BOOLEAN_DOIT_VALOIR_TRUE, validerRGBoolean);
+
+	} // Fin de testGetValiderRGSectionHitPcNuitNmoins1mois12Numerique03().______
+
+
+	
+	
 			
 	/**
 	 * détruit le fichier properties si il existe.<br/>

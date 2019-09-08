@@ -37471,11 +37471,9498 @@ public class SectionHitGestionnairePreferencesControlesTest {
 					, messageModifie2);
 
 	} // Fin de testGetMessageSectionHitIndiceFiabiliteMjaNmoins5Regex02().______
-
+	
 
 	
-	
+	/* 109 - mjmNmoins1mois01. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois01Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois01Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois01Renseigne01() throws Exception {
 				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois01Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois01Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois01Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois01Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois01Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois01Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois01Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois01Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois01Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois01Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois01Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois01Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois01Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois01Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois01Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois01Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois01Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois01Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois01Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois01Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois01Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois01Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois01Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois01Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois01Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois01Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois01Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois01Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois01Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois01Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois01Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois01Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois01Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois01Numerique03().___________	
+	
+
+	
+	/* 110 - pcNuitNmoins1mois01. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois01Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois01Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois01Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois01Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois01Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois01Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois01Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois01Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois01Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois01Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois01Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois01Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois01Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois01Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois01Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois01Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois01Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois01Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois01Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois01Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois01Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois01Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois01Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois01Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois01Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois01Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois01Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois01Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois01Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois01Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois01Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois01Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois01Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois01Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois01Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois01Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois01Numerique03().________
+	
+
+	
+	/* 111 - mjmNmoins1mois02. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois02Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois02Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois02Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois02Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois02Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois02Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois02Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois02Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois02Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois02Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois02Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois02Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois02Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois02Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois02Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois02Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois02Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois02Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois02Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois02Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois02Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois02Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois02Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois02Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois02Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois02Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois02Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois02Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois02Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois02Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois02Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois02Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois02Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois02Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois02Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois02Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois02Numerique03().___________	
+	
+
+	
+	/* 112 - pcNuitNmoins1mois02. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois02Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois02Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois02Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois02Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois02Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois02Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois02Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois02Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois02Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois02Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois02Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois02Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois02Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois02Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois02Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois02Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois02Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois02Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois02Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois02Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois02Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois02Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois02Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois02Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois02Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois02Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois02Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois02Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois02Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois02Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois02Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois02Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois02Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois02Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois02Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois02Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois02Numerique03().________
+	
+
+	
+	/* 113 - mjmNmoins1mois03. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois03Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois03Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois03Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois03Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois03Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois03Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois03Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois03Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois03Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois03Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois03Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois03Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois03Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois03Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois03Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois03Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois03Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois03Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois03Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois03Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois03Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois03Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois03Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois03Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois03Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois03Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois03Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois03Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois03Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois03Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois03Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois03Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois03Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois03Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois03Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois03Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois03Numerique03().___________	
+	
+
+	
+	/* 114 - pcNuitNmoins1mois03. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois03Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois03Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois03Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois03Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois03Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois03Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois03Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois03Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois03Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois03Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois03Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois03Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois03Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois03Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois03Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois03Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois03Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois03Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois03Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois03Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois03Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois03Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois03Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois03Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois03Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois03Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois03Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois03Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois03Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois03Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois03Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois03Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois03Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois03Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois03Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois03Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois03Numerique03().________
+	
+
+	
+	/* 115 - mjmNmoins1mois04. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois04Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois04Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois04Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois04Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois04Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois04Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois04Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois04Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois04Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois04Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois04Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois04Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois04Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois04Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois04Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois04Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois04Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois04Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois04Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois04Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois04Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois04Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois04Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois04Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois04Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois04Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois04Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois04Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois04Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois04Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois04Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois04Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois04Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois04Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois04Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois04Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois04Numerique03().___________	
+	
+
+	
+	/* 116 - pcNuitNmoins1mois04. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois04Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois04Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois04Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois04Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois04Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois04Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois04Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois04Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois04Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois04Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois04Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois04Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois04Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois04Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois04Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois04Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois04Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois04Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois04Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois04Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois04Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois04Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois04Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois04Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois04Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois04Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois04Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois04Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois04Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois04Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois04Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois04Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois04Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois04Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois04Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois04Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois04Numerique03().________
+
+	
+
+	
+	/* 117 - mjmNmoins1mois05. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois05Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois05Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois05Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois05Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois05Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois05Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois05Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois05Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois05Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois05Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois05Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois05Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois05Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois05Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois05Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois05Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois05Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois05Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois05Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois05Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois05Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois05Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois05Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois05Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois05Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois05Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois05Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois05Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois05Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois05Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois05Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois05Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois05Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois05Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois05Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois05Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois05Numerique03().___________	
+	
+
+	
+	/* 118 - pcNuitNmoins1mois05. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois05Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois05Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois05Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois05Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois05Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois05Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois05Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois05Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois05Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois05Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois05Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois05Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois05Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois05Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois05Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois05Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois05Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois05Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois05Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois05Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois05Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois05Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois05Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois05Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois05Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois05Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois05Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois05Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois05Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois05Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois05Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois05Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois05Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois05Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois05Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois05Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois05Numerique03().________
+
+	
+
+	
+	/* 119 - mjmNmoins1mois06. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois06Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois06Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois06Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois06Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois06Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois06Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois06Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois06Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois06Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois06Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois06Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois06Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois06Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois06Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois06Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois06Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois06Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois06Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois06Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois06Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois06Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois06Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois06Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois06Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois06Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois06Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois06Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois06Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois06Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois06Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois06Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois06Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois06Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois06Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois06Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois06Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois06Numerique03().___________	
+	
+
+	
+	/* 120 - pcNuitNmoins1mois06. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois06Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois06Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois06Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois06Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois06Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois06Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois06Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois06Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois06Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois06Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois06Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois06Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois06Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois06Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois06Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois06Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois06Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois06Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois06Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois06Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois06Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois06Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois06Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois06Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois06Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois06Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois06Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois06Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois06Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois06Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois06Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois06Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois06Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois06Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois06Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois06Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois06Numerique03().________
+
+	
+
+	
+	/* 121 - mjmNmoins1mois07. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois07Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois07Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois07Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois07Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois07Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois07Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois07Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois07Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois07Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois07Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois07Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois07Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois07Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois07Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois07Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois07Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois07Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois07Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois07Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois07Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois07Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois07Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois07Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois07Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois07Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois07Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois07Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois07Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois07Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois07Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois07Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois07Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois07Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois07Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois07Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois07Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois07Numerique03().___________	
+	
+
+	
+	/* 122 - pcNuitNmoins1mois07. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois07Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois07Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois07Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois07Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois07Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois07Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois07Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois07Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois07Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois07Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois07Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois07Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois07Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois07Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois07Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois07Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois07Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois07Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois07Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois07Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois07Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois07Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois07Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois07Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois07Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois07Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois07Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois07Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois07Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois07Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois07Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois07Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois07Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois07Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois07Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois07Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois07Numerique03().________
+
+	
+
+	
+	/* 123 - mjmNmoins1mois08. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois08Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois08Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois08Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois08Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois08Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois08Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois08Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois08Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois08Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois08Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois08Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois08Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois08Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois08Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois08Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois08Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois08Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois08Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois08Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois08Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois08Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois08Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois08Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois08Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois08Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois08Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois08Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois08Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois08Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois08Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois08Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois08Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois08Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois08Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois08Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois08Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois08Numerique03().___________	
+	
+
+	
+	/* 124 - pcNuitNmoins1mois08. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois08Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois08Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois08Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois08Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois08Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois08Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois08Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois08Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois08Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois08Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois08Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois08Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois08Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois08Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois08Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois08Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois08Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois08Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois08Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois08Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois08Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois08Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois08Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois08Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois08Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois08Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois08Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois08Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois08Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois08Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois08Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois08Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois08Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois08Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois08Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois08Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois08Numerique03().________
+
+	
+
+	
+	/* 125 - mjmNmoins1mois09. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois09Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois09Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois09Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois09Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois09Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois09Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois09Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois09Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois09Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois09Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois09Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois09Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois09Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois09Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois09Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois09Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois09Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois09Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois09Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois09Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois09Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois09Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois09Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois09Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois09Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois09Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois09Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois09Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois09Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois09Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois09Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois09Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois09Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois09Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois09Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois09Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois09Numerique03().___________	
+	
+
+	
+	/* 126 - pcNuitNmoins1mois09. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois09Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois09Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois09Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois09Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois09Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois09Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois09Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois09Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois09Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois09Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois09Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois09Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois09Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois09Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois09Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois09Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois09Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois09Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois09Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois09Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois09Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois09Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois09Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois09Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois09Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois09Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois09Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois09Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois09Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois09Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois09Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois09Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois09Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois09Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois09Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois09Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois09Numerique03().________
+
+	
+
+	
+	/* 127 - mjmNmoins1mois10. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois10Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois10Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois10Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois10Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois10Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois10Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois10Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois10Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois10Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois10Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois10Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois10Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois10Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois10Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois10Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois10Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois10Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois10Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois10Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois10Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois10Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois10Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois10Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois10Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois10Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois10Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois10Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois10Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois10Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois10Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois10Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois10Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois10Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois10Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois10Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois10Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois10Numerique03().___________	
+	
+
+	
+	/* 128 - pcNuitNmoins1mois10. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois10Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois10Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois10Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois10Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois10Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois10Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois10Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois10Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois10Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois10Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois10Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois10Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois10Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois10Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois10Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois10Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois10Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois10Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois10Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois10Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois10Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois10Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois10Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois10Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois10Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois10Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois10Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois10Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois10Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois10Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois10Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois10Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois10Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois10Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois10Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois10Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois10Numerique03().________
+
+	
+
+	
+	/* 129 - mjmNmoins1mois11. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois11Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois11Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois11Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois11Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois11Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois11Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois11Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois11Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois11Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois11Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois11Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois11Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois11Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois11Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois11Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois11Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois11Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois11Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois11Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois11Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois11Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois11Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois11Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois11Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois11Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois11Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois11Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois11Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois11Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois11Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois11Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois11Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois11Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois11Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois11Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois11Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois11Numerique03().___________	
+	
+
+	
+	/* 130 - pcNuitNmoins1mois11. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois11Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois11Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois11Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois11Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois11Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois11Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois11Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois11Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois11Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois11Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois11Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois11Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois11Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois11Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois11Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois11Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois11Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois11Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois11Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois11Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois11Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois11Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois11Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois11Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois11Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois11Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois11Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois11Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois11Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois11Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois11Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois11Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois11Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois11Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois11Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois11Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois11Numerique03().________
+
+	
+
+	
+	/* 131 - mjmNmoins1mois12. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois12Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois12Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois12Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois12Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois12Renseigne01();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois12Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois12Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois12Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois12Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois12Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois12Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois12Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois12Renseigne01().___________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois12Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois12Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois12Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois12Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois12Regex02();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois12Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois12Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois12Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois12Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois12Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois12Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois12Regex02()._______________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitMjmNmoins1mois12Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitMjmNmoins1mois12Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitMjmNmoins1mois12Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitMjmNmoins1mois12Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois12Numerique03();
+		
+		/* garantit que getMessageSectionHitMjmNmoins1mois12Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois12Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois12Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitMjmNmoins1mois12Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitMjmNmoins1mois12Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitMjmNmoins1mois12Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitMjmNmoins1mois12Numerique03().___________	
+	
+
+	
+	/* 132 - pcNuitNmoins1mois12. ************************/
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois12Renseigne01().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois12Renseigne01() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois12Renseigne01() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois12Renseigne01() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois12Renseigne01();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois12Renseigne01() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+		
+		/* garantit que le getter fonctionne bien. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01_EN_DUR
+					, message);
+		
+				
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois12Renseigne01(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois12Renseigne01();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois12Renseigne01(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois12Renseigne01(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois12Renseigne01();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois12Renseigne01(...) modifie le message dans le fichier properties. */
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être renseigné'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01_EN_DUR
+					, messageModifie2);
+		
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois12Renseigne01().________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois12Regex02().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois12Regex02() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois12Regex02() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois12Regex02() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois12Regex02();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois12Regex02() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois12Regex02(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois12Regex02();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois12Regex02(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois12Regex02(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois12Regex02();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit comporter exactement 3 chiffres'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois12Regex02().____________
+
+	
+	
+	/**
+	 * teste la méthode getMessageSectionHitPcNuitNmoins1mois12Numerique03().<br/>
+	 * <ul>
+	 * <li>garantit que getMessageSectionHitPcNuitNmoins1mois12Numerique03() 
+	 * crée le fichier properties avec des valeurs en dur 
+	 * si il n'existait pas.</li>
+	 * <li>garantit que le getter fonctionne bien.</li>
+	 * <li>garantit que le setter fonctionne bien.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetMessageSectionHitPcNuitNmoins1mois12Numerique03() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitGestionnairePreferencesControlesTest - méthode testGetMessageSectionHitPcNuitNmoins1mois12Numerique03() ********** ");
+		}
+
+		/* détruit le fichier properties si il existe. */
+		this.detruireFichierProperties();
+		
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois12Numerique03();
+		
+		/* garantit que getMessageSectionHitPcNuitNmoins1mois12Numerique03() crée le fichier 
+		 * properties avec des valeurs en dur si il n'existait pas. */
+		assertTrue(PROPERTIES_SUR_DISQUE
+				, SectionHitGestionnairePreferencesControles
+				.getFilePreferencesProperties().exists());
+				
+		String prefString = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefString = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_EN_DUR);
+			System.out.println(prefString);
+			System.out.println();
+			System.out.println(MESSAGE + message);
+			System.out.println();
+		}
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03_EN_DUR
+					, message);
+		
+		
+		// **********************************************
+		/* modification du message *********************/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois12Numerique03(
+					MODIFIEZ_LA_VALEUR);
+		
+		final String messageModifie 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois12Numerique03();
+
+		String prefStringModifiee = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_MODIFICATION_MESSAGE);
+			System.out.println(prefStringModifiee);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie);
+			System.out.println();
+		}
+		
+		/* garantit que setMessageSectionHitPcNuitNmoins1mois12Numerique03(...) 
+		 * modifie le message dans le fichier properties. */
+		assertEquals(MESSAGE_DOIT_VALOIR_MODIFIER_VALEUR
+				, MODIFIEZ_LA_VALEUR
+					, messageModifie);
+		
+		
+		// ***************************************
+		/* remise des valeurs en DUR. **********/
+		SectionHitGestionnairePreferencesControles
+			.setMessageSectionHitPcNuitNmoins1mois12Numerique03(
+					SectionHitGestionnairePreferencesControles
+						.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
+		
+		final String messageModifie2 
+		= SectionHitGestionnairePreferencesControles
+			.getMessageSectionHitPcNuitNmoins1mois12Numerique03();
+
+		String prefStringModifiee2 = null;
+		
+		/* récupération des prefs (affichage) dans un properties existant. */
+		prefStringModifiee2 = SectionHitGestionnairePreferencesControles
+					.afficherPreferences();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println(PREFERENCES_APRES_REMISE_ETAT_INITIAL);
+			System.out.println(prefStringModifiee2);
+			System.out.println();
+			System.out.println(MESSAGE + messageModifie2);
+			System.out.println();
+		}
+
+				
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être homogène à un entier'"
+				, SectionHitGestionnairePreferencesControles
+				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03_EN_DUR
+					, messageModifie2);
+
+	} // Fin de testGetMessageSectionHitPcNuitNmoins1mois12Numerique03().________
+
+
+
+					
 	/**
 	 * détruit le fichier properties si il existe.<br/>
 	 *

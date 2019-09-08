@@ -1,0 +1,144 @@
+		
+		/* 44 - mjmNmois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Numerique03(true);
+		
+		/* 45 - pcNuitNmois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Numerique03(true);
+		
+		/* 46 - mjmNmois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Numerique03(true);
+		
+		/* 47 - pcNuitNmois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Numerique03(true);
+		
+		/* 48 - mjmNmois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Numerique03(true);
+		
+		/* 49 - pcNuitNmois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Numerique03(true);
+		
+		/* 50 - mjmNmois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Numerique03(true);
+		
+		/* 51 - pcNuitNmois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Numerique03(true);
+		
+		/* 52 - mjmNmois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Numerique03(true);
+		
+		/* 53 - pcNuitNmois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Numerique03(true);
+		
+		/* 54 - mjmNmois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Numerique03(true);
+		
+		/* 55 - pcNuitNmois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Numerique03(true);
+		
+		/* 56 - mjmNmois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Numerique03(true);
+		
+		/* 57 - pcNuitNmois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Numerique03(true);
+		
+		/* 58 - mjmNmois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Numerique03(true);
+		
+		/* 59 - pcNuitNmois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Numerique03(true);
+		
+		/* 60 - mjmNmois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Numerique03(true);
+		
+		/* 61 - pcNuitNmois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Numerique03(true);
+		
+		/* 62 - mjmNmois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Numerique03(true);
+		
+		/* 63 - pcNuitNmois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Numerique03(true);
+		
+		/* 64 - mjmNmois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Numerique03(true);
+		
+		/* 65 - pcNuitNmois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Numerique03(true);
+		
+		/* 66 - mjmNmois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Numerique03(true);
+		
+		/* 67 - pcNuitNmois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Numerique03(true);

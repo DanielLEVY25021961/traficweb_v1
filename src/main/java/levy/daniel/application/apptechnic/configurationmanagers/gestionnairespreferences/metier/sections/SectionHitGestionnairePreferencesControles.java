@@ -5631,7 +5631,1407 @@ public final class SectionHitGestionnairePreferencesControles {
 	 */
 	public static final String MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02_EN_DUR 
 		= "l'indice de fiabilité de la TMJA de l'année n-5 de la section HIT (colonne [377] du HIT) doit comporter exactement 1 caractère (ou espace)";
+	
+	/* 109 - mjmNmoins1mois01. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois01Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois01.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois01.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois01Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois01Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois01Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois01.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois01.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois01Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois01Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois01Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois01.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois01.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois01Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois01Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être homogène à un entier";
+	
+	/* 110 - pcNuitNmoins1mois01. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois01Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois01.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois01.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois01Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois01Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois01Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois01.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois01.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois01Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois01Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois01Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois01.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois01.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois01Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois01Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être homogène à un entier";
+	
+	/* 111 - mjmNmoins1mois02. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois02Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois02.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois02.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois02Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois02Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois02Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois02.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois02.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois02Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois02Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois02Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois02.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois02.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois02Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois02Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être homogène à un entier";
+	
+	/* 112 - pcNuitNmoins1mois02. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois02Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois02.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois02.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois02Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois02Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois02Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois02.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois02.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois02Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois02Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois02Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois02.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois02.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois02Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois02Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être homogène à un entier";
+	
+	/* 113 - mjmNmoins1mois03. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois03Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois03.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois03.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois03Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois03Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois03Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois03.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois03.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois03Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois03Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois03Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois03.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois03.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois03Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois03Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être homogène à un entier";
+	
+	/* 114 - pcNuitNmoins1mois03. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois03Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois03.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois03.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois03Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois03Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois03Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois03.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois03.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois03Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois03Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois03Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois03.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois03.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois03Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois03Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être homogène à un entier";
+	
+	/* 115 - mjmNmoins1mois04. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois04Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois04.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois04.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois04Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois04Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois04Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois04.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois04.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois04Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois04Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois04Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois04.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois04.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois04Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois04Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être homogène à un entier";
+	
+	/* 116 - pcNuitNmoins1mois04. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois04Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois04.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois04.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois04Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois04Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois04Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois04.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois04.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois04Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois04Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois04Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois04.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois04.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois04Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois04Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être homogène à un entier";
 
+	
+	/* 117 - mjmNmoins1mois05. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois05Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois05.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois05.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois05Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois05Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois05Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois05.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois05.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois05Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois05Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois05Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois05.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois05.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois05Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois05Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être homogène à un entier";
+	
+	/* 118 - pcNuitNmoins1mois05. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois05Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois05.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois05.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois05Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois05Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois05Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois05.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois05.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois05Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois05Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois05Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois05.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois05.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois05Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois05Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être homogène à un entier";
+
+	
+	/* 119 - mjmNmoins1mois06. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois06Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois06.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois06.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois06Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois06Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois06Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois06.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois06.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois06Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois06Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois06Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois06.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois06.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois06Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois06Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être homogène à un entier";
+	
+	/* 120 - pcNuitNmoins1mois06. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois06Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois06.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois06.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois06Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois06Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois06Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois06.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois06.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois06Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois06Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois06Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois06.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois06.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois06Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois06Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être homogène à un entier";
+
+	
+	/* 121 - mjmNmoins1mois07. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois07Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois07.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois07.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois07Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois07Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois07Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois07.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois07.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois07Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois07Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois07Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois07.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois07.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois07Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois07Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être homogène à un entier";
+	
+	/* 122 - pcNuitNmoins1mois07. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois07Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois07.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois07.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois07Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois07Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois07Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois07.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois07.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois07Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois07Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois07Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois07.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois07.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois07Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois07Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être homogène à un entier";
+
+	
+	/* 123 - mjmNmoins1mois08. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois08Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois08.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois08.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois08Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois08Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois08Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois08.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois08.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois08Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois08Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois08Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois08.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois08.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois08Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois08Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être homogène à un entier";
+	
+	/* 124 - pcNuitNmoins1mois08. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois08Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois08.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois08.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois08Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois08Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois08Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois08.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois08.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois08Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois08Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois08Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois08.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois08.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois08Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois08Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être homogène à un entier";
+
+	
+	/* 125 - mjmNmoins1mois09. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois09Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois09.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois09.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois09Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois09Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois09Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois09.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois09.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois09Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois09Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois09Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois09.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois09.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois09Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois09Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier";
+	
+	/* 126 - pcNuitNmoins1mois09. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois09Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois09.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois09.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois09Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois09Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois09Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois09.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois09.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois09Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois09Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois09Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois09.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois09.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois09Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois09Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier";
+
+	
+	/* 127 - mjmNmoins1mois10. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois10Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois10.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois10.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois10Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois10Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois10Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois10.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois10.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois10Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois10Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois10Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois10.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois10.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois10Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois10Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier";
+	
+	/* 128 - pcNuitNmoins1mois10. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois10Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois10.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois10.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois10Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois10Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois10Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois10.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois10.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois10Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois10Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois10Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois10.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois10.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois10Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois10Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier";
+
+	
+	/* 129 - mjmNmoins1mois11. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois11Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois11.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois11.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois11Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois11Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois11Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois11.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois11.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois11Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois11Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois11Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois11.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois11.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois11Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois11Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier";
+	
+	/* 130 - pcNuitNmoins1mois11. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois11Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois11.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois11.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois11Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois11Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois11Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois11.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois11.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois11Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois11Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois11Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois11.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois11.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois11Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois11Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier";
+
+	
+	/* 131 - mjmNmoins1mois12. *******/
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois12Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois12.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01 
+		= "message.SectionHit.mjmNmoins1mois12.renseigne";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois12Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois12Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois12Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois12.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02 
+		= "message.SectionHit.mjmNmoins1mois12.regex";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois12Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois12Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres";
+		
+	/**
+	 * clé de messageSectionHitMjmNmoins1mois12Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.mjmNmoins1mois12.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03 
+		= "message.SectionHit.mjmNmoins1mois12.numerique";
+	
+	/**
+	 * messageSectionHitMjmNmoins1mois12Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitMjmNmoins1mois12Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR 
+		= "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier";
+	
+	/* 132 - pcNuitNmoins1mois12. *******/
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois12Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois12.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01 
+		= "message.SectionHit.pcNuitNmoins1mois12.renseigne";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois12Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois12Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être renseigné".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être renseigné";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois12Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois12.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02 
+		= "message.SectionHit.pcNuitNmoins1mois12.regex";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois12Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois12Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit comporter exactement 3 chiffres";
+		
+	/**
+	 * clé de messageSectionHitPcNuitNmoins1mois12Numerique03 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois12.numerique"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03 
+		= "message.SectionHit.pcNuitNmoins1mois12.numerique";
+	
+	/**
+	 * messageSectionHitPcNuitNmoins1mois12Numerique03 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitPcNuitNmoins1mois12Numerique03 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être homogène à un entier".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03_EN_DUR 
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être homogène à un entier";
+	
 	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
@@ -7492,6 +8892,470 @@ public final class SectionHitGestionnairePreferencesControles {
 	* "l'indice de fiabilité de la TMJA de l'année n-5 de la section HIT (colonne [377] du HIT) doit comporter exactement 1 caractère (ou espace)".<br/>
 	*/
 	private static String messageSectionHitIndiceFiabiliteMjaNmoins5Regex02;
+
+	/* 109 - mjmNmoins1mois01. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois01-01 : 
+	* "la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois01Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois01-02 : 
+	* "la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois01Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois01-03 : 
+	* "la moyenne journalière mensuelle du mois de janvier (01) de l'année n-1 en véhicules/jour de la section HIT (colonnes [378-383] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois01Numerique03;
+
+	/* 110 - pcNuitNmoins1mois01. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois01-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois01Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois01-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois01Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois01-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de janvier (01) de l'année n-1 de la section HIT (colonnes [384-386] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois01Numerique03;
+
+	/* 111 - mjmNmoins1mois02. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois02-01 : 
+	* "la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois02Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois02-02 : 
+	* "la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois02Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois02-03 : 
+	* "la moyenne journalière mensuelle du mois de février (02) de l'année n-1 en véhicules/jour de la section HIT (colonnes [387-392] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois02Numerique03;
+
+	/* 112 - pcNuitNmoins1mois02. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois02-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois02Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois02-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois02Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois02-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de février (02) de l'année n-1 de la section HIT (colonnes [393-395] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois02Numerique03;
+
+	/* 113 - mjmNmoins1mois03. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois03-01 : 
+	* "la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois03Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois03-02 : 
+	* "la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois03Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois03-03 : 
+	* "la moyenne journalière mensuelle du mois de mars (03) de l'année n-1 en véhicules/jour de la section HIT (colonnes [396-401] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois03Numerique03;
+
+	/* 114 - pcNuitNmoins1mois03. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois03-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois03Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois03-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois03Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois03-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mars (03) de l'année n-1 de la section HIT (colonnes [402-404] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois03Numerique03;
+
+	/* 115 - mjmNmoins1mois04. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois04-01 : 
+	* "la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois04Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois04-02 : 
+	* "la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois04Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois04-03 : 
+	* "la moyenne journalière mensuelle du mois de avril (04) de l'année n-1 en véhicules/jour de la section HIT (colonnes [405-410] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois04Numerique03;
+
+	/* 116 - pcNuitNmoins1mois04. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois04-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois04Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois04-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois04Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois04-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de avril (04) de l'année n-1 de la section HIT (colonnes [411-413] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois04Numerique03;
+
+
+	/* 117 - mjmNmoins1mois05. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois05-01 : 
+	* "la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois05Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois05-02 : 
+	* "la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois05Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois05-03 : 
+	* "la moyenne journalière mensuelle du mois de mai (05) de l'année n-1 en véhicules/jour de la section HIT (colonnes [414-419] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois05Numerique03;
+
+	/* 118 - pcNuitNmoins1mois05. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois05-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois05Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois05-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois05Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois05-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de mai (05) de l'année n-1 de la section HIT (colonnes [420-422] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois05Numerique03;
+
+
+	/* 119 - mjmNmoins1mois06. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois06-01 : 
+	* "la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois06Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois06-02 : 
+	* "la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois06Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois06-03 : 
+	* "la moyenne journalière mensuelle du mois de juin (06) de l'année n-1 en véhicules/jour de la section HIT (colonnes [423-428] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois06Numerique03;
+
+	/* 120 - pcNuitNmoins1mois06. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois06-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois06Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois06-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois06Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois06-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juin (06) de l'année n-1 de la section HIT (colonnes [429-431] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois06Numerique03;
+
+
+	/* 121 - mjmNmoins1mois07. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois07-01 : 
+	* "la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois07Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois07-02 : 
+	* "la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois07Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois07-03 : 
+	* "la moyenne journalière mensuelle du mois de juillet (07) de l'année n-1 en véhicules/jour de la section HIT (colonnes [432-437] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois07Numerique03;
+
+	/* 122 - pcNuitNmoins1mois07. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois07-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois07Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois07-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois07Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois07-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de juillet (07) de l'année n-1 de la section HIT (colonnes [438-440] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois07Numerique03;
+
+
+	/* 123 - mjmNmoins1mois08. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois08-01 : 
+	* "la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois08Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois08-02 : 
+	* "la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois08Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois08-03 : 
+	* "la moyenne journalière mensuelle du mois de août (08) de l'année n-1 en véhicules/jour de la section HIT (colonnes [441-446] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois08Numerique03;
+
+	/* 124 - pcNuitNmoins1mois08. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois08-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois08Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois08-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois08Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois08-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de août (08) de l'année n-1 de la section HIT (colonnes [447-449] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois08Numerique03;
+
+
+	/* 125 - mjmNmoins1mois09. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois09-01 : 
+	* "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois09Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois09-02 : 
+	* "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois09Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois09-03 : 
+	* "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois09Numerique03;
+
+	/* 126 - pcNuitNmoins1mois09. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois09-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois09Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois09-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois09Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois09-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois09Numerique03;
+
+
+	/* 127 - mjmNmoins1mois10. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois10-01 : 
+	* "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois10Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois10-02 : 
+	* "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois10Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois10-03 : 
+	* "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois10Numerique03;
+
+	/* 128 - pcNuitNmoins1mois10. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois10-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois10Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois10-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois10Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois10-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois10Numerique03;
+
+
+	/* 129 - mjmNmoins1mois11. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois11-01 : 
+	* "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois11Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois11-02 : 
+	* "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois11Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois11-03 : 
+	* "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois11Numerique03;
+
+	/* 130 - pcNuitNmoins1mois11. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois11-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois11Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois11-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois11Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois11-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois11Numerique03;
+
+
+	/* 131 - mjmNmoins1mois12. *******/
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois12-01 : 
+	* "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois12Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois12-02 : 
+	* "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois12Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-MjmNmoins1mois12-03 : 
+	* "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitMjmNmoins1mois12Numerique03;
+
+	/* 132 - pcNuitNmoins1mois12. *******/
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois12-01 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être renseigné".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois12Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois12-02 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit comporter exactement 3 chiffres".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois12Regex02;
+	
+	/**
+	* message émis par la RG-SectionHit-PcNuitNmoins1mois12-03 : 
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être homogène à un entier".<br/>
+	*/
+	private static String messageSectionHitPcNuitNmoins1mois12Numerique03;
 
 	
 	/**
@@ -9389,6 +11253,471 @@ public final class SectionHitGestionnairePreferencesControles {
 		preferences.setProperty(
 			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02
 				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02_EN_DUR);
+				
+		/* 109 - mjmNmoins1mois01. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois01Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois01Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois01Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
+						
+		/* 110 - pcNuitNmoins1mois01. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois01Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois01Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois01Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
+				
+		/* 111 - mjmNmoins1mois02. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois02Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois02Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois02Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
+						
+		/* 112 - pcNuitNmoins1mois02. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois02Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois02Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois02Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
+				
+		/* 113 - mjmNmoins1mois03. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois03Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois03Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois03Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
+						
+		/* 114 - pcNuitNmoins1mois03. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois03Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois03Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois03Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
+				
+		/* 115 - mjmNmoins1mois04. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois04Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois04Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois04Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
+						
+		/* 116 - pcNuitNmoins1mois04. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois04Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois04Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois04Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
+		
+				
+		/* 117 - mjmNmoins1mois05. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois05Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois05Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois05Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
+						
+		/* 118 - pcNuitNmoins1mois05. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois05Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois05Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois05Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
+		
+				
+		/* 119 - mjmNmoins1mois06. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois06Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois06Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois06Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
+						
+		/* 120 - pcNuitNmoins1mois06. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois06Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois06Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois06Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
+		
+				
+		/* 121 - mjmNmoins1mois07. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois07Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois07Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois07Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
+						
+		/* 122 - pcNuitNmoins1mois07. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois07Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois07Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois07Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
+		
+				
+		/* 123 - mjmNmoins1mois08. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois08Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois08Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois08Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
+						
+		/* 124 - pcNuitNmoins1mois08. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois08Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois08Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois08Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
+		
+				
+		/* 125 - mjmNmoins1mois09. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois09Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois09Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois09Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
+						
+		/* 126 - pcNuitNmoins1mois09. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois09Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois09Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois09Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
+		
+				
+		/* 127 - mjmNmoins1mois10. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois10Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois10Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois10Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
+						
+		/* 128 - pcNuitNmoins1mois10. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois10Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois10Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois10Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
+		
+				
+		/* 129 - mjmNmoins1mois11. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois11Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois11Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois11Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
+						
+		/* 130 - pcNuitNmoins1mois11. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois11Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois11Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois11Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
+		
+				
+		/* 131 - mjmNmoins1mois12. *******/		
+		/* ajoute le messageSectionHitMjmNmoins1mois12Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois12Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitMjmNmoins1mois12Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
+						
+		/* 132 - pcNuitNmoins1mois12. *******/		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois12Renseigne01 
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois12Regex02
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02_EN_DUR);
+		
+		/* ajoute le messageSectionHitPcNuitNmoins1mois12Numerique03
+		* par défaut stocké en dur.*/
+		preferences.setProperty(
+			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03
+				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
+
 		
 		} // Fin du bloc synchronized.__________________
 		
@@ -43125,6 +45454,8174 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitIndiceFiabiliteMjaNmoins5Regex02(...)._
+
+
+	
+	/* 109 - mjmNmoins1mois01. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois01Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois01Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois01Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois01Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois01Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois01Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois01Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois01Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois01.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois01Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois01Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois01Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois01Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois01Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois01Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois01Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois01Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois01Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois01Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois01Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois01Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois01Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois01Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois01Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois01Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois01Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois01Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois01Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois01Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois01Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois01Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois01.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois01Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois01Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois01Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois01Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois01Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois01Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois01Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois01Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois01Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois01Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois01Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois01Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois01Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois01Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois01Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois01Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois01Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois01Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois01Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois01Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois01Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois01Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois01Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois01Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois01Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois01Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois01Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois01Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois01Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois01Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois01Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois01Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois01Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois01Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois01Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois01Numerique03(...).______	
+
+
+	
+	/* 110 - pcNuitNmoins1mois01. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois01Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois01Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois01Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois01Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois01Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois01Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois01Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois01Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois01.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois01Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois01Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois01Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois01Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois01Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois01Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois01Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois01Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois01Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois01Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois01Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois01Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois01Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois01Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois01Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois01Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois01Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois01Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois01Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois01Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois01Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois01Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois01.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois01Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois01Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois01Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois01Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois01Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois01Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois01Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois01Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois01Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois01Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois01Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois01Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois01Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois01Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois01Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois01Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois01Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois01Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois01Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois01Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois01Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois01Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois01Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois01Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois01Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois01Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois01Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois01Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois01Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois01Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois01Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois01Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois01Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois01Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois01Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois01Numerique03(...).___
+	
+
+	
+	/* 111 - mjmNmoins1mois02. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois02Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois02Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois02Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois02Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois02Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois02Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois02Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois02Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois02.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois02Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois02Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois02Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois02Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois02Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois02Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois02Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois02Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois02Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois02Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois02Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois02Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois02Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois02Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois02Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois02Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois02Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois02Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois02Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois02Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois02Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois02Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois02.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois02Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois02Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois02Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois02Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois02Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois02Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois02Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois02Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois02Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois02Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois02Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois02Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois02Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois02Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois02Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois02Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois02Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois02Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois02Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois02Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois02Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois02Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois02Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois02Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois02Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois02Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois02Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois02Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois02Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois02Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois02Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois02Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois02Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois02Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois02Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois02Numerique03(...).______	
+
+
+	
+	/* 112 - pcNuitNmoins1mois02. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois02Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois02Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois02Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois02Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois02Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois02Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois02Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois02Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois02.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois02Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois02Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois02Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois02Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois02Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois02Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois02Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois02Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois02Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois02Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois02Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois02Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois02Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois02Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois02Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois02Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois02Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois02Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois02Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois02Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois02Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois02Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois02.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois02Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois02Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois02Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois02Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois02Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois02Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois02Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois02Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois02Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois02Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois02Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois02Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois02Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois02Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois02Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois02Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois02Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois02Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois02Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois02Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois02Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois02Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois02Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois02Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois02Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois02Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois02Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois02Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois02Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois02Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois02Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois02Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois02Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois02Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois02Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois02Numerique03(...).___
+
+
+	
+	/* 113 - mjmNmoins1mois03. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois03Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois03Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois03Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois03Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois03Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois03Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois03Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois03Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois03.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois03Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois03Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois03Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois03Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois03Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois03Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois03Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois03Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois03Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois03Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois03Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois03Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois03Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois03Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois03Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois03Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois03Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois03Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois03Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois03Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois03Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois03Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois03.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois03Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois03Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois03Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois03Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois03Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois03Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois03Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois03Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois03Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois03Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois03Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois03Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois03Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois03Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois03Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois03Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois03Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois03Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois03Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois03Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois03Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois03Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois03Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois03Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois03Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois03Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois03Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois03Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois03Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois03Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois03Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois03Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois03Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois03Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois03Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois03Numerique03(...).______	
+
+
+	
+	/* 114 - pcNuitNmoins1mois03. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois03Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois03Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois03Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois03Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois03Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois03Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois03Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois03Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois03.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois03Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois03Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois03Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois03Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois03Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois03Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois03Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois03Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois03Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois03Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois03Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois03Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois03Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois03Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois03Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois03Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois03Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois03Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois03Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois03Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois03Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois03Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois03.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois03Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois03Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois03Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois03Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois03Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois03Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois03Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois03Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois03Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois03Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois03Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois03Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois03Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois03Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois03Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois03Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois03Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois03Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois03Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois03Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois03Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois03Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois03Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois03Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois03Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois03Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois03Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois03Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois03Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois03Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois03Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois03Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois03Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois03Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois03Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois03Numerique03(...).___
+
+
+	
+	/* 115 - mjmNmoins1mois04. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois04Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois04Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois04Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois04Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois04Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois04Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois04Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois04Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois04.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois04Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois04Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois04Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois04Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois04Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois04Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois04Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois04Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois04Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois04Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois04Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois04Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois04Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois04Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois04Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois04Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois04Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois04Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois04Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois04Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois04Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois04Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois04.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois04Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois04Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois04Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois04Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois04Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois04Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois04Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois04Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois04Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois04Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois04Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois04Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois04Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois04Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois04Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois04Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois04Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois04Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois04Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois04Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois04Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois04Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois04Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois04Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois04Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois04Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois04Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois04Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois04Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois04Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois04Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois04Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois04Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois04Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois04Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois04Numerique03(...).______	
+
+
+	
+	/* 116 - pcNuitNmoins1mois04. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois04Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois04Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois04Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois04Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois04Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois04Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois04Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois04Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois04.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois04Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois04Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois04Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois04Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois04Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois04Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois04Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois04Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois04Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois04Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois04Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois04Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois04Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois04Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois04Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois04Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois04Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois04Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois04Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois04Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois04Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois04Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois04.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois04Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois04Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois04Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois04Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois04Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois04Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois04Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois04Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois04Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois04Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois04Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois04Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois04Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois04Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois04Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois04Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois04Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois04Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois04Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois04Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois04Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois04Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois04Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois04Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois04Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois04Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois04Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois04Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois04Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois04Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois04Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois04Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois04Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois04Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois04Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois04Numerique03(...).___
+
+
+
+	
+	/* 117 - mjmNmoins1mois05. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois05Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois05Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois05Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois05Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois05Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois05Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois05Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois05Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois05.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois05Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois05Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois05Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois05Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois05Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois05Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois05Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois05Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois05Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois05Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois05Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois05Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois05Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois05Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois05Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois05Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois05Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois05Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois05Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois05Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois05Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois05Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois05.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois05Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois05Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois05Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois05Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois05Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois05Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois05Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois05Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois05Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois05Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois05Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois05Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois05Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois05Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois05Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois05Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois05Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois05Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois05Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois05Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois05Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois05Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois05Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois05Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois05Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois05Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois05Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois05Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois05Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois05Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois05Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois05Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois05Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois05Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois05Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois05Numerique03(...).______	
+
+
+	
+	/* 118 - pcNuitNmoins1mois05. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois05Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois05Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois05Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois05Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois05Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois05Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois05Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois05Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois05.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois05Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois05Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois05Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois05Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois05Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois05Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois05Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois05Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois05Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois05Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois05Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois05Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois05Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois05Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois05Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois05Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois05Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois05Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois05Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois05Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois05Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois05Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois05.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois05Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois05Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois05Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois05Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois05Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois05Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois05Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois05Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois05Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois05Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois05Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois05Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois05Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois05Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois05Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois05Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois05Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois05Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois05Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois05Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois05Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois05Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois05Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois05Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois05Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois05Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois05Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois05Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois05Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois05Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois05Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois05Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois05Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois05Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois05Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois05Numerique03(...).___
+
+
+
+	
+	/* 119 - mjmNmoins1mois06. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois06Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois06Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois06Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois06Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois06Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois06Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois06Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois06Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois06.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois06Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois06Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois06Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois06Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois06Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois06Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois06Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois06Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois06Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois06Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois06Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois06Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois06Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois06Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois06Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois06Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois06Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois06Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois06Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois06Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois06Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois06Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois06.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois06Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois06Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois06Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois06Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois06Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois06Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois06Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois06Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois06Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois06Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois06Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois06Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois06Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois06Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois06Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois06Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois06Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois06Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois06Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois06Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois06Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois06Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois06Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois06Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois06Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois06Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois06Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois06Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois06Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois06Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois06Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois06Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois06Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois06Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois06Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois06Numerique03(...).______	
+
+
+	
+	/* 120 - pcNuitNmoins1mois06. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois06Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois06Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois06Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois06Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois06Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois06Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois06Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois06Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois06.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois06Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois06Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois06Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois06Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois06Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois06Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois06Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois06Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois06Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois06Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois06Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois06Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois06Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois06Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois06Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois06Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois06Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois06Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois06Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois06Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois06Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois06Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois06.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois06Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois06Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois06Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois06Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois06Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois06Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois06Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois06Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois06Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois06Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois06Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois06Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois06Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois06Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois06Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois06Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois06Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois06Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois06Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois06Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois06Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois06Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois06Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois06Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois06Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois06Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois06Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois06Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois06Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois06Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois06Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois06Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois06Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois06Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois06Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois06Numerique03(...).___
+
+
+
+	
+	/* 121 - mjmNmoins1mois07. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois07Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois07Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois07Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois07Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois07Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois07Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois07Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois07Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois07.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois07Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois07Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois07Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois07Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois07Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois07Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois07Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois07Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois07Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois07Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois07Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois07Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois07Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois07Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois07Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois07Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois07Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois07Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois07Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois07Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois07Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois07Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois07.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois07Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois07Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois07Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois07Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois07Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois07Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois07Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois07Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois07Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois07Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois07Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois07Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois07Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois07Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois07Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois07Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois07Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois07Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois07Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois07Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois07Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois07Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois07Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois07Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois07Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois07Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois07Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois07Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois07Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois07Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois07Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois07Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois07Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois07Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois07Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois07Numerique03(...).______
+
+
+	
+	/* 122 - pcNuitNmoins1mois07. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois07Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois07Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois07Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois07Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois07Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois07Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois07Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois07Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois07.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois07Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois07Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois07Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois07Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois07Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois07Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois07Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois07Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois07Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois07Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois07Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois07Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois07Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois07Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois07Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois07Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois07Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois07Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois07Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois07Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois07Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois07Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois07.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois07Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois07Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois07Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois07Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois07Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois07Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois07Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois07Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois07Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois07Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois07Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois07Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois07Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois07Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois07Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois07Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois07Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois07Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois07Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois07Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois07Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois07Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois07Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois07Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois07Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois07Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois07Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois07Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois07Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois07Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois07Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois07Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois07Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois07Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois07Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois07Numerique03(...).___
+
+
+
+	
+	/* 123 - mjmNmoins1mois08. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois08Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois08Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois08Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois08Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois08Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois08Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois08Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois08Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois08.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois08Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois08Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois08Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois08Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois08Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois08Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois08Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois08Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois08Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois08Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois08Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois08Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois08Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois08Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois08Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois08Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois08Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois08Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois08Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois08Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois08Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois08Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois08.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois08Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois08Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois08Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois08Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois08Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois08Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois08Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois08Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois08Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois08Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois08Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois08Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois08Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois08Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois08Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois08Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois08Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois08Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois08Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois08Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois08Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois08Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois08Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois08Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois08Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois08Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois08Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois08Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois08Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois08Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois08Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois08Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois08Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois08Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois08Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois08Numerique03(...).______	
+
+
+	
+	/* 124 - pcNuitNmoins1mois08. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois08Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois08Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois08Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois08Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois08Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois08Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois08Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois08Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois08.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois08Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois08Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois08Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois08Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois08Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois08Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois08Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois08Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois08Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois08Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois08Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois08Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois08Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois08Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois08Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois08Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois08Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois08Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois08Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois08Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois08Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois08Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois08.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois08Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois08Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois08Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois08Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois08Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois08Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois08Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois08Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois08Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois08Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois08Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois08Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois08Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois08Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois08Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois08Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois08Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois08Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois08Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois08Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois08Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois08Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois08Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois08Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois08Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois08Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois08Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois08Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois08Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois08Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois08Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois08Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois08Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois08Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois08Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois08Numerique03(...).___
+
+
+
+	
+	/* 125 - mjmNmoins1mois09. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois09Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois09Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois09Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois09Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois09Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois09Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois09Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois09Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois09.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois09Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois09Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois09Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois09Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois09Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois09Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois09Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois09Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois09Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois09Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois09Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois09Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois09Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois09Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois09Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois09Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois09Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois09Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois09Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois09Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois09Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois09Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois09.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois09Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois09Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois09Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois09Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois09Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois09Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois09Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois09Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois09Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois09Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois09Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois09Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois09Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois09Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois09Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois09Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois09Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois09Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois09Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois09Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois09Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois09Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois09Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois09Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois09Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois09Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois09Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois09Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois09Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois09Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois09Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois09Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois09Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois09Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois09Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois09Numerique03(...).______	
+
+
+	
+	/* 126 - pcNuitNmoins1mois09. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois09Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois09Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois09Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois09Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois09Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois09Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois09Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois09Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois09.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois09Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois09Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois09Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois09Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois09Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois09Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois09Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois09Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois09Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois09Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois09Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois09Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois09Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois09Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois09Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois09Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois09Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois09Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois09Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois09Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois09Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois09Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois09.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois09Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois09Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois09Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois09Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois09Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois09Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois09Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois09Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois09Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois09Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois09Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois09Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois09Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois09Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois09Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois09Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois09Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois09Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois09Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois09Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois09Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois09Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois09Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois09Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois09Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois09Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois09Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois09Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois09Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois09Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois09Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois09Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois09Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois09Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois09Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois09Numerique03(...).___
+
+
+
+	
+	/* 127 - mjmNmoins1mois10. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois10Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois10Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois10Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois10Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois10Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois10Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois10Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois10Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois10.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois10Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois10Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois10Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois10Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois10Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois10Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois10Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois10Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois10Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois10Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois10Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois10Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois10Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois10Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois10Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois10Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois10Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois10Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois10Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois10Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois10Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois10Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois10.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois10Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois10Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois10Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois10Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois10Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois10Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois10Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois10Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois10Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois10Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois10Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois10Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois10Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois10Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois10Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois10Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois10Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois10Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois10Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois10Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois10Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois10Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois10Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois10Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois10Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois10Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois10Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois10Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois10Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois10Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois10Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois10Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois10Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois10Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois10Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois10Numerique03(...).______
+
+
+	
+	/* 128 - pcNuitNmoins1mois10. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois10Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois10Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois10Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois10Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois10Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois10Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois10Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois10Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois10.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois10Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois10Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois10Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois10Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois10Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois10Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois10Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois10Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois10Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois10Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois10Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois10Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois10Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois10Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois10Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois10Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois10Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois10Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois10Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois10Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois10Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois10Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois10.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois10Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois10Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois10Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois10Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois10Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois10Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois10Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois10Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois10Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois10Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois10Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois10Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois10Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois10Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois10Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois10Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois10Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois10Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois10Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois10Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois10Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois10Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois10Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois10Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois10Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois10Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois10Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois10Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois10Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois10Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois10Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois10Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois10Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois10Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois10Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois10Numerique03(...).___
+
+
+
+	
+	/* 129 - mjmNmoins1mois11. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois11Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois11Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois11Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois11Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois11Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois11Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois11Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois11Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois11.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois11Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois11Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois11Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois11Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois11Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois11Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois11Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois11Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois11Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois11Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois11Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois11Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois11Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois11Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois11Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois11Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois11Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois11Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois11Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois11Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois11Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois11Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois11.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois11Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois11Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois11Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois11Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois11Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois11Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois11Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois11Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois11Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois11Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois11Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois11Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois11Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois11Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois11Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois11Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois11Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois11Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois11Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois11Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois11Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois11Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois11Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois11Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois11Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois11Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois11Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois11Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois11Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois11Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois11Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois11Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois11Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois11Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois11Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois11Numerique03(...).______	
+
+
+	
+	/* 130 - pcNuitNmoins1mois11. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois11Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois11Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois11Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois11Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois11Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois11Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois11Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois11Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois11.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois11Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois11Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois11Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois11Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois11Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois11Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois11Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois11Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois11Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois11Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois11Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois11Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois11Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois11Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois11Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois11Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois11Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois11Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois11Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois11Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois11Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois11Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois11.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois11Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois11Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois11Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois11Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois11Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois11Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois11Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois11Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois11Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois11Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois11Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois11Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois11Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois11Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois11Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois11Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois11Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois11Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois11Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois11Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois11Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois11Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois11Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois11Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois11Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois11Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois11Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois11Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois11Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois11Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois11Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois11Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois11Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois11Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois11Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois11Numerique03(...).___
+
+
+
+	
+	/* 131 - mjmNmoins1mois12. ****************/
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois12Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois12Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois12Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois12Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois12Renseigne01
+					, fournirKeyMessageSectionHitMjmNmoins1mois12Renseigne01()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois12Renseigne01()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois12Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois12.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois12Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois12Renseigne01().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois12Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois12Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois12Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois12Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois12Renseigne01();
+	} // Fin de getMessageSectionHitMjmNmoins1mois12Renseigne01()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois12Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois12Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois12Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois12Renseigne01
+							, fournirKeyMessageSectionHitMjmNmoins1mois12Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois12Renseigne01(...).______
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois12Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois12Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois12Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois12Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois12Regex02
+					, fournirKeyMessageSectionHitMjmNmoins1mois12Regex02()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois12Regex02()._________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois12Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.mjmNmoins1mois12.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois12Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois12Regex02().______
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois12Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois12Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois12Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois12Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois12Regex02();
+	} // Fin de getMessageSectionHitMjmNmoins1mois12Regex02()._____________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois12Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois12Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois12Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois12Regex02
+							, fournirKeyMessageSectionHitMjmNmoins1mois12Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois12Regex02(...).__________
+
+
+
+	/**
+	 * retourne le messageSectionHitMjmNmoins1mois12Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois12Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitMjmNmoins1mois12Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitMjmNmoins1mois12Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitMjmNmoins1mois12Numerique03
+					, fournirKeyMessageSectionHitMjmNmoins1mois12Numerique03()
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitMjmNmoins1mois12Numerique03()._____
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitMjmNmoins1mois12Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitMjmNmoins1mois12Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitMjmNmoins1mois12Numerique03().__
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitMjmNmoins1mois12Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitMjmNmoins1mois12Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitMjmNmoins1mois12Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitMjmNmoins1mois12Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitMjmNmoins1mois12Numerique03();
+	} // Fin de getMessageSectionHitMjmNmoins1mois12Numerique03()._________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitMjmNmoins1mois12Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitMjmNmoins1mois12Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitMjmNmoins1mois12Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitMjmNmoins1mois12Numerique03
+							, fournirKeyMessageSectionHitMjmNmoins1mois12Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitMjmNmoins1mois12Numerique03(...).______	
+
+
+	
+	/* 132 - pcNuitNmoins1mois12. ****************/
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois12Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois12Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois12Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois12Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois12Renseigne01
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois12Renseigne01()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois12Renseigne01().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois12Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois12.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois12Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois12Renseigne01().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois12Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois12Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois12Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois12Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois12Renseigne01();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois12Renseigne01().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois12Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois12Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois12Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois12Renseigne01
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois12Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois12Renseigne01(...).___
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois12Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois12Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois12Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois12Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois12Regex02
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois12Regex02()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois12Regex02().______
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois12Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.pcNuitNmoins1mois12.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois12Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois12Regex02().___
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois12Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois12Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois12Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois12Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois12Regex02();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois12Regex02().__________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois12Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois12Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois12Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois12Regex02
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois12Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois12Regex02(...)._______
+
+
+
+	/**
+	 * retourne le messageSectionHitPcNuitNmoins1mois12Numerique03 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois12Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitPcNuitNmoins1mois12Numerique03 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitPcNuitNmoins1mois12Numerique03() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitPcNuitNmoins1mois12Numerique03
+					, fournirKeyMessageSectionHitPcNuitNmoins1mois12Numerique03()
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitPcNuitNmoins1mois12Numerique03().__
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitPcNuitNmoins1mois12Numerique03 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.prOrigine.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitPcNuitNmoins1mois12Numerique03() {
+		return KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03;
+	} // Fin de fournirKeyMessageSectionHitPcNuitNmoins1mois12Numerique03().
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois12Numerique03 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitPcNuitNmoins1mois12Numerique03 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitPcNuitNmoins1mois12Numerique03 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitPcNuitNmoins1mois12Numerique03() 
+													throws Exception {
+		return fournirMessageSectionHitPcNuitNmoins1mois12Numerique03();
+	} // Fin de getMessageSectionHitPcNuitNmoins1mois12Numerique03().______
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitPcNuitNmoins1mois12Numerique03 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitPcNuitNmoins1mois12Numerique03.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitPcNuitNmoins1mois12Numerique03(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitPcNuitNmoins1mois12Numerique03
+							, fournirKeyMessageSectionHitPcNuitNmoins1mois12Numerique03());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitPcNuitNmoins1mois12Numerique03(...).___
 
 			
 			

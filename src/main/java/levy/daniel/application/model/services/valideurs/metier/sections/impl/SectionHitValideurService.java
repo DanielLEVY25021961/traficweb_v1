@@ -2027,7 +2027,1250 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			indiceFiabiliteMjaNmoins1Valide = true;
 		}
 		
+		/* 77 - anneeNmoins2. *******/
+		boolean anneeNmoins2Valide = false;
 		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributAnneeNmoins2 = "anneeNmoins2";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralAnneeNmoins2 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitAnneeNmoins2();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralAnneeNmoins2) {
+			anneeNmoins2Valide 
+				= this.validerAnneeNmoins2(
+						pDto, attributAnneeNmoins2, erreursMap);
+		} else {
+			anneeNmoins2Valide = true;
+		}
+		
+		/* 78 - mjaNmoins2. *******/
+		boolean mjaNmoins2Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjaNmoins2 = "mjaNmoins2";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjaNmoins2 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjaNmoins2();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjaNmoins2) {
+			mjaNmoins2Valide 
+				= this.validerMjaNmoins2(
+						pDto, attributMjaNmoins2, erreursMap);
+		} else {
+			mjaNmoins2Valide = true;
+		}
+		
+		/* 79 - typeComptageNmoins2. *******/
+		boolean typeComptageNmoins2Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributTypeComptageNmoins2 = "typeComptageNmoins2";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralTypeComptageNmoins2 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitTypeComptageNmoins2();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralTypeComptageNmoins2) {
+			typeComptageNmoins2Valide 
+				= this.validerTypeComptageNmoins2(
+						pDto, attributTypeComptageNmoins2, erreursMap);
+		} else {
+			typeComptageNmoins2Valide = true;
+		}
+		
+		/* 80 - modeCalculNmoins2. *******/
+		boolean modeCalculNmoins2Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributModeCalculNmoins2 = "modeCalculNmoins2";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralModeCalculNmoins2 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitModeCalculNmoins2();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralModeCalculNmoins2) {
+			modeCalculNmoins2Valide 
+				= this.validerModeCalculNmoins2(
+						pDto, attributModeCalculNmoins2, erreursMap);
+		} else {
+			modeCalculNmoins2Valide = true;
+		}
+		
+		/* 81 - pcPLNmoins2. *******/
+		boolean pcPLNmoins2Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcPLNmoins2 = "pcPLNmoins2";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcPLNmoins2 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcPLNmoins2();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcPLNmoins2) {
+			pcPLNmoins2Valide 
+				= this.validerPcPLNmoins2(
+						pDto, attributPcPLNmoins2, erreursMap);
+		} else {
+			pcPLNmoins2Valide = true;
+		}
+		
+		/* 82 - evaluationPLNmoins2. *******/
+		boolean evaluationPLNmoins2Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributEvaluationPLNmoins2 = "evaluationPLNmoins2";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralEvaluationPLNmoins2 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitEvaluationPLNmoins2();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralEvaluationPLNmoins2) {
+			evaluationPLNmoins2Valide 
+				= this.validerEvaluationPLNmoins2(
+						pDto, attributEvaluationPLNmoins2, erreursMap);
+		} else {
+			evaluationPLNmoins2Valide = true;
+		}
+		
+		/* 83 - pcNuitAnnuelNmoins2. *******/
+		boolean pcNuitAnnuelNmoins2Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitAnnuelNmoins2 = "pcNuitAnnuelNmoins2";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitAnnuelNmoins2 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitAnnuelNmoins2();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitAnnuelNmoins2) {
+			pcNuitAnnuelNmoins2Valide 
+				= this.validerPcNuitAnnuelNmoins2(
+						pDto, attributPcNuitAnnuelNmoins2, erreursMap);
+		} else {
+			pcNuitAnnuelNmoins2Valide = true;
+		}
+		
+		/* 84 - indiceFiabiliteMjaNmoins2. *******/
+		boolean indiceFiabiliteMjaNmoins2Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributIndiceFiabiliteMjaNmoins2 = "indiceFiabiliteMjaNmoins2";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralIndiceFiabiliteMjaNmoins2 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitIndiceFiabiliteMjaNmoins2();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralIndiceFiabiliteMjaNmoins2) {
+			indiceFiabiliteMjaNmoins2Valide 
+				= this.validerIndiceFiabiliteMjaNmoins2(
+						pDto, attributIndiceFiabiliteMjaNmoins2, erreursMap);
+		} else {
+			indiceFiabiliteMjaNmoins2Valide = true;
+		}
+
+		
+		/* 85 - anneeNmoins3. *******/
+		boolean anneeNmoins3Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributAnneeNmoins3 = "anneeNmoins3";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralAnneeNmoins3 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitAnneeNmoins3();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralAnneeNmoins3) {
+			anneeNmoins3Valide 
+				= this.validerAnneeNmoins3(
+						pDto, attributAnneeNmoins3, erreursMap);
+		} else {
+			anneeNmoins3Valide = true;
+		}
+		
+		/* 86 - mjaNmoins3. *******/
+		boolean mjaNmoins3Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjaNmoins3 = "mjaNmoins3";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjaNmoins3 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjaNmoins3();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjaNmoins3) {
+			mjaNmoins3Valide 
+				= this.validerMjaNmoins3(
+						pDto, attributMjaNmoins3, erreursMap);
+		} else {
+			mjaNmoins3Valide = true;
+		}
+		
+		/* 87 - typeComptageNmoins3. *******/
+		boolean typeComptageNmoins3Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributTypeComptageNmoins3 = "typeComptageNmoins3";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralTypeComptageNmoins3 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitTypeComptageNmoins3();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralTypeComptageNmoins3) {
+			typeComptageNmoins3Valide 
+				= this.validerTypeComptageNmoins3(
+						pDto, attributTypeComptageNmoins3, erreursMap);
+		} else {
+			typeComptageNmoins3Valide = true;
+		}
+		
+		/* 88 - modeCalculNmoins3. *******/
+		boolean modeCalculNmoins3Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributModeCalculNmoins3 = "modeCalculNmoins3";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralModeCalculNmoins3 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitModeCalculNmoins3();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralModeCalculNmoins3) {
+			modeCalculNmoins3Valide 
+				= this.validerModeCalculNmoins3(
+						pDto, attributModeCalculNmoins3, erreursMap);
+		} else {
+			modeCalculNmoins3Valide = true;
+		}
+		
+		/* 89 - pcPLNmoins3. *******/
+		boolean pcPLNmoins3Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcPLNmoins3 = "pcPLNmoins3";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcPLNmoins3 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcPLNmoins3();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcPLNmoins3) {
+			pcPLNmoins3Valide 
+				= this.validerPcPLNmoins3(
+						pDto, attributPcPLNmoins3, erreursMap);
+		} else {
+			pcPLNmoins3Valide = true;
+		}
+		
+		/* 90 - evaluationPLNmoins3. *******/
+		boolean evaluationPLNmoins3Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributEvaluationPLNmoins3 = "evaluationPLNmoins3";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralEvaluationPLNmoins3 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitEvaluationPLNmoins3();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralEvaluationPLNmoins3) {
+			evaluationPLNmoins3Valide 
+				= this.validerEvaluationPLNmoins3(
+						pDto, attributEvaluationPLNmoins3, erreursMap);
+		} else {
+			evaluationPLNmoins3Valide = true;
+		}
+		
+		/* 91 - pcNuitAnnuelNmoins3. *******/
+		boolean pcNuitAnnuelNmoins3Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitAnnuelNmoins3 = "pcNuitAnnuelNmoins3";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitAnnuelNmoins3 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitAnnuelNmoins3();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitAnnuelNmoins3) {
+			pcNuitAnnuelNmoins3Valide 
+				= this.validerPcNuitAnnuelNmoins3(
+						pDto, attributPcNuitAnnuelNmoins3, erreursMap);
+		} else {
+			pcNuitAnnuelNmoins3Valide = true;
+		}
+		
+		/* 92 - indiceFiabiliteMjaNmoins3. *******/
+		boolean indiceFiabiliteMjaNmoins3Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributIndiceFiabiliteMjaNmoins3 = "indiceFiabiliteMjaNmoins3";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralIndiceFiabiliteMjaNmoins3 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitIndiceFiabiliteMjaNmoins3();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralIndiceFiabiliteMjaNmoins3) {
+			indiceFiabiliteMjaNmoins3Valide 
+				= this.validerIndiceFiabiliteMjaNmoins3(
+						pDto, attributIndiceFiabiliteMjaNmoins3, erreursMap);
+		} else {
+			indiceFiabiliteMjaNmoins3Valide = true;
+		}
+
+		
+		/* 93 - anneeNmoins4. *******/
+		boolean anneeNmoins4Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributAnneeNmoins4 = "anneeNmoins4";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralAnneeNmoins4 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitAnneeNmoins4();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralAnneeNmoins4) {
+			anneeNmoins4Valide 
+				= this.validerAnneeNmoins4(
+						pDto, attributAnneeNmoins4, erreursMap);
+		} else {
+			anneeNmoins4Valide = true;
+		}
+		
+		/* 94 - mjaNmoins4. *******/
+		boolean mjaNmoins4Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjaNmoins4 = "mjaNmoins4";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjaNmoins4 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjaNmoins4();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjaNmoins4) {
+			mjaNmoins4Valide 
+				= this.validerMjaNmoins4(
+						pDto, attributMjaNmoins4, erreursMap);
+		} else {
+			mjaNmoins4Valide = true;
+		}
+		
+		/* 95 - typeComptageNmoins4. *******/
+		boolean typeComptageNmoins4Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributTypeComptageNmoins4 = "typeComptageNmoins4";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralTypeComptageNmoins4 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitTypeComptageNmoins4();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralTypeComptageNmoins4) {
+			typeComptageNmoins4Valide 
+				= this.validerTypeComptageNmoins4(
+						pDto, attributTypeComptageNmoins4, erreursMap);
+		} else {
+			typeComptageNmoins4Valide = true;
+		}
+		
+		/* 96 - modeCalculNmoins4. *******/
+		boolean modeCalculNmoins4Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributModeCalculNmoins4 = "modeCalculNmoins4";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralModeCalculNmoins4 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitModeCalculNmoins4();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralModeCalculNmoins4) {
+			modeCalculNmoins4Valide 
+				= this.validerModeCalculNmoins4(
+						pDto, attributModeCalculNmoins4, erreursMap);
+		} else {
+			modeCalculNmoins4Valide = true;
+		}
+		
+		/* 97 - pcPLNmoins4. *******/
+		boolean pcPLNmoins4Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcPLNmoins4 = "pcPLNmoins4";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcPLNmoins4 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcPLNmoins4();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcPLNmoins4) {
+			pcPLNmoins4Valide 
+				= this.validerPcPLNmoins4(
+						pDto, attributPcPLNmoins4, erreursMap);
+		} else {
+			pcPLNmoins4Valide = true;
+		}
+		
+		/* 98 - evaluationPLNmoins4. *******/
+		boolean evaluationPLNmoins4Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributEvaluationPLNmoins4 = "evaluationPLNmoins4";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralEvaluationPLNmoins4 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitEvaluationPLNmoins4();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralEvaluationPLNmoins4) {
+			evaluationPLNmoins4Valide 
+				= this.validerEvaluationPLNmoins4(
+						pDto, attributEvaluationPLNmoins4, erreursMap);
+		} else {
+			evaluationPLNmoins4Valide = true;
+		}
+		
+		/* 99 - pcNuitAnnuelNmoins4. *******/
+		boolean pcNuitAnnuelNmoins4Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitAnnuelNmoins4 = "pcNuitAnnuelNmoins4";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitAnnuelNmoins4 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitAnnuelNmoins4();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitAnnuelNmoins4) {
+			pcNuitAnnuelNmoins4Valide 
+				= this.validerPcNuitAnnuelNmoins4(
+						pDto, attributPcNuitAnnuelNmoins4, erreursMap);
+		} else {
+			pcNuitAnnuelNmoins4Valide = true;
+		}
+		
+		/* 100 - indiceFiabiliteMjaNmoins4. *******/
+		boolean indiceFiabiliteMjaNmoins4Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributIndiceFiabiliteMjaNmoins4 = "indiceFiabiliteMjaNmoins4";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralIndiceFiabiliteMjaNmoins4 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitIndiceFiabiliteMjaNmoins4();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralIndiceFiabiliteMjaNmoins4) {
+			indiceFiabiliteMjaNmoins4Valide 
+				= this.validerIndiceFiabiliteMjaNmoins4(
+						pDto, attributIndiceFiabiliteMjaNmoins4, erreursMap);
+		} else {
+			indiceFiabiliteMjaNmoins4Valide = true;
+		}
+
+		
+		/* 101 - anneeNmoins5. *******/
+		boolean anneeNmoins5Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributAnneeNmoins5 = "anneeNmoins5";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralAnneeNmoins5 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitAnneeNmoins5();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralAnneeNmoins5) {
+			anneeNmoins5Valide 
+				= this.validerAnneeNmoins5(
+						pDto, attributAnneeNmoins5, erreursMap);
+		} else {
+			anneeNmoins5Valide = true;
+		}
+		
+		/* 102 - mjaNmoins5. *******/
+		boolean mjaNmoins5Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjaNmoins5 = "mjaNmoins5";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjaNmoins5 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjaNmoins5();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjaNmoins5) {
+			mjaNmoins5Valide 
+				= this.validerMjaNmoins5(
+						pDto, attributMjaNmoins5, erreursMap);
+		} else {
+			mjaNmoins5Valide = true;
+		}
+		
+		/* 103 - typeComptageNmoins5. *******/
+		boolean typeComptageNmoins5Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributTypeComptageNmoins5 = "typeComptageNmoins5";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralTypeComptageNmoins5 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitTypeComptageNmoins5();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralTypeComptageNmoins5) {
+			typeComptageNmoins5Valide 
+				= this.validerTypeComptageNmoins5(
+						pDto, attributTypeComptageNmoins5, erreursMap);
+		} else {
+			typeComptageNmoins5Valide = true;
+		}
+		
+		/* 104 - modeCalculNmoins5. *******/
+		boolean modeCalculNmoins5Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributModeCalculNmoins5 = "modeCalculNmoins5";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralModeCalculNmoins5 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitModeCalculNmoins5();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralModeCalculNmoins5) {
+			modeCalculNmoins5Valide 
+				= this.validerModeCalculNmoins5(
+						pDto, attributModeCalculNmoins5, erreursMap);
+		} else {
+			modeCalculNmoins5Valide = true;
+		}
+		
+		/* 105 - pcPLNmoins5. *******/
+		boolean pcPLNmoins5Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcPLNmoins5 = "pcPLNmoins5";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcPLNmoins5 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcPLNmoins5();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcPLNmoins5) {
+			pcPLNmoins5Valide 
+				= this.validerPcPLNmoins5(
+						pDto, attributPcPLNmoins5, erreursMap);
+		} else {
+			pcPLNmoins5Valide = true;
+		}
+		
+		/* 106 - evaluationPLNmoins5. *******/
+		boolean evaluationPLNmoins5Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributEvaluationPLNmoins5 = "evaluationPLNmoins5";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralEvaluationPLNmoins5 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitEvaluationPLNmoins5();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralEvaluationPLNmoins5) {
+			evaluationPLNmoins5Valide 
+				= this.validerEvaluationPLNmoins5(
+						pDto, attributEvaluationPLNmoins5, erreursMap);
+		} else {
+			evaluationPLNmoins5Valide = true;
+		}
+		
+		/* 107 - pcNuitAnnuelNmoins5. *******/
+		boolean pcNuitAnnuelNmoins5Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitAnnuelNmoins5 = "pcNuitAnnuelNmoins5";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitAnnuelNmoins5 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitAnnuelNmoins5();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitAnnuelNmoins5) {
+			pcNuitAnnuelNmoins5Valide 
+				= this.validerPcNuitAnnuelNmoins5(
+						pDto, attributPcNuitAnnuelNmoins5, erreursMap);
+		} else {
+			pcNuitAnnuelNmoins5Valide = true;
+		}
+		
+		/* 108 - indiceFiabiliteMjaNmoins5. *******/
+		boolean indiceFiabiliteMjaNmoins5Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributIndiceFiabiliteMjaNmoins5 = "indiceFiabiliteMjaNmoins5";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralIndiceFiabiliteMjaNmoins5 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitIndiceFiabiliteMjaNmoins5();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralIndiceFiabiliteMjaNmoins5) {
+			indiceFiabiliteMjaNmoins5Valide 
+				= this.validerIndiceFiabiliteMjaNmoins5(
+						pDto, attributIndiceFiabiliteMjaNmoins5, erreursMap);
+		} else {
+			indiceFiabiliteMjaNmoins5Valide = true;
+		}
+		
+		/* 109 - mjmNmoins1mois01. *******/
+		boolean mjmNmoins1mois01Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois01 = "mjmNmoins1mois01";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois01 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois01();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois01) {
+			mjmNmoins1mois01Valide 
+				= this.validerMjmNmoins1mois01(
+						pDto, attributMjmNmoins1mois01, erreursMap);
+		} else {
+			mjmNmoins1mois01Valide = true;
+		}
+		
+		/* 110 - pcNuitNmoins1mois01. *******/
+		boolean pcNuitNmoins1mois01Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois01 = "pcNuitNmoins1mois01";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois01 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois01();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois01) {
+			pcNuitNmoins1mois01Valide 
+				= this.validerPcNuitNmoins1mois01(
+						pDto, attributPcNuitNmoins1mois01, erreursMap);
+		} else {
+			pcNuitNmoins1mois01Valide = true;
+		}
+		
+		/* 111 - mjmNmoins1mois02. *******/
+		boolean mjmNmoins1mois02Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois02 = "mjmNmoins1mois02";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois02 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois02();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois02) {
+			mjmNmoins1mois02Valide 
+				= this.validerMjmNmoins1mois02(
+						pDto, attributMjmNmoins1mois02, erreursMap);
+		} else {
+			mjmNmoins1mois02Valide = true;
+		}
+		
+		/* 112 - pcNuitNmoins1mois02. *******/
+		boolean pcNuitNmoins1mois02Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois02 = "pcNuitNmoins1mois02";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois02 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois02();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois02) {
+			pcNuitNmoins1mois02Valide 
+				= this.validerPcNuitNmoins1mois02(
+						pDto, attributPcNuitNmoins1mois02, erreursMap);
+		} else {
+			pcNuitNmoins1mois02Valide = true;
+		}
+		
+		/* 113 - mjmNmoins1mois03. *******/
+		boolean mjmNmoins1mois03Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois03 = "mjmNmoins1mois03";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois03 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois03();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois03) {
+			mjmNmoins1mois03Valide 
+				= this.validerMjmNmoins1mois03(
+						pDto, attributMjmNmoins1mois03, erreursMap);
+		} else {
+			mjmNmoins1mois03Valide = true;
+		}
+		
+		/* 114 - pcNuitNmoins1mois03. *******/
+		boolean pcNuitNmoins1mois03Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois03 = "pcNuitNmoins1mois03";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois03 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois03();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois03) {
+			pcNuitNmoins1mois03Valide 
+				= this.validerPcNuitNmoins1mois03(
+						pDto, attributPcNuitNmoins1mois03, erreursMap);
+		} else {
+			pcNuitNmoins1mois03Valide = true;
+		}
+		
+		/* 115 - mjmNmoins1mois04. *******/
+		boolean mjmNmoins1mois04Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois04 = "mjmNmoins1mois04";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois04 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois04();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois04) {
+			mjmNmoins1mois04Valide 
+				= this.validerMjmNmoins1mois04(
+						pDto, attributMjmNmoins1mois04, erreursMap);
+		} else {
+			mjmNmoins1mois04Valide = true;
+		}
+		
+		/* 116 - pcNuitNmoins1mois04. *******/
+		boolean pcNuitNmoins1mois04Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois04 = "pcNuitNmoins1mois04";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois04 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois04();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois04) {
+			pcNuitNmoins1mois04Valide 
+				= this.validerPcNuitNmoins1mois04(
+						pDto, attributPcNuitNmoins1mois04, erreursMap);
+		} else {
+			pcNuitNmoins1mois04Valide = true;
+		}
+
+		
+		/* 117 - mjmNmoins1mois05. *******/
+		boolean mjmNmoins1mois05Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois05 = "mjmNmoins1mois05";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois05 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois05();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois05) {
+			mjmNmoins1mois05Valide 
+				= this.validerMjmNmoins1mois05(
+						pDto, attributMjmNmoins1mois05, erreursMap);
+		} else {
+			mjmNmoins1mois05Valide = true;
+		}
+		
+		/* 118 - pcNuitNmoins1mois05. *******/
+		boolean pcNuitNmoins1mois05Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois05 = "pcNuitNmoins1mois05";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois05 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois05();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois05) {
+			pcNuitNmoins1mois05Valide 
+				= this.validerPcNuitNmoins1mois05(
+						pDto, attributPcNuitNmoins1mois05, erreursMap);
+		} else {
+			pcNuitNmoins1mois05Valide = true;
+		}
+
+		
+		/* 119 - mjmNmoins1mois06. *******/
+		boolean mjmNmoins1mois06Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois06 = "mjmNmoins1mois06";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois06 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois06();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois06) {
+			mjmNmoins1mois06Valide 
+				= this.validerMjmNmoins1mois06(
+						pDto, attributMjmNmoins1mois06, erreursMap);
+		} else {
+			mjmNmoins1mois06Valide = true;
+		}
+		
+		/* 120 - pcNuitNmoins1mois06. *******/
+		boolean pcNuitNmoins1mois06Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois06 = "pcNuitNmoins1mois06";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois06 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois06();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois06) {
+			pcNuitNmoins1mois06Valide 
+				= this.validerPcNuitNmoins1mois06(
+						pDto, attributPcNuitNmoins1mois06, erreursMap);
+		} else {
+			pcNuitNmoins1mois06Valide = true;
+		}
+
+		
+		/* 121 - mjmNmoins1mois07. *******/
+		boolean mjmNmoins1mois07Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois07 = "mjmNmoins1mois07";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois07 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois07();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois07) {
+			mjmNmoins1mois07Valide 
+				= this.validerMjmNmoins1mois07(
+						pDto, attributMjmNmoins1mois07, erreursMap);
+		} else {
+			mjmNmoins1mois07Valide = true;
+		}
+		
+		/* 122 - pcNuitNmoins1mois07. *******/
+		boolean pcNuitNmoins1mois07Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois07 = "pcNuitNmoins1mois07";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois07 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois07();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois07) {
+			pcNuitNmoins1mois07Valide 
+				= this.validerPcNuitNmoins1mois07(
+						pDto, attributPcNuitNmoins1mois07, erreursMap);
+		} else {
+			pcNuitNmoins1mois07Valide = true;
+		}
+
+		
+		/* 123 - mjmNmoins1mois08. *******/
+		boolean mjmNmoins1mois08Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois08 = "mjmNmoins1mois08";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois08 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois08();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois08) {
+			mjmNmoins1mois08Valide 
+				= this.validerMjmNmoins1mois08(
+						pDto, attributMjmNmoins1mois08, erreursMap);
+		} else {
+			mjmNmoins1mois08Valide = true;
+		}
+		
+		/* 124 - pcNuitNmoins1mois08. *******/
+		boolean pcNuitNmoins1mois08Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois08 = "pcNuitNmoins1mois08";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois08 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois08();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois08) {
+			pcNuitNmoins1mois08Valide 
+				= this.validerPcNuitNmoins1mois08(
+						pDto, attributPcNuitNmoins1mois08, erreursMap);
+		} else {
+			pcNuitNmoins1mois08Valide = true;
+		}
+
+		
+		/* 125 - mjmNmoins1mois09. *******/
+		boolean mjmNmoins1mois09Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois09 = "mjmNmoins1mois09";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois09 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois09();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois09) {
+			mjmNmoins1mois09Valide 
+				= this.validerMjmNmoins1mois09(
+						pDto, attributMjmNmoins1mois09, erreursMap);
+		} else {
+			mjmNmoins1mois09Valide = true;
+		}
+		
+		/* 126 - pcNuitNmoins1mois09. *******/
+		boolean pcNuitNmoins1mois09Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois09 = "pcNuitNmoins1mois09";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois09 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois09();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois09) {
+			pcNuitNmoins1mois09Valide 
+				= this.validerPcNuitNmoins1mois09(
+						pDto, attributPcNuitNmoins1mois09, erreursMap);
+		} else {
+			pcNuitNmoins1mois09Valide = true;
+		}
+
+		
+		/* 127 - mjmNmoins1mois10. *******/
+		boolean mjmNmoins1mois10Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois10 = "mjmNmoins1mois10";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois10 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois10();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois10) {
+			mjmNmoins1mois10Valide 
+				= this.validerMjmNmoins1mois10(
+						pDto, attributMjmNmoins1mois10, erreursMap);
+		} else {
+			mjmNmoins1mois10Valide = true;
+		}
+		
+		/* 128 - pcNuitNmoins1mois10. *******/
+		boolean pcNuitNmoins1mois10Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois10 = "pcNuitNmoins1mois10";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois10 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois10();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois10) {
+			pcNuitNmoins1mois10Valide 
+				= this.validerPcNuitNmoins1mois10(
+						pDto, attributPcNuitNmoins1mois10, erreursMap);
+		} else {
+			pcNuitNmoins1mois10Valide = true;
+		}
+
+		
+		/* 129 - mjmNmoins1mois11. *******/
+		boolean mjmNmoins1mois11Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois11 = "mjmNmoins1mois11";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois11 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois11();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois11) {
+			mjmNmoins1mois11Valide 
+				= this.validerMjmNmoins1mois11(
+						pDto, attributMjmNmoins1mois11, erreursMap);
+		} else {
+			mjmNmoins1mois11Valide = true;
+		}
+		
+		/* 130 - pcNuitNmoins1mois11. *******/
+		boolean pcNuitNmoins1mois11Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois11 = "pcNuitNmoins1mois11";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois11 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois11();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois11) {
+			pcNuitNmoins1mois11Valide 
+				= this.validerPcNuitNmoins1mois11(
+						pDto, attributPcNuitNmoins1mois11, erreursMap);
+		} else {
+			pcNuitNmoins1mois11Valide = true;
+		}
+
+		
+		/* 131 - mjmNmoins1mois12. *******/
+		boolean mjmNmoins1mois12Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjmNmoins1mois12 = "mjmNmoins1mois12";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjmNmoins1mois12 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjmNmoins1mois12();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjmNmoins1mois12) {
+			mjmNmoins1mois12Valide 
+				= this.validerMjmNmoins1mois12(
+						pDto, attributMjmNmoins1mois12, erreursMap);
+		} else {
+			mjmNmoins1mois12Valide = true;
+		}
+		
+		/* 132 - pcNuitNmoins1mois12. *******/
+		boolean pcNuitNmoins1mois12Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitNmoins1mois12 = "pcNuitNmoins1mois12";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitNmoins1mois12 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitNmoins1mois12();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitNmoins1mois12) {
+			pcNuitNmoins1mois12Valide 
+				= this.validerPcNuitNmoins1mois12(
+						pDto, attributPcNuitNmoins1mois12, erreursMap);
+		} else {
+			pcNuitNmoins1mois12Valide = true;
+		}
+
+				
 		/* calcul de validité sur tous les attributs. */
 		valide = numDepartementValide 
 				&& numSectionValide 
@@ -2104,7 +3347,63 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				&& pcPLNmoins1Valide 
 				&& evaluationPLNmoins1Valide 
 				&& pcNuitAnnuelNmoins1Valide 
-				&& indiceFiabiliteMjaNmoins1Valide;
+				&& indiceFiabiliteMjaNmoins1Valide
+				&& anneeNmoins2Valide 
+				&& mjaNmoins2Valide 
+				&& typeComptageNmoins2Valide 
+				&& modeCalculNmoins2Valide 
+				&& pcPLNmoins2Valide 
+				&& evaluationPLNmoins2Valide 
+				&& pcNuitAnnuelNmoins2Valide 
+				&& indiceFiabiliteMjaNmoins2Valide 
+				&& anneeNmoins3Valide 
+				&& mjaNmoins3Valide 
+				&& typeComptageNmoins3Valide 
+				&& modeCalculNmoins3Valide 
+				&& pcPLNmoins3Valide 
+				&& evaluationPLNmoins3Valide 
+				&& pcNuitAnnuelNmoins3Valide 
+				&& indiceFiabiliteMjaNmoins3Valide 
+				&& anneeNmoins4Valide 
+				&& mjaNmoins4Valide 
+				&& typeComptageNmoins4Valide 
+				&& modeCalculNmoins4Valide 
+				&& pcPLNmoins4Valide 
+				&& evaluationPLNmoins4Valide 
+				&& pcNuitAnnuelNmoins4Valide 
+				&& indiceFiabiliteMjaNmoins4Valide 
+				&& anneeNmoins5Valide 
+				&& mjaNmoins5Valide 
+				&& typeComptageNmoins5Valide 
+				&& modeCalculNmoins5Valide 
+				&& pcPLNmoins5Valide 
+				&& evaluationPLNmoins5Valide 
+				&& pcNuitAnnuelNmoins5Valide 
+				&& indiceFiabiliteMjaNmoins5Valide				
+				&& mjmNmoins1mois01Valide 
+				&& pcNuitNmoins1mois01Valide
+				&& mjmNmoins1mois02Valide 
+				&& pcNuitNmoins1mois02Valide 
+				&& mjmNmoins1mois03Valide 
+				&& pcNuitNmoins1mois03Valide 
+				&& mjmNmoins1mois04Valide 
+				&& pcNuitNmoins1mois04Valide 
+				&& mjmNmoins1mois05Valide 
+				&& pcNuitNmoins1mois05Valide 
+				&& mjmNmoins1mois06Valide 
+				&& pcNuitNmoins1mois06Valide 
+				&& mjmNmoins1mois07Valide 
+				&& pcNuitNmoins1mois07Valide 
+				&& mjmNmoins1mois08Valide 
+				&& pcNuitNmoins1mois08Valide 
+				&& mjmNmoins1mois09Valide 
+				&& pcNuitNmoins1mois09Valide 
+				&& mjmNmoins1mois10Valide 
+				&& pcNuitNmoins1mois10Valide 
+				&& mjmNmoins1mois11Valide 
+				&& pcNuitNmoins1mois11Valide 
+				&& mjmNmoins1mois12Valide 
+				&& pcNuitNmoins1mois12Valide;
 		
 		erreursMap.setValide(valide);
 		
@@ -25064,6 +26363,17129 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		return true;
 		
 	} // Fin de validerRGSectionHitIndiceFiabiliteMjaNmoins1Regex02(...).__
+	
+	
+	
+	/* 77 - anneeNmoins2. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>anneeNmoins2</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerAnneeNmoins2(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurAnneeNmoins2Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeNmoins2Renseigne01();
+		
+		final Boolean interrupteurAnneeNmoins2Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeNmoins2Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurAnneeNmoins2Renseigne01) {
+			renseigne = this.validerRGSectionHitAnneeNmoins2Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurAnneeNmoins2Regex02) {
+				rg2 = this.validerRGSectionHitAnneeNmoins2Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerAnneeNmoins2(...).__________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>anneeNmoins2</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeNmoins2Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeNmoins2Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getAnneeNmoins2())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitAnneeNmoins2Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>anneeNmoins2</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{2}] qui signifie 
+	 * 'exactement 2 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeNmoins2Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeNmoins2Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getAnneeNmoins2();
+		
+		final String motif = "\\d{2}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitAnneeNmoins2Regex02(...)._______________
+	
+	
+	
+	/* 78 - mjaNmoins2. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjaNmoins2</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjaNmoins2(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjaNmoins2Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins2Renseigne01();
+		
+		final Boolean interrupteurMjaNmoins2Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins2Regex02();
+
+		final Boolean interrupteurMjaNmoins2Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins2Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjaNmoins2Renseigne01) {
+			renseigne = this.validerRGSectionHitMjaNmoins2Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaNmoins2Regex02) {
+				rg2 = this.validerRGSectionHitMjaNmoins2Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaNmoins2Numerique03) {
+				rg3 = this.validerRGSectionHitMjaNmoins2Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjaNmoins2(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjaNmoins2</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins2Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins2Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjaNmoins2())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjaNmoins2Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjaNmoins2</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins2Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins2Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaNmoins2();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaNmoins2Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjaNmoins2</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins2Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins2Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaNmoins2();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaNmoins2Numerique03(...)._____________
+	
+	
+	
+	/* 79 - typeComptageNmoins2. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>typeComptageNmoins2</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerTypeComptageNmoins2(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurTypeComptageNmoins2Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins2Renseigne01();
+		
+		final Boolean interrupteurTypeComptageNmoins2Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins2Regex02();
+		
+		final Boolean interrupteurTypeComptageNmoins2Nomenclature03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins2Nomenclature03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurTypeComptageNmoins2Renseigne01) {
+			renseigne = this.validerRGSectionHitTypeComptageNmoins2Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins2Regex02) {
+				rg2 = this.validerRGSectionHitTypeComptageNmoins2Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins2Nomenclature03) {
+				rg3 = this.validerRGSectionHitTypeComptageNmoins2Nomenclature03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerTypeComptageNmoins2(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>typeComptageNmoins2</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins2Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins2Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getTypeComptageNmoins2())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitTypeComptageNmoins2Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>typeComptageNmoins2</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{1}] qui signifie 
+	 * 'exactement 1 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins2Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins2Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins2();
+		
+		final String motif = "\\d{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins2Regex02(...).________
+
+	
+	
+	/**
+	 * valide la RG NOMENCLATURE pour 
+	 * l'attribut <b>typeComptageNmoins2</b>.<br/>
+	 * <ul>
+	 * <li>retourne false si la valeur à contrôler n'est pas homogène 
+	 * à un entier.</li>
+	 * <li>récupère le Set des valeurs possibles auprès de la 
+	 * FactoryNomenclature (<code><b>
+	 * FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins2()</b></code>).</li>
+	 * <li>retourne false si la valeur à contrôler n'appartient 
+	 * pas à la nomenclature.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins2Nomenclature03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins2Nomenclature03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins2();
+		Integer valeurAControlerInteger = null;
+		
+		try {
+			valeurAControlerInteger = Integer.valueOf(valeurAControler);
+		} catch (Exception e) {
+			valeurAControlerInteger = null;
+		}
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'est pas homogène à un entier. */
+		if (valeurAControlerInteger == null) {
+			return false;
+		}
+		
+		/* récupère le Set des valeurs possibles auprès de la 
+		 * FactoryNomenclature. */
+		final Set<Integer> setClesPossibles 
+			= FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins2();
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'appartient pas à la nomenclature. */
+		if (!setClesPossibles.contains(valeurAControlerInteger)) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins2Nomenclature03(...)._
+	
+	
+	
+	/* 80 - modeCalculNmoins2. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>modeCalculNmoins2</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerModeCalculNmoins2(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurModeCalculNmoins2Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculNmoins2Renseigne01();
+		
+		final Boolean interrupteurModeCalculNmoins2Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculNmoins2Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurModeCalculNmoins2Renseigne01) {
+			renseigne = this.validerRGSectionHitModeCalculNmoins2Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurModeCalculNmoins2Regex02) {
+				rg2 = this.validerRGSectionHitModeCalculNmoins2Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerModeCalculNmoins2(...)._____________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>modeCalculNmoins2</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculNmoins2Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculNmoins2Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getModeCalculNmoins2() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitModeCalculNmoins2Renseigne01(...).______
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>modeCalculNmoins2</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculNmoins2Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculNmoins2Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getModeCalculNmoins2();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitModeCalculNmoins2Regex02(...).__________
+	
+	
+	
+	/* 81 - pcPLNmoins2. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcPLNmoins2</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcPLNmoins2(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcPLNmoins2Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins2Renseigne01();
+		
+		final Boolean interrupteurPcPLNmoins2Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins2Regex02();
+
+		final Boolean interrupteurPcPLNmoins2Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins2Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcPLNmoins2Renseigne01) {
+			renseigne = this.validerRGSectionHitPcPLNmoins2Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLNmoins2Regex02) {
+				rg2 = this.validerRGSectionHitPcPLNmoins2Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLNmoins2Numerique03) {
+				rg3 = this.validerRGSectionHitPcPLNmoins2Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcPLNmoins2(...).___________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcPLNmoins2</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins2Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins2Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcPLNmoins2())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcPLNmoins2Renseigne01(...).____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcPLNmoins2</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins2Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins2Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLNmoins2();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLNmoins2Regex02(...).________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcPLNmoins2</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins2Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins2Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLNmoins2();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLNmoins2Numerique03(...).____________
+	
+	
+	
+	/* 82 - evaluationPLNmoins2. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>evaluationPLNmoins2</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerEvaluationPLNmoins2(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurEvaluationPLNmoins2Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLNmoins2Renseigne01();
+		
+		final Boolean interrupteurEvaluationPLNmoins2Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLNmoins2Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurEvaluationPLNmoins2Renseigne01) {
+			renseigne = this.validerRGSectionHitEvaluationPLNmoins2Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurEvaluationPLNmoins2Regex02) {
+				rg2 = this.validerRGSectionHitEvaluationPLNmoins2Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerEvaluationPLNmoins2(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>evaluationPLNmoins2</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLNmoins2Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLNmoins2Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getEvaluationPLNmoins2() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitEvaluationPLNmoins2Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>evaluationPLNmoins2</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLNmoins2Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLNmoins2Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getEvaluationPLNmoins2();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitEvaluationPLNmoins2Regex02(...).________
+	
+	
+	
+	/* 83 - pcNuitAnnuelNmoins2. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitAnnuelNmoins2</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitAnnuelNmoins2(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitAnnuelNmoins2Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins2Renseigne01();
+		
+		final Boolean interrupteurPcNuitAnnuelNmoins2Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins2Regex02();
+
+		final Boolean interrupteurPcNuitAnnuelNmoins2Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins2Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitAnnuelNmoins2Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins2Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelNmoins2Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins2Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelNmoins2Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins2Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitAnnuelNmoins2(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitAnnuelNmoins2</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins2Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins2Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitAnnuelNmoins2())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins2Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitAnnuelNmoins2</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins2Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins2Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelNmoins2();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins2Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitAnnuelNmoins2</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins2Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins2Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelNmoins2();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins2Numerique03(...).__________
+	
+	
+	
+	/* 84 - indiceFiabiliteMjaNmoins2. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>indiceFiabiliteMjaNmoins2</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerIndiceFiabiliteMjaNmoins2(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurIndiceFiabiliteMjaNmoins2Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01();
+		
+		final Boolean interrupteurIndiceFiabiliteMjaNmoins2Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins2Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurIndiceFiabiliteMjaNmoins2Renseigne01) {
+			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurIndiceFiabiliteMjaNmoins2Regex02) {
+				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins2Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerIndiceFiabiliteMjaNmoins2(...)._____________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>indiceFiabiliteMjaNmoins2</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaNmoins2Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getIndiceFiabiliteMjaNmoins2() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01(...).
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>indiceFiabiliteMjaNmoins2</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaNmoins2</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaNmoins2Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaNmoins2Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getIndiceFiabiliteMjaNmoins2();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaNmoins2Regex02(...).__
+
+	
+	
+	
+	/* 85 - anneeNmoins3. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>anneeNmoins3</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerAnneeNmoins3(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurAnneeNmoins3Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeNmoins3Renseigne01();
+		
+		final Boolean interrupteurAnneeNmoins3Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeNmoins3Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurAnneeNmoins3Renseigne01) {
+			renseigne = this.validerRGSectionHitAnneeNmoins3Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurAnneeNmoins3Regex02) {
+				rg2 = this.validerRGSectionHitAnneeNmoins3Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerAnneeNmoins3(...).__________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>anneeNmoins3</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeNmoins3Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeNmoins3Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getAnneeNmoins3())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitAnneeNmoins3Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>anneeNmoins3</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{2}] qui signifie 
+	 * 'exactement 2 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeNmoins3Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeNmoins3Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getAnneeNmoins3();
+		
+		final String motif = "\\d{2}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitAnneeNmoins3Regex02(...)._______________
+	
+	
+	
+	/* 86 - mjaNmoins3. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjaNmoins3</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjaNmoins3(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjaNmoins3Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins3Renseigne01();
+		
+		final Boolean interrupteurMjaNmoins3Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins3Regex02();
+
+		final Boolean interrupteurMjaNmoins3Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins3Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjaNmoins3Renseigne01) {
+			renseigne = this.validerRGSectionHitMjaNmoins3Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaNmoins3Regex02) {
+				rg2 = this.validerRGSectionHitMjaNmoins3Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaNmoins3Numerique03) {
+				rg3 = this.validerRGSectionHitMjaNmoins3Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjaNmoins3(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjaNmoins3</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins3Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins3Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjaNmoins3())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjaNmoins3Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjaNmoins3</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins3Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins3Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaNmoins3();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaNmoins3Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjaNmoins3</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins3Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins3Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaNmoins3();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaNmoins3Numerique03(...)._____________
+	
+	
+	
+	/* 87 - typeComptageNmoins3. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>typeComptageNmoins3</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerTypeComptageNmoins3(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurTypeComptageNmoins3Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins3Renseigne01();
+		
+		final Boolean interrupteurTypeComptageNmoins3Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins3Regex02();
+		
+		final Boolean interrupteurTypeComptageNmoins3Nomenclature03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins3Nomenclature03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurTypeComptageNmoins3Renseigne01) {
+			renseigne = this.validerRGSectionHitTypeComptageNmoins3Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins3Regex02) {
+				rg2 = this.validerRGSectionHitTypeComptageNmoins3Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins3Nomenclature03) {
+				rg3 = this.validerRGSectionHitTypeComptageNmoins3Nomenclature03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerTypeComptageNmoins3(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>typeComptageNmoins3</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins3Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins3Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getTypeComptageNmoins3())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitTypeComptageNmoins3Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>typeComptageNmoins3</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{1}] qui signifie 
+	 * 'exactement 1 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins3Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins3Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins3();
+		
+		final String motif = "\\d{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins3Regex02(...).________
+
+	
+	
+	/**
+	 * valide la RG NOMENCLATURE pour 
+	 * l'attribut <b>typeComptageNmoins3</b>.<br/>
+	 * <ul>
+	 * <li>retourne false si la valeur à contrôler n'est pas homogène 
+	 * à un entier.</li>
+	 * <li>récupère le Set des valeurs possibles auprès de la 
+	 * FactoryNomenclature (<code><b>
+	 * FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins3()</b></code>).</li>
+	 * <li>retourne false si la valeur à contrôler n'appartient 
+	 * pas à la nomenclature.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins3Nomenclature03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins3Nomenclature03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins3();
+		Integer valeurAControlerInteger = null;
+		
+		try {
+			valeurAControlerInteger = Integer.valueOf(valeurAControler);
+		} catch (Exception e) {
+			valeurAControlerInteger = null;
+		}
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'est pas homogène à un entier. */
+		if (valeurAControlerInteger == null) {
+			return false;
+		}
+		
+		/* récupère le Set des valeurs possibles auprès de la 
+		 * FactoryNomenclature. */
+		final Set<Integer> setClesPossibles 
+			= FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins3();
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'appartient pas à la nomenclature. */
+		if (!setClesPossibles.contains(valeurAControlerInteger)) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins3Nomenclature03(...)._
+	
+	
+	
+	/* 88 - modeCalculNmoins3. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>modeCalculNmoins3</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerModeCalculNmoins3(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurModeCalculNmoins3Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculNmoins3Renseigne01();
+		
+		final Boolean interrupteurModeCalculNmoins3Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculNmoins3Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurModeCalculNmoins3Renseigne01) {
+			renseigne = this.validerRGSectionHitModeCalculNmoins3Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurModeCalculNmoins3Regex02) {
+				rg2 = this.validerRGSectionHitModeCalculNmoins3Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerModeCalculNmoins3(...)._____________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>modeCalculNmoins3</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculNmoins3Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculNmoins3Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getModeCalculNmoins3() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitModeCalculNmoins3Renseigne01(...).______
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>modeCalculNmoins3</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculNmoins3Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculNmoins3Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getModeCalculNmoins3();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitModeCalculNmoins3Regex02(...).__________
+	
+	
+	
+	/* 89 - pcPLNmoins3. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcPLNmoins3</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcPLNmoins3(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcPLNmoins3Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins3Renseigne01();
+		
+		final Boolean interrupteurPcPLNmoins3Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins3Regex02();
+
+		final Boolean interrupteurPcPLNmoins3Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins3Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcPLNmoins3Renseigne01) {
+			renseigne = this.validerRGSectionHitPcPLNmoins3Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLNmoins3Regex02) {
+				rg2 = this.validerRGSectionHitPcPLNmoins3Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLNmoins3Numerique03) {
+				rg3 = this.validerRGSectionHitPcPLNmoins3Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcPLNmoins3(...).___________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcPLNmoins3</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins3Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins3Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcPLNmoins3())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcPLNmoins3Renseigne01(...).____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcPLNmoins3</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins3Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins3Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLNmoins3();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLNmoins3Regex02(...).________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcPLNmoins3</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins3Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins3Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLNmoins3();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLNmoins3Numerique03(...).____________
+	
+	
+	
+	/* 90 - evaluationPLNmoins3. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>evaluationPLNmoins3</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerEvaluationPLNmoins3(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurEvaluationPLNmoins3Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLNmoins3Renseigne01();
+		
+		final Boolean interrupteurEvaluationPLNmoins3Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLNmoins3Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurEvaluationPLNmoins3Renseigne01) {
+			renseigne = this.validerRGSectionHitEvaluationPLNmoins3Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurEvaluationPLNmoins3Regex02) {
+				rg2 = this.validerRGSectionHitEvaluationPLNmoins3Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerEvaluationPLNmoins3(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>evaluationPLNmoins3</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLNmoins3Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLNmoins3Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getEvaluationPLNmoins3() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitEvaluationPLNmoins3Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>evaluationPLNmoins3</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLNmoins3Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLNmoins3Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getEvaluationPLNmoins3();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitEvaluationPLNmoins3Regex02(...).________
+	
+	
+	
+	/* 91 - pcNuitAnnuelNmoins3. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitAnnuelNmoins3</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitAnnuelNmoins3(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitAnnuelNmoins3Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins3Renseigne01();
+		
+		final Boolean interrupteurPcNuitAnnuelNmoins3Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins3Regex02();
+
+		final Boolean interrupteurPcNuitAnnuelNmoins3Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins3Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitAnnuelNmoins3Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins3Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelNmoins3Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins3Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelNmoins3Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins3Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitAnnuelNmoins3(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitAnnuelNmoins3</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins3Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins3Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitAnnuelNmoins3())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins3Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitAnnuelNmoins3</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins3Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins3Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelNmoins3();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins3Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitAnnuelNmoins3</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins3Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins3Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelNmoins3();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins3Numerique03(...).__________
+	
+	
+	
+	/* 92 - indiceFiabiliteMjaNmoins3. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>indiceFiabiliteMjaNmoins3</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerIndiceFiabiliteMjaNmoins3(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurIndiceFiabiliteMjaNmoins3Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01();
+		
+		final Boolean interrupteurIndiceFiabiliteMjaNmoins3Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins3Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurIndiceFiabiliteMjaNmoins3Renseigne01) {
+			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurIndiceFiabiliteMjaNmoins3Regex02) {
+				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins3Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerIndiceFiabiliteMjaNmoins3(...)._____________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>indiceFiabiliteMjaNmoins3</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaNmoins3Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getIndiceFiabiliteMjaNmoins3() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01(...).
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>indiceFiabiliteMjaNmoins3</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaNmoins3</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaNmoins3Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaNmoins3Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getIndiceFiabiliteMjaNmoins3();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaNmoins3Regex02(...).__
+
+	
+	
+	
+	/* 93 - anneeNmoins4. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>anneeNmoins4</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerAnneeNmoins4(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurAnneeNmoins4Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeNmoins4Renseigne01();
+		
+		final Boolean interrupteurAnneeNmoins4Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeNmoins4Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurAnneeNmoins4Renseigne01) {
+			renseigne = this.validerRGSectionHitAnneeNmoins4Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurAnneeNmoins4Regex02) {
+				rg2 = this.validerRGSectionHitAnneeNmoins4Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerAnneeNmoins4(...).__________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>anneeNmoins4</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeNmoins4Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeNmoins4Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getAnneeNmoins4())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitAnneeNmoins4Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>anneeNmoins4</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{2}] qui signifie 
+	 * 'exactement 2 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeNmoins4Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeNmoins4Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getAnneeNmoins4();
+		
+		final String motif = "\\d{2}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitAnneeNmoins4Regex02(...)._______________
+	
+	
+	
+	/* 94 - mjaNmoins4. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjaNmoins4</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjaNmoins4(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjaNmoins4Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins4Renseigne01();
+		
+		final Boolean interrupteurMjaNmoins4Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins4Regex02();
+
+		final Boolean interrupteurMjaNmoins4Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins4Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjaNmoins4Renseigne01) {
+			renseigne = this.validerRGSectionHitMjaNmoins4Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaNmoins4Regex02) {
+				rg2 = this.validerRGSectionHitMjaNmoins4Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaNmoins4Numerique03) {
+				rg3 = this.validerRGSectionHitMjaNmoins4Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjaNmoins4(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjaNmoins4</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins4Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins4Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjaNmoins4())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjaNmoins4Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjaNmoins4</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins4Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins4Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaNmoins4();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaNmoins4Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjaNmoins4</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins4Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins4Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaNmoins4();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaNmoins4Numerique03(...)._____________
+	
+	
+	
+	/* 95 - typeComptageNmoins4. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>typeComptageNmoins4</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerTypeComptageNmoins4(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurTypeComptageNmoins4Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins4Renseigne01();
+		
+		final Boolean interrupteurTypeComptageNmoins4Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins4Regex02();
+		
+		final Boolean interrupteurTypeComptageNmoins4Nomenclature03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins4Nomenclature03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurTypeComptageNmoins4Renseigne01) {
+			renseigne = this.validerRGSectionHitTypeComptageNmoins4Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins4Regex02) {
+				rg2 = this.validerRGSectionHitTypeComptageNmoins4Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins4Nomenclature03) {
+				rg3 = this.validerRGSectionHitTypeComptageNmoins4Nomenclature03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerTypeComptageNmoins4(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>typeComptageNmoins4</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins4Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins4Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getTypeComptageNmoins4())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitTypeComptageNmoins4Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>typeComptageNmoins4</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{1}] qui signifie 
+	 * 'exactement 1 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins4Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins4Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins4();
+		
+		final String motif = "\\d{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins4Regex02(...).________
+
+	
+	
+	/**
+	 * valide la RG NOMENCLATURE pour 
+	 * l'attribut <b>typeComptageNmoins4</b>.<br/>
+	 * <ul>
+	 * <li>retourne false si la valeur à contrôler n'est pas homogène 
+	 * à un entier.</li>
+	 * <li>récupère le Set des valeurs possibles auprès de la 
+	 * FactoryNomenclature (<code><b>
+	 * FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins4()</b></code>).</li>
+	 * <li>retourne false si la valeur à contrôler n'appartient 
+	 * pas à la nomenclature.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins4Nomenclature03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins4Nomenclature03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins4();
+		Integer valeurAControlerInteger = null;
+		
+		try {
+			valeurAControlerInteger = Integer.valueOf(valeurAControler);
+		} catch (Exception e) {
+			valeurAControlerInteger = null;
+		}
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'est pas homogène à un entier. */
+		if (valeurAControlerInteger == null) {
+			return false;
+		}
+		
+		/* récupère le Set des valeurs possibles auprès de la 
+		 * FactoryNomenclature. */
+		final Set<Integer> setClesPossibles 
+			= FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins4();
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'appartient pas à la nomenclature. */
+		if (!setClesPossibles.contains(valeurAControlerInteger)) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins4Nomenclature03(...)._
+	
+	
+	
+	/* 96 - modeCalculNmoins4. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>modeCalculNmoins4</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerModeCalculNmoins4(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurModeCalculNmoins4Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculNmoins4Renseigne01();
+		
+		final Boolean interrupteurModeCalculNmoins4Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculNmoins4Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurModeCalculNmoins4Renseigne01) {
+			renseigne = this.validerRGSectionHitModeCalculNmoins4Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurModeCalculNmoins4Regex02) {
+				rg2 = this.validerRGSectionHitModeCalculNmoins4Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerModeCalculNmoins4(...)._____________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>modeCalculNmoins4</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculNmoins4Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculNmoins4Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getModeCalculNmoins4() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitModeCalculNmoins4Renseigne01(...).______
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>modeCalculNmoins4</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculNmoins4Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculNmoins4Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getModeCalculNmoins4();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitModeCalculNmoins4Regex02(...).__________
+	
+	
+	
+	/* 97 - pcPLNmoins4. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcPLNmoins4</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcPLNmoins4(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcPLNmoins4Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins4Renseigne01();
+		
+		final Boolean interrupteurPcPLNmoins4Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins4Regex02();
+
+		final Boolean interrupteurPcPLNmoins4Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins4Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcPLNmoins4Renseigne01) {
+			renseigne = this.validerRGSectionHitPcPLNmoins4Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLNmoins4Regex02) {
+				rg2 = this.validerRGSectionHitPcPLNmoins4Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLNmoins4Numerique03) {
+				rg3 = this.validerRGSectionHitPcPLNmoins4Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcPLNmoins4(...).___________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcPLNmoins4</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins4Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins4Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcPLNmoins4())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcPLNmoins4Renseigne01(...).____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcPLNmoins4</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins4Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins4Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLNmoins4();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLNmoins4Regex02(...).________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcPLNmoins4</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins4Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins4Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLNmoins4();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLNmoins4Numerique03(...).____________
+	
+	
+	
+	/* 98 - evaluationPLNmoins4. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>evaluationPLNmoins4</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerEvaluationPLNmoins4(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurEvaluationPLNmoins4Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLNmoins4Renseigne01();
+		
+		final Boolean interrupteurEvaluationPLNmoins4Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLNmoins4Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurEvaluationPLNmoins4Renseigne01) {
+			renseigne = this.validerRGSectionHitEvaluationPLNmoins4Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurEvaluationPLNmoins4Regex02) {
+				rg2 = this.validerRGSectionHitEvaluationPLNmoins4Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerEvaluationPLNmoins4(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>evaluationPLNmoins4</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLNmoins4Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLNmoins4Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getEvaluationPLNmoins4() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitEvaluationPLNmoins4Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>evaluationPLNmoins4</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLNmoins4Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLNmoins4Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getEvaluationPLNmoins4();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitEvaluationPLNmoins4Regex02(...).________
+	
+	
+	
+	/* 99 - pcNuitAnnuelNmoins4. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitAnnuelNmoins4</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitAnnuelNmoins4(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitAnnuelNmoins4Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins4Renseigne01();
+		
+		final Boolean interrupteurPcNuitAnnuelNmoins4Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins4Regex02();
+
+		final Boolean interrupteurPcNuitAnnuelNmoins4Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins4Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitAnnuelNmoins4Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins4Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelNmoins4Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins4Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelNmoins4Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins4Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitAnnuelNmoins4(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitAnnuelNmoins4</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins4Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins4Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitAnnuelNmoins4())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins4Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitAnnuelNmoins4</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins4Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins4Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelNmoins4();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins4Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitAnnuelNmoins4</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins4Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins4Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelNmoins4();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins4Numerique03(...).__________
+	
+	
+	
+	/* 100 - indiceFiabiliteMjaNmoins4. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>indiceFiabiliteMjaNmoins4</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerIndiceFiabiliteMjaNmoins4(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurIndiceFiabiliteMjaNmoins4Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01();
+		
+		final Boolean interrupteurIndiceFiabiliteMjaNmoins4Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins4Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurIndiceFiabiliteMjaNmoins4Renseigne01) {
+			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurIndiceFiabiliteMjaNmoins4Regex02) {
+				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins4Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerIndiceFiabiliteMjaNmoins4(...)._____________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>indiceFiabiliteMjaNmoins4</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaNmoins4Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getIndiceFiabiliteMjaNmoins4() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01(...).
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>indiceFiabiliteMjaNmoins4</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaNmoins4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaNmoins4Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaNmoins4Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getIndiceFiabiliteMjaNmoins4();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaNmoins4Regex02(...).__
+
+	
+	
+	
+	/* 101 - anneeNmoins5. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>anneeNmoins5</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerAnneeNmoins5(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurAnneeNmoins5Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeNmoins5Renseigne01();
+		
+		final Boolean interrupteurAnneeNmoins5Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeNmoins5Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurAnneeNmoins5Renseigne01) {
+			renseigne = this.validerRGSectionHitAnneeNmoins5Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurAnneeNmoins5Regex02) {
+				rg2 = this.validerRGSectionHitAnneeNmoins5Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerAnneeNmoins5(...).__________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>anneeNmoins5</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeNmoins5Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeNmoins5Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getAnneeNmoins5())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitAnneeNmoins5Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>anneeNmoins5</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{2}] qui signifie 
+	 * 'exactement 2 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeNmoins5Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeNmoins5Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getAnneeNmoins5();
+		
+		final String motif = "\\d{2}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitAnneeNmoins5Regex02(...)._______________
+	
+	
+	
+	/* 102 - mjaNmoins5. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjaNmoins5</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjaNmoins5(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjaNmoins5Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins5Renseigne01();
+		
+		final Boolean interrupteurMjaNmoins5Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins5Regex02();
+
+		final Boolean interrupteurMjaNmoins5Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaNmoins5Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjaNmoins5Renseigne01) {
+			renseigne = this.validerRGSectionHitMjaNmoins5Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaNmoins5Regex02) {
+				rg2 = this.validerRGSectionHitMjaNmoins5Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaNmoins5Numerique03) {
+				rg3 = this.validerRGSectionHitMjaNmoins5Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjaNmoins5(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjaNmoins5</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins5Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins5Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjaNmoins5())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjaNmoins5Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjaNmoins5</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins5Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins5Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaNmoins5();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaNmoins5Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjaNmoins5</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaNmoins5Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaNmoins5Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaNmoins5();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaNmoins5Numerique03(...)._____________
+	
+	
+	
+	/* 103 - typeComptageNmoins5. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>typeComptageNmoins5</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerTypeComptageNmoins5(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurTypeComptageNmoins5Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins5Renseigne01();
+		
+		final Boolean interrupteurTypeComptageNmoins5Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins5Regex02();
+		
+		final Boolean interrupteurTypeComptageNmoins5Nomenclature03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageNmoins5Nomenclature03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurTypeComptageNmoins5Renseigne01) {
+			renseigne = this.validerRGSectionHitTypeComptageNmoins5Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins5Regex02) {
+				rg2 = this.validerRGSectionHitTypeComptageNmoins5Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageNmoins5Nomenclature03) {
+				rg3 = this.validerRGSectionHitTypeComptageNmoins5Nomenclature03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerTypeComptageNmoins5(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>typeComptageNmoins5</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins5Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins5Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getTypeComptageNmoins5())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitTypeComptageNmoins5Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>typeComptageNmoins5</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{1}] qui signifie 
+	 * 'exactement 1 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins5Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins5Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins5();
+		
+		final String motif = "\\d{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins5Regex02(...).________
+
+	
+	
+	/**
+	 * valide la RG NOMENCLATURE pour 
+	 * l'attribut <b>typeComptageNmoins5</b>.<br/>
+	 * <ul>
+	 * <li>retourne false si la valeur à contrôler n'est pas homogène 
+	 * à un entier.</li>
+	 * <li>récupère le Set des valeurs possibles auprès de la 
+	 * FactoryNomenclature (<code><b>
+	 * FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins5()</b></code>).</li>
+	 * <li>retourne false si la valeur à contrôler n'appartient 
+	 * pas à la nomenclature.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageNmoins5Nomenclature03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageNmoins5Nomenclature03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageNmoins5();
+		Integer valeurAControlerInteger = null;
+		
+		try {
+			valeurAControlerInteger = Integer.valueOf(valeurAControler);
+		} catch (Exception e) {
+			valeurAControlerInteger = null;
+		}
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'est pas homogène à un entier. */
+		if (valeurAControlerInteger == null) {
+			return false;
+		}
+		
+		/* récupère le Set des valeurs possibles auprès de la 
+		 * FactoryNomenclature. */
+		final Set<Integer> setClesPossibles 
+			= FactoryNomenclatureHit.getSetClesPossiblesTypeComptageNmoins5();
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'appartient pas à la nomenclature. */
+		if (!setClesPossibles.contains(valeurAControlerInteger)) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageNmoins5Nomenclature03(...)._
+	
+	
+	
+	/* 104 - modeCalculNmoins5. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>modeCalculNmoins5</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerModeCalculNmoins5(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurModeCalculNmoins5Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculNmoins5Renseigne01();
+		
+		final Boolean interrupteurModeCalculNmoins5Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculNmoins5Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurModeCalculNmoins5Renseigne01) {
+			renseigne = this.validerRGSectionHitModeCalculNmoins5Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurModeCalculNmoins5Regex02) {
+				rg2 = this.validerRGSectionHitModeCalculNmoins5Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerModeCalculNmoins5(...)._____________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>modeCalculNmoins5</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculNmoins5Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculNmoins5Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getModeCalculNmoins5() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitModeCalculNmoins5Renseigne01(...).______
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>modeCalculNmoins5</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculNmoins5Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculNmoins5Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getModeCalculNmoins5();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitModeCalculNmoins5Regex02(...).__________
+	
+	
+	
+	/* 105 - pcPLNmoins5. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcPLNmoins5</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcPLNmoins5(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcPLNmoins5Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins5Renseigne01();
+		
+		final Boolean interrupteurPcPLNmoins5Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins5Regex02();
+
+		final Boolean interrupteurPcPLNmoins5Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLNmoins5Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcPLNmoins5Renseigne01) {
+			renseigne = this.validerRGSectionHitPcPLNmoins5Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLNmoins5Regex02) {
+				rg2 = this.validerRGSectionHitPcPLNmoins5Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLNmoins5Numerique03) {
+				rg3 = this.validerRGSectionHitPcPLNmoins5Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcPLNmoins5(...).___________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcPLNmoins5</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins5Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins5Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcPLNmoins5())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcPLNmoins5Renseigne01(...).____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcPLNmoins5</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins5Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins5Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLNmoins5();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLNmoins5Regex02(...).________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcPLNmoins5</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLNmoins5Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLNmoins5Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLNmoins5();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLNmoins5Numerique03(...).____________
+	
+	
+	
+	/* 106 - evaluationPLNmoins5. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>evaluationPLNmoins5</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerEvaluationPLNmoins5(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurEvaluationPLNmoins5Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLNmoins5Renseigne01();
+		
+		final Boolean interrupteurEvaluationPLNmoins5Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLNmoins5Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurEvaluationPLNmoins5Renseigne01) {
+			renseigne = this.validerRGSectionHitEvaluationPLNmoins5Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurEvaluationPLNmoins5Regex02) {
+				rg2 = this.validerRGSectionHitEvaluationPLNmoins5Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerEvaluationPLNmoins5(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>evaluationPLNmoins5</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLNmoins5Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLNmoins5Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getEvaluationPLNmoins5() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitEvaluationPLNmoins5Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>evaluationPLNmoins5</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLNmoins5Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLNmoins5Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getEvaluationPLNmoins5();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitEvaluationPLNmoins5Regex02(...).________
+	
+	
+	
+	/* 107 - pcNuitAnnuelNmoins5. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitAnnuelNmoins5</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitAnnuelNmoins5(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitAnnuelNmoins5Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins5Renseigne01();
+		
+		final Boolean interrupteurPcNuitAnnuelNmoins5Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins5Regex02();
+
+		final Boolean interrupteurPcNuitAnnuelNmoins5Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelNmoins5Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitAnnuelNmoins5Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins5Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelNmoins5Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins5Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelNmoins5Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins5Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitAnnuelNmoins5(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitAnnuelNmoins5</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins5Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins5Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitAnnuelNmoins5())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins5Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitAnnuelNmoins5</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins5Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins5Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelNmoins5();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins5Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitAnnuelNmoins5</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelNmoins5Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelNmoins5Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelNmoins5();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelNmoins5Numerique03(...).__________
+	
+	
+	
+	/* 108 - indiceFiabiliteMjaNmoins5. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>indiceFiabiliteMjaNmoins5</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerIndiceFiabiliteMjaNmoins5(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurIndiceFiabiliteMjaNmoins5Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01();
+		
+		final Boolean interrupteurIndiceFiabiliteMjaNmoins5Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins5Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurIndiceFiabiliteMjaNmoins5Renseigne01) {
+			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurIndiceFiabiliteMjaNmoins5Regex02) {
+				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins5Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerIndiceFiabiliteMjaNmoins5(...)._____________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>indiceFiabiliteMjaNmoins5</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaNmoins5Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getIndiceFiabiliteMjaNmoins5() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01(...).
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>indiceFiabiliteMjaNmoins5</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaNmoins5</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaNmoins5Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaNmoins5Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getIndiceFiabiliteMjaNmoins5();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaNmoins5Regex02(...).__
+	
+	
+	
+	/* 109 - mjmNmoins1mois01. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois01</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois01(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois01Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois01Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois01Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois01Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois01Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois01Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois01Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois01Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois01Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois01Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois01(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois01</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois01</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois01Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois01Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois01())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois01Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois01</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois01</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois01Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois01Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois01();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois01Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois01</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois01</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois01Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois01Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois01();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois01Numerique03(...)._____________	
+	
+	
+	
+	/* 110 - pcNuitNmoins1mois01. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois01</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois01(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois01Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois01Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois01Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois01Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois01Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois01Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois01Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois01Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois01Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois01Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois01(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois01</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois01</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois01Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois01Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois01())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois01Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois01</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois01</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois01Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois01Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois01();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois01Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois01</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois01</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois01Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois01Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois01();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois01Numerique03(...).__________
+	
+	
+	
+	/* 111 - mjmNmoins1mois02. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois02</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois02(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois02Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois02Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois02Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois02Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois02Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois02Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois02Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois02Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois02Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois02Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois02(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois02</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois02</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois02Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois02Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois02())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois02Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois02</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois02</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois02Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois02Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois02();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois02Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois02</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois02</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois02Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois02Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois02();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois02Numerique03(...)._____________	
+	
+	
+	
+	/* 112 - pcNuitNmoins1mois02. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois02</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois02(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois02Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois02Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois02Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois02Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois02Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois02Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois02Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois02Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois02Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois02Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois02(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois02</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois02</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois02Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois02Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois02())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois02Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois02</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois02</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois02Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois02Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois02();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois02Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois02</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois02</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois02Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois02Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois02();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois02Numerique03(...).__________
+	
+	
+	
+	/* 113 - mjmNmoins1mois03. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois03</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois03(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois03Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois03Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois03Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois03Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois03Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois03Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois03Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois03Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois03Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois03Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois03(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois03</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois03</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois03Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois03Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois03())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois03Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois03</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois03</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois03Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois03Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois03();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois03Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois03</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois03</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois03Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois03Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois03();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois03Numerique03(...)._____________	
+	
+	
+	
+	/* 114 - pcNuitNmoins1mois03. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois03</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois03(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois03Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois03Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois03Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois03Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois03Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois03Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois03Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois03Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois03Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois03Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois03(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois03</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois03</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois03Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois03Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois03())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois03Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois03</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois03</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois03Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois03Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois03();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois03Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois03</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois03</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois03Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois03Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois03();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois03Numerique03(...).__________
+	
+	
+	
+	/* 115 - mjmNmoins1mois04. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois04</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois04(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois04Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois04Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois04Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois04Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois04Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois04Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois04Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois04Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois04Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois04Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois04(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois04</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois04</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois04Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois04Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois04())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois04Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois04</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois04</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois04Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois04Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois04();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois04Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois04</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois04</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois04Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois04Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois04();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois04Numerique03(...)._____________	
+	
+	
+	
+	/* 116 - pcNuitNmoins1mois04. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois04</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois04(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois04Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois04Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois04Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois04Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois04Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois04Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois04Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois04Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois04Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois04Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois04(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois04</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois04</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois04Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois04Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois04())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois04Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois04</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois04</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois04Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois04Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois04();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois04Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois04</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois04</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois04Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois04Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois04();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois04Numerique03(...).__________
+
+	
+	
+	
+	/* 117 - mjmNmoins1mois05. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois05</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois05(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois05Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois05Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois05Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois05Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois05Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois05Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois05Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois05Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois05Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois05Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois05(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois05</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois05</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois05Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois05Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois05())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois05Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois05</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois05</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois05Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois05Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois05();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois05Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois05</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois05</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois05Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois05Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois05();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois05Numerique03(...)._____________	
+	
+	
+	
+	/* 118 - pcNuitNmoins1mois05. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois05</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois05(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois05Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois05Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois05Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois05Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois05Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois05Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois05Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois05Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois05Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois05Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois05(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois05</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois05</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois05Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois05Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois05())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois05Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois05</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois05</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois05Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois05Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois05();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois05Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois05</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois05</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois05Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois05Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois05();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois05Numerique03(...).__________
+
+	
+	
+	
+	/* 119 - mjmNmoins1mois06. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois06</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois06(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois06Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois06Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois06Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois06Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois06Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois06Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois06Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois06Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois06Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois06Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois06(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois06</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois06</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois06Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois06Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois06())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois06Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois06</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois06</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois06Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois06Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois06();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois06Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois06</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois06</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois06Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois06Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois06();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois06Numerique03(...)._____________	
+	
+	
+	
+	/* 120 - pcNuitNmoins1mois06. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois06</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois06(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois06Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois06Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois06Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois06Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois06Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois06Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois06Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois06Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois06Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois06Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois06(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois06</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois06</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois06Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois06Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois06())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois06Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois06</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois06</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois06Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois06Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois06();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois06Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois06</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois06</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois06Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois06Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois06();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois06Numerique03(...).__________
+
+	
+	
+	
+	/* 121 - mjmNmoins1mois07. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois07</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois07(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois07Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois07Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois07Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois07Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois07Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois07Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois07Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois07Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois07Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois07Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois07(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois07</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois07</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois07Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois07Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois07())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois07Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois07</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois07</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois07Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois07Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois07();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois07Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois07</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois07</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois07Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois07Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois07();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois07Numerique03(...)._____________	
+	
+	
+	
+	/* 122 - pcNuitNmoins1mois07. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois07</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois07(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois07Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois07Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois07Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois07Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois07Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois07Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois07Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois07Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois07Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois07Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois07(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois07</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois07</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois07Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois07Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois07())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois07Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois07</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois07</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois07Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois07Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois07();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois07Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois07</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois07</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois07Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois07Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois07();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois07Numerique03(...).__________
+
+	
+	
+	
+	/* 123 - mjmNmoins1mois08. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois08</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois08(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois08Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois08Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois08Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois08Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois08Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois08Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois08Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois08Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois08Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois08Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois08(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois08</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois08</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois08Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois08Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois08())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois08Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois08</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois08</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois08Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois08Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois08();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois08Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois08</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois08</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois08Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois08Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois08();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois08Numerique03(...)._____________	
+	
+	
+	
+	/* 124 - pcNuitNmoins1mois08. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois08</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois08(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois08Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois08Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois08Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois08Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois08Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois08Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois08Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois08Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois08Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois08Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois08(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois08</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois08</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois08Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois08Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois08())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois08Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois08</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois08</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois08Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois08Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois08();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois08Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois08</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois08</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois08Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois08Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois08();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois08Numerique03(...).__________
+
+	
+	
+	
+	/* 125 - mjmNmoins1mois09. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois09</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois09(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois09Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois09Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois09Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois09Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois09Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois09Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois09Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois09Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois09Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois09Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois09(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois09</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois09</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois09Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois09Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois09())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois09Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois09</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois09</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois09Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois09Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois09();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois09Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois09</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois09</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois09Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois09Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois09();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois09Numerique03(...)._____________	
+	
+	
+	
+	/* 126 - pcNuitNmoins1mois09. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois09</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois09(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois09Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois09Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois09Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois09Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois09Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois09Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois09Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois09Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois09Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois09Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois09(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois09</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois09</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois09Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois09Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois09())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois09Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois09</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois09</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois09Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois09Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois09();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois09Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois09</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois09</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois09Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois09Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois09();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois09Numerique03(...).__________
+
+	
+	
+	
+	/* 127 - mjmNmoins1mois10. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois10</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois10(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois10Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois10Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois10Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois10Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois10Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois10Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois10Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois10Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois10Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois10Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois10(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois10</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois10</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois10Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois10Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois10())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois10Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois10</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois10</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois10Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois10Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois10();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois10Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois10</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois10</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois10Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois10Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois10();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois10Numerique03(...)._____________	
+	
+	
+	
+	/* 128 - pcNuitNmoins1mois10. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois10</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois10(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois10Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois10Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois10Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois10Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois10Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois10Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois10Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois10Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois10Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois10Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois10(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois10</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois10</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois10Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois10Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois10())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois10Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois10</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois10</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois10Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois10Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois10();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois10Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois10</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois10</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois10Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois10Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois10();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois10Numerique03(...).__________
+
+	
+	
+	
+	/* 129 - mjmNmoins1mois11. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois11</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois11(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois11Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois11Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois11Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois11Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois11Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois11Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois11Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois11Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois11Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois11Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois11(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois11</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois11</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois11Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois11Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois11())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois11Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois11</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois11</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois11Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois11Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois11();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois11Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois11</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois11</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois11Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois11Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois11();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois11Numerique03(...)._____________	
+	
+	
+	
+	/* 130 - pcNuitNmoins1mois11. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois11</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois11(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois11Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois11Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois11Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois11Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois11Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois11Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois11Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois11Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois11Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois11Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois11(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois11</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois11</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois11Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois11Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois11())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois11Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois11</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois11</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois11Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois11Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois11();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois11Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois11</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois11</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois11Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois11Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois11();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois11Numerique03(...).__________
+
+	
+	
+	
+	/* 131 - mjmNmoins1mois12. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjmNmoins1mois12</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjmNmoins1mois12(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjmNmoins1mois12Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12Renseigne01();
+		
+		final Boolean interrupteurMjmNmoins1mois12Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12Regex02();
+
+		final Boolean interrupteurMjmNmoins1mois12Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjmNmoins1mois12Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjmNmoins1mois12Renseigne01) {
+			renseigne = this.validerRGSectionHitMjmNmoins1mois12Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois12Regex02) {
+				rg2 = this.validerRGSectionHitMjmNmoins1mois12Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjmNmoins1mois12Numerique03) {
+				rg3 = this.validerRGSectionHitMjmNmoins1mois12Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjmNmoins1mois12(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjmNmoins1mois12</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois12</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois12Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois12Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjmNmoins1mois12())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjmNmoins1mois12Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjmNmoins1mois12</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois12</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois12Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois12Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois12();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois12Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjmNmoins1mois12</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjmNmoins1mois12</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjmNmoins1mois12Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjmNmoins1mois12Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjmNmoins1mois12();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjmNmoins1mois12Numerique03(...)._____________	
+	
+	
+	
+	/* 132 - pcNuitNmoins1mois12. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitNmoins1mois12</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitNmoins1mois12(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitNmoins1mois12Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12Renseigne01();
+		
+		final Boolean interrupteurPcNuitNmoins1mois12Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12Regex02();
+
+		final Boolean interrupteurPcNuitNmoins1mois12Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitNmoins1mois12Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitNmoins1mois12Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitNmoins1mois12Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois12Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitNmoins1mois12Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitNmoins1mois12Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitNmoins1mois12Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitNmoins1mois12(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitNmoins1mois12</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois12</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois12Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois12Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitNmoins1mois12())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois12Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitNmoins1mois12</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois12</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois12Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois12Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois12();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois12Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitNmoins1mois12</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitNmoins1mois12</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitNmoins1mois12Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitNmoins1mois12Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitNmoins1mois12();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois12Numerique03(...).__________
 	
 	
 

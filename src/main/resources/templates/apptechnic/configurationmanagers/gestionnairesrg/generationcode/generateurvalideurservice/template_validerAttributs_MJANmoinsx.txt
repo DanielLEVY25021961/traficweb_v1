@@ -1,0 +1,2292 @@
+	
+	
+	
+	/* {$pNumeroChamp} - anneeN{$moinsi}. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>anneeN{$moinsi}</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerAnneeN{$moinsi}(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurAnneeN{$moinsi}Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeN{$moinsi}Renseigne01();
+		
+		final Boolean interrupteurAnneeN{$moinsi}Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitAnneeN{$moinsi}Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurAnneeN{$moinsi}Renseigne01) {
+			renseigne = this.validerRGSectionHitAnneeN{$moinsi}Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurAnneeN{$moinsi}Regex02) {
+				rg2 = this.validerRGSectionHitAnneeN{$moinsi}Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerAnneeN{$moinsi}(...).__________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>anneeN{$moinsi}</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeN{$moinsi}Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeN{$moinsi}Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getAnneeN{$moinsi}())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitAnneeN{$moinsi}Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>anneeN{$moinsi}</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{2}] qui signifie 
+	 * 'exactement 2 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>anneeN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitAnneeN{$moinsi}Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitAnneeN{$moinsi}Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getAnneeN{$moinsi}();
+		
+		final String motif = "\\d{2}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitAnneeN{$moinsi}Regex02(...)._______________
+	
+	
+	
+	/* {$pNumeroChamp + 1} - mjaN{$moinsi}. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>mjaN{$moinsi}</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerMjaN{$moinsi}(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurMjaN{$moinsi}Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaN{$moinsi}Renseigne01();
+		
+		final Boolean interrupteurMjaN{$moinsi}Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaN{$moinsi}Regex02();
+
+		final Boolean interrupteurMjaN{$moinsi}Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitMjaN{$moinsi}Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurMjaN{$moinsi}Renseigne01) {
+			renseigne = this.validerRGSectionHitMjaN{$moinsi}Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaN{$moinsi}Regex02) {
+				rg2 = this.validerRGSectionHitMjaN{$moinsi}Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurMjaN{$moinsi}Numerique03) {
+				rg3 = this.validerRGSectionHitMjaN{$moinsi}Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerMjaN{$moinsi}(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>mjaN{$moinsi}</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaN{$moinsi}Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaN{$moinsi}Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getMjaN{$moinsi}())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitMjaN{$moinsi}Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>mjaN{$moinsi}</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{6}] qui signifie 
+	 * 'exactement 6 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaN{$moinsi}Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaN{$moinsi}Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaN{$moinsi}();
+		
+		final String motif = "\\d{6}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaN{$moinsi}Regex02(...)._________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>mjaN{$moinsi}</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>mjaN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitMjaN{$moinsi}Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitMjaN{$moinsi}Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getMjaN{$moinsi}();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitMjaN{$moinsi}Numerique03(...)._____________
+	
+	
+	
+	/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>typeComptageN{$moinsi}</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerTypeComptageN{$moinsi}(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurTypeComptageN{$moinsi}Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageN{$moinsi}Renseigne01();
+		
+		final Boolean interrupteurTypeComptageN{$moinsi}Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageN{$moinsi}Regex02();
+		
+		final Boolean interrupteurTypeComptageN{$moinsi}Nomenclature03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitTypeComptageN{$moinsi}Nomenclature03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurTypeComptageN{$moinsi}Renseigne01) {
+			renseigne = this.validerRGSectionHitTypeComptageN{$moinsi}Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageN{$moinsi}Regex02) {
+				rg2 = this.validerRGSectionHitTypeComptageN{$moinsi}Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurTypeComptageN{$moinsi}Nomenclature03) {
+				rg3 = this.validerRGSectionHitTypeComptageN{$moinsi}Nomenclature03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerTypeComptageN{$moinsi}(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>typeComptageN{$moinsi}</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageN{$moinsi}Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageN{$moinsi}Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getTypeComptageN{$moinsi}())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitTypeComptageN{$moinsi}Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>typeComptageN{$moinsi}</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{1}] qui signifie 
+	 * 'exactement 1 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageN{$moinsi}Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageN{$moinsi}Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageN{$moinsi}();
+		
+		final String motif = "\\d{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageN{$moinsi}Regex02(...).________
+
+	
+	
+	/**
+	 * valide la RG NOMENCLATURE pour 
+	 * l'attribut <b>typeComptageN{$moinsi}</b>.<br/>
+	 * <ul>
+	 * <li>retourne false si la valeur à contrôler n'est pas homogène 
+	 * à un entier.</li>
+	 * <li>récupère le Set des valeurs possibles auprès de la 
+	 * FactoryNomenclature (<code><b>
+	 * FactoryNomenclatureHit.getSetClesPossiblesTypeComptageN{$moinsi}()</b></code>).</li>
+	 * <li>retourne false si la valeur à contrôler n'appartient 
+	 * pas à la nomenclature.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>typeComptageN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitTypeComptageN{$moinsi}Nomenclature03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitTypeComptageN{$moinsi}Nomenclature03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getTypeComptageN{$moinsi}();
+		Integer valeurAControlerInteger = null;
+		
+		try {
+			valeurAControlerInteger = Integer.valueOf(valeurAControler);
+		} catch (Exception e) {
+			valeurAControlerInteger = null;
+		}
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'est pas homogène à un entier. */
+		if (valeurAControlerInteger == null) {
+			return false;
+		}
+		
+		/* récupère le Set des valeurs possibles auprès de la 
+		 * FactoryNomenclature. */
+		final Set<Integer> setClesPossibles 
+			= FactoryNomenclatureHit.getSetClesPossiblesTypeComptageN{$moinsi}();
+		
+		/* retourne false si la valeur à contrôler 
+		 * n'appartient pas à la nomenclature. */
+		if (!setClesPossibles.contains(valeurAControlerInteger)) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitTypeComptageN{$moinsi}Nomenclature03(...)._
+	
+	
+	
+	/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>modeCalculN{$moinsi}</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerModeCalculN{$moinsi}(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurModeCalculN{$moinsi}Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculN{$moinsi}Renseigne01();
+		
+		final Boolean interrupteurModeCalculN{$moinsi}Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitModeCalculN{$moinsi}Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurModeCalculN{$moinsi}Renseigne01) {
+			renseigne = this.validerRGSectionHitModeCalculN{$moinsi}Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurModeCalculN{$moinsi}Regex02) {
+				rg2 = this.validerRGSectionHitModeCalculN{$moinsi}Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerModeCalculN{$moinsi}(...)._____________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>modeCalculN{$moinsi}</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculN{$moinsi}Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculN{$moinsi}Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getModeCalculN{$moinsi}() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitModeCalculN{$moinsi}Renseigne01(...).______
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>modeCalculN{$moinsi}</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>modeCalculN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitModeCalculN{$moinsi}Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitModeCalculN{$moinsi}Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getModeCalculN{$moinsi}();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitModeCalculN{$moinsi}Regex02(...).__________
+	
+	
+	
+	/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcPLN{$moinsi}</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcPLN{$moinsi}(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcPLN{$moinsi}Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLN{$moinsi}Renseigne01();
+		
+		final Boolean interrupteurPcPLN{$moinsi}Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLN{$moinsi}Regex02();
+
+		final Boolean interrupteurPcPLN{$moinsi}Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcPLN{$moinsi}Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcPLN{$moinsi}Renseigne01) {
+			renseigne = this.validerRGSectionHitPcPLN{$moinsi}Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLN{$moinsi}Regex02) {
+				rg2 = this.validerRGSectionHitPcPLN{$moinsi}Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcPLN{$moinsi}Numerique03) {
+				rg3 = this.validerRGSectionHitPcPLN{$moinsi}Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcPLN{$moinsi}(...).___________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcPLN{$moinsi}</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLN{$moinsi}Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLN{$moinsi}Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcPLN{$moinsi}())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcPLN{$moinsi}Renseigne01(...).____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcPLN{$moinsi}</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLN{$moinsi}Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLN{$moinsi}Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLN{$moinsi}();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLN{$moinsi}Regex02(...).________________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcPLN{$moinsi}</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcPLN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcPLN{$moinsi}Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcPLN{$moinsi}Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcPLN{$moinsi}();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcPLN{$moinsi}Numerique03(...).____________
+	
+	
+	
+	/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>evaluationPLN{$moinsi}</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerEvaluationPLN{$moinsi}(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurEvaluationPLN{$moinsi}Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLN{$moinsi}Renseigne01();
+		
+		final Boolean interrupteurEvaluationPLN{$moinsi}Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitEvaluationPLN{$moinsi}Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurEvaluationPLN{$moinsi}Renseigne01) {
+			renseigne = this.validerRGSectionHitEvaluationPLN{$moinsi}Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurEvaluationPLN{$moinsi}Regex02) {
+				rg2 = this.validerRGSectionHitEvaluationPLN{$moinsi}Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerEvaluationPLN{$moinsi}(...).___________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>evaluationPLN{$moinsi}</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLN{$moinsi}Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLN{$moinsi}Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getEvaluationPLN{$moinsi}() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitEvaluationPLN{$moinsi}Renseigne01(...).____
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>evaluationPLN{$moinsi}</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>evaluationPLN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitEvaluationPLN{$moinsi}Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitEvaluationPLN{$moinsi}Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getEvaluationPLN{$moinsi}();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitEvaluationPLN{$moinsi}Regex02(...).________
+	
+	
+	
+	/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>pcNuitAnnuelN{$moinsi}</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerPcNuitAnnuelN{$moinsi}(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurPcNuitAnnuelN{$moinsi}Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01();
+		
+		final Boolean interrupteurPcNuitAnnuelN{$moinsi}Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}Regex02();
+
+		final Boolean interrupteurPcNuitAnnuelN{$moinsi}Numerique03 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		boolean rg3 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurPcNuitAnnuelN{$moinsi}Renseigne01) {
+			renseigne = this.validerRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelN{$moinsi}Regex02) {
+				rg2 = this.validerRGSectionHitPcNuitAnnuelN{$moinsi}Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurPcNuitAnnuelN{$moinsi}Numerique03) {
+				rg3 = this.validerRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg3 = true;
+			}
+						
+		}
+		
+		ok = renseigne && rg2 && rg3;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerPcNuitAnnuelN{$moinsi}(...)._________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>pcNuitAnnuelN{$moinsi}</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isBlank(pDto.getPcNuitAnnuelN{$moinsi}())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01(...).__________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>pcNuitAnnuelN{$moinsi}</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\d{3}] qui signifie 
+	 * 'exactement 3 chiffres'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelN{$moinsi}Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelN{$moinsi}();
+		
+		final String motif = "\\d{3}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelN{$moinsi}Regex02(...).______________
+
+	
+	
+	/**
+	 * valide la RG NUMERIQUE pour 
+	 * l'attribut <b>pcNuitAnnuelN{$moinsi}</b>.<br/>
+	 * <ul>
+	 * <li>retire les éventuels zéros à gauche de l'attribut à contrôler.</li>
+	 * <li>retire les éventuels espaces à gauche de l'attribut à contrôler.</li>
+	 * <li>retourne false si la valeur à contrôler épurée
+	 * ne peut être parsée en Integer.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>pcNuitAnnuelN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getPcNuitAnnuelN{$moinsi}();
+		
+		/* retire les éventuels zéros à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpureeZeros 
+			= this.retirerZerosAGauche(valeurAControler);
+		
+		/* retire les éventuels espaces à gauche de l'attribut à contrôler. */
+		final String valeurAControlerEpuree 
+			= this.retirerEspacesAGauche(valeurAControlerEpureeZeros);
+
+		try {
+			Integer.valueOf(valeurAControlerEpuree);
+		} catch (Exception e) {
+						
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			return false;
+
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03(...).__________
+	
+	
+	
+	/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>indiceFiabiliteMjaN{$moinsi}</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerIndiceFiabiliteMjaN{$moinsi}(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01();
+		
+		final Boolean interrupteurIndiceFiabiliteMjaN{$moinsi}Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02();
+
+		boolean ok = false;
+		
+		boolean renseigne = false;
+		boolean rg2 = false;
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurIndiceFiabiliteMjaN{$moinsi}Renseigne01) {
+			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + renseigne sont à true. */
+			if (interrupteurIndiceFiabiliteMjaN{$moinsi}Regex02) {
+				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				rg2 = true;
+			}
+			
+		}
+		
+		ok = renseigne && rg2;
+		
+		if (!ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return ok;
+				
+	} // Fin de validerIndiceFiabiliteMjaN{$moinsi}(...)._____________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>indiceFiabiliteMjaN{$moinsi}</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01();
+		
+		// CONTROLE ***************
+		if (pDto.getIndiceFiabiliteMjaN{$moinsi}() == null) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01(...).
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>indiceFiabiliteMjaN{$moinsi}</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [a-zA-Z0-9\\s]{1} qui signifie 
+	 * 'exactement 1 caractère de mot ou 1 espace'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>indiceFiabiliteMjaN{$moinsi}</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getIndiceFiabiliteMjaN{$moinsi}();
+		
+		final String motif = "[a-zA-Z0-9\\s]{1}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02(...).__

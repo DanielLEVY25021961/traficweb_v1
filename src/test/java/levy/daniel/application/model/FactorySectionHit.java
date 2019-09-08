@@ -162,7 +162,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setModeCalculNmoins2(UN_ESPACE);
 				bonneSectionHitDTO.setPcPLNmoins2("123");
 				bonneSectionHitDTO.setEvaluationPLNmoins2("7");
-				bonneSectionHitDTO.setPcNuitAnnuelNmoins2(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcNuitAnnuelNmoins2("105");
 				bonneSectionHitDTO.setIndiceFiabiliteMjaNmoins2(UN_ESPACE);
 				bonneSectionHitDTO.setAnneeNmoins3("14");
 				bonneSectionHitDTO.setMjaNmoins3("011079");
@@ -170,7 +170,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setModeCalculNmoins3(UN_ESPACE);
 				bonneSectionHitDTO.setPcPLNmoins3("136");
 				bonneSectionHitDTO.setEvaluationPLNmoins3("7");
-				bonneSectionHitDTO.setPcNuitAnnuelNmoins3(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcNuitAnnuelNmoins3("112");
 				bonneSectionHitDTO.setIndiceFiabiliteMjaNmoins3(UN_ESPACE);
 				bonneSectionHitDTO.setAnneeNmoins4("13");
 				bonneSectionHitDTO.setMjaNmoins4("010748");
@@ -178,7 +178,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setModeCalculNmoins4(UN_ESPACE);
 				bonneSectionHitDTO.setPcPLNmoins4("154");
 				bonneSectionHitDTO.setEvaluationPLNmoins4("7");
-				bonneSectionHitDTO.setPcNuitAnnuelNmoins4(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcNuitAnnuelNmoins4("114");
 				bonneSectionHitDTO.setIndiceFiabiliteMjaNmoins4(UN_ESPACE);
 				bonneSectionHitDTO.setAnneeNmoins5("12");
 				bonneSectionHitDTO.setMjaNmoins5("010742");
@@ -186,7 +186,7 @@ public final class FactorySectionHit {
 				bonneSectionHitDTO.setModeCalculNmoins5(UN_ESPACE);
 				bonneSectionHitDTO.setPcPLNmoins5("178");
 				bonneSectionHitDTO.setEvaluationPLNmoins5("7");
-				bonneSectionHitDTO.setPcNuitAnnuelNmoins5(TROIS_ESPACES);
+				bonneSectionHitDTO.setPcNuitAnnuelNmoins5("109");
 				bonneSectionHitDTO.setIndiceFiabiliteMjaNmoins5(UN_ESPACE);
 				bonneSectionHitDTO.setMjmNmoins1mois01("011001");
 				bonneSectionHitDTO.setPcNuitNmoins1mois01(TROIS_ESPACES);

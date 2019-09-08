@@ -1,0 +1,44 @@
+		
+		/* {$pNumeroChamp} - anneeN{$moinsi}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeN{$moinsi}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeN{$moinsi}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeN{$moinsi}Regex02(true);
+		
+		/* {$pNumeroChamp + 1} - mjaN{$moinsi}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaN{$moinsi}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaN{$moinsi}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaN{$moinsi}Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaN{$moinsi}Numerique03(true);
+		
+		/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageN{$moinsi}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageN{$moinsi}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageN{$moinsi}Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageN{$moinsi}Nomenclature03(true);
+		
+		/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculN{$moinsi}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculN{$moinsi}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculN{$moinsi}Regex02(true);
+		
+		/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLN{$moinsi}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLN{$moinsi}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLN{$moinsi}Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLN{$moinsi}Numerique03(true);
+		
+		/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLN{$moinsi}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLN{$moinsi}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLN{$moinsi}Regex02(true);
+		
+		/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelN{$moinsi}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelN{$moinsi}Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03(true);
+		
+		/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02(true);

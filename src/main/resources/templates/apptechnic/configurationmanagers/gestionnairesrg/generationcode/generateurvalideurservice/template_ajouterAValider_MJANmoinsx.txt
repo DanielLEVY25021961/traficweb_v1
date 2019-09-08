@@ -1,0 +1,176 @@
+		
+		/* {$pNumeroChamp} - anneeN{$moinsi}. *******/
+		boolean anneeN{$moinsi}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributAnneeN{$moinsi} = "anneeN{$moinsi}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralAnneeN{$moinsi} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitAnneeN{$moinsi}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralAnneeN{$moinsi}) {
+			anneeN{$moinsi}Valide 
+				= this.validerAnneeN{$moinsi}(
+						pDto, attributAnneeN{$moinsi}, erreursMap);
+		} else {
+			anneeN{$moinsi}Valide = true;
+		}
+		
+		/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/
+		boolean mjaN{$moinsi}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributMjaN{$moinsi} = "mjaN{$moinsi}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralMjaN{$moinsi} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitMjaN{$moinsi}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralMjaN{$moinsi}) {
+			mjaN{$moinsi}Valide 
+				= this.validerMjaN{$moinsi}(
+						pDto, attributMjaN{$moinsi}, erreursMap);
+		} else {
+			mjaN{$moinsi}Valide = true;
+		}
+		
+		/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/
+		boolean typeComptageN{$moinsi}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributTypeComptageN{$moinsi} = "typeComptageN{$moinsi}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralTypeComptageN{$moinsi} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitTypeComptageN{$moinsi}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralTypeComptageN{$moinsi}) {
+			typeComptageN{$moinsi}Valide 
+				= this.validerTypeComptageN{$moinsi}(
+						pDto, attributTypeComptageN{$moinsi}, erreursMap);
+		} else {
+			typeComptageN{$moinsi}Valide = true;
+		}
+		
+		/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/
+		boolean modeCalculN{$moinsi}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributModeCalculN{$moinsi} = "modeCalculN{$moinsi}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralModeCalculN{$moinsi} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitModeCalculN{$moinsi}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralModeCalculN{$moinsi}) {
+			modeCalculN{$moinsi}Valide 
+				= this.validerModeCalculN{$moinsi}(
+						pDto, attributModeCalculN{$moinsi}, erreursMap);
+		} else {
+			modeCalculN{$moinsi}Valide = true;
+		}
+		
+		/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/
+		boolean pcPLN{$moinsi}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcPLN{$moinsi} = "pcPLN{$moinsi}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcPLN{$moinsi} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcPLN{$moinsi}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcPLN{$moinsi}) {
+			pcPLN{$moinsi}Valide 
+				= this.validerPcPLN{$moinsi}(
+						pDto, attributPcPLN{$moinsi}, erreursMap);
+		} else {
+			pcPLN{$moinsi}Valide = true;
+		}
+		
+		/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/
+		boolean evaluationPLN{$moinsi}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributEvaluationPLN{$moinsi} = "evaluationPLN{$moinsi}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralEvaluationPLN{$moinsi} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitEvaluationPLN{$moinsi}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralEvaluationPLN{$moinsi}) {
+			evaluationPLN{$moinsi}Valide 
+				= this.validerEvaluationPLN{$moinsi}(
+						pDto, attributEvaluationPLN{$moinsi}, erreursMap);
+		} else {
+			evaluationPLN{$moinsi}Valide = true;
+		}
+		
+		/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/
+		boolean pcNuitAnnuelN{$moinsi}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributPcNuitAnnuelN{$moinsi} = "pcNuitAnnuelN{$moinsi}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralPcNuitAnnuelN{$moinsi} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralPcNuitAnnuelN{$moinsi}) {
+			pcNuitAnnuelN{$moinsi}Valide 
+				= this.validerPcNuitAnnuelN{$moinsi}(
+						pDto, attributPcNuitAnnuelN{$moinsi}, erreursMap);
+		} else {
+			pcNuitAnnuelN{$moinsi}Valide = true;
+		}
+		
+		/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/
+		boolean indiceFiabiliteMjaN{$moinsi}Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributIndiceFiabiliteMjaN{$moinsi} = "indiceFiabiliteMjaN{$moinsi}";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralIndiceFiabiliteMjaN{$moinsi} 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralIndiceFiabiliteMjaN{$moinsi}) {
+			indiceFiabiliteMjaN{$moinsi}Valide 
+				= this.validerIndiceFiabiliteMjaN{$moinsi}(
+						pDto, attributIndiceFiabiliteMjaN{$moinsi}, erreursMap);
+		} else {
+			indiceFiabiliteMjaN{$moinsi}Valide = true;
+		}
