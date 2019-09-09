@@ -1166,7 +1166,7 @@ public class SectionHitValideurServiceTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -12734,7 +12734,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "119";
 		dto.setPcNuitNmoins1mois01(valeur);
 		
 		// VALIDATION PAR LE SERVICE.

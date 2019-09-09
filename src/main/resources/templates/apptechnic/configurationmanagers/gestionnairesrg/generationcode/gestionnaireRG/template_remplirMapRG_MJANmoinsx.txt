@@ -1,0 +1,288 @@
+		
+		/* {$pNumeroChamp} - anneeN{$moinsi}. *******/
+		/* RG_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAnneeN{$moinsi}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeN{$moinsi}Renseigne01()
+				, RG_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeN{$moinsi}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEEN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeN{$moinsi}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeN{$moinsi}Renseigne01());
+		
+		/* RG_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02. */
+		final LigneRG ligneRGSectionHitAnneeN{$moinsi}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeN{$moinsi}Regex02()
+				, RG_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeN{$moinsi}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEEN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeN{$moinsi}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeN{$moinsi}Regex02());
+		
+		/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/
+		/* RG_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitMjaN{$moinsi}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaN{$moinsi}Renseigne01()
+				, RG_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaN{$moinsi}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJAN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaN{$moinsi}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaN{$moinsi}Renseigne01());
+		
+		/* RG_SECTIONHIT_MJAN{$MOINSi}_REGEX_02. */
+		final LigneRG ligneRGSectionHitMjaN{$moinsi}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaN{$moinsi}Regex02()
+				, RG_SECTIONHIT_MJAN{$MOINSi}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaN{$moinsi}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJAN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaN{$moinsi}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaN{$moinsi}Regex02());
+				
+		/* RG_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitMjaN{$moinsi}Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaN{$moinsi}Numerique03()
+				, RG_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaN{$moinsi}Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJAN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaN{$moinsi}Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaN{$moinsi}Numerique03());							
+		
+		/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/
+		/* RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitTypeComptageN{$moinsi}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageN{$moinsi}Renseigne01()
+				, RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageN{$moinsi}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGEN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageN{$moinsi}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageN{$moinsi}Renseigne01());
+		
+		/* RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02. */
+		final LigneRG ligneRGSectionHitTypeComptageN{$moinsi}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageN{$moinsi}Regex02()
+				, RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageN{$moinsi}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGEN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageN{$moinsi}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageN{$moinsi}Regex02());
+				
+		/* RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitTypeComptageN{$moinsi}Nomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageN{$moinsi}Nomenclature03()
+				, RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageN{$moinsi}Nomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGEN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageN{$moinsi}Nomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageN{$moinsi}Nomenclature03());
+		
+		/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/
+		/* RG_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitModeCalculN{$moinsi}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculN{$moinsi}Renseigne01()
+				, RG_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculN{$moinsi}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculN{$moinsi}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculN{$moinsi}Renseigne01());
+		
+		/* RG_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02. */
+		final LigneRG ligneRGSectionHitModeCalculN{$moinsi}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculN{$moinsi}Regex02()
+				, RG_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculN{$moinsi}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculN{$moinsi}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculN{$moinsi}Regex02());
+		
+		/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/
+		/* RG_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcPLN{$moinsi}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLN{$moinsi}Renseigne01()
+				, RG_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLN{$moinsi}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLN{$moinsi}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLN{$moinsi}Renseigne01());
+		
+		/* RG_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcPLN{$moinsi}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLN{$moinsi}Regex02()
+				, RG_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLN{$moinsi}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLN{$moinsi}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLN{$moinsi}Regex02());
+				
+		/* RG_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcPLN{$moinsi}Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLN{$moinsi}Numerique03()
+				, RG_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLN{$moinsi}Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLN{$moinsi}Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLN{$moinsi}Numerique03());
+		
+		/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/
+		/* RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitEvaluationPLN{$moinsi}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLN{$moinsi}Renseigne01()
+				, RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLN{$moinsi}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLN{$moinsi}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLN{$moinsi}Renseigne01());
+		
+		/* RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02. */
+		final LigneRG ligneRGSectionHitEvaluationPLN{$moinsi}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLN{$moinsi}Regex02()
+				, RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLN{$moinsi}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLN{$moinsi}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLN{$moinsi}Regex02());
+		
+		/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/
+		/* RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01()
+				, RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelN{$moinsi}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01());
+		
+		/* RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelN{$moinsi}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}Regex02()
+				, RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelN{$moinsi}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelN{$moinsi}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelN{$moinsi}Regex02());
+				
+		/* RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03()
+				, RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelN{$moinsi}Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03());
+		
+		/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/
+		/* RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01()
+				, RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJAN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01());
+		
+		/* RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02()
+				, RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJAN{$MOINSi}
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02());

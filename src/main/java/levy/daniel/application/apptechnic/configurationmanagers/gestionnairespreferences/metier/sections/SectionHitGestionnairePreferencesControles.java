@@ -6580,10 +6580,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois09Renseigne01 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée".<br/>
+	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être renseignée".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée";
+		= "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être renseignée";
 		
 	/**
 	 * clé de messageSectionHitMjmNmoins1mois09Regex02 dans 
@@ -6599,10 +6599,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois09Regex02 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit comporter exactement 6 chiffres".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres";
+		= "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit comporter exactement 6 chiffres";
 		
 	/**
 	 * clé de messageSectionHitMjmNmoins1mois09Numerique03 dans 
@@ -6618,10 +6618,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois09Numerique03 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier".<br/>
+	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être homogène à un entier".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier";
+		= "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être homogène à un entier";
 	
 	/* 126 - pcNuitNmoins1mois09. *******/
 	/**
@@ -6638,10 +6638,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitPcNuitNmoins1mois09Renseigne01 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être renseigné".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR 
-		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné";
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être renseigné";
 		
 	/**
 	 * clé de messageSectionHitPcNuitNmoins1mois09Regex02 dans 
@@ -6657,10 +6657,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitPcNuitNmoins1mois09Regex02 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit comporter exactement 3 chiffres".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR 
-		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres";
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit comporter exactement 3 chiffres";
 		
 	/**
 	 * clé de messageSectionHitPcNuitNmoins1mois09Numerique03 dans 
@@ -6676,10 +6676,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitPcNuitNmoins1mois09Numerique03 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être homogène à un entier".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR 
-		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier";
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être homogène à un entier";
 
 	
 	/* 127 - mjmNmoins1mois10. *******/
@@ -6697,10 +6697,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois10Renseigne01 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée".<br/>
+	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être renseignée".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée";
+		= "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être renseignée";
 		
 	/**
 	 * clé de messageSectionHitMjmNmoins1mois10Regex02 dans 
@@ -6716,10 +6716,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois10Regex02 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit comporter exactement 6 chiffres".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres";
+		= "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit comporter exactement 6 chiffres";
 		
 	/**
 	 * clé de messageSectionHitMjmNmoins1mois10Numerique03 dans 
@@ -6735,10 +6735,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois10Numerique03 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier".<br/>
+	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être homogène à un entier".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier";
+		= "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être homogène à un entier";
 	
 	/* 128 - pcNuitNmoins1mois10. *******/
 	/**
@@ -6755,10 +6755,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitPcNuitNmoins1mois10Renseigne01 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être renseigné".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR 
-		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné";
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être renseigné";
 		
 	/**
 	 * clé de messageSectionHitPcNuitNmoins1mois10Regex02 dans 
@@ -6774,10 +6774,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitPcNuitNmoins1mois10Regex02 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit comporter exactement 3 chiffres".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR 
-		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres";
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit comporter exactement 3 chiffres";
 		
 	/**
 	 * clé de messageSectionHitPcNuitNmoins1mois10Numerique03 dans 
@@ -6793,10 +6793,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitPcNuitNmoins1mois10Numerique03 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être homogène à un entier".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR 
-		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier";
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être homogène à un entier";
 
 	
 	/* 129 - mjmNmoins1mois11. *******/
@@ -6814,10 +6814,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois11Renseigne01 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée".<br/>
+	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être renseignée".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée";
+		= "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être renseignée";
 		
 	/**
 	 * clé de messageSectionHitMjmNmoins1mois11Regex02 dans 
@@ -6833,10 +6833,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois11Regex02 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit comporter exactement 6 chiffres".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres";
+		= "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit comporter exactement 6 chiffres";
 		
 	/**
 	 * clé de messageSectionHitMjmNmoins1mois11Numerique03 dans 
@@ -6852,10 +6852,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois11Numerique03 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier".<br/>
+	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être homogène à un entier".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier";
+		= "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être homogène à un entier";
 	
 	/* 130 - pcNuitNmoins1mois11. *******/
 	/**
@@ -6872,10 +6872,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitPcNuitNmoins1mois11Renseigne01 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être renseigné".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR 
-		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné";
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être renseigné";
 		
 	/**
 	 * clé de messageSectionHitPcNuitNmoins1mois11Regex02 dans 
@@ -6891,10 +6891,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitPcNuitNmoins1mois11Regex02 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit comporter exactement 3 chiffres".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR 
-		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres";
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit comporter exactement 3 chiffres";
 		
 	/**
 	 * clé de messageSectionHitPcNuitNmoins1mois11Numerique03 dans 
@@ -6910,10 +6910,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitPcNuitNmoins1mois11Numerique03 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être homogène à un entier".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR 
-		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier";
+		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être homogène à un entier";
 
 	
 	/* 131 - mjmNmoins1mois12. *******/
@@ -6931,10 +6931,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois12Renseigne01 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée".<br/>
+	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être renseignée".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée";
+		= "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être renseignée";
 		
 	/**
 	 * clé de messageSectionHitMjmNmoins1mois12Regex02 dans 
@@ -6950,10 +6950,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois12Regex02 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit comporter exactement 6 chiffres".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres";
+		= "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit comporter exactement 6 chiffres";
 		
 	/**
 	 * clé de messageSectionHitMjmNmoins1mois12Numerique03 dans 
@@ -6969,10 +6969,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitMjmNmoins1mois12Numerique03 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier".<br/>
+	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être homogène à un entier".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR 
-		= "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier";
+		= "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être homogène à un entier";
 	
 	/* 132 - pcNuitNmoins1mois12. *******/
 	/**
@@ -9205,38 +9205,38 @@ public final class SectionHitGestionnairePreferencesControles {
 	/* 125 - mjmNmoins1mois09. *******/
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois09-01 : 
-	* "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée".<br/>
+	* "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être renseignée".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois09Renseigne01;
 	
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois09-02 : 
-	* "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres".<br/>
+	* "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit comporter exactement 6 chiffres".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois09Regex02;
 	
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois09-03 : 
-	* "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier".<br/>
+	* "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois09Numerique03;
 
 	/* 126 - pcNuitNmoins1mois09. *******/
 	/**
 	* message émis par la RG-SectionHit-PcNuitNmoins1mois09-01 : 
-	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné".<br/>
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être renseigné".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois09Renseigne01;
 	
 	/**
 	* message émis par la RG-SectionHit-PcNuitNmoins1mois09-02 : 
-	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres".<br/>
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit comporter exactement 3 chiffres".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois09Regex02;
 	
 	/**
 	* message émis par la RG-SectionHit-PcNuitNmoins1mois09-03 : 
-	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier".<br/>
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois09Numerique03;
 
@@ -9244,38 +9244,38 @@ public final class SectionHitGestionnairePreferencesControles {
 	/* 127 - mjmNmoins1mois10. *******/
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois10-01 : 
-	* "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée".<br/>
+	* "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être renseignée".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois10Renseigne01;
 	
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois10-02 : 
-	* "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres".<br/>
+	* "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit comporter exactement 6 chiffres".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois10Regex02;
 	
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois10-03 : 
-	* "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier".<br/>
+	* "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois10Numerique03;
 
 	/* 128 - pcNuitNmoins1mois10. *******/
 	/**
 	* message émis par la RG-SectionHit-PcNuitNmoins1mois10-01 : 
-	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné".<br/>
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être renseigné".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois10Renseigne01;
 	
 	/**
 	* message émis par la RG-SectionHit-PcNuitNmoins1mois10-02 : 
-	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres".<br/>
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit comporter exactement 3 chiffres".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois10Regex02;
 	
 	/**
 	* message émis par la RG-SectionHit-PcNuitNmoins1mois10-03 : 
-	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier".<br/>
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois10Numerique03;
 
@@ -9283,38 +9283,38 @@ public final class SectionHitGestionnairePreferencesControles {
 	/* 129 - mjmNmoins1mois11. *******/
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois11-01 : 
-	* "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée".<br/>
+	* "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être renseignée".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois11Renseigne01;
 	
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois11-02 : 
-	* "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres".<br/>
+	* "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit comporter exactement 6 chiffres".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois11Regex02;
 	
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois11-03 : 
-	* "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier".<br/>
+	* "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois11Numerique03;
 
 	/* 130 - pcNuitNmoins1mois11. *******/
 	/**
 	* message émis par la RG-SectionHit-PcNuitNmoins1mois11-01 : 
-	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné".<br/>
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être renseigné".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois11Renseigne01;
 	
 	/**
 	* message émis par la RG-SectionHit-PcNuitNmoins1mois11-02 : 
-	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres".<br/>
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit comporter exactement 3 chiffres".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois11Regex02;
 	
 	/**
 	* message émis par la RG-SectionHit-PcNuitNmoins1mois11-03 : 
-	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier".<br/>
+	* "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois11Numerique03;
 
@@ -9322,19 +9322,19 @@ public final class SectionHitGestionnairePreferencesControles {
 	/* 131 - mjmNmoins1mois12. *******/
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois12-01 : 
-	* "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée".<br/>
+	* "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être renseignée".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois12Renseigne01;
 	
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois12-02 : 
-	* "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres".<br/>
+	* "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit comporter exactement 6 chiffres".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois12Regex02;
 	
 	/**
 	* message émis par la RG-SectionHit-MjmNmoins1mois12-03 : 
-	* "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier".<br/>
+	* "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être homogène à un entier".<br/>
 	*/
 	private static String messageSectionHitMjmNmoins1mois12Numerique03;
 

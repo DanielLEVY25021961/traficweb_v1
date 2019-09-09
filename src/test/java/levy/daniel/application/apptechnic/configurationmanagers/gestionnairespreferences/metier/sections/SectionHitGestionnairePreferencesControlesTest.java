@@ -43856,7 +43856,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que le getter fonctionne bien. */
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être renseignée'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR
 					, message);
@@ -43923,7 +43923,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que setMessageSectionHitMjmNmoins1mois09Renseigne01(...) modifie le message dans le fichier properties. */
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être renseignée'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR
 					, messageModifie2);
@@ -43987,7 +43987,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit comporter exactement 6 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR
 					, message);
@@ -44054,7 +44054,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit comporter exactement 6 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR
 					, messageModifie2);
@@ -44118,7 +44118,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR
 					, message);
@@ -44185,7 +44185,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR
 					, messageModifie2);
@@ -44251,7 +44251,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que le getter fonctionne bien. */
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être renseigné'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR
 					, message);
@@ -44318,7 +44318,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que setMessageSectionHitPcNuitNmoins1mois09Renseigne01(...) modifie le message dans le fichier properties. */
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être renseigné'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR
 					, messageModifie2);
@@ -44382,7 +44382,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit comporter exactement 3 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR
 					, message);
@@ -44449,7 +44449,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit comporter exactement 3 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR
 					, messageModifie2);
@@ -44513,7 +44513,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR
 					, message);
@@ -44580,7 +44580,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR
 					, messageModifie2);
@@ -44647,7 +44647,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que le getter fonctionne bien. */
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être renseignée'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR
 					, message);
@@ -44714,7 +44714,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que setMessageSectionHitMjmNmoins1mois10Renseigne01(...) modifie le message dans le fichier properties. */
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être renseignée'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR
 					, messageModifie2);
@@ -44778,7 +44778,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit comporter exactement 6 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR
 					, message);
@@ -44845,7 +44845,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit comporter exactement 6 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR
 					, messageModifie2);
@@ -44909,7 +44909,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR
 					, message);
@@ -44976,7 +44976,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR
 					, messageModifie2);
@@ -45042,7 +45042,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que le getter fonctionne bien. */
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être renseigné'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR
 					, message);
@@ -45109,7 +45109,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que setMessageSectionHitPcNuitNmoins1mois10Renseigne01(...) modifie le message dans le fichier properties. */
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être renseigné'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR
 					, messageModifie2);
@@ -45173,7 +45173,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit comporter exactement 3 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR
 					, message);
@@ -45240,7 +45240,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit comporter exactement 3 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR
 					, messageModifie2);
@@ -45304,7 +45304,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR
 					, message);
@@ -45371,7 +45371,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR
 					, messageModifie2);
@@ -45438,7 +45438,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que le getter fonctionne bien. */
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être renseignée'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR
 					, message);
@@ -45505,7 +45505,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que setMessageSectionHitMjmNmoins1mois11Renseigne01(...) modifie le message dans le fichier properties. */
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être renseignée'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR
 					, messageModifie2);
@@ -45569,7 +45569,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit comporter exactement 6 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR
 					, message);
@@ -45636,7 +45636,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit comporter exactement 6 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR
 					, messageModifie2);
@@ -45700,7 +45700,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR
 					, message);
@@ -45767,7 +45767,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR
 					, messageModifie2);
@@ -45833,7 +45833,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que le getter fonctionne bien. */
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être renseigné'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR
 					, message);
@@ -45900,7 +45900,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que setMessageSectionHitPcNuitNmoins1mois11Renseigne01(...) modifie le message dans le fichier properties. */
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être renseigné'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR
 					, messageModifie2);
@@ -45964,7 +45964,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit comporter exactement 3 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR
 					, message);
@@ -46031,7 +46031,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit comporter exactement 3 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR
 					, messageModifie2);
@@ -46095,7 +46095,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR
 					, message);
@@ -46162,7 +46162,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR
 					, messageModifie2);
@@ -46229,7 +46229,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que le getter fonctionne bien. */
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être renseignée'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR
 					, message);
@@ -46296,7 +46296,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 		
 		/* garantit que setMessageSectionHitMjmNmoins1mois12Renseigne01(...) modifie le message dans le fichier properties. */
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être renseignée'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR
 					, messageModifie2);
@@ -46360,7 +46360,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit comporter exactement 6 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR
 					, message);
@@ -46427,7 +46427,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit comporter exactement 6 chiffres'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR
 					, messageModifie2);
@@ -46491,7 +46491,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 			System.out.println();
 		}
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR
 					, message);
@@ -46558,7 +46558,7 @@ public class SectionHitGestionnairePreferencesControlesTest {
 		}
 
 				
-		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier'"
+		assertEquals("le message doit valoir : 'la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être homogène à un entier'"
 				, SectionHitGestionnairePreferencesControles
 				.MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR
 					, messageModifie2);

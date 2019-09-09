@@ -1,0 +1,76 @@
+				
+		/* {$pNumeroChamp} - anneeN{$moinsi}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01
+			, ligneRGSectionHitAnneeN{$moinsi}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02
+			, ligneRGSectionHitAnneeN{$moinsi}Regex02);
+				
+		/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01
+			, ligneRGSectionHitMjaN{$moinsi}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJAN{$MOINSi}_REGEX_02
+			, ligneRGSectionHitMjaN{$moinsi}Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03
+			, ligneRGSectionHitMjaN{$moinsi}Numerique03);
+				
+		/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01
+			, ligneRGSectionHitTypeComptageN{$moinsi}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02
+			, ligneRGSectionHitTypeComptageN{$moinsi}Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03
+			, ligneRGSectionHitTypeComptageN{$moinsi}Nomenclature03);
+				
+		/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01
+			, ligneRGSectionHitModeCalculN{$moinsi}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02
+			, ligneRGSectionHitModeCalculN{$moinsi}Regex02);
+				
+		/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01
+			, ligneRGSectionHitPcPLN{$moinsi}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02
+			, ligneRGSectionHitPcPLN{$moinsi}Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03
+			, ligneRGSectionHitPcPLN{$moinsi}Numerique03);				
+				
+		/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01
+			, ligneRGSectionHitEvaluationPLN{$moinsi}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02
+			, ligneRGSectionHitEvaluationPLN{$moinsi}Regex02);
+				
+		/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitAnnuelN{$moinsi}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02
+			, ligneRGSectionHitPcNuitAnnuelN{$moinsi}Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitAnnuelN{$moinsi}Numerique03);				
+				
+		/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01
+			, ligneRGSectionHitIndiceFiabiliteMjaN{$moinsi}Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02
+			, ligneRGSectionHitIndiceFiabiliteMjaN{$moinsi}Regex02);

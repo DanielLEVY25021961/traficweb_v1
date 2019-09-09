@@ -2350,6 +2350,906 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_INDICEFIABLITEMJANMOINS1_REGEX_02 
 		= "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS1_REGEX_02 : "
 				+ "l'indice de fiabilité de la TMJA de l'année n-1 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 77 - anneeNmoins2. *******/
+	/**
+	 * "anneeNmoins2".<br/>
+	 */
+	public static final String ATTRIBUT_ANNEENMOINS2 
+		= "anneeNmoins2";
+
+	/**
+	 * "RG_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01 : 
+	 * l'année n-2 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01 : "
+				+ "l'année n-2 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_ANNEENMOINS2_REGEX_02 : 
+	 * l'année n-2 de la section HIT doit comporter exactement 2 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ANNEENMOINS2_REGEX_02 
+		= "RG_SECTIONHIT_ANNEENMOINS2_REGEX_02 : "
+				+ "l'année n-2 de la section HIT doit comporter exactement 2 chiffres";
+
+	/* 78 - mjaNmoins2. *******/
+	/**
+	 * "mjaNmoins2".<br/>
+	 */
+	public static final String ATTRIBUT_MJANMOINS2 
+		= "mjaNmoins2";
+
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS2_RENSEIGNE_01 : 
+	 * le trafic moyen journalier annuel de l'année n-2 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS2_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MJANMOINS2_RENSEIGNE_01 : "
+				+ "le trafic moyen journalier annuel de l'année n-2 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS2_REGEX_02 : 
+	 * le trafic moyen journalier annuel de l'année n-2 de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS2_REGEX_02 
+		= "RG_SECTIONHIT_MJANMOINS2_REGEX_02 : "
+				+ "le trafic moyen journalier annuel de l'année n-2 de la section HIT doit comporter exactement 6 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS2_NUMERIQUE_03 : 
+	 * le trafic moyen journalier annuel de l'année n-2 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS2_NUMERIQUE_03 
+		= "RG_SECTIONHIT_MJANMOINS2_NUMERIQUE_03 : "
+				+ "le trafic moyen journalier annuel de l'année n-2 doit être homogène à un entier";
+
+	/* 79 - typeComptageNmoins2. *******/
+	/**
+	 * "typeComptageNmoins2".<br/>
+	 */
+	public static final String ATTRIBUT_TYPECOMPTAGENMOINS2 
+		= "typeComptageNmoins2";
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01 : 
+	 * le type de comptage de l'année n-2 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01 : "
+				+ "le type de comptage de l'année n-2 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02 : 
+	 * le type de comptage de l'année n-2 de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02 : "
+				+ "le type de comptage de l'année n-2 de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03 : 
+	 * le type de comptage de l'année n-2 doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03 : "
+				+ "le type de comptage de l'année n-2 doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+	
+	/* 80 - modeCalculNmoins2. *******/
+	/**
+	 * "modeCalculNmoins2".<br/>
+	 */
+	public static final String ATTRIBUT_MODECALCULNMOINS2 
+		= "modeCalculNmoins2";
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01 : 
+	 * le mode de calcul des trafics de l'année n-2 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01 : "
+				+ "le mode de calcul des trafics de l'année n-2 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS2_REGEX_02 : 
+	 * le mode de calcul des trafics de l'année n-2 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS2_REGEX_02 
+		= "RG_SECTIONHIT_MODECALCULNMOINS2_REGEX_02 : "
+				+ "le mode de calcul des trafics de l'année n-2 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 81 - pcPLNmoins2. *******/
+	/**
+	 * "pcPLNmoins2".<br/>
+	 */
+	public static final String ATTRIBUT_PCPLNMOINS2 
+		= "pcPLNmoins2";
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-2 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-2 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS2_REGEX_02 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-2 de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS2_REGEX_02 
+		= "RG_SECTIONHIT_PCPLNMOINS2_REGEX_02 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-2 de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-2 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-2 doit être homogène à un entier";
+	
+	/* 82 - evaluationPLNmoins2. *******/
+	/**
+	 * "evaluationPLNmoins2".<br/>
+	 */
+	public static final String ATTRIBUT_EVALUATIONPLNMOINS2 
+		= "evaluationPLNmoins2";
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année n-2 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01 
+		= "RG_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année n-2 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année n-2 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02 
+		= "RG_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année n-2 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 83 - pcNuitAnnuelNmoins2. *******/
+	/**
+	 * "pcNuitAnnuelNmoins2".<br/>
+	 */
+	public static final String ATTRIBUT_PCNUITANNUELNMOINS2 
+		= "pcNuitAnnuelNmoins2";
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-2 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-2 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-2 de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-2 de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-2 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-2 doit être homogène à un entier";
+	
+	/* 84 - indiceFiabiliteMjaNmoins2. *******/
+	/**
+	 * "indiceFiabiliteMjaNmoins2".<br/>
+	 */
+	public static final String ATTRIBUT_INDICEFIABLITEMJANMOINS2 
+		= "indiceFiabiliteMjaNmoins2";
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01 : 
+	 * l'indice de fiabilité de la TMJA de l'année n-2 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n-2 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02 : 
+	 * l'indice de fiabilité de la TMJA de l'année n-2 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n-2 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+
+	/* 85 - anneeNmoins3. *******/
+	/**
+	 * "anneeNmoins3".<br/>
+	 */
+	public static final String ATTRIBUT_ANNEENMOINS3 
+		= "anneeNmoins3";
+
+	/**
+	 * "RG_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01 : 
+	 * l'année n-3 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01 : "
+				+ "l'année n-3 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_ANNEENMOINS3_REGEX_02 : 
+	 * l'année n-3 de la section HIT doit comporter exactement 2 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ANNEENMOINS3_REGEX_02 
+		= "RG_SECTIONHIT_ANNEENMOINS3_REGEX_02 : "
+				+ "l'année n-3 de la section HIT doit comporter exactement 2 chiffres";
+
+	/* 86 - mjaNmoins3. *******/
+	/**
+	 * "mjaNmoins3".<br/>
+	 */
+	public static final String ATTRIBUT_MJANMOINS3 
+		= "mjaNmoins3";
+
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS3_RENSEIGNE_01 : 
+	 * le trafic moyen journalier annuel de l'année n-3 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS3_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MJANMOINS3_RENSEIGNE_01 : "
+				+ "le trafic moyen journalier annuel de l'année n-3 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS3_REGEX_02 : 
+	 * le trafic moyen journalier annuel de l'année n-3 de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS3_REGEX_02 
+		= "RG_SECTIONHIT_MJANMOINS3_REGEX_02 : "
+				+ "le trafic moyen journalier annuel de l'année n-3 de la section HIT doit comporter exactement 6 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS3_NUMERIQUE_03 : 
+	 * le trafic moyen journalier annuel de l'année n-3 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS3_NUMERIQUE_03 
+		= "RG_SECTIONHIT_MJANMOINS3_NUMERIQUE_03 : "
+				+ "le trafic moyen journalier annuel de l'année n-3 doit être homogène à un entier";
+
+	/* 87 - typeComptageNmoins3. *******/
+	/**
+	 * "typeComptageNmoins3".<br/>
+	 */
+	public static final String ATTRIBUT_TYPECOMPTAGENMOINS3 
+		= "typeComptageNmoins3";
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01 : 
+	 * le type de comptage de l'année n-3 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01 : "
+				+ "le type de comptage de l'année n-3 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02 : 
+	 * le type de comptage de l'année n-3 de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02 : "
+				+ "le type de comptage de l'année n-3 de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03 : 
+	 * le type de comptage de l'année n-3 doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03 : "
+				+ "le type de comptage de l'année n-3 doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+	
+	/* 88 - modeCalculNmoins3. *******/
+	/**
+	 * "modeCalculNmoins3".<br/>
+	 */
+	public static final String ATTRIBUT_MODECALCULNMOINS3 
+		= "modeCalculNmoins3";
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01 : 
+	 * le mode de calcul des trafics de l'année n-3 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01 : "
+				+ "le mode de calcul des trafics de l'année n-3 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS3_REGEX_02 : 
+	 * le mode de calcul des trafics de l'année n-3 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS3_REGEX_02 
+		= "RG_SECTIONHIT_MODECALCULNMOINS3_REGEX_02 : "
+				+ "le mode de calcul des trafics de l'année n-3 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 89 - pcPLNmoins3. *******/
+	/**
+	 * "pcPLNmoins3".<br/>
+	 */
+	public static final String ATTRIBUT_PCPLNMOINS3 
+		= "pcPLNmoins3";
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-3 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-3 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS3_REGEX_02 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-3 de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS3_REGEX_02 
+		= "RG_SECTIONHIT_PCPLNMOINS3_REGEX_02 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-3 de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-3 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-3 doit être homogène à un entier";
+	
+	/* 90 - evaluationPLNmoins3. *******/
+	/**
+	 * "evaluationPLNmoins3".<br/>
+	 */
+	public static final String ATTRIBUT_EVALUATIONPLNMOINS3 
+		= "evaluationPLNmoins3";
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année n-3 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01 
+		= "RG_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année n-3 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année n-3 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02 
+		= "RG_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année n-3 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 91 - pcNuitAnnuelNmoins3. *******/
+	/**
+	 * "pcNuitAnnuelNmoins3".<br/>
+	 */
+	public static final String ATTRIBUT_PCNUITANNUELNMOINS3 
+		= "pcNuitAnnuelNmoins3";
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-3 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-3 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-3 de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-3 de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-3 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-3 doit être homogène à un entier";
+	
+	/* 92 - indiceFiabiliteMjaNmoins3. *******/
+	/**
+	 * "indiceFiabiliteMjaNmoins3".<br/>
+	 */
+	public static final String ATTRIBUT_INDICEFIABLITEMJANMOINS3 
+		= "indiceFiabiliteMjaNmoins3";
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01 : 
+	 * l'indice de fiabilité de la TMJA de l'année n-3 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n-3 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02 : 
+	 * l'indice de fiabilité de la TMJA de l'année n-3 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n-3 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+
+	/* 93 - anneeNmoins4. *******/
+	/**
+	 * "anneeNmoins4".<br/>
+	 */
+	public static final String ATTRIBUT_ANNEENMOINS4 
+		= "anneeNmoins4";
+
+	/**
+	 * "RG_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01 : 
+	 * l'année n-4 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01 : "
+				+ "l'année n-4 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_ANNEENMOINS4_REGEX_02 : 
+	 * l'année n-4 de la section HIT doit comporter exactement 2 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ANNEENMOINS4_REGEX_02 
+		= "RG_SECTIONHIT_ANNEENMOINS4_REGEX_02 : "
+				+ "l'année n-4 de la section HIT doit comporter exactement 2 chiffres";
+
+	/* 94 - mjaNmoins4. *******/
+	/**
+	 * "mjaNmoins4".<br/>
+	 */
+	public static final String ATTRIBUT_MJANMOINS4 
+		= "mjaNmoins4";
+
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS4_RENSEIGNE_01 : 
+	 * le trafic moyen journalier annuel de l'année n-4 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS4_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MJANMOINS4_RENSEIGNE_01 : "
+				+ "le trafic moyen journalier annuel de l'année n-4 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS4_REGEX_02 : 
+	 * le trafic moyen journalier annuel de l'année n-4 de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS4_REGEX_02 
+		= "RG_SECTIONHIT_MJANMOINS4_REGEX_02 : "
+				+ "le trafic moyen journalier annuel de l'année n-4 de la section HIT doit comporter exactement 6 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS4_NUMERIQUE_03 : 
+	 * le trafic moyen journalier annuel de l'année n-4 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS4_NUMERIQUE_03 
+		= "RG_SECTIONHIT_MJANMOINS4_NUMERIQUE_03 : "
+				+ "le trafic moyen journalier annuel de l'année n-4 doit être homogène à un entier";
+
+	/* 95 - typeComptageNmoins4. *******/
+	/**
+	 * "typeComptageNmoins4".<br/>
+	 */
+	public static final String ATTRIBUT_TYPECOMPTAGENMOINS4 
+		= "typeComptageNmoins4";
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01 : 
+	 * le type de comptage de l'année n-4 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01 : "
+				+ "le type de comptage de l'année n-4 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02 : 
+	 * le type de comptage de l'année n-4 de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02 : "
+				+ "le type de comptage de l'année n-4 de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03 : 
+	 * le type de comptage de l'année n-4 doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03 : "
+				+ "le type de comptage de l'année n-4 doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+	
+	/* 96 - modeCalculNmoins4. *******/
+	/**
+	 * "modeCalculNmoins4".<br/>
+	 */
+	public static final String ATTRIBUT_MODECALCULNMOINS4 
+		= "modeCalculNmoins4";
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01 : 
+	 * le mode de calcul des trafics de l'année n-4 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01 : "
+				+ "le mode de calcul des trafics de l'année n-4 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS4_REGEX_02 : 
+	 * le mode de calcul des trafics de l'année n-4 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS4_REGEX_02 
+		= "RG_SECTIONHIT_MODECALCULNMOINS4_REGEX_02 : "
+				+ "le mode de calcul des trafics de l'année n-4 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 97 - pcPLNmoins4. *******/
+	/**
+	 * "pcPLNmoins4".<br/>
+	 */
+	public static final String ATTRIBUT_PCPLNMOINS4 
+		= "pcPLNmoins4";
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-4 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-4 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS4_REGEX_02 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-4 de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS4_REGEX_02 
+		= "RG_SECTIONHIT_PCPLNMOINS4_REGEX_02 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-4 de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-4 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-4 doit être homogène à un entier";
+	
+	/* 98 - evaluationPLNmoins4. *******/
+	/**
+	 * "evaluationPLNmoins4".<br/>
+	 */
+	public static final String ATTRIBUT_EVALUATIONPLNMOINS4 
+		= "evaluationPLNmoins4";
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année n-4 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01 
+		= "RG_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année n-4 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année n-4 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02 
+		= "RG_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année n-4 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 99 - pcNuitAnnuelNmoins4. *******/
+	/**
+	 * "pcNuitAnnuelNmoins4".<br/>
+	 */
+	public static final String ATTRIBUT_PCNUITANNUELNMOINS4 
+		= "pcNuitAnnuelNmoins4";
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-4 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-4 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-4 de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-4 de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-4 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-4 doit être homogène à un entier";
+	
+	/* 100 - indiceFiabiliteMjaNmoins4. *******/
+	/**
+	 * "indiceFiabiliteMjaNmoins4".<br/>
+	 */
+	public static final String ATTRIBUT_INDICEFIABLITEMJANMOINS4 
+		= "indiceFiabiliteMjaNmoins4";
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01 : 
+	 * l'indice de fiabilité de la TMJA de l'année n-4 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n-4 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02 : 
+	 * l'indice de fiabilité de la TMJA de l'année n-4 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n-4 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+
+	/* 101 - anneeNmoins5. *******/
+	/**
+	 * "anneeNmoins5".<br/>
+	 */
+	public static final String ATTRIBUT_ANNEENMOINS5 
+		= "anneeNmoins5";
+
+	/**
+	 * "RG_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01 : 
+	 * l'année n-5 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01 : "
+				+ "l'année n-5 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_ANNEENMOINS5_REGEX_02 : 
+	 * l'année n-5 de la section HIT doit comporter exactement 2 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ANNEENMOINS5_REGEX_02 
+		= "RG_SECTIONHIT_ANNEENMOINS5_REGEX_02 : "
+				+ "l'année n-5 de la section HIT doit comporter exactement 2 chiffres";
+
+	/* 102 - mjaNmoins5. *******/
+	/**
+	 * "mjaNmoins5".<br/>
+	 */
+	public static final String ATTRIBUT_MJANMOINS5 
+		= "mjaNmoins5";
+
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS5_RENSEIGNE_01 : 
+	 * le trafic moyen journalier annuel de l'année n-5 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS5_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MJANMOINS5_RENSEIGNE_01 : "
+				+ "le trafic moyen journalier annuel de l'année n-5 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS5_REGEX_02 : 
+	 * le trafic moyen journalier annuel de l'année n-5 de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS5_REGEX_02 
+		= "RG_SECTIONHIT_MJANMOINS5_REGEX_02 : "
+				+ "le trafic moyen journalier annuel de l'année n-5 de la section HIT doit comporter exactement 6 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_MJANMOINS5_NUMERIQUE_03 : 
+	 * le trafic moyen journalier annuel de l'année n-5 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_MJANMOINS5_NUMERIQUE_03 
+		= "RG_SECTIONHIT_MJANMOINS5_NUMERIQUE_03 : "
+				+ "le trafic moyen journalier annuel de l'année n-5 doit être homogène à un entier";
+
+	/* 103 - typeComptageNmoins5. *******/
+	/**
+	 * "typeComptageNmoins5".<br/>
+	 */
+	public static final String ATTRIBUT_TYPECOMPTAGENMOINS5 
+		= "typeComptageNmoins5";
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01 : 
+	 * le type de comptage de l'année n-5 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01 : "
+				+ "le type de comptage de l'année n-5 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02 : 
+	 * le type de comptage de l'année n-5 de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02 : "
+				+ "le type de comptage de l'année n-5 de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03 : 
+	 * le type de comptage de l'année n-5 doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03 : "
+				+ "le type de comptage de l'année n-5 doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+	
+	/* 104 - modeCalculNmoins5. *******/
+	/**
+	 * "modeCalculNmoins5".<br/>
+	 */
+	public static final String ATTRIBUT_MODECALCULNMOINS5 
+		= "modeCalculNmoins5";
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01 : 
+	 * le mode de calcul des trafics de l'année n-5 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01 : "
+				+ "le mode de calcul des trafics de l'année n-5 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULNMOINS5_REGEX_02 : 
+	 * le mode de calcul des trafics de l'année n-5 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULNMOINS5_REGEX_02 
+		= "RG_SECTIONHIT_MODECALCULNMOINS5_REGEX_02 : "
+				+ "le mode de calcul des trafics de l'année n-5 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 105 - pcPLNmoins5. *******/
+	/**
+	 * "pcPLNmoins5".<br/>
+	 */
+	public static final String ATTRIBUT_PCPLNMOINS5 
+		= "pcPLNmoins5";
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-5 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-5 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS5_REGEX_02 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-5 de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS5_REGEX_02 
+		= "RG_SECTIONHIT_PCPLNMOINS5_REGEX_02 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-5 de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année n-5 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année n-5 doit être homogène à un entier";
+	
+	/* 106 - evaluationPLNmoins5. *******/
+	/**
+	 * "evaluationPLNmoins5".<br/>
+	 */
+	public static final String ATTRIBUT_EVALUATIONPLNMOINS5 
+		= "evaluationPLNmoins5";
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année n-5 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01 
+		= "RG_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année n-5 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année n-5 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02 
+		= "RG_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année n-5 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* 107 - pcNuitAnnuelNmoins5. *******/
+	/**
+	 * "pcNuitAnnuelNmoins5".<br/>
+	 */
+	public static final String ATTRIBUT_PCNUITANNUELNMOINS5 
+		= "pcNuitAnnuelNmoins5";
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-5 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-5 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-5 de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-5 de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année n-5 doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année n-5 doit être homogène à un entier";
+	
+	/* 108 - indiceFiabiliteMjaNmoins5. *******/
+	/**
+	 * "indiceFiabiliteMjaNmoins5".<br/>
+	 */
+	public static final String ATTRIBUT_INDICEFIABLITEMJANMOINS5 
+		= "indiceFiabiliteMjaNmoins5";
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01 : 
+	 * l'indice de fiabilité de la TMJA de l'année n-5 de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n-5 de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02 : 
+	 * l'indice de fiabilité de la TMJA de l'année n-5 de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02 : "
+				+ "l'indice de fiabilité de la TMJA de l'année n-5 de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
 	
 	/**
 	 * LOG : Log : 
@@ -5368,6 +6268,1162 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNmoins1Regex02());
 		
+		/* 77 - anneeNmoins2. *******/
+		/* RG_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAnneeNmoins2Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins2Renseigne01()
+				, RG_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeNmoins2Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEENMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeNmoins2Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeNmoins2Renseigne01());
+		
+		/* RG_SECTIONHIT_ANNEENMOINS2_REGEX_02. */
+		final LigneRG ligneRGSectionHitAnneeNmoins2Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins2Regex02()
+				, RG_SECTIONHIT_ANNEENMOINS2_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeNmoins2Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEENMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeNmoins2Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeNmoins2Regex02());
+		
+		/* 78 - mjaNmoins2. *******/
+		/* RG_SECTIONHIT_MJANMOINS2_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitMjaNmoins2Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins2Renseigne01()
+				, RG_SECTIONHIT_MJANMOINS2_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins2Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins2Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins2Renseigne01());
+		
+		/* RG_SECTIONHIT_MJANMOINS2_REGEX_02. */
+		final LigneRG ligneRGSectionHitMjaNmoins2Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins2Regex02()
+				, RG_SECTIONHIT_MJANMOINS2_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins2Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins2Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins2Regex02());
+				
+		/* RG_SECTIONHIT_MJANMOINS2_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitMjaNmoins2Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins2Numerique03()
+				, RG_SECTIONHIT_MJANMOINS2_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins2Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins2Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins2Numerique03());							
+		
+		/* 79 - typeComptageNmoins2. *******/
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins2Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins2Renseigne01()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins2Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins2Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins2Renseigne01());
+		
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins2Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins2Regex02()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins2Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins2Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins2Regex02());
+				
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins2Nomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins2Nomenclature03()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins2Nomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins2Nomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins2Nomenclature03());
+		
+		/* 80 - modeCalculNmoins2. *******/
+		/* RG_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins2Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins2Renseigne01()
+				, RG_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins2Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins2Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins2Renseigne01());
+		
+		/* RG_SECTIONHIT_MODECALCULNMOINS2_REGEX_02. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins2Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins2Regex02()
+				, RG_SECTIONHIT_MODECALCULNMOINS2_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins2Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins2Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins2Regex02());
+		
+		/* 81 - pcPLNmoins2. *******/
+		/* RG_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcPLNmoins2Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins2Renseigne01()
+				, RG_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins2Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins2Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins2Renseigne01());
+		
+		/* RG_SECTIONHIT_PCPLNMOINS2_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcPLNmoins2Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins2Regex02()
+				, RG_SECTIONHIT_PCPLNMOINS2_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins2Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins2Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins2Regex02());
+				
+		/* RG_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcPLNmoins2Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins2Numerique03()
+				, RG_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins2Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins2Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins2Numerique03());
+		
+		/* 82 - evaluationPLNmoins2. *******/
+		/* RG_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitEvaluationPLNmoins2Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins2Renseigne01()
+				, RG_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLNmoins2Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLNmoins2Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLNmoins2Renseigne01());
+		
+		/* RG_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02. */
+		final LigneRG ligneRGSectionHitEvaluationPLNmoins2Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins2Regex02()
+				, RG_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLNmoins2Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLNmoins2Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLNmoins2Regex02());
+		
+		/* 83 - pcNuitAnnuelNmoins2. *******/
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins2Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins2Renseigne01()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins2Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins2Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins2Renseigne01());
+		
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins2Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins2Regex02()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins2Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins2Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins2Regex02());
+				
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins2Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins2Numerique03()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins2Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins2Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins2Numerique03());
+		
+		/* 84 - indiceFiabiliteMjaNmoins2. *******/
+		/* RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01()
+				, RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNmoins2Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJANMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01());
+		
+		/* RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNmoins2Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins2()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins2Regex02()
+				, RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNmoins2Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJANMOINS2
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNmoins2Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNmoins2Regex02());
+
+		
+		/* 85 - anneeNmoins3. *******/
+		/* RG_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAnneeNmoins3Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins3Renseigne01()
+				, RG_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeNmoins3Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEENMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeNmoins3Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeNmoins3Renseigne01());
+		
+		/* RG_SECTIONHIT_ANNEENMOINS3_REGEX_02. */
+		final LigneRG ligneRGSectionHitAnneeNmoins3Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins3Regex02()
+				, RG_SECTIONHIT_ANNEENMOINS3_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeNmoins3Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEENMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeNmoins3Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeNmoins3Regex02());
+		
+		/* 86 - mjaNmoins3. *******/
+		/* RG_SECTIONHIT_MJANMOINS3_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitMjaNmoins3Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins3Renseigne01()
+				, RG_SECTIONHIT_MJANMOINS3_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins3Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins3Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins3Renseigne01());
+		
+		/* RG_SECTIONHIT_MJANMOINS3_REGEX_02. */
+		final LigneRG ligneRGSectionHitMjaNmoins3Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins3Regex02()
+				, RG_SECTIONHIT_MJANMOINS3_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins3Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins3Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins3Regex02());
+				
+		/* RG_SECTIONHIT_MJANMOINS3_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitMjaNmoins3Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins3Numerique03()
+				, RG_SECTIONHIT_MJANMOINS3_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins3Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins3Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins3Numerique03());							
+		
+		/* 87 - typeComptageNmoins3. *******/
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins3Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins3Renseigne01()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins3Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins3Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins3Renseigne01());
+		
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins3Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins3Regex02()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins3Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins3Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins3Regex02());
+				
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins3Nomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins3Nomenclature03()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins3Nomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins3Nomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins3Nomenclature03());
+		
+		/* 88 - modeCalculNmoins3. *******/
+		/* RG_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins3Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins3Renseigne01()
+				, RG_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins3Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins3Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins3Renseigne01());
+		
+		/* RG_SECTIONHIT_MODECALCULNMOINS3_REGEX_02. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins3Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins3Regex02()
+				, RG_SECTIONHIT_MODECALCULNMOINS3_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins3Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins3Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins3Regex02());
+		
+		/* 89 - pcPLNmoins3. *******/
+		/* RG_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcPLNmoins3Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins3Renseigne01()
+				, RG_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins3Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins3Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins3Renseigne01());
+		
+		/* RG_SECTIONHIT_PCPLNMOINS3_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcPLNmoins3Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins3Regex02()
+				, RG_SECTIONHIT_PCPLNMOINS3_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins3Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins3Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins3Regex02());
+				
+		/* RG_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcPLNmoins3Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins3Numerique03()
+				, RG_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins3Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins3Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins3Numerique03());
+		
+		/* 90 - evaluationPLNmoins3. *******/
+		/* RG_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitEvaluationPLNmoins3Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins3Renseigne01()
+				, RG_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLNmoins3Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLNmoins3Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLNmoins3Renseigne01());
+		
+		/* RG_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02. */
+		final LigneRG ligneRGSectionHitEvaluationPLNmoins3Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins3Regex02()
+				, RG_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLNmoins3Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLNmoins3Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLNmoins3Regex02());
+		
+		/* 91 - pcNuitAnnuelNmoins3. *******/
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins3Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins3Renseigne01()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins3Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins3Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins3Renseigne01());
+		
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins3Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins3Regex02()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins3Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins3Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins3Regex02());
+				
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins3Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins3Numerique03()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins3Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins3Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins3Numerique03());
+		
+		/* 92 - indiceFiabiliteMjaNmoins3. *******/
+		/* RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01()
+				, RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNmoins3Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJANMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01());
+		
+		/* RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNmoins3Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins3()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins3Regex02()
+				, RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNmoins3Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJANMOINS3
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNmoins3Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNmoins3Regex02());
+
+		
+		/* 93 - anneeNmoins4. *******/
+		/* RG_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAnneeNmoins4Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins4Renseigne01()
+				, RG_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeNmoins4Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEENMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeNmoins4Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeNmoins4Renseigne01());
+		
+		/* RG_SECTIONHIT_ANNEENMOINS4_REGEX_02. */
+		final LigneRG ligneRGSectionHitAnneeNmoins4Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins4Regex02()
+				, RG_SECTIONHIT_ANNEENMOINS4_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeNmoins4Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEENMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeNmoins4Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeNmoins4Regex02());
+		
+		/* 94 - mjaNmoins4. *******/
+		/* RG_SECTIONHIT_MJANMOINS4_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitMjaNmoins4Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins4Renseigne01()
+				, RG_SECTIONHIT_MJANMOINS4_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins4Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins4Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins4Renseigne01());
+		
+		/* RG_SECTIONHIT_MJANMOINS4_REGEX_02. */
+		final LigneRG ligneRGSectionHitMjaNmoins4Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins4Regex02()
+				, RG_SECTIONHIT_MJANMOINS4_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins4Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins4Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins4Regex02());
+				
+		/* RG_SECTIONHIT_MJANMOINS4_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitMjaNmoins4Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins4Numerique03()
+				, RG_SECTIONHIT_MJANMOINS4_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins4Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins4Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins4Numerique03());							
+		
+		/* 95 - typeComptageNmoins4. *******/
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins4Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins4Renseigne01()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins4Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins4Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins4Renseigne01());
+		
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins4Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins4Regex02()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins4Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins4Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins4Regex02());
+				
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins4Nomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins4Nomenclature03()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins4Nomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins4Nomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins4Nomenclature03());
+		
+		/* 96 - modeCalculNmoins4. *******/
+		/* RG_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins4Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins4Renseigne01()
+				, RG_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins4Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins4Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins4Renseigne01());
+		
+		/* RG_SECTIONHIT_MODECALCULNMOINS4_REGEX_02. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins4Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins4Regex02()
+				, RG_SECTIONHIT_MODECALCULNMOINS4_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins4Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins4Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins4Regex02());
+		
+		/* 97 - pcPLNmoins4. *******/
+		/* RG_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcPLNmoins4Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins4Renseigne01()
+				, RG_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins4Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins4Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins4Renseigne01());
+		
+		/* RG_SECTIONHIT_PCPLNMOINS4_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcPLNmoins4Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins4Regex02()
+				, RG_SECTIONHIT_PCPLNMOINS4_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins4Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins4Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins4Regex02());
+				
+		/* RG_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcPLNmoins4Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins4Numerique03()
+				, RG_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins4Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins4Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins4Numerique03());
+		
+		/* 98 - evaluationPLNmoins4. *******/
+		/* RG_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitEvaluationPLNmoins4Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins4Renseigne01()
+				, RG_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLNmoins4Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLNmoins4Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLNmoins4Renseigne01());
+		
+		/* RG_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02. */
+		final LigneRG ligneRGSectionHitEvaluationPLNmoins4Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins4Regex02()
+				, RG_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLNmoins4Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLNmoins4Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLNmoins4Regex02());
+		
+		/* 99 - pcNuitAnnuelNmoins4. *******/
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins4Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins4Renseigne01()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins4Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins4Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins4Renseigne01());
+		
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins4Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins4Regex02()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins4Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins4Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins4Regex02());
+				
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins4Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins4Numerique03()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins4Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins4Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins4Numerique03());
+		
+		/* 100 - indiceFiabiliteMjaNmoins4. *******/
+		/* RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01()
+				, RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNmoins4Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJANMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01());
+		
+		/* RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNmoins4Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins4Regex02()
+				, RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNmoins4Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJANMOINS4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNmoins4Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNmoins4Regex02());
+
+		
+		/* 101 - anneeNmoins5. *******/
+		/* RG_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitAnneeNmoins5Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins5Renseigne01()
+				, RG_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeNmoins5Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEENMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeNmoins5Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeNmoins5Renseigne01());
+		
+		/* RG_SECTIONHIT_ANNEENMOINS5_REGEX_02. */
+		final LigneRG ligneRGSectionHitAnneeNmoins5Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitAnneeNmoins5Regex02()
+				, RG_SECTIONHIT_ANNEENMOINS5_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitAnneeNmoins5Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ANNEENMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitAnneeNmoins5Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitAnneeNmoins5Regex02());
+		
+		/* 102 - mjaNmoins5. *******/
+		/* RG_SECTIONHIT_MJANMOINS5_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitMjaNmoins5Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins5Renseigne01()
+				, RG_SECTIONHIT_MJANMOINS5_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins5Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins5Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins5Renseigne01());
+		
+		/* RG_SECTIONHIT_MJANMOINS5_REGEX_02. */
+		final LigneRG ligneRGSectionHitMjaNmoins5Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins5Regex02()
+				, RG_SECTIONHIT_MJANMOINS5_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins5Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins5Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins5Regex02());
+				
+		/* RG_SECTIONHIT_MJANMOINS5_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitMjaNmoins5Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitMjaNmoins5Numerique03()
+				, RG_SECTIONHIT_MJANMOINS5_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitMjaNmoins5Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MJANMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitMjaNmoins5Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitMjaNmoins5Numerique03());							
+		
+		/* 103 - typeComptageNmoins5. *******/
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins5Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins5Renseigne01()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins5Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins5Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins5Renseigne01());
+		
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins5Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins5Regex02()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins5Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins5Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins5Regex02());
+				
+		/* RG_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03. */
+		final LigneRG ligneRGSectionHitTypeComptageNmoins5Nomenclature03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitTypeComptageNmoins5Nomenclature03()
+				, RG_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03
+				, EnumTypesValidation.NOMENCLATURE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitTypeComptageNmoins5Nomenclature03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_TYPECOMPTAGENMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitTypeComptageNmoins5Nomenclature03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitTypeComptageNmoins5Nomenclature03());
+		
+		/* 104 - modeCalculNmoins5. *******/
+		/* RG_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins5Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins5Renseigne01()
+				, RG_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins5Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins5Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins5Renseigne01());
+		
+		/* RG_SECTIONHIT_MODECALCULNMOINS5_REGEX_02. */
+		final LigneRG ligneRGSectionHitModeCalculNmoins5Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitModeCalculNmoins5Regex02()
+				, RG_SECTIONHIT_MODECALCULNMOINS5_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitModeCalculNmoins5Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_MODECALCULNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitModeCalculNmoins5Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitModeCalculNmoins5Regex02());
+		
+		/* 105 - pcPLNmoins5. *******/
+		/* RG_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcPLNmoins5Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins5Renseigne01()
+				, RG_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins5Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins5Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins5Renseigne01());
+		
+		/* RG_SECTIONHIT_PCPLNMOINS5_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcPLNmoins5Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins5Regex02()
+				, RG_SECTIONHIT_PCPLNMOINS5_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins5Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins5Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins5Regex02());
+				
+		/* RG_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcPLNmoins5Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcPLNmoins5Numerique03()
+				, RG_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcPLNmoins5Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCPLNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcPLNmoins5Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcPLNmoins5Numerique03());
+		
+		/* 106 - evaluationPLNmoins5. *******/
+		/* RG_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitEvaluationPLNmoins5Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins5Renseigne01()
+				, RG_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLNmoins5Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLNmoins5Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLNmoins5Renseigne01());
+		
+		/* RG_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02. */
+		final LigneRG ligneRGSectionHitEvaluationPLNmoins5Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitEvaluationPLNmoins5Regex02()
+				, RG_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitEvaluationPLNmoins5Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_EVALUATIONPLNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitEvaluationPLNmoins5Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitEvaluationPLNmoins5Regex02());
+		
+		/* 107 - pcNuitAnnuelNmoins5. *******/
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins5Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins5Renseigne01()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins5Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins5Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins5Renseigne01());
+		
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins5Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins5Regex02()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins5Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins5Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins5Regex02());
+				
+		/* RG_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03. */
+		final LigneRG ligneRGSectionHitPcNuitAnnuelNmoins5Numerique03 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitPcNuitAnnuelNmoins5Numerique03()
+				, RG_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03
+				, EnumTypesValidation.NUMERIQUE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitPcNuitAnnuelNmoins5Numerique03()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_PCNUITANNUELNMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitPcNuitAnnuelNmoins5Numerique03()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitAnnuelNmoins5Numerique03());
+		
+		/* 108 - indiceFiabiliteMjaNmoins5. *******/
+		/* RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01()
+				, RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNmoins5Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJANMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01());
+		
+		/* RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02. */
+		final LigneRG ligneRGSectionHitIndiceFiabiliteMjaNmoins5Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins5()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitIndiceFiabiliteMjaNmoins5Regex02()
+				, RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitIndiceFiabiliteMjaNmoins5Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_INDICEFIABLITEMJANMOINS5
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitIndiceFiabiliteMjaNmoins5Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitIndiceFiabiliteMjaNmoins5Regex02());
+
+		
 		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
@@ -6138,6 +8194,313 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_INDICEFIABLITEMJANMOINS1_REGEX_02
 			, ligneRGSectionHitIndiceFiabiliteMjaNmoins1Regex02);
+				
+		/* 77 - anneeNmoins2. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01
+			, ligneRGSectionHitAnneeNmoins2Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEENMOINS2_REGEX_02
+			, ligneRGSectionHitAnneeNmoins2Regex02);
+				
+		/* 78 - mjaNmoins2. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS2_RENSEIGNE_01
+			, ligneRGSectionHitMjaNmoins2Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS2_REGEX_02
+			, ligneRGSectionHitMjaNmoins2Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS2_NUMERIQUE_03
+			, ligneRGSectionHitMjaNmoins2Numerique03);
+				
+		/* 79 - typeComptageNmoins2. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01
+			, ligneRGSectionHitTypeComptageNmoins2Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02
+			, ligneRGSectionHitTypeComptageNmoins2Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03
+			, ligneRGSectionHitTypeComptageNmoins2Nomenclature03);
+				
+		/* 80 - modeCalculNmoins2. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01
+			, ligneRGSectionHitModeCalculNmoins2Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS2_REGEX_02
+			, ligneRGSectionHitModeCalculNmoins2Regex02);
+				
+		/* 81 - pcPLNmoins2. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01
+			, ligneRGSectionHitPcPLNmoins2Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS2_REGEX_02
+			, ligneRGSectionHitPcPLNmoins2Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03
+			, ligneRGSectionHitPcPLNmoins2Numerique03);				
+				
+		/* 82 - evaluationPLNmoins2. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01
+			, ligneRGSectionHitEvaluationPLNmoins2Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02
+			, ligneRGSectionHitEvaluationPLNmoins2Regex02);
+				
+		/* 83 - pcNuitAnnuelNmoins2. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitAnnuelNmoins2Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02
+			, ligneRGSectionHitPcNuitAnnuelNmoins2Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitAnnuelNmoins2Numerique03);				
+				
+		/* 84 - indiceFiabiliteMjaNmoins2. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01
+			, ligneRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02
+			, ligneRGSectionHitIndiceFiabiliteMjaNmoins2Regex02);
+		
+				
+		/* 85 - anneeNmoins3. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01
+			, ligneRGSectionHitAnneeNmoins3Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEENMOINS3_REGEX_02
+			, ligneRGSectionHitAnneeNmoins3Regex02);
+				
+		/* 86 - mjaNmoins3. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS3_RENSEIGNE_01
+			, ligneRGSectionHitMjaNmoins3Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS3_REGEX_02
+			, ligneRGSectionHitMjaNmoins3Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS3_NUMERIQUE_03
+			, ligneRGSectionHitMjaNmoins3Numerique03);
+				
+		/* 87 - typeComptageNmoins3. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01
+			, ligneRGSectionHitTypeComptageNmoins3Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02
+			, ligneRGSectionHitTypeComptageNmoins3Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03
+			, ligneRGSectionHitTypeComptageNmoins3Nomenclature03);
+				
+		/* 88 - modeCalculNmoins3. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01
+			, ligneRGSectionHitModeCalculNmoins3Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS3_REGEX_02
+			, ligneRGSectionHitModeCalculNmoins3Regex02);
+				
+		/* 89 - pcPLNmoins3. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01
+			, ligneRGSectionHitPcPLNmoins3Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS3_REGEX_02
+			, ligneRGSectionHitPcPLNmoins3Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03
+			, ligneRGSectionHitPcPLNmoins3Numerique03);				
+				
+		/* 90 - evaluationPLNmoins3. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01
+			, ligneRGSectionHitEvaluationPLNmoins3Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02
+			, ligneRGSectionHitEvaluationPLNmoins3Regex02);
+				
+		/* 91 - pcNuitAnnuelNmoins3. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitAnnuelNmoins3Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02
+			, ligneRGSectionHitPcNuitAnnuelNmoins3Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitAnnuelNmoins3Numerique03);				
+				
+		/* 92 - indiceFiabiliteMjaNmoins3. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01
+			, ligneRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02
+			, ligneRGSectionHitIndiceFiabiliteMjaNmoins3Regex02);
+		
+				
+		/* 93 - anneeNmoins4. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01
+			, ligneRGSectionHitAnneeNmoins4Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEENMOINS4_REGEX_02
+			, ligneRGSectionHitAnneeNmoins4Regex02);
+				
+		/* 94 - mjaNmoins4. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS4_RENSEIGNE_01
+			, ligneRGSectionHitMjaNmoins4Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS4_REGEX_02
+			, ligneRGSectionHitMjaNmoins4Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS4_NUMERIQUE_03
+			, ligneRGSectionHitMjaNmoins4Numerique03);
+				
+		/* 95 - typeComptageNmoins4. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01
+			, ligneRGSectionHitTypeComptageNmoins4Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02
+			, ligneRGSectionHitTypeComptageNmoins4Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03
+			, ligneRGSectionHitTypeComptageNmoins4Nomenclature03);
+				
+		/* 96 - modeCalculNmoins4. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01
+			, ligneRGSectionHitModeCalculNmoins4Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS4_REGEX_02
+			, ligneRGSectionHitModeCalculNmoins4Regex02);
+				
+		/* 97 - pcPLNmoins4. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01
+			, ligneRGSectionHitPcPLNmoins4Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS4_REGEX_02
+			, ligneRGSectionHitPcPLNmoins4Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03
+			, ligneRGSectionHitPcPLNmoins4Numerique03);				
+				
+		/* 98 - evaluationPLNmoins4. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01
+			, ligneRGSectionHitEvaluationPLNmoins4Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02
+			, ligneRGSectionHitEvaluationPLNmoins4Regex02);
+				
+		/* 99 - pcNuitAnnuelNmoins4. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitAnnuelNmoins4Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02
+			, ligneRGSectionHitPcNuitAnnuelNmoins4Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitAnnuelNmoins4Numerique03);				
+				
+		/* 100 - indiceFiabiliteMjaNmoins4. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01
+			, ligneRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02
+			, ligneRGSectionHitIndiceFiabiliteMjaNmoins4Regex02);
+		
+				
+		/* 101 - anneeNmoins5. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01
+			, ligneRGSectionHitAnneeNmoins5Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_ANNEENMOINS5_REGEX_02
+			, ligneRGSectionHitAnneeNmoins5Regex02);
+				
+		/* 102 - mjaNmoins5. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS5_RENSEIGNE_01
+			, ligneRGSectionHitMjaNmoins5Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS5_REGEX_02
+			, ligneRGSectionHitMjaNmoins5Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJANMOINS5_NUMERIQUE_03
+			, ligneRGSectionHitMjaNmoins5Numerique03);
+				
+		/* 103 - typeComptageNmoins5. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01
+			, ligneRGSectionHitTypeComptageNmoins5Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02
+			, ligneRGSectionHitTypeComptageNmoins5Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03
+			, ligneRGSectionHitTypeComptageNmoins5Nomenclature03);
+				
+		/* 104 - modeCalculNmoins5. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01
+			, ligneRGSectionHitModeCalculNmoins5Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MODECALCULNMOINS5_REGEX_02
+			, ligneRGSectionHitModeCalculNmoins5Regex02);
+				
+		/* 105 - pcPLNmoins5. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01
+			, ligneRGSectionHitPcPLNmoins5Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS5_REGEX_02
+			, ligneRGSectionHitPcPLNmoins5Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03
+			, ligneRGSectionHitPcPLNmoins5Numerique03);				
+				
+		/* 106 - evaluationPLNmoins5. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01
+			, ligneRGSectionHitEvaluationPLNmoins5Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02
+			, ligneRGSectionHitEvaluationPLNmoins5Regex02);
+				
+		/* 107 - pcNuitAnnuelNmoins5. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitAnnuelNmoins5Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02
+			, ligneRGSectionHitPcNuitAnnuelNmoins5Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitAnnuelNmoins5Numerique03);				
+				
+		/* 108 - indiceFiabiliteMjaNmoins5. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01
+			, ligneRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02
+			, ligneRGSectionHitIndiceFiabiliteMjaNmoins5Regex02);
 
 		return this.mapRG;
 					

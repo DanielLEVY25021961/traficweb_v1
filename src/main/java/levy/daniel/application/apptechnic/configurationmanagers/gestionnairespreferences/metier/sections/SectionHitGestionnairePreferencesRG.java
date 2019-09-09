@@ -12570,19 +12570,19 @@ public final class SectionHitGestionnairePreferencesRG {
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois09-01 : 
-	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être renseignée".<br/>
+	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être renseignée".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois09Renseigne01;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois09-02 : 
-	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit comporter exactement 6 chiffres".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois09Regex02;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois09-03 : 
-	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-2110] du HIT) doit être homogène à un entier".<br/>
+	 * "la moyenne journalière mensuelle du mois de septembre (09) de l'année n-1 en véhicules/jour de la section HIT (colonnes [450-455] du HIT) doit être homogène à un entier".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois09Numerique03;
 	
@@ -12597,19 +12597,19 @@ public final class SectionHitGestionnairePreferencesRG {
 	
 	/**
 	 * Boolean activant la RG-SectionHit-PcNuitNmoins1mois09-01 : 
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être renseigné".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être renseigné".<br/>
 	 */
 	private static Boolean validerRGSectionHitPcNuitNmoins1mois09Renseigne01;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-PcNuitNmoins1mois09-02 : 
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit comporter exactement 3 chiffres".<br/>
 	 */
 	private static Boolean validerRGSectionHitPcNuitNmoins1mois09Regex02;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-PcNuitNmoins1mois09-03 : 
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [2111-2113] du HIT) doit être homogène à un entier".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de septembre (09) de l'année n-1 de la section HIT (colonnes [456-458] du HIT) doit être homogène à un entier".<br/>
 	 */
 	private static Boolean validerRGSectionHitPcNuitNmoins1mois09Numerique03;
 
@@ -12625,19 +12625,19 @@ public final class SectionHitGestionnairePreferencesRG {
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois10-01 : 
-	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être renseignée".<br/>
+	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être renseignée".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois10Renseigne01;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois10-02 : 
-	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit comporter exactement 6 chiffres".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois10Regex02;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois10-03 : 
-	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [2114-2119] du HIT) doit être homogène à un entier".<br/>
+	 * "la moyenne journalière mensuelle du mois de octobre (10) de l'année n-1 en véhicules/jour de la section HIT (colonnes [459-464] du HIT) doit être homogène à un entier".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois10Numerique03;
 	
@@ -12652,19 +12652,19 @@ public final class SectionHitGestionnairePreferencesRG {
 	
 	/**
 	 * Boolean activant la RG-SectionHit-PcNuitNmoins1mois10-01 : 
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être renseigné".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être renseigné".<br/>
 	 */
 	private static Boolean validerRGSectionHitPcNuitNmoins1mois10Renseigne01;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-PcNuitNmoins1mois10-02 : 
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit comporter exactement 3 chiffres".<br/>
 	 */
 	private static Boolean validerRGSectionHitPcNuitNmoins1mois10Regex02;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-PcNuitNmoins1mois10-03 : 
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [4220-4432] du HIT) doit être homogène à un entier".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de octobre (10) de l'année n-1 de la section HIT (colonnes [465-467] du HIT) doit être homogène à un entier".<br/>
 	 */
 	private static Boolean validerRGSectionHitPcNuitNmoins1mois10Numerique03;
 
@@ -12680,19 +12680,19 @@ public final class SectionHitGestionnairePreferencesRG {
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois11-01 : 
-	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être renseignée".<br/>
+	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être renseignée".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois11Renseigne01;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois11-02 : 
-	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit comporter exactement 6 chiffres".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois11Regex02;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois11-03 : 
-	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4223-4438] du HIT) doit être homogène à un entier".<br/>
+	 * "la moyenne journalière mensuelle du mois de novembre (11) de l'année n-1 en véhicules/jour de la section HIT (colonnes [468-473] du HIT) doit être homogène à un entier".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois11Numerique03;
 	
@@ -12707,19 +12707,19 @@ public final class SectionHitGestionnairePreferencesRG {
 	
 	/**
 	 * Boolean activant la RG-SectionHit-PcNuitNmoins1mois11-01 : 
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être renseigné".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être renseigné".<br/>
 	 */
 	private static Boolean validerRGSectionHitPcNuitNmoins1mois11Renseigne01;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-PcNuitNmoins1mois11-02 : 
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit comporter exactement 3 chiffres".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit comporter exactement 3 chiffres".<br/>
 	 */
 	private static Boolean validerRGSectionHitPcNuitNmoins1mois11Regex02;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-PcNuitNmoins1mois11-03 : 
-	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [4229-4441] du HIT) doit être homogène à un entier".<br/>
+	 * "le pourcentage de trafic de nuit tous véhicules mensuel du mois de novembre (11) de l'année n-1 de la section HIT (colonnes [474-476] du HIT) doit être homogène à un entier".<br/>
 	 */
 	private static Boolean validerRGSectionHitPcNuitNmoins1mois11Numerique03;
 
@@ -12735,19 +12735,19 @@ public final class SectionHitGestionnairePreferencesRG {
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois12-01 : 
-	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être renseignée".<br/>
+	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être renseignée".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois12Renseigne01;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois12-02 : 
-	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit comporter exactement 6 chiffres".<br/>
+	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit comporter exactement 6 chiffres".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois12Regex02;
 	
 	/**
 	 * Boolean activant la RG-SectionHit-MjmNmoins1mois12-03 : 
-	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [4232-482] du HIT) doit être homogène à un entier".<br/>
+	 * "la moyenne journalière mensuelle du mois de décembre (12) de l'année n-1 en véhicules/jour de la section HIT (colonnes [477-482] du HIT) doit être homogène à un entier".<br/>
 	 */
 	private static Boolean validerRGSectionHitMjmNmoins1mois12Numerique03;
 	

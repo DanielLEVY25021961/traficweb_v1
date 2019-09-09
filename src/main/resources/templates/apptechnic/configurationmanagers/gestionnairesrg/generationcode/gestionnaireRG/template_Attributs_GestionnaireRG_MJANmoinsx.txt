@@ -1,0 +1,224 @@
+
+	/* {$pNumeroChamp} - anneeN{$moinsi}. *******/
+	/**
+	 * "anneeN{$moinsi}".<br/>
+	 */
+	public static final String ATTRIBUT_ANNEEN{$MOINSi} 
+		= "anneeN{$moinsi}";
+
+	/**
+	 * "RG_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01 : 
+	 * l'année {$n-i} de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ANNEEN{$MOINSi}_RENSEIGNE_01 : "
+				+ "l'année {$n-i} de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02 : 
+	 * l'année {$n-i} de la section HIT doit comporter exactement 2 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02 
+		= "RG_SECTIONHIT_ANNEEN{$MOINSi}_REGEX_02 : "
+				+ "l'année {$n-i} de la section HIT doit comporter exactement 2 chiffres";
+
+	/* {$pNumeroChamp + 1} - mjaN{$moinsi}. *******/
+	/**
+	 * "mjaN{$moinsi}".<br/>
+	 */
+	public static final String ATTRIBUT_MJAN{$MOINSi} 
+		= "mjaN{$moinsi}";
+
+	/**
+	 * "RG_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01 : 
+	 * le trafic moyen journalier annuel de l'année {$n-i} de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MJAN{$MOINSi}_RENSEIGNE_01 : "
+				+ "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MJAN{$MOINSi}_REGEX_02 : 
+	 * le trafic moyen journalier annuel de l'année {$n-i} de la section HIT doit comporter exactement 6 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_MJAN{$MOINSi}_REGEX_02 
+		= "RG_SECTIONHIT_MJAN{$MOINSi}_REGEX_02 : "
+				+ "le trafic moyen journalier annuel de l'année {$n-i} de la section HIT doit comporter exactement 6 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03 : 
+	 * le trafic moyen journalier annuel de l'année {$n-i} doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03 
+		= "RG_SECTIONHIT_MJAN{$MOINSi}_NUMERIQUE_03 : "
+				+ "le trafic moyen journalier annuel de l'année {$n-i} doit être homogène à un entier";
+
+	/* {$pNumeroChamp + 2} - typeComptageN{$moinsi}. *******/
+	/**
+	 * "typeComptageN{$moinsi}".<br/>
+	 */
+	public static final String ATTRIBUT_TYPECOMPTAGEN{$MOINSi} 
+		= "typeComptageN{$moinsi}";
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01 : 
+	 * le type de comptage de l'année {$n-i} de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_RENSEIGNE_01 : "
+				+ "le type de comptage de l'année {$n-i} de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02 : 
+	 * le type de comptage de l'année {$n-i} de la section HIT doit comporter exactement 1 chiffre".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02 
+		= "RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_REGEX_02 : "
+				+ "le type de comptage de l'année {$n-i} de la section HIT doit comporter exactement 1 chiffre";
+	
+	/**
+	 * "RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03 : 
+	 * le type de comptage de l'année {$n-i} doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]".
+	 */
+	public static final String RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03 
+		= "RG_SECTIONHIT_TYPECOMPTAGEN{$MOINSi}_NOMENCLATURE_03 : "
+				+ "le type de comptage de l'année {$n-i} doit respecter une nomenclature [1, 2, 3, 4, 5, 6, 7, 8, 9]";
+	
+	/* {$pNumeroChamp + 3} - modeCalculN{$moinsi}. *******/
+	/**
+	 * "modeCalculN{$moinsi}".<br/>
+	 */
+	public static final String ATTRIBUT_MODECALCULN{$MOINSi} 
+		= "modeCalculN{$moinsi}";
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01 : 
+	 * le mode de calcul des trafics de l'année {$n-i} de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_MODECALCULN{$MOINSi}_RENSEIGNE_01 : "
+				+ "le mode de calcul des trafics de l'année {$n-i} de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02 : 
+	 * le mode de calcul des trafics de l'année {$n-i} de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02 
+		= "RG_SECTIONHIT_MODECALCULN{$MOINSi}_REGEX_02 : "
+				+ "le mode de calcul des trafics de l'année {$n-i} de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* {$pNumeroChamp + 4} - pcPLN{$moinsi}. *******/
+	/**
+	 * "pcPLN{$moinsi}".<br/>
+	 */
+	public static final String ATTRIBUT_PCPLN{$MOINSi} 
+		= "pcPLN{$moinsi}";
+
+	/**
+	 * "RG_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCPLN{$MOINSi}_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02 
+		= "RG_SECTIONHIT_PCPLN{$MOINSi}_REGEX_02 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année {$n-i} de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03 : 
+	 * le pourcentage de trafic poids lourds annuel de l'année {$n-i} doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCPLN{$MOINSi}_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic poids lourds annuel de l'année {$n-i} doit être homogène à un entier";
+	
+	/* {$pNumeroChamp + 5} - evaluationPLN{$moinsi}. *******/
+	/**
+	 * "evaluationPLN{$moinsi}".<br/>
+	 */
+	public static final String ATTRIBUT_EVALUATIONPLN{$MOINSi} 
+		= "evaluationPLN{$moinsi}";
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_RENSEIGNE_01 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02 : 
+	 * l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02 
+		= "RG_SECTIONHIT_EVALUATIONPLN{$MOINSi}_REGEX_02 : "
+				+ "l'évaluation des pourcentages de trafic poids lourds de l'année {$n-i} de la section HIT doit comporter exactement 1 caractère (ou espace)";
+
+	/* {$pNumeroChamp + 6} - pcNuitAnnuelN{$moinsi}. *******/
+	/**
+	 * "pcNuitAnnuelN{$moinsi}".<br/>
+	 */
+	public static final String ATTRIBUT_PCNUITANNUELN{$MOINSi} 
+		= "pcNuitAnnuelN{$moinsi}";
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_RENSEIGNE_01 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT doit comporter exactement 3 chiffres".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02 
+		= "RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_REGEX_02 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} de la section HIT doit comporter exactement 3 chiffres";
+	
+	/**
+	 * "RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03 : 
+	 * le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} doit être homogène à un entier".
+	 */
+	public static final String RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03 
+		= "RG_SECTIONHIT_PCNUITANNUELN{$MOINSi}_NUMERIQUE_03 : "
+				+ "le pourcentage de trafic de nuit tous véhicules annuel de l'année {$n-i} doit être homogène à un entier";
+	
+	/* {$pNumeroChamp + 7} - indiceFiabiliteMjaN{$moinsi}. *******/
+	/**
+	 * "indiceFiabiliteMjaN{$moinsi}".<br/>
+	 */
+	public static final String ATTRIBUT_INDICEFIABLITEMJAN{$MOINSi} 
+		= "indiceFiabiliteMjaN{$moinsi}";
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01 : 
+	 * l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT doit être renseigné".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_RENSEIGNE_01 : "
+				+ "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT "
+				+ DOIT_ETRE_RENSEIGNE;
+
+	/**
+	 * "RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02 : 
+	 * l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT doit comporter exactement 1 caractère (ou espace)".
+	 */
+	public static final String RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02 
+		= "RG_SECTIONHIT_INDICEFIABLITEMJAN{$MOINSi}_REGEX_02 : "
+				+ "l'indice de fiabilité de la TMJA de l'année {$n-i} de la section HIT doit comporter exactement 1 caractère (ou espace)";
