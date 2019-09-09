@@ -1,144 +1,272 @@
+				
+		/* 44 - mjmNmois01. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS01_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois01Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS01_REGEX_02
+			, ligneRGSectionHitMjmNmois01Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS01_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois01Numerique03);
+				
+		/* 45 - pcNuitNmois01. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS01_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois01Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS01_REGEX_02
+			, ligneRGSectionHitPcNuitNmois01Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS01_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois01Numerique03);				
+				
+		/* 46 - mjmNmois02. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois02Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS02_REGEX_02
+			, ligneRGSectionHitMjmNmois02Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois02Numerique03);
+				
+		/* 47 - pcNuitNmois02. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois02Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS02_REGEX_02
+			, ligneRGSectionHitPcNuitNmois02Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois02Numerique03);				
+				
+		/* 48 - mjmNmois03. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS03_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois03Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS03_REGEX_02
+			, ligneRGSectionHitMjmNmois03Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS03_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois03Numerique03);
+				
+		/* 49 - pcNuitNmois03. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS03_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois03Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS03_REGEX_02
+			, ligneRGSectionHitPcNuitNmois03Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS03_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois03Numerique03);				
+				
+		/* 50 - mjmNmois04. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS04_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois04Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS04_REGEX_02
+			, ligneRGSectionHitMjmNmois04Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS04_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois04Numerique03);
+				
+		/* 51 - pcNuitNmois04. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS04_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois04Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS04_REGEX_02
+			, ligneRGSectionHitPcNuitNmois04Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS04_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois04Numerique03);				
 		
-		/* 44 - mjmNmois01. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Numerique03(true);
+				
+		/* 52 - mjmNmois05. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS05_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois05Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS05_REGEX_02
+			, ligneRGSectionHitMjmNmois05Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS05_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois05Numerique03);
+				
+		/* 53 - pcNuitNmois05. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS05_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois05Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS05_REGEX_02
+			, ligneRGSectionHitPcNuitNmois05Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS05_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois05Numerique03);				
 		
-		/* 45 - pcNuitNmois01. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Numerique03(true);
+				
+		/* 54 - mjmNmois06. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS06_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois06Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS06_REGEX_02
+			, ligneRGSectionHitMjmNmois06Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS06_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois06Numerique03);
+				
+		/* 55 - pcNuitNmois06. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS06_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois06Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS06_REGEX_02
+			, ligneRGSectionHitPcNuitNmois06Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS06_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois06Numerique03);				
 		
-		/* 46 - mjmNmois02. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Numerique03(true);
+				
+		/* 56 - mjmNmois07. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS07_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois07Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS07_REGEX_02
+			, ligneRGSectionHitMjmNmois07Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS07_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois07Numerique03);
+				
+		/* 57 - pcNuitNmois07. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS07_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois07Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS07_REGEX_02
+			, ligneRGSectionHitPcNuitNmois07Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS07_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois07Numerique03);				
 		
-		/* 47 - pcNuitNmois02. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Numerique03(true);
+				
+		/* 58 - mjmNmois08. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS08_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois08Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS08_REGEX_02
+			, ligneRGSectionHitMjmNmois08Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS08_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois08Numerique03);
+				
+		/* 59 - pcNuitNmois08. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS08_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois08Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS08_REGEX_02
+			, ligneRGSectionHitPcNuitNmois08Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS08_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois08Numerique03);				
 		
-		/* 48 - mjmNmois03. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Numerique03(true);
+				
+		/* 60 - mjmNmois09. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS09_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois09Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS09_REGEX_02
+			, ligneRGSectionHitMjmNmois09Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS09_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois09Numerique03);
+				
+		/* 61 - pcNuitNmois09. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS09_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois09Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS09_REGEX_02
+			, ligneRGSectionHitPcNuitNmois09Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS09_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois09Numerique03);				
 		
-		/* 49 - pcNuitNmois03. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Numerique03(true);
+				
+		/* 62 - mjmNmois10. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS10_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois10Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS10_REGEX_02
+			, ligneRGSectionHitMjmNmois10Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS10_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois10Numerique03);
+				
+		/* 63 - pcNuitNmois10. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS10_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois10Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS10_REGEX_02
+			, ligneRGSectionHitPcNuitNmois10Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS10_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois10Numerique03);				
 		
-		/* 50 - mjmNmois04. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Numerique03(true);
+				
+		/* 64 - mjmNmois11. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS11_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois11Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS11_REGEX_02
+			, ligneRGSectionHitMjmNmois11Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS11_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois11Numerique03);
+				
+		/* 65 - pcNuitNmois11. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS11_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois11Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS11_REGEX_02
+			, ligneRGSectionHitPcNuitNmois11Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS11_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois11Numerique03);				
 		
-		/* 51 - pcNuitNmois04. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Numerique03(true);
-		
-		/* 52 - mjmNmois05. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Numerique03(true);
-		
-		/* 53 - pcNuitNmois05. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Numerique03(true);
-		
-		/* 54 - mjmNmois06. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Numerique03(true);
-		
-		/* 55 - pcNuitNmois06. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Numerique03(true);
-		
-		/* 56 - mjmNmois07. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Numerique03(true);
-		
-		/* 57 - pcNuitNmois07. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Numerique03(true);
-		
-		/* 58 - mjmNmois08. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Numerique03(true);
-		
-		/* 59 - pcNuitNmois08. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Numerique03(true);
-		
-		/* 60 - mjmNmois09. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Numerique03(true);
-		
-		/* 61 - pcNuitNmois09. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Numerique03(true);
-		
-		/* 62 - mjmNmois10. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Numerique03(true);
-		
-		/* 63 - pcNuitNmois10. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Numerique03(true);
-		
-		/* 64 - mjmNmois11. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Numerique03(true);
-		
-		/* 65 - pcNuitNmois11. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Numerique03(true);
-		
-		/* 66 - mjmNmois12. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Numerique03(true);
-		
-		/* 67 - pcNuitNmois12. **************/
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Renseigne01(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Regex02(true);
-		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Numerique03(true);
+				
+		/* 66 - mjmNmois12. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS12_RENSEIGNE_01
+			, ligneRGSectionHitMjmNmois12Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS12_REGEX_02
+			, ligneRGSectionHitMjmNmois12Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_MJMNMOIS12_NUMERIQUE_03
+			, ligneRGSectionHitMjmNmois12Numerique03);
+				
+		/* 67 - pcNuitNmois12. *******/
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS12_RENSEIGNE_01
+			, ligneRGSectionHitPcNuitNmois12Renseigne01);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS12_REGEX_02
+			, ligneRGSectionHitPcNuitNmois12Regex02);
+		this.mapRG.put(
+		RG_SECTIONHIT_PCNUITNMOIS12_NUMERIQUE_03
+			, ligneRGSectionHitPcNuitNmois12Numerique03);				

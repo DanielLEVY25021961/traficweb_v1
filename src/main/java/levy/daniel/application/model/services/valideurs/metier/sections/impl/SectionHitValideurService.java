@@ -124,6 +124,40 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 	public static final String VALUE = " - valeur lue : ";
 	
 	/**
+	 * "\\d{1}".<br/>
+	 */
+	public static final String MOTIF_REGEX_1CHIFFRE = "\\d{1}";
+	
+	/**
+	 * Pattern.compile(MOTIF_REGEX_1CHIFFRE);<br/>
+	 */
+	public static final Pattern PATTERN_1CHIFFRE 
+		= Pattern.compile(MOTIF_REGEX_1CHIFFRE);
+	
+	/**
+	 * "\\d{3}".<br/>
+	 */
+	public static final String MOTIF_REGEX_3CHIFFRES = "\\d{3}";
+	
+	/**
+	 * Pattern.compile(MOTIF_REGEX_3CHIFFRES);<br/>
+	 */
+	public static final Pattern PATTERN_3CHIFFRES 
+		= Pattern.compile(MOTIF_REGEX_3CHIFFRES);
+		
+	/**
+	 * "\\d{6}".<br/>
+	 */
+	public static final String MOTIF_REGEX_6CHIFFRES = "\\d{6}";
+	
+	/**
+	 * Pattern.compile(MOTIF_REGEX_6CHIFFRES);<br/>
+	 */
+	public static final Pattern PATTERN_6CHIFFRES 
+		= Pattern.compile(MOTIF_REGEX_6CHIFFRES);	
+
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -3583,7 +3617,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		if (pErreursMaps == null) {
 			return false;
 		}
-		
+
 		/* message utilisateur de la RG. */
 		final String message 
 			= SectionHitGestionnairePreferencesControles
@@ -3652,9 +3686,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getNumDepartement();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -3888,9 +3920,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getNumSection();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -4141,9 +4171,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getSens();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -4480,9 +4508,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getNature();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -5761,9 +5787,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getIndiceNumRoute();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -6256,9 +6280,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getCategorieAdminRoute();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -6599,9 +6621,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getTypeComptage();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -6942,9 +6962,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getClassementRoute();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -7285,9 +7303,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getClasseLargeurChausseeU();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -7628,9 +7644,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getClasseLargeurChausseesS();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -7971,9 +7985,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getTypeReseau();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -8314,9 +8326,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPRoupK();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -11360,9 +11370,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getLongueurSection();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -11691,9 +11699,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getLongueurRaseCampagne();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -12005,9 +12011,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getNumDepartementRattachement();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -12244,9 +12248,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getNumSectionRattachement();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -12500,9 +12502,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getSensRattachement();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -12826,9 +12826,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getNumDepartementLimitrophe();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -13065,9 +13063,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getNumSectionLimitrophe();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -13321,9 +13317,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getSensLimitrophe();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -14411,9 +14405,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjaN();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -14981,9 +14973,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcPLN();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -15551,9 +15541,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitAnnuelN();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -16121,9 +16109,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois01();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -16452,9 +16438,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois01();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -16783,9 +16767,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois02();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -17114,9 +17096,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois02();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -17445,9 +17425,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois03();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -17776,9 +17754,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois03();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -18107,9 +18083,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois04();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -18438,9 +18412,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois04();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -18770,9 +18742,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois05();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -19101,9 +19071,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois05();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -19433,9 +19401,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois06();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -19764,9 +19730,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois06();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -20096,9 +20060,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois07();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -20427,9 +20389,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois07();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -20759,9 +20719,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois08();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -21090,9 +21048,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois08();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -21422,9 +21378,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois09();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -21753,9 +21707,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois09();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -22085,9 +22037,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois10();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -22416,9 +22366,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois10();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -22748,9 +22696,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois11();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -23079,9 +23025,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois11();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -23411,9 +23355,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmois12();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -23742,9 +23684,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmois12();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -24551,9 +24491,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjaNmoins1();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -24882,9 +24820,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getTypeComptageNmoins1();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -25464,9 +25400,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcPLNmoins1();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -26034,9 +25968,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitAnnuelNmoins1();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -26843,9 +26775,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjaNmoins2();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -27174,9 +27104,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getTypeComptageNmoins2();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -27756,9 +27684,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcPLNmoins2();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -28326,9 +28252,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitAnnuelNmoins2();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -29136,9 +29060,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjaNmoins3();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -29467,9 +29389,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getTypeComptageNmoins3();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -30049,9 +29969,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcPLNmoins3();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -30619,9 +30537,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitAnnuelNmoins3();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -31429,9 +31345,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjaNmoins4();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -31760,9 +31674,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getTypeComptageNmoins4();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -32342,9 +32254,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcPLNmoins4();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -32912,9 +32822,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitAnnuelNmoins4();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -33722,9 +33630,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjaNmoins5();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -34053,9 +33959,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getTypeComptageNmoins5();
 		
-		final String motif = "\\d{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_1CHIFFRE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -34635,9 +34539,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcPLNmoins5();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -35205,9 +35107,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitAnnuelNmoins5();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -35775,9 +35675,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois01();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -36106,9 +36004,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois01();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -36437,9 +36333,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois02();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -36768,9 +36662,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois02();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -37099,9 +36991,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois03();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -37430,9 +37320,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois03();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -37761,9 +37649,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois04();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -38092,9 +37978,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois04();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -38424,9 +38308,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois05();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -38755,9 +38637,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois05();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -39087,9 +38967,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois06();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -39418,9 +39296,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois06();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -39750,9 +39626,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois07();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -40081,9 +39955,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois07();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -40413,9 +40285,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois08();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -40744,9 +40614,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois08();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -41076,9 +40944,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois09();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -41407,9 +41273,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois09();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -41739,9 +41603,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois10();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -42070,9 +41932,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois10();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -42402,9 +42262,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois11();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -42733,9 +42591,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois11();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -43065,9 +42921,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMjmNmoins1mois12();
 		
-		final String motif = "\\d{6}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_6CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -43396,9 +43250,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getPcNuitNmoins1mois12();
 		
-		final String motif = "\\d{3}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_3CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			

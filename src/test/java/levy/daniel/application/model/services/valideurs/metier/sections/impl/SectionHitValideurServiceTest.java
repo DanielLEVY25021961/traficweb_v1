@@ -15471,13 +15471,59 @@ public class SectionHitValideurServiceTest {
 	} // Fin de testValiderPcNuitNmoins1mois12()._______________________________________
 
 
+	
+	/**
+	 * .<br/>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderDTO() throws Exception {
 				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = true;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValider() ********** ");
+		}
+		
+		ErreursMaps erreurMaps = null;
+		
+		final long topDepart = System.currentTimeMillis();
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		final long topIntermediaire = System.currentTimeMillis();
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		final long topFinal = System.currentTimeMillis();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println();
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+			System.out.println("durée 1er appel : " + (topIntermediaire - topDepart) + " ms");
+			System.out.println("durée 2ème appel : " + (topFinal - topIntermediaire) + " ms");
+		}
+
+	} // Fin de testValiderDTO().__________________________________________
+	
+	
+	
 	/**
 	 * active toutes les RG.
 	 * 
 	 * @throws Exception 
 	 */
-	private void activerToutesRG() throws Exception {
+	private static void activerToutesRG() throws Exception {
 		
 		/* 1 - numDepartement. ***************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartement(true);
@@ -16368,6 +16414,9 @@ public class SectionHitValideurServiceTest {
 		System.setProperty("%log4j.skipJansi", "false");
 		
 		dto = FactorySectionHit.getBonneSectionHitDTO();
+		
+		/* active toutes les RG. */
+		activerToutesRG();
 		
 	} // Fin de beforeClass()._____________________________________________
 	
