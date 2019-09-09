@@ -119,6 +119,11 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 	public static final String MOINS_ESPACE = " - ";
 
 	/**
+	 * " - valeur lue : ".
+	 */
+	public static final String VALUE = " - valeur lue : ";
+	
+	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
@@ -3658,7 +3663,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -3894,7 +3899,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -4147,7 +4152,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -4234,7 +4239,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -4486,7 +4491,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -4573,7 +4578,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -4811,7 +4816,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -5050,7 +5055,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -5289,7 +5294,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -5528,7 +5533,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -5767,7 +5772,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -6006,7 +6011,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -6262,7 +6267,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -6350,7 +6355,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -6605,7 +6610,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -6693,7 +6698,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -6948,7 +6953,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -7036,7 +7041,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -7291,7 +7296,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -7379,7 +7384,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -7634,7 +7639,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -7722,7 +7727,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -7977,7 +7982,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -8065,7 +8070,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -8320,7 +8325,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -8408,7 +8413,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -8646,7 +8651,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -8902,7 +8907,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -8977,7 +8982,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -9233,7 +9238,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -9308,7 +9313,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -9547,7 +9552,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -9803,7 +9808,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -9878,7 +9883,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -10134,7 +10139,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -10209,7 +10214,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -10448,7 +10453,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -10704,7 +10709,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -10779,7 +10784,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -11035,7 +11040,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -11110,7 +11115,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -11366,7 +11371,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -11441,7 +11446,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -11697,7 +11702,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -11772,7 +11777,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -12011,7 +12016,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -12250,7 +12255,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -12506,7 +12511,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -12594,7 +12599,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -12832,7 +12837,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -13071,7 +13076,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -13327,7 +13332,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -13415,7 +13420,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -13682,7 +13687,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, messageMois);
+					pAttribut, messageMois + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -13922,7 +13927,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -14161,7 +14166,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -14417,7 +14422,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -14492,7 +14497,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -14731,7 +14736,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -14987,7 +14992,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -15062,7 +15067,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -15301,7 +15306,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -15557,7 +15562,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -15632,7 +15637,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -15871,7 +15876,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -16127,7 +16132,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -16202,7 +16207,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -16458,7 +16463,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -16533,7 +16538,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -16789,7 +16794,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -16864,7 +16869,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -17120,7 +17125,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -17195,7 +17200,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -17451,7 +17456,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -17526,7 +17531,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -17782,7 +17787,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -17857,7 +17862,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -18113,7 +18118,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -18188,7 +18193,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -18444,7 +18449,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -18519,7 +18524,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -18776,7 +18781,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -18851,7 +18856,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -19107,7 +19112,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -19182,7 +19187,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -19439,7 +19444,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -19514,7 +19519,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -19770,7 +19775,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -19845,7 +19850,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -20102,7 +20107,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -20177,7 +20182,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -20433,7 +20438,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -20508,7 +20513,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -20765,7 +20770,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -20840,7 +20845,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -21096,7 +21101,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -21171,7 +21176,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -21428,7 +21433,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -21503,7 +21508,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -21759,7 +21764,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -21834,7 +21839,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -22091,7 +22096,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -22166,7 +22171,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -22422,7 +22427,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -22497,7 +22502,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -22754,7 +22759,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -22829,7 +22834,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -23085,7 +23090,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -23160,7 +23165,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -23417,7 +23422,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -23492,7 +23497,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -23748,7 +23753,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -23823,7 +23828,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -24062,7 +24067,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -24301,7 +24306,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -24557,7 +24562,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -24632,7 +24637,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -24888,7 +24893,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -24976,7 +24981,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -25214,7 +25219,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -25470,7 +25475,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -25545,7 +25550,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -25784,7 +25789,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -26040,7 +26045,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -26115,7 +26120,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -26354,7 +26359,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -26593,7 +26598,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -26849,7 +26854,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -26924,7 +26929,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -27180,7 +27185,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -27268,7 +27273,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -27506,7 +27511,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -27762,7 +27767,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -27837,7 +27842,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -28076,7 +28081,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -28332,7 +28337,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -28407,7 +28412,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -28646,7 +28651,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -28886,7 +28891,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -29142,7 +29147,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -29217,7 +29222,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -29473,7 +29478,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -29561,7 +29566,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -29799,7 +29804,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -30055,7 +30060,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -30130,7 +30135,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -30369,7 +30374,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -30625,7 +30630,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -30700,7 +30705,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -30939,7 +30944,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -31179,7 +31184,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -31435,7 +31440,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -31510,7 +31515,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -31766,7 +31771,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -31854,7 +31859,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -32092,7 +32097,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -32348,7 +32353,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -32423,7 +32428,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -32662,7 +32667,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -32918,7 +32923,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -32993,7 +32998,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -33232,7 +33237,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -33472,7 +33477,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -33728,7 +33733,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -33803,7 +33808,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -34059,7 +34064,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -34147,7 +34152,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 
 			return false;
 		}
@@ -34385,7 +34390,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -34641,7 +34646,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -34716,7 +34721,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -34955,7 +34960,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -35211,7 +35216,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -35286,7 +35291,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -35525,7 +35530,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -35781,7 +35786,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -35856,7 +35861,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -36112,7 +36117,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -36187,7 +36192,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -36443,7 +36448,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -36518,7 +36523,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -36774,7 +36779,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -36849,7 +36854,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -37105,7 +37110,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -37180,7 +37185,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -37436,7 +37441,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -37511,7 +37516,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -37767,7 +37772,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -37842,7 +37847,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -38098,7 +38103,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -38173,7 +38178,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -38430,7 +38435,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -38505,7 +38510,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -38761,7 +38766,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -38836,7 +38841,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -39093,7 +39098,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -39168,7 +39173,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -39424,7 +39429,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -39499,7 +39504,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -39756,7 +39761,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -39831,7 +39836,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -40087,7 +40092,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -40162,7 +40167,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -40419,7 +40424,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -40494,7 +40499,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -40750,7 +40755,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -40825,7 +40830,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -41082,7 +41087,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -41157,7 +41162,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -41413,7 +41418,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -41488,7 +41493,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -41745,7 +41750,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -41820,7 +41825,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -42076,7 +42081,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -42151,7 +42156,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -42408,7 +42413,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -42483,7 +42488,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -42739,7 +42744,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -42814,7 +42819,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -43071,7 +43076,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -43146,7 +43151,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 
@@ -43402,7 +43407,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			/* retoune false si la RG n'est pas validée. */
 			return false;
@@ -43477,7 +43482,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 			/* ajout d'un message dans la liste. */
 			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
-					pAttribut, message);
+					pAttribut, message + VALUE + valeurAControler);
 			
 			return false;
 

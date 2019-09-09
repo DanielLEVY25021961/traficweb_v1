@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -107,11 +108,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 		
@@ -210,11 +211,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -314,11 +315,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -439,11 +440,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -562,11 +563,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -664,11 +665,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -766,11 +767,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -868,11 +869,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -970,11 +971,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -1072,11 +1073,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -1175,11 +1176,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -1299,11 +1300,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -1423,11 +1424,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -1547,11 +1548,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -1671,11 +1672,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -1795,11 +1796,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -1919,11 +1920,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -2042,11 +2043,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -2144,11 +2145,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -2267,11 +2268,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -2390,11 +2391,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -2492,11 +2493,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -2615,11 +2616,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -2738,11 +2739,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -2840,11 +2841,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -2963,11 +2964,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -3086,11 +3087,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -3209,11 +3210,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -3332,11 +3333,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -3434,11 +3435,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -3537,11 +3538,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -3660,11 +3661,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -3762,11 +3763,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -3865,11 +3866,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -3988,11 +3989,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -4090,11 +4091,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -4192,11 +4193,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -4294,11 +4295,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -4417,11 +4418,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -4519,11 +4520,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -4642,11 +4643,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -4744,11 +4745,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -4867,11 +4868,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -4969,11 +4970,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -5092,11 +5093,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -5215,11 +5216,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -5338,11 +5339,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -5461,11 +5462,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -5584,11 +5585,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -5707,11 +5708,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -5830,11 +5831,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -5954,11 +5955,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -6077,11 +6078,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -6201,11 +6202,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -6324,11 +6325,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -6448,11 +6449,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -6571,11 +6572,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -6695,11 +6696,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -6818,11 +6819,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -6942,11 +6943,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -7065,11 +7066,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -7189,11 +7190,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -7312,11 +7313,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -7436,11 +7437,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -7559,11 +7560,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -7683,11 +7684,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -7806,11 +7807,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -7929,11 +7930,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -8031,11 +8032,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -8133,11 +8134,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -8257,11 +8258,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -8380,11 +8381,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -8482,11 +8483,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -8605,11 +8606,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -8707,11 +8708,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -8830,11 +8831,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -8932,11 +8933,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -9034,11 +9035,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -9158,11 +9159,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -9281,11 +9282,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -9383,11 +9384,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -9506,11 +9507,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -9608,11 +9609,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -9731,11 +9732,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -9834,11 +9835,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -9936,11 +9937,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -10060,11 +10061,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -10183,11 +10184,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -10285,11 +10286,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -10408,11 +10409,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -10510,11 +10511,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -10633,11 +10634,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -10736,11 +10737,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -10838,11 +10839,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -10962,11 +10963,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -11085,11 +11086,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -11187,11 +11188,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -11310,11 +11311,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -11412,11 +11413,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -11535,11 +11536,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -11638,11 +11639,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -11740,11 +11741,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -11864,11 +11865,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -11987,11 +11988,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -12089,11 +12090,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -12212,11 +12213,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -12314,11 +12315,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -12437,11 +12438,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -12539,11 +12540,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -12611,7 +12612,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "010128";
 		dto.setMjmNmoins1mois01(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -12662,11 +12663,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -12785,11 +12786,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -12857,7 +12858,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "010128";
 		dto.setMjmNmoins1mois02(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -12908,11 +12909,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -12980,7 +12981,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "119";
 		dto.setPcNuitNmoins1mois02(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -13031,11 +13032,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -13103,7 +13104,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "010128";
 		dto.setMjmNmoins1mois03(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -13154,11 +13155,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -13226,7 +13227,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "119";
 		dto.setPcNuitNmoins1mois03(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -13277,11 +13278,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -13349,7 +13350,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "010128";
 		dto.setMjmNmoins1mois04(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -13400,11 +13401,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -13472,7 +13473,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "137";
 		dto.setPcNuitNmoins1mois04(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -13524,11 +13525,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -13596,7 +13597,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "010189";
 		dto.setMjmNmoins1mois05(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -13647,11 +13648,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -13719,7 +13720,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "209";
 		dto.setPcNuitNmoins1mois05(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -13771,11 +13772,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -13843,7 +13844,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "015236";
 		dto.setMjmNmoins1mois06(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -13894,11 +13895,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -13966,7 +13967,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "321";
 		dto.setPcNuitNmoins1mois06(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -14018,11 +14019,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -14090,7 +14091,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "020158";
 		dto.setMjmNmoins1mois07(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -14141,11 +14142,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -14213,7 +14214,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "251";
 		dto.setPcNuitNmoins1mois07(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -14265,11 +14266,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -14337,7 +14338,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "610259";
 		dto.setMjmNmoins1mois08(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -14388,11 +14389,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -14460,7 +14461,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "561";
 		dto.setPcNuitNmoins1mois08(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -14512,11 +14513,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -14584,7 +14585,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "010000";
 		dto.setMjmNmoins1mois09(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -14635,11 +14636,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -14707,7 +14708,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "032";
 		dto.setPcNuitNmoins1mois09(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -14759,11 +14760,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -14831,7 +14832,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "101282";
 		dto.setMjmNmoins1mois10(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -14882,11 +14883,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -14954,7 +14955,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "259";
 		dto.setPcNuitNmoins1mois10(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -15006,11 +15007,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -15078,7 +15079,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "010784";
 		dto.setMjmNmoins1mois11(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -15129,11 +15130,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -15201,7 +15202,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "196";
 		dto.setPcNuitNmoins1mois11(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -15253,11 +15254,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -15325,7 +15326,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0101281";
+		final String valeur = "101881";
 		dto.setMjmNmoins1mois12(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -15376,11 +15377,11 @@ public class SectionHitValideurServiceTest {
 		}
 		
 		/* active toutes les RG. */
-		this.activerToutesRG();
+		//  this.activerToutesRG();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		/* affiche les préférences. */
-		this.afficherPreferences(affichage);
+		// this.afficherPreferences(affichage);
 		
 		ErreursMaps erreurMaps = null;
 
@@ -15448,7 +15449,7 @@ public class SectionHitValideurServiceTest {
 
 		//*********************************
 		/* TEST DU BIEN RENSEIGNE. ********* */
-		final String valeur = "0119";
+		final String valeur = "200";
 		dto.setPcNuitNmoins1mois12(valeur);
 		
 		// VALIDATION PAR LE SERVICE.
@@ -16336,6 +16337,23 @@ public class SectionHitValideurServiceTest {
 		return resultat;
 		
 	} // Fin de retirerZerosAGauche(...).__________________________________
+
+	
+	
+	/**
+	 * Exécuté avant chaque test de la méthode.<br/>
+	 */
+	@Before
+	public void beforeChaqueTest() {
+		
+		/* active toutes les RG. */
+//		this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+//		this.afficherPreferences(true);
+
+	} // Fin de beforeChaqueTest().________________________________________
 	
 
 	
