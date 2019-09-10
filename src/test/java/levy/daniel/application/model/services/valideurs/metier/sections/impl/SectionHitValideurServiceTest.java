@@ -3,6 +3,9 @@ package levy.daniel.application.model.services.valideurs.metier.sections.impl;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,6 +16,8 @@ import org.junit.Test;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnairespreferences.metier.sections.SectionHitGestionnairePreferencesRG;
 import levy.daniel.application.model.FactorySectionHit;
 import levy.daniel.application.model.dto.metier.sections.ISectionHitDTO;
+import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.IImporteur;
+import levy.daniel.application.model.services.metier.televersement.importateurs.importeurs.impl.ImporteurHit;
 import levy.daniel.application.model.services.valideurs.ErreursMaps;
 import levy.daniel.application.model.services.valideurs.metier.sections.ISectionHitValideurService;
 
@@ -60,6 +65,56 @@ public class SectionHitValideurServiceTest {
 	 * ISectionHitDTO.
 	 */
 	public static ISectionHitDTO dto;
+
+	/**
+	 * Paths.get(".").toAbsolutePath().normalize().<br/>
+	 */
+	public static final Path PATH_ABSOLU_PRESENT_PROJET 
+		= Paths.get(".").toAbsolutePath().normalize();
+	
+	/**
+	 * path <b>relatif</b> (par rapport au présent projet ECLIPSE) 
+	 * des ressources des tests JUnit dans le présent projet ECLIPSE.<br/>
+	 * Paths.get("src/test/resources")
+	 */
+	public static final Path SRC_TEST_RESOURCES_PATH_RELATIF 
+		= Paths.get("src/test/resources");
+
+	/**
+	 * Path absolu vers les ressources de test.<br/>
+	 */
+	public static final Path PATH_ABSOLU_TEST_RESOURCES 
+		= PATH_ABSOLU_PRESENT_PROJET
+			.resolve(SRC_TEST_RESOURCES_PATH_RELATIF)
+				.toAbsolutePath().normalize();
+	
+	 /**
+	 * Path absolu vers les nomenclatures de test.<br/>
+	 */
+	public static final Path PATH_ABSOLU_TEST_NOMENCLATURES 
+		= PATH_ABSOLU_TEST_RESOURCES
+			.resolve("ressources/Nomenclatures")
+				.toAbsolutePath().normalize();
+	
+	 /**
+	 * Path absolu vers les jeux d'essai de test.<br/>
+	 * src/test/resources/jeux_essai
+	 */
+	public static final Path PATH_ABSOLU_TEST_JEUX_ESSAI 
+		= PATH_ABSOLU_TEST_RESOURCES
+			.resolve("jeux_essai")
+				.toAbsolutePath().normalize();
+	
+	/**
+	 * Path absolu vers le répertoire 'temp' sous le présent projet.
+	 */
+	public static final Path PATH_ABSOLU_REPERTOIRE_TEMP 
+		= PATH_ABSOLU_PRESENT_PROJET.resolve("temp");
+
+	/**
+	 * IImporteur.<br/>
+	 */
+	public static IImporteur importeur;
 	
 	/**
 	 * LOG : Log : 
@@ -16527,6 +16582,8 @@ public class SectionHitValideurServiceTest {
 		
 		/* active toutes les RG. */
 		activerToutesRG();
+		
+		importeur = new ImporteurHit();
 		
 	} // Fin de beforeClass()._____________________________________________
 	
