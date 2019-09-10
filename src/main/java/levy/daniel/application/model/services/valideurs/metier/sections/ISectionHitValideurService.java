@@ -110,5 +110,23 @@ public interface ISectionHitValideurService {
 			throws Exception;
 
 	
+		
+	/**
+	 * active toutes les RG.
+	 * 
+	 * @throws Exception 
+	 */
+	void activerToutesRG() throws Exception;
+
+	
+	
+	/**
+	 * désactive toutes les RG.
+	 * 
+	 * @throws Exception 
+	 */
+	void desactiverToutesRG() throws Exception;
+
+	
 	
 } // FIN DE L'INTERFACE ISectionHitValideurService.--------------------------

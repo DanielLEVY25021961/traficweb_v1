@@ -130,9 +130,22 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 	
 	/**
 	 * Pattern.compile(MOTIF_REGEX_1CHIFFRE);<br/>
+	 * "\\d{1}".<br/>
 	 */
 	public static final Pattern PATTERN_1CHIFFRE 
 		= Pattern.compile(MOTIF_REGEX_1CHIFFRE);
+	
+	/**
+	 * "\\d{2}".<br/>
+	 */
+	public static final String MOTIF_REGEX_2CHIFFRES = "\\d{2}";
+	
+	/**
+	 * Pattern.compile(MOTIF_REGEX_2CHIFFRES);<br/>
+	 * "\\d{2}".<br/>
+	 */
+	public static final Pattern PATTERN_2CHIFFRES 
+		= Pattern.compile(MOTIF_REGEX_2CHIFFRES);
 	
 	/**
 	 * "\\d{3}".<br/>
@@ -141,6 +154,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 	
 	/**
 	 * Pattern.compile(MOTIF_REGEX_3CHIFFRES);<br/>
+	 * "\\d{3}".<br/>
 	 */
 	public static final Pattern PATTERN_3CHIFFRES 
 		= Pattern.compile(MOTIF_REGEX_3CHIFFRES);
@@ -152,11 +166,66 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 	
 	/**
 	 * Pattern.compile(MOTIF_REGEX_6CHIFFRES);<br/>
+	 * "\\d{6}".<br/>
 	 */
 	public static final Pattern PATTERN_6CHIFFRES 
-		= Pattern.compile(MOTIF_REGEX_6CHIFFRES);	
-
+		= Pattern.compile(MOTIF_REGEX_6CHIFFRES);
 	
+	/**
+	 * "[a-zA-Z0-9\\s]{1}".<br/>
+	 */
+	public static final String MOTIF_REGEX_1CAR_OU_ESPACE 
+		= "[a-zA-Z0-9\\s]{1}";
+
+	/**
+	 * Pattern.compile(MOTIF_REGEX_1CAR_OU_ESPACE).<br/>
+	 * "[a-zA-Z0-9\\s]{1}".<br/>
+	 */
+	public static final Pattern PATTERN_1CAR_OU_ESPACE 
+		= Pattern.compile(MOTIF_REGEX_1CAR_OU_ESPACE);
+	
+	/**
+	 * Set contenant les mois sur 2 chiffres.<br/>
+	 */
+	public static final Set<String> SET_MOIS = new HashSet<String>();
+	
+	static {
+		
+		SET_MOIS.add("01");
+		SET_MOIS.add("02");
+		SET_MOIS.add("03");
+		SET_MOIS.add("04");
+		SET_MOIS.add("05");
+		SET_MOIS.add("06");
+		SET_MOIS.add("07");
+		SET_MOIS.add("08");
+		SET_MOIS.add("09");
+		SET_MOIS.add("10");
+		SET_MOIS.add("11");
+		SET_MOIS.add("12");
+		
+	}
+	
+	/**
+	 * boolean d'évaluation de ATTRIBUT RENSEIGNE.<br/>
+	 */
+	private transient boolean renseigne;
+	
+	/**
+	 * boolean d'évaluation de la RG2.<br/>
+	 */
+	private transient boolean rg2;
+	
+	/**
+	 * boolean d'évaluation de la RG3.<br/>
+	 */
+	private transient boolean rg3;
+		
+	/**
+	 * boolean d'évaluation de la validation d'un attribut.<br/>
+	 */
+	private transient boolean ok;
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
@@ -363,6 +432,57 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		return resultat;
 		
 	} // Fin de retirerEspacesAGauche(...).________________________________
+
+
+	
+	/**
+	 * rafraîchit tous les booleans d'évaluation des RG.<br/>
+	 */
+	private void rafraichirBooleans() {
+		this.renseigne = false;
+		this.rg2 = false;
+		this.rg3 = false;
+		this.ok = false;
+	} // Fin de rafraichirBooleans().______________________________________
+	
+	
+	
+	/**
+	 * détermine si les paramètres de la méthode sont corrects.<br/>
+	 * retourne true si c'est le cas.
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return : boolean : true si les paramètres sont corrects.<br/>
+	 */
+	private boolean parametresCorrects(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+				, final ErreursMaps pErreursMaps) {
+				
+		/* retourne false si pDto == null. */
+		if (pDto == null) {
+			return false;
+		}
+		
+		/* retourne false si pAttribut est blank. */
+		if (StringUtils.isBlank(pAttribut)) {
+			return false;
+		}
+		
+		/* retourne false si pErreursMaps == null. */
+		if (pErreursMaps == null) {
+			return false;
+		}
+		
+		return true;
+
+	} // Fin de parametresCorrects(...).___________________________________
 	
 	
 	
@@ -376,6 +496,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		if (pDto == null) {
 			return null;
 		}
+		
+		/* rafraîchit tous les booleans d'évaluation de chaque RG. */
+		this.rafraichirBooleans();
 		
 		/* instancie une nouvelle ErreursMaps (encapsulation des MAPS 
 		 * des messages de violation de RG détaillés et concaténés) 
@@ -3308,6 +3431,28 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		} else {
 			pcNuitNmoins1mois12Valide = true;
 		}
+		
+		/* 133 - zoneLibre4. *******/
+		boolean zoneLibre4Valide = false;
+		
+		/* nom de l'attribut concerné par la validation. */
+		final String attributZoneLibre4 = "zoneLibre4";
+		
+		/* récupère l'interrupteur général de validation des RG 
+		 * de l'attribut auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurGeneralZoneLibre4 
+		= SectionHitGestionnairePreferencesRG
+			.getValiderRGSectionHitZoneLibre4();
+		
+		/* n'exécute le test de validation de l'attribut que si 
+		 * son interrupteur général de validation des RG vaut true. */
+		if (interrupteurGeneralZoneLibre4) {
+			zoneLibre4Valide 
+				= this.validerZoneLibre4(
+						pDto, attributZoneLibre4, erreursMap);
+		} else {
+			zoneLibre4Valide = true;
+		}
 
 				
 		/* calcul de validité sur tous les attributs. */
@@ -3442,7 +3587,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				&& mjmNmoins1mois11Valide 
 				&& pcNuitNmoins1mois11Valide 
 				&& mjmNmoins1mois12Valide 
-				&& pcNuitNmoins1mois12Valide;
+				&& pcNuitNmoins1mois12Valide 
+				&& zoneLibre4Valide;
 		
 		erreursMap.setValide(valide);
 		
@@ -3469,6 +3615,1530 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		return erreursMap;
 
 	} // Fin de valider(...).______________________________________________
+	
+	
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void activerToutesRG() throws Exception {
+		
+		/* 1 - numDepartement. ***************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRegex02(true);
+		
+		/* 2 - numSection. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSection(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRegex02(true);
+		
+		/* 3 - sens. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSens(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensNomenclature03(true);
+		
+		/* 4 - nature. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNature(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureNomenclature03(true);
+		
+		/* 5 - classe. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasse(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseRegex02(true);
+		
+		/* 6 - anneeTraitement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeTraitement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeTraitementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeTraitementRegex02(true);
+		
+		/* 7 - zoneLibre1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre1Regex02(true);
+		
+		/* 8 - numRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumRouteRegex02(true);
+		
+		/* 9 - indiceNumRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceNumRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceNumRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceNumRouteRegex02(true);
+		
+		/* 10 - indiceLettreRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceLettreRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceLettreRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceLettreRouteRegex02(true);
+		
+		/* 11 - categorieAdminRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRouteRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRouteNomenclature03(true);
+		
+		/* 12 - typeComptage. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptage(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNomenclature03(true);
+		
+		/* 13 - classementRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRouteRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRouteNomenclature03(true);
+		
+		/* 14 - classeLargeurChausseeU. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeU(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeURenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeURegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeUNomenclature03(true);
+		
+		/* 15 - classeLargeurChausseesS. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesS(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesSRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesSRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesSNomenclature03(true);
+		
+		/* 16 - typeReseau. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseau(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseauRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseauRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseauNomenclature03(true);
+		
+		/* 17 - pRoupK. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPRoupK(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPRoupKRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPRoupKRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPRoupKNomenclature03(true);
+		
+		/* 18 - lieuDitOrigine. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitOrigine(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitOrigineRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitOrigineRegex02(true);
+		
+		/* 19 - prOrigine. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigine(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigineRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigineRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigineNumerique03(true);
+		
+		/* 20 - absOrigine. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsOrigine(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsOrigineRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsOrigineRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsOrigineNumerique03(true);
+		
+		/* 21 - lieuDitExtremite. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitExtremite(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitExtremiteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitExtremiteRegex02(true);
+		
+		/* 22 - prExtremite. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrExtremite(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrExtremiteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrExtremiteRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrExtremiteNumerique03(true);
+		
+		/* 23 - absExtremite. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsExtremite(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsExtremiteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsExtremiteRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsExtremiteNumerique03(true);
+		
+		/* 24 - lieuDitComptage. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitComptage(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitComptageRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitComptageRegex02(true);
+		
+		/* 25 - prComptage. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrComptage(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrComptageRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrComptageRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrComptageNumerique03(true);
+		
+		/* 26 - absComptage. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsComptage(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsComptageRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsComptageRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsComptageNumerique03(true);
+		
+		/* 28 - longueurRaseCampagne. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagne(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagneRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagneRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagneNumerique03(true);
+		
+		/* 29 - numDepartementRattachement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachementRegex02(true);
+		
+		/* 30 - numSectionRattachement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachementRegex02(true);
+		
+		/* 31 - sensRattachement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementNomenclature03(true);
+		
+		/* 32 - numDepartementLimitrophe. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitrophe(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitropheRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitropheRegex02(true);
+		
+		/* 33 - numSectionLimitrophe. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitrophe(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitropheRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitropheRegex02(true);
+		
+		/* 34 - sensLimitrophe. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitrophe(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheNomenclature03(true);
+		
+		/* 35 - moisSectionnement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMoisSectionnement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMoisSectionnementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMoisSectionnementRegex02(true);
+		
+		/* 36 - anneeSectionnement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeSectionnement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeSectionnementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeSectionnementRegex02(true);
+		
+		/* 37 - zoneLibre2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre2Regex02(true);
+		
+		/* 38 - mjaN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaN(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNNumerique03(true);
+		
+		/* 39 - modeCalculN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculN(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNRegex02(true);
+		
+		/* 40 - pcPLN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLN(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNNumerique03(true);
+		
+		/* 41 - evaluationPLN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLN(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNRegex02(true);
+		
+		/* 42 - pcNuitAnnuelN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelN(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNNumerique03(true);
+		
+		/* 43 - indiceFiabiliteMjaN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaN(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNRegex02(true);
+		
+		/* 44 - mjmNmois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Numerique03(true);
+		
+		/* 45 - pcNuitNmois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Numerique03(true);
+		
+		/* 46 - mjmNmois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Numerique03(true);
+		
+		/* 47 - pcNuitNmois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Numerique03(true);
+		
+		/* 48 - mjmNmois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Numerique03(true);
+		
+		/* 49 - pcNuitNmois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Numerique03(true);
+		
+		/* 50 - mjmNmois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Numerique03(true);
+		
+		/* 51 - pcNuitNmois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Numerique03(true);
+		
+		/* 52 - mjmNmois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Numerique03(true);
+		
+		/* 53 - pcNuitNmois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Numerique03(true);
+		
+		/* 54 - mjmNmois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Numerique03(true);
+		
+		/* 55 - pcNuitNmois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Numerique03(true);
+		
+		/* 56 - mjmNmois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Numerique03(true);
+		
+		/* 57 - pcNuitNmois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Numerique03(true);
+		
+		/* 58 - mjmNmois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Numerique03(true);
+		
+		/* 59 - pcNuitNmois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Numerique03(true);
+		
+		/* 60 - mjmNmois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Numerique03(true);
+		
+		/* 61 - pcNuitNmois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Numerique03(true);
+		
+		/* 62 - mjmNmois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Numerique03(true);
+		
+		/* 63 - pcNuitNmois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Numerique03(true);
+		
+		/* 64 - mjmNmois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Numerique03(true);
+		
+		/* 65 - pcNuitNmois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Numerique03(true);
+		
+		/* 66 - mjmNmois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Numerique03(true);
+		
+		/* 67 - pcNuitNmois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Numerique03(true);
+		
+		/* 68 - zoneLibre3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre3Regex02(true);
+		
+		/* 69 - anneeNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins1Regex02(true);
+		
+		/* 70 - mjaNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins1Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins1Numerique03(true);
+		
+		/* 71 - typeComptageNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins1Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins1Nomenclature03(true);
+		
+		/* 72 - modeCalculNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins1Regex02(true);
+		
+		/* 73 - pcPLNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins1Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins1Numerique03(true);
+		
+		/* 74 - evaluationPLNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins1Regex02(true);
+		
+		/* 75 - pcNuitAnnuelNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins1Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins1Numerique03(true);
+		
+		/* 76 - indiceFiabiliteMjaNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins1Regex02(true);
+		
+		/* 77 - anneeNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins2Regex02(true);
+		
+		/* 78 - mjaNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2Numerique03(true);
+		
+		/* 79 - typeComptageNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2Nomenclature03(true);
+		
+		/* 80 - modeCalculNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins2Regex02(true);
+		
+		/* 81 - pcPLNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2Numerique03(true);
+		
+		/* 82 - evaluationPLNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins2Regex02(true);
+		
+		/* 83 - pcNuitAnnuelNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2Numerique03(true);
+		
+		/* 84 - indiceFiabiliteMjaNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins2(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins2Regex02(true);
+
+		
+		/* 85 - anneeNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins3Regex02(true);
+		
+		/* 86 - mjaNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3Numerique03(true);
+		
+		/* 87 - typeComptageNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3Nomenclature03(true);
+		
+		/* 88 - modeCalculNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins3Regex02(true);
+		
+		/* 89 - pcPLNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3Numerique03(true);
+		
+		/* 90 - evaluationPLNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins3Regex02(true);
+		
+		/* 91 - pcNuitAnnuelNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3Numerique03(true);
+		
+		/* 92 - indiceFiabiliteMjaNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins3(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins3Regex02(true);
+
+		
+		/* 93 - anneeNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins4Regex02(true);
+		
+		/* 94 - mjaNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4Numerique03(true);
+		
+		/* 95 - typeComptageNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4Nomenclature03(true);
+		
+		/* 96 - modeCalculNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins4Regex02(true);
+		
+		/* 97 - pcPLNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4Numerique03(true);
+		
+		/* 98 - evaluationPLNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins4Regex02(true);
+		
+		/* 99 - pcNuitAnnuelNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4Numerique03(true);
+		
+		/* 100 - indiceFiabiliteMjaNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins4Regex02(true);
+
+		
+		/* 101 - anneeNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins5Regex02(true);
+		
+		/* 102 - mjaNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5Numerique03(true);
+		
+		/* 103 - typeComptageNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5Nomenclature03(true);
+		
+		/* 104 - modeCalculNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins5Regex02(true);
+		
+		/* 105 - pcPLNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5Numerique03(true);
+		
+		/* 106 - evaluationPLNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins5Regex02(true);
+		
+		/* 107 - pcNuitAnnuelNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5Numerique03(true);
+		
+		/* 108 - indiceFiabiliteMjaNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5Regex02(true);
+		
+		/* 109 - mjmNmoins1mois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Numerique03(true);
+		
+		/* 110 - pcNuitNmoins1mois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Numerique03(true);
+		
+		/* 111 - mjmNmoins1mois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Numerique03(true);
+		
+		/* 112 - pcNuitNmoins1mois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Numerique03(true);
+		
+		/* 113 - mjmNmoins1mois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Numerique03(true);
+		
+		/* 114 - pcNuitNmoins1mois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Numerique03(true);
+		
+		/* 115 - mjmNmoins1mois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Numerique03(true);
+		
+		/* 116 - pcNuitNmoins1mois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Numerique03(true);
+		
+		/* 117 - mjmNmoins1mois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Numerique03(true);
+		
+		/* 118 - pcNuitNmoins1mois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Numerique03(true);
+		
+		/* 119 - mjmNmoins1mois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Numerique03(true);
+		
+		/* 120 - pcNuitNmoins1mois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Numerique03(true);
+		
+		/* 121 - mjmNmoins1mois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Numerique03(true);
+		
+		/* 122 - pcNuitNmoins1mois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Numerique03(true);
+		
+		/* 123 - mjmNmoins1mois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Numerique03(true);
+		
+		/* 124 - pcNuitNmoins1mois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Numerique03(true);
+		
+		/* 125 - mjmNmoins1mois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Numerique03(true);
+		
+		/* 126 - pcNuitNmoins1mois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Numerique03(true);
+		
+		/* 127 - mjmNmoins1mois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Numerique03(true);
+		
+		/* 128 - pcNuitNmoins1mois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Numerique03(true);
+		
+		/* 129 - mjmNmoins1mois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Numerique03(true);
+		
+		/* 130 - pcNuitNmoins1mois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Numerique03(true);
+		
+		/* 131 - mjmNmoins1mois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Numerique03(true);
+		
+		/* 132 - pcNuitNmoins1mois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Regex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Numerique03(true);
+		
+		/* 133 - zoneLibre4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre4Regex02(true);
+
+	} // Fin de activerToutesRG()._________________________________________
+	
+	
+		
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void desactiverToutesRG() throws Exception {
+		
+		/* 1 - numDepartement. ***************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRegex02(false);
+		
+		/* 2 - numSection. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSection(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRegex02(false);
+		
+		/* 3 - sens. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSens(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensNomenclature03(false);
+		
+		/* 4 - nature. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNature(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureNomenclature03(false);
+		
+		/* 5 - classe. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasse(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseRegex02(false);
+		
+		/* 6 - anneeTraitement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeTraitement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeTraitementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeTraitementRegex02(false);
+		
+		/* 7 - zoneLibre1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre1(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre1Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre1Regex02(false);
+		
+		/* 8 - numRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumRoute(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumRouteRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumRouteRegex02(false);
+		
+		/* 9 - indiceNumRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceNumRoute(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceNumRouteRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceNumRouteRegex02(false);
+		
+		/* 10 - indiceLettreRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceLettreRoute(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceLettreRouteRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceLettreRouteRegex02(false);
+		
+		/* 11 - categorieAdminRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRoute(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRouteRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRouteRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRouteNomenclature03(false);
+		
+		/* 12 - typeComptage. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptage(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNomenclature03(false);
+		
+		/* 13 - classementRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRoute(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRouteRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRouteRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRouteNomenclature03(false);
+		
+		/* 14 - classeLargeurChausseeU. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeU(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeURenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeURegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeUNomenclature03(false);
+		
+		/* 15 - classeLargeurChausseesS. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesS(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesSRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesSRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesSNomenclature03(false);
+		
+		/* 16 - typeReseau. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseau(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseauRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseauRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseauNomenclature03(false);
+		
+		/* 17 - pRoupK. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPRoupK(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPRoupKRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPRoupKRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPRoupKNomenclature03(false);
+		
+		/* 18 - lieuDitOrigine. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitOrigine(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitOrigineRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitOrigineRegex02(false);
+		
+		/* 19 - prOrigine. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigine(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigineRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigineRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrOrigineNumerique03(false);
+		
+		/* 20 - absOrigine. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsOrigine(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsOrigineRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsOrigineRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsOrigineNumerique03(false);
+		
+		/* 21 - lieuDitExtremite. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitExtremite(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitExtremiteRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitExtremiteRegex02(false);
+		
+		/* 22 - prExtremite. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrExtremite(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrExtremiteRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrExtremiteRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrExtremiteNumerique03(false);
+		
+		/* 23 - absExtremite. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsExtremite(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsExtremiteRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsExtremiteRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsExtremiteNumerique03(false);
+		
+		/* 24 - lieuDitComptage. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitComptage(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitComptageRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLieuDitComptageRegex02(false);
+		
+		/* 25 - prComptage. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrComptage(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrComptageRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrComptageRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPrComptageNumerique03(false);
+		
+		/* 26 - absComptage. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsComptage(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsComptageRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsComptageRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAbsComptageNumerique03(false);
+		
+		/* 28 - longueurRaseCampagne. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagne(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagneRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagneRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagneNumerique03(false);
+		
+		/* 29 - numDepartementRattachement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachementRegex02(false);
+		
+		/* 30 - numSectionRattachement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachementRegex02(false);
+		
+		/* 31 - sensRattachement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementNomenclature03(false);
+		
+		/* 32 - numDepartementLimitrophe. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitrophe(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitropheRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitropheRegex02(false);
+		
+		/* 33 - numSectionLimitrophe. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitrophe(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitropheRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitropheRegex02(false);
+		
+		/* 34 - sensLimitrophe. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitrophe(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheNomenclature03(false);
+		
+		/* 35 - moisSectionnement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMoisSectionnement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMoisSectionnementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMoisSectionnementRegex02(false);
+		
+		/* 36 - anneeSectionnement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeSectionnement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeSectionnementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeSectionnementRegex02(false);
+		
+		/* 37 - zoneLibre2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre2(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre2Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre2Regex02(false);
+		
+		/* 38 - mjaN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaN(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNNumerique03(false);
+		
+		/* 39 - modeCalculN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculN(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNRegex02(false);
+		
+		/* 40 - pcPLN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLN(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNNumerique03(false);
+		
+		/* 41 - evaluationPLN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLN(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNRegex02(false);
+		
+		/* 42 - pcNuitAnnuelN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelN(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNNumerique03(false);
+		
+		/* 43 - indiceFiabiliteMjaN. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaN(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNRegex02(false);
+		
+		/* 44 - mjmNmois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois01Numerique03(false);
+		
+		/* 45 - pcNuitNmois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois01Numerique03(false);
+		
+		/* 46 - mjmNmois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois02Numerique03(false);
+		
+		/* 47 - pcNuitNmois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois02Numerique03(false);
+		
+		/* 48 - mjmNmois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois03Numerique03(false);
+		
+		/* 49 - pcNuitNmois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois03Numerique03(false);
+		
+		/* 50 - mjmNmois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois04Numerique03(false);
+		
+		/* 51 - pcNuitNmois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois04Numerique03(false);
+		
+		/* 52 - mjmNmois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois05Numerique03(false);
+		
+		/* 53 - pcNuitNmois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois05Numerique03(false);
+		
+		/* 54 - mjmNmois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois06Numerique03(false);
+		
+		/* 55 - pcNuitNmois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois06Numerique03(false);
+		
+		/* 56 - mjmNmois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois07Numerique03(false);
+		
+		/* 57 - pcNuitNmois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois07Numerique03(false);
+		
+		/* 58 - mjmNmois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois08Numerique03(false);
+		
+		/* 59 - pcNuitNmois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois08Numerique03(false);
+		
+		/* 60 - mjmNmois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois09Numerique03(false);
+		
+		/* 61 - pcNuitNmois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois09Numerique03(false);
+		
+		/* 62 - mjmNmois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois10Numerique03(false);
+		
+		/* 63 - pcNuitNmois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois10Numerique03(false);
+		
+		/* 64 - mjmNmois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois11Numerique03(false);
+		
+		/* 65 - pcNuitNmois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois11Numerique03(false);
+		
+		/* 66 - mjmNmois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmois12Numerique03(false);
+		
+		/* 67 - pcNuitNmois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmois12Numerique03(false);
+		
+		/* 68 - zoneLibre3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre3(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre3Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre3Regex02(false);
+		
+		/* 69 - anneeNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins1(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins1Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins1Regex02(false);
+		
+		/* 70 - mjaNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins1(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins1Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins1Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins1Numerique03(false);
+		
+		/* 71 - typeComptageNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins1(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins1Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins1Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins1Nomenclature03(false);
+		
+		/* 72 - modeCalculNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins1(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins1Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins1Regex02(false);
+		
+		/* 73 - pcPLNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins1(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins1Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins1Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins1Numerique03(false);
+		
+		/* 74 - evaluationPLNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins1(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins1Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins1Regex02(false);
+		
+		/* 75 - pcNuitAnnuelNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins1(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins1Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins1Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins1Numerique03(false);
+		
+		/* 76 - indiceFiabiliteMjaNmoins1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins1(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins1Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins1Regex02(false);
+		
+		/* 77 - anneeNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins2(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins2Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins2Regex02(false);
+		
+		/* 78 - mjaNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins2Numerique03(false);
+		
+		/* 79 - typeComptageNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins2Nomenclature03(false);
+		
+		/* 80 - modeCalculNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins2(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins2Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins2Regex02(false);
+		
+		/* 81 - pcPLNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins2Numerique03(false);
+		
+		/* 82 - evaluationPLNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins2(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins2Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins2Regex02(false);
+		
+		/* 83 - pcNuitAnnuelNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins2Numerique03(false);
+		
+		/* 84 - indiceFiabiliteMjaNmoins2. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins2(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins2Regex02(false);
+
+		
+		/* 85 - anneeNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins3(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins3Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins3Regex02(false);
+		
+		/* 86 - mjaNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins3Numerique03(false);
+		
+		/* 87 - typeComptageNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins3Nomenclature03(false);
+		
+		/* 88 - modeCalculNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins3(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins3Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins3Regex02(false);
+		
+		/* 89 - pcPLNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins3Numerique03(false);
+		
+		/* 90 - evaluationPLNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins3(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins3Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins3Regex02(false);
+		
+		/* 91 - pcNuitAnnuelNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins3Numerique03(false);
+		
+		/* 92 - indiceFiabiliteMjaNmoins3. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins3(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins3Regex02(false);
+
+		
+		/* 93 - anneeNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins4(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins4Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins4Regex02(false);
+		
+		/* 94 - mjaNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins4Numerique03(false);
+		
+		/* 95 - typeComptageNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins4Nomenclature03(false);
+		
+		/* 96 - modeCalculNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins4(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins4Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins4Regex02(false);
+		
+		/* 97 - pcPLNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins4Numerique03(false);
+		
+		/* 98 - evaluationPLNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins4(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins4Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins4Regex02(false);
+		
+		/* 99 - pcNuitAnnuelNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins4Numerique03(false);
+		
+		/* 100 - indiceFiabiliteMjaNmoins4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins4(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins4Regex02(false);
+
+		
+		/* 101 - anneeNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins5(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins5Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeNmoins5Regex02(false);
+		
+		/* 102 - mjaNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjaNmoins5Numerique03(false);
+		
+		/* 103 - typeComptageNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNmoins5Nomenclature03(false);
+		
+		/* 104 - modeCalculNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins5(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins5Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitModeCalculNmoins5Regex02(false);
+		
+		/* 105 - pcPLNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcPLNmoins5Numerique03(false);
+		
+		/* 106 - evaluationPLNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins5(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins5Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitEvaluationPLNmoins5Regex02(false);
+		
+		/* 107 - pcNuitAnnuelNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitAnnuelNmoins5Numerique03(false);
+		
+		/* 108 - indiceFiabiliteMjaNmoins5. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5Regex02(false);
+		
+		/* 109 - mjmNmoins1mois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Numerique03(false);
+		
+		/* 110 - pcNuitNmoins1mois01. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Numerique03(false);
+		
+		/* 111 - mjmNmoins1mois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Numerique03(false);
+		
+		/* 112 - pcNuitNmoins1mois02. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Numerique03(false);
+		
+		/* 113 - mjmNmoins1mois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Numerique03(false);
+		
+		/* 114 - pcNuitNmoins1mois03. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Numerique03(false);
+		
+		/* 115 - mjmNmoins1mois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Numerique03(false);
+		
+		/* 116 - pcNuitNmoins1mois04. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Numerique03(false);
+		
+		/* 117 - mjmNmoins1mois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Numerique03(false);
+		
+		/* 118 - pcNuitNmoins1mois05. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Numerique03(false);
+		
+		/* 119 - mjmNmoins1mois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Numerique03(false);
+		
+		/* 120 - pcNuitNmoins1mois06. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Numerique03(false);
+		
+		/* 121 - mjmNmoins1mois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Numerique03(false);
+		
+		/* 122 - pcNuitNmoins1mois07. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Numerique03(false);
+		
+		/* 123 - mjmNmoins1mois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Numerique03(false);
+		
+		/* 124 - pcNuitNmoins1mois08. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Numerique03(false);
+		
+		/* 125 - mjmNmoins1mois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Numerique03(false);
+		
+		/* 126 - pcNuitNmoins1mois09. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Numerique03(false);
+		
+		/* 127 - mjmNmoins1mois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Numerique03(false);
+		
+		/* 128 - pcNuitNmoins1mois10. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Numerique03(false);
+		
+		/* 129 - mjmNmoins1mois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Numerique03(false);
+		
+		/* 130 - pcNuitNmoins1mois11. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Numerique03(false);
+		
+		/* 131 - mjmNmoins1mois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Numerique03(false);
+		
+		/* 132 - pcNuitNmoins1mois12. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Numerique03(false);
+		
+		/* 133 - zoneLibre4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre4(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre4Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre4Regex02(false);
+
+	} // Fin de desactiverToutesRG().______________________________________
 
 	
 	
@@ -3504,18 +5174,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -3529,43 +5189,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitNumDepartementRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurNumDepartementRenseigne01) {
-			renseigne = this.validerRGSectionHitNumDepartementRenseigne01(
+			this.renseigne = this.validerRGSectionHitNumDepartementRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurNumDepartementRegex02) {
-				rg2 = this.validerRGSectionHitNumDepartementRegex02(
+				this.rg2 = this.validerRGSectionHitNumDepartementRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -3581,7 +5240,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerNumDepartement(...).______________________________________
 	
@@ -3608,13 +5267,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 
@@ -3668,13 +5322,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -3738,18 +5387,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -3763,43 +5402,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitNumSectionRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurNumSectionRenseigne01) {
-			renseigne = this.validerRGSectionHitNumSectionRenseigne01(
+			this.renseigne = this.validerRGSectionHitNumSectionRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurNumSectionRegex02) {
-				rg2 = this.validerRGSectionHitNumSectionRegex02(
+				this.rg2 = this.validerRGSectionHitNumSectionRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -3815,7 +5453,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerNumSection(...).______________________________________
 	
@@ -3842,13 +5480,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -3902,13 +5535,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -3972,18 +5600,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4001,56 +5619,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitSensNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurSensRenseigne01) {
-			renseigne = this.validerRGSectionHitSensRenseigne01(
+			this.renseigne = this.validerRGSectionHitSensRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurSensRegex02) {
-				rg2 = this.validerRGSectionHitSensRegex02(
+				this.rg2 = this.validerRGSectionHitSensRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurSensNomenclature03) {
-				rg3 = this.validerRGSectionHitSensNomenclature03(
+				this.rg3 = this.validerRGSectionHitSensNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -4066,7 +5682,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerSens(...).______________________________________
 	
@@ -4093,13 +5709,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4153,13 +5764,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4222,13 +5828,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4309,18 +5910,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4338,56 +5929,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitNatureNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurNatureRenseigne01) {
-			renseigne = this.validerRGSectionHitNatureRenseigne01(
+			this.renseigne = this.validerRGSectionHitNatureRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurNatureRegex02) {
-				rg2 = this.validerRGSectionHitNatureRegex02(
+				this.rg2 = this.validerRGSectionHitNatureRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurNatureNomenclature03) {
-				rg3 = this.validerRGSectionHitNatureNomenclature03(
+				this.rg3 = this.validerRGSectionHitNatureNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -4403,7 +5992,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerNature(...).______________________________________
 	
@@ -4430,13 +6019,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4490,13 +6074,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4559,13 +6138,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4647,18 +6221,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4672,43 +6236,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitClasseRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurClasseRenseigne01) {
-			renseigne = this.validerRGSectionHitClasseRenseigne01(
+			this.renseigne = this.validerRGSectionHitClasseRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurClasseRegex02) {
-				rg2 = this.validerRGSectionHitClasseRegex02(
+				this.rg2 = this.validerRGSectionHitClasseRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -4724,7 +6287,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerClasse(...).________________________________________
 	
@@ -4752,13 +6315,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4813,13 +6371,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4886,18 +6439,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -4911,43 +6454,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAnneeTraitementRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAnneeTraitementRenseigne01) {
-			renseigne = this.validerRGSectionHitAnneeTraitementRenseigne01(
+			this.renseigne = this.validerRGSectionHitAnneeTraitementRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAnneeTraitementRegex02) {
-				rg2 = this.validerRGSectionHitAnneeTraitementRegex02(
+				this.rg2 = this.validerRGSectionHitAnneeTraitementRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -4963,7 +6505,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAnneeTraitement(...)._______________________________
 	
@@ -4991,13 +6533,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5052,13 +6589,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5070,9 +6602,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getAnneeTraitement();
 		
-		final String motif = "\\d{2}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_2CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -5125,18 +6655,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5150,43 +6670,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitZoneLibre1Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurZoneLibre1Renseigne01) {
-			renseigne = this.validerRGSectionHitZoneLibre1Renseigne01(
+			this.renseigne = this.validerRGSectionHitZoneLibre1Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurZoneLibre1Regex02) {
-				rg2 = this.validerRGSectionHitZoneLibre1Regex02(
+				this.rg2 = this.validerRGSectionHitZoneLibre1Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -5202,7 +6721,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerZoneLibre1(...).________________________________________
 	
@@ -5230,13 +6749,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5291,13 +6805,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5364,18 +6873,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5389,43 +6888,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitNumRouteRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurNumRouteRenseigne01) {
-			renseigne = this.validerRGSectionHitNumRouteRenseigne01(
+			this.renseigne = this.validerRGSectionHitNumRouteRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurNumRouteRegex02) {
-				rg2 = this.validerRGSectionHitNumRouteRegex02(
+				this.rg2 = this.validerRGSectionHitNumRouteRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -5441,7 +6939,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerNumRoute(...).________________________________________
 	
@@ -5469,13 +6967,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5530,13 +7023,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5603,18 +7091,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5628,43 +7106,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitIndiceNumRouteRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurIndiceNumRouteRenseigne01) {
-			renseigne = this.validerRGSectionHitIndiceNumRouteRenseigne01(
+			this.renseigne = this.validerRGSectionHitIndiceNumRouteRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurIndiceNumRouteRegex02) {
-				rg2 = this.validerRGSectionHitIndiceNumRouteRegex02(
+				this.rg2 = this.validerRGSectionHitIndiceNumRouteRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -5680,7 +7157,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerIndiceNumRoute(...).________________________________
 	
@@ -5708,13 +7185,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5769,13 +7241,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5840,18 +7307,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -5865,43 +7322,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitIndiceLettreRouteRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurIndiceLettreRouteRenseigne01) {
-			renseigne = this.validerRGSectionHitIndiceLettreRouteRenseigne01(
+			this.renseigne = this.validerRGSectionHitIndiceLettreRouteRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurIndiceLettreRouteRegex02) {
-				rg2 = this.validerRGSectionHitIndiceLettreRouteRegex02(
+				this.rg2 = this.validerRGSectionHitIndiceLettreRouteRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -5917,7 +7373,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerIndiceLettreRoute(...)._____________________________
 	
@@ -5945,13 +7401,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6006,13 +7457,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6079,18 +7525,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6108,56 +7544,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitCategorieAdminRouteNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurCategorieAdminRouteRenseigne01) {
-			renseigne = this.validerRGSectionHitCategorieAdminRouteRenseigne01(
+			this.renseigne = this.validerRGSectionHitCategorieAdminRouteRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurCategorieAdminRouteRegex02) {
-				rg2 = this.validerRGSectionHitCategorieAdminRouteRegex02(
+				this.rg2 = this.validerRGSectionHitCategorieAdminRouteRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurCategorieAdminRouteNomenclature03) {
-				rg3 = this.validerRGSectionHitCategorieAdminRouteNomenclature03(
+				this.rg3 = this.validerRGSectionHitCategorieAdminRouteNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -6173,7 +7607,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerCategorieAdminRoute(...).___________________________
 	
@@ -6201,13 +7635,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6262,13 +7691,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6332,13 +7756,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6420,18 +7839,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6449,56 +7858,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitTypeComptageNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurTypeComptageRenseigne01) {
-			renseigne = this.validerRGSectionHitTypeComptageRenseigne01(
+			this.renseigne = this.validerRGSectionHitTypeComptageRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageRegex02) {
-				rg2 = this.validerRGSectionHitTypeComptageRegex02(
+				this.rg2 = this.validerRGSectionHitTypeComptageRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNomenclature03) {
-				rg3 = this.validerRGSectionHitTypeComptageNomenclature03(
+				this.rg3 = this.validerRGSectionHitTypeComptageNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -6514,7 +7921,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerTypeComptage(...).________________________________________
 	
@@ -6542,13 +7949,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6603,13 +8005,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6673,13 +8070,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6761,18 +8153,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6790,56 +8172,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitClassementRouteNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurClassementRouteRenseigne01) {
-			renseigne = this.validerRGSectionHitClassementRouteRenseigne01(
+			this.renseigne = this.validerRGSectionHitClassementRouteRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurClassementRouteRegex02) {
-				rg2 = this.validerRGSectionHitClassementRouteRegex02(
+				this.rg2 = this.validerRGSectionHitClassementRouteRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurClassementRouteNomenclature03) {
-				rg3 = this.validerRGSectionHitClassementRouteNomenclature03(
+				this.rg3 = this.validerRGSectionHitClassementRouteNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -6855,7 +8235,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerClassementRoute(...).________________________________________
 	
@@ -6883,13 +8263,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -6944,13 +8319,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7014,13 +8384,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7102,18 +8467,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7131,56 +8486,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitClasseLargeurChausseeUNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurClasseLargeurChausseeURenseigne01) {
-			renseigne = this.validerRGSectionHitClasseLargeurChausseeURenseigne01(
+			this.renseigne = this.validerRGSectionHitClasseLargeurChausseeURenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurClasseLargeurChausseeURegex02) {
-				rg2 = this.validerRGSectionHitClasseLargeurChausseeURegex02(
+				this.rg2 = this.validerRGSectionHitClasseLargeurChausseeURegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurClasseLargeurChausseeUNomenclature03) {
-				rg3 = this.validerRGSectionHitClasseLargeurChausseeUNomenclature03(
+				this.rg3 = this.validerRGSectionHitClasseLargeurChausseeUNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -7196,7 +8549,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerClasseLargeurChausseeU(...).________________________
 	
@@ -7224,13 +8577,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7285,13 +8633,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7355,13 +8698,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7443,18 +8781,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7472,56 +8800,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitClasseLargeurChausseesSNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurClasseLargeurChausseesSRenseigne01) {
-			renseigne = this.validerRGSectionHitClasseLargeurChausseesSRenseigne01(
+			this.renseigne = this.validerRGSectionHitClasseLargeurChausseesSRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurClasseLargeurChausseesSRegex02) {
-				rg2 = this.validerRGSectionHitClasseLargeurChausseesSRegex02(
+				this.rg2 = this.validerRGSectionHitClasseLargeurChausseesSRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurClasseLargeurChausseesSNomenclature03) {
-				rg3 = this.validerRGSectionHitClasseLargeurChausseesSNomenclature03(
+				this.rg3 = this.validerRGSectionHitClasseLargeurChausseesSNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -7537,7 +8863,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerClasseLargeurChausseesS(...)._______________________
 	
@@ -7565,13 +8891,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7626,13 +8947,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7696,13 +9012,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7784,18 +9095,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7813,56 +9114,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitTypeReseauNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurTypeReseauRenseigne01) {
-			renseigne = this.validerRGSectionHitTypeReseauRenseigne01(
+			this.renseigne = this.validerRGSectionHitTypeReseauRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeReseauRegex02) {
-				rg2 = this.validerRGSectionHitTypeReseauRegex02(
+				this.rg2 = this.validerRGSectionHitTypeReseauRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeReseauNomenclature03) {
-				rg3 = this.validerRGSectionHitTypeReseauNomenclature03(
+				this.rg3 = this.validerRGSectionHitTypeReseauNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -7878,7 +9177,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerTypeReseau(...).____________________________________
 	
@@ -7906,13 +9205,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -7967,13 +9261,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8037,13 +9326,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8125,18 +9409,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8154,56 +9428,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPRoupKNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPRoupKRenseigne01) {
-			renseigne = this.validerRGSectionHitPRoupKRenseigne01(
+			this.renseigne = this.validerRGSectionHitPRoupKRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPRoupKRegex02) {
-				rg2 = this.validerRGSectionHitPRoupKRegex02(
+				this.rg2 = this.validerRGSectionHitPRoupKRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPRoupKNomenclature03) {
-				rg3 = this.validerRGSectionHitPRoupKNomenclature03(
+				this.rg3 = this.validerRGSectionHitPRoupKNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -8219,7 +9491,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPRoupK(...).________________________________________
 	
@@ -8247,13 +9519,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8308,13 +9575,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8378,13 +9640,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8466,18 +9723,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8491,43 +9738,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitLieuDitOrigineRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurLieuDitOrigineRenseigne01) {
-			renseigne = this.validerRGSectionHitLieuDitOrigineRenseigne01(
+			this.renseigne = this.validerRGSectionHitLieuDitOrigineRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurLieuDitOrigineRegex02) {
-				rg2 = this.validerRGSectionHitLieuDitOrigineRegex02(
+				this.rg2 = this.validerRGSectionHitLieuDitOrigineRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -8543,7 +9789,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerLieuDitOrigine(...).________________________________
 	
@@ -8571,13 +9817,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8632,13 +9873,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8705,18 +9941,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8734,56 +9960,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPrOrigineNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPrOrigineRenseigne01) {
-			renseigne = this.validerRGSectionHitPrOrigineRenseigne01(
+			this.renseigne = this.validerRGSectionHitPrOrigineRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPrOrigineRegex02) {
-				rg2 = this.validerRGSectionHitPrOrigineRegex02(
+				this.rg2 = this.validerRGSectionHitPrOrigineRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPrOrigineNumerique03) {
-				rg3 = this.validerRGSectionHitPrOrigineNumerique03(
+				this.rg3 = this.validerRGSectionHitPrOrigineNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -8799,7 +10023,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPrOrigine(...)._____________________________________
 	
@@ -8827,13 +10051,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8888,13 +10107,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -8957,13 +10171,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9036,18 +10245,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9065,56 +10264,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAbsOrigineNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAbsOrigineRenseigne01) {
-			renseigne = this.validerRGSectionHitAbsOrigineRenseigne01(
+			this.renseigne = this.validerRGSectionHitAbsOrigineRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAbsOrigineRegex02) {
-				rg2 = this.validerRGSectionHitAbsOrigineRegex02(
+				this.rg2 = this.validerRGSectionHitAbsOrigineRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAbsOrigineNumerique03) {
-				rg3 = this.validerRGSectionHitAbsOrigineNumerique03(
+				this.rg3 = this.validerRGSectionHitAbsOrigineNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -9130,7 +10327,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAbsOrigine(...).____________________________________
 	
@@ -9158,13 +10355,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9219,13 +10411,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9288,13 +10475,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9367,18 +10549,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9392,43 +10564,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitLieuDitExtremiteRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurLieuDitExtremiteRenseigne01) {
-			renseigne = this.validerRGSectionHitLieuDitExtremiteRenseigne01(
+			this.renseigne = this.validerRGSectionHitLieuDitExtremiteRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurLieuDitExtremiteRegex02) {
-				rg2 = this.validerRGSectionHitLieuDitExtremiteRegex02(
+				this.rg2 = this.validerRGSectionHitLieuDitExtremiteRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -9444,7 +10615,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerLieuDitExtremite(...).______________________________
 	
@@ -9472,13 +10643,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9533,13 +10699,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9606,18 +10767,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9635,56 +10786,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPrExtremiteNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPrExtremiteRenseigne01) {
-			renseigne = this.validerRGSectionHitPrExtremiteRenseigne01(
+			this.renseigne = this.validerRGSectionHitPrExtremiteRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPrExtremiteRegex02) {
-				rg2 = this.validerRGSectionHitPrExtremiteRegex02(
+				this.rg2 = this.validerRGSectionHitPrExtremiteRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPrExtremiteNumerique03) {
-				rg3 = this.validerRGSectionHitPrExtremiteNumerique03(
+				this.rg3 = this.validerRGSectionHitPrExtremiteNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -9700,7 +10849,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPrExtremite(...).___________________________________
 	
@@ -9728,13 +10877,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9789,13 +10933,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9858,13 +10997,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9937,18 +11071,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -9966,56 +11090,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAbsExtremiteNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAbsExtremiteRenseigne01) {
-			renseigne = this.validerRGSectionHitAbsExtremiteRenseigne01(
+			this.renseigne = this.validerRGSectionHitAbsExtremiteRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAbsExtremiteRegex02) {
-				rg2 = this.validerRGSectionHitAbsExtremiteRegex02(
+				this.rg2 = this.validerRGSectionHitAbsExtremiteRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAbsExtremiteNumerique03) {
-				rg3 = this.validerRGSectionHitAbsExtremiteNumerique03(
+				this.rg3 = this.validerRGSectionHitAbsExtremiteNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -10031,7 +11153,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAbsExtremite(...).__________________________________
 	
@@ -10059,13 +11181,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10120,13 +11237,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10189,13 +11301,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10268,18 +11375,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10293,43 +11390,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitLieuDitComptageRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurLieuDitComptageRenseigne01) {
-			renseigne = this.validerRGSectionHitLieuDitComptageRenseigne01(
+			this.renseigne = this.validerRGSectionHitLieuDitComptageRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurLieuDitComptageRegex02) {
-				rg2 = this.validerRGSectionHitLieuDitComptageRegex02(
+				this.rg2 = this.validerRGSectionHitLieuDitComptageRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -10345,7 +11441,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerLieuDitComptage(...).______________________________
 	
@@ -10373,13 +11469,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10434,13 +11525,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10507,18 +11593,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10536,56 +11612,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPrComptageNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPrComptageRenseigne01) {
-			renseigne = this.validerRGSectionHitPrComptageRenseigne01(
+			this.renseigne = this.validerRGSectionHitPrComptageRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPrComptageRegex02) {
-				rg2 = this.validerRGSectionHitPrComptageRegex02(
+				this.rg2 = this.validerRGSectionHitPrComptageRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPrComptageNumerique03) {
-				rg3 = this.validerRGSectionHitPrComptageNumerique03(
+				this.rg3 = this.validerRGSectionHitPrComptageNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -10601,7 +11675,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPrComptage(...).___________________________________
 	
@@ -10629,13 +11703,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10690,13 +11759,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10759,13 +11823,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10838,18 +11897,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -10867,56 +11916,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAbsComptageNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAbsComptageRenseigne01) {
-			renseigne = this.validerRGSectionHitAbsComptageRenseigne01(
+			this.renseigne = this.validerRGSectionHitAbsComptageRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAbsComptageRegex02) {
-				rg2 = this.validerRGSectionHitAbsComptageRegex02(
+				this.rg2 = this.validerRGSectionHitAbsComptageRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAbsComptageNumerique03) {
-				rg3 = this.validerRGSectionHitAbsComptageNumerique03(
+				this.rg3 = this.validerRGSectionHitAbsComptageNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -10932,7 +11979,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAbsComptage(...).__________________________________
 	
@@ -10960,13 +12007,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11021,13 +12063,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11090,13 +12127,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11169,18 +12201,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11198,56 +12220,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitLongueurSectionNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurLongueurSectionRenseigne01) {
-			renseigne = this.validerRGSectionHitLongueurSectionRenseigne01(
+			this.renseigne = this.validerRGSectionHitLongueurSectionRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurLongueurSectionRegex02) {
-				rg2 = this.validerRGSectionHitLongueurSectionRegex02(
+				this.rg2 = this.validerRGSectionHitLongueurSectionRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurLongueurSectionNumerique03) {
-				rg3 = this.validerRGSectionHitLongueurSectionNumerique03(
+				this.rg3 = this.validerRGSectionHitLongueurSectionNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -11263,7 +12283,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerLongueurSection(...)._______________________________
 	
@@ -11291,13 +12311,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11352,13 +12367,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11419,13 +12429,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11498,18 +12503,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11527,56 +12522,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitLongueurRaseCampagneNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurLongueurRaseCampagneRenseigne01) {
-			renseigne = this.validerRGSectionHitLongueurRaseCampagneRenseigne01(
+			this.renseigne = this.validerRGSectionHitLongueurRaseCampagneRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurLongueurRaseCampagneRegex02) {
-				rg2 = this.validerRGSectionHitLongueurRaseCampagneRegex02(
+				this.rg2 = this.validerRGSectionHitLongueurRaseCampagneRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurLongueurRaseCampagneNumerique03) {
-				rg3 = this.validerRGSectionHitLongueurRaseCampagneNumerique03(
+				this.rg3 = this.validerRGSectionHitLongueurRaseCampagneNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -11592,7 +12585,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerLongueurRaseCampagne(...).__________________________
 	
@@ -11620,13 +12613,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11681,13 +12669,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11748,13 +12731,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11827,18 +12805,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11852,43 +12820,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitNumDepartementRattachementRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurNumDepartementRattachementRenseigne01) {
-			renseigne = this.validerRGSectionHitNumDepartementRattachementRenseigne01(
+			this.renseigne = this.validerRGSectionHitNumDepartementRattachementRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurNumDepartementRattachementRegex02) {
-				rg2 = this.validerRGSectionHitNumDepartementRattachementRegex02(
+				this.rg2 = this.validerRGSectionHitNumDepartementRattachementRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -11904,7 +12871,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerNumDepartementRattachement(...).____________________
 	
@@ -11932,13 +12899,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -11993,13 +12955,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12064,18 +13021,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12089,43 +13036,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitNumSectionRattachementRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurNumSectionRattachementRenseigne01) {
-			renseigne = this.validerRGSectionHitNumSectionRattachementRenseigne01(
+			this.renseigne = this.validerRGSectionHitNumSectionRattachementRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurNumSectionRattachementRegex02) {
-				rg2 = this.validerRGSectionHitNumSectionRattachementRegex02(
+				this.rg2 = this.validerRGSectionHitNumSectionRattachementRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -12141,7 +13087,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerNumSectionRattachement(...).________________________
 	
@@ -12169,13 +13115,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12230,13 +13171,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12301,18 +13237,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12330,56 +13256,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitSensRattachementNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurSensRattachementRenseigne01) {
-			renseigne = this.validerRGSectionHitSensRattachementRenseigne01(
+			this.renseigne = this.validerRGSectionHitSensRattachementRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurSensRattachementRegex02) {
-				rg2 = this.validerRGSectionHitSensRattachementRegex02(
+				this.rg2 = this.validerRGSectionHitSensRattachementRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurSensRattachementNomenclature03) {
-				rg3 = this.validerRGSectionHitSensRattachementNomenclature03(
+				this.rg3 = this.validerRGSectionHitSensRattachementNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -12395,7 +13319,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerSensRattachement(...).______________________________
 	
@@ -12423,13 +13347,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12484,13 +13403,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12554,13 +13468,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12642,18 +13551,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12667,43 +13566,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitNumDepartementLimitropheRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurNumDepartementLimitropheRenseigne01) {
-			renseigne = this.validerRGSectionHitNumDepartementLimitropheRenseigne01(
+			this.renseigne = this.validerRGSectionHitNumDepartementLimitropheRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurNumDepartementLimitropheRegex02) {
-				rg2 = this.validerRGSectionHitNumDepartementLimitropheRegex02(
+				this.rg2 = this.validerRGSectionHitNumDepartementLimitropheRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -12719,7 +13617,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerNumDepartementLimitrophe(...).______________________
 	
@@ -12747,13 +13645,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12808,13 +13701,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12879,18 +13767,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -12904,43 +13782,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitNumSectionLimitropheRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurNumSectionLimitropheRenseigne01) {
-			renseigne = this.validerRGSectionHitNumSectionLimitropheRenseigne01(
+			this.renseigne = this.validerRGSectionHitNumSectionLimitropheRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurNumSectionLimitropheRegex02) {
-				rg2 = this.validerRGSectionHitNumSectionLimitropheRegex02(
+				this.rg2 = this.validerRGSectionHitNumSectionLimitropheRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -12956,7 +13833,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerNumSectionLimitrophe(...).__________________________
 	
@@ -12984,13 +13861,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13045,13 +13917,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13116,18 +13983,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13145,56 +14002,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitSensLimitropheNomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurSensLimitropheRenseigne01) {
-			renseigne = this.validerRGSectionHitSensLimitropheRenseigne01(
+			this.renseigne = this.validerRGSectionHitSensLimitropheRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurSensLimitropheRegex02) {
-				rg2 = this.validerRGSectionHitSensLimitropheRegex02(
+				this.rg2 = this.validerRGSectionHitSensLimitropheRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurSensLimitropheNomenclature03) {
-				rg3 = this.validerRGSectionHitSensLimitropheNomenclature03(
+				this.rg3 = this.validerRGSectionHitSensLimitropheNomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -13210,7 +14065,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerSensLimitrophe(...).________________________________
 	
@@ -13238,13 +14093,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13299,13 +14149,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13369,13 +14214,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13457,18 +14297,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13482,43 +14312,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMoisSectionnementRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMoisSectionnementRenseigne01) {
-			renseigne = this.validerRGSectionHitMoisSectionnementRenseigne01(
+			this.renseigne = this.validerRGSectionHitMoisSectionnementRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMoisSectionnementRegex02) {
-				rg2 = this.validerRGSectionHitMoisSectionnementRegex02(
+				this.rg2 = this.validerRGSectionHitMoisSectionnementRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -13534,7 +14363,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMoisSectionnement(...)._____________________________
 	
@@ -13562,13 +14391,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13623,13 +14447,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13641,9 +14460,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getMoisSectionnement();
 		
-		final String motif = "\\d{2}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_2CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -13657,24 +14474,11 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			/* retoune false si la RG n'est pas validée. */
 			return false;
 		}
-		
-		final Set<String> setMois = new HashSet<>();
-		setMois.add("01");
-		setMois.add("02");
-		setMois.add("03");
-		setMois.add("04");
-		setMois.add("05");
-		setMois.add("06");
-		setMois.add("07");
-		setMois.add("08");
-		setMois.add("09");
-		setMois.add("10");
-		setMois.add("11");
-		setMois.add("12");
-		
-		if (!setMois.contains(valeurAControler)) {
+				
+		if (!SET_MOIS.contains(valeurAControler)) {
 			
-			final String messageMois = "le mois de sectionnement doit être homogène à un mois ('01' à '12')";
+			final String messageMois 
+				= "le mois de sectionnement doit être homogène à un mois ('01' à '12')";
 			
 			/* crée si nécessaire une entrée dans errorsMapDetaille. */
 			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
@@ -13726,18 +14530,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13751,43 +14545,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAnneeSectionnementRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAnneeSectionnementRenseigne01) {
-			renseigne = this.validerRGSectionHitAnneeSectionnementRenseigne01(
+			this.renseigne = this.validerRGSectionHitAnneeSectionnementRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAnneeSectionnementRegex02) {
-				rg2 = this.validerRGSectionHitAnneeSectionnementRegex02(
+				this.rg2 = this.validerRGSectionHitAnneeSectionnementRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -13803,7 +14596,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAnneeSectionnement(...).____________________________
 	
@@ -13831,13 +14624,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13892,13 +14680,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13910,9 +14693,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getAnneeSectionnement();
 		
-		final String motif = "\\d{2}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_2CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -13965,18 +14746,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -13990,43 +14761,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitZoneLibre2Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurZoneLibre2Renseigne01) {
-			renseigne = this.validerRGSectionHitZoneLibre2Renseigne01(
+			this.renseigne = this.validerRGSectionHitZoneLibre2Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurZoneLibre2Regex02) {
-				rg2 = this.validerRGSectionHitZoneLibre2Regex02(
+				this.rg2 = this.validerRGSectionHitZoneLibre2Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -14042,7 +14812,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerZoneLibre2(...).____________________________________
 	
@@ -14070,13 +14840,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14131,13 +14896,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14204,18 +14964,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14233,56 +14983,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjaNNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjaNRenseigne01) {
-			renseigne = this.validerRGSectionHitMjaNRenseigne01(
+			this.renseigne = this.validerRGSectionHitMjaNRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNRegex02) {
-				rg2 = this.validerRGSectionHitMjaNRegex02(
+				this.rg2 = this.validerRGSectionHitMjaNRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNNumerique03) {
-				rg3 = this.validerRGSectionHitMjaNNumerique03(
+				this.rg3 = this.validerRGSectionHitMjaNNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -14298,7 +15046,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjaN(...).__________________________________________
 	
@@ -14326,13 +15074,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14387,13 +15130,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14454,13 +15192,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14533,18 +15266,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14558,43 +15281,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitModeCalculNRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurModeCalculNRenseigne01) {
-			renseigne = this.validerRGSectionHitModeCalculNRenseigne01(
+			this.renseigne = this.validerRGSectionHitModeCalculNRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurModeCalculNRegex02) {
-				rg2 = this.validerRGSectionHitModeCalculNRegex02(
+				this.rg2 = this.validerRGSectionHitModeCalculNRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -14610,7 +15332,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerModeCalculN(...).___________________________________
 	
@@ -14638,13 +15360,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14699,13 +15416,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14717,9 +15429,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getModeCalculN();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -14772,18 +15483,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14801,56 +15502,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcPLNNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcPLNRenseigne01) {
-			renseigne = this.validerRGSectionHitPcPLNRenseigne01(
+			this.renseigne = this.validerRGSectionHitPcPLNRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNRegex02) {
-				rg2 = this.validerRGSectionHitPcPLNRegex02(
+				this.rg2 = this.validerRGSectionHitPcPLNRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNNumerique03) {
-				rg3 = this.validerRGSectionHitPcPLNNumerique03(
+				this.rg3 = this.validerRGSectionHitPcPLNNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -14866,7 +15565,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcPLN(...).________________________________________
 	
@@ -14894,13 +15593,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -14955,13 +15649,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15022,13 +15711,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15101,18 +15785,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15126,43 +15800,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitEvaluationPLNRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurEvaluationPLNRenseigne01) {
-			renseigne = this.validerRGSectionHitEvaluationPLNRenseigne01(
+			this.renseigne = this.validerRGSectionHitEvaluationPLNRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurEvaluationPLNRegex02) {
-				rg2 = this.validerRGSectionHitEvaluationPLNRegex02(
+				this.rg2 = this.validerRGSectionHitEvaluationPLNRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -15178,7 +15851,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerEvaluationPLN(...).___________________________________
 	
@@ -15206,13 +15879,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15267,13 +15935,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15285,9 +15948,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getEvaluationPLN();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -15340,18 +16002,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15369,56 +16021,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitAnnuelNNumerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitAnnuelNRenseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitAnnuelNRenseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitAnnuelNRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNRegex02) {
-				rg2 = this.validerRGSectionHitPcNuitAnnuelNRegex02(
+				this.rg2 = this.validerRGSectionHitPcNuitAnnuelNRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNNumerique03) {
-				rg3 = this.validerRGSectionHitPcNuitAnnuelNNumerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitAnnuelNNumerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -15434,7 +16084,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitAnnuelN(...)._________________________________
 	
@@ -15462,13 +16112,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15523,13 +16168,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15590,13 +16230,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15669,18 +16304,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15694,43 +16319,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitIndiceFiabiliteMjaNRegex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurIndiceFiabiliteMjaNRenseigne01) {
-			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNRenseigne01(
+			this.renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNRenseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurIndiceFiabiliteMjaNRegex02) {
-				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNRegex02(
+				this.rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNRegex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -15746,7 +16370,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerIndiceFiabiliteMjaN(...).___________________________
 	
@@ -15774,13 +16398,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15835,13 +16454,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15853,9 +16467,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getIndiceFiabiliteMjaN();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -15908,18 +16521,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -15937,56 +16540,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois01Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois01Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois01Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois01Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois01Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois01Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois01Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois01Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois01Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois01Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -16002,7 +16603,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois01(...).____________________________________
 	
@@ -16030,13 +16631,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16091,13 +16687,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16158,13 +16749,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16237,18 +16823,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16266,56 +16842,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois01Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois01Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois01Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois01Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois01Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois01Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois01Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois01Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois01Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois01Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -16331,7 +16905,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois01(...)._________________________________
 	
@@ -16359,13 +16933,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16420,13 +16989,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16486,14 +17050,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			final String pAttribut
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
-		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+				
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16566,18 +17125,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16595,56 +17144,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois02Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois02Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois02Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois02Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois02Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois02Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois02Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois02Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois02Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois02Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -16660,7 +17207,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois02(...).____________________________________
 	
@@ -16688,13 +17235,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16749,13 +17291,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16815,14 +17352,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			final String pAttribut
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
-		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+				
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16895,18 +17427,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -16924,56 +17446,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois02Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois02Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois02Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois02Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois02Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois02Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois02Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois02Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois02Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois02Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -16989,7 +17509,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois02(...)._________________________________
 	
@@ -17017,13 +17537,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17078,13 +17593,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17145,13 +17655,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17224,18 +17729,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17253,56 +17748,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois03Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois03Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois03Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois03Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois03Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois03Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois03Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois03Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois03Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois03Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -17318,7 +17811,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois03(...).____________________________________
 	
@@ -17346,13 +17839,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17407,13 +17895,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17474,13 +17957,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17552,19 +18030,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			final ISectionHitDTO pDto
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
-		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+				
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17582,56 +18050,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois03Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois03Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois03Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois03Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois03Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois03Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois03Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois03Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois03Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois03Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -17647,7 +18113,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois03(...)._________________________________
 	
@@ -17675,13 +18141,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17736,13 +18197,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17803,13 +18259,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17882,18 +18333,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -17911,56 +18352,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois04Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois04Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois04Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois04Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois04Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois04Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois04Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois04Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois04Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois04Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -17976,7 +18415,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois04(...).____________________________________
 	
@@ -18004,13 +18443,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18065,13 +18499,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18132,13 +18561,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18211,18 +18635,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18240,56 +18654,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois04Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois04Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois04Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois04Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois04Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois04Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois04Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois04Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois04Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois04Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -18305,7 +18717,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois04(...)._________________________________
 	
@@ -18333,13 +18745,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18394,13 +18801,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18461,13 +18863,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18541,18 +18938,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18570,56 +18957,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois05Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois05Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois05Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois05Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois05Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois05Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois05Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois05Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois05Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois05Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -18635,7 +19020,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois05(...).____________________________________
 	
@@ -18663,13 +19048,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18724,13 +19104,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18791,13 +19166,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18870,18 +19240,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -18899,56 +19259,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois05Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois05Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois05Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois05Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois05Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois05Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois05Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois05Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois05Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois05Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -18964,7 +19322,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois05(...)._________________________________
 	
@@ -18992,13 +19350,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19053,13 +19406,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19120,13 +19468,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19200,18 +19543,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19229,56 +19562,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois06Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois06Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois06Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois06Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois06Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois06Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois06Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois06Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois06Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois06Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -19294,7 +19625,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois06(...).____________________________________
 	
@@ -19322,13 +19653,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19383,13 +19709,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19450,13 +19771,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19529,18 +19845,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19558,56 +19864,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois06Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois06Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois06Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois06Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois06Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois06Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois06Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois06Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois06Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois06Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -19623,7 +19927,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois06(...)._________________________________
 	
@@ -19651,13 +19955,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19712,13 +20011,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19779,13 +20073,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19859,18 +20148,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -19888,56 +20167,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois07Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois07Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois07Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois07Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois07Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois07Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois07Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois07Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois07Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois07Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -19953,7 +20230,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois07(...).____________________________________
 	
@@ -19981,13 +20258,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20042,13 +20314,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20109,13 +20376,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20188,18 +20450,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20217,56 +20469,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois07Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois07Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois07Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois07Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois07Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois07Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois07Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois07Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois07Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois07Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -20282,7 +20532,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois07(...)._________________________________
 	
@@ -20310,13 +20560,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20371,13 +20616,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20438,13 +20678,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20518,18 +20753,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20547,56 +20772,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois08Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois08Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois08Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois08Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois08Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois08Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois08Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois08Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois08Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois08Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -20612,7 +20835,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois08(...).____________________________________
 	
@@ -20640,13 +20863,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20701,13 +20919,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20768,13 +20981,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20847,18 +21055,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -20876,56 +21074,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois08Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois08Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois08Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois08Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois08Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois08Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois08Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois08Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois08Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois08Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -20941,7 +21137,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois08(...)._________________________________
 	
@@ -20969,13 +21165,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21030,13 +21221,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21097,13 +21283,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21177,18 +21358,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21206,56 +21377,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois09Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois09Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois09Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois09Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois09Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois09Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois09Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois09Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois09Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois09Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -21271,7 +21440,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois09(...).____________________________________
 	
@@ -21299,13 +21468,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21360,13 +21524,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21427,13 +21586,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21506,18 +21660,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21535,56 +21679,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois09Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois09Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois09Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois09Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois09Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois09Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois09Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois09Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois09Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois09Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -21600,7 +21742,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois09(...)._________________________________
 	
@@ -21628,13 +21770,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21689,13 +21826,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21756,13 +21888,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21836,18 +21963,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -21865,56 +21982,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois10Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois10Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois10Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois10Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois10Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois10Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois10Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois10Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois10Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois10Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -21930,7 +22045,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois10(...).____________________________________
 	
@@ -21958,13 +22073,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22019,13 +22129,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22086,13 +22191,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22165,18 +22265,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22194,56 +22284,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois10Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois10Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois10Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois10Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois10Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois10Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois10Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois10Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois10Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois10Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -22259,7 +22347,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois10(...)._________________________________
 	
@@ -22287,13 +22375,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22348,13 +22431,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22415,13 +22493,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22495,18 +22568,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22524,56 +22587,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois11Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois11Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois11Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois11Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois11Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois11Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois11Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois11Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois11Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois11Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -22589,7 +22650,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois11(...).____________________________________
 	
@@ -22617,13 +22678,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22678,13 +22734,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22745,13 +22796,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22824,18 +22870,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -22853,56 +22889,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois11Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois11Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois11Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois11Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois11Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois11Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois11Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois11Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois11Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois11Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -22918,7 +22952,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois11(...)._________________________________
 	
@@ -22946,13 +22980,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23007,13 +23036,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23074,13 +23098,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23154,18 +23173,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23183,56 +23192,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmois12Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmois12Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmois12Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmois12Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois12Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmois12Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmois12Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmois12Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmois12Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmois12Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -23248,7 +23255,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmois12(...).____________________________________
 	
@@ -23276,13 +23283,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23337,13 +23339,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23404,13 +23401,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23483,18 +23475,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23512,56 +23494,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmois12Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmois12Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmois12Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmois12Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois12Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmois12Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmois12Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmois12Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmois12Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmois12Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -23577,7 +23557,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmois12(...)._________________________________
 	
@@ -23605,13 +23585,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23666,13 +23641,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23733,13 +23703,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23812,18 +23777,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23837,43 +23792,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitZoneLibre3Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurZoneLibre3Renseigne01) {
-			renseigne = this.validerRGSectionHitZoneLibre3Renseigne01(
+			this.renseigne = this.validerRGSectionHitZoneLibre3Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurZoneLibre3Regex02) {
-				rg2 = this.validerRGSectionHitZoneLibre3Regex02(
+				this.rg2 = this.validerRGSectionHitZoneLibre3Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -23889,7 +23843,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerZoneLibre3(...).____________________________________
 	
@@ -23917,13 +23871,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -23978,13 +23927,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24051,18 +23995,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24076,43 +24010,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAnneeNmoins1Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAnneeNmoins1Renseigne01) {
-			renseigne = this.validerRGSectionHitAnneeNmoins1Renseigne01(
+			this.renseigne = this.validerRGSectionHitAnneeNmoins1Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAnneeNmoins1Regex02) {
-				rg2 = this.validerRGSectionHitAnneeNmoins1Regex02(
+				this.rg2 = this.validerRGSectionHitAnneeNmoins1Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -24128,7 +24061,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAnneeNmoins1(...).__________________________________
 	
@@ -24156,13 +24089,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24217,13 +24145,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24235,9 +24158,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getAnneeNmoins1();
 		
-		final String motif = "\\d{2}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_2CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -24290,18 +24211,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24319,56 +24230,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjaNmoins1Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjaNmoins1Renseigne01) {
-			renseigne = this.validerRGSectionHitMjaNmoins1Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjaNmoins1Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins1Regex02) {
-				rg2 = this.validerRGSectionHitMjaNmoins1Regex02(
+				this.rg2 = this.validerRGSectionHitMjaNmoins1Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins1Numerique03) {
-				rg3 = this.validerRGSectionHitMjaNmoins1Numerique03(
+				this.rg3 = this.validerRGSectionHitMjaNmoins1Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -24384,7 +24293,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjaNmoins1(...).____________________________________
 	
@@ -24412,13 +24321,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24473,13 +24377,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24540,13 +24439,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24619,18 +24513,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24648,56 +24532,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitTypeComptageNmoins1Nomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurTypeComptageNmoins1Renseigne01) {
-			renseigne = this.validerRGSectionHitTypeComptageNmoins1Renseigne01(
+			this.renseigne = this.validerRGSectionHitTypeComptageNmoins1Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins1Regex02) {
-				rg2 = this.validerRGSectionHitTypeComptageNmoins1Regex02(
+				this.rg2 = this.validerRGSectionHitTypeComptageNmoins1Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins1Nomenclature03) {
-				rg3 = this.validerRGSectionHitTypeComptageNmoins1Nomenclature03(
+				this.rg3 = this.validerRGSectionHitTypeComptageNmoins1Nomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -24713,7 +24595,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerTypeComptageNmoins1(...).___________________________
 	
@@ -24741,13 +24623,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24802,13 +24679,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24872,13 +24744,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24960,18 +24827,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -24985,43 +24842,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitModeCalculNmoins1Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurModeCalculNmoins1Renseigne01) {
-			renseigne = this.validerRGSectionHitModeCalculNmoins1Renseigne01(
+			this.renseigne = this.validerRGSectionHitModeCalculNmoins1Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurModeCalculNmoins1Regex02) {
-				rg2 = this.validerRGSectionHitModeCalculNmoins1Regex02(
+				this.rg2 = this.validerRGSectionHitModeCalculNmoins1Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -25037,7 +24893,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerModeCalculNmoins1(...)._____________________________
 	
@@ -25065,13 +24921,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25126,13 +24977,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25144,9 +24990,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getModeCalculNmoins1();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -25199,18 +25044,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25228,56 +25063,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcPLNmoins1Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcPLNmoins1Renseigne01) {
-			renseigne = this.validerRGSectionHitPcPLNmoins1Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcPLNmoins1Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins1Regex02) {
-				rg2 = this.validerRGSectionHitPcPLNmoins1Regex02(
+				this.rg2 = this.validerRGSectionHitPcPLNmoins1Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins1Numerique03) {
-				rg3 = this.validerRGSectionHitPcPLNmoins1Numerique03(
+				this.rg3 = this.validerRGSectionHitPcPLNmoins1Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -25293,7 +25126,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcPLNmoins1(...).___________________________________
 	
@@ -25321,13 +25154,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25382,13 +25210,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25449,13 +25272,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25528,18 +25346,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25553,43 +25361,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitEvaluationPLNmoins1Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurEvaluationPLNmoins1Renseigne01) {
-			renseigne = this.validerRGSectionHitEvaluationPLNmoins1Renseigne01(
+			this.renseigne = this.validerRGSectionHitEvaluationPLNmoins1Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurEvaluationPLNmoins1Regex02) {
-				rg2 = this.validerRGSectionHitEvaluationPLNmoins1Regex02(
+				this.rg2 = this.validerRGSectionHitEvaluationPLNmoins1Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -25605,7 +25412,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerEvaluationPLNmoins1(...).___________________________
 	
@@ -25633,13 +25440,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25694,13 +25496,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25712,9 +25509,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getEvaluationPLNmoins1();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -25767,18 +25563,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25796,56 +25582,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitAnnuelNmoins1Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitAnnuelNmoins1Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins1Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins1Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins1Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins1Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins1Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins1Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins1Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins1Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -25861,7 +25645,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitAnnuelNmoins1(...)._________________________________
 	
@@ -25889,13 +25673,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -25950,13 +25729,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26017,13 +25791,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26096,18 +25865,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26121,43 +25880,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins1Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurIndiceFiabiliteMjaNmoins1Renseigne01) {
-			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins1Renseigne01(
+			this.renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins1Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurIndiceFiabiliteMjaNmoins1Regex02) {
-				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins1Regex02(
+				this.rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins1Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -26173,7 +25931,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerIndiceFiabiliteMjaNmoins1(...)._____________________
 	
@@ -26262,13 +26020,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26280,9 +26033,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getIndiceFiabiliteMjaNmoins1();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -26335,18 +26087,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26360,43 +26102,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAnneeNmoins2Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAnneeNmoins2Renseigne01) {
-			renseigne = this.validerRGSectionHitAnneeNmoins2Renseigne01(
+			this.renseigne = this.validerRGSectionHitAnneeNmoins2Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAnneeNmoins2Regex02) {
-				rg2 = this.validerRGSectionHitAnneeNmoins2Regex02(
+				this.rg2 = this.validerRGSectionHitAnneeNmoins2Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -26412,7 +26153,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAnneeNmoins2(...).__________________________________
 	
@@ -26440,13 +26181,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26501,13 +26237,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26519,9 +26250,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getAnneeNmoins2();
 		
-		final String motif = "\\d{2}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_2CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -26574,18 +26303,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26603,56 +26322,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjaNmoins2Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjaNmoins2Renseigne01) {
-			renseigne = this.validerRGSectionHitMjaNmoins2Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjaNmoins2Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins2Regex02) {
-				rg2 = this.validerRGSectionHitMjaNmoins2Regex02(
+				this.rg2 = this.validerRGSectionHitMjaNmoins2Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins2Numerique03) {
-				rg3 = this.validerRGSectionHitMjaNmoins2Numerique03(
+				this.rg3 = this.validerRGSectionHitMjaNmoins2Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -26668,7 +26385,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjaNmoins2(...).____________________________________
 	
@@ -26696,13 +26413,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26757,13 +26469,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26824,13 +26531,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26903,18 +26605,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -26932,56 +26624,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitTypeComptageNmoins2Nomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurTypeComptageNmoins2Renseigne01) {
-			renseigne = this.validerRGSectionHitTypeComptageNmoins2Renseigne01(
+			this.renseigne = this.validerRGSectionHitTypeComptageNmoins2Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins2Regex02) {
-				rg2 = this.validerRGSectionHitTypeComptageNmoins2Regex02(
+				this.rg2 = this.validerRGSectionHitTypeComptageNmoins2Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins2Nomenclature03) {
-				rg3 = this.validerRGSectionHitTypeComptageNmoins2Nomenclature03(
+				this.rg3 = this.validerRGSectionHitTypeComptageNmoins2Nomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -26997,7 +26687,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerTypeComptageNmoins2(...).___________________________
 	
@@ -27025,13 +26715,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27086,13 +26771,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27156,13 +26836,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27244,18 +26919,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27269,43 +26934,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitModeCalculNmoins2Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurModeCalculNmoins2Renseigne01) {
-			renseigne = this.validerRGSectionHitModeCalculNmoins2Renseigne01(
+			this.renseigne = this.validerRGSectionHitModeCalculNmoins2Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurModeCalculNmoins2Regex02) {
-				rg2 = this.validerRGSectionHitModeCalculNmoins2Regex02(
+				this.rg2 = this.validerRGSectionHitModeCalculNmoins2Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -27321,7 +26985,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerModeCalculNmoins2(...)._____________________________
 	
@@ -27349,13 +27013,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27410,13 +27069,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27428,9 +27082,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getModeCalculNmoins2();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -27483,18 +27136,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27512,56 +27155,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcPLNmoins2Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcPLNmoins2Renseigne01) {
-			renseigne = this.validerRGSectionHitPcPLNmoins2Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcPLNmoins2Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins2Regex02) {
-				rg2 = this.validerRGSectionHitPcPLNmoins2Regex02(
+				this.rg2 = this.validerRGSectionHitPcPLNmoins2Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins2Numerique03) {
-				rg3 = this.validerRGSectionHitPcPLNmoins2Numerique03(
+				this.rg3 = this.validerRGSectionHitPcPLNmoins2Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -27577,7 +27218,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcPLNmoins2(...).___________________________________
 	
@@ -27605,13 +27246,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27666,13 +27302,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27733,13 +27364,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27812,18 +27438,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27837,43 +27453,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitEvaluationPLNmoins2Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurEvaluationPLNmoins2Renseigne01) {
-			renseigne = this.validerRGSectionHitEvaluationPLNmoins2Renseigne01(
+			this.renseigne = this.validerRGSectionHitEvaluationPLNmoins2Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurEvaluationPLNmoins2Regex02) {
-				rg2 = this.validerRGSectionHitEvaluationPLNmoins2Regex02(
+				this.rg2 = this.validerRGSectionHitEvaluationPLNmoins2Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -27889,7 +27503,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerEvaluationPLNmoins2(...).___________________________
 	
@@ -27917,13 +27531,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27978,13 +27587,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -27996,9 +27600,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getEvaluationPLNmoins2();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -28051,18 +27654,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28080,56 +27673,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitAnnuelNmoins2Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitAnnuelNmoins2Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins2Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins2Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins2Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins2Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins2Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins2Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins2Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins2Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -28145,7 +27735,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitAnnuelNmoins2(...)._________________________________
 	
@@ -28173,13 +27763,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28234,13 +27819,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28301,13 +27881,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28380,18 +27955,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28405,43 +27970,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins2Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurIndiceFiabiliteMjaNmoins2Renseigne01) {
-			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01(
+			this.renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins2Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurIndiceFiabiliteMjaNmoins2Regex02) {
-				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins2Regex02(
+				this.rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins2Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -28457,7 +28020,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerIndiceFiabiliteMjaNmoins2(...)._____________________
 	
@@ -28485,13 +28048,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28546,13 +28104,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28564,9 +28117,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getIndiceFiabiliteMjaNmoins2();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -28620,18 +28172,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28645,43 +28187,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAnneeNmoins3Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAnneeNmoins3Renseigne01) {
-			renseigne = this.validerRGSectionHitAnneeNmoins3Renseigne01(
+			this.renseigne = this.validerRGSectionHitAnneeNmoins3Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAnneeNmoins3Regex02) {
-				rg2 = this.validerRGSectionHitAnneeNmoins3Regex02(
+				this.rg2 = this.validerRGSectionHitAnneeNmoins3Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -28697,7 +28237,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAnneeNmoins3(...).__________________________________
 	
@@ -28725,13 +28265,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28786,13 +28321,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28804,9 +28334,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getAnneeNmoins3();
 		
-		final String motif = "\\d{2}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_2CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -28859,18 +28387,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -28888,56 +28406,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjaNmoins3Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjaNmoins3Renseigne01) {
-			renseigne = this.validerRGSectionHitMjaNmoins3Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjaNmoins3Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins3Regex02) {
-				rg2 = this.validerRGSectionHitMjaNmoins3Regex02(
+				this.rg2 = this.validerRGSectionHitMjaNmoins3Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins3Numerique03) {
-				rg3 = this.validerRGSectionHitMjaNmoins3Numerique03(
+				this.rg3 = this.validerRGSectionHitMjaNmoins3Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -28953,7 +28468,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjaNmoins3(...).____________________________________
 	
@@ -28981,13 +28496,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29042,13 +28552,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29109,13 +28614,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29188,18 +28688,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29217,56 +28707,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitTypeComptageNmoins3Nomenclature03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurTypeComptageNmoins3Renseigne01) {
-			renseigne = this.validerRGSectionHitTypeComptageNmoins3Renseigne01(
+			this.renseigne = this.validerRGSectionHitTypeComptageNmoins3Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins3Regex02) {
-				rg2 = this.validerRGSectionHitTypeComptageNmoins3Regex02(
+				this.rg2 = this.validerRGSectionHitTypeComptageNmoins3Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins3Nomenclature03) {
-				rg3 = this.validerRGSectionHitTypeComptageNmoins3Nomenclature03(
+				this.rg3 = this.validerRGSectionHitTypeComptageNmoins3Nomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -29282,7 +28770,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerTypeComptageNmoins3(...).___________________________
 	
@@ -29310,13 +28798,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29371,13 +28854,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29441,13 +28919,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29529,18 +29002,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29554,43 +29017,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitModeCalculNmoins3Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurModeCalculNmoins3Renseigne01) {
-			renseigne = this.validerRGSectionHitModeCalculNmoins3Renseigne01(
+			this.renseigne = this.validerRGSectionHitModeCalculNmoins3Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurModeCalculNmoins3Regex02) {
-				rg2 = this.validerRGSectionHitModeCalculNmoins3Regex02(
+				this.rg2 = this.validerRGSectionHitModeCalculNmoins3Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -29606,7 +29068,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerModeCalculNmoins3(...)._____________________________
 	
@@ -29634,13 +29096,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29695,13 +29152,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29713,9 +29165,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getModeCalculNmoins3();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -29768,18 +29219,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29797,56 +29238,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcPLNmoins3Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcPLNmoins3Renseigne01) {
-			renseigne = this.validerRGSectionHitPcPLNmoins3Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcPLNmoins3Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins3Regex02) {
-				rg2 = this.validerRGSectionHitPcPLNmoins3Regex02(
+				this.rg2 = this.validerRGSectionHitPcPLNmoins3Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins3Numerique03) {
-				rg3 = this.validerRGSectionHitPcPLNmoins3Numerique03(
+				this.rg3 = this.validerRGSectionHitPcPLNmoins3Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -29862,7 +29300,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcPLNmoins3(...).___________________________________
 	
@@ -29890,13 +29328,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -29951,13 +29384,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30018,13 +29446,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30097,18 +29520,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30122,43 +29535,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitEvaluationPLNmoins3Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurEvaluationPLNmoins3Renseigne01) {
-			renseigne = this.validerRGSectionHitEvaluationPLNmoins3Renseigne01(
+			this.renseigne = this.validerRGSectionHitEvaluationPLNmoins3Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurEvaluationPLNmoins3Regex02) {
-				rg2 = this.validerRGSectionHitEvaluationPLNmoins3Regex02(
+				this.rg2 = this.validerRGSectionHitEvaluationPLNmoins3Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -30174,7 +29585,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerEvaluationPLNmoins3(...).___________________________
 	
@@ -30202,13 +29613,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30263,13 +29669,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30281,9 +29682,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getEvaluationPLNmoins3();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -30336,18 +29736,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30365,56 +29755,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitAnnuelNmoins3Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitAnnuelNmoins3Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins3Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins3Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins3Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins3Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins3Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins3Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins3Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins3Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -30430,7 +29817,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitAnnuelNmoins3(...)._________________________________
 	
@@ -30458,13 +29845,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30519,13 +29901,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30586,13 +29963,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30665,18 +30037,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30690,43 +30052,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins3Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurIndiceFiabiliteMjaNmoins3Renseigne01) {
-			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01(
+			this.renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins3Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurIndiceFiabiliteMjaNmoins3Regex02) {
-				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins3Regex02(
+				this.rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins3Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -30742,7 +30102,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerIndiceFiabiliteMjaNmoins3(...)._____________________
 	
@@ -30770,13 +30130,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30831,13 +30186,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30849,9 +30199,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getIndiceFiabiliteMjaNmoins3();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -30905,18 +30254,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -30930,43 +30269,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAnneeNmoins4Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAnneeNmoins4Renseigne01) {
-			renseigne = this.validerRGSectionHitAnneeNmoins4Renseigne01(
+			this.renseigne = this.validerRGSectionHitAnneeNmoins4Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAnneeNmoins4Regex02) {
-				rg2 = this.validerRGSectionHitAnneeNmoins4Regex02(
+				this.rg2 = this.validerRGSectionHitAnneeNmoins4Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -30982,7 +30319,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAnneeNmoins4(...).__________________________________
 	
@@ -31010,13 +30347,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31071,13 +30403,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31089,9 +30416,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getAnneeNmoins4();
 		
-		final String motif = "\\d{2}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_2CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -31144,18 +30469,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31173,56 +30488,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjaNmoins4Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjaNmoins4Renseigne01) {
-			renseigne = this.validerRGSectionHitMjaNmoins4Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjaNmoins4Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins4Regex02) {
-				rg2 = this.validerRGSectionHitMjaNmoins4Regex02(
+				this.rg2 = this.validerRGSectionHitMjaNmoins4Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins4Numerique03) {
-				rg3 = this.validerRGSectionHitMjaNmoins4Numerique03(
+				this.rg3 = this.validerRGSectionHitMjaNmoins4Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -31238,7 +30550,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjaNmoins4(...).____________________________________
 	
@@ -31266,13 +30578,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31327,13 +30634,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31394,13 +30696,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31473,18 +30770,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31502,56 +30789,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitTypeComptageNmoins4Nomenclature03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurTypeComptageNmoins4Renseigne01) {
-			renseigne = this.validerRGSectionHitTypeComptageNmoins4Renseigne01(
+			this.renseigne = this.validerRGSectionHitTypeComptageNmoins4Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins4Regex02) {
-				rg2 = this.validerRGSectionHitTypeComptageNmoins4Regex02(
+				this.rg2 = this.validerRGSectionHitTypeComptageNmoins4Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins4Nomenclature03) {
-				rg3 = this.validerRGSectionHitTypeComptageNmoins4Nomenclature03(
+				this.rg3 = this.validerRGSectionHitTypeComptageNmoins4Nomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -31567,7 +30851,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerTypeComptageNmoins4(...).___________________________
 	
@@ -31595,13 +30879,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31656,13 +30935,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31726,13 +31000,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31814,18 +31083,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31839,43 +31098,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitModeCalculNmoins4Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurModeCalculNmoins4Renseigne01) {
-			renseigne = this.validerRGSectionHitModeCalculNmoins4Renseigne01(
+			this.renseigne = this.validerRGSectionHitModeCalculNmoins4Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurModeCalculNmoins4Regex02) {
-				rg2 = this.validerRGSectionHitModeCalculNmoins4Regex02(
+				this.rg2 = this.validerRGSectionHitModeCalculNmoins4Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -31891,7 +31148,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerModeCalculNmoins4(...)._____________________________
 	
@@ -31919,13 +31176,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31980,13 +31232,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -31998,9 +31245,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getModeCalculNmoins4();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -32053,18 +31299,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32082,56 +31318,54 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcPLNmoins4Numerique03();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcPLNmoins4Renseigne01) {
-			renseigne = this.validerRGSectionHitPcPLNmoins4Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcPLNmoins4Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins4Regex02) {
-				rg2 = this.validerRGSectionHitPcPLNmoins4Regex02(
+				this.rg2 = this.validerRGSectionHitPcPLNmoins4Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins4Numerique03) {
-				rg3 = this.validerRGSectionHitPcPLNmoins4Numerique03(
+				this.rg3 = this.validerRGSectionHitPcPLNmoins4Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -32147,7 +31381,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcPLNmoins4(...).___________________________________
 	
@@ -32175,13 +31409,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32236,13 +31465,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32303,13 +31527,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32382,18 +31601,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32407,43 +31616,42 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitEvaluationPLNmoins4Regex02();
 
-		boolean ok = false;
+
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurEvaluationPLNmoins4Renseigne01) {
-			renseigne = this.validerRGSectionHitEvaluationPLNmoins4Renseigne01(
+			this.renseigne = this.validerRGSectionHitEvaluationPLNmoins4Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurEvaluationPLNmoins4Regex02) {
-				rg2 = this.validerRGSectionHitEvaluationPLNmoins4Regex02(
+				this.rg2 = this.validerRGSectionHitEvaluationPLNmoins4Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -32459,7 +31667,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerEvaluationPLNmoins4(...).___________________________
 	
@@ -32487,13 +31695,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32548,13 +31751,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32566,9 +31764,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getEvaluationPLNmoins4();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -32621,18 +31818,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32650,56 +31837,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitAnnuelNmoins4Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitAnnuelNmoins4Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins4Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins4Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins4Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins4Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins4Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins4Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins4Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins4Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -32715,7 +31899,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitAnnuelNmoins4(...)._________________________________
 	
@@ -32743,13 +31927,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32804,13 +31983,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32871,13 +32045,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32950,18 +32119,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -32975,43 +32134,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins4Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurIndiceFiabiliteMjaNmoins4Renseigne01) {
-			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01(
+			this.renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins4Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurIndiceFiabiliteMjaNmoins4Regex02) {
-				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins4Regex02(
+				this.rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins4Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -33027,7 +32184,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerIndiceFiabiliteMjaNmoins4(...)._____________________
 	
@@ -33055,13 +32212,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33116,13 +32268,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33134,9 +32281,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getIndiceFiabiliteMjaNmoins4();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -33190,18 +32336,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33215,43 +32351,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitAnneeNmoins5Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurAnneeNmoins5Renseigne01) {
-			renseigne = this.validerRGSectionHitAnneeNmoins5Renseigne01(
+			this.renseigne = this.validerRGSectionHitAnneeNmoins5Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurAnneeNmoins5Regex02) {
-				rg2 = this.validerRGSectionHitAnneeNmoins5Regex02(
+				this.rg2 = this.validerRGSectionHitAnneeNmoins5Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -33267,7 +32401,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerAnneeNmoins5(...).__________________________________
 	
@@ -33295,13 +32429,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33356,13 +32485,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33374,9 +32498,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getAnneeNmoins5();
 		
-		final String motif = "\\d{2}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher = PATTERN_2CHIFFRES.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -33429,18 +32551,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33458,56 +32570,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjaNmoins5Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjaNmoins5Renseigne01) {
-			renseigne = this.validerRGSectionHitMjaNmoins5Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjaNmoins5Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins5Regex02) {
-				rg2 = this.validerRGSectionHitMjaNmoins5Regex02(
+				this.rg2 = this.validerRGSectionHitMjaNmoins5Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjaNmoins5Numerique03) {
-				rg3 = this.validerRGSectionHitMjaNmoins5Numerique03(
+				this.rg3 = this.validerRGSectionHitMjaNmoins5Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -33523,7 +32632,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjaNmoins5(...).____________________________________
 	
@@ -33551,13 +32660,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33612,13 +32716,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33679,13 +32778,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33758,18 +32852,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33787,56 +32871,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitTypeComptageNmoins5Nomenclature03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurTypeComptageNmoins5Renseigne01) {
-			renseigne = this.validerRGSectionHitTypeComptageNmoins5Renseigne01(
+			this.renseigne = this.validerRGSectionHitTypeComptageNmoins5Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins5Regex02) {
-				rg2 = this.validerRGSectionHitTypeComptageNmoins5Regex02(
+				this.rg2 = this.validerRGSectionHitTypeComptageNmoins5Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurTypeComptageNmoins5Nomenclature03) {
-				rg3 = this.validerRGSectionHitTypeComptageNmoins5Nomenclature03(
+				this.rg3 = this.validerRGSectionHitTypeComptageNmoins5Nomenclature03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -33852,7 +32933,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerTypeComptageNmoins5(...).___________________________
 	
@@ -33880,13 +32961,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -33941,13 +33017,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34011,13 +33082,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34099,18 +33165,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34124,43 +33180,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitModeCalculNmoins5Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurModeCalculNmoins5Renseigne01) {
-			renseigne = this.validerRGSectionHitModeCalculNmoins5Renseigne01(
+			this.renseigne = this.validerRGSectionHitModeCalculNmoins5Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurModeCalculNmoins5Regex02) {
-				rg2 = this.validerRGSectionHitModeCalculNmoins5Regex02(
+				this.rg2 = this.validerRGSectionHitModeCalculNmoins5Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -34176,7 +33230,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerModeCalculNmoins5(...)._____________________________
 	
@@ -34204,13 +33258,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34265,13 +33314,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34283,9 +33327,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getModeCalculNmoins5();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -34338,18 +33381,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34367,56 +33400,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcPLNmoins5Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcPLNmoins5Renseigne01) {
-			renseigne = this.validerRGSectionHitPcPLNmoins5Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcPLNmoins5Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins5Regex02) {
-				rg2 = this.validerRGSectionHitPcPLNmoins5Regex02(
+				this.rg2 = this.validerRGSectionHitPcPLNmoins5Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcPLNmoins5Numerique03) {
-				rg3 = this.validerRGSectionHitPcPLNmoins5Numerique03(
+				this.rg3 = this.validerRGSectionHitPcPLNmoins5Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -34432,7 +33462,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcPLNmoins5(...).___________________________________
 	
@@ -34460,13 +33490,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34521,13 +33546,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34588,13 +33608,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34667,18 +33682,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34692,43 +33697,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitEvaluationPLNmoins5Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurEvaluationPLNmoins5Renseigne01) {
-			renseigne = this.validerRGSectionHitEvaluationPLNmoins5Renseigne01(
+			this.renseigne = this.validerRGSectionHitEvaluationPLNmoins5Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurEvaluationPLNmoins5Regex02) {
-				rg2 = this.validerRGSectionHitEvaluationPLNmoins5Regex02(
+				this.rg2 = this.validerRGSectionHitEvaluationPLNmoins5Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -34744,7 +33747,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerEvaluationPLNmoins5(...).___________________________
 	
@@ -34772,13 +33775,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34833,13 +33831,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34851,9 +33844,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getEvaluationPLNmoins5();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -34906,18 +33898,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -34935,56 +33917,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitAnnuelNmoins5Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitAnnuelNmoins5Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins5Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitAnnuelNmoins5Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins5Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins5Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitAnnuelNmoins5Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitAnnuelNmoins5Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins5Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitAnnuelNmoins5Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -35000,7 +33979,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitAnnuelNmoins5(...)._________________________________
 	
@@ -35028,13 +34007,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35089,13 +34063,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35156,13 +34125,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35235,18 +34199,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35260,43 +34214,41 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitIndiceFiabiliteMjaNmoins5Regex02();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurIndiceFiabiliteMjaNmoins5Renseigne01) {
-			renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01(
+			this.renseigne = this.validerRGSectionHitIndiceFiabiliteMjaNmoins5Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurIndiceFiabiliteMjaNmoins5Regex02) {
-				rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins5Regex02(
+				this.rg2 = this.validerRGSectionHitIndiceFiabiliteMjaNmoins5Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 			
 		}
 		
-		ok = renseigne && rg2;
+		this.ok = this.renseigne && this.rg2;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -35312,7 +34264,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerIndiceFiabiliteMjaNmoins5(...)._____________________
 	
@@ -35340,13 +34292,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35401,13 +34348,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35419,9 +34361,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		// CONTROLE ***************
 		final String valeurAControler = pDto.getIndiceFiabiliteMjaNmoins5();
 		
-		final String motif = "[a-zA-Z0-9\\s]{1}";
-		final Pattern pattern = Pattern.compile(motif);
-		final Matcher matcher = pattern.matcher(valeurAControler);
+		final Matcher matcher 
+			= PATTERN_1CAR_OU_ESPACE.matcher(valeurAControler);
 		
 		if (!matcher.matches()) {
 			
@@ -35474,18 +34415,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35503,56 +34434,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois01Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois01Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois01Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois01Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois01Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois01Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois01Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois01Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois01Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois01Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -35568,7 +34496,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmoins1mois01(...).____________________________________
 	
@@ -35596,13 +34524,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35657,13 +34580,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35724,13 +34642,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35803,18 +34716,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35832,56 +34735,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois01Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois01Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois01Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois01Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois01Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois01Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois01Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois01Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois01Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois01Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -35897,7 +34797,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmoins1mois01(...)._________________________________
 	
@@ -35925,13 +34825,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -35986,13 +34881,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36053,13 +34943,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36132,18 +35017,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36161,56 +35036,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois02Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois02Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois02Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois02Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois02Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois02Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois02Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois02Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois02Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois02Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -36226,7 +35098,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmoins1mois02(...).____________________________________
 	
@@ -36254,13 +35126,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36315,13 +35182,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36382,13 +35244,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36461,18 +35318,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36490,56 +35337,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois02Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois02Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois02Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois02Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois02Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois02Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois02Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois02Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois02Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois02Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -36555,7 +35399,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmoins1mois02(...)._________________________________
 	
@@ -36583,13 +35427,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36644,13 +35483,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36711,13 +35545,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36790,18 +35619,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36819,56 +35638,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois03Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois03Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois03Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois03Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois03Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois03Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois03Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois03Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois03Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois03Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -36884,7 +35700,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmoins1mois03(...).____________________________________
 	
@@ -36912,13 +35728,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -36973,13 +35784,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37040,13 +35846,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37119,18 +35920,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37148,56 +35939,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois03Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois03Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois03Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois03Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois03Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois03Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois03Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois03Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois03Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois03Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -37213,7 +36001,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmoins1mois03(...)._________________________________
 	
@@ -37241,13 +36029,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37302,13 +36085,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37369,13 +36147,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37448,18 +36221,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37477,56 +36240,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois04Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois04Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois04Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois04Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois04Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois04Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois04Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois04Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois04Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois04Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -37542,7 +36302,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmoins1mois04(...).____________________________________
 	
@@ -37570,13 +36330,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37631,13 +36386,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37698,13 +36448,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37777,18 +36522,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37806,56 +36541,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois04Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois04Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois04Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois04Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois04Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois04Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois04Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois04Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois04Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois04Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -37871,7 +36603,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerPcNuitNmoins1mois04(...)._________________________________
 	
@@ -37899,13 +36631,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -37960,13 +36687,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38027,13 +36749,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38073,8 +36790,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 	} // Fin de validerRGSectionHitPcNuitNmoins1mois04Numerique03(...).__________
 
 	
-	
-	
+		
 	/* 117 - mjmNmoins1mois05. **************/	
 	/**
 	 * applique les REGLES DE GESTION 
@@ -38107,18 +36823,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38136,56 +36842,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois05Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois05Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois05Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois05Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois05Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois05Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois05Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois05Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois05Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois05Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -38201,7 +36904,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmoins1mois05(...).____________________________________
 	
@@ -38229,13 +36932,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38290,13 +36988,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38357,13 +37050,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38436,18 +37124,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38465,56 +37143,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois05Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois05Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois05Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois05Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois05Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois05Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois05Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois05Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois05Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois05Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -38530,9 +37205,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerPcNuitNmoins1mois05(...)._________________________________
+	} // Fin de validerPcNuitNmoins1mois05(...).___________________________
 	
 	
 	
@@ -38558,13 +37233,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38589,7 +37259,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois05Renseigne01(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois05Renseigne01(...).____
 
 	
 	
@@ -38619,13 +37289,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38654,7 +37319,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois05Regex02(...).______________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois05Regex02(...).________
 
 	
 	
@@ -38686,13 +37351,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38729,11 +37389,10 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois05Numerique03(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois05Numerique03(...).____
 
 	
-	
-	
+		
 	/* 119 - mjmNmoins1mois06. **************/	
 	/**
 	 * applique les REGLES DE GESTION 
@@ -38766,18 +37425,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38795,56 +37444,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois06Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois06Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois06Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois06Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois06Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois06Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois06Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois06Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois06Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois06Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -38860,9 +37506,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerMjmNmoins1mois06(...).____________________________________
+	} // Fin de validerMjmNmoins1mois06(...).______________________________
 	
 	
 	
@@ -38888,13 +37534,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38919,7 +37560,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitMjmNmoins1mois06Renseigne01(...)._____________
+	} // Fin de validerRGSectionHitMjmNmoins1mois06Renseigne01(...)._______
 
 	
 	
@@ -38949,13 +37590,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -38984,7 +37620,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois06Regex02(...)._________________
+	} // Fin de validerRGSectionHitMjmNmoins1mois06Regex02(...).___________
 
 	
 	
@@ -39016,13 +37652,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39059,7 +37690,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois06Numerique03(...)._____________	
+	} // Fin de validerRGSectionHitMjmNmoins1mois06Numerique03(...)._______	
 	
 	
 	
@@ -39095,18 +37726,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39124,56 +37745,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois06Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois06Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois06Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois06Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois06Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois06Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois06Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois06Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois06Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois06Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -39189,9 +37807,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerPcNuitNmoins1mois06(...)._________________________________
+	} // Fin de validerPcNuitNmoins1mois06(...).___________________________
 	
 	
 	
@@ -39217,13 +37835,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39248,7 +37861,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois06Renseigne01(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois06Renseigne01(...).____
 
 	
 	
@@ -39278,13 +37891,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39313,7 +37921,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois06Regex02(...).______________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois06Regex02(...).________
 
 	
 	
@@ -39345,13 +37953,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39388,11 +37991,10 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois06Numerique03(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois06Numerique03(...).____
 
 	
-	
-	
+		
 	/* 121 - mjmNmoins1mois07. **************/	
 	/**
 	 * applique les REGLES DE GESTION 
@@ -39425,18 +38027,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39454,56 +38046,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois07Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois07Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois07Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois07Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois07Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois07Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois07Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois07Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois07Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois07Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -39519,9 +38108,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerMjmNmoins1mois07(...).____________________________________
+	} // Fin de validerMjmNmoins1mois07(...).______________________________
 	
 	
 	
@@ -39547,13 +38136,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39578,7 +38162,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitMjmNmoins1mois07Renseigne01(...)._____________
+	} // Fin de validerRGSectionHitMjmNmoins1mois07Renseigne01(...)._______
 
 	
 	
@@ -39608,13 +38192,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39643,7 +38222,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois07Regex02(...)._________________
+	} // Fin de validerRGSectionHitMjmNmoins1mois07Regex02(...).___________
 
 	
 	
@@ -39675,13 +38254,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39718,7 +38292,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois07Numerique03(...)._____________	
+	} // Fin de validerRGSectionHitMjmNmoins1mois07Numerique03(...)._______	
 	
 	
 	
@@ -39754,18 +38328,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39783,56 +38347,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois07Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois07Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois07Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois07Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois07Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois07Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois07Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois07Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois07Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois07Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -39848,9 +38409,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerPcNuitNmoins1mois07(...)._________________________________
+	} // Fin de validerPcNuitNmoins1mois07(...).___________________________
 	
 	
 	
@@ -39876,13 +38437,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39907,7 +38463,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois07Renseigne01(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois07Renseigne01(...).____
 
 	
 	
@@ -39937,13 +38493,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -39972,7 +38523,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois07Regex02(...).______________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois07Regex02(...).________
 
 	
 	
@@ -40004,13 +38555,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40047,11 +38593,10 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois07Numerique03(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois07Numerique03(...).____
 
 	
-	
-	
+		
 	/* 123 - mjmNmoins1mois08. **************/	
 	/**
 	 * applique les REGLES DE GESTION 
@@ -40084,18 +38629,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40113,56 +38648,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois08Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois08Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois08Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois08Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois08Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois08Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois08Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois08Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois08Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois08Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -40178,9 +38710,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerMjmNmoins1mois08(...).____________________________________
+	} // Fin de validerMjmNmoins1mois08(...).______________________________
 	
 	
 	
@@ -40206,13 +38738,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40237,7 +38764,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitMjmNmoins1mois08Renseigne01(...)._____________
+	} // Fin de validerRGSectionHitMjmNmoins1mois08Renseigne01(...)._______
 
 	
 	
@@ -40267,13 +38794,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40302,7 +38824,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois08Regex02(...)._________________
+	} // Fin de validerRGSectionHitMjmNmoins1mois08Regex02(...).___________
 
 	
 	
@@ -40334,13 +38856,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40377,7 +38894,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois08Numerique03(...)._____________	
+	} // Fin de validerRGSectionHitMjmNmoins1mois08Numerique03(...)._______	
 	
 	
 	
@@ -40413,18 +38930,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40442,56 +38949,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois08Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois08Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois08Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois08Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois08Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois08Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois08Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois08Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois08Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois08Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -40507,9 +39011,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerPcNuitNmoins1mois08(...)._________________________________
+	} // Fin de validerPcNuitNmoins1mois08(...).___________________________
 	
 	
 	
@@ -40535,13 +39039,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40566,7 +39065,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois08Renseigne01(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois08Renseigne01(...).____
 
 	
 	
@@ -40596,13 +39095,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40631,7 +39125,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois08Regex02(...).______________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois08Regex02(...).________
 
 	
 	
@@ -40663,13 +39157,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40706,11 +39195,10 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois08Numerique03(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois08Numerique03(...).____
 
 	
-	
-	
+		
 	/* 125 - mjmNmoins1mois09. **************/	
 	/**
 	 * applique les REGLES DE GESTION 
@@ -40743,18 +39231,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40772,56 +39250,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois09Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois09Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois09Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois09Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois09Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois09Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois09Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois09Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois09Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois09Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -40837,7 +39312,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
 	} // Fin de validerMjmNmoins1mois09(...).____________________________________
 	
@@ -40865,13 +39340,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40896,7 +39366,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitMjmNmoins1mois09Renseigne01(...)._____________
+	} // Fin de validerRGSectionHitMjmNmoins1mois09Renseigne01(...)._______
 
 	
 	
@@ -40926,13 +39396,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -40961,7 +39426,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois09Regex02(...)._________________
+	} // Fin de validerRGSectionHitMjmNmoins1mois09Regex02(...).___________
 
 	
 	
@@ -40993,13 +39458,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41036,7 +39496,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois09Numerique03(...)._____________	
+	} // Fin de validerRGSectionHitMjmNmoins1mois09Numerique03(...)._______	
 	
 	
 	
@@ -41072,18 +39532,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41101,56 +39551,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois09Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois09Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois09Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois09Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois09Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois09Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois09Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois09Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois09Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois09Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -41166,9 +39613,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerPcNuitNmoins1mois09(...)._________________________________
+	} // Fin de validerPcNuitNmoins1mois09(...).___________________________
 	
 	
 	
@@ -41194,13 +39641,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41225,7 +39667,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois09Renseigne01(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois09Renseigne01(...).____
 
 	
 	
@@ -41255,13 +39697,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41290,7 +39727,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois09Regex02(...).______________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois09Regex02(...).________
 
 	
 	
@@ -41322,13 +39759,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41365,11 +39797,10 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois09Numerique03(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois09Numerique03(...).____
 
 	
-	
-	
+		
 	/* 127 - mjmNmoins1mois10. **************/	
 	/**
 	 * applique les REGLES DE GESTION 
@@ -41402,18 +39833,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41431,56 +39852,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois10Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois10Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois10Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois10Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois10Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois10Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois10Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois10Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois10Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois10Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -41496,9 +39914,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerMjmNmoins1mois10(...).____________________________________
+	} // Fin de validerMjmNmoins1mois10(...).______________________________
 	
 	
 	
@@ -41524,13 +39942,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41555,7 +39968,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitMjmNmoins1mois10Renseigne01(...)._____________
+	} // Fin de validerRGSectionHitMjmNmoins1mois10Renseigne01(...)._______
 
 	
 	
@@ -41585,13 +39998,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41620,7 +40028,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois10Regex02(...)._________________
+	} // Fin de validerRGSectionHitMjmNmoins1mois10Regex02(...).___________
 
 	
 	
@@ -41652,13 +40060,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41695,7 +40098,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois10Numerique03(...)._____________	
+	} // Fin de validerRGSectionHitMjmNmoins1mois10Numerique03(...)._______	
 	
 	
 	
@@ -41731,18 +40134,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41760,56 +40153,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois10Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois10Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois10Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois10Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois10Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois10Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois10Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois10Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois10Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois10Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -41825,9 +40215,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerPcNuitNmoins1mois10(...)._________________________________
+	} // Fin de validerPcNuitNmoins1mois10(...).___________________________
 	
 	
 	
@@ -41853,13 +40243,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41884,7 +40269,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois10Renseigne01(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois10Renseigne01(...).____
 
 	
 	
@@ -41914,13 +40299,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -41949,7 +40329,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois10Regex02(...).______________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois10Regex02(...).________
 
 	
 	
@@ -41981,13 +40361,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42024,11 +40399,10 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois10Numerique03(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois10Numerique03(...).____
 
 	
-	
-	
+		
 	/* 129 - mjmNmoins1mois11. **************/	
 	/**
 	 * applique les REGLES DE GESTION 
@@ -42061,18 +40435,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42090,56 +40454,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois11Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois11Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois11Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois11Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois11Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois11Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois11Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois11Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois11Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois11Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -42155,9 +40516,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerMjmNmoins1mois11(...).____________________________________
+	} // Fin de validerMjmNmoins1mois11(...).______________________________
 	
 	
 	
@@ -42183,13 +40544,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42214,7 +40570,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitMjmNmoins1mois11Renseigne01(...)._____________
+	} // Fin de validerRGSectionHitMjmNmoins1mois11Renseigne01(...)._______
 
 	
 	
@@ -42244,13 +40600,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42279,7 +40630,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois11Regex02(...)._________________
+	} // Fin de validerRGSectionHitMjmNmoins1mois11Regex02(...).___________
 
 	
 	
@@ -42311,13 +40662,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42354,7 +40700,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois11Numerique03(...)._____________	
+	} // Fin de validerRGSectionHitMjmNmoins1mois11Numerique03(...)._______	
 	
 	
 	
@@ -42390,18 +40736,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42419,56 +40755,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois11Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois11Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois11Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois11Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois11Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois11Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois11Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois11Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois11Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois11Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -42484,9 +40817,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerPcNuitNmoins1mois11(...)._________________________________
+	} // Fin de validerPcNuitNmoins1mois11(...).___________________________
 	
 	
 	
@@ -42512,13 +40845,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42543,7 +40871,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois11Renseigne01(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois11Renseigne01(...).____
 
 	
 	
@@ -42573,13 +40901,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42608,7 +40931,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois11Regex02(...).______________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois11Regex02(...).________
 
 	
 	
@@ -42640,13 +40963,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42683,7 +41001,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois11Numerique03(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois11Numerique03(...).____
 
 	
 	
@@ -42720,18 +41038,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42749,56 +41057,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitMjmNmoins1mois12Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurMjmNmoins1mois12Renseigne01) {
-			renseigne = this.validerRGSectionHitMjmNmoins1mois12Renseigne01(
+			this.renseigne = this.validerRGSectionHitMjmNmoins1mois12Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois12Regex02) {
-				rg2 = this.validerRGSectionHitMjmNmoins1mois12Regex02(
+				this.rg2 = this.validerRGSectionHitMjmNmoins1mois12Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurMjmNmoins1mois12Numerique03) {
-				rg3 = this.validerRGSectionHitMjmNmoins1mois12Numerique03(
+				this.rg3 = this.validerRGSectionHitMjmNmoins1mois12Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -42814,9 +41119,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerMjmNmoins1mois12(...).____________________________________
+	} // Fin de validerMjmNmoins1mois12(...).______________________________
 	
 	
 	
@@ -42842,13 +41147,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42873,7 +41173,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitMjmNmoins1mois12Renseigne01(...)._____________
+	} // Fin de validerRGSectionHitMjmNmoins1mois12Renseigne01(...)._______
 
 	
 	
@@ -42903,13 +41203,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -42938,7 +41233,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois12Regex02(...)._________________
+	} // Fin de validerRGSectionHitMjmNmoins1mois12Regex02(...).___________
 
 	
 	
@@ -42970,13 +41265,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -43013,7 +41303,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitMjmNmoins1mois12Numerique03(...)._____________	
+	} // Fin de validerRGSectionHitMjmNmoins1mois12Numerique03(...)._______	
 	
 	
 	
@@ -43049,18 +41339,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final String pAttribut
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pAttribut est blank. */
-		if (StringUtils.isBlank(pAttribut)) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -43078,56 +41358,53 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			= SectionHitGestionnairePreferencesRG
 				.getValiderRGSectionHitPcNuitNmoins1mois12Numerique03();
 
-		boolean ok = false;
 		
-		boolean renseigne = false;
-		boolean rg2 = false;
-		boolean rg3 = false;
+		this.rafraichirBooleans();
 		
 		/* applique le contrôle si interrupteur général 
 		 * + interrupteur de chaque RG sont à true. */
 		if (interrupteurPcNuitNmoins1mois12Renseigne01) {
-			renseigne = this.validerRGSectionHitPcNuitNmoins1mois12Renseigne01(
+			this.renseigne = this.validerRGSectionHitPcNuitNmoins1mois12Renseigne01(
 					pAttribut, pDto, pErreursMaps);
 		} else {
 			/* la validation de la RG retourne systématiquement true 
 			 * si son interrupteur n'est pas à true. */
-			renseigne = true;
+			this.renseigne = true;
 		}
 		
 		/* n'applique les contrôles de validation des autres RG 
 		 * (format, longueur, fourchette, ...) que si 
 		 * la RG RENSEIGNE est validée. */
-		if (renseigne) {
+		if (this.renseigne) {
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois12Regex02) {
-				rg2 = this.validerRGSectionHitPcNuitNmoins1mois12Regex02(
+				this.rg2 = this.validerRGSectionHitPcNuitNmoins1mois12Regex02(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg2 = true;
+				this.rg2 = true;
 			}
 
 			
 			/* applique le contrôle si interrupteur général 
-			 * + interrupteur de chaque RG + renseigne sont à true. */
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
 			if (interrupteurPcNuitNmoins1mois12Numerique03) {
-				rg3 = this.validerRGSectionHitPcNuitNmoins1mois12Numerique03(
+				this.rg3 = this.validerRGSectionHitPcNuitNmoins1mois12Numerique03(
 						pAttribut, pDto, pErreursMaps);
 			} else {
 				/* la validation de la RG retourne systématiquement true 
 				 * si son interrupteur n'est pas à true. */
-				rg3 = true;
+				this.rg3 = true;
 			}
 						
 		}
 		
-		ok = renseigne && rg2 && rg3;
+		this.ok = this.renseigne && this.rg2 && this.rg3;
 		
-		if (!ok) {
+		if (!this.ok) {
 			
 			final List<String> listeAConcatener 
 				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
@@ -43143,9 +41420,9 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 			
 		}
 		
-		return ok;
+		return this.ok;
 				
-	} // Fin de validerPcNuitNmoins1mois12(...)._________________________________
+	} // Fin de validerPcNuitNmoins1mois12(...).___________________________
 	
 	
 	
@@ -43171,13 +41448,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -43202,7 +41474,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;		
 
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois12Renseigne01(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois12Renseigne01(...).____
 
 	
 	
@@ -43232,13 +41504,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -43267,7 +41534,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois12Regex02(...).______________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois12Regex02(...).________
 
 	
 	
@@ -43299,13 +41566,8 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 				, final ISectionHitDTO pDto
 					, final ErreursMaps pErreursMaps) throws Exception {
 		
-		/* retourne false si pDto == null. */
-		if (pDto == null) {
-			return false;
-		}
-		
-		/* retourne false si pErreursMaps == null. */
-		if (pErreursMaps == null) {
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
 			return false;
 		}
 		
@@ -43342,7 +41604,225 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		
 		return true;
 		
-	} // Fin de validerRGSectionHitPcNuitNmoins1mois12Numerique03(...).__________
+	} // Fin de validerRGSectionHitPcNuitNmoins1mois12Numerique03(...).____
+	
+	
+	
+	/* 133 - zoneLibre4. **************/	
+	/**
+	 * applique les REGLES DE GESTION 
+	 * sur l'attribut <code><b>zoneLibre4</b></code>.<br/>
+	 * alimente pErreursMaps avec les éventuels messages d'erreur.<br/>
+	 * <ul>
+	 * <li>récupère l'interrupteur de chaque RG sur l'attribut auprès 
+	 * du Gestionnaire de préferences.</li>
+	 * <li>n'applique le contrôle de validation d'une RG que si 
+	 * [interrupteur général + interrupteur de chaque RG] sont à true.</li>
+	 * <li>retourne systématiquement true si une RG 
+	 * ne doit pas être validée.</li>
+	 * </ul>
+	 * - retourne false si pDto == null.<br/>
+	 * - retourne false si pAttribut est blank.<br/>
+	 * - retourne false si pErreursMaps == null.<br/>
+	 * <br/>
+	 *
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pAttribut : String : 
+	 * nom de l'attribut.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerZoneLibre4(
+			final ISectionHitDTO pDto
+				, final String pAttribut
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
+			return false;
+		}
+		
+		/* récupère l'interrupteur de chaque RG 
+		 * auprès du Gestionnaire de préferences. */
+		final Boolean interrupteurZoneLibre4Renseigne01 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitZoneLibre4Renseigne01();
+		
+		final Boolean interrupteurZoneLibre4Regex02 
+			= SectionHitGestionnairePreferencesRG
+				.getValiderRGSectionHitZoneLibre4Regex02();
+
+
+		
+		this.rafraichirBooleans();
+		
+		/* applique le contrôle si interrupteur général 
+		 * + interrupteur de chaque RG sont à true. */
+		if (interrupteurZoneLibre4Renseigne01) {
+			this.renseigne = this.validerRGSectionHitZoneLibre4Renseigne01(
+					pAttribut, pDto, pErreursMaps);
+		} else {
+			/* la validation de la RG retourne systématiquement true 
+			 * si son interrupteur n'est pas à true. */
+			this.renseigne = true;
+		}
+		
+		/* n'applique les contrôles de validation des autres RG 
+		 * (format, longueur, fourchette, ...) que si 
+		 * la RG RENSEIGNE est validée. */
+		if (this.renseigne) {
+			
+			/* applique le contrôle si interrupteur général 
+			 * + interrupteur de chaque RG + this.renseigne sont à true. */
+			if (interrupteurZoneLibre4Regex02) {
+				this.rg2 = this.validerRGSectionHitZoneLibre4Regex02(
+						pAttribut, pDto, pErreursMaps);
+			} else {
+				/* la validation de la RG retourne systématiquement true 
+				 * si son interrupteur n'est pas à true. */
+				this.rg2 = true;
+			}
+			
+		}
+		
+		this.ok = this.renseigne && this.rg2;
+		
+		if (!this.ok) {
+			
+			final List<String> listeAConcatener 
+				= pErreursMaps.fournirListeMessagesAttribut(pAttribut);
+			
+			final String messageConcatene 
+				= this.concatenerListeStrings(listeAConcatener);
+			
+			if (messageConcatene != null) {
+				pErreursMaps
+					.ajouterEntreeAErrorsMap(
+							pAttribut, messageConcatene);
+			}
+			
+		}
+		
+		return this.ok;
+				
+	} // Fin de validerZoneLibre4(...).____________________________________
+	
+	
+	
+	/**
+	 * valide la RG RENSEIGNE 
+	 * pour l'attribut <code><b>zoneLibre4</b></code>.<br/>
+	 * 
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>zoneLibre4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitZoneLibre4Renseigne01(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitZoneLibre4Renseigne01();
+		
+		// CONTROLE ***************
+		if (StringUtils.isEmpty(pDto.getZoneLibre4())) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message);
+			
+			/* retourne false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;		
+
+	} // Fin de validerRGSectionHitZoneLibre4Renseigne01(...)._____________
+
+	
+	
+	/**
+	 * valide la RG REGEX pour 
+	 * l'attribut <code><b>zoneLibre4</b></code>.<br/>
+	 * <ul>
+	 * <li>utilise la regex [\\s{35}] qui signifie 
+	 * 'exactement 35 espaces (caractère blanc = espace, \t, \n, ...)'.</li>
+	 * </ul>
+	 *
+	 * @param pAttribut : String : 
+	 * nom de l'attribut sur lequel s'applique la Règle de Gestion (RG) 
+	 * comme <code>zoneLibre4</code>.<br/>
+	 * @param pDto : ISectionHitDTO : 
+	 * DTO à contrôler.<br/>
+	 * @param pErreursMaps : ErreursMaps : 
+	 * encapsulation des maps des messages d'erreur pour chaque attribut.<br/>
+	 * 
+	 * @return boolean : 
+	 * true si l'attribut est valide vis à vis de la RG.
+	 * 
+	 * @throws Exception 
+	 */
+	private boolean validerRGSectionHitZoneLibre4Regex02(
+			final String pAttribut
+				, final ISectionHitDTO pDto
+					, final ErreursMaps pErreursMaps) throws Exception {
+		
+		/* retourne false si les paramètres ne sont pas corrects. */
+		if (!this.parametresCorrects(pDto, pAttribut, pErreursMaps)) {
+			return false;
+		}
+		
+		/* message utilisateur de la RG. */
+		final String message 
+			= SectionHitGestionnairePreferencesControles
+				.getMessageSectionHitZoneLibre4Regex02();
+		
+		// CONTROLE ***************
+		final String valeurAControler = pDto.getZoneLibre4();
+		
+		final String motif = "\\s{35}";
+		final Pattern pattern = Pattern.compile(motif);
+		final Matcher matcher = pattern.matcher(valeurAControler);
+		
+		if (!matcher.matches()) {
+			
+			/* crée si nécessaire une entrée dans errorsMapDetaille. */
+			this.creerEntreeDansErrorsMapDetaille(pErreursMaps, pAttribut);
+			
+			/* ajout d'un message dans la liste. */
+			pErreursMaps.ajouterMessageAAttributDansErrorsMapDetaille(
+					pAttribut, message + VALUE + valeurAControler);
+			
+			/* retoune false si la RG n'est pas validée. */
+			return false;
+		}
+		
+		return true;
+		
+	} // Fin de validerRGSectionHitZoneLibre4Regex02(...)._________________
 	
 	
 

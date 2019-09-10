@@ -185,7 +185,8 @@ public final class GenerateurMJMAnneeNmoins1 {
 	 * 
 	 * @throws IOException 
 	 */
-	public static void main(String... pArgs) throws IOException {
+	public static void main(
+			final String... pArgs) throws IOException {
 		
 		final List<String> contenuList = lireContenu();
 		final List<String> resultat = substituer(contenuList);

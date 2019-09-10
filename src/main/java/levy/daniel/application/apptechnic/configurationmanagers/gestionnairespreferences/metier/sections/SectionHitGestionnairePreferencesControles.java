@@ -442,10 +442,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitZoneLibre1Renseigne01 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la zone libre de la section HIT (colonnes [16] du HIT) doit être renseignée (1 espace)".<br/>
+	 * "la zone libre de la section HIT (colonne [16] du HIT) doit être renseignée (1 espace)".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01_EN_DUR 
-		= "la zone libre de la section HIT (colonnes [16] du HIT) doit être renseignée (1 espace)";
+		= "la zone libre de la section HIT (colonne [16] du HIT) doit être renseignée (1 espace)";
 		
 	/**
 	 * clé de messageSectionHitZoneLibre1Regex02 dans 
@@ -461,10 +461,10 @@ public final class SectionHitGestionnairePreferencesControles {
 	 * N'est utilisé que si l'application ne peut lire le 
 	 * messageSectionHitZoneLibre1Regex02 
 	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
-	 * "la zone libre de la section HIT (colonnes [16] du HIT) doit comporter exactement 1 espace".<br/>
+	 * "la zone libre de la section HIT (colonne [16] du HIT) doit comporter exactement 1 espace".<br/>
 	 */
 	public static final String MESSAGE_SECTIONHIT_ZONELIBRE1_REGEX_02_EN_DUR 
-		= "la zone libre de la section HIT (colonnes [16] du HIT) doit comporter exactement 1 espace";
+		= "la zone libre de la section HIT (colonne [16] du HIT) doit comporter exactement 1 espace";
 	
 	/* 8 - numRoute. *******/
 	/**
@@ -7032,6 +7032,45 @@ public final class SectionHitGestionnairePreferencesControles {
 	public static final String MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03_EN_DUR 
 		= "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 de la section HIT (colonnes [483-485] du HIT) doit être homogène à un entier";
 	
+	/* 133 - zoneLibre4. *******/
+	/**
+	 * clé de messageSectionHitZoneLibre4Renseigne01 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.zoneLibre4.renseigne"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01 
+		= "message.SectionHit.zoneLibre4.renseigne";
+	
+	/**
+	 * messageSectionHitZoneLibre4Renseigne01 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitZoneLibre4Renseigne01 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la zone libre de la section HIT (colonnes [486-520] du HIT) doit être renseignée (35 espaces)".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01_EN_DUR 
+		= "la zone libre de la section HIT (colonnes [486-520] du HIT) doit être renseignée (35 espaces)";
+		
+	/**
+	 * clé de messageSectionHitZoneLibre4Regex02 dans 
+	 * SectionHit_CONTROLES.properties<br/>
+	 * "message.SectionHit.zoneLibre4.regex"<br/>
+	 */
+	public static final String KEY_MESSAGE_SECTIONHIT_ZONELIBRE4_REGEX_02 
+		= "message.SectionHit.zoneLibre4.regex";
+	
+	/**
+	 * messageSectionHitZoneLibre4Regex02 par défaut 
+	 * de l'application en dur.<br/>
+	 * N'est utilisé que si l'application ne peut lire le 
+	 * messageSectionHitZoneLibre4Regex02 
+	 * indiqué dans SectionHit_CONTROLES.properties.<br/>
+	 * "la zone libre de la section HIT (colonnes [486-520] du HIT) doit comporter exactement 35 espaces".<br/>
+	 */
+	public static final String MESSAGE_SECTIONHIT_ZONELIBRE4_REGEX_02_EN_DUR 
+		= "la zone libre de la section HIT (colonnes [486-520] du HIT) doit comporter exactement 35 espaces";
+	
 	
 	/**
 	* java.util.Properties encapsulant les préférences.<br/>
@@ -7175,13 +7214,13 @@ public final class SectionHitGestionnairePreferencesControles {
 	/* 7 - zoneLibre1. *******/
 	/**
 	* message émis par la RG-SectionHit-ZoneLibre1-01 : 
-	* "la zone libre de la section HIT (colonnes [16] du HIT) doit être renseignée (1 espace)".<br/>
+	* "la zone libre de la section HIT (colonne [16] du HIT) doit être renseignée (1 espace)".<br/>
 	*/
 	private static String messageSectionHitZoneLibre1Renseigne01;
 	
 	/**
 	* message émis par la RG-SectionHit-ZoneLibre1-02 : 
-	* "la zone libre de la section HIT (colonnes [16] du HIT) doit comporter exactement 1 espace".<br/>
+	* "la zone libre de la section HIT (colonne [16] du HIT) doit comporter exactement 1 espace".<br/>
 	*/
 	private static String messageSectionHitZoneLibre1Regex02;
 
@@ -9357,6 +9396,19 @@ public final class SectionHitGestionnairePreferencesControles {
 	*/
 	private static String messageSectionHitPcNuitNmoins1mois12Numerique03;
 
+	/* 133 - zoneLibre4. *******/
+	/**
+	* message émis par la RG-SectionHit-ZoneLibre4-01 : 
+	* "la zone libre de la section HIT (colonnes [486-520] du HIT) doit être renseignée (35 espaces)".<br/>
+	*/
+	private static String messageSectionHitZoneLibre4Renseigne01;
+	
+	/**
+	* message émis par la RG-SectionHit-ZoneLibre4-02 : 
+	* "la zone libre de la section HIT (colonnes [486-520] du HIT) doit comporter exactement 35 espaces".<br/>
+	*/
+	private static String messageSectionHitZoneLibre4Regex02;
+
 	
 	/**
 	 * LOG : Log : 
@@ -9468,2256 +9520,2268 @@ public final class SectionHitGestionnairePreferencesControles {
 			preferences.setProperty(
 					KEY_MESSAGE_SECTIONHIT_NUMSECTION_REGEX_02
 						, MESSAGE_SECTIONHIT_NUMSECTION_REGEX_02_EN_DUR);
+						
+			/* 3 - sens. **************/		
+			/* ajoute le messageSectionHitSensRenseigne01 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_SENS_RENSEIGNE_01
+						, MESSAGE_SECTIONHIT_SENS_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitSensRegex02 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_SENS_REGEX_02
+						, MESSAGE_SECTIONHIT_SENS_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitSensNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_SENS_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_SENS_NOMENCLATURE_03_EN_DUR);
 					
-		/* 3 - sens. **************/		
-		/* ajoute le messageSectionHitSensRenseigne01 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_SENS_RENSEIGNE_01
-					, MESSAGE_SECTIONHIT_SENS_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitSensRegex02 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_SENS_REGEX_02
-					, MESSAGE_SECTIONHIT_SENS_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitSensNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_SENS_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_SENS_NOMENCLATURE_03_EN_DUR);
-				
-		/* 4 - nature. **************/		
-		/* ajoute le messageSectionHitNatureRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NATURE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_NATURE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitNatureRegex02 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NATURE_REGEX_02
-				, MESSAGE_SECTIONHIT_NATURE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitNatureNomenclature03 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NATURE_NOMENCLATURE_03
-				, MESSAGE_SECTIONHIT_NATURE_NOMENCLATURE_03_EN_DUR);
-				
-		/* 5 - classe. **************/		
-		/* ajoute le messageSectionHitClasseRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CLASSE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_CLASSE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitClasseRegex02 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CLASSE_REGEX_02
-				, MESSAGE_SECTIONHIT_CLASSE_REGEX_02_EN_DUR);
-				
-		/* 6 - anneeTraitement. *******/		
-		/* ajoute le messageSectionHitAnneeTraitementRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAnneeTraitementRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEETRAITEMENT_REGEX_02
-				, MESSAGE_SECTIONHIT_ANNEETRAITEMENT_REGEX_02_EN_DUR);
-				
-		/* 7 - zoneLibre1. *******/		
-		/* ajoute le messageSectionHitZoneLibre1Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitZoneLibre1Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ZONELIBRE1_REGEX_02
-				, MESSAGE_SECTIONHIT_ZONELIBRE1_REGEX_02_EN_DUR);
-				
-		/* 8 - numRoute. *******/		
-		/* ajoute le messageSectionHitNumRouteRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitNumRouteRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02
-				, MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02_EN_DUR);
-				
-		/* 9 - indiceNumRoute. *******/		
-		/* ajoute le messageSectionHitIndiceNumRouteRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitIndiceNumRouteRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02
-				, MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02_EN_DUR);
-				
-		/* 10 - indiceLettreRoute. *******/		
-		/* ajoute le messageSectionHitIndiceLettreRouteRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitIndiceLettreRouteRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICELETTREROUTE_REGEX_02
-				, MESSAGE_SECTIONHIT_INDICELETTREROUTE_REGEX_02_EN_DUR);
-				
-		/* 11 - categorieAdminRoute. *******/		
-		/* ajoute le messageSectionHitCategorieAdminRouteRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitCategorieAdminRouteRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02
-				, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitCategorieAdminRouteNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR);
-				
-		/* 12 - typeComptage. *******/		
-		/* ajoute le messageSectionHitTypeComptageRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGE_REGEX_02
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03_EN_DUR);
-				
-		/* 13 - classementRoute. *******/		
-		/* ajoute le messageSectionHitClassementRouteRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitClassementRouteRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CLASSEMENTROUTE_REGEX_02
-				, MESSAGE_SECTIONHIT_CLASSEMENTROUTE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitClassementRouteNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03_EN_DUR);
-				
-		/* 14 - classeLargeurChausseeU. *******/		
-		/* ajoute le messageSectionHitClasseLargeurChausseeURenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitClasseLargeurChausseeURegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02
-				, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitClasseLargeurChausseeUNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03_EN_DUR);
-				
-		/* 15 - classeLargeurChausseesS. *******/		
-		/* ajoute le messageSectionHitClasseLargeurChausseesSRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitClasseLargeurChausseesSRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02
-				, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitClasseLargeurChausseesSNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03_EN_DUR);
-				
-		/* 16 - typeReseau. *******/		
-		/* ajoute le messageSectionHitTypeReseauRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeReseauRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02
-				, MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeReseauNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR);
-				
-		/* 17 - pRoupK. *******/		
-		/* ajoute le messageSectionHitPRoupKRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPRoupKRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PROUPK_REGEX_02
-				, MESSAGE_SECTIONHIT_PROUPK_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPRoupKNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03_EN_DUR);
-				
-		/* 18 - lieuDitOrigine. *******/		
-		/* ajoute le messageSectionHitLieuDitOrigineRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitLieuDitOrigineRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LIEUDITORIGINE_REGEX_02
-				, MESSAGE_SECTIONHIT_LIEUDITORIGINE_REGEX_02_EN_DUR);
-				
-		/* 19 - prOrigine. *******/		
-		/* ajoute le messageSectionHitPrOrigineRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPrOrigineRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02
-				, MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPrOrigineNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03_EN_DUR);
-				
-		/* 20 - absOrigine. *******/		
-		/* ajoute le messageSectionHitAbsOrigineRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ABSORIGINE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ABSORIGINE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAbsOrigineRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ABSORIGINE_REGEX_02
-				, MESSAGE_SECTIONHIT_ABSORIGINE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitAbsOrigineNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ABSORIGINE_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_ABSORIGINE_NUMERIQUE_03_EN_DUR);
-				
-		/* 21 - lieuDitExtremite. *******/		
-		/* ajoute le messageSectionHitLieuDitExtremiteRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitLieuDitExtremiteRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02
-				, MESSAGE_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02_EN_DUR);
-				
-		/* 22 - prExtremite. *******/		
-		/* ajoute le messageSectionHitPrExtremiteRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PREXTREMITE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PREXTREMITE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPrExtremiteRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PREXTREMITE_REGEX_02
-				, MESSAGE_SECTIONHIT_PREXTREMITE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPrExtremiteNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PREXTREMITE_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PREXTREMITE_NUMERIQUE_03_EN_DUR);
-				
-		/* 23 - absExtremite. *******/		
-		/* ajoute le messageSectionHitAbsExtremiteRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAbsExtremiteRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ABSEXTREMITE_REGEX_02
-				, MESSAGE_SECTIONHIT_ABSEXTREMITE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitAbsExtremiteNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03_EN_DUR);
-				
-		/* 24 - lieuDitComptage. *******/		
-		/* ajoute le messageSectionHitLieuDitComptageRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitLieuDitComptageRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02
-				, MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02_EN_DUR);
-				
-		/* 25 - prComptage. *******/		
-		/* ajoute le messageSectionHitPrComptageRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPrComptageRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02
-				, MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPrComptageNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03_EN_DUR);
-				
-		/* 26 - absComptage. *******/		
-		/* ajoute le messageSectionHitAbsComptageRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAbsComptageRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02
-				, MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitAbsComptageNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03_EN_DUR);
-				
-		/* 27 - longueurSection. *******/		
-		/* ajoute le messageSectionHitLongueurSectionRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitLongueurSectionRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02
-				, MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitLongueurSectionNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR);
-				
-		/* 28 - longueurRaseCampagne. *******/		
-		/* ajoute le messageSectionHitLongueurRaseCampagneRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitLongueurRaseCampagneRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02
-				, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitLongueurRaseCampagneNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR);
-				
-		/* 29 - numDepartementRattachement. *******/		
-		/* ajoute le messageSectionHitNumDepartementRattachementRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitNumDepartementRattachementRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02
-				, MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02_EN_DUR);
-				
-		/* 30 - numSectionRattachement. *******/		
-		/* ajoute le messageSectionHitNumSectionRattachementRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitNumSectionRattachementRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02
-				, MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02_EN_DUR);
-				
-		/* 31 - sensRattachement. *******/		
-		/* ajoute le messageSectionHitSensRattachementRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitSensRattachementRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02
-				, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitSensRattachementNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03_EN_DUR);
-				
-		/* 32 - numDepartementLimitrophe. *******/		
-		/* ajoute le messageSectionHitNumDepartementLimitropheRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitNumDepartementLimitropheRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02
-				, MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02_EN_DUR);
-				
-		/* 33 - numSectionLimitrophe. *******/		
-		/* ajoute le messageSectionHitNumSectionLimitropheRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitNumSectionLimitropheRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02
-				, MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02_EN_DUR);
-				
-		/* 34 - sensLimitrophe. *******/		
-		/* ajoute le messageSectionHitSensLimitropheRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitSensLimitropheRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02
-				, MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitSensLimitropheNomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03_EN_DUR);
-				
-		/* 35 - moisSectionnement. *******/		
-		/* ajoute le messageSectionHitMoisSectionnementRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMoisSectionnementRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02
-				, MESSAGE_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02_EN_DUR);
-				
-		/* 36 - anneeSectionnement. *******/		
-		/* ajoute le messageSectionHitAnneeSectionnementRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAnneeSectionnementRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02
-				, MESSAGE_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02_EN_DUR);
-				
-		/* 37 - zoneLibre2. *******/		
-		/* ajoute le messageSectionHitZoneLibre2Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitZoneLibre2Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ZONELIBRE2_REGEX_02
-				, MESSAGE_SECTIONHIT_ZONELIBRE2_REGEX_02_EN_DUR);
-				
-		/* 38 - mjaN. *******/		
-		/* ajoute le messageSectionHitMjaNRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJAN_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJAN_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJAN_REGEX_02
-				, MESSAGE_SECTIONHIT_MJAN_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJAN_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJAN_NUMERIQUE_03_EN_DUR);
-				
-		/* 39 - modeCalculN. *******/		
-		/* ajoute le messageSectionHitModeCalculNRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULN_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MODECALCULN_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitModeCalculNRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULN_REGEX_02
-				, MESSAGE_SECTIONHIT_MODECALCULN_REGEX_02_EN_DUR);
-				
-		/* 40 - pcPLN. *******/		
-		/* ajoute le messageSectionHitPcPLNRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLN_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCPLN_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLN_REGEX_02
-				, MESSAGE_SECTIONHIT_PCPLN_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLN_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCPLN_NUMERIQUE_03_EN_DUR);
-				
-		/* 41 - evaluationPLN. *******/		
-		/* ajoute le messageSectionHitEvaluationPLNRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitEvaluationPLNRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN_REGEX_02
-				, MESSAGE_SECTIONHIT_EVALUATIONPLN_REGEX_02_EN_DUR);
-				
-		/* 42 - pcNuitAnnuelN. *******/		
-		/* ajoute le messageSectionHitPcNuitAnnuelNRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNNumerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR);
-				
-		/* 43 - indiceFiabiliteMjaN. *******/		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNRenseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNRegex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02_EN_DUR);
-				
-		/* 44 - mjmNmois01. *******/		
-		/* ajoute le messageSectionHitMjmNmois01Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS01_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS01_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois01Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS01_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS01_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois01Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS01_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS01_NUMERIQUE_03_EN_DUR);
-						
-		/* 45 - pcNuitNmois01. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois01Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS01_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS01_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois01Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS01_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS01_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois01Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS01_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS01_NUMERIQUE_03_EN_DUR);
-				
-		/* 46 - mjmNmois02. *******/		
-		/* ajoute le messageSectionHitMjmNmois02Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois02Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS02_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS02_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois02Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03_EN_DUR);
-						
-		/* 47 - pcNuitNmois02. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois02Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois02Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS02_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS02_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois02Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03_EN_DUR);
-				
-		/* 48 - mjmNmois03. *******/		
-		/* ajoute le messageSectionHitMjmNmois03Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS03_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS03_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois03Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS03_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS03_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois03Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS03_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS03_NUMERIQUE_03_EN_DUR);
-						
-		/* 49 - pcNuitNmois03. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois03Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS03_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS03_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois03Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS03_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS03_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois03Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS03_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS03_NUMERIQUE_03_EN_DUR);
-				
-		/* 50 - mjmNmois04. *******/		
-		/* ajoute le messageSectionHitMjmNmois04Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS04_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS04_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois04Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS04_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS04_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois04Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS04_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS04_NUMERIQUE_03_EN_DUR);
-						
-		/* 51 - pcNuitNmois04. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois04Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS04_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS04_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois04Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS04_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS04_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois04Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS04_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS04_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 52 - mjmNmois05. *******/		
-		/* ajoute le messageSectionHitMjmNmois05Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS05_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS05_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois05Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS05_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS05_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois05Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS05_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS05_NUMERIQUE_03_EN_DUR);
-						
-		/* 53 - pcNuitNmois05. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois05Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS05_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS05_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois05Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS05_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS05_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois05Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS05_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS05_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 54 - mjmNmois06. *******/		
-		/* ajoute le messageSectionHitMjmNmois06Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS06_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS06_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois06Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS06_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS06_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois06Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS06_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS06_NUMERIQUE_03_EN_DUR);
-						
-		/* 55 - pcNuitNmois06. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois06Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS06_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS06_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois06Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS06_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS06_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois06Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS06_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS06_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 56 - mjmNmois07. *******/		
-		/* ajoute le messageSectionHitMjmNmois07Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS07_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS07_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois07Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS07_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS07_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois07Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS07_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS07_NUMERIQUE_03_EN_DUR);
-						
-		/* 57 - pcNuitNmois07. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois07Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS07_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS07_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois07Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS07_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS07_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois07Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS07_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS07_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 58 - mjmNmois08. *******/		
-		/* ajoute le messageSectionHitMjmNmois08Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS08_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS08_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois08Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS08_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS08_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois08Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS08_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS08_NUMERIQUE_03_EN_DUR);
-						
-		/* 59 - pcNuitNmois08. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois08Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS08_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS08_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois08Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS08_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS08_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois08Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS08_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS08_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 60 - mjmNmois09. *******/		
-		/* ajoute le messageSectionHitMjmNmois09Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS09_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS09_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois09Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS09_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS09_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois09Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS09_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS09_NUMERIQUE_03_EN_DUR);
-						
-		/* 61 - pcNuitNmois09. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois09Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS09_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS09_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois09Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS09_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS09_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois09Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS09_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS09_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 62 - mjmNmois10. *******/		
-		/* ajoute le messageSectionHitMjmNmois10Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS10_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS10_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois10Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS10_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS10_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois10Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS10_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS10_NUMERIQUE_03_EN_DUR);
-						
-		/* 63 - pcNuitNmois10. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois10Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS10_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS10_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois10Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS10_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS10_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois10Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS10_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS10_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 64 - mjmNmois11. *******/		
-		/* ajoute le messageSectionHitMjmNmois11Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS11_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS11_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois11Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS11_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS11_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois11Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS11_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS11_NUMERIQUE_03_EN_DUR);
-						
-		/* 65 - pcNuitNmois11. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois11Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS11_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS11_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois11Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS11_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS11_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois11Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS11_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS11_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 66 - mjmNmois12. *******/		
-		/* ajoute le messageSectionHitMjmNmois12Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS12_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOIS12_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois12Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS12_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOIS12_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmois12Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOIS12_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOIS12_NUMERIQUE_03_EN_DUR);
-						
-		/* 67 - pcNuitNmois12. *******/		
-		/* ajoute le messageSectionHitPcNuitNmois12Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS12_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS12_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois12Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS12_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS12_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmois12Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS12_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOIS12_NUMERIQUE_03_EN_DUR);
-				
-		/* 68 - zoneLibre3. *******/		
-		/* ajoute le messageSectionHitZoneLibre3Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitZoneLibre3Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02
-				, MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02_EN_DUR);
-				
-		/* 69 - anneeNmoins1. *******/		
-		/* ajoute le messageSectionHitAnneeNmoins1Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS1_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ANNEENMOINS1_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAnneeNmoins1Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS1_REGEX_02
-				, MESSAGE_SECTIONHIT_ANNEENMOINS1_REGEX_02_EN_DUR);	
-				
-		/* 70 - mjaNmoins1. *******/		
-		/* ajoute le messageSectionHitMjaNmoins1Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS1_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJANMOINS1_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins1Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS1_REGEX_02
-				, MESSAGE_SECTIONHIT_MJANMOINS1_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins1Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS1_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJANMOINS1_NUMERIQUE_03_EN_DUR);
-				
-		/* 71 - typeComptageNmoins1. *******/		
-		/* ajoute le messageSectionHitTypeComptageNmoins1Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins1Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_REGEX_02
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins1Nomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03_EN_DUR);
-				
-		/* 72 - modeCalculNmoins1. *******/		
-		/* ajoute le messageSectionHitModeCalculNmoins1Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitModeCalculNmoins1Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02_EN_DUR);
-				
-		/* 73 - pcPLNmoins1. *******/		
-		/* ajoute le messageSectionHitPcPLNmoins1Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins1Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS1_REGEX_02
-				, MESSAGE_SECTIONHIT_PCPLNMOINS1_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins1Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03_EN_DUR);
-				
-		/* 74 - evaluationPLNmoins1. *******/		
-		/* ajoute le messageSectionHitEvaluationPLNmoins1Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS1_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS1_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitEvaluationPLNmoins1Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS1_REGEX_02
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS1_REGEX_02_EN_DUR);
-				
-		/* 75 - pcNuitAnnuelNmoins1. *******/		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins1Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins1Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins1Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_NUMERIQUE_03_EN_DUR);
-				
-		/* 76 - indiceFiabiliteMjaNmoins1. *******/		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins1Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS1_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS1_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins1Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS1_REGEX_02
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS1_REGEX_02_EN_DUR);
-				
-		/* 77 - anneeNmoins2. *******/		
-		/* ajoute le messageSectionHitAnneeNmoins2Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAnneeNmoins2Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS2_REGEX_02
-				, MESSAGE_SECTIONHIT_ANNEENMOINS2_REGEX_02_EN_DUR);	
-				
-		/* 78 - mjaNmoins2. *******/		
-		/* ajoute le messageSectionHitMjaNmoins2Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS2_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJANMOINS2_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins2Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS2_REGEX_02
-				, MESSAGE_SECTIONHIT_MJANMOINS2_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins2Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS2_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJANMOINS2_NUMERIQUE_03_EN_DUR);
-				
-		/* 79 - typeComptageNmoins2. *******/		
-		/* ajoute le messageSectionHitTypeComptageNmoins2Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins2Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins2Nomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03_EN_DUR);
-				
-		/* 80 - modeCalculNmoins2. *******/		
-		/* ajoute le messageSectionHitModeCalculNmoins2Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitModeCalculNmoins2Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS2_REGEX_02
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS2_REGEX_02_EN_DUR);
-				
-		/* 81 - pcPLNmoins2. *******/		
-		/* ajoute le messageSectionHitPcPLNmoins2Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins2Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS2_REGEX_02
-				, MESSAGE_SECTIONHIT_PCPLNMOINS2_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins2Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03_EN_DUR);
-				
-		/* 82 - evaluationPLNmoins2. *******/		
-		/* ajoute le messageSectionHitEvaluationPLNmoins2Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitEvaluationPLNmoins2Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02_EN_DUR);
-				
-		/* 83 - pcNuitAnnuelNmoins2. *******/		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins2Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins2Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins2Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03_EN_DUR);
-				
-		/* 84 - indiceFiabiliteMjaNmoins2. *******/		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins2Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins2Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02_EN_DUR);
-		
-				
-		/* 85 - anneeNmoins3. *******/		
-		/* ajoute le messageSectionHitAnneeNmoins3Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAnneeNmoins3Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS3_REGEX_02
-				, MESSAGE_SECTIONHIT_ANNEENMOINS3_REGEX_02_EN_DUR);	
-				
-		/* 86 - mjaNmoins3. *******/		
-		/* ajoute le messageSectionHitMjaNmoins3Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS3_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJANMOINS3_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins3Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS3_REGEX_02
-				, MESSAGE_SECTIONHIT_MJANMOINS3_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins3Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS3_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJANMOINS3_NUMERIQUE_03_EN_DUR);
-				
-		/* 87 - typeComptageNmoins3. *******/		
-		/* ajoute le messageSectionHitTypeComptageNmoins3Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins3Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins3Nomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03_EN_DUR);
-				
-		/* 88 - modeCalculNmoins3. *******/		
-		/* ajoute le messageSectionHitModeCalculNmoins3Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitModeCalculNmoins3Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS3_REGEX_02
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS3_REGEX_02_EN_DUR);
-				
-		/* 89 - pcPLNmoins3. *******/		
-		/* ajoute le messageSectionHitPcPLNmoins3Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins3Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS3_REGEX_02
-				, MESSAGE_SECTIONHIT_PCPLNMOINS3_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins3Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03_EN_DUR);
-				
-		/* 90 - evaluationPLNmoins3. *******/		
-		/* ajoute le messageSectionHitEvaluationPLNmoins3Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitEvaluationPLNmoins3Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02_EN_DUR);
-				
-		/* 91 - pcNuitAnnuelNmoins3. *******/		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins3Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins3Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins3Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03_EN_DUR);
-				
-		/* 92 - indiceFiabiliteMjaNmoins3. *******/		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins3Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins3Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02_EN_DUR);
-		
-				
-		/* 93 - anneeNmoins4. *******/		
-		/* ajoute le messageSectionHitAnneeNmoins4Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAnneeNmoins4Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS4_REGEX_02
-				, MESSAGE_SECTIONHIT_ANNEENMOINS4_REGEX_02_EN_DUR);	
-				
-		/* 94 - mjaNmoins4. *******/		
-		/* ajoute le messageSectionHitMjaNmoins4Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS4_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJANMOINS4_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins4Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS4_REGEX_02
-				, MESSAGE_SECTIONHIT_MJANMOINS4_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins4Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS4_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJANMOINS4_NUMERIQUE_03_EN_DUR);
-				
-		/* 95 - typeComptageNmoins4. *******/		
-		/* ajoute le messageSectionHitTypeComptageNmoins4Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins4Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins4Nomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03_EN_DUR);
-				
-		/* 96 - modeCalculNmoins4. *******/		
-		/* ajoute le messageSectionHitModeCalculNmoins4Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitModeCalculNmoins4Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS4_REGEX_02
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS4_REGEX_02_EN_DUR);
-				
-		/* 97 - pcPLNmoins4. *******/		
-		/* ajoute le messageSectionHitPcPLNmoins4Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins4Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS4_REGEX_02
-				, MESSAGE_SECTIONHIT_PCPLNMOINS4_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins4Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03_EN_DUR);
-				
-		/* 98 - evaluationPLNmoins4. *******/		
-		/* ajoute le messageSectionHitEvaluationPLNmoins4Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitEvaluationPLNmoins4Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02_EN_DUR);
-				
-		/* 99 - pcNuitAnnuelNmoins4. *******/		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins4Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins4Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins4Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03_EN_DUR);
-				
-		/* 100 - indiceFiabiliteMjaNmoins4. *******/		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins4Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins4Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02_EN_DUR);
-		
-				
-		/* 101 - anneeNmoins5. *******/		
-		/* ajoute le messageSectionHitAnneeNmoins5Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitAnneeNmoins5Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_ANNEENMOINS5_REGEX_02
-				, MESSAGE_SECTIONHIT_ANNEENMOINS5_REGEX_02_EN_DUR);	
-				
-		/* 102 - mjaNmoins5. *******/		
-		/* ajoute le messageSectionHitMjaNmoins5Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS5_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJANMOINS5_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins5Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS5_REGEX_02
-				, MESSAGE_SECTIONHIT_MJANMOINS5_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjaNmoins5Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJANMOINS5_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJANMOINS5_NUMERIQUE_03_EN_DUR);
-				
-		/* 103 - typeComptageNmoins5. *******/		
-		/* ajoute le messageSectionHitTypeComptageNmoins5Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins5Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02
-				, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitTypeComptageNmoins5Nomenclature03 
-		 * par défaut stocké en dur.*/
-		preferences.setProperty(
-				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03
-					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03_EN_DUR);
-				
-		/* 104 - modeCalculNmoins5. *******/		
-		/* ajoute le messageSectionHitModeCalculNmoins5Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitModeCalculNmoins5Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS5_REGEX_02
-				, MESSAGE_SECTIONHIT_MODECALCULNMOINS5_REGEX_02_EN_DUR);
-				
-		/* 105 - pcPLNmoins5. *******/		
-		/* ajoute le messageSectionHitPcPLNmoins5Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins5Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS5_REGEX_02
-				, MESSAGE_SECTIONHIT_PCPLNMOINS5_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcPLNmoins5Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03_EN_DUR);
-				
-		/* 106 - evaluationPLNmoins5. *******/		
-		/* ajoute le messageSectionHitEvaluationPLNmoins5Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitEvaluationPLNmoins5Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02
-				, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02_EN_DUR);
-				
-		/* 107 - pcNuitAnnuelNmoins5. *******/		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins5Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins5Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitAnnuelNmoins5Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03_EN_DUR);
-				
-		/* 108 - indiceFiabiliteMjaNmoins5. *******/		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins5Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins5Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02
-				, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02_EN_DUR);
-				
-		/* 109 - mjmNmoins1mois01. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois01Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois01Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois01Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
-						
-		/* 110 - pcNuitNmoins1mois01. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois01Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois01Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois01Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
-				
-		/* 111 - mjmNmoins1mois02. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois02Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois02Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois02Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
-						
-		/* 112 - pcNuitNmoins1mois02. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois02Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois02Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois02Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
-				
-		/* 113 - mjmNmoins1mois03. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois03Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois03Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois03Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
-						
-		/* 114 - pcNuitNmoins1mois03. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois03Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois03Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois03Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
-				
-		/* 115 - mjmNmoins1mois04. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois04Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois04Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois04Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
-						
-		/* 116 - pcNuitNmoins1mois04. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois04Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois04Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois04Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 117 - mjmNmoins1mois05. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois05Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois05Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois05Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
-						
-		/* 118 - pcNuitNmoins1mois05. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois05Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois05Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois05Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 119 - mjmNmoins1mois06. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois06Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois06Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois06Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
-						
-		/* 120 - pcNuitNmoins1mois06. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois06Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois06Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois06Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 121 - mjmNmoins1mois07. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois07Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois07Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois07Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
-						
-		/* 122 - pcNuitNmoins1mois07. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois07Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois07Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois07Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 123 - mjmNmoins1mois08. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois08Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois08Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois08Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
-						
-		/* 124 - pcNuitNmoins1mois08. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois08Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois08Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois08Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 125 - mjmNmoins1mois09. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois09Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois09Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois09Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
-						
-		/* 126 - pcNuitNmoins1mois09. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois09Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois09Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois09Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 127 - mjmNmoins1mois10. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois10Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois10Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois10Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
-						
-		/* 128 - pcNuitNmoins1mois10. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois10Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois10Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois10Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 129 - mjmNmoins1mois11. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois11Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois11Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois11Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
-						
-		/* 130 - pcNuitNmoins1mois11. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois11Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois11Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois11Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
-		
-				
-		/* 131 - mjmNmoins1mois12. *******/		
-		/* ajoute le messageSectionHitMjmNmoins1mois12Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois12Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitMjmNmoins1mois12Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
-						
-		/* 132 - pcNuitNmoins1mois12. *******/		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois12Renseigne01 
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois12Regex02
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02_EN_DUR);
-		
-		/* ajoute le messageSectionHitPcNuitNmoins1mois12Numerique03
-		* par défaut stocké en dur.*/
-		preferences.setProperty(
-			KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03
-				, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
-
+			/* 4 - nature. **************/		
+			/* ajoute le messageSectionHitNatureRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NATURE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_NATURE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitNatureRegex02 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NATURE_REGEX_02
+					, MESSAGE_SECTIONHIT_NATURE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitNatureNomenclature03 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NATURE_NOMENCLATURE_03
+					, MESSAGE_SECTIONHIT_NATURE_NOMENCLATURE_03_EN_DUR);
+					
+			/* 5 - classe. **************/		
+			/* ajoute le messageSectionHitClasseRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CLASSE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_CLASSE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitClasseRegex02 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CLASSE_REGEX_02
+					, MESSAGE_SECTIONHIT_CLASSE_REGEX_02_EN_DUR);
+					
+			/* 6 - anneeTraitement. *******/		
+			/* ajoute le messageSectionHitAnneeTraitementRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ANNEETRAITEMENT_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAnneeTraitementRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEETRAITEMENT_REGEX_02
+					, MESSAGE_SECTIONHIT_ANNEETRAITEMENT_REGEX_02_EN_DUR);
+					
+			/* 7 - zoneLibre1. *******/		
+			/* ajoute le messageSectionHitZoneLibre1Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ZONELIBRE1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitZoneLibre1Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ZONELIBRE1_REGEX_02
+					, MESSAGE_SECTIONHIT_ZONELIBRE1_REGEX_02_EN_DUR);
+					
+			/* 8 - numRoute. *******/		
+			/* ajoute le messageSectionHitNumRouteRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_NUMROUTE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitNumRouteRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02
+					, MESSAGE_SECTIONHIT_NUMROUTE_REGEX_02_EN_DUR);
+					
+			/* 9 - indiceNumRoute. *******/		
+			/* ajoute le messageSectionHitIndiceNumRouteRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_INDICENUMROUTE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitIndiceNumRouteRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02
+					, MESSAGE_SECTIONHIT_INDICENUMROUTE_REGEX_02_EN_DUR);
+					
+			/* 10 - indiceLettreRoute. *******/		
+			/* ajoute le messageSectionHitIndiceLettreRouteRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_INDICELETTREROUTE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitIndiceLettreRouteRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICELETTREROUTE_REGEX_02
+					, MESSAGE_SECTIONHIT_INDICELETTREROUTE_REGEX_02_EN_DUR);
+					
+			/* 11 - categorieAdminRoute. *******/		
+			/* ajoute le messageSectionHitCategorieAdminRouteRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitCategorieAdminRouteRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02
+					, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitCategorieAdminRouteNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_CATEGORIEADMINROUTE_NOMENCLATURE_03_EN_DUR);
+					
+			/* 12 - typeComptage. *******/		
+			/* ajoute le messageSectionHitTypeComptageRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGE_REGEX_02
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_TYPECOMPTAGE_NOMENCLATURE_03_EN_DUR);
+					
+			/* 13 - classementRoute. *******/		
+			/* ajoute le messageSectionHitClassementRouteRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_CLASSEMENTROUTE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitClassementRouteRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CLASSEMENTROUTE_REGEX_02
+					, MESSAGE_SECTIONHIT_CLASSEMENTROUTE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitClassementRouteNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_CLASSEMENTROUTE_NOMENCLATURE_03_EN_DUR);
+					
+			/* 14 - classeLargeurChausseeU. *******/		
+			/* ajoute le messageSectionHitClasseLargeurChausseeURenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitClasseLargeurChausseeURegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02
+					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitClasseLargeurChausseeUNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEEU_NOMENCLATURE_03_EN_DUR);
+					
+			/* 15 - classeLargeurChausseesS. *******/		
+			/* ajoute le messageSectionHitClasseLargeurChausseesSRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitClasseLargeurChausseesSRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02
+					, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitClasseLargeurChausseesSNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_CLASSELARGEURCHAUSSEESS_NOMENCLATURE_03_EN_DUR);
+					
+			/* 16 - typeReseau. *******/		
+			/* ajoute le messageSectionHitTypeReseauRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_TYPERESEAU_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeReseauRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02
+					, MESSAGE_SECTIONHIT_TYPERESEAU_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeReseauNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_TYPERESEAU_NOMENCLATURE_03_EN_DUR);
+					
+			/* 17 - pRoupK. *******/		
+			/* ajoute le messageSectionHitPRoupKRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PROUPK_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPRoupKRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PROUPK_REGEX_02
+					, MESSAGE_SECTIONHIT_PROUPK_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPRoupKNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_PROUPK_NOMENCLATURE_03_EN_DUR);
+					
+			/* 18 - lieuDitOrigine. *******/		
+			/* ajoute le messageSectionHitLieuDitOrigineRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_LIEUDITORIGINE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitLieuDitOrigineRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LIEUDITORIGINE_REGEX_02
+					, MESSAGE_SECTIONHIT_LIEUDITORIGINE_REGEX_02_EN_DUR);
+					
+			/* 19 - prOrigine. *******/		
+			/* ajoute le messageSectionHitPrOrigineRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PRORIGINE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPrOrigineRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02
+					, MESSAGE_SECTIONHIT_PRORIGINE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPrOrigineNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PRORIGINE_NUMERIQUE_03_EN_DUR);
+					
+			/* 20 - absOrigine. *******/		
+			/* ajoute le messageSectionHitAbsOrigineRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ABSORIGINE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ABSORIGINE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAbsOrigineRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ABSORIGINE_REGEX_02
+					, MESSAGE_SECTIONHIT_ABSORIGINE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitAbsOrigineNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ABSORIGINE_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_ABSORIGINE_NUMERIQUE_03_EN_DUR);
+					
+			/* 21 - lieuDitExtremite. *******/		
+			/* ajoute le messageSectionHitLieuDitExtremiteRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_LIEUDITEXTREMITE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitLieuDitExtremiteRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02
+					, MESSAGE_SECTIONHIT_LIEUDITEXTREMITE_REGEX_02_EN_DUR);
+					
+			/* 22 - prExtremite. *******/		
+			/* ajoute le messageSectionHitPrExtremiteRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PREXTREMITE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PREXTREMITE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPrExtremiteRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PREXTREMITE_REGEX_02
+					, MESSAGE_SECTIONHIT_PREXTREMITE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPrExtremiteNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PREXTREMITE_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PREXTREMITE_NUMERIQUE_03_EN_DUR);
+					
+			/* 23 - absExtremite. *******/		
+			/* ajoute le messageSectionHitAbsExtremiteRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ABSEXTREMITE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAbsExtremiteRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ABSEXTREMITE_REGEX_02
+					, MESSAGE_SECTIONHIT_ABSEXTREMITE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitAbsExtremiteNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_ABSEXTREMITE_NUMERIQUE_03_EN_DUR);
+					
+			/* 24 - lieuDitComptage. *******/		
+			/* ajoute le messageSectionHitLieuDitComptageRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitLieuDitComptageRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02
+					, MESSAGE_SECTIONHIT_LIEUDITCOMPTAGE_REGEX_02_EN_DUR);
+					
+			/* 25 - prComptage. *******/		
+			/* ajoute le messageSectionHitPrComptageRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PRCOMPTAGE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPrComptageRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02
+					, MESSAGE_SECTIONHIT_PRCOMPTAGE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPrComptageNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PRCOMPTAGE_NUMERIQUE_03_EN_DUR);
+					
+			/* 26 - absComptage. *******/		
+			/* ajoute le messageSectionHitAbsComptageRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ABSCOMPTAGE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAbsComptageRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02
+					, MESSAGE_SECTIONHIT_ABSCOMPTAGE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitAbsComptageNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_ABSCOMPTAGE_NUMERIQUE_03_EN_DUR);
+					
+			/* 27 - longueurSection. *******/		
+			/* ajoute le messageSectionHitLongueurSectionRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_LONGUEURSECTION_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitLongueurSectionRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02
+					, MESSAGE_SECTIONHIT_LONGUEURSECTION_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitLongueurSectionNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_LONGUEURSECTION_NUMERIQUE_03_EN_DUR);
+					
+			/* 28 - longueurRaseCampagne. *******/		
+			/* ajoute le messageSectionHitLongueurRaseCampagneRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitLongueurRaseCampagneRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02
+					, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitLongueurRaseCampagneNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_LONGUEURRASECAMPAGNE_NUMERIQUE_03_EN_DUR);
+					
+			/* 29 - numDepartementRattachement. *******/		
+			/* ajoute le messageSectionHitNumDepartementRattachementRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitNumDepartementRattachementRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENTRATTACHEMENT_REGEX_02_EN_DUR);
+					
+			/* 30 - numSectionRattachement. *******/		
+			/* ajoute le messageSectionHitNumSectionRattachementRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitNumSectionRattachementRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02
+					, MESSAGE_SECTIONHIT_NUMSECTIONRATTACHEMENT_REGEX_02_EN_DUR);
+					
+			/* 31 - sensRattachement. *******/		
+			/* ajoute le messageSectionHitSensRattachementRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitSensRattachementRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02
+					, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitSensRattachementNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_SENSRATTACHEMENT_NOMENCLATURE_03_EN_DUR);
+					
+			/* 32 - numDepartementLimitrophe. *******/		
+			/* ajoute le messageSectionHitNumDepartementLimitropheRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitNumDepartementLimitropheRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02
+					, MESSAGE_SECTIONHIT_NUMDEPARTEMENTLIMITROPHE_REGEX_02_EN_DUR);
+					
+			/* 33 - numSectionLimitrophe. *******/		
+			/* ajoute le messageSectionHitNumSectionLimitropheRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitNumSectionLimitropheRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02
+					, MESSAGE_SECTIONHIT_NUMSECTIONLIMITROPHE_REGEX_02_EN_DUR);
+					
+			/* 34 - sensLimitrophe. *******/		
+			/* ajoute le messageSectionHitSensLimitropheRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_SENSLIMITROPHE_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitSensLimitropheRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02
+					, MESSAGE_SECTIONHIT_SENSLIMITROPHE_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitSensLimitropheNomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_SENSLIMITROPHE_NOMENCLATURE_03_EN_DUR);
+					
+			/* 35 - moisSectionnement. *******/		
+			/* ajoute le messageSectionHitMoisSectionnementRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MOISSECTIONNEMENT_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMoisSectionnementRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02
+					, MESSAGE_SECTIONHIT_MOISSECTIONNEMENT_REGEX_02_EN_DUR);
+					
+			/* 36 - anneeSectionnement. *******/		
+			/* ajoute le messageSectionHitAnneeSectionnementRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ANNEESECTIONNEMENT_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAnneeSectionnementRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02
+					, MESSAGE_SECTIONHIT_ANNEESECTIONNEMENT_REGEX_02_EN_DUR);
+					
+			/* 37 - zoneLibre2. *******/		
+			/* ajoute le messageSectionHitZoneLibre2Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ZONELIBRE2_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitZoneLibre2Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ZONELIBRE2_REGEX_02
+					, MESSAGE_SECTIONHIT_ZONELIBRE2_REGEX_02_EN_DUR);
+					
+			/* 38 - mjaN. *******/		
+			/* ajoute le messageSectionHitMjaNRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJAN_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJAN_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJAN_REGEX_02
+					, MESSAGE_SECTIONHIT_MJAN_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJAN_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJAN_NUMERIQUE_03_EN_DUR);
+					
+			/* 39 - modeCalculN. *******/		
+			/* ajoute le messageSectionHitModeCalculNRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULN_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MODECALCULN_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitModeCalculNRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULN_REGEX_02
+					, MESSAGE_SECTIONHIT_MODECALCULN_REGEX_02_EN_DUR);
+					
+			/* 40 - pcPLN. *******/		
+			/* ajoute le messageSectionHitPcPLNRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLN_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCPLN_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLN_REGEX_02
+					, MESSAGE_SECTIONHIT_PCPLN_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLN_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCPLN_NUMERIQUE_03_EN_DUR);
+					
+			/* 41 - evaluationPLN. *******/		
+			/* ajoute le messageSectionHitEvaluationPLNRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_EVALUATIONPLN_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitEvaluationPLNRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLN_REGEX_02
+					, MESSAGE_SECTIONHIT_EVALUATIONPLN_REGEX_02_EN_DUR);
+					
+			/* 42 - pcNuitAnnuelN. *******/		
+			/* ajoute le messageSectionHitPcNuitAnnuelNRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITANNUELN_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITANNUELN_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNNumerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITANNUELN_NUMERIQUE_03_EN_DUR);
+					
+			/* 43 - indiceFiabiliteMjaN. *******/		
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNRenseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNRegex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJAN_REGEX_02_EN_DUR);
+					
+			/* 44 - mjmNmois01. *******/		
+			/* ajoute le messageSectionHitMjmNmois01Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS01_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS01_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois01Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS01_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS01_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois01Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS01_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS01_NUMERIQUE_03_EN_DUR);
+							
+			/* 45 - pcNuitNmois01. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois01Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS01_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS01_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois01Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS01_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS01_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois01Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS01_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS01_NUMERIQUE_03_EN_DUR);
+					
+			/* 46 - mjmNmois02. *******/		
+			/* ajoute le messageSectionHitMjmNmois02Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS02_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois02Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS02_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS02_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois02Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS02_NUMERIQUE_03_EN_DUR);
+							
+			/* 47 - pcNuitNmois02. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois02Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS02_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois02Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS02_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS02_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois02Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS02_NUMERIQUE_03_EN_DUR);
+					
+			/* 48 - mjmNmois03. *******/		
+			/* ajoute le messageSectionHitMjmNmois03Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS03_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS03_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois03Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS03_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS03_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois03Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS03_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS03_NUMERIQUE_03_EN_DUR);
+							
+			/* 49 - pcNuitNmois03. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois03Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS03_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS03_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois03Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS03_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS03_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois03Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS03_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS03_NUMERIQUE_03_EN_DUR);
+					
+			/* 50 - mjmNmois04. *******/		
+			/* ajoute le messageSectionHitMjmNmois04Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS04_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS04_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois04Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS04_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS04_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois04Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS04_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS04_NUMERIQUE_03_EN_DUR);
+							
+			/* 51 - pcNuitNmois04. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois04Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS04_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS04_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois04Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS04_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS04_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois04Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS04_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS04_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 52 - mjmNmois05. *******/		
+			/* ajoute le messageSectionHitMjmNmois05Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS05_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS05_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois05Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS05_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS05_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois05Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS05_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS05_NUMERIQUE_03_EN_DUR);
+							
+			/* 53 - pcNuitNmois05. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois05Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS05_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS05_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois05Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS05_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS05_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois05Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS05_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS05_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 54 - mjmNmois06. *******/		
+			/* ajoute le messageSectionHitMjmNmois06Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS06_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS06_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois06Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS06_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS06_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois06Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS06_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS06_NUMERIQUE_03_EN_DUR);
+							
+			/* 55 - pcNuitNmois06. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois06Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS06_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS06_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois06Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS06_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS06_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois06Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS06_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS06_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 56 - mjmNmois07. *******/		
+			/* ajoute le messageSectionHitMjmNmois07Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS07_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS07_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois07Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS07_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS07_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois07Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS07_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS07_NUMERIQUE_03_EN_DUR);
+							
+			/* 57 - pcNuitNmois07. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois07Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS07_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS07_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois07Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS07_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS07_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois07Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS07_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS07_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 58 - mjmNmois08. *******/		
+			/* ajoute le messageSectionHitMjmNmois08Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS08_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS08_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois08Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS08_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS08_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois08Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS08_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS08_NUMERIQUE_03_EN_DUR);
+							
+			/* 59 - pcNuitNmois08. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois08Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS08_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS08_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois08Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS08_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS08_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois08Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS08_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS08_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 60 - mjmNmois09. *******/		
+			/* ajoute le messageSectionHitMjmNmois09Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS09_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS09_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois09Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS09_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS09_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois09Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS09_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS09_NUMERIQUE_03_EN_DUR);
+							
+			/* 61 - pcNuitNmois09. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois09Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS09_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS09_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois09Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS09_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS09_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois09Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS09_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS09_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 62 - mjmNmois10. *******/		
+			/* ajoute le messageSectionHitMjmNmois10Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS10_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS10_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois10Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS10_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS10_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois10Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS10_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS10_NUMERIQUE_03_EN_DUR);
+							
+			/* 63 - pcNuitNmois10. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois10Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS10_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS10_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois10Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS10_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS10_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois10Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS10_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS10_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 64 - mjmNmois11. *******/		
+			/* ajoute le messageSectionHitMjmNmois11Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS11_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS11_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois11Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS11_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS11_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois11Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS11_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS11_NUMERIQUE_03_EN_DUR);
+							
+			/* 65 - pcNuitNmois11. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois11Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS11_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS11_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois11Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS11_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS11_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois11Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS11_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS11_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 66 - mjmNmois12. *******/		
+			/* ajoute le messageSectionHitMjmNmois12Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS12_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOIS12_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois12Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS12_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOIS12_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmois12Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOIS12_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOIS12_NUMERIQUE_03_EN_DUR);
+							
+			/* 67 - pcNuitNmois12. *******/		
+			/* ajoute le messageSectionHitPcNuitNmois12Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS12_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS12_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois12Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS12_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS12_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmois12Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOIS12_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOIS12_NUMERIQUE_03_EN_DUR);
+					
+			/* 68 - zoneLibre3. *******/		
+			/* ajoute le messageSectionHitZoneLibre3Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ZONELIBRE3_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitZoneLibre3Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02
+					, MESSAGE_SECTIONHIT_ZONELIBRE3_REGEX_02_EN_DUR);
+					
+			/* 69 - anneeNmoins1. *******/		
+			/* ajoute le messageSectionHitAnneeNmoins1Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS1_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ANNEENMOINS1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAnneeNmoins1Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS1_REGEX_02
+					, MESSAGE_SECTIONHIT_ANNEENMOINS1_REGEX_02_EN_DUR);	
+					
+			/* 70 - mjaNmoins1. *******/		
+			/* ajoute le messageSectionHitMjaNmoins1Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS1_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJANMOINS1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins1Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS1_REGEX_02
+					, MESSAGE_SECTIONHIT_MJANMOINS1_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins1Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS1_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJANMOINS1_NUMERIQUE_03_EN_DUR);
+					
+			/* 71 - typeComptageNmoins1. *******/		
+			/* ajoute le messageSectionHitTypeComptageNmoins1Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins1Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_REGEX_02
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins1Nomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS1_NOMENCLATURE_03_EN_DUR);
+					
+			/* 72 - modeCalculNmoins1. *******/		
+			/* ajoute le messageSectionHitModeCalculNmoins1Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitModeCalculNmoins1Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS1_REGEX_02_EN_DUR);
+					
+			/* 73 - pcPLNmoins1. *******/		
+			/* ajoute le messageSectionHitPcPLNmoins1Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCPLNMOINS1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins1Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS1_REGEX_02
+					, MESSAGE_SECTIONHIT_PCPLNMOINS1_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins1Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCPLNMOINS1_NUMERIQUE_03_EN_DUR);
+					
+			/* 74 - evaluationPLNmoins1. *******/		
+			/* ajoute le messageSectionHitEvaluationPLNmoins1Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS1_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitEvaluationPLNmoins1Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS1_REGEX_02
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS1_REGEX_02_EN_DUR);
+					
+			/* 75 - pcNuitAnnuelNmoins1. *******/		
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins1Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins1Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins1Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS1_NUMERIQUE_03_EN_DUR);
+					
+			/* 76 - indiceFiabiliteMjaNmoins1. *******/		
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins1Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS1_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS1_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins1Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS1_REGEX_02
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS1_REGEX_02_EN_DUR);
+					
+			/* 77 - anneeNmoins2. *******/		
+			/* ajoute le messageSectionHitAnneeNmoins2Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ANNEENMOINS2_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAnneeNmoins2Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS2_REGEX_02
+					, MESSAGE_SECTIONHIT_ANNEENMOINS2_REGEX_02_EN_DUR);	
+					
+			/* 78 - mjaNmoins2. *******/		
+			/* ajoute le messageSectionHitMjaNmoins2Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS2_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJANMOINS2_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins2Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS2_REGEX_02
+					, MESSAGE_SECTIONHIT_MJANMOINS2_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins2Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS2_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJANMOINS2_NUMERIQUE_03_EN_DUR);
+					
+			/* 79 - typeComptageNmoins2. *******/		
+			/* ajoute le messageSectionHitTypeComptageNmoins2Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins2Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins2Nomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS2_NOMENCLATURE_03_EN_DUR);
+					
+			/* 80 - modeCalculNmoins2. *******/		
+			/* ajoute le messageSectionHitModeCalculNmoins2Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS2_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitModeCalculNmoins2Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS2_REGEX_02
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS2_REGEX_02_EN_DUR);
+					
+			/* 81 - pcPLNmoins2. *******/		
+			/* ajoute le messageSectionHitPcPLNmoins2Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCPLNMOINS2_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins2Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS2_REGEX_02
+					, MESSAGE_SECTIONHIT_PCPLNMOINS2_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins2Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCPLNMOINS2_NUMERIQUE_03_EN_DUR);
+					
+			/* 82 - evaluationPLNmoins2. *******/		
+			/* ajoute le messageSectionHitEvaluationPLNmoins2Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS2_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitEvaluationPLNmoins2Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS2_REGEX_02_EN_DUR);
+					
+			/* 83 - pcNuitAnnuelNmoins2. *******/		
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins2Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins2Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins2Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS2_NUMERIQUE_03_EN_DUR);
+					
+			/* 84 - indiceFiabiliteMjaNmoins2. *******/		
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins2Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS2_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins2Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS2_REGEX_02_EN_DUR);
+			
+					
+			/* 85 - anneeNmoins3. *******/		
+			/* ajoute le messageSectionHitAnneeNmoins3Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ANNEENMOINS3_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAnneeNmoins3Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS3_REGEX_02
+					, MESSAGE_SECTIONHIT_ANNEENMOINS3_REGEX_02_EN_DUR);	
+					
+			/* 86 - mjaNmoins3. *******/		
+			/* ajoute le messageSectionHitMjaNmoins3Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS3_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJANMOINS3_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins3Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS3_REGEX_02
+					, MESSAGE_SECTIONHIT_MJANMOINS3_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins3Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS3_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJANMOINS3_NUMERIQUE_03_EN_DUR);
+					
+			/* 87 - typeComptageNmoins3. *******/		
+			/* ajoute le messageSectionHitTypeComptageNmoins3Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins3Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins3Nomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS3_NOMENCLATURE_03_EN_DUR);
+					
+			/* 88 - modeCalculNmoins3. *******/		
+			/* ajoute le messageSectionHitModeCalculNmoins3Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS3_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitModeCalculNmoins3Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS3_REGEX_02
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS3_REGEX_02_EN_DUR);
+					
+			/* 89 - pcPLNmoins3. *******/		
+			/* ajoute le messageSectionHitPcPLNmoins3Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCPLNMOINS3_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins3Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS3_REGEX_02
+					, MESSAGE_SECTIONHIT_PCPLNMOINS3_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins3Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCPLNMOINS3_NUMERIQUE_03_EN_DUR);
+					
+			/* 90 - evaluationPLNmoins3. *******/		
+			/* ajoute le messageSectionHitEvaluationPLNmoins3Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS3_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitEvaluationPLNmoins3Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS3_REGEX_02_EN_DUR);
+					
+			/* 91 - pcNuitAnnuelNmoins3. *******/		
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins3Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins3Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins3Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS3_NUMERIQUE_03_EN_DUR);
+					
+			/* 92 - indiceFiabiliteMjaNmoins3. *******/		
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins3Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS3_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins3Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS3_REGEX_02_EN_DUR);
+			
+					
+			/* 93 - anneeNmoins4. *******/		
+			/* ajoute le messageSectionHitAnneeNmoins4Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ANNEENMOINS4_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAnneeNmoins4Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS4_REGEX_02
+					, MESSAGE_SECTIONHIT_ANNEENMOINS4_REGEX_02_EN_DUR);	
+					
+			/* 94 - mjaNmoins4. *******/		
+			/* ajoute le messageSectionHitMjaNmoins4Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS4_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJANMOINS4_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins4Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS4_REGEX_02
+					, MESSAGE_SECTIONHIT_MJANMOINS4_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins4Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS4_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJANMOINS4_NUMERIQUE_03_EN_DUR);
+					
+			/* 95 - typeComptageNmoins4. *******/		
+			/* ajoute le messageSectionHitTypeComptageNmoins4Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins4Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins4Nomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS4_NOMENCLATURE_03_EN_DUR);
+					
+			/* 96 - modeCalculNmoins4. *******/		
+			/* ajoute le messageSectionHitModeCalculNmoins4Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS4_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitModeCalculNmoins4Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS4_REGEX_02
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS4_REGEX_02_EN_DUR);
+					
+			/* 97 - pcPLNmoins4. *******/		
+			/* ajoute le messageSectionHitPcPLNmoins4Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCPLNMOINS4_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins4Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS4_REGEX_02
+					, MESSAGE_SECTIONHIT_PCPLNMOINS4_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins4Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCPLNMOINS4_NUMERIQUE_03_EN_DUR);
+					
+			/* 98 - evaluationPLNmoins4. *******/		
+			/* ajoute le messageSectionHitEvaluationPLNmoins4Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS4_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitEvaluationPLNmoins4Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS4_REGEX_02_EN_DUR);
+					
+			/* 99 - pcNuitAnnuelNmoins4. *******/		
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins4Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins4Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins4Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS4_NUMERIQUE_03_EN_DUR);
+					
+			/* 100 - indiceFiabiliteMjaNmoins4. *******/		
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins4Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS4_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins4Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS4_REGEX_02_EN_DUR);
+			
+					
+			/* 101 - anneeNmoins5. *******/		
+			/* ajoute le messageSectionHitAnneeNmoins5Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ANNEENMOINS5_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitAnneeNmoins5Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ANNEENMOINS5_REGEX_02
+					, MESSAGE_SECTIONHIT_ANNEENMOINS5_REGEX_02_EN_DUR);	
+					
+			/* 102 - mjaNmoins5. *******/		
+			/* ajoute le messageSectionHitMjaNmoins5Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS5_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJANMOINS5_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins5Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS5_REGEX_02
+					, MESSAGE_SECTIONHIT_MJANMOINS5_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjaNmoins5Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJANMOINS5_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJANMOINS5_NUMERIQUE_03_EN_DUR);
+					
+			/* 103 - typeComptageNmoins5. *******/		
+			/* ajoute le messageSectionHitTypeComptageNmoins5Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins5Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02
+					, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitTypeComptageNmoins5Nomenclature03 
+			 * par défaut stocké en dur.*/
+			preferences.setProperty(
+					KEY_MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03
+						, MESSAGE_SECTIONHIT_TYPECOMPTAGENMOINS5_NOMENCLATURE_03_EN_DUR);
+					
+			/* 104 - modeCalculNmoins5. *******/		
+			/* ajoute le messageSectionHitModeCalculNmoins5Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS5_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitModeCalculNmoins5Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MODECALCULNMOINS5_REGEX_02
+					, MESSAGE_SECTIONHIT_MODECALCULNMOINS5_REGEX_02_EN_DUR);
+					
+			/* 105 - pcPLNmoins5. *******/		
+			/* ajoute le messageSectionHitPcPLNmoins5Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCPLNMOINS5_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins5Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS5_REGEX_02
+					, MESSAGE_SECTIONHIT_PCPLNMOINS5_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcPLNmoins5Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCPLNMOINS5_NUMERIQUE_03_EN_DUR);
+					
+			/* 106 - evaluationPLNmoins5. *******/		
+			/* ajoute le messageSectionHitEvaluationPLNmoins5Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS5_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitEvaluationPLNmoins5Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02
+					, MESSAGE_SECTIONHIT_EVALUATIONPLNMOINS5_REGEX_02_EN_DUR);
+					
+			/* 107 - pcNuitAnnuelNmoins5. *******/		
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins5Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins5Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitAnnuelNmoins5Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITANNUELNMOINS5_NUMERIQUE_03_EN_DUR);
+					
+			/* 108 - indiceFiabiliteMjaNmoins5. *******/		
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins5Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitIndiceFiabiliteMjaNmoins5Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02
+					, MESSAGE_SECTIONHIT_INDICEFIABLITEMJANMOINS5_REGEX_02_EN_DUR);
+					
+			/* 109 - mjmNmoins1mois01. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois01Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois01Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois01Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
+							
+			/* 110 - pcNuitNmoins1mois01. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois01Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois01Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois01Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS01_NUMERIQUE_03_EN_DUR);
+					
+			/* 111 - mjmNmoins1mois02. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois02Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois02Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois02Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
+							
+			/* 112 - pcNuitNmoins1mois02. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois02Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois02Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois02Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS02_NUMERIQUE_03_EN_DUR);
+					
+			/* 113 - mjmNmoins1mois03. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois03Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois03Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois03Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
+							
+			/* 114 - pcNuitNmoins1mois03. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois03Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois03Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois03Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS03_NUMERIQUE_03_EN_DUR);
+					
+			/* 115 - mjmNmoins1mois04. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois04Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois04Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois04Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
+							
+			/* 116 - pcNuitNmoins1mois04. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois04Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois04Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois04Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS04_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 117 - mjmNmoins1mois05. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois05Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois05Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois05Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
+							
+			/* 118 - pcNuitNmoins1mois05. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois05Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois05Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois05Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS05_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 119 - mjmNmoins1mois06. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois06Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois06Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois06Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
+							
+			/* 120 - pcNuitNmoins1mois06. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois06Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois06Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois06Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS06_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 121 - mjmNmoins1mois07. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois07Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois07Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois07Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
+							
+			/* 122 - pcNuitNmoins1mois07. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois07Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois07Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois07Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS07_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 123 - mjmNmoins1mois08. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois08Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois08Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois08Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
+							
+			/* 124 - pcNuitNmoins1mois08. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois08Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois08Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois08Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS08_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 125 - mjmNmoins1mois09. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois09Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois09Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois09Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
+							
+			/* 126 - pcNuitNmoins1mois09. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois09Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois09Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois09Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS09_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 127 - mjmNmoins1mois10. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois10Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois10Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois10Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
+							
+			/* 128 - pcNuitNmoins1mois10. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois10Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois10Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois10Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS10_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 129 - mjmNmoins1mois11. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois11Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois11Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois11Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
+							
+			/* 130 - pcNuitNmoins1mois11. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois11Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois11Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois11Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS11_NUMERIQUE_03_EN_DUR);
+			
+					
+			/* 131 - mjmNmoins1mois12. *******/		
+			/* ajoute le messageSectionHitMjmNmoins1mois12Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois12Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitMjmNmoins1mois12Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_MJMNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
+							
+			/* 132 - pcNuitNmoins1mois12. *******/		
+			/* ajoute le messageSectionHitPcNuitNmoins1mois12Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois12Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_REGEX_02_EN_DUR);
+			
+			/* ajoute le messageSectionHitPcNuitNmoins1mois12Numerique03
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03
+					, MESSAGE_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03_EN_DUR);
+					
+			/* 133 - zoneLibre4. *******/		
+			/* ajoute le messageSectionHitZoneLibre4Renseigne01 
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01
+					, MESSAGE_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01_EN_DUR);
+			
+			/* ajoute le messageSectionHitZoneLibre4Regex02
+			* par défaut stocké en dur.*/
+			preferences.setProperty(
+				KEY_MESSAGE_SECTIONHIT_ZONELIBRE4_REGEX_02
+					, MESSAGE_SECTIONHIT_ZONELIBRE4_REGEX_02_EN_DUR);
 		
 		} // Fin du bloc synchronized.__________________
 		
@@ -53622,6 +53686,233 @@ public final class SectionHitGestionnairePreferencesControles {
 		} // Fin du bloc synchronized.__________________
 						
 	} // Fin de setMessageSectionHitPcNuitNmoins1mois12Numerique03(...).___
+
+
+	
+	/* 133 - zoneLibre4. ****************/
+	/**
+	 * retourne le messageSectionHitZoneLibre4Renseigne01 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitZoneLibre4Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitZoneLibre4Renseigne01 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitZoneLibre4Renseigne01() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitZoneLibre4Renseigne01
+					, fournirKeyMessageSectionHitZoneLibre4Renseigne01()
+					, MESSAGE_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01_EN_DUR);
+
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitZoneLibre4Renseigne01().___________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitZoneLibre4Renseigne01 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.zoneLibre4.renseigne".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitZoneLibre4Renseigne01() {
+		return KEY_MESSAGE_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01;
+	} // Fin de fournirKeyMessageSectionHitZoneLibre4Renseigne01().________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitZoneLibre4Renseigne01 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitZoneLibre4Renseigne01 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitZoneLibre4Renseigne01 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitZoneLibre4Renseigne01() 
+											throws Exception {
+		return fournirMessageSectionHitZoneLibre4Renseigne01();
+	} // Fin de getMessageSectionHitZoneLibre4Renseigne01()._______________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitZoneLibre4Renseigne01 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitZoneLibre4Renseigne01.<br/>
+	* 
+	* @throws Exception 
+	*/
+	public static void setMessageSectionHitZoneLibre4Renseigne01(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitZoneLibre4Renseigne01
+							, fournirKeyMessageSectionHitZoneLibre4Renseigne01());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitZoneLibre4Renseigne01(...).____________
+
+
+
+	/**
+	 * retourne le messageSectionHitZoneLibre4Regex02 
+	 * par défaut de l'application.<br/>
+	 * <ul>
+	 * <li>lit le messageSectionHitZoneLibre4Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return : String : messageSectionHitZoneLibre4Regex02 
+	 * dans les préférences.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	private static String fournirMessageSectionHitZoneLibre4Regex02() 
+			throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			return fournirAttribut(
+					messageSectionHitZoneLibre4Regex02
+					, fournirKeyMessageSectionHitZoneLibre4Regex02()
+					, MESSAGE_SECTIONHIT_ZONELIBRE4_REGEX_02_EN_DUR);
+			
+		} // Fin du bloc synchronized.__________________
+		
+	} // Fin de fournirMessageSectionHitZoneLibre4Regex02()._______________
+	
+
+	
+	/**
+	 * Getter de la clé du messageSectionHitZoneLibre4Regex02 
+	 * par défaut de l'application 
+	 * dans SectionHit_CONTROLES.properties.<br/>
+	 * "message.SectionHit.zoneLibre4.regex".<br/>
+	 *
+	 * @return KEY_MESSAGE_SECTIONHIT_ZONELIBRE4_REGEX_02 : String.<br/>
+	 */
+	public static String fournirKeyMessageSectionHitZoneLibre4Regex02() {
+		return KEY_MESSAGE_SECTIONHIT_ZONELIBRE4_REGEX_02;
+	} // Fin de fournirKeyMessageSectionHitZoneLibre4Regex02().____________
+
+
+
+	/**
+	 * Getter du <b>SINGLETON de messageSectionHitZoneLibre4Regex02 
+	 * par défaut dans l'application</b>.
+	 * <ul>
+	 * <li>lit le messageSectionHitZoneLibre4Regex02 stocké 
+	 * dans SectionHit_CONTROLES.properties 
+	 * si il n'est pas null.</li>
+	 * <li>valeur stockée en dur dans la classe sinon.</li>
+	 * </ul>
+	 * - retourne la valeur stockée en dur dans la classe
+	 * si le properties ne peut être lu 
+	 * (trace EX_TEC_INITIALISATION_08).<br/>
+	 * <br/>
+	 *
+	 * @return messageSectionHitZoneLibre4Regex02 : String.<br/>
+	 * 
+	 * @throws Exception 
+	 */
+	public static String getMessageSectionHitZoneLibre4Regex02() 
+													throws Exception {
+		return fournirMessageSectionHitZoneLibre4Regex02();
+	} // Fin de getMessageSectionHitZoneLibre4Regex02().___________________
+	
+
+	
+	/**
+	* Setter du <b>SINGLETON de messageSectionHitZoneLibre4Regex02 
+	* par défaut dans l'application</b>.<br/>
+	* <b>Enregistre la valeur sur disque</b>.<br/>
+	* <ul>
+	* <li>crée le Properties preferences et le fichier 
+	* SectionHit_CONTROLES.properties et les remplit avec des valeurs 
+	* en dur si nécessaire.</li>
+	* <li>modifie preferences avec la nouvelle valeur 
+	* passée dans le setter.</li>
+	* <li>ré-écrit entièrement le fichier SectionHit_CONTROLES.properties 
+	* mis à jour.</li>
+	* <li>trace EX_TEC_PARAMETRAGE_04.</li>
+	* </ul>
+	* - ne fait rien si le paramètre est null 
+	* ou ne modifie pas la valeur existante.<br/>
+	* <br/>
+	*
+	* @param pValue : String : 
+	* valeur à passer à messageSectionHitZoneLibre4Regex02.<br/>
+	* 
+	 * @throws Exception 
+	*/
+	public static void setMessageSectionHitZoneLibre4Regex02(
+			final String pValue) throws Exception {
+		
+		synchronized (SectionHitGestionnairePreferencesControles.class) {
+			
+			setterAttribut(
+					pValue
+						, messageSectionHitZoneLibre4Regex02
+							, fournirKeyMessageSectionHitZoneLibre4Regex02());
+			
+		} // Fin du bloc synchronized.__________________
+						
+	} // Fin de setMessageSectionHitZoneLibre4Regex02(...).________________
 
 			
 			

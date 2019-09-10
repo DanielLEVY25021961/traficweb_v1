@@ -15470,6 +15470,108 @@ public class SectionHitValideurServiceTest {
 		
 	} // Fin de testValiderPcNuitNmoins1mois12()._______________________________________
 
+	
+
+	/* 133 - zoneLibre4. **************/
+	/**
+	 * teste la validation de l'attribut <code><b>zoneLibre4</b></code> 
+	 * dans validerZoneLibre4(ISectionHitDTO, String, ErreursMaps).<br/>
+	 * <ul>
+	 * <li>garantit que l'interrupteur général attribut fonctionne.</li>
+	 * <li>garantit que le SERVICE rafraichit les messages à chaque appel.</li>
+	 * <li>garantit que la RG NON RENSEIGNE fonctionne.</li>
+	 * <li>garantit que la RG REGEX fonctionne.</li>
+	 * </ul>
+	 * 
+	 * @throws Exception 
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testValiderZoneLibre4() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE SectionHitValideurServiceTest - méthode testValiderZoneLibre4() ********** ");
+		}
+		
+		/* active toutes les RG. */
+		//  this.activerToutesRG();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		/* affiche les préférences. */
+		// this.afficherPreferences(affichage);
+		
+		ErreursMaps erreurMaps = null;
+
+		//*********************************
+		/* TEST DU NON RENSEIGNE ***** */
+		dto.setZoneLibre4("");
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* zoneLibre4 non renseigne *******");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG NON RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU MAL RENSEIGNE ***** */
+		final String valeurMalRenseigne = "                                  A";
+		dto.setZoneLibre4(valeurMalRenseigne);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* zoneLibre4 mal renseigne avec '" + valeurMalRenseigne + "'  **********");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que la RG MAL RENSEIGNE fonctionne. */
+		assertFalse("ErrorsMap ne doit pas être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertFalse("ErrorsMapDetaille ne doit pas être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+
+		//*********************************
+		/* TEST DU BIEN RENSEIGNE. ********* */
+		final String valeur = "                                   ";
+		dto.setZoneLibre4(valeur);
+		
+		// VALIDATION PAR LE SERVICE.
+		erreurMaps = SERVICE.valider(dto);
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("******* zoneLibre4 renseigne avec '" + valeur + "' ***************");
+			System.out.println("ErrorsMap : \n" + erreurMaps.afficherErrorsMap());
+			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
+		}
+		
+		/* garantit que le SERVICE rafraichit les messages à chaque appel. */
+		assertTrue("ErrorsMap doit être vide : "
+				, erreurMaps.getErrorsMap().isEmpty());
+		assertTrue("ErrorsMapDetaille doit être vide : "
+				, erreurMaps.getErrorsMapDetaille().isEmpty());
+		
+	} // Fin de testValiderZoneLibre4().___________________________________
+
 
 	
 	/**
@@ -15483,7 +15585,7 @@ public class SectionHitValideurServiceTest {
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -15512,6 +15614,9 @@ public class SectionHitValideurServiceTest {
 			System.out.println("ErrorsMapDetaille : \n" + erreurMaps.afficherErrorsMapDetaille());
 			System.out.println("durée 1er appel : " + (topIntermediaire - topDepart) + " ms");
 			System.out.println("durée 2ème appel : " + (topFinal - topIntermediaire) + " ms");
+			System.out.println();
+			System.out.println("section valide ? : " + erreurMaps.isValide());
+			System.out.println("section admissible ? : " + erreurMaps.isAdmissible());
 		}
 
 	} // Fin de testValiderDTO().__________________________________________
@@ -16271,6 +16376,11 @@ public class SectionHitValideurServiceTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Renseigne01(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Regex02(true);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12Numerique03(true);
+		
+		/* 133 - zoneLibre4. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre4(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre4Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre4Regex02(true);
 
 	} // Fin de activerToutesRG()._________________________________________
 	

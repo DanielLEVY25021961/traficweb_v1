@@ -4025,6 +4025,30 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 	public static final String RG_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03 
 		= "RG_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03 : "
 				+ "le pourcentage de trafic de nuit tous véhicules mensuel du mois de décembre (12) de l'année n-1 doit être homogène à un entier";
+
+	/* 133 - zoneLibre4. *******/
+	/**
+	 * "zoneLibre4".<br/>
+	 */
+	public static final String ATTRIBUT_ZONELIBRE4 
+		= "zoneLibre4";
+
+	/**
+	 * "RG_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01 : 
+	 * la zone libre de la section HIT doit être renseignée".
+	 */
+	public static final String RG_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01 
+		= "RG_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01 : "
+				+ "la zone libre de la section HIT "
+				+ DOIT_ETRE_RENSEIGNEE;
+
+	/**
+	 * "RG_SECTIONHIT_ZONELIBRE4_REGEX_02 : 
+	 * la zone libre (4) de la section HIT doit comporter exactement 35 espaces".
+	 */
+	public static final String RG_SECTIONHIT_ZONELIBRE4_REGEX_02 
+		= "RG_SECTIONHIT_ZONELIBRE4_REGEX_02 : "
+				+ "la zone libre (4) de la section HIT doit comporter exactement 35 espaces";
 	
 	/**
 	 * LOG : Log : 
@@ -9238,6 +9262,35 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 				, getPathAbsoluPropertiesRGString()
 				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitPcNuitNmoins1mois12Numerique03());
 		
+		/* 133 - zoneLibre4. *******/
+		/* RG_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01. */
+		final LigneRG ligneRGSectionHitZoneLibre4Renseigne01 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre4Renseigne01()
+				, RG_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01
+				, EnumTypesValidation.RENSEIGNE.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitZoneLibre4Renseigne01()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ZONELIBRE4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitZoneLibre4Renseigne01()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitZoneLibre4Renseigne01());
+		
+		/* RG_SECTIONHIT_ZONELIBRE4_REGEX_02. */
+		final LigneRG ligneRGSectionHitZoneLibre4Regex02 
+		= new LigneRG(SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre4()
+				, SectionHitGestionnairePreferencesRG.getValiderRGSectionHitZoneLibre4Regex02()
+				, RG_SECTIONHIT_ZONELIBRE4_REGEX_02
+				, EnumTypesValidation.MOTIF.getNumero()
+				, SectionHitGestionnairePreferencesControles.getMessageSectionHitZoneLibre4Regex02()
+				, NOM_OBJETMETIER
+				, ATTRIBUT_ZONELIBRE4
+				, CLASSE_CONTROLE
+				, "validerRGSectionHitZoneLibre4Regex02()"
+				, getPathAbsoluPropertiesRGString()
+				, SectionHitGestionnairePreferencesRG.fournirKeyValiderRGSectionHitZoneLibre4Regex02());
+		
 		
 		// *********************************************
 		// REMPLISSAGE DE LA MAP. **********************
@@ -10587,6 +10640,14 @@ public class SectionHitGestionnaireRG extends AbstractGestionnaireRG {
 		this.mapRG.put(
 		RG_SECTIONHIT_PCNUITNMOINS1MOIS12_NUMERIQUE_03
 			, ligneRGSectionHitPcNuitNmoins1mois12Numerique03);				
+				
+		/* 133 - zoneLibre4. *******/
+		this.mapRG.put(
+				RG_SECTIONHIT_ZONELIBRE4_RENSEIGNE_01
+					, ligneRGSectionHitZoneLibre4Renseigne01);
+		this.mapRG.put(
+				RG_SECTIONHIT_ZONELIBRE4_REGEX_02
+					, ligneRGSectionHitZoneLibre4Regex02);
 
 		return this.mapRG;
 					
