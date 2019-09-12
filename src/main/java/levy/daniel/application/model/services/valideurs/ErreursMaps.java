@@ -1,11 +1,11 @@
 package levy.daniel.application.model.services.valideurs;
 
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -110,7 +110,7 @@ public class ErreursMaps {
 	 * </ul>
 	 */
 	private Map<String, String> errorsMap 
-		= new ConcurrentHashMap<String, String>();
+		= new LinkedHashMap<String, String>();
 	
 	/**
 	 * Map&lt;String,List&lt;String&gt;&gt;  
@@ -124,7 +124,7 @@ public class ErreursMaps {
 	 * </ul>
 	 */
 	private Map<String, List<String>> errorsMapDetaille 
-		= new ConcurrentHashMap<String, List<String>>();
+		= new LinkedHashMap<String, List<String>>();
 	
 	/**
 	 * LOG : Log : 

@@ -5,6 +5,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -202,15 +203,21 @@ public class SectionHitImportLotTest {
 			final ErreursMaps erreurMaps = SERVICE.valider(dtoLocal);
 			final long topFinalValiderDTO = System.currentTimeMillis();
 			
-			final Map<String, String> mapConcatenee = erreurMaps.getErrorsMap();
+			final Map<String, List<String>> mapDetaillee = erreurMaps.getErrorsMapDetaille();
 			
 			System.out.println("******** ligne " + numeroLigne + " - durée de la validation du DTO : " + (topFinalValiderDTO - topDepartValiderDTO) + " ms");
 			System.out.println("******** ligne " + numeroLigne + " - VALIDE ? : " + erreurMaps.isValide());
 			System.out.println("******** ligne " + numeroLigne + " - ADMISSIBLE ? : " + erreurMaps.isAdmissible());
 			
-			for (final Entry<String, String> entryLocal : mapConcatenee.entrySet()) {
+			for (final Entry<String, List<String>> entryLocal : mapDetaillee.entrySet()) {
 				
-				System.out.println("ligne " + numeroLigne + ";" + entryLocal.getKey() + ";" + entryLocal.getValue() + ";");
+				final String attribut = entryLocal.getKey();
+				final List<String> listeMessages = entryLocal.getValue();
+				
+				for (final String message : listeMessages) {
+					System.out.println("ligne " + numeroLigne + ";" + attribut + ";" + message + ";");
+				}
+				
 			}
 		}
 		
@@ -1751,6 +1758,76 @@ public class SectionHitImportLotTest {
 	 */
 	private static void desactiverIntelligentRG() throws Exception {
 		
+		/* 1 - numDepartement. ***************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRegex02(true);
+		
+		/* 2 - numSection. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSection(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRegex02(true);
+		
+		/* 3 - sens. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSens(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensNomenclature03(true);
+		
+		/* 4 - nature. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNature(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNatureNomenclature03(true);
+		
+		/* 5 - classe. *******************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasse(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseRegex02(true);
+		
+		/* 6 - anneeTraitement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeTraitement(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeTraitementRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitAnneeTraitementRegex02(true);
+		
+		/* 7 - zoneLibre1. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre1(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre1Renseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitZoneLibre1Regex02(true);
+		
+		/* 8 - numRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumRouteRegex02(true);
+		
+		/* 9 - indiceNumRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceNumRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceNumRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceNumRouteRegex02(true);
+		
+		/* 10 - indiceLettreRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceLettreRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceLettreRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceLettreRouteRegex02(true);
+		
+		/* 11 - categorieAdminRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRouteRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitCategorieAdminRouteNomenclature03(true);
+		
+		/* 12 - typeComptage. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptage(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeComptageNomenclature03(true);
+		
+		/* 13 - classementRoute. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRoute(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRouteRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRouteRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClassementRouteNomenclature03(true);
+		
 		/* 14 - classeLargeurChausseeU. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeU(false);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseeURenseigne01(false);
@@ -1762,6 +1839,12 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesSRenseigne01(false);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesSRegex02(false);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitClasseLargeurChausseesSNomenclature03(false);
+		
+		/* 16 - typeReseau. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseau(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseauRenseigne01(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseauRegex02(true);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitTypeReseauNomenclature03(true);
 		
 		/* 17 - pRoupK. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPRoupK(false);
@@ -1775,38 +1858,38 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagneRegex02(false);
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitLongueurRaseCampagneNumerique03(false);
 		
-//		/* 29 - numDepartementRattachement. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachement(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachementRenseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachementRegex02(false);
-//		
-//		/* 30 - numSectionRattachement. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachement(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachementRenseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachementRegex02(false);
-//		
-//		/* 31 - sensRattachement. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachement(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementRenseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementRegex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementNomenclature03(false);
-//		
-//		/* 32 - numDepartementLimitrophe. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitrophe(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitropheRenseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitropheRegex02(false);
-//		
-//		/* 33 - numSectionLimitrophe. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitrophe(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitropheRenseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitropheRegex02(false);
-//		
-//		/* 34 - sensLimitrophe. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitrophe(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheRenseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheRegex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheNomenclature03(false);
-//		
+		/* 29 - numDepartementRattachement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementRattachementRegex02(false);
+		
+		/* 30 - numSectionRattachement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionRattachementRegex02(false);
+		
+		/* 31 - sensRattachement. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachement(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensRattachementNomenclature03(false);
+		
+		/* 32 - numDepartementLimitrophe. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitrophe(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitropheRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumDepartementLimitropheRegex02(false);
+		
+		/* 33 - numSectionLimitrophe. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitrophe(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitropheRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitNumSectionLimitropheRegex02(false);
+		
+		/* 34 - sensLimitrophe. **************/
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitrophe(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheRenseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheRegex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitSensLimitropheNomenclature03(false);
+		
 //		/* 35 - moisSectionnement. **************/
 //		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMoisSectionnement(false);
 //		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMoisSectionnementRenseigne01(false);
@@ -2228,10 +2311,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitIndiceFiabiliteMjaNmoins5Regex02(false);
 		
 		/* 109 - mjmNmoins1mois01. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois01Numerique03(false);
 		
 		/* 110 - pcNuitNmoins1mois01. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01(false);
@@ -2240,10 +2323,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois01Numerique03(false);
 		
 		/* 111 - mjmNmoins1mois02. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois02Numerique03(false);
 		
 		/* 112 - pcNuitNmoins1mois02. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02(false);
@@ -2252,10 +2335,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois02Numerique03(false);
 		
 		/* 113 - mjmNmoins1mois03. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois03Numerique03(false);
 		
 		/* 114 - pcNuitNmoins1mois03. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03(false);
@@ -2264,10 +2347,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois03Numerique03(false);
 		
 		/* 115 - mjmNmoins1mois04. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois04Numerique03(false);
 		
 		/* 116 - pcNuitNmoins1mois04. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04(false);
@@ -2276,10 +2359,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois04Numerique03(false);
 		
 		/* 117 - mjmNmoins1mois05. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois05Numerique03(false);
 		
 		/* 118 - pcNuitNmoins1mois05. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05(false);
@@ -2288,10 +2371,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois05Numerique03(false);
 		
 		/* 119 - mjmNmoins1mois06. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois06Numerique03(false);
 		
 		/* 120 - pcNuitNmoins1mois06. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06(false);
@@ -2300,10 +2383,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois06Numerique03(false);
 		
 		/* 121 - mjmNmoins1mois07. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois07Numerique03(false);
 		
 		/* 122 - pcNuitNmoins1mois07. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07(false);
@@ -2312,10 +2395,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois07Numerique03(false);
 		
 		/* 123 - mjmNmoins1mois08. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois08Numerique03(false);
 		
 		/* 124 - pcNuitNmoins1mois08. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08(false);
@@ -2324,10 +2407,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois08Numerique03(false);
 		
 		/* 125 - mjmNmoins1mois09. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois09Numerique03(false);
 		
 		/* 126 - pcNuitNmoins1mois09. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09(false);
@@ -2336,10 +2419,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois09Numerique03(false);
 		
 		/* 127 - mjmNmoins1mois10. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois10Numerique03(false);
 		
 		/* 128 - pcNuitNmoins1mois10. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10(false);
@@ -2348,10 +2431,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois10Numerique03(false);
 		
 		/* 129 - mjmNmoins1mois11. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois11Numerique03(false);
 		
 		/* 130 - pcNuitNmoins1mois11. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11(false);
@@ -2360,10 +2443,10 @@ public class SectionHitImportLotTest {
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois11Numerique03(false);
 		
 		/* 131 - mjmNmoins1mois12. **************/
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Renseigne01(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Regex02(false);
-//		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Numerique03(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Renseigne01(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Regex02(false);
+		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitMjmNmoins1mois12Numerique03(false);
 		
 		/* 132 - pcNuitNmoins1mois12. **************/
 		SectionHitGestionnairePreferencesRG.setValiderRGSectionHitPcNuitNmoins1mois12(false);

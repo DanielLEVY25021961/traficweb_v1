@@ -1510,7 +1510,9 @@ public abstract class AbstractImportateurDescription implements
 				= pDesc.toString() 
 				+ SEPARATEUR_MOINS_AERE
 				+ this.getNomClasse() 
+				+ SEPARATEUR_MOINS_AERE
 				+ METHODE_IMPORTERDESCRIPTION
+				+ SEPARATEUR_MOINS_AERE
 				+ messageMauvaisNomChamp 
 				+ nomChampJava;
 
