@@ -327,19 +327,19 @@ public class SectionHitCorrecteurTabulationService {
 			
 			ligne = StringUtils.replaceOnce(ligne, debutLigne, debutLigneAugmente);
 			
-//			final String finLigne = StringUtils.substring(ligne, debutChampSuivant - 1, ligne.length());
-//			
-//			System.out.println();
-//			System.out.println("FIN ligne : " + finLigne);
-//			System.out.println("longueur de FIN ligne : " + finLigne.length());
-//			
-//			ligne = debutLigne + espacesDeRemplacement + finLigne;
+			final String finLigne = StringUtils.substring(ligne, positionFinTab, ligne.length());
 			
 			System.out.println();
-			System.out.println("ligne reconstituee : " + ligne);
-			System.out.println("longueur de ligne reconstituee : " + ligne.length());
+			System.out.println("FIN ligne : " + finLigne);
+			System.out.println("longueur de FIN ligne : " + finLigne.length());
 			
-			matcherTabulation.reset();
+			ligne = debutLigneAugmente + finLigne;
+			
+			System.out.println();
+			System.out.println("********** ligne reconstituee : " + ligne);
+			System.out.println("********** longueur de ligne reconstituee : " + ligne.length());
+			
+//			matcherTabulation.reset();
 			
 			return supprimerTabulation(pCompteur, ligne);
 
