@@ -99,6 +99,17 @@ public class SectionHitCorrecteurTabulationService {
 	 */
 	public static final Pattern PATTERN_TABULATION 
 		= Pattern.compile(MOTIF_TABULATION);
+	
+	/**
+	 * "\\s*\\t{1}\\s*".
+	 */
+	public static final  String MOTIF_TABULATION_ESPACE = "\\s*\\t{1}\\s*";
+		
+	/**
+	 * Pattern.compile(MOTIF_TABULATION_ESPACE).
+	 */
+	public static final Pattern PATTERN_TABULATION_ESPACE 
+		= Pattern.compile(MOTIF_TABULATION_ESPACE);
 
 	/**
 	 * LOG : Log : 
@@ -242,7 +253,7 @@ public class SectionHitCorrecteurTabulationService {
 					LocaleManager.getLocaleParDefautApplication()
 					, "******ligne %1$-7d - longueur : %2$-3d", compteur, ligne.length()));
 						
-			final String ligneEpureeDesTabs = supprimerTabulation(compteur, ligne);
+			final String ligneEpureeDesTabs = supprimerTabulation(compteur, ligne, 0);
 			
 			System.out.println(ligneEpureeDesTabs);
 			System.out.println("longueur de la ligne épurée : " + ligneEpureeDesTabs.length());
@@ -259,22 +270,30 @@ public class SectionHitCorrecteurTabulationService {
 	 * @param pCompteur 
 	 *
 	 * @param pLigne
+	 * @param pCompteurMatches 
 	 * @return : String :  .<br/>
 	 * @throws Exception 
 	 */
-	public static String supprimerTabulation(final int pCompteur, final String pLigne) throws Exception {
+	public static String supprimerTabulation(final int pCompteur, final String pLigne, int pCompteurMatches) throws Exception {
 		
-		final Matcher matcherTabulation = PATTERN_TABULATION.matcher(pLigne);
+		final Matcher matcherTabulationEspace 
+			= PATTERN_TABULATION_ESPACE.matcher(pLigne);
 		
 		System.out.println();
+		System.out.println("***********************************************************************************");
 		System.out.println("pLigne : " + pLigne);
 		System.out.println("LONGUEUR de pLigne : " + pLigne.length());
+		System.out.println("***********************************************************************************");
+		System.out.println();
 		
-		if (matcherTabulation.find()) {
+		int compteurMatches = 0;
+		
+		if (matcherTabulationEspace.find()) {
 			
-			final String tabulationString = matcherTabulation.group();
-			final int positionDebutTab = matcherTabulation.start() + 1;
-			final int positionFinTab = matcherTabulation.end() + 1;
+			pCompteurMatches++;
+			
+			final int positionDebutTab = matcherTabulationEspace.start() + 1;
+			final int positionFinTab = matcherTabulationEspace.end() + 1;
 				
 			String nomChamp = "";
 			int debutChamp = 0;
@@ -290,26 +309,20 @@ public class SectionHitCorrecteurTabulationService {
 				return null;
 			}
 			
-			final DescriptionChampHit descHitSuivant 
-				= fournirDescChampSuivant(descHit);
-			
-			if (descHitSuivant == null) {
-				return null;
-			}
-
 			nomChamp = descHit.getNomChampJava();
 			debutChamp = descHit.getColonneDebut();
 			finChamp = descHit.getColonneFin();
 			longueurChamp = descHit.getLongueur();
 			
-			debutChampSuivant = descHitSuivant.getColonneDebut();
-						
 			String ligne = pLigne;
 
+			System.out.println("OCCURENCE : " + pCompteurMatches);
 			System.out.println("ligne " + pCompteur + " - position début tabulation : " + positionDebutTab + " - position fin tabulation : " + positionFinTab + " - nom du champ : " + nomChamp + " - début du champ : " + debutChamp + " - fin du champ : " + finChamp + " - longueur du champ : " + longueurChamp);
 			System.out.println("longueur de ligne : " + ligne.length());
 			
-			final String debutLigne = StringUtils.substring(ligne, 0, debutChamp - 1);
+			// ************************************************************************
+			final String debutLigne = StringUtils.substring(ligne, 0, matcherTabulationEspace.start());
+			// ************************************************************************
 			
 			System.out.println();
 			System.out.println("DEBUT ligne : " + debutLigne);
@@ -325,9 +338,10 @@ public class SectionHitCorrecteurTabulationService {
 			System.out.println("DEBUT ligne AUGMENTE : " + debutLigneAugmente);
 			System.out.println("longueur de DEBUT ligne AUGMENTE : " + debutLigneAugmente.length());
 			
-			ligne = StringUtils.replaceOnce(ligne, debutLigne, debutLigneAugmente);
-			
-			final String finLigne = StringUtils.substring(ligne, positionFinTab, ligne.length());
+
+			// ************************************************************************
+			final String finLigne = StringUtils.substring(ligne, matcherTabulationEspace.end());
+			// ************************************************************************
 			
 			System.out.println();
 			System.out.println("FIN ligne : " + finLigne);
@@ -339,9 +353,9 @@ public class SectionHitCorrecteurTabulationService {
 			System.out.println("********** ligne reconstituee : " + ligne);
 			System.out.println("********** longueur de ligne reconstituee : " + ligne.length());
 			
-//			matcherTabulation.reset();
+//			matcherTabulationEspace.reset();
 			
-			return supprimerTabulation(pCompteur, ligne);
+			return supprimerTabulation(pCompteur, ligne, pCompteurMatches);
 
 		}
 			
@@ -459,6 +473,39 @@ public class SectionHitCorrecteurTabulationService {
 	
 	
 	/**
+	 * .<br/>
+	 *
+	 * @param pEntree : void :  .<br/>
+	 */
+	public static void trouverTabEspaces(final String pEntree) {
+
+		final Pattern patternTabEspaces = Pattern.compile("\\s*\\t{1}\\s*");
+		final Matcher matcher = patternTabEspaces.matcher(pEntree);
+
+		int compteur = 0;
+		
+		while (matcher.find()) {
+			
+			compteur ++;
+			
+			System.out.println();
+			System.out.println("****************************************************");
+			System.out.println("occurence : " + compteur);
+			System.out.println("début String : " + pEntree.substring(0, matcher.start()));
+//			System.out.println(pEntree.substring(matcher.start(), matcher.end()));
+			System.out.println("début tab espace (0-based) : " + matcher.start());
+			System.out.println("fin tab espace (0-based) : " + matcher.end());
+			System.out.println("longueur tab espacé : " + (matcher.end() - matcher.start()));
+			System.out.println("fin String : " + pEntree.substring(matcher.end()));
+			System.out.println("****************************************************");
+			
+		}
+
+	}
+
+	
+	
+	/**
 	 * Point d'entrée de l'application.<br/>
 	 *
 	 * @param pArgs : String[].<br/>
@@ -469,7 +516,8 @@ public class SectionHitCorrecteurTabulationService {
 		
 //		supprimerTabulations();
 		final String ligne62 ="330504601310017 02300 411 601ECH.25              0400703A 10                0440507S47 EXTER ET INTER  0440013003800003800          000       0290      123374 1407    114879	119300	 123949	  126142   125648   126199   135383   135208   127209	125708	 109008	  111569               171232491 1407    161237781 1367    151204371 1377    140000001         130000001         113791   119552   120745   125771   123307   125866   133235   131262   125333   123944   119420   116762                                      ";
-		supprimerTabulation(62, ligne62);
+		supprimerTabulation(62, ligne62, 0);
+		
 	} // Fin de main(...)._________________________________________________
 
 	
