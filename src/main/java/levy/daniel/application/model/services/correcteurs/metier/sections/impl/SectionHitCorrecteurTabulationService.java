@@ -293,7 +293,11 @@ public class SectionHitCorrecteurTabulationService {
 			pCompteurMatches++;
 			
 			final int positionDebutTab = matcherTabulationEspace.start() + 1;
-			final int positionFinTab = matcherTabulationEspace.end() + 1;
+			final int positionFinTab = matcherTabulationEspace.end();
+			
+			System.out.println("OCCURENCE : " + pCompteurMatches);
+			System.out.println("ligne " + pCompteur + " - position début tabulation : " + positionDebutTab + " - position fin tabulation : " + positionFinTab);
+			System.out.println("longueur de ligne : " + pLigne.length());
 				
 			String nomChamp = "";
 			int debutChamp = 0;
