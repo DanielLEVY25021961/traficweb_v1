@@ -1,5 +1,7 @@
 package levy.daniel.application.model.services.traiteursfichiers.renommeursfichiers;
 
+import java.io.File;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -39,8 +41,15 @@ public class RenommeurFichierHitService {
 
 	// *************************METHODES************************************/
 	
-	File traiterFichier(ITeleversement pTeleversement) {
-		
+	/**
+	 * .<br/>
+	 *
+	 * @param pTeleversement
+	 * @return : File :  .<br/>
+	 */
+	public File traiterFichier(ITeleversement pTeleversement) {
+		/**/
+		return null;
 	}
 	
 } // FIN DE LA CLASSE RenommeurFichierHitService.----------------------------
