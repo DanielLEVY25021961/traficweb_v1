@@ -1,0 +1,3 @@
+ï»¿Cette ligne1 est encod‚e en OEM 850 dans un fichier OEM 850 … poˆle alŠse no‰l.  95 caractŠres.
+Cette ligne2 est encod‚e en OEM 850 dans un fichier OEM 850 … poˆle alŠse no‰l.  95 caractŠres.
+Cette ligne3 est encod‚e en OEM 850 dans un fichier OEM 850 … poˆle alŠse no‰l.  95 caractŠres.

@@ -1,0 +1,3 @@
+Cette ligne1 est encodée en ISO 8859-15 dans un fichier ISO 8859-15 à poêle alèse noël.  104 caractères.
+Cette ligne2 est encodée en ISO 8859-15 dans un fichier ISO 8859-15 à poêle alèse noël.  104 caractères.
+Cette ligne3 est encodée en ISO 8859-15 dans un fichier ISO 8859-15 à poêle alèse noël.  104 caractères.

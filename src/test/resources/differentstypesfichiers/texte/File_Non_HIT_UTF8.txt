@@ -1,0 +1,3 @@
+Ce fichier a été encodé en UTF-8 directement dans Eclipse.
+Ce n'est pas un HIT.
+En effet, il ne comporte pas uniquement des lignes de 520 caractères.

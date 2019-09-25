@@ -1,0 +1,3 @@
+﻿Cette ligne1 est encodée en UTF8 dans un fichier UTF-8 à poêle alèse noël. 89 caractères.
+Cette ligne2 est encodée en UTF8 dans un fichier UTF-8 à poêle alèse noël. 89 caractères.
+Cette ligne3 est encodée en UTF8 dans un fichier UTF-8 à poêle alèse noël. 89 caractères.

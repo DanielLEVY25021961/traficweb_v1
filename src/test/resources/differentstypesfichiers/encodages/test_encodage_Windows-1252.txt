@@ -1,0 +1,3 @@
+Cette ligne1 est encodée en Windows-1252 dans un fichier Windows-1252 à poêle alèse noël. 105 caractères.
+Cette ligne2 est encodée en Windows-1252 dans un fichier Windows-1252 à poêle alèse noël. 105 caractères.
+Cette ligne3 est encodée en Windows-1252 dans un fichier Windows-1252 à poêle alèse noël. 105 caractères.

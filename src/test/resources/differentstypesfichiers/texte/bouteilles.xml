@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- APPEL DE LA FEUILLE DE STYLE POUR LA TRANSFORMATION XSLT avec un chemin RELATIF par rapport au présent document XML -->
+<!-- Instruction de traitement -->
+<?xml-stylesheet type="text/xsl" href="..\Transformations_xslt_exemples\bouteilles_transformation.xslt"?>
+<!-- SCHEMA (Grammaire) -->
+<!-- xsi:noNamespaceSchemaLocation="../schemas_xml_exemples/bouteilles_schema.xsd" permet d'indiquer le chemin RELATIF du schéma par rapport au présent document XML -->
+<bouteilles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schemas_xml_exemples/bouteilles_schema.xsd">
+	<bouteille>
+		<marque>Cristaline</marque>
+		<composition>
+			<ion_positif>calcium 71mg/l</ion_positif>
+			<ion_negatif>nitrate 1mg/l</ion_negatif>
+			<ion_positif>magnésium 5,5mg/l</ion_positif>
+			<ion_negatif>chlorure 20mg/l</ion_negatif>
+			<autres_materiaux>fer</autres_materiaux>
+		</composition>
+		<source>
+			<ville>St-Cyr la Source</ville>
+			<departement>Loiret</departement>
+		</source>
+		<code_barre>3274080005003</code_barre>
+		<contenance>150cl</contenance>
+		<ph>7,45</ph>
+	</bouteille>
+	<bouteille>
+		<marque>Vichy Saint-Yorre</marque>
+		<composition>
+			<ion_positif>calcium 91mg/l</ion_positif>
+			<ion_positif>sodium 110mg/l</ion_positif>
+			<ion_negatif>nitrate 1mg/l</ion_negatif>
+			<ion_positif>magnésium 5,5mg/l</ion_positif>
+			<ion_negatif>chlorure 20mg/l</ion_negatif>
+			<autres_materiaux>fer</autres_materiaux>
+		</composition>
+		<source>
+			<ville>Vichy</ville>
+			<departement>Allier</departement>
+		</source>
+		<code_barre>3274080005007</code_barre>
+		<contenance>125cl</contenance>
+		<ph>7,45</ph>
+	</bouteille>
+</bouteilles>

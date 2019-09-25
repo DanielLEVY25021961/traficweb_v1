@@ -1,0 +1,5 @@
+﻿Cette ligne1 est encodée en UTF8 dans un fichier UTF-8 à poêle alèse noël. 89 caractères.
+Cette ligne1 est encodée en ANSI dans un fichier ANSI à poêle alèse noël.  89 caractères.
+Cette ligne1 est encodée en ISO 8859-15 dans un fichier ISO 8859-15 à poêle alèse noël.  104 caractères.
+Cette ligne1 est encodée en OEM 850 dans un fichier OEM 850 à poêle alèse noël.  95 caractères.
+Cette ligne1 est encodée en Windows-1252 dans un fichier Windows-1252 à poêle alèse noël. 105 caractères.

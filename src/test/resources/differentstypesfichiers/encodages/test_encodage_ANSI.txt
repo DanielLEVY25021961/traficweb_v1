@@ -1,0 +1,3 @@
+Cette ligne1 est encodée en ANSI dans un fichier ANSI à poêle alèse noël.  89 caractères.
+Cette ligne2 est encodée en ANSI dans un fichier ANSI à poêle alèse noël.  89 caractères.
+Cette ligne3 est encodée en ANSI dans un fichier ANSI à poêle alèse noël.  89 caractères.
