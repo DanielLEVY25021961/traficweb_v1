@@ -2543,7 +2543,7 @@ public abstract class AbstractControle implements IControle {
 				/* Incrémentation du numéro de la ligne lue. */
 				numerolLigneLue++;
 				
-				/* Lecture de chaque caractère. */
+				/* Lecture de chaque ligne. */
 				ligneLue = bufferedReader.readLine();
 								
 				/* Arrêt de la lecture si fin de fichier. */

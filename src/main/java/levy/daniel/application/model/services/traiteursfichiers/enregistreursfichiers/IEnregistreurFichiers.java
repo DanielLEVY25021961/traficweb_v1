@@ -478,6 +478,62 @@ public interface IEnregistreurFichiers extends IRapporteurEnregistrement {
 					, Charset pCharset
 						, String pSautLigne);
 	
+
+	
+	/**
+	 * Lit un fichier pFile caractère par caractère et 
+	 * retourne son contenu sous forme de chaîne de caractères.<br/>
+	 * Lit le fichier en utilisant la méthode read() 
+	 * de BufferedReader appliqué à un InputStreamReader 
+	 * avec le Charset de décodage pCharset.<br/>
+	 * Lit chaque caractère quoi qu'il arrive 
+	 * (même si le fichier n'est pas un fichier texte).<br/>
+	 * Ne modifie pas les sauts de ligne.<br/>
+	 * <br/>
+	 * - Choisit automatiquement le CHARSET_UTF8 si pCharset == null.<br/>
+	 * <br/>
+	 * - retourne null si pFile est null.<br/>
+	 * - retourne null si pFile est inexistant.<br/>
+	 * - retourne null si pFile est un répertoire.<br/>
+	 * - retourne null si pFile est vide.<br/>
+	 * <br/>
+	 *
+	 * @param pFile : File : fichier à lire.<br/>
+	 * @param pCharset : Charset : Charset utilisé par l'InputStreamReader 
+	 * pour lire dans le fichier.<br/>
+	 * 
+	 * @return : String : Chaine de caractères avec le contenu du fichier.<br/>
+	 */
+	String lireFichierCaractereParCaractere(File pFile, Charset pCharset);
+	
+	
+	
+	/**
+	 * <ul>
+	 * <li>Lit ligne par ligne un fichier pFile et 
+	 * retourne son contenu sous forme de chaîne de caractères.</li>
+	 * <li>Lit le fichier en utilisant la méthode readLine() 
+	 * de BufferedReader appliqué à un InputStreamReader 
+	 * avec le Charset de décodage pCharset.</li>
+	 * <li>Remplace les sauts de ligne par le saut de ligne 
+	 * de la plateforme (NEWLINE) dans la String résultat.</li>
+	 * </ul>
+	 * - Choisit automatiquement le CHARSET_UTF8 si pCharset == null.<br/>
+	 * <br/>
+	 * - retourne null si pFile est null.<br/>
+	 * - retourne null si pFile est inexistant.<br/>
+	 * - retourne null si pFile est un répertoire.<br/>
+	 * - retourne null si pFile est vide.<br/>
+	 * <br/>
+	 *
+	 * @param pFile : File : fichier à lire.<br/>
+	 * @param pCharset : Charset : Charset utilisé par l'InputStreamReader 
+	 * pour lire dans le fichier.<br/>
+	 * 
+	 * @return : String : Chaine de caractères avec le contenu du fichier.<br/>
+	 */
+	String lireFichierLigneParLigne(File pFile, Charset pCharset);
+	
 	
 
 	/**

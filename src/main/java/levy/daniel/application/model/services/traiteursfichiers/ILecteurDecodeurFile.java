@@ -419,7 +419,7 @@ public interface ILecteurDecodeurFile {
 	
 	
 	/**
-	 * Lit un fichier pFile et 
+	 * Lit un fichier pFile caractère par caractère et 
 	 * retourne son contenu sous forme de chaîne de caractères.<br/>
 	 * Lit le fichier en utilisant la méthode read() 
 	 * de BufferedReader appliqué à un InputStreamReader 

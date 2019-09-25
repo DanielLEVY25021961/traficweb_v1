@@ -1,6 +1,8 @@
 package levy.daniel.application.model.services.traiteursfichiers.enregistreursfichiers.impl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -13,6 +15,7 @@ import java.util.Date;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.assertj.core.util.Files;
 import org.junit.Test;
 
 import levy.daniel.application.model.services.traiteursfichiers.enregistreursfichiers.IEnregistreurFichiers;
@@ -151,10 +154,10 @@ public class EnregistreurFichiersTest {
 		
 	/**
 	 * Chemin d'un répertoire (pas un simple fichier).<br/>
-	 * "dessin"
+	 * "/dessin"
 	 */
 	public static final String CHEMIN_REPERTOIRE 
-		= "dessin";
+		= "/dessin";
 	
 
 	//*****************************************************************/
@@ -162,24 +165,30 @@ public class EnregistreurFichiersTest {
 	//*****************************************************************/
 	
 	/**
-	 * FILE_NULL : File :<br/>
 	 * Fichier null.<br/>
 	 */
 	public static final File FILE_NULL = null;
 	
 	/**
-	 * FILE_INEXISTANT : File :<br/>
 	 * Fichier inexistant.<br/>
 	 */
 	public static final File FILE_INEXISTANT 
 		= new File(CHEMIN_DIFFERENTSTYPESFICHIERS + CHEMIN_INEXISTANT);
 	
 	/**
-	 * FILE_REPERTOIRE : File :<br/>
 	 * Répertoire.<br/>
 	 */
 	public static final File FILE_REPERTOIRE 
 		= new File(CHEMIN_DIFFERENTSTYPESFICHIERS + CHEMIN_REPERTOIRE);
+	
+	 /**
+	 * Path absolu vers un fichier de test à détruire après les tests.<br/>
+	 * src/test/resources/differentstypesfichiers/fileadetruire.txt
+	 */
+	public static final Path PATH_ABSOLU_TEST_FICHIERADETRUIRE 
+		= PATH_ABSOLU_TEST_DIFFERENTSTYPESFICHIERS
+			.resolve("fileadetruire.txt")
+				.toAbsolutePath().normalize();
 
 
 	//*****************************************************************/
@@ -471,8 +480,19 @@ public class EnregistreurFichiersTest {
 	 * et rapport si pFile est un répertoire.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testEcrireStringDansFileRepertoire() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE EnregistreurFichiersTest - méthode testEcrireStringDansFileRepertoire() ********** ");
+		}
 		
 		/* Instanciation d'un EnregistreurFichiers. */
 		final IEnregistreurFichiers enregistreur 
@@ -496,8 +516,11 @@ public class EnregistreurFichiersTest {
 		 * a retourné un rapport non vide. */
 		assertFalse("le rapport ne doit pas être vide : "
 				, enregistreur.getRapport().isEmpty());
-
-//		System.out.println(enregistreur.afficherRapportCsvAvecEntete());
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(enregistreur.afficherRapportCsvAvecEntete());
+		}
 		
 	} // Fin de testEcrireStringDansFileRepertoire().______________________
 	
@@ -511,13 +534,23 @@ public class EnregistreurFichiersTest {
 	 * et rapport si pFile est un répertoire.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testEcrireStringDansFileStringBlank() {
 		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE EnregistreurFichiersTest - méthode testEcrireStringDansFileStringBlank() ********** ");
+		}
+		
 		/* Instanciation d'un fichier. */
 		final File fileADetruire 
-			= new File(
-					".\\test\\ressourcesjunit\\repertoire a detruire\\enregistreurFichier.txt");
+			= PATH_ABSOLU_TEST_FICHIERADETRUIRE.toFile();
 		
 		/* Création du fichier. */
 		try {
@@ -552,8 +585,15 @@ public class EnregistreurFichiersTest {
 		 * a retourné un rapport non vide. */
 		assertFalse("le rapport ne doit pas être vide : "
 				, enregistreur.getRapport().isEmpty());
-
-//		System.out.println(enregistreur.afficherRapportCsvAvecEntete());
+				
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(enregistreur.afficherRapportCsvAvecEntete());
+		}
+		
+		if (fileADetruire.exists()) {
+			Files.delete(fileADetruire);
+		}
 		
 	} // Fin de testEcrireStringDansFileStringBlank()._____________________
 	
@@ -567,15 +607,25 @@ public class EnregistreurFichiersTest {
 	 * et rapport si pFile est un fichier valide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testEcrireStringDansFile() {
 		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = true;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE EnregistreurFichiersTest - méthode testEcrireStringDansFile() ********** ");
+		}
+		
 		/* Instanciation d'un fichier. */
 		final File fileADetruire 
-			= new File(
-					".\\test\\ressourcesjunit\\repertoire a detruire\\enregistreurFichier.txt");
+			= PATH_ABSOLU_TEST_FICHIERADETRUIRE.toFile();
 		
-		/* Création du fichier. */
+		/* Création du fichier vide. */
 		try {
 			fileADetruire.createNewFile();
 		} catch (IOException e) {
@@ -583,7 +633,13 @@ public class EnregistreurFichiersTest {
 		}
 		
 		/* Instanciation d'une String à écrire dans le fichier. */
-		final String aEcrire = "bien joué cher être, c'est incroyable ce manque d'idées";
+//		final String aEcrire 
+//			= "bien joué cher être, c'est incroyable ce manque d'idées" 
+//					+ "\n" 
+//					+ "n'est-il pas bêêële";
+		
+		final String aEcrire 
+		= "bien joué cher être, c'est incroyable ce manque d'idées";
 		
 		/* Instanciation d'un EnregistreurFichiers. */
 		final IEnregistreurFichiers enregistreur 
@@ -607,8 +663,35 @@ public class EnregistreurFichiersTest {
 		 * a retourné un rapport non vide. */
 		assertFalse("le rapport ne doit pas être vide : "
 				, enregistreur.getRapport().isEmpty());
+						
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(enregistreur.afficherRapportCsvAvecEntete());
+		}
+
+//		final String stringLueUTF8 
+//			=  enregistreur.lireFichierCaractereParCaractere(fileADetruire, CHARSET_UTF8);
+//		final String stringLueANSI 
+//			=  enregistreur.lireFichierCaractereParCaractere(fileADetruire, CHARSET_ANSI);
+		final String stringLueUTF8 
+			=  enregistreur.lireFichierLigneParLigne(fileADetruire, CHARSET_UTF8);
+		final String stringLueANSI 
+			=  enregistreur.lireFichierLigneParLigne(fileADetruire, CHARSET_ANSI);
 		
-//		System.out.println(enregistreur.afficherRapportCsvAvecEntete());
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("stringLueUTF8 : " + stringLueUTF8);
+			System.out.println("stringLueANSI : " + stringLueANSI);
+		}
+
+		assertEquals("la String lue en UTF-8 doit valoir la String enregistrée en UTF-8 : "
+				, stringLueUTF8, aEcrire);
+		assertNotEquals("la String lue en ANSI ne doit PAS valoir la String enregistrée en UTF-8 : "
+				, stringLueANSI, aEcrire);
+				
+		if (fileADetruire.exists()) {
+			Files.delete(fileADetruire);
+		}
 		
 	} // Fin de testEcrireStringDansFile().________________________________
 

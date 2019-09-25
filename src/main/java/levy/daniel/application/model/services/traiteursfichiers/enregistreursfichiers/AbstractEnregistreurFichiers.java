@@ -1,18 +1,21 @@
 package levy.daniel.application.model.services.traiteursfichiers.enregistreursfichiers;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
@@ -68,88 +71,79 @@ public abstract class AbstractEnregistreurFichiers implements
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * CLASSE_ABSTRACT_ENREGISTREUR_FICHIERS : String :<br/>
 	 * "Classe AbstractEnregistreurFichiers".<br/>
 	 */
 	public static final String CLASSE_ABSTRACT_ENREGISTREUR_FICHIERS 
 		= "Classe AbstractEnregistreurFichiers";
-	
-	
-	
+		
 	/**
-	 * METHODE_ECRIRESTRINGDANSFILE : String :<br/>
 	 * "méthode ecrireStringDansFile(
 	 * File pFile, String pString, Charset pCharset, String pSautLigne)".<br/>
 	 */
 	public static final String METHODE_ECRIRESTRINGDANSFILE 
 		= "méthode ecrireStringDansFile(File pFile, String pString"
 				+ ", Charset pCharset, String pSautLigne)";
-	
 
+	/**
+	 * "Méthode lireFichierCaractereParCaractere(File pFile, Charset pCharset)".
+	 */
+	public static final String METHODE_LIREFICHIER_CARACTERE_PAR_CARACTERE 
+		= "Méthode lireFichierCaractereParCaractere(File pFile, Charset pCharset)";
 	
 	/**
-	 * MESSAGE_FICHIER_NULL : String :<br/>
+	 * "Méthode lireFichierLigneParLigne(File pFile, Charset pCharset".
+	 */
+	public static final String METHODE_LIREFICHIERLIGNE_PAR_LIGNE 
+		= "Méthode lireFichierLigneParLigne(File pFile, Charset pCharset";
+	
+	/**
 	 * Message retourné par la METHODE_ECRIRESTRINGDANSFILE 
 	 * si le fichier est null.<br/>
 	 * "Le fichier passé en paramètre est null".<br/>
 	 */
 	public static final String MESSAGE_FICHIER_NULL 
 		= "Le fichier passé en paramètre est null";
-
 	
 	/**
-	 * MESSAGE_FICHIER_INEXISTANT : String :<br/>
 	 * Message retourné par la METHODE_ECRIRESTRINGDANSFILE 
 	 * si le fichier est inexistant.<br/>
 	 * "Le fichier passé en paramètre est inexistant : "
 	 */
 	public static final String MESSAGE_FICHIER_INEXISTANT 
 		= "Le fichier passé en paramètre est inexistant : ";
-
 	
 	/**
-	 * MESSAGE_FICHIER_REPERTOIRE : String :<br/>
 	 * Message retourné par la METHODE_ECRIRESTRINGDANSFILE 
 	 * si le fichier est un répertoire.<br/>
 	 * "Le fichier passé en paramètre est un répertoire : ".<br/>
 	 */
 	public static final String MESSAGE_FICHIER_REPERTOIRE 
 		= "Le fichier passé en paramètre est un répertoire : ";
-
 	
 	/**
-	 * MESSAGE_STRING_BLANK : String :<br/>
 	 * Message retourné par la METHODE_ECRIRESTRINGDANSFILE 
 	 * si la String passée en paramètre est blank.<br/>
 	 * "La chaine de caractères passée en paramètre est blank (null ou vide) : "
 	 */
 	public static final String MESSAGE_STRING_BLANK 
 	= "La chaine de caractères passée en paramètre est blank (null ou vide) : ";
-
 	
 	/**
-	 * MESSAGE_EXCEPTION : String :<br/>
 	 * "Exception GRAVE : ".<br/>
 	 */
 	public static final String MESSAGE_EXCEPTION = "Exception GRAVE : ";
 	
-
 	/**
-	 * nomClasseConcrete : String :<br/>
 	 * nom de la classe de contrôle concrète.<br/>
 	 */
 	protected transient String nomClasseConcrete;
-
 	
 	/**
-	 * dateEnregistrement : Date :<br/>
 	 * java.util.Date de l'enregistrement du fichier.<br/>
 	 */
 	protected Date dateEnregistrement;
-
 	
 	/**
-	 * dateEnregistrementStringFormatee : String :<br/>
 	 * date de l'enregistrement du fichier 
 	 * formattée au format dfDatetimemilliFrancaiseLexico.<br/>
 	 * Format des dates-heures françaises avec millisecondes comme
@@ -157,55 +151,42 @@ public abstract class AbstractEnregistreurFichiers implements
 	 * "dd/MM/yyyy-HH:mm:ss.SSS".<br/>
 	 */
 	protected transient String dateEnregistrementStringFormatee;
-	
-	
+		
 	/**
-	 * userName : String :<br/>
 	 * nom de l'utilisateur qui a déclenché l'enregistrement du fichier.<br/>
 	 */
 	protected String userName;
-
 	
 	/**
-	 * objet : String :<br/>
 	 * objet (ou motif) ayant demandé la création du fichier 
 	 * comme 'contrôle de lignes vide'.<br/>
 	 */
 	protected String objet;
-	
-	
+		
 	/**
-	 * fichier : File :<br/>
 	 * fichier enregistré.<br/>
 	 */
 	protected File fichier;
-
 	
 	/**
-	 * nomFichier : String :<br/>
 	 * nom du fichier objet de l'enregistrement.<br/>
 	 */
 	protected transient String nomFichier;
-	
-	
+		
 	/**
-	 * rapport : List&lt;LigneRapportEnregistrement&gt; :<br/>
 	 * rapport fourni par l'enregistreur sous forme 
 	 * de List&lt;LigneRapportEnregistrement&gt;.<br/>
 	 */
 	protected transient List<LigneRapportEnregistrement> rapport 
 		= new ArrayList<LigneRapportEnregistrement>();
-	
-	
+		
 	/**
-	 * dfDatetimemilliFrancaiseLexico : DateFormat :<br/>
 	 * Format des dates-heures françaises avec millisecondes comme
 	 * '25/02/1961-12:27:07.251'.<br/>
 	 * "dd/MM/yyyy-HH:mm:ss.SSS".<br/>
 	 */
 	public final transient DateFormat dfDatetimemilliFrancaise 
 	= new SimpleDateFormat("dd/MM/yyyy-HH:mm:ss.SSS", LOCALE_FR_FR);
-
 
 	/**
 	 * LOG : Log : 
@@ -899,6 +880,428 @@ public abstract class AbstractEnregistreurFichiers implements
 	 // String pSautLigne).________________________________________________
 	
 
+		
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String lireFichierCaractereParCaractere(
+			final File pFile
+				, final Charset pCharset) {
+		
+		// TRAITEMENT DES MAUVAIS FICHIERS 
+		// (null, inexistant, répertoire, vide).*************************
+		if (pFile == null) {
+			return null;
+		}
+		
+		if (!pFile.exists()) {
+			return null;
+		}
+		
+		if (pFile.isDirectory()) {
+			return null;
+		}
+		
+		if (pFile.length() == 0) {
+			return null;
+		}
+				
+		// LECTURE ***************
+		FileInputStream fileInputStream = null;
+		InputStreamReader inputStreamReader = null;
+		BufferedReader bufferedReader = null;
+
+		int characterEntier = 0;
+		Character character = null;
+		
+		final StringBuilder stb = new StringBuilder();
+
+		Charset charset = null;
+
+		/* Choisit automatiquement le CHARSET_UTF8 si pCharset == null. */
+		if (pCharset == null) {
+			charset = CHARSET_UTF8;
+		} else {
+			charset = pCharset;
+		}
+
+		try {
+
+			/*
+			 * Instancie un flux en lecture fileInputStream en lui passant
+			 * pFile.
+			 */
+			fileInputStream 
+				= new FileInputStream(pFile);
+
+			/*
+			 * Instancie un InputStreamReader 
+			 * en lui passant le FileReader et le
+			 * Charset.
+			 */
+			inputStreamReader 
+				= new InputStreamReader(fileInputStream, charset);
+
+			/*
+			 * Instancie un tampon de flux de caractères en lecture en lui
+			 * passant le flux inputStreamReader.
+			 */
+			bufferedReader 
+				= new BufferedReader(inputStreamReader);
+			
+			/* Parcours du bufferedReader. */
+			while (true) {
+				
+				/* Lecture de chaque caractère. */
+				characterEntier = bufferedReader.read();
+				
+				/* Arrêt de la lecture si fin de fichier. */
+				if (characterEntier < 0) {
+					break;
+				}
+				
+				/* Conversion de l'entier en caractère. */
+				character = (char) characterEntier;
+								
+				/* Ajout du caractère au StringBuilder. */
+				stb.append(character);
+				
+			} // Fin du parcours du bufferedReader._________
+
+		} catch (FileNotFoundException fnfe) {
+			
+			/* LOG de niveau ERROR. */
+			loggerError(
+					this.fournirNomClasseConcrete()
+						, METHODE_LIREFICHIER_CARACTERE_PAR_CARACTERE
+							, fnfe);
+			
+			/* retourne le message de l'exception. */
+			return fnfe.getMessage();
+			
+		} catch (IOException ioe) {
+			
+			/* LOG de niveau ERROR. */
+			loggerError(
+					this.fournirNomClasseConcrete()
+						, METHODE_LIREFICHIER_CARACTERE_PAR_CARACTERE
+							, ioe);
+			
+			/* retourne le message de l'exception. */
+			return ioe.getMessage();
+		}
+		
+		finally {
+			
+			/* fermeture du flux BufferedReader. */
+			if (bufferedReader != null) {
+				
+				try {
+					
+					bufferedReader.close();
+					
+				} catch (IOException ioe2) {
+					
+					/* LOG de niveau ERROR. */
+					loggerError(
+							this.fournirNomClasseConcrete()
+								, METHODE_LIREFICHIER_CARACTERE_PAR_CARACTERE
+									, ioe2);
+					
+				}
+				
+			} // Fin de if (bufferedReader != null).____
+			
+			/* fermeture du flux inputStreamReader. */
+			if (inputStreamReader != null) {
+				
+				try {
+					
+					inputStreamReader.close();
+					
+				} catch (IOException ioe4) {
+					
+					/* LOG de niveau ERROR. */
+					loggerError(
+							this.fournirNomClasseConcrete()
+								, METHODE_LIREFICHIER_CARACTERE_PAR_CARACTERE
+									, ioe4);
+				}
+				
+			} // Fin de if (inputStreamReader != null).______
+			
+			/* fermeture du flux fileInputStream. */
+			if (fileInputStream != null) {
+				
+				try {
+					
+					fileInputStream.close();
+					
+				} catch (IOException ioe3) {
+					
+					/* LOG de niveau ERROR. */
+					loggerError(
+							this.fournirNomClasseConcrete()
+								, METHODE_LIREFICHIER_CARACTERE_PAR_CARACTERE
+									, ioe3);
+					
+				}
+				
+			} // Fin de if (fileInputStream != null).________
+			
+		} // Fin du finally._____________________________
+		
+		return stb.toString();
+		
+	} // Fin de lireFichierCaractereParCaractere(
+	 // File pFile
+	 // , Charset pCharset)._______________________________________________
+	
+	
+		
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String lireFichierLigneParLigne(
+			final File pFile
+				, final Charset pCharset) {
+		
+		// TRAITEMENT DES MAUVAIS FICHIERS 
+		// (null, inexistant, répertoire, vide).*************************
+		if (pFile == null) {
+			return null;
+		}
+		
+		if (!pFile.exists()) {
+			return null;
+		}
+		
+		if (pFile.isDirectory()) {
+			return null;
+		}
+		
+		if (pFile.length() == 0) {
+			return null;
+		}
+		
+		// LECTURE LIGNE PAR LIGNE ***************
+		FileInputStream fileInputStream = null;
+		InputStreamReader inputStreamReader = null;
+		BufferedReader bufferedReader = null;
+
+		final StringBuilder stb = new StringBuilder();
+		
+		String ligneLue = null;
+		Charset charset = null;
+
+		/* Choisit automatiquement le CHARSET_UTF8 si pCharset == null. */
+		if (pCharset == null) {
+			charset = CHARSET_UTF8;
+		} else {
+			charset = pCharset;
+		}
+
+		/* récupère le nombre de lignes du fichier. */
+		int nombreLignes = this.compterLignesFichier(pFile, charset);
+		
+		try {
+
+			/*
+			 * Instancie un flux en lecture fileInputStream en lui passant
+			 * pFile.
+			 */
+			fileInputStream = new FileInputStream(pFile);
+
+			/*
+			 * Instancie un InputStreamReader en lui passant le FileReader et le
+			 * Charset.
+			 */
+			inputStreamReader = new InputStreamReader(fileInputStream, charset);
+
+			/*
+			 * Instancie un tampon de flux de caractères en lecture en lui
+			 * passant le flux inputStreamReader.
+			 */
+			bufferedReader = new BufferedReader(inputStreamReader);
+			
+			int compteur = 0;
+			
+			/* Parcours du bufferedReader. */
+			while (true) {
+				
+				compteur++;
+				
+				/* Lecture de chaque ligne. */
+				ligneLue = bufferedReader.readLine();
+								
+				/* Arrêt de la lecture si fin de fichier. */
+				if (ligneLue == null) {
+					break;
+				}
+				
+				stb.append(ligneLue);
+				
+				if (nombreLignes > 1 && compteur < nombreLignes) {
+					stb.append(NEWLINE);
+				}
+																
+			} // Fin du parcours du bufferedReader._________
+
+		} catch (FileNotFoundException fnfe) {
+			
+			/* LOG de niveau ERROR. */
+			loggerError(
+					this.fournirNomClasseConcrete()
+						, METHODE_LIREFICHIERLIGNE_PAR_LIGNE
+							, fnfe);
+			
+			/* retourne le message de l'exception. */
+			return fnfe.getMessage();
+			
+		} catch (IOException ioe) {
+			
+			/* LOG de niveau ERROR. */
+			loggerError(
+					this.fournirNomClasseConcrete()
+						, METHODE_LIREFICHIERLIGNE_PAR_LIGNE
+							, ioe);
+			
+			/* retourne le message de l'exception. */
+			return ioe.getMessage();
+		}
+		
+		finally {
+			
+			/* fermeture du flux BufferedReader. */
+			if (bufferedReader != null) {
+				
+				try {
+					
+					bufferedReader.close();
+					
+				} catch (IOException ioe2) {
+					
+					/* LOG de niveau ERROR. */
+					loggerError(
+							this.fournirNomClasseConcrete()
+								, METHODE_LIREFICHIERLIGNE_PAR_LIGNE
+									, ioe2);
+					
+				}
+				
+			} // Fin de if (bufferedReader != null).____
+			
+			/* fermeture du flux inputStreamReader. */
+			if (inputStreamReader != null) {
+				
+				try {
+					
+					inputStreamReader.close();
+					
+				} catch (IOException ioe4) {
+					
+					/* LOG de niveau ERROR. */
+					loggerError(
+							this.fournirNomClasseConcrete()
+								, METHODE_LIREFICHIERLIGNE_PAR_LIGNE
+									, ioe4);
+				}
+				
+			} // Fin de if (inputStreamReader != null).______
+			
+			/* fermeture du flux fileInputStream. */
+			if (fileInputStream != null) {
+				
+				try {
+					
+					fileInputStream.close();
+					
+				} catch (IOException ioe3) {
+					
+					/* LOG de niveau ERROR. */
+					loggerError(
+							this.fournirNomClasseConcrete()
+								, METHODE_LIREFICHIERLIGNE_PAR_LIGNE
+									, ioe3);
+					
+				}
+				
+			} // Fin de if (fileInputStream != null).________
+			
+		} // Fin du finally._____________________________
+		
+		return stb.toString();
+		
+	} // Fin de lireFichierLigneParLigne(
+	 // File pFile
+	 // , Charset pCharset)._______________________________________________
+
+
+	
+	/**
+	 * retourne le nombre de lignes dun fichier textuel.
+	 * <ul>
+	 * <li>Choisit automatiquement le CHARSET_UTF8 si pCharset == null.</li>
+	 * <li>utilise <code>Files.readAllLines(pFile.toPath(), charset)</code> 
+	 * pour obtenir la liste des lignes du fichier et les compter.</li>
+	 * </ul>
+	 * - retourne 0 si le fichier est mauvais 
+	 * (null, inexistant, répertoire, vide) ou 
+	 * si la lecture lève une IOException.<br/>
+	 * <br/>
+	 *
+	 * @param pFile : File : fichier textuel dont on veut compter les lignes.
+	 * @param pCharset : Charset : Charset pour décoder le fichier.
+	 * 
+	 * @return : int : nombre de lignes.<br/>
+	 */
+	private int compterLignesFichier(
+			final File pFile
+				, final Charset pCharset) {
+		
+		// TRAITEMENT DES MAUVAIS FICHIERS 
+		// (null, inexistant, répertoire, vide).*************************
+		if (pFile == null) {
+			return 0;
+		}
+		
+		if (!pFile.exists()) {
+			return 0;
+		}
+		
+		if (pFile.isDirectory()) {
+			return 0;
+		}
+		
+		if (pFile.length() == 0) {
+			return 0;
+		}
+
+		Charset charset = null;
+
+		/* Choisit automatiquement le CHARSET_UTF8 si pCharset == null. */
+		if (pCharset == null) {
+			charset = CHARSET_UTF8;
+		} else {
+			charset = pCharset;
+		}
+		
+		try {
+			
+			final List<String> listeLignes 
+				= Files.readAllLines(pFile.toPath(), charset);
+			
+			return listeLignes.size();
+			
+		} catch (IOException e) {
+			return 0;
+		}
+
+	} // Fin de compterLignesFichier(...)._________________________________
+	
+	
 	
 	/**
 	 * method fournirNomClasseConcrete() :<br/>
