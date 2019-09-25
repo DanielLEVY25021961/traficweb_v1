@@ -563,7 +563,7 @@ public abstract class AbstractEnregistreurFichiers implements
 		 * Passe automatiquement le saut de ligne à NEWLINE (saut de ligne de la
 		 * plateforme) si pSautLigne est blank.
 		 */
-		if (StringUtils.isBlank(pSautLigne)) {
+		if (StringUtils.isEmpty(pSautLigne)) {
 			sautLigne = NEWLINE;
 		} else {
 			sautLigne = pSautLigne;
@@ -577,7 +577,9 @@ public abstract class AbstractEnregistreurFichiers implements
 		try {
 
 			/* Ouverture d'un FileOutputStream sur le fichier. */
-			fileOutputStream = new FileOutputStream(pFile);
+			/* ré-écrit le contenu du fichier si il existe à chaque appel 
+			 * (boolean false dans new FileOutputStream(pFile, false)). */
+			fileOutputStream = new FileOutputStream(pFile, false);
 
 			/*
 			 * Ouverture d'un OutputStreamWriter sur le FileOutputStream en lui
@@ -597,7 +599,10 @@ public abstract class AbstractEnregistreurFichiers implements
 			 * Substitue automatiquement sautLigne aux sauts de ligne dans
 			 * pString si nécessaire.
 			 */
-			bufferedWriter.write(substituerSautLigne(pString, sautLigne));
+			final String stringSubstituee 
+				= substituerSautLigne(pString, sautLigne);
+			
+			bufferedWriter.write(stringSubstituee);
 			bufferedWriter.flush();
 			
 			/* rapport. */
@@ -827,6 +832,44 @@ public abstract class AbstractEnregistreurFichiers implements
 	} // Fin de substituerSautLigne(
 	 // String pString
 	 // , String pSautLigne).______________________________________________
+	
+
+	
+	/**
+	 * <p>remplace un caractère pChar si il est un saut de ligne 
+	 * (UNIX et JAVA = LF ='\n' = '\u000a', MAC = CR = '\r' = '\u000d', ..) 
+	 * par le saut de ligne pSautLigne.</p>
+	 * <p>- retourne pChar inchangé si ce n'est pas un saut de ligne.</p>
+	 * 
+	 * Par exemple, remplace un SAUTDELIGNE_MAC = '\r' = '\u000d' 
+	 * par un SAUTDELIGNE_UNIX = '\n' = '\u000a'.<br/>
+	 * <br/>
+	 *
+	 * @param pChar : char : cractère entrant supposé être un saut de ligne.
+	 * @param pSautLigne : char : le saut de ligne voulu en sortie.
+	 * 
+	 * @return : char : pSautLigne à substituer à pChar.<br/>
+	 */
+	public final char substituerSautLigne(
+			final char pChar,
+				final char pSautLigne) {
+
+		/* Recherche des sauts de ligne Mac. */
+		if (StringUtils.equals(String.valueOf(pChar), SAUTDELIGNE_MAC)) {
+			return pSautLigne;
+		}
+
+		/* Recherche des sauts de ligne Unix. */
+		if (StringUtils.equals(String.valueOf(pChar), SAUTDELIGNE_UNIX)) {
+			return pSautLigne;
+		}
+
+		/*
+		 * Retourne le caractère inchangé si ce n'est pas un saut de ligne.
+		 */
+		return pChar;
+
+	} // Fin de substituerSautLigne(...).__________________________________
 	
 	
 	
@@ -1144,7 +1187,7 @@ public abstract class AbstractEnregistreurFichiers implements
 				stb.append(ligneLue);
 				
 				if (nombreLignes > 1 && compteur < nombreLignes) {
-					stb.append(NEWLINE);
+					stb.append(SAUTDELIGNE_UNIX);
 				}
 																
 			} // Fin du parcours du bufferedReader._________

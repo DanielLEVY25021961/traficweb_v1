@@ -177,21 +177,24 @@ public interface IEnregistreurFichiers extends IRapporteurEnregistrement {
 	/**
 	 * SAUTDELIGNE_UNIX : String :<br/>
 	 * Saut de ligne généré par les éditeurs Unix.<br/>
-	 * "\n" (Retour Ligne = LINE FEED (LF)).
+	 * "\n" (Retour Ligne = LINE FEED (LF)).<br/>
+	 * '\u000a'
 	 */
 	String SAUTDELIGNE_UNIX = "\n";
 	
 	/**
 	 * SAUTDELIGNE_MAC : String :<br/>
 	 * Saut de ligne généré par les éditeurs Mac.<br/>
-	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
+	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR)).<br/>
+	 * '\u000d'
 	 */
 	String SAUTDELIGNE_MAC = "\r";
 	
 	/**
 	 * SAUTDELIGNE_DOS_WINDOWS : String :<br/>
 	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
-	 * "\r\n" (Retour Chariot RC + Retour Ligne LF).
+	 * "\r\n" (Retour Chariot RC + Retour Ligne LF).<br/>
+	 * '\u000a''\u000d'
 	 */
 	String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
 		
@@ -290,10 +293,12 @@ public interface IEnregistreurFichiers extends IRapporteurEnregistrement {
 	 * <li>Ecrit la String pString dans le File pFile avec un encodage LATIN-9 
 	 * (ISO-8859-15) 
 	 * et génère un rapport d'enregistrement.</li>
+	 * <li>ré-écrit le contenu du fichier si il existe à chaque appel 
+	 * (boolean false dans new FileOutputStream(pFile, false)).</li>
 	 * <li>Substitue automatiquement les sauts de ligne de la plateforme
 	 *  aux sauts de ligne 
 	 * dans pString si nécessaire.</li>
-	 * <li>Utilise FileOutputStream, 
+	 * <li>Utilise FileOutputStream(file, false), 
 	 * new OutputStreamWriter(fileOutputStream, charset) 
 	 * et BufferedWriter pour écrire.</li>
 	 * </ul>
@@ -338,10 +343,12 @@ public interface IEnregistreurFichiers extends IRapporteurEnregistrement {
 	 * <li>Ecrit la String pString dans le File pFile avec un encodage ANSI 
 	 * (Windows-1252 = CP1252) 
 	 * et génère un rapport d'enregistrement.</li>
+	 * <li>ré-écrit le contenu du fichier si il existe à chaque appel 
+	 * (boolean false dans new FileOutputStream(pFile, false)).</li>
 	 * <li>Substitue automatiquement les sauts de ligne de la plateforme
 	 *  aux sauts de ligne 
 	 * dans pString si nécessaire.</li>
-	 * <li>Utilise FileOutputStream, 
+	 * <li>Utilise FileOutputStream(file, false), 
 	 * new OutputStreamWriter(fileOutputStream, charset) 
 	 * et BufferedWriter pour écrire.</li>
 	 * </ul>
@@ -385,10 +392,12 @@ public interface IEnregistreurFichiers extends IRapporteurEnregistrement {
 	 * <ul>
 	 * <li>Ecrit la String pString dans le File pFile avec un encodage UTF-8 
 	 * et génère un rapport d'enregistrement.</li>
+	 * <li>ré-écrit le contenu du fichier si il existe à chaque appel 
+	 * (boolean false dans new FileOutputStream(pFile, false)).</li>
 	 * <li>Substitue automatiquement les sauts de ligne de la plateforme
 	 *  aux sauts de ligne 
 	 * dans pString si nécessaire.</li>
-	 * <li>Utilise FileOutputStream, 
+	 * <li>Utilise FileOutputStream(file, false), 
 	 * new OutputStreamWriter(fileOutputStream, charset) 
 	 * et BufferedWriter pour écrire.</li>
 	 * </ul>
@@ -432,9 +441,11 @@ public interface IEnregistreurFichiers extends IRapporteurEnregistrement {
 	 * <ul>
 	 * <li>Ecrit la String pString dans le File pFile avec un encodage pCharset 
 	 * et génère un rapport d'enregistrement.</li>
+	 * <li>ré-écrit le contenu du fichier si il existe à chaque appel 
+	 * (boolean false dans new FileOutputStream(pFile, false)).</li>
 	 * <li>Substitue automatiquement pSautLigne aux sauts de ligne 
 	 * dans pString si nécessaire.</li>
-	 * <li>Utilise FileOutputStream, 
+	 * <li>Utilise FileOutputStream(file, false), 
 	 * new OutputStreamWriter(fileOutputStream, charset) 
 	 * et BufferedWriter pour écrire.</li>
 	 * </ul>

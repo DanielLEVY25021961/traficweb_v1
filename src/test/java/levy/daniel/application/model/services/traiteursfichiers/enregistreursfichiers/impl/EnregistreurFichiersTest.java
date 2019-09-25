@@ -18,11 +18,12 @@ import org.apache.commons.logging.LogFactory;
 import org.assertj.core.util.Files;
 import org.junit.Test;
 
+import levy.daniel.application.model.services.traiteursfichiers.CaractereDan;
 import levy.daniel.application.model.services.traiteursfichiers.enregistreursfichiers.IEnregistreurFichiers;
 
 /**
  * CLASSE EnregistreurFichiersTest :<br/>
- * .<br/>
+ * Test JUnit de {@link EnregistreurFichiers}.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -320,21 +321,24 @@ public class EnregistreurFichiersTest {
 	/**
 	 * SAUTDELIGNE_UNIX : String :<br/>
 	 * Saut de ligne généré par les éditeurs Unix.<br/>
-	 * "\n" (Retour Ligne = LINE FEED (LF)).
+	 * "\n" (Retour Ligne = LINE FEED (LF)).<br/>
+	 * '\u000a'
 	 */
 	public static final String SAUTDELIGNE_UNIX = "\n";
 	
 	/**
 	 * SAUTDELIGNE_MAC : String :<br/>
 	 * Saut de ligne généré par les éditeurs Mac.<br/>
-	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
+	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR)).<br/>
+	 * '\u000d'
 	 */
 	public static final String SAUTDELIGNE_MAC = "\r";
 	
 	/**
 	 * SAUTDELIGNE_DOS_WINDOWS : String :<br/>
 	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
-	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).
+	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).<br/>
+	 * '\u000a''\u000d'
 	 */
 	public static final String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
 	
@@ -613,7 +617,7 @@ public class EnregistreurFichiersTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = true;
+		final boolean affichage = false;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -633,13 +637,13 @@ public class EnregistreurFichiersTest {
 		}
 		
 		/* Instanciation d'une String à écrire dans le fichier. */
-//		final String aEcrire 
-//			= "bien joué cher être, c'est incroyable ce manque d'idées" 
-//					+ "\n" 
-//					+ "n'est-il pas bêêële";
-		
 		final String aEcrire 
-		= "bien joué cher être, c'est incroyable ce manque d'idées";
+			= "bien joué cher être, c'est incroyable ce manque d'idées" 
+					+ "\n" 
+					+ "n'est-il pas bêêële";
+		
+//		final String aEcrire 
+//		= "bien joué cher être, c'est incroyable ce manque d'idées";
 		
 		/* Instanciation d'un EnregistreurFichiers. */
 		final IEnregistreurFichiers enregistreur 
@@ -649,7 +653,7 @@ public class EnregistreurFichiersTest {
 		/* Récupération du fichier écrit sur disque. */
 		final File resultat 
 		= enregistreur.ecrireStringDansFile(
-				fileADetruire, aEcrire, CHARSET_UTF8, NEWLINE);
+				fileADetruire, aEcrire, CHARSET_UTF8, SAUTDELIGNE_UNIX);
 		
 		assertNotNull("Le fichier enregistré ne doit pas être null : "
 				, resultat);
@@ -673,6 +677,7 @@ public class EnregistreurFichiersTest {
 //			=  enregistreur.lireFichierCaractereParCaractere(fileADetruire, CHARSET_UTF8);
 //		final String stringLueANSI 
 //			=  enregistreur.lireFichierCaractereParCaractere(fileADetruire, CHARSET_ANSI);
+		
 		final String stringLueUTF8 
 			=  enregistreur.lireFichierLigneParLigne(fileADetruire, CHARSET_UTF8);
 		final String stringLueANSI 
@@ -680,8 +685,13 @@ public class EnregistreurFichiersTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("longueur aEcrire : " + aEcrire.length());
+			System.out.println("aEcrire : " + aEcrire);
+			System.out.println("longueur stringLueUTF8 : " + stringLueUTF8.length());
 			System.out.println("stringLueUTF8 : " + stringLueUTF8);
+			System.out.println("longueur stringLueANSI : " + stringLueANSI.length());
 			System.out.println("stringLueANSI : " + stringLueANSI);
+			System.out.println("1ère différence entre chaînes : " + this.trouverPremiereDifference(aEcrire, stringLueUTF8));
 		}
 
 		assertEquals("la String lue en UTF-8 doit valoir la String enregistrée en UTF-8 : "
@@ -694,6 +704,65 @@ public class EnregistreurFichiersTest {
 		}
 		
 	} // Fin de testEcrireStringDansFile().________________________________
+	
+
+	
+	/**
+	 * .<br/>
+	 * <br/>
+	 *
+	 * @param pString1
+	 * @param pString2
+	 * @return : Character :  .<br/>
+	 */
+	private Character trouverPremiereDifference(
+			final String pString1
+				, final String pString2) {
+		
+		if (pString1 == null) {
+			return null;
+		}
+		
+		if (pString2 == null) {
+			return null;
+		}
+		
+		int longueur1 = pString1.length();
+		int longueur2 = pString2.length();
+		
+		int longueurMin = 0;
+		
+		if (longueur1 < longueur2) {
+			longueurMin = longueur1;
+		} else if (longueur2 < longueur1) {
+			longueurMin = longueur2;
+		} else {
+			longueurMin = longueur1;
+		}
+		
+		Character resultat = null;
+		
+		for (int i = 0; i < longueurMin; i++) {
+			
+			final char caract1 = pString1.charAt(i);
+			final char caract2 = pString2.charAt(i);
+					
+			if (caract1 != caract2) {
+				
+				final CaractereDan car1 = new CaractereDan(caract1);
+				final CaractereDan car2 = new CaractereDan(caract2);
+				resultat = caract2;
+				System.out.println("position (1-based) : " + (i+1));
+				System.out.println("caractère dans String1 : " + car1.toString());
+				System.out.println("caractère dans String2 : " + car2.toString());
+				break;
+			}
+			
+		}
+		
+		return resultat;
+
+	}
 
 	
 	
