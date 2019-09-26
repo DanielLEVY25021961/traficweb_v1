@@ -165,7 +165,7 @@ public final class SocketClient {
 			
 			afficherSocketClientEtDistant(pAdresseIpSite, adresseIpDistante, socketClient);
 			
-		} catch (Exception e){ // NOPMD by daniel.levy on 16/07/19 10:04
+		} catch (Exception e){ 
 			
 			throw new Exception(e);
 			
@@ -245,7 +245,7 @@ public final class SocketClient {
 			new Browser(
 						socketClient.getInetAddress().getHostName(), content); 
 
-		} catch (Exception e){ // NOPMD by daniel.levy on 16/07/19 10:04
+		} catch (Exception e){ 
 			
 			throw new Exception(e);
 			

@@ -1,6 +1,5 @@
 package levy.daniel.application.model.services.correcteurs.metier.sections.impl;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -40,7 +39,7 @@ import levy.daniel.application.model.services.metier.televersement.importateurs.
  * @since 12 sept. 2019
  *
  */
-public class SectionHitCorrecteurTabulationService {
+public final class SectionHitCorrecteurTabulationService {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -125,7 +124,7 @@ public class SectionHitCorrecteurTabulationService {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public SectionHitCorrecteurTabulationService() {
+	private SectionHitCorrecteurTabulationService() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -140,7 +139,7 @@ public class SectionHitCorrecteurTabulationService {
 				
 		final Path fichierDonneesPath 
 			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("2018/HITDIRA2018.txt");
-		final File fichierDonnees = fichierDonneesPath.toFile();
+		
 		final Charset charsetAnsi = Charset.forName("Windows-1252");
 
 		final List<String> listeLignes 
@@ -166,7 +165,7 @@ public class SectionHitCorrecteurTabulationService {
 				
 		final Path fichierDonneesPath 
 			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("2018/HITDIRA2018.txt");
-		final File fichierDonnees = fichierDonneesPath.toFile();
+
 		final Charset charsetAnsi = Charset.forName("Windows-1252");
 
 		final List<String> listeLignes 
@@ -188,7 +187,6 @@ public class SectionHitCorrecteurTabulationService {
 			
 			while (matcherTabulation.find()) {
 				
-				final String tabulationString = matcherTabulation.group();
 				final int positionDebutTab = matcherTabulation.start() + 1;
 				final int positionFinTab = matcherTabulation.end() + 1;
 					
@@ -234,7 +232,7 @@ public class SectionHitCorrecteurTabulationService {
 				
 		final Path fichierDonneesPath 
 			= PATH_ABSOLU_TEST_JEUX_ESSAI.resolve("2018/HITDIRA2018.txt");
-		final File fichierDonnees = fichierDonneesPath.toFile();
+
 		final Charset charsetAnsi = Charset.forName("Windows-1252");
 
 		final List<String> listeLignes 
@@ -286,8 +284,6 @@ public class SectionHitCorrecteurTabulationService {
 		System.out.println("***********************************************************************************");
 		System.out.println();
 		
-		int compteurMatches = 0;
-		
 		if (matcherTabulationEspace.find()) {
 			
 			pCompteurMatches++;
@@ -299,13 +295,6 @@ public class SectionHitCorrecteurTabulationService {
 			System.out.println("ligne " + pCompteur + " - position début tabulation : " + positionDebutTab + " - position fin tabulation : " + positionFinTab);
 			System.out.println("longueur de ligne : " + pLigne.length());
 				
-			String nomChamp = "";
-			int debutChamp = 0;
-			int finChamp = 0;
-			int longueurChamp = 0;
-			
-			int debutChampSuivant = 0;
-			
 			final DescriptionChampHit descHit 
 				= fournirDescChamp(positionDebutTab, positionFinTab);
 			
@@ -313,10 +302,10 @@ public class SectionHitCorrecteurTabulationService {
 				return null;
 			}
 			
-			nomChamp = descHit.getNomChampJava();
-			debutChamp = descHit.getColonneDebut();
-			finChamp = descHit.getColonneFin();
-			longueurChamp = descHit.getLongueur();
+			final String nomChamp = descHit.getNomChampJava();
+			final int debutChamp = descHit.getColonneDebut();
+			final int finChamp = descHit.getColonneFin();
+			final int longueurChamp = descHit.getLongueur();
 			
 			String ligne = pLigne;
 

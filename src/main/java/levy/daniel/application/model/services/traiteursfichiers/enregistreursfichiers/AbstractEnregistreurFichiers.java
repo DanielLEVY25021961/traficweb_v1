@@ -1147,7 +1147,7 @@ public abstract class AbstractEnregistreurFichiers implements
 		}
 
 		/* récupère le nombre de lignes du fichier. */
-		int nombreLignes = this.compterLignesFichier(pFile, charset);
+		final int nombreLignes = this.compterLignesFichier(pFile, charset);
 		
 		try {
 
@@ -1908,7 +1908,7 @@ public abstract class AbstractEnregistreurFichiers implements
 	 */
 	@Override
 	public final Date getDateEnregistrement() {
-		return this.dateEnregistrement;
+		return (Date) this.dateEnregistrement.clone();
 	} // Fin de getDateEnregistrement().___________________________________
 
 
@@ -1920,12 +1920,16 @@ public abstract class AbstractEnregistreurFichiers implements
 	public final void setDateEnregistrement(
 			final Date pDateEnregistrement) {
 		
-		this.dateEnregistrement = pDateEnregistrement;
-		
-		/* calcule automatiquement dateControleStringFormattee. */
-		this.dateEnregistrementStringFormatee
-			= this.fournirDateFormattee(this.dateEnregistrement);
-		
+		if (pDateEnregistrement != null) {
+			
+			this.dateEnregistrement = (Date) pDateEnregistrement.clone();
+			
+			/* calcule automatiquement dateControleStringFormattee. */
+			this.dateEnregistrementStringFormatee
+				= this.fournirDateFormattee(this.dateEnregistrement);
+			
+		}
+				
 	} // Fin de setDateEnregistrement(
 	 // Date pDateEnregistrement)._________________________________________
 

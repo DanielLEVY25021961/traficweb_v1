@@ -506,7 +506,7 @@ public class SectionHitValideurService implements ISectionHitValideurService {
 		final ErreursMaps erreursMap 
 			= new ErreursMaps();
 		
-		boolean valide = false;  // NOPMD by daniel.levy on 15/07/19 09:58
+		boolean valide = false;  
 		
 		// VALIDATIONS pour chaque attribut. ***************************
 		/* 1 - numDepartement. ***********/

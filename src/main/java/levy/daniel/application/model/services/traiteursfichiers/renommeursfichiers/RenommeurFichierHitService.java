@@ -41,13 +41,23 @@ public class RenommeurFichierHitService {
 
 	// *************************METHODES************************************/
 	
+	
+	 /**
+	 * CONSTRUCTEUR D'ARITE NULLE.
+	 */
+	public RenommeurFichierHitService() {
+		super();
+	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
+	
+	
+	
 	/**
 	 * .<br/>
 	 *
 	 * @param pTeleversement
 	 * @return : File :  .<br/>
 	 */
-	public File traiterFichier(ITeleversement pTeleversement) {
+	public File traiterFichier(final ITeleversement pTeleversement) {
 		/**/
 		return null;
 	}

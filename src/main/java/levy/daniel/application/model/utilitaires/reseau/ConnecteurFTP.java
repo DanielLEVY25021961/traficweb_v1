@@ -234,19 +234,19 @@ public class ConnecteurFTP {
 	public static void main(
 			final String... pArgs) throws Exception {
 		
-		final String adresseIpProxy = "10.77.32.65"; // NOPMD by daniel.levy on 16/07/19 12:10
+		final String adresseIpProxy = "10.77.32.65"; 
 		final int portProxy = 8080;
 		final Proxy.Type typeProxy = Proxy.Type.SOCKS;
 		
 		final String user = "admin";
 		final String password = "admin";
-		final String hostFTP = "127.0.0.1"; // NOPMD by daniel.levy on 16/07/19 12:10
+		final String hostFTP = "127.0.0.1"; 
 		final int portFTP = 21;
 		
 		final ConnecteurFTP connecteurFTP 
 			= new ConnecteurFTP(user, password, hostFTP, portFTP);
 		
-		final Proxy proxy  // NOPMD by daniel.levy on 17/07/19 09:20
+		final Proxy proxy   // NOPMD by daniel.levy on 26/09/19 11:52
 			= connecteurFTP.creerProxy(adresseIpProxy, portProxy, typeProxy);
 		
 //		connecteurFTP.connecterViaProxy(proxy);

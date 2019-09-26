@@ -39,6 +39,17 @@ import org.junit.Test;
 public class CaractereDanTest {
 
 	// ************************ATTRIBUTS************************************/
+	
+	/**
+	 * Boolean qui commande l'affichage pour tous les tests.<br/>
+	 */
+	public static final Boolean AFFICHAGE_GENERAL = true;
+
+	/**
+	 * "unused".
+	 */
+	public static final String UNUSED 
+		= "unused";
 
 	/**
 	 * CARAC_NULL : CaractereDan :<br/>
@@ -212,8 +223,19 @@ public class CaractereDanTest {
 	 * 
 	 * @throws CloneNotSupportedException 
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testConstructeurAriteNulle() throws CloneNotSupportedException {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE CaractereDanTest - méthode testConstructeurAriteNulle() ********** ");
+		}
 		
 		/* vérifie que CONSTRUCTEUR_ARITE_NULLE == CONSTRUCTEUR_AUTO_NULL 
 		 * == CONSTRUCTEUR_COMPLET_NULL.*/
@@ -224,6 +246,18 @@ public class CaractereDanTest {
 		final CaractereDan caracNull1 
 		= new CaractereDan(1L, null, null, null, 0, 0, 0, 0, null, null);
 
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("caracAriteNulle1.toString() : " + caracAriteNulle1.toString());
+			System.out.println("caracAutoNull.toString() : " + caracAutoNull.toString());
+			System.out.println("CARAC_NULL.toString() : " + CARAC_NULL.toString());
+			System.out.println("caracNull1.toString() : " + caracNull1.toString());
+			System.out.println("caracAriteNulle1.fournirStringCsv() : " + caracAriteNulle1.fournirStringCsv());
+			System.out.println("caracAutoNull.fournirStringCsv() : " + caracAutoNull.fournirStringCsv());
+			System.out.println("CARAC_NULL.fournirStringCsv() : " + CARAC_NULL.fournirStringCsv());
+			System.out.println("caracNull1.fournirStringCsv() : " + caracNull1.fournirStringCsv());
+		}
+		
 		
 		/* Vérifie le toString(). */
 		assertEquals("caracAriteNulle1.toString() equals TOSTRING_CARAC_NULL : "
@@ -345,8 +379,20 @@ public class CaractereDanTest {
 	 *
 	 * @throws CloneNotSupportedException
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testConstructeurAutoNul() throws CloneNotSupportedException {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE CaractereDanTest - méthode testConstructeurAutoNul() ********** ");
+		}
+
 		this.testConstructeurAriteNulle();
 	} // Fin de testConstructeurAutoNul()._________________________________
 	
@@ -363,14 +409,31 @@ public class CaractereDanTest {
 	 * <br/>
 	 * - x.equals(y) ---> x.compareTo(y) == 0.<br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testConstructeurCompletNull() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE CaractereDanTest - méthode testConstructeurCompletNull() ********** ");
+		}
 		
 		final CaractereDan caracNull1 
 		= new CaractereDan(1L, null, null, null, 0, 0, 0, 0, null, null);
 		
 		final CaractereDan caracNull2 
 		= new CaractereDan(2L, null, null, null, 0, 0, 0, 0, null, null);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("caracNull1 : " + caracNull1.toString());
+			System.out.println("caracNull2 : " + caracNull2.toString());
+		}
 		
 		assertEquals("caracNull1 equals caracNull2 : "
 				, caracNull1, caracNull2);
@@ -380,8 +443,7 @@ public class CaractereDanTest {
 		
 		assertEquals("caracNull1.compareTo(caracNull2) == 0 : "
 				, 0, caracNull1.compareTo(caracNull2));
-		
-		
+				
 	} // Fin de testConstructeurCompletNull()._____________________________
 
 	
@@ -400,14 +462,31 @@ public class CaractereDanTest {
 	 * <br/>
 	 * - x.equals(y) ---> x.compareTo(y) == 0.<br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testConstructeurAriteNulleEtSetters() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE CaractereDanTest - méthode testConstructeurAriteNulleEtSetters() ********** ");
+		}
 		
 		final CaractereDan caracEAiguNull = new CaractereDan();
 		
 		caracEAiguNull.setId(454L);
 		caracEAiguNull.setPosition(454);
 		caracEAiguNull.setCaractere('é');
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("caracEAiguNull : " + caracEAiguNull.toString());
+			System.out.println("caracEAiguNull.fournirStringCsv() : " + caracEAiguNull.fournirStringCsv());
+		}
 		
 		/* Vérifie le toString(). */
 		assertEquals("caracEAiguNull.toString() equals CARAC_E_AIGU.toString() : "
@@ -464,11 +543,28 @@ public class CaractereDanTest {
 	 * <br/>
 	 * - x.equals(y) ---> x.compareTo(y) == 0.<br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testConstructeurAuto() {
 		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE CaractereDanTest - méthode testConstructeurAuto() ********** ");
+		}
+		
 		final CaractereDan caracEAiguAuto1 = new CaractereDan(454L, 454, 'é');
 		final CaractereDan caracEAiguAuto2 = new CaractereDan(455L, 455, 'é');
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("caracEAiguAuto1 : " + caracEAiguAuto1.toString());
+			System.out.println("caracEAiguAuto2 : " + caracEAiguAuto2.toString());
+		}
 		
 		/* Vérifie le toString(). */
 		assertEquals("caracEAiguAuto1.toString() equals CARAC_E_AIGU.toString() : "
@@ -523,10 +619,26 @@ public class CaractereDanTest {
 	 * Point de Code HexaDécimal;Nom Unicode;".<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetEnTeteCsv() {
 		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE CaractereDanTest - méthode testGetEnTeteCsv() ********** ");
+		}
+		
 		final CaractereDan carac = new CaractereDan();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("carac.fournirEnTeteCsv() : " + carac.fournirEnTeteCsv());
+		}
 		
 		assertEquals(
 				"Doit retourner le bon en-tête csv : "
@@ -544,8 +656,19 @@ public class CaractereDanTest {
 	 * codePointHexa;nom;".<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetEnTeteColonne() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE CaractereDanTest - méthode testGetEnTeteColonne() ********** ");
+		}
 		
 		assertEquals("enTete(0) equals id : "
 				, "id"
