@@ -246,7 +246,7 @@ public class ConnecteurFTP {
 		final ConnecteurFTP connecteurFTP 
 			= new ConnecteurFTP(user, password, hostFTP, portFTP);
 		
-		final Proxy proxy   // NOPMD by daniel.levy on 26/09/19 11:52
+		final Proxy proxy   
 			= connecteurFTP.creerProxy(adresseIpProxy, portProxy, typeProxy);
 		
 //		connecteurFTP.connecterViaProxy(proxy);

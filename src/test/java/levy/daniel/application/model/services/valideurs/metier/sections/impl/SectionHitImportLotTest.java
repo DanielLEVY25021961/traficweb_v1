@@ -144,7 +144,7 @@ public class SectionHitImportLotTest {
 	 */
 	@SuppressWarnings(UNUSED)
 	@Test
-	public void testImporterLotDTO() throws Exception {
+	public void testImporterLotDTO() throws Exception { // NOPMD by dan on 26/09/19 14:16
 				
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
