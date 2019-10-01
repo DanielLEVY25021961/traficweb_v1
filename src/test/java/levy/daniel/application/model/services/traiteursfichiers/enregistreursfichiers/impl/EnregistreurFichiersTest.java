@@ -45,10 +45,6 @@ public class EnregistreurFichiersTest {
 
 	// ************************ATTRIBUTS************************************/
 	
-	//*************************************************************/
-	//*********************CHEMINS ********************************/
-	//*************************************************************/
-	
 	/**
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>
 	 */
@@ -83,6 +79,10 @@ public class EnregistreurFichiersTest {
 	 */
 	public static final String DOIT_RETOURNER_MEME_INSTANCE 
 		= "Doit retourner la même instance : ";
+	
+	//*************************************************************/
+	//*********************CHEMINS ********************************/
+	//*************************************************************/
 
 	/**
 	 * Paths.get(".").toAbsolutePath().normalize().<br/>
@@ -727,8 +727,8 @@ public class EnregistreurFichiersTest {
 			return null;
 		}
 		
-		int longueur1 = pString1.length();
-		int longueur2 = pString2.length();
+		final int longueur1 = pString1.length();
+		final int longueur2 = pString2.length();
 		
 		int longueurMin = 0;
 		
