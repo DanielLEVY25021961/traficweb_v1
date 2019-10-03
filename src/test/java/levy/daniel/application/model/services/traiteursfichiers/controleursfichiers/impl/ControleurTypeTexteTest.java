@@ -82,6 +82,42 @@ public class ControleurTypeTexteTest {
 	public static final String DOIT_RETOURNER_MEME_INSTANCE 
 		= "Doit retourner la même instance : ";
 	
+	/**
+	 * "nomFichier ne doit pas être null : ".
+	 */
+	public static final String NOMFICHIER_NE_DOIT_PAS_ETRE_NULL 
+		= "nomFichier ne doit pas être null : ";
+	
+	/**
+	 * "nomFichier doit être null : ".
+	 */
+	public static final String NOMFICHIER_DOIT_ETRE_NULL 
+		= "nomFichier doit être null : ";
+	
+	/**
+	 * "fichier ne doit pas être null : ".
+	 */
+	public static final String FICHIER_NE_DOIT_PAS_ETRE_NULL 
+		= "fichier ne doit pas être null : ";
+	
+	/**
+	 * "fichier doit être null : ".
+	 */
+	public static final String FICHIER_DOIT_ETRE_NULL 
+		= "fichier doit être null : ";
+	
+	/**
+	 * "Le rapport ne doit pas être null : ".
+	 */
+	public static final String RAPPORT_NE_DOIT_PAS_ETRE_NULL 
+		= "Le rapport ne doit pas être null : ";
+	
+	/**
+	 * "Le rapport ne doit pas être vide : ".
+	 */
+	public static final String RAPPORT_NE_DOIT_PAS_ETRE_VIDE 
+		= "Le rapport ne doit pas être vide : ";
+	
 	//*************************************************************/
 	//*********************CHEMINS ********************************/
 	//*************************************************************/
@@ -1309,11 +1345,11 @@ public class ControleurTypeTexteTest {
 					, control.getUserName());
 		
 		/* Vérifie que fichier == null. */
-		assertNull("fichier doit être null : "
+		assertNull(FICHIER_DOIT_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier == null. */
-		assertNull("nomFichier doit être null : "
+		assertNull(NOMFICHIER_DOIT_ETRE_NULL
 				, control.getNomFichier());
 		
 		/* Vérifie que typeControle == "Contrôle de surface". */
@@ -1348,10 +1384,10 @@ public class ControleurTypeTexteTest {
 		/* Vérifie que setFile() fonctionne. */
 		control.setFichier(FILE_TXT_FAUSSE_EXTENSION);
 		
-		assertNotNull("fichier ne doit pas être null : "
+		assertNotNull(FICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getFichier());
 		
-		assertNotNull("nomFichier ne doit pas être null : "
+		assertNotNull(NOMFICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getNomFichier());
 		
 	} // Fin de testConstructeurAriteNulle().______________________________
@@ -1387,10 +1423,10 @@ public class ControleurTypeTexteTest {
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
-		assertFalse("Le rapport ne doit pas être vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 //		System.out.println(control.afficherRapportTextuel());
@@ -1428,10 +1464,10 @@ public class ControleurTypeTexteTest {
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
-		assertFalse("Le rapport ne doit pas être vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 //		System.out.println(control.afficherRapportTextuel());
@@ -1469,10 +1505,10 @@ public class ControleurTypeTexteTest {
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
-		assertFalse("Le rapport ne doit pas être vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 //		System.out.println(control.afficherRapportTextuel());
@@ -1510,10 +1546,10 @@ public class ControleurTypeTexteTest {
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
-		assertFalse("Le rapport ne doit pas être vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 //		System.out.println(control.afficherRapportTextuel());
@@ -1528,13 +1564,15 @@ public class ControleurTypeTexteTest {
 	 * (Réactiver l'annotation @Test).<br/>
 	 * <br/>
 	 */
-//	@Test
+	@Test
 	public void testLireFichier() {
 		
 		final ControleurTypeTexte control = new ControleurTypeTexte();
 		final String resultat = control.lireFichier(FILE_PROPERTIES, null);
 		final String listeCaract = control.listerChaineCarParCar(resultat);
 		System.out.println(listeCaract);
+		
+		assertTrue("BIDON : ", 1 == 1);
 		
 	} // Fin de testLireFichier()._________________________________________
 
@@ -1577,11 +1615,11 @@ public class ControleurTypeTexteTest {
 				, resultat);
 		
 		/* Vérifie que fichier == null. */
-		assertNull("fichier doit être null : "
+		assertNull(FICHIER_DOIT_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier == null. */
-		assertNull("nomFichier doit être null : "
+		assertNull(NOMFICHIER_DOIT_ETRE_NULL
 				, control.getNomFichier());
 		
 	
@@ -1589,10 +1627,10 @@ public class ControleurTypeTexteTest {
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
-		assertFalse("Le rapport ne doit pas être vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 				
 	} // Fin de testControlerFileNull().___________________________________
@@ -1636,11 +1674,11 @@ public class ControleurTypeTexteTest {
 				, resultat);
 		
 		/* Vérifie que fichier == null. */
-		assertNull("fichier doit être null : "
+		assertNull(FICHIER_DOIT_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier == null. */
-		assertNull("nomFichier doit être null : "
+		assertNull(NOMFICHIER_DOIT_ETRE_NULL
 				, control.getNomFichier());
 		
 	
@@ -1648,10 +1686,10 @@ public class ControleurTypeTexteTest {
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
-		assertFalse("Le rapport ne doit pas être vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 				
 	} // Fin de testControlerFileInexistant()._____________________________
@@ -1695,11 +1733,11 @@ public class ControleurTypeTexteTest {
 				, resultat);
 		
 		/* Vérifie que fichier == null. */
-		assertNull("fichier doit être null : "
+		assertNull(FICHIER_DOIT_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier == null. */
-		assertNull("nomFichier doit être null : "
+		assertNull(NOMFICHIER_DOIT_ETRE_NULL
 				, control.getNomFichier());
 		
 	
@@ -1707,10 +1745,10 @@ public class ControleurTypeTexteTest {
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
-		assertFalse("Le rapport ne doit pas être vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 	} // Fin de testControlerFileRepertoire()._____________________________
@@ -1754,11 +1792,11 @@ public class ControleurTypeTexteTest {
 				, resultat);
 		
 		/* Vérifie que fichier == null. */
-		assertNull("fichier doit être null : "
+		assertNull(FICHIER_DOIT_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier == null. */
-		assertNull("nomFichier doit être null : "
+		assertNull(NOMFICHIER_DOIT_ETRE_NULL
 				, control.getNomFichier());
 		
 	
@@ -1766,10 +1804,10 @@ public class ControleurTypeTexteTest {
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
-		assertFalse("Le rapport ne doit pas être vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 	} // Fin de testControlerFileVide().___________________________________
@@ -1813,11 +1851,11 @@ public class ControleurTypeTexteTest {
 				, resultat);
 		
 		/* Vérifie que fichier != null. */
-		assertNotNull("fichier ne doit pas être null : "
+		assertNotNull(FICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier != null. */
-		assertNotNull("nomFichier ne doit pas être null : "
+		assertNotNull(NOMFICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getNomFichier());
 		
 	
@@ -1825,10 +1863,10 @@ public class ControleurTypeTexteTest {
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
-		assertFalse("Le rapport ne doit pas être vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 	} // Fin de testControlerFileNonTextuel()._____________________________
@@ -1873,21 +1911,21 @@ public class ControleurTypeTexteTest {
 					, resultat);
 		
 		/* Vérifie que fichier != null. */
-		assertNotNull("fichier ne doit pas être null : "
+		assertNotNull(FICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier != null. */
-		assertNotNull("nomFichier ne doit pas être null : "
+		assertNotNull(NOMFICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getNomFichier());
 		
 		/* récupération du rapport. */
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport est non vide. */
-		assertFalse("Le rapport doit être non vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 	} // Fin de testControlerFileAnsi().___________________________________
@@ -1931,21 +1969,21 @@ public class ControleurTypeTexteTest {
 					, resultat);
 		
 		/* Vérifie que fichier != null. */
-		assertNotNull("fichier ne doit pas être null : "
+		assertNotNull(FICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier != null. */
-		assertNotNull("nomFichier ne doit pas être null : "
+		assertNotNull(NOMFICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getNomFichier());
 		
 		/* récupération du rapport. */
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport est non vide. */
-		assertFalse("Le rapport doit être non vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 	} // Fin de testControlerFileOem().____________________________________
@@ -1989,21 +2027,21 @@ public class ControleurTypeTexteTest {
 					, resultat);
 		
 		/* Vérifie que fichier != null. */
-		assertNotNull("fichier ne doit pas être null : "
+		assertNotNull(FICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier != null. */
-		assertNotNull("nomFichier ne doit pas être null : "
+		assertNotNull(NOMFICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getNomFichier());
 		
 		/* récupération du rapport. */
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport est non vide. */
-		assertFalse("Le rapport doit être non vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 	} // Fin de testControlerFileLatin2()._________________________________
@@ -2046,21 +2084,21 @@ public class ControleurTypeTexteTest {
 					, resultat);
 		
 		/* Vérifie que fichier != null. */
-		assertNotNull("fichier ne doit pas être null : "
+		assertNotNull(FICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getFichier());
 		
 		/* Vérifie que nomFichier != null. */
-		assertNotNull("nomFichier ne doit pas être null : "
+		assertNotNull(NOMFICHIER_NE_DOIT_PAS_ETRE_NULL
 				, control.getNomFichier());
 		
 		/* récupération du rapport. */
 		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
-		assertNotNull("Le rapport ne doit pas être null : ", rapport);
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport est non vide. */
-		assertFalse("Le rapport doit être non vide : "
+		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
 	} // Fin de testControlerFileUtf8().___________________________________
