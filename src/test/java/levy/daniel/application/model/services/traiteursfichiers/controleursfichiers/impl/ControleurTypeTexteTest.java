@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -117,6 +118,12 @@ public class ControleurTypeTexteTest {
 	 */
 	public static final String RAPPORT_NE_DOIT_PAS_ETRE_VIDE 
 		= "Le rapport ne doit pas être vide : ";
+	
+	/**
+	 * "Le rapport doit être vide : ".
+	 */
+	public static final String RAPPORT_DOIT_ETRE_VIDE 
+		= "Le rapport doit être vide : ";
 	
 	//*************************************************************/
 	//*********************CHEMINS ********************************/
@@ -1301,7 +1308,6 @@ public class ControleurTypeTexteTest {
 	
 	
 	/**
-	 * method testConstructeurAriteNulle() :<br/>
 	 * teste le constructeur d'arité nulle.<br/>
 	 * <br/>
 	 * - Vérifie que bundleControles est bien chargé.<br/>
@@ -1320,12 +1326,33 @@ public class ControleurTypeTexteTest {
 	 * - Vérifie que setFile() fonctionne.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testConstructeurAriteNulle() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ControleurTypeTexteTest - méthode testConstructeurAriteNulle() ********** ");
+		}
 		
 		/* Instanciation d'un ControleurTypeTexte 
 		 * avec le constructeur d'arité nulle. */
 		final ControleurTypeTexte control = new ControleurTypeTexte();
+		
+		final ResourceBundle bundleControlesLocal 
+			= AbstractControle.bundleControles;
+		
+		final String nomBaseBundle = bundleControlesLocal.getBaseBundleName();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("nomBaseBundle : " + nomBaseBundle);
+		}
 		
 		/* Vérifie que bundleControles est bien chargé. */
 		assertNotNull("bundleControles doit être chargé : "
@@ -1395,7 +1422,6 @@ public class ControleurTypeTexteTest {
 	
 	
 	/**
-	 * method testLireFichierNull() :<br/>
 	 * teste la méthode lireFichier(File pFile, Charset pCharset).<br/>
 	 * <br/>
 	 * - vérifie que lireFichier(FILE_NULL, ...) retourne 
@@ -1404,8 +1430,19 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testLireFichierNull() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ControleurTypeTexteTest - méthode testLireFichierNull() ********** ");
+		}
 		
 		/* Instanciation d'un contrôle. */
 		final IControle control = new ControleurTypeTexte();
@@ -1422,21 +1459,25 @@ public class ControleurTypeTexteTest {
 		/* récupération du rapport. */
 		final List<LigneRapport> rapport = control.getRapport();
 		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(control.afficherRapportTextuel());
+			System.out.println();
+			System.out.println(control.afficherRapportCsv());
+		}
+		
 		/* vérifie que le rapport n'est pas null. */
 		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
 		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
-		
-//		System.out.println(control.afficherRapportTextuel());
-		
+				
 	} // Fin de testLireFichierNull()._____________________________________
 	
 
 	
 	/**
-	 * method testLireFichierInexistant() :<br/>
 	 * teste la méthode lireFichier(File pFile, Charset pCharset).<br/>
 	 * <br/>
 	 * - vérifie que lireFichier(FILE_INEXISTANT, ...) retourne 
@@ -1445,8 +1486,19 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testLireFichierInexistant() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ControleurTypeTexteTest - méthode testLireFichierInexistant() ********** ");
+		}
 				
 		/* Instanciation d'un contrôle. */
 		final IControle control = new ControleurTypeTexte();
@@ -1463,6 +1515,13 @@ public class ControleurTypeTexteTest {
 		/* récupération du rapport. */
 		final List<LigneRapport> rapport = control.getRapport();
 		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(control.afficherRapportTextuel());
+			System.out.println();
+			System.out.println(control.afficherRapportCsv());
+		}
+		
 		/* vérifie que le rapport n'est pas null. */
 		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
@@ -1470,8 +1529,6 @@ public class ControleurTypeTexteTest {
 		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
-//		System.out.println(control.afficherRapportTextuel());
-			
 	} // Fin de testLireFichierInexistant()._______________________________
 	
 
@@ -1486,8 +1543,19 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testLireFichierRepertoire() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ControleurTypeTexteTest - méthode testLireFichierRepertoire() ********** ");
+		}
 		
 		/* Instanciation d'un contrôle. */
 		final IControle control = new ControleurTypeTexte();
@@ -1504,14 +1572,19 @@ public class ControleurTypeTexteTest {
 		/* récupération du rapport. */
 		final List<LigneRapport> rapport = control.getRapport();
 		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(control.afficherRapportTextuel());
+			System.out.println();
+			System.out.println(control.afficherRapportCsv());
+		}
+		
 		/* vérifie que le rapport n'est pas null. */
 		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
 		/* vérifie que le rapport n'est pas vide. */
 		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
-		
-//		System.out.println(control.afficherRapportTextuel());
 		
 	} // Fin de testLireFichierRepertoire()._______________________________
 	
@@ -1527,8 +1600,19 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testLireFichierVide() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ControleurTypeTexteTest - méthode testLireFichierVide() ********** ");
+		}
 		
 		/* Instanciation d'un contrôle. */
 		final IControle control = new ControleurTypeTexte();
@@ -1545,6 +1629,13 @@ public class ControleurTypeTexteTest {
 		/* récupération du rapport. */
 		final List<LigneRapport> rapport = control.getRapport();
 		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(control.afficherRapportTextuel());
+			System.out.println();
+			System.out.println(control.afficherRapportCsv());
+		}
+		
 		/* vérifie que le rapport n'est pas null. */
 		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
 		
@@ -1552,8 +1643,6 @@ public class ControleurTypeTexteTest {
 		assertFalse(RAPPORT_NE_DOIT_PAS_ETRE_VIDE
 				, rapport.isEmpty());
 		
-//		System.out.println(control.afficherRapportTextuel());
-
 	} // Fin de testLireFichierVide()._____________________________________
 
 	
@@ -1564,15 +1653,49 @@ public class ControleurTypeTexteTest {
 	 * (Réactiver l'annotation @Test).<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testLireFichier() {
 		
-		final ControleurTypeTexte control = new ControleurTypeTexte();
-		final String resultat = control.lireFichier(FILE_PROPERTIES, null);
-		final String listeCaract = control.listerChaineCarParCar(resultat);
-		System.out.println(listeCaract);
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
 		
-		assertTrue("BIDON : ", 1 == 1);
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ControleurTypeTexteTest - méthode testLireFichier() ********** ");
+		}
+		
+		/* Instanciation d'un contrôle. */
+		final ControleurTypeTexte control = new ControleurTypeTexte();
+		
+		// LECTURE PAR LE CONTROLE.************
+		final String resultat = control.lireFichier(FILE_PROPERTIES, null);
+		
+		final String listeCaract = control.listerChaineCarParCar(resultat);
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(listeCaract);
+		}
+				
+		/* récupération du rapport. */
+		final List<LigneRapport> rapport = control.getRapport();
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println(control.afficherRapportTextuel());
+			System.out.println();
+			System.out.println(control.afficherRapportCsv());
+		}
+		
+		/* vérifie que le rapport n'est pas null. */
+		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);
+		
+		/* vérifie que le rapport est vide. */
+		assertTrue(RAPPORT_DOIT_ETRE_VIDE
+				, rapport.isEmpty());
 		
 	} // Fin de testLireFichier()._________________________________________
 
@@ -1589,18 +1712,29 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControlerFileNull() {
+		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ControleurTypeTexteTest - méthode testControlerFileNull() ********** ");
+		}
 		
 		/* Instanciation d'un ControleurTypeTexte 
 		 * avec le constructeur d'arité nulle. */
 		final ControleurTypeTexte control = new ControleurTypeTexte();
 		
 		/* invocation de la méthode controler(File pFile). */
-		final boolean resultat = control.controler(FILE_NULL);
+//		final boolean resultat = control.controler(FILE_NULL);
 		
 		/* Avec enregistrement sur disque du rapport de contrôle. */
-//		final boolean resultat = control.controler(FILE_NULL, true);
+		final boolean resultat = control.controler(FILE_NULL, true);
 		
 //		System.out.println(control.afficherRapportTextuel());
 		
@@ -1648,6 +1782,7 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControlerFileInexistant() {
 		
@@ -1707,6 +1842,7 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControlerFileRepertoire() {
 		
@@ -1766,6 +1902,7 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControlerFileVide() {
 		
@@ -1825,6 +1962,7 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControlerFileNonTextuel() {
 		
@@ -1884,6 +2022,7 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControlerFileAnsi() {
 		
@@ -1943,6 +2082,7 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControlerFileOem() {
 		
@@ -2001,6 +2141,7 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControlerFileLatin2() {
 		
@@ -2059,6 +2200,7 @@ public class ControleurTypeTexteTest {
 	 * - vérifie que le rapport n'est pas vide.<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControlerFileUtf8() {
 		
@@ -2115,6 +2257,7 @@ public class ControleurTypeTexteTest {
 	 * et un jeu de fichiers non texte (.wav, . mp3, ..).<br/>
 	 * <br/>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testControler() {
 		
