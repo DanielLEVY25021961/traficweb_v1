@@ -695,13 +695,13 @@ public abstract class AbstractControle implements IControle {
 	 * - Centralise le traitement des mauvais fichiers 
 	 * (null, inexistant, répertoire, vide).<br/>
 	 * - Rafraîchit automatiquement this.fichier et this.rapport.<br/>
-	 * - Appelle automatiquement this.controlerHook(pFile, pEnregistrerRapport) 
+	 * - Appelle automatiquement 
+	 * <code>this.controlerHook(pFile, pEnregistrerRapport)</code> 
 	 * qui permet l'exécution du contrôle spécifique 
 	 * de chaque classe concrète.<br/>
 	 * <br/>
 	 * {@inheritDoc}
 	 * <br/>
-	 * 
 	 */
 	@Override
 	public final boolean controler(
@@ -4527,12 +4527,6 @@ public abstract class AbstractControle implements IControle {
 	
 	
 	/**
-	 * method fournirFile(
-	 * String pChemin
-	 * , Date pDate
-	 * , String pNomFichier
-	 * , String pEncodage
-	 * , String pExtension) :<br/>
 	 * Fabrique éventuellement l'arborescence pChemin 
 	 * (".\\data\\temp\\rapports" par exemple)<br/>
 	 * , fabrique le nom du fichier sous la forme 
@@ -4757,8 +4751,6 @@ public abstract class AbstractControle implements IControle {
 
 
 	/**
-	 * method creerArborescence(
-	 * String pChemin) :<br/>
 	 * Créée en une seule fois toute l'arborescence passée en paramètre.<br/>
 	 * <br/>
 	 * Par exemple :<br/>
@@ -4796,13 +4788,13 @@ public abstract class AbstractControle implements IControle {
 			return false;
 		}
 		
-		/* retourne false si pChemin ne contient pas '\\'. */
-		if (!StringUtils.contains(pChemin, "\\")) {
+		/* retourne false si pChemin ne contient pas '/'. */
+		if (!StringUtils.contains(pChemin, "/")) {
 			return false;
 		}
 		
 		/* Récupération des répertoires par découpage de la chaine. */
-		final String[] repertoires = StringUtils.split(pChemin, "\\");
+		final String[] repertoires = StringUtils.split(pChemin, "/");
 		final int nombreRep = repertoires.length;
 		
 		/* retourne false si un des répertoires du chemin est blank. */

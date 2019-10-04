@@ -15,6 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.apptechnic.IConstantesSautsLigne;
+import levy.daniel.application.apptechnic.IConstantesSeparateurs;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnaireslocale.LocaleManager;
 import levy.daniel.application.apptechnic.exceptions.technical.AbstractRunTimeTechnicalException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.BundleManquantRunTimeException;
@@ -97,173 +99,112 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
  * @since 16 avr. 2016
  *
  */
-public final class ConfigurationBundlesManager {
+public final class ConfigurationBundlesManager 
+				implements IConstantesSeparateurs, IConstantesSautsLigne {
 
 	// ************************ATTRIBUTS************************************/
 	/**
-	 * CLASSE_CONFIGURATIONBUNDLESMANAGER : String :<br/>
 	 * "Classe ConfigurationBundlesManager".<br/>
 	 */
 	public static final String CLASSE_CONFIGURATIONBUNDLESMANAGER 
 		= "Classe ConfigurationBundlesManager";
-	
-	
+		
 	/**
-	 * METHODE_GET_BUNDLEAPPLICATION : String :<br/>
 	 * "Méthode getBundleApplication()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLEAPPLICATION 
 		= "Méthode getBundleApplication()";
-
 	
 	/**
-	 * METHODE_GET_BUNDLERESSOURCESEXTERNES : String :<br/>
 	 * "Méthode getBundleRessourcesExternes()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLERESSOURCESEXTERNES
 		= "Méthode getBundleRessourcesExternes()";
 
-
 	/**
-	 * METHODE_GET_PATH_RESSOURCES_EXTERNES : String :<br/>
 	 * "Méthode getPathRessourcesExternes()".<br/>
 	 */
 	public static final String METHODE_GET_PATH_RESSOURCES_EXTERNES 
 		= "Méthode getPathRessourcesExternes()";
-
 	
 	/**
-	 * METHODE_GET_PATH_RAPPORTS_CONTROLE : String :<br/>
 	 * "Méthode getPathRapportsControles()".<br/>
 	 */
 	public static final String METHODE_GET_PATH_RAPPORTS_CONTROLE 
 		= "Méthode getPathRapportsControles()";
-
 	
 	/**
-	 * METHODE_GET_PATH_LOGS : String :<br/>
 	 * "Méthode getPathLogs()".<br/>
 	 */
 	public static final String METHODE_GET_PATH_LOGS 
 		= "Méthode getPathLogs()";
-
 	
 	/**
-	 * METHODE_GET_PATH_DATA : String :<br/>
 	 * "Méthode getPathData()".<br/>
 	 */
 	public static final String METHODE_GET_PATH_DATA 
 		= "Méthode getPathData()";
-
 	
 	/**
-	 * METHODE_GET_BUNDLE_INTERNE : String :<br/>
 	 * "Méthode getBundleInterne(
 	 * String pNomBaseProperties, Locale pLocale)".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLE_INTERNE 
 		= "Méthode getBundleInterne(String pNomBaseProperties"
 				+ ", Locale pLocale)";
-
 	
 	/**
-	 * METHODE_GET_BUNDLE_EXTERNE : String :<br/>
 	 * "Méthode getBundleExterne(String pNomBaseProperties
 	 * , Locale pLocale, String pCheminRessourcesExterne)".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLE_EXTERNE 
 	= "Méthode getBundleExterne(String pNomBaseProperties"
 			+ ", Locale pLocale, String pCheminRessourcesExterne)";
-	
-	
+		
 	/**
-	 * METHODE_GET_BUNDLEMESSAGESCONTROLE : String :<br/>
 	 * "Méthode getBundleMessagesControle()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLEMESSAGESCONTROLE 
 		= "Méthode getBundleMessagesControle()";
-	
-	
+		
 	/**
-	 * METHODE_GET_BUNDLEMESSAGESTECHNIQUE : String :<br/>
 	 * "Méthode getBundleMessagesTechnique()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLEMESSAGESTECHNIQUE 
 		= "Méthode getBundleMessagesTechnique()";
-
 	
 	/**
-	 * METHODE_GET_BUNDLEMESSAGESDIFF : String :<br/>
 	 * "Méthode getBundleMessagesDiff()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLEMESSAGESDIFF 
 		= "Méthode getBundleMessagesDiff()";
 
-	
-	//*****************************************************************/
-	//**************************** BOM_UTF-8 **************************/
-	//*****************************************************************/
 	/**
-	 * BOM_UTF : char :<br/>
-	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
-	 */
-	public static final char BOM_UTF_8 = '\uFEFF';
-
-	
-	//*****************************************************************/
-	//**************************** SEPARATEURS ************************/
-	//*****************************************************************/
-	
-	/**
-	 * PREVENIR_CS : String :<br/>
 	 * "veuillez prévenir le centre-serveur svp.".<br/>
 	 */
 	public static final String PREVENIR_CS 
 		= "veuillez prévenir le centre-serveur svp.";
 	
-
-	/**
-	 * SEP_PV : String :<br/>
-	 * Séparateur pour les CSV ";".<br/>
-	 */
-	public static final String SEP_PV = ";";
-
-    
-	/**
-	 * SEPARATEUR_MOINS_AERE : String :<br/>
-	 * " - ".<br/>
-	 */
-	public static final String SEPARATEUR_MOINS_AERE = " - ";
+	//*****************************************************************/
+	//**************************** BOM_UTF-8 **************************/
+	//*****************************************************************/
+	// définis dans IConstantesSeparateurs
 	
-	
-	/**
-	 * UNDERSCORE : String :<br/>
-	 * "_".<br/>
-	 */
-	public static final String UNDERSCORE = "_";
-
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	// définis dans IConstantesSeparateurs
 
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/	
-	/**
-	 * NEWLINE : String :<br/>
-	 * Saut de ligne spécifique de la plateforme.<br/>
-	 * System.getProperty("line.separator").<br/>
-	 */
-	public static final String NEWLINE = System.getProperty("line.separator");
+	// définis dans IConstantesSautsLigne
 
 	
 	//*****************************************************************/
 	//**************************** LOCALE *****************************/
 	//*****************************************************************/
-	/**
-	 * LOCALE_FR : Locale : <br/>
-	 * Locale France.<br/>
-	 */
-	public static final Locale LOCALE_FR = new Locale("fr", "FR");
-
-
+	// définis dans IConstantesSeparateurs
 	
 	//*****************************************************************/
 	//**************************** BUNDLES ****************************/
@@ -283,9 +224,7 @@ public final class ConfigurationBundlesManager {
 	 */
 	private static transient ResourceBundle bundleApplication;
 
-
 	/**
-	 * bundleRessourcesExternes : ResourceBundle : <br/>
 	 * <ul>
 	 * <li><b>SINGLETON</b>.</li>
 	 * <li>Contient les <b>chemins</b> vers les fichiers <b>EXTERNES 
@@ -300,30 +239,24 @@ public final class ConfigurationBundlesManager {
 	 * </ul>
 	 */
 	private static transient ResourceBundle bundleRessourcesExternes;
-
 	
 	/**
-	 * bundleMessagesControle : ResourceBundle : <br/>
 	 * 'pathExterne/messagescontrole_fr_FR.properties'.<br/>
 	 * Properties EXTERNE (hors classpath).<br/>
 	 * Contient les paramétrages des contrôles 
 	 * de l'application.<br/>
 	 */
 	private static transient ResourceBundle bundleMessagesControle;
-
 	
 	/**
-	 * bundleMessagesTechnique : ResourceBundle : <br/>
 	 * 'pathExterne/messagestechnique_fr_FR.properties'.<br/>
 	 * Properties EXTERNE (hors classpath).<br/>
 	 * Contient les paramétrages des messages techniques 
 	 * de l'application.<br/>
 	 */
 	private static transient ResourceBundle bundleMessagesTechnique;
-
 	
 	/**
-	 * bundleMessagesDiff : ResourceBundle : <br/>
 	 * 'pathExterne/messagesdiff_fr_FR.properties'.<br/>
 	 * Properties EXTERNE (hors classpath).<br/>
 	 * Contient les paramétrages des messages 
@@ -332,9 +265,7 @@ public final class ConfigurationBundlesManager {
 	 */
 	private static transient ResourceBundle bundleMessagesDiff;
 	
-
 	/**
-	 * rapportConfigurationCsv : String :<br/>
 	 * <ul>
 	 * <li>Rapport Technique (pour les développeurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -350,10 +281,8 @@ public final class ConfigurationBundlesManager {
 	 * Il devrait se trouver juste sous la racine des binaires /bin;<br/>
 	 */
 	private static String rapportConfigurationCsv;
-
 	
 	/**
-	 * rapportUtilisateurCsv : String :<br/>
 	 * <ul>
 	 * <li>Rapport NON Technique (pour les utilisateurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -369,9 +298,7 @@ public final class ConfigurationBundlesManager {
 	 */
 	private static String rapportUtilisateurCsv;
 	
-
 	/**
-	 * messageIndividuelRapport : String :<br/>
 	 * Message pour le Rapport du chargement de la configuration au format csv 
 	 * généré par chaque méthode individuellement.<br/>
 	 */

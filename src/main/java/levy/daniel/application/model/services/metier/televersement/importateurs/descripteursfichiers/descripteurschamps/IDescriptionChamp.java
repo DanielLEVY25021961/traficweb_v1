@@ -2,6 +2,7 @@ package levy.daniel.application.model.services.metier.televersement.importateurs
 
 import java.util.SortedMap;
 
+import levy.daniel.application.IConstantesSautsLigne;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.TableauVideException;
@@ -67,7 +68,7 @@ public interface IDescriptionChamp
 				extends IFournisseurCsv
 					, IFournisseurJTable
 						, IRapporteur
-							, IFormatteurLongueurs {
+							, IFormatteurLongueurs, IConstantesSautsLigne {
 
 	
 	

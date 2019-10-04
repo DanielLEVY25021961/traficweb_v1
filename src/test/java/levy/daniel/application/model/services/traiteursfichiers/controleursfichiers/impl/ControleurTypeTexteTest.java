@@ -22,6 +22,7 @@ import org.junit.Test;
 import levy.daniel.application.model.services.traiteursfichiers.ILecteurDecodeurFile;
 import levy.daniel.application.model.services.traiteursfichiers.controleursfichiers.AbstractControle;
 import levy.daniel.application.model.services.traiteursfichiers.controleursfichiers.IControle;
+import levy.daniel.application.model.services.traiteursfichiers.enregistreursfichiers.rapportsenregistrements.LigneRapportEnregistrement;
 import levy.daniel.application.model.services.traiteursfichiers.rapportscontroles.LigneRapport;
 
 /**
@@ -130,7 +131,8 @@ public class ControleurTypeTexteTest {
 	//*************************************************************/
 
 	/**
-	 * Paths.get(".").toAbsolutePath().normalize().<br/>
+	 * Path absolu du présent projet Eclipse.<br/>
+	 * <code>Paths.get(".").toAbsolutePath().normalize()</code>.<br/>
 	 */
 	public static final Path PATH_ABSOLU_PRESENT_PROJET 
 		= Paths.get(".").toAbsolutePath().normalize();
@@ -1203,7 +1205,7 @@ public class ControleurTypeTexteTest {
 
 	/**
 	 * SAUTDELIGNE_UNIX : String :<br/>
-	 * Saut de ligne généré par les éditeurs Unix.<br/>
+	 * Saut de ligne généré par les éditeurs UNIX et par JAVA.<br/>
 	 * "\n" (Retour Ligne = LINE FEED (LF)).<br/>
 	 * '\u000a'
 	 */
@@ -1211,7 +1213,7 @@ public class ControleurTypeTexteTest {
 	
 	/**
 	 * SAUTDELIGNE_MAC : String :<br/>
-	 * Saut de ligne généré par les éditeurs Mac.<br/>
+	 * Saut de ligne généré par les éditeurs MAC.<br/>
 	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR)).<br/>
 	 * '\u000d'
 	 */
@@ -1219,7 +1221,7 @@ public class ControleurTypeTexteTest {
 	
 	/**
 	 * SAUTDELIGNE_DOS_WINDOWS : String :<br/>
-	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
+	 * Saut de ligne généré par les éditeurs DOS/WINDOWS.<br/>
 	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).<br/>
 	 * '\u000a''\u000d'
 	 */
@@ -1718,7 +1720,7 @@ public class ControleurTypeTexteTest {
 		
 		// **********************************
 		// AFFICHAGE DANS LE TEST ou NON
-		final boolean affichage = false;
+		final boolean affichage = true;
 		// **********************************
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -1736,13 +1738,40 @@ public class ControleurTypeTexteTest {
 		/* Avec enregistrement sur disque du rapport de contrôle. */
 		final boolean resultat = control.controler(FILE_NULL, true);
 		
-//		System.out.println(control.afficherRapportTextuel());
+		/* récupération du rapport. */
+		final List<LigneRapport> rapport 
+			= control.getRapport();
+		/* récupération du rapport d'enregistrement. */
+		final List<LigneRapportEnregistrement> rapportEnregistrement 
+			= control.getRapportEnregistrement();
 		
-		/* Affichage du rapport d'enregistrement des rapports. */
-//		System.out.println();
-//		System.out.println(control.afficherRapportEnregistrementTextuel());
-//		System.out.println();
-//		System.out.println(control.afficherRapportEnregistrementCsv());
+		final String messagesEnregistrementRapports 
+			= control.getMessagesEnregistrementsRapports();
+
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			
+			System.out.println();
+			System.out.println("resultat du contrôle : " + resultat);
+			
+			System.out.println();
+			System.out.println("messages d'enregistrement des rapports : " 
+					+ messagesEnregistrementRapports);
+			
+			/* affichage du rapport de contrôle. */
+			System.out.println();
+			System.out.println(control.afficherRapportTextuel());
+			System.out.println();
+			System.out.println(control.afficherRapportCsv());
+			System.out.println();
+			
+			/* Affichage du rapport d'enregistrement des rapports. */
+			System.out.println();
+			System.out.println(control.afficherRapportEnregistrementTextuel());
+			System.out.println();
+			System.out.println(control.afficherRapportEnregistrementCsv());
+
+		}
 		
 		/* Vérifie que la méthode retourne false. */
 		assertFalse("controler(null) doit retourner false : "
@@ -1756,9 +1785,6 @@ public class ControleurTypeTexteTest {
 		assertNull(NOMFICHIER_DOIT_ETRE_NULL
 				, control.getNomFichier());
 		
-	
-		/* récupération du rapport. */
-		final List<LigneRapport> rapport = control.getRapport();
 		
 		/* vérifie que le rapport n'est pas null. */
 		assertNotNull(RAPPORT_NE_DOIT_PAS_ETRE_NULL, rapport);

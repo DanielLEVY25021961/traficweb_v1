@@ -1,10 +1,10 @@
 package levy.daniel.application.model.services.traiteursfichiers.controleursfichiers;
 
 import java.io.File;
-import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.Locale;
 
+import levy.daniel.application.IConstantesSautsLigne;
 import levy.daniel.application.model.services.traiteursfichiers.IEnregistreurRapport;
 import levy.daniel.application.model.services.traiteursfichiers.ILecteurDecodeurFile;
 import levy.daniel.application.model.services.traiteursfichiers.IListeurDeCaracteresUnicode;
@@ -121,197 +121,26 @@ import levy.daniel.application.model.services.traiteursfichiers.IRapporteurContr
  */
 public interface IControle extends IRapporteurControle
 			, ILecteurDecodeurFile, IListeurDeCaracteresUnicode
-				, IEnregistreurRapport {
+				, IEnregistreurRapport, IConstantesSautsLigne {
 
 	/**
 	 * new Locale("fr", "FR").<br/>
 	 */
 	Locale LOCALE_FR_FR = new Locale("fr", "FR");
-		
+	
+	//*****************************************************************/
+	//**************************** SAUTS ******************************/
+	//*****************************************************************/
+	// définis dans IConstantesSautsLigne	
+			
 	/**
-	 * CHARSET_UTF8 : Charset :<br/>
-	 * Charset.forName("UTF-8").<br/>
-	 * Eight-bit Unicode (or UCS) Transformation Format.<br/> 
-	 */
-	Charset CHARSET_UTF8 
-		= Charset.forName("UTF-8");
-	
-	
-	/**
-	 * CHARSET_US_ASCII : Charset :<br/>
-	 * Charset.forName("US-ASCII").<br/>
-	 * Seven-bit ASCII, a.k.a. ISO646-US, 
-	 * a.k.a. the Basic Latin block of the Unicode character set.<br/>
-	 * standard américain.<br/>
-	 * American Standard Code for Information Interchange.<br/> 
-	 * 128 caractères imprimables.<br/> 
-	 * Sert à écrire l’anglo-américain.<br/> 
-	 * Ne permet pas d’écrire les langues européennes 
-	 * qui utilisent des lettres avec diacritiques (accents, cédille, ...).<br/> 
-	 * On ne peut pas écrire en français avec de l’ASCII.<br/>
-	 */
-	Charset CHARSET_US_ASCII 
-		= Charset.forName("US-ASCII");
-	
-	
-	/**
-	 * CHARSET_ISO_8859_1 : Charset :<br/>
-	 * Charset.forName("ISO-8859-1").<br/>
-	 * Latin1.<br/>
-	 * 191 caractères imprimables.<br/> 
-	 * Permet d’écrire la plupart des langues d’Europe de l’Ouest.<br/> 
-	 * Presque tous les caractères du français y sont (manquent le œ et €).<br/>
-	 */
-	Charset CHARSET_ISO_8859_1 
-		= Charset.forName("ISO-8859-1");
-	
-	
-	/**
-	 * CHARSET_LATIN1 : Charset :<br/>
-	 * Charset.forName("ISO-8859-1").<br/>
-	 * Latin1.<br/>
-	 * 191 caractères imprimables.<br/> 
-	 * Permet d’écrire la plupart des langues d’Europe de l’Ouest.<br/> 
-	 * Presque tous les caractères du français y sont (manquent le œ et €).<br/>
-	 */
-	Charset CHARSET_LATIN1 
-		= Charset.forName("ISO-8859-1");
-	
-	
-	/**
-	 * CHARSET_ISO_8859_2 : Charset :<br/>
-	 * Charset.forName("ISO-8859-2").<br/>
-	 * <br/>
-	 */
-	Charset CHARSET_ISO_8859_2 
-		= Charset.forName("ISO-8859-2");
-	
-	
-	/**
-	 * CHARSET_ISO_8859_9 : Charset :<br/>
-	 * Charset.forName("ISO-8859-9").<br/>
-	 * Latin Alphabet No. 5<br/>
-	 */
-	Charset CHARSET_ISO_8859_9 
-		= Charset.forName("ISO-8859-9");
-	
-	
-	/**
-	 * CHARSET_ISO_8859_15 : Charset :<br/>
-	 * Charset.forName("ISO-8859-15").<br/>
-	 * Latin9, Latin Alphabet No. 9.<br/>
-	 * modifie légèrement ISO-8859-1.<br/> 
-	 * Ajout du caractère œ et du symbole monétaire € (Euro) entre autres.<br/>
-	 */
-	Charset CHARSET_ISO_8859_15 
-		= Charset.forName("ISO-8859-15");
-	
-	
-	/**
-	 * CHARSET_LATIN9 : Charset :<br/>
-	 * Charset.forName("ISO-8859-15").<br/>
-	 * Latin9, Latin Alphabet No. 9.<br/>
-	 * modifie légèrement ISO-8859-1.<br/> 
-	 * Ajout du caractère œ et du symbole monétaire € (Euro) entre autres.<br/>
-	 */
-	Charset CHARSET_LATIN9 
-		= Charset.forName("ISO-8859-15");
-	
-	
-	/**
-	 * CHARSET_WINDOWS_1252 : Charset :<br/>
-	 * Charset.forName("windows-1252").<br/>
-	 * ANSI, CP1252.<br/>
-	 * 218 caractères imprimables.<br/>
-	 * extension d’ISO-8859-1, qui rajoute quelques caractères: œ, € (euro), 
-	 * guillemets anglais (« »), points de suspension (...)
-	 * , signe «pour mille» (‰), 
-	 * tirets cadratin (— = \u2014 en unicode ) et demi-cadratin (–), ...<br/>
-	 */
-	Charset CHARSET_WINDOWS_1252 
-		= Charset.forName("windows-1252");
-	
-	
-	/**
-	 * CHARSET_ANSI : Charset :<br/>
-	 * Charset.forName("windows-1252").<br/>
-	 * ANSI, CP1252.<br/>
-	 * 218 caractères imprimables.<br/>
-	 * extension d’ISO-8859-1, qui rajoute quelques caractères: œ, € (euro), 
-	 * guillemets anglais (« »), points de suspension (...)
-	 * , signe «pour mille» (‰), 
-	 * tirets cadratin (— = \u2014 en unicode ) et demi-cadratin (–), ...<br/>
-	 */
-	Charset CHARSET_ANSI
-		= Charset.forName("windows-1252");
-	
-	
-	/**
-	 * CHARSET_CP1252 : Charset :<br/>
-	 * Charset.forName("windows-1252").<br/>
-	 * ANSI, CP1252.<br/>
-	 * 218 caractères imprimables.<br/>
-	 * extension d’ISO-8859-1, qui rajoute quelques caractères: œ, € (euro), 
-	 * guillemets anglais (« »), points de suspension (...)
-	 * , signe «pour mille» (‰), 
-	 * tirets cadratin (— = \u2014 en unicode ) et demi-cadratin (–), ...<br/>
-	 */
-	Charset CHARSET_CP1252
-		= Charset.forName("windows-1252");
-	
-	
-	/**
-	 * CHARSET_IBM850 : Charset :<br/>
-	 * Charset IBM-850.<br/>
-	 * Cp850, MS-DOS Latin-1.<br/>
-	 */
-	Charset CHARSET_IBM850
-		= Charset.forName("IBM-850");
-	
-	
-	
-	/**
-	 * SAUTDELIGNE_UNIX : String :<br/>
-	 * Saut de ligne généré par les éditeurs Unix.<br/>
-	 * "\n" (Retour Ligne = LINE FEED (LF)).
-	 */
-	String SAUTDELIGNE_UNIX = "\n";
-	
-	
-	/**
-	 * SAUTDELIGNE_MAC : String :<br/>
-	 * Saut de ligne généré par les éditeurs Mac.<br/>
-	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
-	 */
-	String SAUTDELIGNE_MAC = "\r";
-	
-	
-	/**
-	 * SAUTDELIGNE_DOS_WINDOWS : String :<br/>
-	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
-	 * "\r\n" (Retour Chariot RC + Retour Ligne LF).
-	 */
-	String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
-	
-	
-	/**
-	 * Saut de ligne spécifique de la plateforme.<br/>
-	 * System.getProperty("line.separator").<br/>
-	 */
-	String NEWLINE = System.getProperty("line.separator");
-	
-		
-	/**
-	 * CARACTERE_REMPLACEMENT : char :<br/>
 	 * Caractère de remplacement introduit lors de la lecture en UTF-8 
 	 * d'un fichier texte encodé avec un autre Charset.<br/>
 	 * REPLACEMENT CHARACTER."\\ufffd" '�'.<br/> 
 	 */
 	char CARACTERE_REMPLACEMENT = '\ufffd';
-
 	
 	/**
-	 * BOM_UTF : char :<br/>
 	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
 	 */
 	char BOM_UTF_8 = '\uFEFF';
@@ -339,82 +168,62 @@ public interface IControle extends IRapporteurControle
 	
 	
 	/**
-	 * SEPARATEUR_FILE : String :<br/>
-	 * "\\".<br/>
+	 * "/".<br/>
 	 */
-	String SEPARATEUR_FILE = "\\";
-	
+	String SEPARATEUR_FILE = "/";
+		
+	/**
+	 * Séparateur Java pour les répertoires "/".<br/>
+	 */
+	String SEP_REP = "/";
 	
 	/**
-	 * SEP_REP : String :<br/>
-	 * Séparateur Java pour les répertoires "\\".<br/>
-	 */
-	String SEP_REP = "\\";
-	
-
-	/**
-	 * SEP_POINTVIRGULE : String :<br/>
 	 * ";".<br/>
 	 */
 	String SEP_POINTVIRGULE = ";";
 
-
 	/**
-	 * NULL : String :<br/>
 	 * "null".<br/>
 	 */
 	String NULL = "null";
 	
-	
 	/**
-	 * SANS_OBJET : String :<br/>
 	 * "sans objet".<br/>
 	 */
 	String SANS_OBJET = "sans objet";
-	
-	
+		
 	/**
-	 * TOUS : String :<br/>
 	 * "tous".<br/>
 	 */
 	String TOUS = "tous";
-	
-	
+		
 	/**
-	 * MESSAGE_EXCEPTION : String :<br/>
 	 * "Exception GRAVE : ".<br/>
 	 */
 	String MESSAGE_EXCEPTION = "Exception GRAVE : ";
 	
-
 	/**
-	 * ACTION_FICHIER_REFUSE : String :<br/>
 	 * "Fichier refusé".<br/>
 	 */
 	String ACTION_FICHIER_REFUSE = "KO - Fichier refusé";
-
 	
 	/**
-	 * ACTION_FICHIER_ACCEPTE : String :<br/>
 	 * "OK - Fichier accepté".<br/>
 	 */
 	String ACTION_FICHIER_ACCEPTE = "OK - Fichier accepté";
 	
-
 	/**
-	 * ACTION_LIGNE_NON_HIT : String :<br/>
 	 * "Ligne ne comportant pas 520 caractères".<br/>
 	 */
 	String ACTION_LIGNE_NON_HIT 
 		= "Ligne ne comportant pas 520 caractères";
 
-	
 	/**
-	 * ACTION_LIGNE_NON_DARWIN : String :<br/>
 	 * "Ligne ne comportant pas 57 champs".<br/>
 	 */
 	String ACTION_LIGNE_NON_DARWIN 
 	= "Ligne ne comportant pas 57 champs";
+
 
 	
 	/**

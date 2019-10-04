@@ -161,32 +161,7 @@ public abstract class AbstractImportateurDescription implements
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/
-
-	/**
-	 * Saut de ligne généré par les éditeurs Unix.<br/>
-	 * "\n" (Retour Ligne = LINE FEED (LF)).
-	 */
-	public static final String SAUTDELIGNE_UNIX = "\n";
-
-	
-	/**
-	 * Saut de ligne généré par les éditeurs Mac.<br/>
-	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
-	 */
-	public static final String SAUTDELIGNE_MAC = "\r";
-	
-	/**
-	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
-	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).
-	 */
-	public static final String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
-	
-	/**
-	 * Saut de ligne spécifique de la plateforme.<br/>
-	 * System.getProperty("line.separator").<br/>
-	 */
-	public static final String NEWLINE = System.getProperty("line.separator");
-	
+	// définis dans IConstantesSautsLigne	
 	
 	//*****************************************************************/
 	//**************************** BOM_UTF-8 **************************/

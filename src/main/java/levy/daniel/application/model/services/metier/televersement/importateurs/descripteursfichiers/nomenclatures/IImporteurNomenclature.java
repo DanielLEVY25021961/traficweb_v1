@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 
+import levy.daniel.application.IConstantesSautsLigne;
+import levy.daniel.application.IConstantesSeparateurs;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexistantException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierPasNormalException;
@@ -97,7 +99,8 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.Nomenclature
  */
 public interface IImporteurNomenclature 
 	extends IFournisseurJTableNomenclature
-				, IFournisseurCsvImpoNomenclature {
+				, IFournisseurCsvImpoNomenclature
+					, IConstantesSautsLigne, IConstantesSeparateurs {
 	
 	
 	/**

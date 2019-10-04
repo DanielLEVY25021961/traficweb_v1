@@ -345,7 +345,7 @@ public interface IEnregistreurRapport {
 	 * agrége les messages de création de rapport de contrôle sur disque 
 	 * et retourne une String pour l'affichage des messages 
 	 * de création/refus de création des rapports de contrôle uniquement 
-	 * (pas de tout <code>this.rapportEnregistrement</code>).<br/>
+	 * (pas du tout <code>this.rapportEnregistrement</code>).<br/>
 	 *
 	 * @return : String : Affichage à la console.<br/>
 	 */

@@ -433,9 +433,6 @@ public class ControleurTypeTexte extends AbstractControle {
 
 	
 	/**
-	 * method controlerHook(
-	 * File pFile
-	 * , boolean pEnregistrerRapport) :<br/>
 	 * Contrôle si le fichier pFile est de type texte 
 	 * et retourne true si c'est le cas.<br/>
 	 * <ul>

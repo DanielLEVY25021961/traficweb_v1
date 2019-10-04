@@ -121,7 +121,8 @@ public class LocalisationHitTest {
 		= "doit retourner invalide : ";
 	
 	/**
-	 * Paths.get(".").toAbsolutePath().normalize().<br/>
+	 * Path absolu du présent projet Eclipse.<br/>
+	 * <code>Paths.get(".").toAbsolutePath().normalize()</code>.<br/>
 	 */
 	public static final Path PATH_ABSOLU_PRESENT_PROJET 
 		= Paths.get(".").toAbsolutePath().normalize();

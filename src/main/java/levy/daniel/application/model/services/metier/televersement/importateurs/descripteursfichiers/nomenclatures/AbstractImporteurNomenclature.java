@@ -126,61 +126,17 @@ public abstract class AbstractImporteurNomenclature implements
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
-	/**
-	 * Séparateur point virgule pour les CSV.<br/>
-	 * ";"
-	 */
-	public static final String SEP_PV = ";";
-    
-	/**
-	 * " - ".<br/>
-	 */
-	public static final String SEPARATEUR_MOINS_AERE = " - ";
-		
-	/**
-	 * "_".<br/>
-	 */
-	public static final String UNDERSCORE = "_";
+	// définis dans IConstantesSeparateurs
 	
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/
-
-	/**
-	 * Saut de ligne généré par les éditeurs Unix.<br/>
-	 * "\n" (Retour Ligne = LINE FEED (LF)).
-	 */
-	public static final String SAUTDELIGNE_UNIX = "\n";
-
-	
-	/**
-	 * Saut de ligne généré par les éditeurs Mac.<br/>
-	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
-	 */
-	public static final String SAUTDELIGNE_MAC = "\r";
-	
-	/**
-	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
-	 * "\r\n" (Retour Chariot RC + Retour Ligne Line Feed LF).
-	 */
-	public static final String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
-	
-	/**
-	 * Saut de ligne spécifique de la plateforme.<br/>
-	 * System.getProperty("line.separator").<br/>
-	 */
-	public static final String NEWLINE = System.getProperty("line.separator");
-	
+	// définis dans IConstantesSautsLigne	
 	
 	//*****************************************************************/
 	//**************************** BOM_UTF-8 **************************/
 	//*****************************************************************/
-	/**
-	 * '\uFEFF'<br/>
-	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
-	 */
-	public static final char BOM_UTF_8 = '\uFEFF';
-	
+	// définis dans IConstantesSeparateurs	
 	
 	/**
 	 * SortedMap&lt;Integer, String&gt; triée avec : <br/>

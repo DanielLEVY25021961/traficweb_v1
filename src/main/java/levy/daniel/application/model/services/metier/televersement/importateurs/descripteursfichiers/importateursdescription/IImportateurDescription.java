@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.SortedMap;
 
+import levy.daniel.application.IConstantesSautsLigne;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImport;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierNullException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.MapNullException;
@@ -94,7 +95,8 @@ public interface IImportateurDescription
 					extends IRapporteurImpoDesc
 						, IFormatteurLongueursImpoDesc
 							, IFournisseurJTableImpoDesc
-								, IFournisseurCsvImpoDesc {
+								, IFournisseurCsvImpoDesc
+									, IConstantesSautsLigne {
 	
 	
 	

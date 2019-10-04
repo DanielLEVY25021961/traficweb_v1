@@ -3,6 +3,8 @@ package levy.daniel.application.model.services.utilitaires.generateurpomxml;
 import java.io.File;
 import java.nio.file.Path;
 
+import levy.daniel.application.IConstantesSautsLigne;
+
 /**
  * INTERFACE IGenerateurPOMTemplateService :<br/>
  * .<br/>
@@ -23,7 +25,7 @@ import java.nio.file.Path;
  * @since 7 déc. 2018
  *
  */
-public interface IGenerateurPOMTemplateService {
+public interface IGenerateurPOMTemplateService extends IConstantesSautsLigne {
 
 
 	

@@ -34,6 +34,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.IConstantesCharsets;
+import levy.daniel.application.IConstantesSautsLigne;
+
 
 /**
  * class GestionnaireFichiers :<br/>
@@ -194,7 +197,8 @@ import org.apache.commons.logging.LogFactory;
  * @since 11 févr. 2016
  *
  */
-public final class GestionnaireFichiers {
+public final class GestionnaireFichiers 
+			implements IConstantesCharsets, IConstantesSautsLigne {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -581,146 +585,7 @@ public final class GestionnaireFichiers {
 	//*****************************************************************/
 	//**************************** CHARSET ****************************/
 	//*****************************************************************/
-
-	/**
-	 * CHARSET_UTF8 : Charset :<br/>
-	 * Charset.forName("UTF-8").<br/>
-	 * Eight-bit Unicode (or UCS) Transformation Format.<br/> 
-	 */
-	public static final Charset CHARSET_UTF8 
-		= Charset.forName("UTF-8");
-	
-	
-	/**
-	 * CHARSET_US_ASCII : Charset :<br/>
-	 * Charset.forName("US-ASCII").<br/>
-	 * Seven-bit ASCII, a.k.a. ISO646-US, 
-	 * a.k.a. the Basic Latin block of the Unicode character set.<br/>
-	 * standard américain.<br/>
-	 * American Standard Code for Information Interchange.<br/> 
-	 * 128 caractères imprimables.<br/> 
-	 * Sert à écrire l’anglo-américain.<br/> 
-	 * Ne permet pas d’écrire les langues européennes 
-	 * qui utilisent des lettres avec diacritiques (accents, cédille, ...).<br/> 
-	 * On ne peut pas écrire en français avec de l’ASCII.<br/>
-	 */
-	public static final Charset CHARSET_US_ASCII 
-		= Charset.forName("US-ASCII");
-
-	
-	/**
-	 * CHARSET_ISO_8859_1 : Charset :<br/>
-	 * Charset.forName("ISO-8859-1").<br/>
-	 * Latin1.<br/>
-	 * 191 caractères imprimables.<br/> 
-	 * Permet d’écrire la plupart des langues d’Europe de l’Ouest.<br/> 
-	 * Presque tous les caractères du français y sont (manquent le œ et €).<br/>
-	 */
-	public static final Charset CHARSET_ISO_8859_1 
-		= Charset.forName("ISO-8859-1");
-
-	
-	/**
-	 * CHARSET_LATIN1 : Charset :<br/>
-	 * Charset.forName("ISO-8859-1").<br/>
-	 * Latin1.<br/>
-	 * 191 caractères imprimables.<br/> 
-	 * Permet d’écrire la plupart des langues d’Europe de l’Ouest.<br/> 
-	 * Presque tous les caractères du français y sont (manquent le œ et €).<br/>
-	 */
-	public static final Charset CHARSET_LATIN1 
-		= Charset.forName("ISO-8859-1");
-
-	
-	/**
-	 * CHARSET_ISO_8859_2 : Charset :<br/>
-	 * Charset.forName("ISO-8859-2").<br/>
-	 * <br/>
-	 */
-	public static final Charset CHARSET_ISO_8859_2 
-		= Charset.forName("ISO-8859-2");
-	
-	
-	/**
-	 * CHARSET_ISO_8859_9 : Charset :<br/>
-	 * Charset.forName("ISO-8859-9").<br/>
-	 * Latin Alphabet No. 5<br/>
-	 */
-	public static final Charset CHARSET_ISO_8859_9 
-		= Charset.forName("ISO-8859-9");
-
-	
-	/**
-	 * CHARSET_ISO_8859_15 : Charset :<br/>
-	 * Charset.forName("ISO-8859-15").<br/>
-	 * Latin9, Latin Alphabet No. 9.<br/>
-	 * modifie légèrement ISO-8859-1.<br/> 
-	 * Ajout du caractère œ et du symbole monétaire € (Euro) entre autres.<br/>
-	 */
-	public static final Charset CHARSET_ISO_8859_15 
-		= Charset.forName("ISO-8859-15");
-	
-	
-	/**
-	 * CHARSET_LATIN9 : Charset :<br/>
-	 * Charset.forName("ISO-8859-15").<br/>
-	 * Latin9, Latin Alphabet No. 9.<br/>
-	 * modifie légèrement ISO-8859-1.<br/> 
-	 * Ajout du caractère œ et du symbole monétaire € (Euro) entre autres.<br/>
-	 */
-	public static final Charset CHARSET_LATIN9 
-		= Charset.forName("ISO-8859-15");
-	
-	
-	/**
-	 * CHARSET_WINDOWS_1252 : Charset :<br/>
-	 * Charset.forName("windows-1252").<br/>
-	 * ANSI, CP1252.<br/>
-	 * 218 caractères imprimables.<br/>
-	 * extension d’ISO-8859-1, qui rajoute quelques caractères: œ, € (euro), 
-	 * guillemets anglais (« »), points de suspension (...)
-	 * , signe «pour mille» (‰), 
-	 * tirets cadratin (— = \u2014 en unicode ) et demi-cadratin (–), ...<br/>
-	 */
-	public static final Charset CHARSET_WINDOWS_1252 
-		= Charset.forName("windows-1252");
-
-	
-	/**
-	 * CHARSET_ANSI : Charset :<br/>
-	 * Charset.forName("windows-1252").<br/>
-	 * ANSI, CP1252.<br/>
-	 * 218 caractères imprimables.<br/>
-	 * extension d’ISO-8859-1, qui rajoute quelques caractères: œ, € (euro), 
-	 * guillemets anglais (« »), points de suspension (...)
-	 * , signe «pour mille» (‰), 
-	 * tirets cadratin (— = \u2014 en unicode ) et demi-cadratin (–), ...<br/>
-	 */
-	public static final Charset CHARSET_ANSI
-		= Charset.forName("windows-1252");
-
-	
-	/**
-	 * CHARSET_CP1252 : Charset :<br/>
-	 * Charset.forName("windows-1252").<br/>
-	 * ANSI, CP1252.<br/>
-	 * 218 caractères imprimables.<br/>
-	 * extension d’ISO-8859-1, qui rajoute quelques caractères: œ, € (euro), 
-	 * guillemets anglais (« »), points de suspension (...)
-	 * , signe «pour mille» (‰), 
-	 * tirets cadratin (— = \u2014 en unicode ) et demi-cadratin (–), ...<br/>
-	 */
-	public static final Charset CHARSET_CP1252
-		= Charset.forName("windows-1252");
-
-	
-	/**
-	 * CHARSET_IBM850 : Charset :<br/>
-	 * Charset IBM-850.<br/>
-	 * Cp850, MS-DOS Latin-1.<br/>
-	 */
-	public static final Charset CHARSET_IBM850
-		= Charset.forName("IBM-850");
+	// définis dans IConstantesCharsets
 	
 	
 	//*****************************************************************/
@@ -736,37 +601,7 @@ public final class GestionnaireFichiers {
 	//*****************************************************************/
 	//********************* SAUTS DE LIGNE ****************************/
 	//*****************************************************************/
-
-	/**
-	 * SAUTDELIGNE_UNIX : String :<br/>
-	 * Saut de ligne généré par les éditeurs Unix.<br/>
-	 * "\n" (Retour Ligne = LINE FEED (LF)).
-	 */
-	public static final String SAUTDELIGNE_UNIX = "\n";
-
-	
-	/**
-	 * SAUTDELIGNE_MAC : String :<br/>
-	 * Saut de ligne généré par les éditeurs Mac.<br/>
-	 * "\r" (Retour Chariot RC = CARRIAGE RETURN (CR))
-	 */
-	public static final String SAUTDELIGNE_MAC = "\r";
-
-	
-	/**
-	 * SAUTDELIGNE_DOS_WINDOWS : String :<br/>
-	 * Saut de ligne généré par les éditeurs DOS/Windows.<br/>
-	 * "\r\n" (Retour Chariot RC + Retour Ligne LF).
-	 */
-	public static final String SAUTDELIGNE_DOS_WINDOWS = "\r\n";
-
-	
-	/**
-	 * NEWLINE : String :<br/>
-	 * Saut de ligne spécifique de la plateforme.<br/>
-	 * System.getProperty("line.separator").<br/>
-	 */
-	public static final String NEWLINE = System.getProperty("line.separator");
+	// définis dans IConstantesSautsLigne
 
 	
 	//*****************************************************************/

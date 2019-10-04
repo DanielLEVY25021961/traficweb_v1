@@ -12,6 +12,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.apptechnic.IConstantesSautsLigne;
+import levy.daniel.application.apptechnic.IConstantesSeparateurs;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnaireslocale.LocaleManager;
 import levy.daniel.application.apptechnic.exceptions.technical.AbstractRunTimeTechnicalException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.BundleManquantRunTimeException;
@@ -41,29 +43,24 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
  * @since 4 janv. 2018
  *
  */
-public final class BundleConfigurationProjetManager {
+public final class BundleConfigurationProjetManager 
+			implements IConstantesSeparateurs, IConstantesSautsLigne {
 
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * CLASSE_BUNDLE_CONFIGURATION_PROJET_MANAGER : String :<br/>
 	 * "Classe BundleConfigurationProjetManager".<br/>
 	 */
 	public static final String CLASSE_BUNDLE_CONFIGURATION_PROJET_MANAGER 
 		= "Classe BundleConfigurationProjetManager";
-
 	
 	/**
-	 * METHODE_GET_BUNDLE_CONFIGURATION_PROJET : String :<br/>
 	 * "Méthode getBundleConfigurationProjet()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLE_CONFIGURATION_PROJET 
 		= "Méthode getBundleConfigurationProjet()";
-	
-
-	
+		
 	/**
-	 * METHODE_GET_BUNDLE_INTERNE : String :<br/>
 	 * "Méthode getBundleInterne(
 	 * String pNomBaseProperties, Locale pLocale)".<br/>
 	 */
@@ -71,168 +68,86 @@ public final class BundleConfigurationProjetManager {
 		= "Méthode getBundleInterne(String pNomBaseProperties"
 				+ ", Locale pLocale)";
 
-
 	/**
-	 * METHODE_GET_PATH_WORKSPACE : String :<br/>
 	 * "Méthode getPathWorkspace()".<br/>
 	 */
 	public static final String METHODE_GET_PATH_WORKSPACE 
 		= "Méthode getPathWorkspace()";
-	
-	
+		
 	/**
-	 * METHODE_GET_NOMPROJET : String :<br/>
 	 * "Méthode getNomProjet()".<br/>
 	 */
 	public static final String METHODE_GET_NOMPROJET 
 		= "Méthode getNomProjet()";
-	
-	
+		
 	/**
-	 * METHODE_GET_NOMREPERTOIRESRC : String :<br/>
 	 * "Méthode getNomRepertoireSrc()".<br/>
 	 */
 	public static final String METHODE_GET_NOMREPERTOIRESRC 
 		= "Méthode getNomRepertoireSrc()";
 	
-	
 	/**
-	 * METHODE_GET_PATHMAINJAVA : String :<br/>
 	 * "Méthode getPathMainJava()".<br/>
 	 */
 	public static final String METHODE_GET_PATHMAINJAVA 
 		= "Méthode getPathMainJava()";
-
 	
 	/**
-	 * METHODE_GET_PATHMAINRESOURCES : String :<br/>
 	 * "Méthode getPathMainResources()".<br/>
 	 */
 	public static final String METHODE_GET_PATHMAINRESOURCES
 		= "Méthode getPathMainResources()";
-	
-	
+		
 	/**
-	 * METHODE_GET_PATHTESTJAVA : String :<br/>
 	 * "Méthode getPathTestJava()".<br/>
 	 */
 	public static final String METHODE_GET_PATHTESTJAVA 
 		= "Méthode getPathTestJava()";
-
 	
 	/**
-	 * METHODE_GET_PATHTESTRESOURCES : String :<br/>
 	 * "Méthode getPathTestResources()".<br/>
 	 */
 	public static final String METHODE_GET_PATHTESTRESOURCES
 		= "Méthode getPathTestResources()";
-
 	
 	/**
-	 * METHODE_GET_GROUPID : String :<br/>
 	 * "Méthode getGroupid()".<br/>
 	 */
 	public static final String METHODE_GET_GROUPID 
 		= "Méthode getGroupid()";
 	
+	/**
+	 * "veuillez prévenir le centre-serveur svp.".<br/>
+	 */
+	public static final String PREVENIR_CS 
+		= "veuillez prévenir le centre-serveur svp.";
 
 	
 	//*****************************************************************/
 	//**************************** BOM_UTF-8 **************************/
 	//*****************************************************************/
-	/**
-	 * BOM_UTF : char :<br/>
-	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
-	 */
-	public static final char BOM_UTF_8 = '\uFEFF';
-
+	// définis dans IConstantesSeparateurs
 	
 	//*****************************************************************/
 	//**************************** SEPARATEURS ************************/
 	//*****************************************************************/
-	
-	/**
-	 * PREVENIR_CS : String :<br/>
-	 * "veuillez prévenir le centre-serveur svp.".<br/>
-	 */
-	public static final String PREVENIR_CS 
-		= "veuillez prévenir le centre-serveur svp.";
-	
-
-	/**
-	 * SEP_PV : String :<br/>
-	 * Séparateur pour les CSV ";".<br/>
-	 */
-	public static final String SEP_PV = ";";
-
-    
-	/**
-	 * SEPARATEUR_MOINS_AERE : String :<br/>
-	 * " - ".<br/>
-	 */
-	public static final String SEPARATEUR_MOINS_AERE = " - ";
-	
-	
-	/**
-	 * UNDERSCORE : String :<br/>
-	 * "_".<br/>
-	 */
-	public static final String UNDERSCORE = "_";
-
-	
-	/**
-	 * SLASH : char :<br/>
-	 * '/'.<br/>
-	 */
-	public static final char SLASH = '/';
-	
-	
-	/**
-	 * ANTISLASH : char :<br/>
-	 * '\'.<br/>
-	 * ATTENTION : antislash est un caractère spécial 
-	 * qui doit être échappé en Java ('\\')<br/>
-	 */
-	public static final char ANTISLASH = '\\';
-
-
-	
-	/**
-	 * POINT : char :<br/>
-	 * '.'.<br/>
-	 */
-	public static final char POINT = '.';
-
-
-
+	// définis dans IConstantesSeparateurs
 
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/	
-	/**
-	 * NEWLINE : String :<br/>
-	 * Saut de ligne spécifique de la plateforme.<br/>
-	 * System.getProperty("line.separator").<br/>
-	 */
-	public static final String NEWLINE = System.getProperty("line.separator");
-
+	// définis dans IConstantesSautsLigne
 	
 	//*****************************************************************/
 	//**************************** LOCALE *****************************/
 	//*****************************************************************/
-	/**
-	 * LOCALE_FR : Locale : <br/>
-	 * Locale France.<br/>
-	 */
-	public static final Locale LOCALE_FR = new Locale("fr", "FR");
-
+	// définis dans IConstantesSeparateurs
 
 	
 	//*****************************************************************/
 	//**************************** BUNDLES ****************************/
 	//*****************************************************************/
 	/**
-	 * bundleConfigurationProjet : ResourceBundle : <br/>
 	 * <ul>
 	 * <li><b>SINGLETON</b>.</li>
 	 * <li>Contient les <b>paramétrages généraux</b> 
@@ -248,186 +163,142 @@ public final class BundleConfigurationProjetManager {
 	 */
 	private static ResourceBundle bundleConfigurationProjet;
 
-
 	/**
-	 * pathWorkspace : String :<br/>
 	 * path du workspace indiqué dans 
 	 * configuration_projet.properties.<br/>
 	 */
 	private static String pathWorkspace;
 	
-
 	/**
-	 * nomProjet : String :<br/>
 	 * Nom du projet dans lequel générer du code.<br/>
 	 */
 	private static String nomProjet;
-
 	
 	/**
-	 * nomRepertoireSrc : String :<br/>
 	 * Nom du répertoire src dans lequel générer du code.<br/>
 	 */
 	private static String nomRepertoireSrc;
-	
-	
+		
 	/**
-	 * pathRelMainJava : String :<br/>
 	 * path relatif des sources java par rapport à src.<br/>
 	 */
 	private static String pathRelMainJava;
-	
-	
+		
 	/**
-	 * pathRelMainResources : String :<br/>
 	 * path relatif des ressources par rapport à src.<br/>
 	 */
 	private static String pathRelMainResources;
-
 	
 	/**
-	 * pathRelTestJava : String :<br/>
 	 * path relatif des sources des tests JUnit 
 	 * par rapport à src.<br/>
 	 */
 	private static String pathRelTestJava;
-	
-	
+		
 	/**
-	 * pathRelTestResources : String :<br/>
 	 * path relatif des ressources des tests JUnit 
 	 * par rapport à src.<br/>
 	 */
 	private static String pathRelTestResources;
-	
-	
-	
+		
 	/**
-	 * pathRelMainJava : String :<br/>
 	 * path absolu des sources java.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/main/java<br/>
 	 */
 	private static String racineMainJava;
-	
-	
+		
 	/**
-	 * pathRelMainResources : String :<br/>
 	 * path absolu des ressources.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/main/resources<br/>
 	 */
 	private static String racineMainResources;
-
 	
 	/**
-	 * pathRelTestJava : String :<br/>
 	 * path absolu des sources des tests JUnit.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/test/java<br/>
 	 */
 	private static String racineTestJava;
-	
-	
+		
 	/**
-	 * pathRelTestResources : String :<br/>
 	 * path absolu des ressources des tests JUnit.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/test/resources<br/>
 	 */
 	private static String racineTestResources;
 	
-
 	/**
-	 * groupid : String :<br/>
 	 * groupid Maven du projet.<br/>
 	 * Exemple : "levy.daniel.application"<br/>
 	 */
 	private static String groupid;
-	
-	
+		
 	/**
-	 * pathRelGroupId : String :<br/>
 	 * path relatif du groupid Maven du projet par rapport 
 	 * au path absolu des sources java.<br/>
 	 * Exemple : "levy/daniel/application"<br/>
 	 */
 	private static String pathRelGroupId;
-
 	
 	/**
-	 * pathAppTechnic : String :<br/>
 	 * path absolu du repertoire apptechnic.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/main/java/levy/daniel/application/
 	 * apptechnic<br/>
 	 */
 	private static String pathAppTechnic;
-
 		
 	/**
-	 * pathControllers : String :<br/>
 	 * path absolu du repertoire controllers.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/main/java/levy/daniel/application/
 	 * controllers<br/>
 	 */
 	private static String pathControllers;
-
 	
 	/**
-	 * pathModel : String :<br/>
 	 * path absolu du repertoire model.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/main/java/levy/daniel/application/
 	 * model<br/>
 	 */
 	private static String pathModel;
-
 	
 	/**
-	 * pathVues : String :<br/>
 	 * path absolu du repertoire vues.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/main/java/levy/daniel/application/
 	 * vues<br/>
 	 */
 	private static String pathVues;
-	
-	
+		
 	/**
-	 * pathDao : String :<br/>
 	 * path absolu du repertoire model/dao.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/main/java/levy/daniel/application/
 	 * model/dao<br/>
 	 */
 	private static String pathDao;
-	
-	
+		
 	/**
-	 * pathMetier : String :<br/>
 	 * path absolu du repertoire model/metier.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/main/java/levy/daniel/application/
 	 * model/metier<br/>
 	 */
 	private static String pathMetier;
-	
-	
+		
 	/**
-	 * pathServices : String :<br/>
 	 * path absolu du repertoire model/services.<br/>
 	 * Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
 	 * generation_code/src/main/java/levy/daniel/application/
 	 * model/services<br/>
 	 */
 	private static String pathServices;
-
-	
 	
 	/**
-	 * rapportConfigurationCsv : String :<br/>
 	 * <ul>
 	 * <li>Rapport Technique (pour les développeurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -443,10 +314,8 @@ public final class BundleConfigurationProjetManager {
 	 * Il devrait se trouver juste sous la racine des binaires /bin;<br/>
 	 */
 	private static String rapportConfigurationCsv;
-
 	
 	/**
-	 * rapportUtilisateurCsv : String :<br/>
 	 * <ul>
 	 * <li>Rapport NON Technique (pour les utilisateurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -462,15 +331,12 @@ public final class BundleConfigurationProjetManager {
 	 */
 	private static String rapportUtilisateurCsv;
 	
-
 	/**
-	 * messageIndividuelRapport : String :<br/>
 	 * Message pour le Rapport du chargement de la configuration au format csv 
 	 * généré par chaque méthode individuellement.<br/>
 	 */
 	private static String messageIndividuelRapport;
 	
-
 	
 	/**
 	 * LOG : Log : 
@@ -484,7 +350,6 @@ public final class BundleConfigurationProjetManager {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR BundleConfigurationProjetManager() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * <br/>
 	 */
@@ -495,7 +360,6 @@ public final class BundleConfigurationProjetManager {
 	
 	
 	/**
-	 * method getBundleConfigurationProjet() :<br/>
 	 * <ul>
 	 * <ul>
 	 * <li>Getter de bundleConfigurationProjet.</li>
@@ -550,7 +414,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getNomBasePropertiesConfigurationProjet() :<br/>
 	 * <ul>
 	 * <li>Retourne le nom de base du properties contenant propriétés 
 	 * générales du projet à générer (nom, répertoire des sources, ...).</li>
@@ -564,12 +427,8 @@ public final class BundleConfigurationProjetManager {
 	} // Fin de getNomBasePropertiesConfigurationProjet()._________________
 	
 	
-
 	
 	/**
-	 * method getBundleInterne(
-	 * String pNomBaseProperties
-	 * , Locale pLocale) :<br/>
 	 *<ul>
 	 * <li>Retourne un ResourceBundle encapsulant pNomBaseProperties.</li>
 	 * <li>Le properties doit être un fichier <b>INTERNE</b> situé 
@@ -663,7 +522,6 @@ public final class BundleConfigurationProjetManager {
 
 		
 	/**
-	 * method getPathWorkspace() :<br/>
 	 * <ul>
 	 * <li>Getter du path du workspace indiqué 
 	 * dans configuration_projet.properties.</li>
@@ -724,7 +582,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getClePathWorkspace() :<br/>
 	 * <ul>
 	 * <li>Retourne la clé dans configuration_projet.properties 
 	 * associée au path du workspace.</li>
@@ -738,10 +595,8 @@ public final class BundleConfigurationProjetManager {
 	} // Fin de getClePathWorkspace()._____________________________________
 	
 
-	
-	
+		
 	/**
-	 * method getNomProjet() :<br/>
 	 * <ul>
 	 * <li>Getter du nom du projet dans lequel générer du code.</li>
 	 * <li>Exemple : "users"</li>
@@ -801,7 +656,6 @@ public final class BundleConfigurationProjetManager {
 
 
 	/**
-	 * method getCleNomProjet() :<br/>
 	 * <ul>
 	 * <li>Retourne la clé dans configuration_projet.properties 
 	 * associée au nom du projet dans lequel générer du code.</li>
@@ -817,7 +671,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getNomRepertoireSrc() :<br/>
 	 * <ul>
 	 * <li>Getter du nom du répertoire des sources 
 	 * dans lequel générer du code.</li>
@@ -878,7 +731,6 @@ public final class BundleConfigurationProjetManager {
 
 
 	/**
-	 * method getCleNomRepertoireSrc() :<br/>
 	 * <ul>
 	 * <li>Retourne la clé dans configuration_projet.properties 
 	 * associée au répertoire des sources dans lequel générer du code.</li>
@@ -894,7 +746,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getPathRelMainJava() :<br/>
 	 * <ul>
 	 * <li>Getter du path relatif des sources java par rapport à src
 	 * dans lequel générer du code.</li>
@@ -955,7 +806,6 @@ public final class BundleConfigurationProjetManager {
 
 
 	/**
-	 * method getClePathRelMainJava() :<br/>
 	 * <ul>
 	 * <li>Retourne la clé dans configuration_projet.properties 
 	 * associée au path relatif des sources Java par rapport à src
@@ -972,7 +822,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getPathRelMainResources() :<br/>
 	 * <ul>
 	 * <li>Getter du path relatif des ressources java par rapport à src
 	 * dans lequel générer du code.</li>
@@ -1033,7 +882,6 @@ public final class BundleConfigurationProjetManager {
 
 
 	/**
-	 * method getClePathRelMainResources() :<br/>
 	 * <ul>
 	 * <li>Retourne la clé dans configuration_projet.properties 
 	 * associée au path relatif des ressources java par rapport à src 
@@ -1050,7 +898,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getPathRelTestJava() :<br/>
 	 * <ul>
 	 * <li>Getter du path relatif des sources des tests JUnit 
 	 * par rapport à src
@@ -1112,7 +959,6 @@ public final class BundleConfigurationProjetManager {
 
 
 	/**
-	 * method getClePathRelTestJava() :<br/>
 	 * <ul>
 	 * <li>Retourne la clé dans configuration_projet.properties 
 	 * associée au path relatif des sources des tests JUnit 
@@ -1130,7 +976,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getPathRelTestResources() :<br/>
 	 * <ul>
 	 * <li>Getter du path relatif des ressources des tests JUnit 
 	 * par rapport à src
@@ -1192,7 +1037,6 @@ public final class BundleConfigurationProjetManager {
 
 
 	/**
-	 * method getClePathRelTestResources() :<br/>
 	 * <ul>
 	 * <li>Retourne la clé dans configuration_projet.properties 
 	 * associée au path relatif des ressources des tests JUnit 
@@ -1210,7 +1054,6 @@ public final class BundleConfigurationProjetManager {
 
 		
 	/**
-	 * method getRacineMainJava() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu des sources java.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1249,7 +1092,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getRacineMainResources() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu des ressources.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1288,7 +1130,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getRacineTestJava() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu des sources des tests JUnit.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1326,7 +1167,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getRacineTestResources() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu des ressources des tests JUnit.<br/>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1365,7 +1205,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getGroupid() :<br/>
 	 * <ul>
 	 * <li>Getter du groupid Maven du projet.</li>
 	 * <li>Exemple : "levy.daniel.application"</li>
@@ -1425,7 +1264,6 @@ public final class BundleConfigurationProjetManager {
 
 
 	/**
-	 * method getCleGroupid() :<br/>
 	 * <ul>
 	 * <li>Retourne la clé dans configuration_projet.properties 
 	 * associée au groupid Maven du projet.</li>
@@ -1441,7 +1279,6 @@ public final class BundleConfigurationProjetManager {
 	
 	
 	/**
-	 * method getPathRelGroupId() :<br/>
 	 * <ul>
 	 * <li> Getter du path relatif du groupid Maven du projet par rapport 
 	 * au path absolu des sources java.</li>
@@ -1476,7 +1313,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getPathAppTechnic() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu du repertoire apptechnic.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1512,7 +1348,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getPathControllers() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu du repertoire controllers.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1549,7 +1384,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getPathModel() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu du repertoire model.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1586,7 +1420,6 @@ public final class BundleConfigurationProjetManager {
 
 		
 	/**
-	 * method getPathVues() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu du repertoire vues.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1623,7 +1456,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getPathDao() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu du repertoire model/dao.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1659,7 +1491,6 @@ public final class BundleConfigurationProjetManager {
 	
 	
 	/**
-	 * method getPathMetier() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu du repertoire model/metier.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1695,7 +1526,6 @@ public final class BundleConfigurationProjetManager {
 
 		
 	/**
-	 * method getPathServices() :<br/>
 	 * <ul>
 	 * <li>Getter du path absolu du repertoire model/services.</li>
 	 * <li>Exemple : D:/Donnees/eclipse/eclipseworkspace_neon/
@@ -1731,7 +1561,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getRapportConfigurationCsv() :<br/>
 	 * <ul>
 	 * <li>Getter du Rapport Technique (pour les développeurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -1763,7 +1592,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method getRapportUtilisateurCsv() :<br/>
 	 * <ul>
 	 * <li>Getter du Rapport NON Technique (pour les utilisateurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -1794,7 +1622,6 @@ public final class BundleConfigurationProjetManager {
 	
 	
 	/**
-	 * method getMessageIndividuelRapport() :<br/>
 	 * Getter du Message pour le 
 	 * Rapport du chargement de la configuration au format csv 
 	 * généré par chaque méthode individuellement.<br/>
@@ -1814,8 +1641,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method fournirLocaleParDefaut(
-	 * Locale pLocale) :<br/>
 	 * <ul>
 	 * <li>fournit la Locale de la plateforme (Locale.getDefault()) 
 	 * si pLocale == null.</li>
@@ -1850,9 +1675,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method reconstituerNomProperties(
-	 * String pNomBaseProperties
-	 * , Locale pLocale) :<br/>
 	 * <ul>
 	 * <li>Reconstitue le nom complet d'un properties à partir 
 	 * de son nom de base et d'une Locale.</li>
@@ -1899,9 +1721,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method creerMessage(
-	 * String pMethode
-	 * , String pFichier) :<br/>
 	 * Crée un message pour le LOG et le rapport de configuration csv 
 	 * si problème lors du chargement des ResourceBundle.<br/>
 	 * <br/>
@@ -1948,10 +1767,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method creerMessage(
-	 * String pMethode
-	 * , String pFichier
-	 * , String pPathRepRessourcesExternes) :<br/>
 	 * Crée un message pour le LOG et le rapport de configuration csv 
 	 * si problème lors du chargement des ResourceBundle.<br/>
 	 * <br/>
@@ -2001,8 +1816,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method creerMessageUtilisateur(
-	 * String pMessageTechnique) :<br/>
 	 * <ul>
 	 * <li>Epure un message technique en enlevant 
 	 * les informations sur la classe et la méthode 
@@ -2048,8 +1861,6 @@ public final class BundleConfigurationProjetManager {
 	
 	
 	/**
-	 * method ajouterMessageAuRapportConfigurationCsv(
-	 * String pMessage) :<br/>
 	 * <ul>
 	 * <li>Rajoute le message pMessage au rapport 
 	 * de chargement de la configuration au format csv (à la ligne).</li>
@@ -2096,8 +1907,6 @@ public final class BundleConfigurationProjetManager {
 	
 	
 	/**
-	 * method ajouterMessageAuRapportUtilisateurCsv(
-	 * String pMessage) :<br/>
 	 * <ul>
 	 * <li>Rajoute le message pMessage au rapport 
 	 * utilisateur au format csv (à la ligne).</li>
@@ -2143,10 +1952,6 @@ public final class BundleConfigurationProjetManager {
 	
 	
 	/**
-	 * method traiterBundleManquantRunTimeException(
-	 * String pMethode
-	 * , String pNomBaseProperties
-	 * , BundleManquantRunTimeException pBundleManquantExc) :<br/>
 	 * <ul>
 	 * <li>Prend en paramètre une BundleManquantRunTimeException
 	 * , ajoute des lignes aux rapports développeurs et utilisateurs
@@ -2209,10 +2014,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method traiterMissingResourceException(
-	 * String pMethode
-	 * , String pNomBaseProperties
-	 * , MissingResourceException pMre) :<br/>
 	 * <ul>
 	 * <li>Prend en paramètre une MissingResourceException
 	 * , ajoute des lignes aux rapports développeurs et utilisateurs
@@ -2275,11 +2076,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method traiterMissingResourceException(
-	 * String pMethode
-	 * , String pNomBaseProperties
-	 * , MissingResourceException pMre
-	 * , String pCle) :<br/>
 	 * <ul>
 	 * <li>Prend en paramètre une MissingResourceException 
 	 * et une clé de properties
@@ -2349,13 +2145,8 @@ public final class BundleConfigurationProjetManager {
 	} // Fin de traiterMissingResourceException(...).______________________
 
 
-
 	
 	/**
-	 * method traiterCleVide(
-	 * String pMethode
-	 * , String pCle
-	 * , String pNomBaseProperties) :<br/>
 	 * <ul>
 	 * <li>Methode jetant une <b>CleNullRunTimeException</b> 
 	 * en cas d'absence de valeur associée à la clé d'un properties.</li>
@@ -2422,9 +2213,6 @@ public final class BundleConfigurationProjetManager {
 
 		
 	/**
-	 * method traiterRepertoireDefectueux(
-	 * String pMethode
-	 * , String pPath) :<br/>
 	 * <ul>
 	 * <li>Methode jetant une <b>FichierInexistantRunTimeException</b> 
 	 * si le répertoire visé par pPath n'existe pas ou n'est 
@@ -2499,8 +2287,6 @@ public final class BundleConfigurationProjetManager {
 
 	
 	/**
-	 * method remplacerPointparSlash(
-	 * String pString) :<br/>
 	 * <ul>
 	 * <li>Remplace les points '.' dans pString par des slashs '/'.</li>
 	 * <li>Exemple : "levy.daniel.application" 
@@ -2533,8 +2319,6 @@ public final class BundleConfigurationProjetManager {
 	
 	
 	/**
-	 * method remplacerSlashparPoint(
-	 * String pString) :<br/>
 	 * <ul>
 	 * <li>Remplace les slashs '/' dans pString par des points '.'.</li>
 	 * <li>Exemple : "levy/daniel/application" 
@@ -2567,8 +2351,6 @@ public final class BundleConfigurationProjetManager {
 
 		
 	/**
-	 * method remplacerAntiSlashparPoint(
-	 * String pString) :<br/>
 	 * <ul>
 	 * <li>Remplace les antislashs '\' dans pString par des points '.'.</li>
 	 * <li>Exemple : "levy\daniel\application" 
@@ -2598,7 +2380,7 @@ public final class BundleConfigurationProjetManager {
 		
 		return resultat;
 		
-	} // Fin de remplacerAntiSlashparPoint(...)._______________________________
+	} // Fin de remplacerAntiSlashparPoint(...).___________________________
 	
 	
 	
