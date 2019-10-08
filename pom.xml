@@ -717,6 +717,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <version>${mysql-connector-java.version}</version>
 		    <scope>compile</scope>
 		</dependency>
+		
 		<!-- HSQLDB -->		
 		<!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
 		<dependency>
@@ -725,6 +726,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <version>${hsqldb.version}</version>
 		    <scope>test</scope>		    
 		</dependency>
+		
 		<!-- H2 -->
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->						
 		<dependency>
