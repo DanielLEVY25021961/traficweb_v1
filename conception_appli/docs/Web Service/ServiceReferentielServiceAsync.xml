@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax29="http://bean.transverse.isidorv2.application.i2/xsd" xmlns:ns="http://service.metier.isidorv2.application.i2" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax26="http://exception.transverse.isidorv2.application.i2/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://service.metier.isidorv2.application.i2">
+    <wsdl:documentation>ServiceReferentielServiceAsync</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ax27="http://service.metier.isidorv2.application.i2" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://exception.transverse.isidorv2.application.i2/xsd">
+            <xs:import namespace="http://service.metier.isidorv2.application.i2"/>
+            <xs:complexType name="ExceptionIsidor">
+                <xs:complexContent>
+                    <xs:extension base="ns:Exception">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="message" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax28="http://exception.transverse.isidorv2.application.i2/xsd" xmlns:ax210="http://bean.transverse.isidorv2.application.i2/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.metier.isidorv2.application.i2">
+            <xs:import namespace="http://exception.transverse.isidorv2.application.i2/xsd"/>
+            <xs:import namespace="http://bean.transverse.isidorv2.application.i2/xsd"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:anyType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ExceptionIsidor">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ExceptionIsidor" nillable="true" type="ax26:ExceptionIsidor"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="geocoder">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="parametres" nillable="true" type="ax210:GeocodageServiceBean"/>
+                        <xs:element minOccurs="0" name="feorXml" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="geocoderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="croiserCheckResult">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="idTraitement" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="croiserCheckResultResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax210:RetourServiceAsyncBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="croiserAsync">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="parametres" nillable="true" type="ax210:CroisementServiceBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="croiserAsyncResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax210:RetourServiceAsyncBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="geocoderCheckResult">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="idTraitement" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="geocoderCheckResultResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax210:RetourServiceAsyncBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="geocoderAsync">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="parametres" nillable="true" type="ax210:GeocodageServiceBean"/>
+                        <xs:element minOccurs="0" name="feorXml" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="geocoderAsyncResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax210:RetourServiceAsyncBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="interrogerDonnees">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="parametres" nillable="true" type="ax210:InterrogerDonneesServiceBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="interrogerDonneesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax210:RetourServiceAsyncBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="interrogerDonneesAsync">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="parametres" nillable="true" type="ax210:InterrogerDonneesServiceBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="interrogerDonneesAsyncResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax210:RetourServiceAsyncBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="recalerAsync">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="parametres" nillable="true" type="ax210:RecalageLotExterneServiceBean"/>
+                        <xs:element minOccurs="0" name="feorXml" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="recalerAsyncResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax210:RetourServiceAsyncBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="recalerCheckResult">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="idTraitement" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="recalerCheckResultResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax210:RetourServiceAsyncBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="interrogerDonneesCheckResult">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="idTraitement" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="interrogerDonneesCheckResultResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax210:RetourServiceAsyncBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://bean.transverse.isidorv2.application.i2/xsd">
+            <xs:complexType name="GeocodageServiceBean">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="calculerGeometrie" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="calculerLongueur" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="continuite" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="inclureDOM" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="inclureDispEch" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="ploPR" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="portee" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="recouvrement" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="toleranceAbscisse" type="xs:int"/>
+                    <xs:element minOccurs="0" name="toleranceProjection" type="xs:int"/>
+                    <xs:element minOccurs="0" name="typeLocalisation" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="typeLocalisationSortie" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RetourServiceAsyncBean">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="idTraitement" type="xs:int"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="messages" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="messagesCSV" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="resultat" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="statut" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CroisementServiceBean">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="calculerGeometrie" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="calculerLongueur" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="dateReferentiel" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="inclureDOM" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="inclureDeclass" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="inclureDispEch" type="xs:boolean"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="lotsEntree" nillable="true" type="ax29:LotEntreeServiceBean"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="lotsPublies" nillable="true" type="ax29:DetailLotPublieServiceBean"/>
+                    <xs:element minOccurs="0" name="ploPR" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="toleranceAbscisse" type="xs:int"/>
+                    <xs:element minOccurs="0" name="toleranceProj" type="xs:int"/>
+                    <xs:element minOccurs="0" name="typeLocalisationSortie" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="LotEntreeServiceBean">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="continuite" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="feorXML" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="inclureConcede" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="inclureDOM" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="inclureDeclass" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="inclureDispEch" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="portee" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="recouvrement" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="typeLocalisation" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="DetailLotPublieServiceBean">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="dateActualite" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="nomThematique" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="nomsAttributs" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="InterrogerDonneesServiceBean">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="attributsExportes" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="couverture" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="couvertures" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="dateActualite" nillable="true" type="xs:dateTime"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="filtresAttributGenerique" nillable="true" type="ax29:FiltreAttributServiceBean"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="filtresAttributMetier" nillable="true" type="ax29:FiltreAttributServiceBean"/>
+                    <xs:element minOccurs="0" name="metadonnees" nillable="true" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="nomThematique" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="typeLocalisation" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="FiltreAttributServiceBean">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="nomAttribut" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="operandes" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="operateur" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RecalageLotExterneServiceBean">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="calculLocalisationComplementaires" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="dateReferentielCible" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="dateReferentielSource" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="localisation" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="portee" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="croiserCheckResultRequest">
+        <wsdl:part name="parameters" element="ns:croiserCheckResult"/>
+    </wsdl:message>
+    <wsdl:message name="croiserCheckResultResponse">
+        <wsdl:part name="parameters" element="ns:croiserCheckResultResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ExceptionIsidor">
+        <wsdl:part name="parameters" element="ns:ExceptionIsidor"/>
+    </wsdl:message>
+    <wsdl:message name="interrogerDonneesAsyncRequest">
+        <wsdl:part name="parameters" element="ns:interrogerDonneesAsync"/>
+    </wsdl:message>
+    <wsdl:message name="interrogerDonneesAsyncResponse">
+        <wsdl:part name="parameters" element="ns:interrogerDonneesAsyncResponse"/>
+    </wsdl:message>
+    <wsdl:message name="geocoderCheckResultRequest">
+        <wsdl:part name="parameters" element="ns:geocoderCheckResult"/>
+    </wsdl:message>
+    <wsdl:message name="geocoderCheckResultResponse">
+        <wsdl:part name="parameters" element="ns:geocoderCheckResultResponse"/>
+    </wsdl:message>
+    <wsdl:message name="interrogerDonneesRequest">
+        <wsdl:part name="parameters" element="ns:interrogerDonnees"/>
+    </wsdl:message>
+    <wsdl:message name="interrogerDonneesResponse">
+        <wsdl:part name="parameters" element="ns:interrogerDonneesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="recalerAsyncRequest">
+        <wsdl:part name="parameters" element="ns:recalerAsync"/>
+    </wsdl:message>
+    <wsdl:message name="recalerAsyncResponse">
+        <wsdl:part name="parameters" element="ns:recalerAsyncResponse"/>
+    </wsdl:message>
+    <wsdl:message name="croiserAsyncRequest">
+        <wsdl:part name="parameters" element="ns:croiserAsync"/>
+    </wsdl:message>
+    <wsdl:message name="croiserAsyncResponse">
+        <wsdl:part name="parameters" element="ns:croiserAsyncResponse"/>
+    </wsdl:message>
+    <wsdl:message name="interrogerDonneesCheckResultRequest">
+        <wsdl:part name="parameters" element="ns:interrogerDonneesCheckResult"/>
+    </wsdl:message>
+    <wsdl:message name="interrogerDonneesCheckResultResponse">
+        <wsdl:part name="parameters" element="ns:interrogerDonneesCheckResultResponse"/>
+    </wsdl:message>
+    <wsdl:message name="recalerCheckResultRequest">
+        <wsdl:part name="parameters" element="ns:recalerCheckResult"/>
+    </wsdl:message>
+    <wsdl:message name="recalerCheckResultResponse">
+        <wsdl:part name="parameters" element="ns:recalerCheckResultResponse"/>
+    </wsdl:message>
+    <wsdl:message name="geocoderRequest">
+        <wsdl:part name="parameters" element="ns:geocoder"/>
+    </wsdl:message>
+    <wsdl:message name="geocoderResponse">
+        <wsdl:part name="parameters" element="ns:geocoderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="geocoderAsyncRequest">
+        <wsdl:part name="parameters" element="ns:geocoderAsync"/>
+    </wsdl:message>
+    <wsdl:message name="geocoderAsyncResponse">
+        <wsdl:part name="parameters" element="ns:geocoderAsyncResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ServiceReferentielServiceAsyncPortType">
+        <wsdl:operation name="croiserCheckResult">
+            <wsdl:input message="ns:croiserCheckResultRequest" wsaw:Action="urn:croiserCheckResult"/>
+            <wsdl:output message="ns:croiserCheckResultResponse" wsaw:Action="urn:croiserCheckResultResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:croiserCheckResultExceptionIsidor"/>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonneesAsync">
+            <wsdl:input message="ns:interrogerDonneesAsyncRequest" wsaw:Action="urn:interrogerDonneesAsync"/>
+            <wsdl:output message="ns:interrogerDonneesAsyncResponse" wsaw:Action="urn:interrogerDonneesAsyncResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:interrogerDonneesAsyncExceptionIsidor"/>
+        </wsdl:operation>
+        <wsdl:operation name="geocoderCheckResult">
+            <wsdl:input message="ns:geocoderCheckResultRequest" wsaw:Action="urn:geocoderCheckResult"/>
+            <wsdl:output message="ns:geocoderCheckResultResponse" wsaw:Action="urn:geocoderCheckResultResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:geocoderCheckResultExceptionIsidor"/>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonnees">
+            <wsdl:input message="ns:interrogerDonneesRequest" wsaw:Action="urn:interrogerDonnees"/>
+            <wsdl:output message="ns:interrogerDonneesResponse" wsaw:Action="urn:interrogerDonneesResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:interrogerDonneesExceptionIsidor"/>
+        </wsdl:operation>
+        <wsdl:operation name="recalerAsync">
+            <wsdl:input message="ns:recalerAsyncRequest" wsaw:Action="urn:recalerAsync"/>
+            <wsdl:output message="ns:recalerAsyncResponse" wsaw:Action="urn:recalerAsyncResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:recalerAsyncExceptionIsidor"/>
+        </wsdl:operation>
+        <wsdl:operation name="croiserAsync">
+            <wsdl:input message="ns:croiserAsyncRequest" wsaw:Action="urn:croiserAsync"/>
+            <wsdl:output message="ns:croiserAsyncResponse" wsaw:Action="urn:croiserAsyncResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:croiserAsyncExceptionIsidor"/>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonneesCheckResult">
+            <wsdl:input message="ns:interrogerDonneesCheckResultRequest" wsaw:Action="urn:interrogerDonneesCheckResult"/>
+            <wsdl:output message="ns:interrogerDonneesCheckResultResponse" wsaw:Action="urn:interrogerDonneesCheckResultResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:interrogerDonneesCheckResultExceptionIsidor"/>
+        </wsdl:operation>
+        <wsdl:operation name="recalerCheckResult">
+            <wsdl:input message="ns:recalerCheckResultRequest" wsaw:Action="urn:recalerCheckResult"/>
+            <wsdl:output message="ns:recalerCheckResultResponse" wsaw:Action="urn:recalerCheckResultResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:recalerCheckResultExceptionIsidor"/>
+        </wsdl:operation>
+        <wsdl:operation name="geocoder">
+            <wsdl:input message="ns:geocoderRequest" wsaw:Action="urn:geocoder"/>
+            <wsdl:output message="ns:geocoderResponse" wsaw:Action="urn:geocoderResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:geocoderExceptionIsidor"/>
+        </wsdl:operation>
+        <wsdl:operation name="geocoderAsync">
+            <wsdl:input message="ns:geocoderAsyncRequest" wsaw:Action="urn:geocoderAsync"/>
+            <wsdl:output message="ns:geocoderAsyncResponse" wsaw:Action="urn:geocoderAsyncResponse"/>
+            <wsdl:fault message="ns:ExceptionIsidor" name="ExceptionIsidor" wsaw:Action="urn:geocoderAsyncExceptionIsidor"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ServiceReferentielServiceAsyncSoap11Binding" type="ns:ServiceReferentielServiceAsyncPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="croiserCheckResult">
+            <soap:operation soapAction="urn:croiserCheckResult" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonneesAsync">
+            <soap:operation soapAction="urn:interrogerDonneesAsync" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="geocoderCheckResult">
+            <soap:operation soapAction="urn:geocoderCheckResult" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonnees">
+            <soap:operation soapAction="urn:interrogerDonnees" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="recalerAsync">
+            <soap:operation soapAction="urn:recalerAsync" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="croiserAsync">
+            <soap:operation soapAction="urn:croiserAsync" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonneesCheckResult">
+            <soap:operation soapAction="urn:interrogerDonneesCheckResult" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="recalerCheckResult">
+            <soap:operation soapAction="urn:recalerCheckResult" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="geocoder">
+            <soap:operation soapAction="urn:geocoder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="geocoderAsync">
+            <soap:operation soapAction="urn:geocoderAsync" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ServiceReferentielServiceAsyncSoap12Binding" type="ns:ServiceReferentielServiceAsyncPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="croiserCheckResult">
+            <soap12:operation soapAction="urn:croiserCheckResult" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonneesAsync">
+            <soap12:operation soapAction="urn:interrogerDonneesAsync" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="geocoderCheckResult">
+            <soap12:operation soapAction="urn:geocoderCheckResult" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonnees">
+            <soap12:operation soapAction="urn:interrogerDonnees" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="recalerAsync">
+            <soap12:operation soapAction="urn:recalerAsync" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="croiserAsync">
+            <soap12:operation soapAction="urn:croiserAsync" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonneesCheckResult">
+            <soap12:operation soapAction="urn:interrogerDonneesCheckResult" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="recalerCheckResult">
+            <soap12:operation soapAction="urn:recalerCheckResult" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="geocoder">
+            <soap12:operation soapAction="urn:geocoder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="geocoderAsync">
+            <soap12:operation soapAction="urn:geocoderAsync" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExceptionIsidor">
+                <soap12:fault use="literal" name="ExceptionIsidor"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ServiceReferentielServiceAsyncHttpBinding" type="ns:ServiceReferentielServiceAsyncPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="croiserCheckResult">
+            <http:operation location="ServiceReferentielServiceAsync/croiserCheckResult"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="croiserCheckResult"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="croiserCheckResult"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonneesAsync">
+            <http:operation location="ServiceReferentielServiceAsync/interrogerDonneesAsync"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="interrogerDonneesAsync"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="interrogerDonneesAsync"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="geocoderCheckResult">
+            <http:operation location="ServiceReferentielServiceAsync/geocoderCheckResult"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="geocoderCheckResult"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="geocoderCheckResult"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonnees">
+            <http:operation location="ServiceReferentielServiceAsync/interrogerDonnees"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="interrogerDonnees"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="interrogerDonnees"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recalerAsync">
+            <http:operation location="ServiceReferentielServiceAsync/recalerAsync"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="recalerAsync"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="recalerAsync"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="croiserAsync">
+            <http:operation location="ServiceReferentielServiceAsync/croiserAsync"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="croiserAsync"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="croiserAsync"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="interrogerDonneesCheckResult">
+            <http:operation location="ServiceReferentielServiceAsync/interrogerDonneesCheckResult"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="interrogerDonneesCheckResult"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="interrogerDonneesCheckResult"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recalerCheckResult">
+            <http:operation location="ServiceReferentielServiceAsync/recalerCheckResult"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="recalerCheckResult"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="recalerCheckResult"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="geocoder">
+            <http:operation location="ServiceReferentielServiceAsync/geocoder"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="geocoder"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="geocoder"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="geocoderAsync">
+            <http:operation location="ServiceReferentielServiceAsync/geocoderAsync"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="geocoderAsync"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="geocoderAsync"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ServiceReferentielServiceAsync">
+        <wsdl:port name="ServiceReferentielServiceAsyncHttpSoap11Endpoint" binding="ns:ServiceReferentielServiceAsyncSoap11Binding">
+            <soap:address location="http://isidor3-2.setra.centre-serveur.i2:8081/isidorv3/services/ServiceReferentielServiceAsync.ServiceReferentielServiceAsyncHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ServiceReferentielServiceAsyncHttpSoap12Endpoint" binding="ns:ServiceReferentielServiceAsyncSoap12Binding">
+            <soap12:address location="http://isidor3-2.setra.centre-serveur.i2:8081/isidorv3/services/ServiceReferentielServiceAsync.ServiceReferentielServiceAsyncHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ServiceReferentielServiceAsyncHttpEndpoint" binding="ns:ServiceReferentielServiceAsyncHttpBinding">
+            <http:address location="http://isidor3-2.setra.centre-serveur.i2:8081/isidorv3/services/ServiceReferentielServiceAsync.ServiceReferentielServiceAsyncHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
