@@ -1,0 +1,63 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Body>
+      <ns:interrogerDonneesResponse xmlns:ns="http://service.metier.isidorv2.application.i2">
+         <ns:return xsi:type="ax29:RetourServiceAsyncBean" xmlns:ax29="http://bean.transverse.isidorv2.application.i2/xsd" xmlns:ax26="http://exception.transverse.isidorv2.application.i2/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <ax29:idTraitement>89380</ax29:idTraitement>
+            <ax29:messages xsi:nil="true"/>
+            <ax29:messagesCSV xsi:nil="true"/>
+            <ax29:resultat><![CDATA[<?xml version='1.0' encoding='UTF-8'?>
+<feor:lotGPR xmlns:feor="http://setra.equipement.gouv.fr/schema/feor/v2.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meriu="http://setra.equipement.gouv.fr/schema/meriu/v2.1" xmlns:gml="http://www.opengis.net/gml" feor:version="2.1" xsi:schemaLocation="http://setra.equipement.gouv.fr/schema/feor/v2.1 ./catalogue-gpr.xsd">
+  <enTete dateDeProduction="2019-06-27" producteurDuLot="ISIDORv2">
+    <referentielRoutier modeleEchangeReferentiel="MERIU v2" dateReferentiel="2017-01-01" identificationReferentielRoutier="RIU_France_entiere_01-2017" numeroVersionReferentiel="2017">
+    </referentielRoutier>
+    <proprietesGeographique codeEPSG="2154">
+    </proprietesGeographique>
+  </enTete>
+  <contenuDuLot>
+    <feor:classeprofiltravsectionnee feor:id="12014">
+      <feor:proprietesMetier>
+        <largeurEntretenue>28.8</largeurEntretenue>
+        <sectionnement_departement>93</sectionnement_departement>
+        <sectionnement_gestionnaire>DIRIF</sectionnement_gestionnaire>
+        <separation>S</separation>
+        <profil>=2*4V</profil>
+        <nBVSGauche>0</nBVSGauche>
+        <profil_lib>=2*4V</profil_lib>
+        <nBVSDroite>0</nBVSDroite>
+        <separation_lib>S</separation_lib>
+        <nBVoiesDroite>4</nBVoiesDroite>
+        <nBVoiesGauche>4</nBVoiesGauche>
+      </feor:proprietesMetier>
+      <lateralisation voie="0" cote="I" distance="0">
+      </lateralisation>
+      <feor:geometrie>
+        <lignes>
+          <gml:MultiLineString>
+            <gml:lineStringMember>
+              <gml:LineString>
+                <gml:posList>653006.597000003 6867037.547 653006.016999997 6867039.749 653001.681999996 6867059.176 653001.185999997 6867071.372 653000.614 6867086.666 652999.310000002 6867121.657 653000.766999997 6867128.742 653001.033 6867160.421 653000.608000003 6867169.317 652999.583999999 6867190.014 652999.717 6867194.01 652999.827 6867195.409 652999.984999999 6867202.204 652998.156000003 6867246.292 652996.655000001 6867269.791 652996.479999997 6867272.691 652996.490999997 6867273.99 652996.221000001 6867277.589 652996.061999999 6867282.389 652995.736000001 6867291.185 652995.656000003 6867293.584 652990.317000002 6867419.455 652990.152999997 6867423.853 652989.736000001 6867433.551 652989.751999997 6867435.349 652988.803000003 6867453.348 652985.328000002 6867527.633 652984.730999999 6867539.73 652984.473999999 6867544.828 652983.362000003 6867567.225 652982.600000001 6867583.42 652982.612999998 6867585.02 652974.755000003 6867756.084 652971.980999999 6867818.67 652970.115999997 6867858.161 652968.725000001 6867882.859 652967.251999997 6867909.954 652967.181000002 6867913.255 652962.137999997 6868007.855 652961.655000001 6868016.939 652961.594999999 6868018.057 652961.397 6868021.846 652960.016000003 6868048.033 652960.027000003 6868049.332 652955.5 6868129.223 652951.688000001 6868222.6 652951.270999998 6868232.396 652950.248999998 6868265.287 652950.269000001 6868267.683 652947.876999997 6868351.854 652947.191 6868377.245 652946.589000002 6868388.844 652946.601999998 6868390.542 652945.631999999 6868417.633 652941.652999997 6868503.116 652940.810000002 6868521.913 652940.475000001 6868529.71 652940.384999998 6868530.611 652940.314000003 6868534.108 652940.141000003 6868537.408 652939.120999999 6868558.705 652938.953000002 6868562.603 652938.770000003 6868564.605 652938.783 6868566.004 652938.604000002 6868568.603 652938.534000002 6868572.301 652938.276000001 6868577.0 652938.088 6868578.6 652938.015000001 6868581.699 652938.019000001 6868582.3 652938.027999997 6868583.299 652937.777999997 6868589.197 652937.596000001 6868591.497 652937.428000003 6868595.097 652936.842 6868608.594 652929.163999997 6868777.458 652927.009999998 6868818.252 652925.292999998 6868851.846 652924.100000001 6868876.641 652924.115000002 6868878.44 652923.695 6868887.738 652923.203000002 6868900.535 652923.031000003 6868903.933 652922.972000003 6868908.831 652922.788999997 6868910.831 652921.211000003 6868948.822 652918.226000004 6869011.435 652917.185999997 6869033.201 652916.850000001 6869040.276 652910.756999999 6869168.08 652906.862999998 6869251.661 652906.177000001 6869265.259 652905.081 6869289.354 652904.152000003 6869309.749 652904.079000004 6869312.748 652903.836999998 6869319.748 652903.740000002 6869320.147 652903.351999998 6869333.442 652903.362999998 6869334.841 652903.192000002 6869338.242 652903.125 6869342.04 652902.891999997 6869350.137 652902.829999998 6869354.533 652902.534000002 6869366.929 652902.473999999 6869371.726 652902.189000003 6869373.529 652901.644000001 6869380.029 652900.596000001 6869385.933 652898.112999998 6869435.627 652896.5058064424 6869469.20526404</gml:posList>
+              </gml:LineString>
+            </gml:lineStringMember>
+          </gml:MultiLineString>
+        </lignes>
+      </feor:geometrie>
+      <localisationReferentielLineaire route="A0001">
+        <localisationDebut plo="93PR0D" abs="0.0" ltaAbsc="0.0" ltaSection="11199" cumul="0.0">
+        </localisationDebut>
+        <localisationFin plo="93PR2D" abs="460.0" ltaAbsc="2440.0" ltaSection="11199" cumul="2440.0">
+        </localisationFin>
+      </localisationReferentielLineaire>
+      <localisationGeographiqueLineaire route="A0001">
+        <localisationDebut x="653006.6" y="6867037.55" z="0.0">
+        </localisationDebut>
+        <localisationFin x="652896.51" y="6869469.21" z="0.0">
+        </localisationFin>
+      </localisationGeographiqueLineaire>
+    </feor:classeprofiltravsectionnee>
+  </contenuDuLot>
+</feor:lotGPR>]]></ax29:resultat>
+            <ax29:statut>Terminé</ax29:statut>
+         </ns:return>
+      </ns:interrogerDonneesResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

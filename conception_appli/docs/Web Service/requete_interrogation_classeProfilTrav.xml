@@ -1,0 +1,47 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.metier.isidorv2.application.i2" xmlns:xsd="http://bean.transverse.isidorv2.application.i2/xsd">
+   <soapenv:Header/>
+    <soapenv:Body>
+      <ser:interrogerDonneesAsync>
+         <!--Optional:-->
+         <ser:parametres>
+         	  <!-- date accident pour déterminer
+         	  la date des données ISIDOR à récupérer-->
+            <xsd:dateActualite>2017-01-01T00:00:00</xsd:dateActualite>-->
+            <!--Zero or more repetitions:-->
+            <!-- filtre ROUTE -->
+            <xsd:filtresAttributGenerique>
+               <!--Optional:-->
+               <xsd:nomAttribut>nomRoute</xsd:nomAttribut>
+               <!--Zero or more repetitions:-->
+               <xsd:operandes>A0001</xsd:operandes>
+               <!--Optional:-->
+               <xsd:operateur>EGAL_A</xsd:operateur>
+            </xsd:filtresAttributGenerique>
+            <!-- filtre PLO DEBUT -->
+            <xsd:filtresAttributGenerique>
+               <!--Optional:-->
+               <xsd:nomAttribut>ploDebut</xsd:nomAttribut>
+               <!--Zero or more repetitions:-->
+               <xsd:operandes>93PR2D</xsd:operandes>
+               <!--Optional:-->
+               <xsd:operateur>EGAL_A</xsd:operateur>
+            </xsd:filtresAttributGenerique>
+            <!-- filtre PLO FIN -->
+            <xsd:filtresAttributGenerique>
+               <!--Optional:-->
+               <xsd:nomAttribut>ploFin</xsd:nomAttribut>
+               <!--Zero or more repetitions:-->
+               <xsd:operandes>93PR2D</xsd:operandes>
+               <!--Optional:-->
+               <xsd:operateur>EGAL_A</xsd:operateur>
+            </xsd:filtresAttributGenerique>             
+            <!--Optional:-->
+            <xsd:metadonnees>False</xsd:metadonnees>
+            <!--Optional:-->
+            <xsd:nomThematique>ClasseProfilTravSectionnee</xsd:nomThematique>
+            <!--Optional:-->
+            <xsd:typeLocalisation>PLO</xsd:typeLocalisation>
+         </ser:parametres>
+      </ser:interrogerDonneesAsync>
+   </soapenv:Body>
+</soapenv:Envelope>
