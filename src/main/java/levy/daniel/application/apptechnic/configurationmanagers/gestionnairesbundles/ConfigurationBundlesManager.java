@@ -146,6 +146,12 @@ public final class ConfigurationBundlesManager
 		= "Méthode getPathData()";
 	
 	/**
+	 * "Méthode getPathTeleversements()".<br/>
+	 */
+	public static final String METHODE_GET_PATH_TELEVERSEMENTS 
+		= "Méthode getPathTeleversements()";
+	
+	/**
 	 * "Méthode getBundleInterne(
 	 * String pNomBaseProperties, Locale pLocale)".<br/>
 	 */
@@ -931,6 +937,124 @@ public final class ConfigurationBundlesManager
 			return "data";
 	
 	} // Fin de getClePathData().__________________________________________
+	
+
+	
+	/**
+	 * <ul>
+	 * <li>Fournit le path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des televersements accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Le path du répertoire des televersements 
+	 * est déterminé par le centre-serveur et doit être écrit en dur dans 
+	 * le properties 'configuration_ressources_externes.properties'. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/televersements'</li>
+	 * <li>clé = "televersements".</li>
+	 * </ul>
+	 *
+	 * @return : String : path vers le répertoire des 
+	 * sata.<br/>
+	 * 
+	 * @throws Exception : 
+	 * - BundleManquantRunTimeException 
+	 * si le properties est introuvable.<br/>
+	 * - CleManquanteRunTimeException si la clé est introuvable.<br/>
+	 * - CleNullRunTimeException si la valeur 
+	 * n'est pas renseignée pour la clé dans le properties.<br/>
+	 * - FichierInexistantRunTimeException si le 
+	 * répertoire est inexistant ou pas un répertoire.<br/>
+	 */
+	public static String getPathTeleversements() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationBundlesManager.class) {
+			
+			final String nomBaseProperties 
+				= getNomBasePropertiesRessourcesExternes();
+			
+			String pathTeleversements = null;
+			
+			try {
+				
+				/* Récupération du bundleRessourcesExternes. */
+				if (bundleRessourcesExternes == null) {
+					getBundleRessourcesExternes();
+				}
+				
+			}
+			catch (BundleManquantRunTimeException bundleManquantExc) {
+				
+				/* cas où bundleRessourcesExternes est manquant. */
+				traiterBundleManquantRunTimeException(
+						METHODE_GET_PATH_TELEVERSEMENTS
+							, nomBaseProperties
+								, bundleManquantExc);
+				
+			}
+			
+			try {
+				pathTeleversements 
+				= bundleRessourcesExternes
+					.getString(getClePathTeleversements());
+			}
+			catch (MissingResourceException mre) {
+				
+				/* cas où la clé est manquante dans le properties. */
+				traiterMissingResourceException(
+						METHODE_GET_PATH_TELEVERSEMENTS
+							, nomBaseProperties
+								, mre
+								, getClePathTeleversements());
+				
+			}
+			
+			/* Clé vide (sans valeur). */
+			if (StringUtils.isBlank(pathTeleversements)) {
+				
+				traiterCleVide(
+						METHODE_GET_PATH_TELEVERSEMENTS
+						, getClePathTeleversements()
+						, nomBaseProperties);
+				
+			}
+			
+			/* Répertoire inexistant ou 
+			 * pas un répertoire (fichier simple). */
+			traiterRepertoireDefectueux(
+					METHODE_GET_PATH_TELEVERSEMENTS
+						, pathTeleversements);
+			
+			return pathTeleversements;
+			
+		} // Fin de synchronized.__________________________________
+		
+	} // Fin de getPathTeleversements().___________________________________
+	
+
+		
+	/**
+	 * <ul>
+	 * <li>Fournit la clé du path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des televersements accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Cette clé est stockée dans 
+	 * <b>'configuration_ressources_externes.properties'</b> 
+	 * sous la racine.</li>
+	 * <li>Le path du répertoire des televersements n'est accessible 
+	 * qu'au centre-serveur et doit être écrit en dur dans le properties. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/televersements'</li>
+	 * <li>clé = "televersements".</li>
+	 * </ul>
+	 *
+	 * @return : String : "televersements".<br/>
+	 */
+	private static String getClePathTeleversements() {
+		
+			return "televersements";
+	
+	} // Fin de getClePathTeleversements().________________________________
 	
 
 	
@@ -2064,7 +2188,7 @@ public final class ConfigurationBundlesManager
 			+ pMethode
 			+ SEPARATEUR_MOINS_AERE
 			+ "Le répertoire '" 
-			+ pPath 
+			+ path.normalize().toAbsolutePath().toString() 
 			+ "' est inexistant ou n'est pas un répertoire";
 			
 			/* LOG.FATAL. */

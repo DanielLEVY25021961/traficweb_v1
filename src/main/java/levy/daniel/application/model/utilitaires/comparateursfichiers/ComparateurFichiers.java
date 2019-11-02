@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -15,7 +16,11 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.ExceptionImp
 
 /**
  * CLASSE ComparateurFichiers :<br/>
- * .<br/>
+ * <p>Classe chargée de comparer 2 fichiers avec des méthodes 
+ * qui retournent true si les 2 fichiers sont égaux.</p>
+ * <p>génère un rapport de comparaison dans <code>rapportComparaison</code> 
+ * si les deux fichiers ne sont pas égaux ou sont incorrects 
+ * (null, inexistant, ou répertoire).</p>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -129,27 +134,66 @@ public final class ComparateurFichiers {
 	
 	
 	/**
-	 * <b>détermine si deux fichiers textuels sont absolument identiques</b>.
+	 * détermine si deux fichiers <strong>textuels</strong> 
+	 * sont absolument identiques <i>en lisant leur contenu ligne par ligne</i> 
+	 * et retourne true si c'est le cas.<br/>
+	 * lit le contenu de chaque fichier avec le Charset pCharset correspondant.<br/>
+	 * <i>- ne prend pas en compte les noms des fichiers pFile1 et pFile2</i> 
+	 * lors de la comparaison. Un fichier file2 = file1_renommé 
+	 * sera donc détecté comme ayant le même contenu 
+	 * ligne par ligne que file1.<br/>
+	 * - compare les poids des 2 fichiers et émet un message 
+	 * dans <code>rapportComparaison</code> si les poids sont différents. 
+	 * Ne sort pas de la méthode pour permettre les comparaisons suivantes.<br/>
+	 * - détecte et rapporte dans <code>rapportComparaison</code> 
+	 * si 2 fichiers textuels n'ont PAS le même nombre de lignes. 
+	 * retourne false.<br/>
+	 * - détecte et rapporte dans <code>rapportComparaison</code> 
+	 * si 2 lignes de même numéro d'ordre de 2 fichiers 
+	 * - ayant le même nombre de lignes - 
+	 * ont une longueur différente. retourne false.<br/>
+	 * <pre>les 2 fichiers n'ont pas le même poids - 
+	 * taille du fichier 1 : 230202 bytes - taille du fichier 2 : 230201 bytes.
+	 * La ligne 1 a une longueur de 520 caractères dans le 1er fichier 
+	 * et une longueur de 519 caractères dans le 2ème fichier.</pre>
+	 * - détecte et rapporte dans <code>rapportComparaison</code> 
+	 * si 2 lignes de même numéro d'ordre de 2 fichiers 
+	 * - ayant le même nombre de lignes - 
+	 * ne sont pas equals(). retourne false.<br/>
+	 * <br/>
 	 * <ul>
+	 * <li>rafraîchit le rapport de comparaison <code>rapportComparaison</code> 
+	 * à chaque appel.</li>
 	 * <li>utilise <code>Files.readAllLines(pFile.toPath(), charset);</code> 
 	 * pour lire les lignes de chaque fichier.<br/>
 	 * Peut donc jeter une MalformedInputException si le 
 	 * charset ne correspond pas au Charset d'encodage d'un fichier.</li>
-	 * <li>retourne false si les deux fichiers n'ont pas 
-	 * le même nombre de lignes.</li>
+	 * <ul>
 	 * <li>passe automatiquement charset1 à UTF-8 si pCharset1 == null.</li>
 	 * <li>passe automatiquement charset2 à UTF-8 si pCharset2 == null.</li>
-	 * <li>retourne false si 2 lignes de même numéro d'ordre n'ont pas la 
-	 * même longueur dans les deux fichiers.</li>
-	 * <li>retourne false si 2 lignes de même numéro d'ordre 
-	 * ne sont pas égales dans les deux fichiers.</li>
-	 * <li></li>
 	 * </ul>
-	 * - retourne false si pFile1 est null, inexistant ou 
-	 * pas normal (répertoire).<br/>
-	 * - retourne false si pFile1 est null, inexistant ou 
-	 * pas normal (répertoire).<br/>
-	 * <br/>
+	 * <li>retourne false et rapporte dans <code>rapportComparaison</code> 
+	 * si les deux fichiers n'ont pas 
+	 * le même nombre de lignes.</li>
+	 * <li>retourne false et rapporte dans <code>rapportComparaison</code> 
+	 * si 2 lignes de même numéro d'ordre n'ont pas la 
+	 * même longueur dans les deux fichiers.</li>
+	 * <li>retourne false et rapporte dans <code>rapportComparaison</code> 
+	 * si 2 lignes de même numéro d'ordre 
+	 * ne sont pas égales dans les deux fichiers.</li>
+	 * <ul>
+	 * <li>retourne systématiquement false si pFile1 == null ou pFile2 == null 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * <li>retourne systématiquement false si pFile2 est inexistant 
+	 * ou pFile2 est inexistant 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * <li>retourne systématiquement false si pFile2 est un répertoire 
+	 * ou pFile2 est un répertoire 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * <li>retourne systématiquement true et ne rapporte pas 
+	 * si pFile1 == pFile2 (même instance).</li>
+	 * </ul>
+	 * </ul>
 	 *
 	 * @param pFile1 : File : 1er fichier à comparer.
 	 * @param pCharset1 : Charset : Charset d'encodage du 1er fichier.
@@ -167,31 +211,50 @@ public final class ComparateurFichiers {
 		
 		synchronized (ComparateurFichiers.class) {
 			
-			/* retourne false si pFile1 est null, inexistant ou pas normal 
-			 * (répertoire). */
-			if (pFile1 == null || !pFile1.exists() || !pFile1.isFile()) {
-				
-				final String message 
-					= "le 1er fichier est null, inexistant ou pas normal";
-				
-				rapportComparaison = message;
-				
+			/* rafraîchit le rapport de comparaison à chaque appel. */
+			rapportComparaison = null;
+			
+			// NULLITE
+			if (!traiterNullite(pFile1, pFile2)) {
+				return false;
+			}
+
+			// INEXISTANT
+			if (!traiterInexistant(pFile1, pFile2)) {
 				return false;
 			}
 			
-			/* retourne false si pFile2 est null, inexistant ou pas normal 
-			 * (répertoire). */
-			if (pFile2 == null || !pFile2.exists() || !pFile2.isFile()) {
-				
-				final String message 
-					= "le 2ème fichier est null, inexistant ou pas normal";
-			
-				rapportComparaison = message;
-				
+			// REPERTOIRE
+			if (!traiterRepertoire(pFile1, pFile2)) {
 				return false;
+			}
+			
+			/* retourne systématiquement true et ne rapporte pas 
+			 * si pFile1 == pFile2 (même instance). */
+			if (pFile1 == pFile2) {
+				return true;
 			}
 			
 			final StringBuffer stb = new StringBuffer();
+			
+			boolean ok = true;
+			
+			/* compare les poids des 2 fichiers et émet un message 
+			 * dans rapportComparaison si les poids sont différents. 
+			 * Ne sort pas de la méthode pour permettre 
+			 * les comparaisons suivantes. */
+			if (pFile1.length() != pFile2.length()) {
+				
+				final String message 
+				= "les 2 fichiers n'ont pas le même poids - taille du fichier 1 : " 
+						+ pFile1.length() + " bytes"
+						+ " - taille du fichier 2 : " 
+						+ pFile2.length() + " bytes";
+				
+				stb.append(message);
+				stb.append(NEWLINE);
+				ok = false;
+			}
 			
 			/* passe automatiquement charset1 à UTF-8 si pCharset1 == null. */
 			Charset charset1 = null;
@@ -272,6 +335,8 @@ public final class ComparateurFichiers {
 							+ " lignes pour le 2ème fichier";
 				
 				stb.append(message);
+				
+				rapportComparaison = stb.toString();
 
 				return false;
 			}
@@ -364,7 +429,12 @@ public final class ComparateurFichiers {
 				}
 				
 			} // Fin de la boucle sur les lignes.______________
-					
+			
+			if (!ok) {
+				rapportComparaison = stb.toString();
+				return false;
+			}
+			
 			return true;
 			
 		} // Fin de synchronized.___________________________
@@ -374,17 +444,239 @@ public final class ComparateurFichiers {
 
 	
 	/**
+	 * compare le contenu de 2 fichiers <strong>bit à bit</strong> 
+	 * et retourne true si les contenus sont égaux.<br/>
+	 * <i>- ne prend pas en compte les noms des fichiers pFile1 et pFile2</i> 
+	 * lors de la comparaison. Un fichier file2 = file1_renommé 
+	 * sera donc détecté comme ayant le même contenu bit à bit que file1.<br/>
+	 * - utilise 
+	 * <code>org.apache.commons.io.FileUtils.contentEquals(pFile1, pFile2)</code>
+	 * pour comparer les contenus des 2 fichiers bit à bit.<br/>
+	 * - retourne un rapport de comparaison <code>rapportComparaison</code> 
+	 * si les deux fichiers diffèrent 
+	 * ou ne sont pas corrects (null, inexistant, ou repertoire).
+	 * <ul>
+	 * <li>rafraîchit le rapport de comparaison <code>rapportComparaison</code> 
+	 * à chaque appel.</li>
+	 * <li>retourne systématiquement false si pFile1 == null ou pFile2 == null 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * <li>retourne systématiquement false si pFile2 est inexistant 
+	 * ou pFile2 est inexistant 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * <li>retourne systématiquement false si pFile2 est un répertoire 
+	 * ou pFile2 est un répertoire 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * <li>retourne systématiquement true et ne rapporte pas 
+	 * si pFile1 == pFile2 (même instance).</li>
+	 * <li>retourne true et ne rapporte pas 
+	 * si pFile1 a le même contenu que pFile2.</li>
+	 * <li>retourne false et ne rapporte pas 
+	 * si pFile1 n'a PAS le même contenu que pFile2.</li>
+	 * </ul>
+	 *
+	 * @param pFile1 : File : le premier fichier à comparer.
+	 * @param pFile2 : File : le deuxième fichier à comparer.
+	 * 
+	 * @return boolean : true si les fichiers ont le même contenu bit à bit.
+	 * 
+	 * @throws Exception
+	 */
+	public static boolean compareContenuFichiers(
+			final File pFile1
+				, final File pFile2) throws Exception {
+		
+		synchronized (ComparateurFichiers.class) {
+			
+			/* rafraîchit le rapport de comparaison à chaque appel. */
+			rapportComparaison = null;
+			
+			// NULLITE
+			if (!traiterNullite(pFile1, pFile2)) {
+				return false;
+			}
+
+			// INEXISTANT
+			if (!traiterInexistant(pFile1, pFile2)) {
+				return false;
+			}
+			
+			// REPERTOIRE
+			if (!traiterRepertoire(pFile1, pFile2)) {
+				return false;
+			}
+			
+			/* retourne systématiquement true et ne rapporte pas 
+			 * si pFile1 == pFile2 (même instance). */
+			if (pFile1 == pFile2) {
+				return true;
+			}
+			
+			return FileUtils.contentEquals(pFile1, pFile2);
+			
+		} // Fin de synchronized.___________________________
+				
+	} // Fin de compareContenuFichiers(...)._______________________________
+
+	
+	
+	/**
+	 * contrôle qu'aucun des fichiers pFile1 et pFile2 n'est null.<br/>
+	 * retourne true et ne rapporte pas dans <code>rapportComparaison</code> 
+	 * si aucun des fichiers n'est null.
+	 * <ul>
+	 * <li>retourne false si pFile1 == null 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * <li>retourne false si pFile2 == null 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * </ul>
+	 *
+	 * @param pFile1 : File : le premier fichier à comparer.
+	 * @param pFile2 : File : le deuxième fichier à comparer.
+	 * 
+	 * @return : boolean : false si l'un des fichiers est null.<br/>
+	 */
+	private static boolean traiterNullite(
+			final File pFile1, final File pFile2) {
+		
+		/* retourne systématiquement false si pFile1 == null 
+		 * et rapporte dans rapportComparaison. */
+		if (pFile1 == null) {
+			
+			rapportComparaison 
+				= "le premier fichier passé en paramètre est null."
+						+ " COMPARAISON DE CONTENU IMPOSSIBLE.";
+			
+			return false;
+		}
+		
+		/* retourne systématiquement false si pFile2 == null 
+		 * et rapporte dans rapportComparaison. */
+		if (pFile2 == null) {
+			
+			rapportComparaison 
+				= "le deuxième fichier passé en paramètre est null."
+						+ " COMPARAISON DE CONTENU IMPOSSIBLE.";
+			
+			return false;
+		}
+		
+		return true;
+
+	} // Fin de traiterNullite(...)._______________________________________
+
+	
+	
+	/**
+	 * contrôle qu'aucun des fichiers pFile1 et pFile2 n'est inexistant.<br/>
+	 * retourne true et ne rapporte pas dans <code>rapportComparaison</code> 
+	 * si aucun des fichiers n'est inexistant.
+	 * <ul>
+	 * <li>retourne false si pFile1 est inexistant 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * <li>retourne false si pFile2 est inexistant 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * </ul>
+	 *
+	 * @param pFile1 : File : le premier fichier à comparer.
+	 * @param pFile2 : File : le deuxième fichier à comparer.
+	 * 
+	 * @return : boolean : false si l'un des fichiers est inexistant.<br/>
+	 */
+	private static boolean traiterInexistant(
+			final File pFile1, final File pFile2) {
+		
+		/* retourne systématiquement false si pFile1 est inexistant 
+		 * et rapporte dans rapportComparaison. */
+		if (!pFile1.exists()) {
+			
+			rapportComparaison 
+				= "le premier fichier passé en paramètre est inexistant : " 
+						+ pFile1.getAbsolutePath()
+						+ " . COMPARAISON DE CONTENU IMPOSSIBLE.";
+			
+			return false;
+		}
+		
+		/* retourne systématiquement false si pFile2 est inexistant 
+		 * et rapporte dans rapportComparaison. */
+		if (!pFile2.exists()) {
+			
+			rapportComparaison 
+				= "le deuxième fichier passé en paramètre est inexistant : "
+						+ pFile2.getAbsolutePath()
+						+ " . COMPARAISON DE CONTENU IMPOSSIBLE.";
+			
+			return false;
+		}
+		
+		return true;
+
+	} // Fin de traiterInexistant(...).____________________________________
+
+	
+	
+	/**
+	 * contrôle qu'aucun des fichiers pFile1 et pFile2 
+	 * n'est un répertoire.<br/>
+	 * retourne true et ne rapporte pas dans <code>rapportComparaison</code> 
+	 * si aucun des fichiers n'est un répertoire.
+	 * <ul>
+	 * <li>retourne false si pFile1 est un répertoire 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * <li>retourne false si pFile2 est un répertoire 
+	 * et rapporte dans <code>rapportComparaison</code>.</li>
+	 * </ul>
+	 *
+	 * @param pFile1 : File : le premier fichier à comparer.
+	 * @param pFile2 : File : le deuxième fichier à comparer.
+	 * 
+	 * @return : boolean : false si l'un des fichiers est un répertoire.<br/>
+	 */
+	private static boolean traiterRepertoire(
+			final File pFile1, final File pFile2) {
+		
+		/* retourne systématiquement false si pFile1 est un répertoire 
+		 * et rapporte dans rapportComparaison. */
+		if (pFile1.isDirectory()) {
+			
+			rapportComparaison 
+				= "le premier fichier passé en paramètre est un répertoire : " 
+						+ pFile1.getAbsolutePath()
+						+ " . COMPARAISON DE CONTENU IMPOSSIBLE.";
+			
+			return false;
+		}
+		
+		/* retourne systématiquement false si pFile2 est un répertoire 
+		 * et rapporte dans rapportComparaison. */
+		if (pFile2.isDirectory()) {
+			
+			rapportComparaison 
+				= "le deuxième fichier passé en paramètre est un répertoire : "
+						+ pFile2.getAbsolutePath()
+						+ " . COMPARAISON DE CONTENU IMPOSSIBLE.";
+			
+			return false;
+		}
+		
+		return true;
+
+	} // Fin de traiterRepertoire(...).____________________________________
+
+
+	
+	/**
 	 * Getter du rapport de comparaison non null lorsque les 2 fichiers 
 	 * comparés ne sont pas égaux.<br/>
-	 * instancié à chaque appel de la méthode 
-	 * compareFichiersLigneALigne(...).<br/>
+	 * instancié à chaque appel des méthodes 
+	 * compareFichiersLigneALigne(...) ...<br/>
 	 *
 	 * @return this.rapportComparaison : String.<br/>
 	 */
 	public static String getRapportComparaison() {
 		return rapportComparaison;
 	} // Fin de getRapportComparaison().___________________________________
-		
+	
 	 
 	
 } // FIN DE LA CLASSE ComparateurFichiers.-----------------------------------

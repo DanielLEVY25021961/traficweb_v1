@@ -158,7 +158,7 @@ public class DifferenceChamp<T> {
 			return false;
 		}
 		
-		final DifferenceChamp other = (DifferenceChamp) pObject;
+		final DifferenceChamp<?> other = (DifferenceChamp<?>) pObject;
 		
 		return Objects.equals(this.getNomChamp(), other.getNomChamp()) 
 				&& Objects.equals(this.getValue1(), other.getValue1())

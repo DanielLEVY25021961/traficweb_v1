@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
+import java.nio.file.Paths;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -685,7 +686,7 @@ public class ConfigurationBundlesManagerTest {
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
 				System.out.println("PATH DES RAPPORTS DE CONTROLE : " 
-						+ pathRapportsControle1);
+						+ Paths.get(pathRapportsControle1).normalize().toAbsolutePath().toString());
 			}
 			
 			/* garantit que pathRapportsControle n'est pas null. */
@@ -932,7 +933,7 @@ public class ConfigurationBundlesManagerTest {
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
 				System.out.println("PATH DES LOGS : " 
-						+ pathLogs1);
+						+ Paths.get(pathLogs1).normalize().toAbsolutePath().toString());
 			}
 			
 			/* garantit que pathLogs n'est pas null. */
@@ -1178,7 +1179,7 @@ public class ConfigurationBundlesManagerTest {
 			/* AFFICHAGE A LA CONSOLE. */
 			if (AFFICHAGE_GENERAL && affichage) {
 				System.out.println("PATH DES DATA : " 
-						+ pathData1);
+						+ Paths.get(pathData1).normalize().toAbsolutePath().normalize());
 			}
 			
 			/* garantit que pathData n'est pas null. */
@@ -1367,6 +1368,252 @@ public class ConfigurationBundlesManagerTest {
 		}
 		
 	} // Fin de testGetPathData()._________________________________________
+
+
+	
+	/**
+	 * <ul>
+	 * teste la méthode getPathTeleversements() : <br/>
+	 * <li>garantit que getPathTeleversements() n'est pas null.</li>
+	 * <li>garantit que getPathTeleversements() 
+	 * retourne un singleton.</li>
+	 * <li>garantit que rapportConfigurationCsv n'est pas null 
+	 * en cas d'Exception.</li>
+	 * <li>garantit que rapportUtilisateurCsv n'est pas null 
+	 * en cas d'Exception.</li>
+	 * <li>garantit que l'absence de 
+	 * configuration_ressources_externes.properties jette une 
+	 * BundleManquantRunTimeException provoquée par une 
+	 * BundleManquantRunTimeException.</li>
+	 * <li>garantit que l'absence de la clé dans 
+	 * configuration_ressources_externes.properties jette 
+	 * une CleManquanteRunTimeException provoquée par une 
+	 * MissingResourceException.</li>
+	 * <li>garantit que l'absence de valeur associée à la clé 
+	 * jette une CleNullRunTimeException.</li>
+	 * <li> garantit qu'un répertoire inexistant ou fichier simple 
+	 * jette une FichierInexistantRunTimeException.</li>
+	 * </ul>
+	 *
+	 * @throws Exception
+	 */
+	@SuppressWarnings(UNUSED)
+	@Test
+	public void testGetPathTeleversements() throws Exception {
+				
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ConfigurationBundlesManagerTest - méthode testGetPathTeleversements() ********** ");
+		}
+																														
+		String pathTeleversements1 = null;
+		String pathTeleversements2 = null;
+		
+		try {
+			
+			pathTeleversements1 
+				= ConfigurationBundlesManager.getPathTeleversements();
+			
+			pathTeleversements2 
+			= ConfigurationBundlesManager.getPathTeleversements();
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				System.out.println("PATH DES TELEVERSEMENTS : " 
+						+ Paths.get(pathTeleversements1).normalize().toAbsolutePath().toString());
+			}
+			
+			/* garantit que pathTeleversements n'est pas null. */
+			assertNotNull("pathTeleversements1 ne doit pas être null : "
+					, pathTeleversements1);
+			
+			assertEquals("pathTeleversements1 == pathTeleversements2 : "
+					, pathTeleversements1, pathTeleversements2);
+			
+		}
+		catch (BundleManquantRunTimeException e) {
+			
+			/* rapport développeurs.*/
+			final String rapportConfigurationCsv 
+			= ConfigurationBundlesManager.getRapportConfigurationCsv();
+			
+			/* rapport utilisateurs. */
+			final String rapportUtilisateurCsv 
+			= ConfigurationBundlesManager.getRapportUtilisateurCsv();
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				
+				System.out.println();
+				System.out.println(RAPPORT_CONFIGURATION);
+				System.out.println(rapportConfigurationCsv);
+				
+				System.out.println();
+				System.out.println(RAPPORT_UTILISATEUR);
+				System.out.println(rapportUtilisateurCsv);
+				
+				System.out.println();
+				System.out.print(LISTE_EXCEPTIONS);
+				System.out.println(e.listeExceptionsToString());
+				
+			}
+			
+			/* garantit que rapportConfigurationCsv 
+			 * n'est pas null en cas d'Exception. */
+			assertNotNull(RAPPORT_CONFIG_NE_DOIT
+					+ CAS_EXCEPTION
+					, rapportConfigurationCsv);
+			
+			/* garantit que rapportUtilisateurCsv 
+			 * n'est pas null en cas d'Exception. */
+			assertNotNull(RAPPORT_UTILISATEUR_NE_DOIT
+					+ CAS_EXCEPTION
+					, rapportUtilisateurCsv);
+			
+			/* garantit que l'absence de 
+			 * configuration_ressources_externes.properties jette 
+			 * une BundleManquantRunTimeException provoquée par une 
+			 * BundleManquantRunTimeException. */
+			assertTrue(CAUSE_BUNDLEMANQUANT
+					+ DOIT_ETRE_BUNDLEMANQUANT
+					, e.getCause() instanceof BundleManquantRunTimeException);
+
+		}
+		catch (CleManquanteRunTimeException e) {
+			
+			/* rapport développeurs.*/
+			final String rapportConfigurationCsv 
+			= ConfigurationBundlesManager.getRapportConfigurationCsv();
+			
+			/* rapport utilisateurs. */
+			final String rapportUtilisateurCsv 
+			= ConfigurationBundlesManager.getRapportUtilisateurCsv();
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				
+				System.out.println();
+				System.out.println(RAPPORT_CONFIGURATION);
+				System.out.println(rapportConfigurationCsv);
+				
+				System.out.println();
+				System.out.println(RAPPORT_UTILISATEUR);
+				System.out.println(rapportUtilisateurCsv);
+				
+				System.out.println();
+				System.out.print(LISTE_EXCEPTIONS);
+				System.out.println(e.listeExceptionsToString());
+				
+			}
+			
+			/* garantit que rapportConfigurationCsv 
+			 * n'est pas null en cas d'Exception. */
+			assertNotNull(RAPPORT_CONFIG_NE_DOIT
+					+ CAS_EXCEPTION
+					, rapportConfigurationCsv);
+			
+			/* garantit que rapportUtilisateurCsv 
+			 * n'est pas null en cas d'Exception. */
+			assertNotNull(RAPPORT_UTILISATEUR_NE_DOIT
+					+ CAS_EXCEPTION
+					, rapportUtilisateurCsv);
+			
+			/* garantit que l'absence de la clé dans 
+			 * configuration_ressources_externes.properties jette 
+			 * une CleManquanteRunTimeException provoquée par une 
+			 * MissingResourceException. */
+			assertTrue(CAUSE_CLEMANQUANTERUNTIME
+					+ DOIT_ETRE_MISSINGRESOURCE
+					, e.getCause() instanceof MissingResourceException);
+
+		}
+		catch (CleNullRunTimeException e) {
+			
+			/* rapport développeurs.*/
+			final String rapportConfigurationCsv 
+			= ConfigurationBundlesManager.getRapportConfigurationCsv();
+			
+			/* rapport utilisateurs. */
+			final String rapportUtilisateurCsv 
+			= ConfigurationBundlesManager.getRapportUtilisateurCsv();
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				
+				System.out.println();
+				System.out.println(RAPPORT_CONFIGURATION);
+				System.out.println(rapportConfigurationCsv);
+				
+				System.out.println();
+				System.out.println(RAPPORT_UTILISATEUR);
+				System.out.println(rapportUtilisateurCsv);
+				
+				System.out.println();
+				System.out.print(LISTE_EXCEPTIONS);
+				System.out.println(e.listeExceptionsToString());
+				
+			}
+			
+			/* garantit que rapportConfigurationCsv 
+			 * n'est pas null en cas d'Exception. */
+			assertNotNull(RAPPORT_CONFIG_NE_DOIT
+					+ CAS_EXCEPTION
+					, rapportConfigurationCsv);
+			
+			/* garantit que rapportUtilisateurCsv 
+			 * n'est pas null en cas d'Exception. */
+			assertNotNull(RAPPORT_UTILISATEUR_NE_DOIT
+					+ CAS_EXCEPTION
+					, rapportUtilisateurCsv);
+			
+		}
+		catch (FichierInexistantRunTimeException e) {
+			
+			/* rapport développeurs.*/
+			final String rapportConfigurationCsv 
+			= ConfigurationBundlesManager.getRapportConfigurationCsv();
+			
+			/* rapport utilisateurs. */
+			final String rapportUtilisateurCsv 
+			= ConfigurationBundlesManager.getRapportUtilisateurCsv();
+			
+			/* AFFICHAGE A LA CONSOLE. */
+			if (AFFICHAGE_GENERAL && affichage) {
+				
+				System.out.println();
+				System.out.println(RAPPORT_CONFIGURATION);
+				System.out.println(rapportConfigurationCsv);
+				
+				System.out.println();
+				System.out.println(RAPPORT_UTILISATEUR);
+				System.out.println(rapportUtilisateurCsv);
+				
+				System.out.println();
+				System.out.print(LISTE_EXCEPTIONS);
+				System.out.println(e.listeExceptionsToString());
+				
+			}
+			
+			/* garantit que rapportConfigurationCsv 
+			 * n'est pas null en cas d'Exception. */
+			assertNotNull(RAPPORT_CONFIG_NE_DOIT
+					+ CAS_EXCEPTION
+					, rapportConfigurationCsv);
+			
+			/* garantit que rapportUtilisateurCsv 
+			 * n'est pas null en cas d'Exception. */
+			assertNotNull(RAPPORT_UTILISATEUR_NE_DOIT
+					+ CAS_EXCEPTION
+					, rapportUtilisateurCsv);
+			
+		}
+		
+	} // Fin de testGetPathTeleversements()._______________________________
 
 	
 

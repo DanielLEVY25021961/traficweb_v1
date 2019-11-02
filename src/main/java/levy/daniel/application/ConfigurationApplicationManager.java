@@ -604,6 +604,74 @@ public final class ConfigurationApplicationManager {
 		
 	} // Fin de getPathData()._____________________________________________
 
+
+	
+	/**
+	 * method getPathTeleversements() :<br/>
+	 * <ul>
+	 * <li>Fournit le path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des televersements accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Le path du répertoire des televersements 
+	 * est déterminé par le centre-serveur et doit être écrit en dur dans 
+	 * le properties 'configuration_ressources_externes.properties'. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/televersements'</li>
+	 * <li>clé = "televersements".</li>
+	 * </ul>
+	 *
+	 * @return : String : path vers le répertoire des 
+	 * televersements.<br/>
+	 * 
+	 * @throws Exception : 
+	 * - BundleManquantRunTimeException 
+	 * si le properties est introuvable.<br/>
+	 * - CleManquanteRunTimeException si la clé est introuvable.<br/>
+	 * - CleNullRunTimeException si la valeur 
+	 * n'est pas renseignée pour la clé dans le properties.<br/>
+	 * - FichierInexistantRunTimeException si le 
+	 * répertoire est inexistant ou pas un répertoire.<br/>
+	 */
+	public static String getPathTeleversements() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationApplicationManager.class) {
+
+			String pathTeleversements = null;
+
+			try {
+
+				pathTeleversements 
+					= ConfigurationBundlesManager
+						.getPathTeleversements();
+
+			}
+			catch (BundleManquantRunTimeException bundleManquantExc) {
+
+				traiterException(bundleManquantExc);
+
+			}
+			catch (CleManquanteRunTimeException cleManquanteExc) {
+
+				traiterCleManquanteException(cleManquanteExc);
+
+			}
+			catch (CleNullRunTimeException cleNullExc) {
+
+				traiterCleNullRunTimeException(cleNullExc);
+			}
+			catch (FichierInexistantRunTimeException fichierInexistantExc) {
+
+				traiterFichierInexistantRunTimeException(
+						fichierInexistantExc);
+			}
+
+			return pathTeleversements;
+		
+		} // Fin de synchronized.__________________________________
+		
+	} // Fin de getPathTeleversements().___________________________________
+
 	
 	
 	/**
