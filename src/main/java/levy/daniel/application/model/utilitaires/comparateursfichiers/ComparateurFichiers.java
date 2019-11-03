@@ -192,6 +192,8 @@ public final class ComparateurFichiers {
 	 * et rapporte dans <code>rapportComparaison</code>.</li>
 	 * <li>retourne systématiquement true et ne rapporte pas 
 	 * si pFile1 == pFile2 (même instance).</li>
+	 * <li>retourne systématiquement true et ne rapporte pas 
+	 * si pFile1 equals pFile2 (même absolutePath).</li>
 	 * </ul>
 	 * </ul>
 	 *
@@ -232,6 +234,12 @@ public final class ComparateurFichiers {
 			/* retourne systématiquement true et ne rapporte pas 
 			 * si pFile1 == pFile2 (même instance). */
 			if (pFile1 == pFile2) {
+				return true;
+			}
+			
+			/* retourne systématiquement true et ne rapporte pas 
+			 * si pFile1 equals pFile2 (même absolute path). */
+			if (pFile1.equals(pFile2)) {
 				return true;
 			}
 			
@@ -472,6 +480,8 @@ public final class ComparateurFichiers {
 	 * si pFile1 a le même contenu que pFile2.</li>
 	 * <li>retourne false et ne rapporte pas 
 	 * si pFile1 n'a PAS le même contenu que pFile2.</li>
+	 * <li>retourne systématiquement true et ne rapporte pas 
+	 * si pFile1 equals pFile2 (même absolutePath).</li>
 	 * </ul>
 	 *
 	 * @param pFile1 : File : le premier fichier à comparer.
@@ -508,6 +518,12 @@ public final class ComparateurFichiers {
 			/* retourne systématiquement true et ne rapporte pas 
 			 * si pFile1 == pFile2 (même instance). */
 			if (pFile1 == pFile2) {
+				return true;
+			}
+			
+			/* retourne systématiquement true et ne rapporte pas 
+			 * si pFile1 equals pFile2 (même absolute path). */
+			if (pFile1.equals(pFile2)) {
 				return true;
 			}
 			
