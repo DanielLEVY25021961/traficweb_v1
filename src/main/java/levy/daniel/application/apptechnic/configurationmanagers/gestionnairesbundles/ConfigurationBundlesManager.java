@@ -152,6 +152,12 @@ public final class ConfigurationBundlesManager
 		= "Méthode getPathTeleversements()";
 	
 	/**
+	 * "Méthode getPathTemp()".<br/>
+	 */
+	public static final String METHODE_GET_PATH_TEMP 
+		= "Méthode getPathTemp()";
+	
+	/**
 	 * "Méthode getBundleInterne(
 	 * String pNomBaseProperties, Locale pLocale)".<br/>
 	 */
@@ -836,7 +842,7 @@ public final class ConfigurationBundlesManager
 	 * </ul>
 	 *
 	 * @return : String : path vers le répertoire des 
-	 * sata.<br/>
+	 * data.<br/>
 	 * 
 	 * @throws Exception : 
 	 * - BundleManquantRunTimeException 
@@ -954,7 +960,7 @@ public final class ConfigurationBundlesManager
 	 * </ul>
 	 *
 	 * @return : String : path vers le répertoire des 
-	 * sata.<br/>
+	 * televersements.<br/>
 	 * 
 	 * @throws Exception : 
 	 * - BundleManquantRunTimeException 
@@ -1055,6 +1061,124 @@ public final class ConfigurationBundlesManager
 			return "televersements";
 	
 	} // Fin de getClePathTeleversements().________________________________
+	
+
+	
+	/**
+	 * <ul>
+	 * <li>Fournit le path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des temp accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Le path du répertoire des temp 
+	 * est déterminé par le centre-serveur et doit être écrit en dur dans 
+	 * le properties 'configuration_ressources_externes.properties'. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/temp'</li>
+	 * <li>clé = "temp".</li>
+	 * </ul>
+	 *
+	 * @return : String : path vers le répertoire des 
+	 * temp.<br/>
+	 * 
+	 * @throws Exception : 
+	 * - BundleManquantRunTimeException 
+	 * si le properties est introuvable.<br/>
+	 * - CleManquanteRunTimeException si la clé est introuvable.<br/>
+	 * - CleNullRunTimeException si la valeur 
+	 * n'est pas renseignée pour la clé dans le properties.<br/>
+	 * - FichierInexistantRunTimeException si le 
+	 * répertoire est inexistant ou pas un répertoire.<br/>
+	 */
+	public static String getPathTemp() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationBundlesManager.class) {
+			
+			final String nomBaseProperties 
+				= getNomBasePropertiesRessourcesExternes();
+			
+			String pathTemp = null;
+			
+			try {
+				
+				/* Récupération du bundleRessourcesExternes. */
+				if (bundleRessourcesExternes == null) {
+					getBundleRessourcesExternes();
+				}
+				
+			}
+			catch (BundleManquantRunTimeException bundleManquantExc) {
+				
+				/* cas où bundleRessourcesExternes est manquant. */
+				traiterBundleManquantRunTimeException(
+						METHODE_GET_PATH_TEMP
+							, nomBaseProperties
+								, bundleManquantExc);
+				
+			}
+			
+			try {
+				pathTemp 
+				= bundleRessourcesExternes
+					.getString(getClePathTemp());
+			}
+			catch (MissingResourceException mre) {
+				
+				/* cas où la clé est manquante dans le properties. */
+				traiterMissingResourceException(
+						METHODE_GET_PATH_TEMP
+							, nomBaseProperties
+								, mre
+								, getClePathTemp());
+				
+			}
+			
+			/* Clé vide (sans valeur). */
+			if (StringUtils.isBlank(pathTemp)) {
+				
+				traiterCleVide(
+						METHODE_GET_PATH_TEMP
+						, getClePathTemp()
+						, nomBaseProperties);
+				
+			}
+			
+			/* Répertoire inexistant ou 
+			 * pas un répertoire (fichier simple). */
+			traiterRepertoireDefectueux(
+					METHODE_GET_PATH_TEMP
+						, pathTemp);
+			
+			return pathTemp;
+			
+		} // Fin de synchronized.__________________________________
+		
+	} // Fin de getPathTemp()._____________________________________________
+	
+
+		
+	/**
+	 * <ul>
+	 * <li>Fournit la clé du path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des temp accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Cette clé est stockée dans 
+	 * <b>'configuration_ressources_externes.properties'</b> 
+	 * sous la racine.</li>
+	 * <li>Le path du répertoire des temp n'est accessible 
+	 * qu'au centre-serveur et doit être écrit en dur dans le properties. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/temp'</li>
+	 * <li>clé = "temp".</li>
+	 * </ul>
+	 *
+	 * @return : String : "temp".<br/>
+	 */
+	private static String getClePathTemp() {
+		
+			return "temp";
+	
+	} // Fin de getClePathTemp().__________________________________________
 	
 
 	
