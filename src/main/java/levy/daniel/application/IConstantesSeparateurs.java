@@ -35,6 +35,11 @@ public interface IConstantesSeparateurs {
 	 * " - ".<br/>
 	 */
 	String SEPARATEUR_MOINS_AERE = " - ";
+	
+	/**
+	 * ", ".
+	 */
+	String SEPARATEUR_VIRGULE_AERE = ", ";
 		
 	/**
 	 * "_".<br/>

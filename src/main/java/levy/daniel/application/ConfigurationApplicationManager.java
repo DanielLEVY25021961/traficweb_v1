@@ -672,6 +672,73 @@ public final class ConfigurationApplicationManager {
 		
 	} // Fin de getPathTeleversements().___________________________________
 
+
+	
+	/**
+	 * <ul>
+	 * <li>Fournit le path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des temp (fichiers temporaires) accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Le path du répertoire des temp 
+	 * est déterminé par le centre-serveur et doit être écrit en dur dans 
+	 * le properties 'configuration_ressources_externes.properties'. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/temp'</li>
+	 * <li>clé = "temp".</li>
+	 * </ul>
+	 *
+	 * @return : String : path vers le répertoire des 
+	 * temp.<br/>
+	 * 
+	 * @throws Exception : 
+	 * - BundleManquantRunTimeException 
+	 * si le properties est introuvable.<br/>
+	 * - CleManquanteRunTimeException si la clé est introuvable.<br/>
+	 * - CleNullRunTimeException si la valeur 
+	 * n'est pas renseignée pour la clé dans le properties.<br/>
+	 * - FichierInexistantRunTimeException si le 
+	 * répertoire est inexistant ou pas un répertoire.<br/>
+	 */
+	public static String getPathTemp() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationApplicationManager.class) {
+
+			String pathTemp = null;
+
+			try {
+
+				pathTemp 
+					= ConfigurationBundlesManager
+						.getPathTemp();
+
+			}
+			catch (BundleManquantRunTimeException bundleManquantExc) {
+
+				traiterException(bundleManquantExc);
+
+			}
+			catch (CleManquanteRunTimeException cleManquanteExc) {
+
+				traiterCleManquanteException(cleManquanteExc);
+
+			}
+			catch (CleNullRunTimeException cleNullExc) {
+
+				traiterCleNullRunTimeException(cleNullExc);
+			}
+			catch (FichierInexistantRunTimeException fichierInexistantExc) {
+
+				traiterFichierInexistantRunTimeException(
+						fichierInexistantExc);
+			}
+
+			return pathTemp;
+		
+		} // Fin de synchronized.__________________________________
+		
+	} // Fin de getPathTemp()._____________________________________________
+
 	
 	
 	/**

@@ -1465,6 +1465,7 @@ public class ControleurTypeTexteTest {
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println(control.afficherRapportTextuel());
 			System.out.println();
+			System.out.println(control.fournirEnTeteCsv());
 			System.out.println(control.afficherRapportCsv());
 		}
 		
@@ -1812,6 +1813,16 @@ public class ControleurTypeTexteTest {
 	@Test
 	public void testControlerFileInexistant() {
 		
+		// **********************************
+		// AFFICHAGE DANS LE TEST ou NON
+		final boolean affichage = false;
+		// **********************************
+		
+		/* AFFICHAGE A LA CONSOLE. */
+		if (AFFICHAGE_GENERAL && affichage) {
+			System.out.println("********** CLASSE ControleurTypeTexteTest - méthode testControlerFileInexistant() ********** ");
+		}
+		
 		/* Instanciation d'un ControleurTypeTexte 
 		 * avec le constructeur d'arité nulle. */
 		final ControleurTypeTexte control = new ControleurTypeTexte();
@@ -1997,18 +2008,18 @@ public class ControleurTypeTexteTest {
 		final ControleurTypeTexte control = new ControleurTypeTexte();
 		
 		/* invocation de la méthode controler(File non textuel). */
-		final boolean resultat = control.controler(FILE_GIF);
+//		final boolean resultat = control.controler(FILE_GIF);
 		
 		/* Avec enregistrement sur disque du rapport de contrôle. */
-//		final boolean resultat = control.controler(FILE_GIF, true);
+		final boolean resultat = control.controler(FILE_GIF, false);
 		
-//		System.out.println(control.afficherRapportTextuel());
+		System.out.println(control.afficherRapportTextuel());
 		
 		/* Affichage du rapport d'enregistrement des rapports. */
-//		System.out.println();
-//		System.out.println(control.afficherRapportEnregistrementTextuel());
-//		System.out.println();
-//		System.out.println(control.afficherRapportEnregistrementCsv());
+		System.out.println();
+		System.out.println(control.afficherRapportEnregistrementTextuel());
+		System.out.println();
+		System.out.println(control.afficherRapportEnregistrementCsv());
 		
 		/* Vérifie que la méthode retourne false. */
 		assertFalse("controler(non textuel) doit retourner false : "
